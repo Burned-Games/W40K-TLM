@@ -121,8 +121,8 @@ function playerMovement(dt)
     local moveDirectionX = axisX_l * math.cos(cameraAngle) - axisY_l * math.sin(cameraAngle)
     local moveDirectionY = axisX_l * math.sin(cameraAngle) + axisY_l * math.cos(cameraAngle)
 
-    local rotationDirectionX = axisX_r * math.cos(cameraAngle) - axisY_r * math.sin(cameraAngle)
-    local rotationDirectionY = axisX_r * math.sin(cameraAngle) + axisY_r * math.cos(cameraAngle)
+    --[[local rotationDirectionX = axisX_r * math.cos(cameraAngle) - axisY_r * math.sin(cameraAngle)
+    local rotationDirectionY = axisX_r * math.sin(cameraAngle) + axisY_r * math.cos(cameraAngle)]]
 
 
     if (axisX_l ~= 0 or axisY_l ~= 0) then
@@ -203,13 +203,13 @@ function playerMovement(dt)
 
 
     -- Rotacion
-    if (rotationDirectionX ~= 0 or rotationDirectionY ~= 0) then
+    --[[if (rotationDirectionX ~= 0 or rotationDirectionY ~= 0) then
         local lookLength = rotationDirectionX*rotationDirectionX + rotationDirectionY*rotationDirectionY
         if(lookLength > 0) then
             angleRotation = math.atan(rotationDirectionX, rotationDirectionY)
             playerTransf.rotation.y = angleRotation * 57.2958
         end
-    end
+    end]]
 
 
 
