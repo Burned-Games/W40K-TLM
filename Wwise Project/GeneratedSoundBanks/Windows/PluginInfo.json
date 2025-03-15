@@ -1,0 +1,33 @@
+{
+ "PluginInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "PluginLibs": [
+   {
+    "LibName": "Wwise RoomVerb",
+    "LibId": "7733251",
+    "Type": "Effect",
+    "DLL": "AkRoomVerb",
+    "StaticLib": "AkRoomVerbFX"
+   },
+   {
+    "LibName": "Wwise Harmonizer",
+    "LibId": "9043971",
+    "Type": "Effect",
+    "DLL": "AkHarmonizer",
+    "StaticLib": "AkHarmonizerFX"
+   },
+   {
+    "LibName": "System",
+    "LibId": "11403271",
+    "Type": "AudioDevice"
+   },
+   {
+    "LibName": "No Output",
+    "LibId": "11862023",
+    "Type": "AudioDevice"
+   }
+  ],
+  "FileHash": "{14A22F48-D79B-C84F-C947-4482E883AAD6}"
+ }
+}

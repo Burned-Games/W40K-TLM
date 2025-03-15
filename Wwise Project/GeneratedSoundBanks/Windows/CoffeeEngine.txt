@@ -1,0 +1,17 @@
+Event	ID	Name			Wwise Object Path	Notes
+	137867063	Play_Music_Container			\Default Work Unit\Play_Music_Container	
+	268953978	Play_shot			\Default Work Unit\Play_shot	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	4091100022	MediumRoomVerb			\Default Work Unit\Master Audio Bus\MediumRoomVerb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1059792370	RoomVerb (Custom)	Wwise RoomVerb			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	626622315	music	D:\GitHub\Coffee-Engine\CoffeeEditor\assets\audio\Wwise Project\.cache\DC\{DC83115A-D3DE-AA92-A5D4-CAE31BDE13C9}.wem		\Interactive Music Hierarchy\Music\Music Container\music\music		12052832
+	773483819	shot	D:\GitHub\Coffee-Engine\CoffeeEditor\assets\audio\Wwise Project\.cache\34\{3469334C-AB6D-DC26-529A-55703BB4BFB8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\shot		16224
+
