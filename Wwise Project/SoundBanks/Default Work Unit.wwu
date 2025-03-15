@@ -13,9 +13,11 @@
 						<ObjectRef Name="Play_grenade_launch" ID="{CBA3C8DC-982A-4014-9992-DEB8003E97F1}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ar_reload" ID="{1AF06793-257B-4039-BB79-9AD7E0CC7FA7}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_sand_step_2" ID="{0131B1B7-A5F1-4102-A1DF-788153F2FE59}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_melee_chainsaw_idle" ID="{B373A757-25DD-41C9-9DA8-2042FE81F8F3}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_melee_attack_1" ID="{E31C7F90-E841-4307-AAAC-AA0FB1EA34F7}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ar_shot_3" ID="{95FFD487-9E76-430C-A0BC-B0AB9DFBF258}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MediumRoomVerb" ID="{E0A9728C-D1BE-436A-ABBB-E41C5B8C2647}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ar_shot_1" ID="{F9FA25B9-94E6-4446-8846-83572F9D0E73}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_player_die_1" ID="{6DE8AF9D-A8C7-444F-AFA0-13EA2BDDBB41}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_burst_shot" ID="{7C56A148-726E-44C6-97FF-634290C2C8B0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>

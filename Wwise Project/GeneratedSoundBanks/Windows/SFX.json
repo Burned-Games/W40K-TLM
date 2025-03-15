@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
     "Language": "SFX",
-    "Hash": "{F298664E-6984-4AC2-26D8-917384EC70CC}",
+    "Hash": "{4CEAC3A7-403A-686D-4BBE-27D2065C528F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -256,6 +256,18 @@
       "CachePath": "75/{75450B1F-616A-339F-CB5A-CF186C35AA51}.wem"
      }
     ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "1059792370",
+       "Name": "RoomVerb (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb\\[Effect Slot [0]: (RoomVerb)]\\RoomVerb (Custom)",
+       "GUID": "{3B71926A-77CD-4268-AB04-046D5691BAA6}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "3661419601",
@@ -677,9 +689,32 @@
        }
       ]
      }
+    ],
+    "Busses": [
+     {
+      "Id": "3803692087",
+      "Name": "Master Audio Bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "4091100022",
+      "Name": "MediumRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb",
+      "GUID": "{E0A9728C-D1BE-436A-ABBB-E41C5B8C2647}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1059792370"
+        }
+       ]
+      }
+     }
     ]
    }
   ],
-  "FileHash": "{F6CBA74A-5F71-0CAB-8DE9-4B1A0EC4B107}"
+  "FileHash": "{EEE9492A-AEB5-3B49-A20F-6C7DE9F0E01A}"
  }
 }

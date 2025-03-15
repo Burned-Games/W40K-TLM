@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{22F7041E-3AB5-82D6-93DE-AD8C0E92A403}",
+    "Hash": "{7B55066F-3601-69A3-628F-AB2BBA867211}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -23,16 +23,6 @@
        "GUID": "{3B71926A-77CD-4268-AB04-046D5691BAA6}",
        "LibName": "Wwise RoomVerb",
        "LibId": "7733251"
-      }
-     ],
-     "ShareSets": [
-      {
-       "Id": "2653529179",
-       "Name": "Three_Voices",
-       "ObjectPath": "\\Effects\\Factory Effects\\Harmonizer\\Three_Voices",
-       "GUID": "{71CA20BE-8C1D-4A0C-92AF-BFCE183D5651}",
-       "LibName": "Wwise Harmonizer",
-       "LibId": "9043971"
       }
      ],
      "AudioDevices": [
@@ -63,19 +53,6 @@
      }
     ],
     "AuxBusses": [
-     {
-      "Id": "373392551",
-      "Name": "New_Auxiliary_Bus",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\New_Auxiliary_Bus",
-      "GUID": "{0DAE6599-DD10-4B9E-93D7-76D99759DEF0}",
-      "PluginRefs": {
-       "ShareSets": [
-        {
-         "Id": "2653529179"
-        }
-       ]
-      }
-     },
      {
       "Id": "4091100022",
       "Name": "MediumRoomVerb",
@@ -603,6 +580,6 @@
     ]
    }
   ],
-  "FileHash": "{19C0A079-90CA-CDFC-AE5B-208F9C1EA98B}"
+  "FileHash": "{4AA9FE56-495F-6ACB-72B0-0DFC3980DC45}"
  }
 }

@@ -11,13 +11,6 @@
     "StaticLib": "AkRoomVerbFX"
    },
    {
-    "LibName": "Wwise Harmonizer",
-    "LibId": "9043971",
-    "Type": "Effect",
-    "DLL": "AkHarmonizer",
-    "StaticLib": "AkHarmonizerFX"
-   },
-   {
     "LibName": "System",
     "LibId": "11403271",
     "Type": "AudioDevice"
@@ -28,6 +21,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{14A22F48-D79B-C84F-C947-4482E883AAD6}"
+  "FileHash": "{BFC96AC8-4F88-3DCF-DCDD-B6CF26CB600C}"
  }
 }
