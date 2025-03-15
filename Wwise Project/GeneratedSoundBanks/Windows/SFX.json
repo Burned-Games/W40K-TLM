@@ -1,0 +1,685 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "393239870",
+    "Type": "User",
+    "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
+    "Language": "SFX",
+    "Hash": "{F298664E-6984-4AC2-26D8-917384EC70CC}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
+    "ShortName": "SFX",
+    "Path": "SFX.bnk",
+    "Media": [
+     {
+      "Id": "908001",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_2.wav",
+      "CachePath": "AF/{AF01CF72-A051-7932-3285-5094B4E561E5}.wem"
+     },
+     {
+      "Id": "8851557",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_1.wav",
+      "CachePath": "33/{33451F25-4FC2-2410-4BD6-4D11C29427E4}.wem"
+     },
+     {
+      "Id": "35598177",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_3.wav",
+      "CachePath": "B0/{B094FC28-F337-A6DD-89D5-C15204C66E4C}.wem"
+     },
+     {
+      "Id": "106007111",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_shot_1.wav",
+      "CachePath": "55/{55B72CDB-93CC-3DF4-C8E8-7BD1F74DF04C}.wem"
+     },
+     {
+      "Id": "144115171",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "smokeGrenade.wav",
+      "CachePath": "8C/{8CDCA6A5-C885-DABC-E1AA-E9AF0FA44152}.wem"
+     },
+     {
+      "Id": "175447611",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_2.wav",
+      "CachePath": "F7/{F77749BC-8E5D-B776-CBE7-C1F09FC819AF}.wem"
+     },
+     {
+      "Id": "214263635",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_damage_2.wav",
+      "CachePath": "EA/{EAD3560F-AE51-EDAF-E4AB-14BEFDF4EC3B}.wem"
+     },
+     {
+      "Id": "234402737",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_attack_2.wav",
+      "CachePath": "2A/{2AA6A8FD-E989-605C-B071-5886DE3ED142}.wem"
+     },
+     {
+      "Id": "262613032",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "burst_shot.wav",
+      "CachePath": "B2/{B2D82CA9-538A-EEBB-B5A3-DFB0773BBC7A}.wem"
+     },
+     {
+      "Id": "264762800",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_die_1.wav",
+      "CachePath": "6E/{6E574CF3-6906-4A18-CA7B-2E0ACE4D7D5C}.wem"
+     },
+     {
+      "Id": "325425347",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_attack_1.wav",
+      "CachePath": "D3/{D3CB9606-E2D5-3B1D-6AC5-47FE6A659977}.wem"
+     },
+     {
+      "Id": "328169470",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_damage_1.wav",
+      "CachePath": "F6/{F6489AB2-723D-F4D1-1350-96A16F5027C5}.wem"
+     },
+     {
+      "Id": "415581673",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_reload.wav",
+      "CachePath": "1C/{1CAFA0C0-E25B-E284-3718-645B70D8A357}.wem"
+     },
+     {
+      "Id": "423447629",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "shotgun_reload.wav",
+      "CachePath": "94/{94B32A4F-DAB6-5B0D-0EB8-A96FD05819EB}.wem"
+     },
+     {
+      "Id": "477122320",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_idle.wav",
+      "CachePath": "DD/{DD80291D-456E-D873-D952-DA0D516D933B}.wem"
+     },
+     {
+      "Id": "547456275",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "grenade_explosion.wav",
+      "CachePath": "E2/{E2DF08CB-1F6B-9C27-C37D-0887F7C34A0D}.wem"
+     },
+     {
+      "Id": "652609025",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "grenade_launch.wav",
+      "CachePath": "4C/{4CE80ECB-C88D-E2FF-83D3-C1DC975116A3}.wem"
+     },
+     {
+      "Id": "662366300",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_damage_3.wav",
+      "CachePath": "4D/{4D760DC4-A63D-C05C-349F-6BABD3B80E29}.wem"
+     },
+     {
+      "Id": "731088056",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_attack_3.wav",
+      "CachePath": "52/{52E65DE0-519D-77B2-7044-2C5E85084D4C}.wem"
+     },
+     {
+      "Id": "735085480",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_attack_2.wav",
+      "CachePath": "CB/{CB0982C1-24A9-343D-B28D-7E72E1FDBAA0}.wem"
+     },
+     {
+      "Id": "768779297",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_die_2.wav",
+      "CachePath": "B8/{B8530FFC-A4D3-6470-8ED6-00ADA4B30605}.wem"
+     },
+     {
+      "Id": "792750110",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_shot_2.wav",
+      "CachePath": "FE/{FEA2E505-9C81-BF1F-AB06-09E0AF2B492E}.wem"
+     },
+     {
+      "Id": "795771959",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_1.wav",
+      "CachePath": "70/{705F8C52-3DC6-7D61-0CD2-4DCBC48E4860}.wem"
+     },
+     {
+      "Id": "835309600",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_shot_3.wav",
+      "CachePath": "8A/{8A0B1B71-A7F5-CF76-1793-F13FC43DCC88}.wem"
+     },
+     {
+      "Id": "905580413",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_4.wav",
+      "CachePath": "F1/{F140A2B0-81D4-EF1F-5506-29CFB6824B27}.wem"
+     },
+     {
+      "Id": "912672974",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_4.wav",
+      "CachePath": "C0/{C02C1348-7E54-6737-43FF-0D944A8EBBC8}.wem"
+     },
+     {
+      "Id": "928549664",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_attack_3.wav",
+      "CachePath": "23/{2318BA40-AC7E-035C-87DE-9779C059F966}.wem"
+     },
+     {
+      "Id": "962002990",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_attack_1.wav",
+      "CachePath": "47/{478B4FFA-091A-8F3B-E8CD-2344CB971878}.wem"
+     },
+     {
+      "Id": "1037416568",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_3.wav",
+      "CachePath": "FE/{FEF8B093-41FD-1D1C-5583-448840D39A2B}.wem"
+     },
+     {
+      "Id": "1054847420",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "shotgun_shot.wav",
+      "CachePath": "75/{75450B1F-616A-339F-CB5A-CF186C35AA51}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3661419601",
+      "Name": "Play_ar_reload",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_reload",
+      "GUID": "{1AF06793-257B-4039-BB79-9AD7E0CC7FA7}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.578957",
+      "DurationMax": "1.578957",
+      "MediaRefs": [
+       {
+        "Id": "415581673"
+       }
+      ]
+     },
+     {
+      "Id": "4126747402",
+      "Name": "Play_ar_shot_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_shot_1",
+      "GUID": "{F9FA25B9-94E6-4446-8846-83572F9D0E73}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6839375",
+      "DurationMax": "0.6839375",
+      "MediaRefs": [
+       {
+        "Id": "106007111"
+       }
+      ]
+     },
+     {
+      "Id": "4126747401",
+      "Name": "Play_ar_shot_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_shot_2",
+      "GUID": "{ECCF3DA6-EA74-46C8-8F88-4B76207EE149}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.34170833",
+      "DurationMax": "0.34170833",
+      "MediaRefs": [
+       {
+        "Id": "792750110"
+       }
+      ]
+     },
+     {
+      "Id": "4126747400",
+      "Name": "Play_ar_shot_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_shot_3",
+      "GUID": "{95FFD487-9E76-430C-A0BC-B0AB9DFBF258}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.470125",
+      "DurationMax": "0.470125",
+      "MediaRefs": [
+       {
+        "Id": "835309600"
+       }
+      ]
+     },
+     {
+      "Id": "3166312347",
+      "Name": "Play_burst_shot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_burst_shot",
+      "GUID": "{7C56A148-726E-44C6-97FF-634290C2C8B0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.77141666",
+      "DurationMax": "0.77141666",
+      "MediaRefs": [
+       {
+        "Id": "262613032"
+       }
+      ]
+     },
+     {
+      "Id": "3906147804",
+      "Name": "Play_grenade_explosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_grenade_explosion",
+      "GUID": "{CBD86858-31A3-4E34-B30B-F9A91F0E305B}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.7495832",
+      "DurationMax": "2.7495832",
+      "MediaRefs": [
+       {
+        "Id": "547456275"
+       }
+      ]
+     },
+     {
+      "Id": "3950543718",
+      "Name": "Play_grenade_launch",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_grenade_launch",
+      "GUID": "{CBA3C8DC-982A-4014-9992-DEB8003E97F1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.744",
+      "DurationMax": "0.744",
+      "MediaRefs": [
+       {
+        "Id": "652609025"
+       }
+      ]
+     },
+     {
+      "Id": "2547373757",
+      "Name": "Play_melee_attack_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_attack_1",
+      "GUID": "{E31C7F90-E841-4307-AAAC-AA0FB1EA34F7}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.86675",
+      "DurationMax": "0.86675",
+      "MediaRefs": [
+       {
+        "Id": "962002990"
+       }
+      ]
+     },
+     {
+      "Id": "2547373758",
+      "Name": "Play_melee_attack_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_attack_2",
+      "GUID": "{438829CC-6D8B-4DDE-8F05-58A7E8934A61}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1643333",
+      "DurationMax": "1.1643333",
+      "MediaRefs": [
+       {
+        "Id": "735085480"
+       }
+      ]
+     },
+     {
+      "Id": "2547373759",
+      "Name": "Play_melee_attack_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_attack_3",
+      "GUID": "{AE078D85-4C88-4D59-9A93-7DB521665ADA}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0608333",
+      "DurationMax": "1.0608333",
+      "MediaRefs": [
+       {
+        "Id": "928549664"
+       }
+      ]
+     },
+     {
+      "Id": "3033670542",
+      "Name": "Play_melee_chainsaw_attack_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_attack_1",
+      "GUID": "{22135767-EB12-48F1-B515-443973586D6F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.86675",
+      "DurationMax": "0.86675",
+      "MediaRefs": [
+       {
+        "Id": "325425347"
+       }
+      ]
+     },
+     {
+      "Id": "3033670541",
+      "Name": "Play_melee_chainsaw_attack_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_attack_2",
+      "GUID": "{FFC08DFD-B229-4F14-A9F4-30C1AD3EF36B}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1643333",
+      "DurationMax": "1.1643333",
+      "MediaRefs": [
+       {
+        "Id": "234402737"
+       }
+      ]
+     },
+     {
+      "Id": "3033670540",
+      "Name": "Play_melee_chainsaw_attack_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_attack_3",
+      "GUID": "{4BF17D14-BA47-4D92-8197-980F6474C16E}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0608333",
+      "DurationMax": "1.0608333",
+      "MediaRefs": [
+       {
+        "Id": "731088056"
+       }
+      ]
+     },
+     {
+      "Id": "1009433944",
+      "Name": "Play_melee_chainsaw_idle",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_idle",
+      "GUID": "{B373A757-25DD-41C9-9DA8-2042FE81F8F3}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.1500626",
+      "DurationMax": "5.1500626",
+      "MediaRefs": [
+       {
+        "Id": "477122320"
+       }
+      ]
+     },
+     {
+      "Id": "173797128",
+      "Name": "Play_metal_step_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_1",
+      "GUID": "{8934CF6B-DFD9-49FE-AC0B-696C7B5D4172}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2979375",
+      "DurationMax": "0.2979375",
+      "MediaRefs": [
+       {
+        "Id": "8851557"
+       }
+      ]
+     },
+     {
+      "Id": "173797131",
+      "Name": "Play_metal_step_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_2",
+      "GUID": "{709C4D34-05C1-4CFF-B488-6A0546164C82}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.34554166",
+      "DurationMax": "0.34554166",
+      "MediaRefs": [
+       {
+        "Id": "908001"
+       }
+      ]
+     },
+     {
+      "Id": "173797130",
+      "Name": "Play_metal_step_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_3",
+      "GUID": "{AD4DE67A-B158-4CD7-ABAF-0EE0969CC40A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.33466667",
+      "DurationMax": "0.33466667",
+      "MediaRefs": [
+       {
+        "Id": "35598177"
+       }
+      ]
+     },
+     {
+      "Id": "173797133",
+      "Name": "Play_metal_step_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_4",
+      "GUID": "{8C80B2DB-E4EF-4B54-9BBA-70A5A1C7CA8A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.188",
+      "DurationMax": "0.188",
+      "MediaRefs": [
+       {
+        "Id": "912672974"
+       }
+      ]
+     },
+     {
+      "Id": "3980927387",
+      "Name": "Play_player_damage_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_damage_1",
+      "GUID": "{750DA5DE-927F-4A3F-836F-837A6DB0DFA2}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5422222",
+      "DurationMax": "0.5422222",
+      "MediaRefs": [
+       {
+        "Id": "328169470"
+       }
+      ]
+     },
+     {
+      "Id": "3980927384",
+      "Name": "Play_player_damage_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_damage_2",
+      "GUID": "{5AA45ED7-4F49-4F63-9452-65E4E3B0F3AD}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.48573697",
+      "DurationMax": "0.48573697",
+      "MediaRefs": [
+       {
+        "Id": "214263635"
+       }
+      ]
+     },
+     {
+      "Id": "3980927385",
+      "Name": "Play_player_damage_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_damage_3",
+      "GUID": "{0A77D023-A7DD-498A-A14B-00AE9033E109}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.47920635",
+      "DurationMax": "0.47920635",
+      "MediaRefs": [
+       {
+        "Id": "662366300"
+       }
+      ]
+     },
+     {
+      "Id": "2459475890",
+      "Name": "Play_player_die_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_die_1",
+      "GUID": "{6DE8AF9D-A8C7-444F-AFA0-13EA2BDDBB41}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.972517",
+      "DurationMax": "0.972517",
+      "MediaRefs": [
+       {
+        "Id": "264762800"
+       }
+      ]
+     },
+     {
+      "Id": "2459475889",
+      "Name": "Play_player_die_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_die_2",
+      "GUID": "{070EE147-0FA5-4EBF-86DE-77DB3F1E2087}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1378912",
+      "DurationMax": "1.1378912",
+      "MediaRefs": [
+       {
+        "Id": "768779297"
+       }
+      ]
+     },
+     {
+      "Id": "2888830865",
+      "Name": "Play_sand_step_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_1",
+      "GUID": "{B2D8E91A-C77C-4645-8FCE-9D0FAEFD0F13}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.20752834",
+      "DurationMax": "0.20752834",
+      "MediaRefs": [
+       {
+        "Id": "795771959"
+       }
+      ]
+     },
+     {
+      "Id": "2888830866",
+      "Name": "Play_sand_step_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_2",
+      "GUID": "{0131B1B7-A5F1-4102-A1DF-788153F2FE59}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.11174603",
+      "DurationMax": "0.11174603",
+      "MediaRefs": [
+       {
+        "Id": "175447611"
+       }
+      ]
+     },
+     {
+      "Id": "2888830867",
+      "Name": "Play_sand_step_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_3",
+      "GUID": "{0A6B0EEB-AEAE-4855-8CA5-A080DB5FD43F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.15818594",
+      "DurationMax": "0.15818594",
+      "MediaRefs": [
+       {
+        "Id": "1037416568"
+       }
+      ]
+     },
+     {
+      "Id": "2888830868",
+      "Name": "Play_sand_step_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_4",
+      "GUID": "{EDDD5787-5989-4E77-85F4-9247527EF6D2}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2307483",
+      "DurationMax": "0.2307483",
+      "MediaRefs": [
+       {
+        "Id": "905580413"
+       }
+      ]
+     },
+     {
+      "Id": "1248355840",
+      "Name": "Play_shotgun_reload",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_shotgun_reload",
+      "GUID": "{FD4D20E1-CC93-4AA8-8127-552DC8E0347C}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.99229",
+      "DurationMax": "4.99229",
+      "MediaRefs": [
+       {
+        "Id": "423447629"
+       }
+      ]
+     },
+     {
+      "Id": "2526929027",
+      "Name": "Play_shotgun_shot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_shotgun_shot",
+      "GUID": "{77E994EA-0DD8-48E5-9383-30EFED7E1C7C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.2791874",
+      "DurationMax": "1.2791874",
+      "MediaRefs": [
+       {
+        "Id": "1054847420"
+       }
+      ]
+     },
+     {
+      "Id": "3350351765",
+      "Name": "Play_smokeGrenade",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_smokeGrenade",
+      "GUID": "{C843193F-EB66-4662-93E8-1F894FF9921D}",
+      "DurationType": "OneShot",
+      "DurationMin": "15.40875",
+      "DurationMax": "15.40875",
+      "MediaRefs": [
+       {
+        "Id": "144115171"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{F6CBA74A-5F71-0CAB-8DE9-4B1A0EC4B107}"
+ }
+}
