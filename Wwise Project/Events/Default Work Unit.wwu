@@ -426,6 +426,43 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Music" ID="{53CC031F-7E69-4E79-814E-88FA81125024}" ShortID="1041993489">
+					<ChildrenList>
+						<Event Name="Play_mainMenu_music_container" ID="{C5B70019-4FE9-420C-BDE5-4FCC5537D078}">
+							<ChildrenList>
+								<Action Name="" ID="{05E960C1-ECC8-4225-ADFD-F741D8E43B50}" ShortID="874487677">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="mainMenu_music_container" ID="{3745C2F9-9A36-41F4-8EE8-C97D16976430}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_exploring_music_container" ID="{ECDD290F-5C6C-4EA2-A4DA-3295C378FB9D}">
+							<ChildrenList>
+								<Action Name="" ID="{1D341272-7780-4AD8-A403-DB42C7D034FE}" ShortID="34791526">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="exploring_music_container" ID="{AC7E747A-5CEE-48CE-8415-E64615FFAE23}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_fighting_music_container" ID="{756A6442-9A99-4E29-84C9-7C6D6636DE88}">
+							<ChildrenList>
+								<Action Name="" ID="{F0D51BC8-D296-419A-A9B8-967ADB422F05}" ShortID="459150892">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="fighting_music_container" ID="{7ABDAC97-C746-46C2-ABF6-1908886E73F8}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

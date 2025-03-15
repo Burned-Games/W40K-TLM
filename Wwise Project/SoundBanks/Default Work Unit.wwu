@@ -4,7 +4,11 @@
 		<WorkUnit Name="Default Work Unit" ID="{4E70B0F6-E452-4621-AC81-274B30AEEE9C}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="Music" ID="{AD3F8103-0D7F-40E4-A74A-E4083404369B}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_mainMenu_music_container" ID="{C5B70019-4FE9-420C-BDE5-4FCC5537D078}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_fighting_music_container" ID="{756A6442-9A99-4E29-84C9-7C6D6636DE88}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_exploring_music_container" ID="{ECDD290F-5C6C-4EA2-A4DA-3295C378FB9D}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
