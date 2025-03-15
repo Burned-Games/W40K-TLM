@@ -4,6 +4,12 @@
 		<WorkUnit Name="Default Work Unit" ID="{769586E3-CBA1-4E0F-86C0-6C87A4548196}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundcasterSession Name="Session" ID="{126447C7-2E63-4603-B887-22AE3954E6B0}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="exploring_music_container" ID="{AC7E747A-5CEE-48CE-8415-E64615FFAE23}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">

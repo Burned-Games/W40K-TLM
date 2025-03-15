@@ -17,6 +17,18 @@
 									<PropertyList>
 										<Property Name="LoopCount" Type="int16" Value="0"/>
 									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{749A5F52-5688-47B5-9FAA-374FE8910093}" ShortID="567102647">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="exploring_music" ID="{67BB53EF-804C-4822-A644-F93D0D203D76}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
 								</MusicPlaylistItem>
 							</Custom>
 						</Reference>
@@ -139,6 +151,18 @@
 									<PropertyList>
 										<Property Name="LoopCount" Type="int16" Value="0"/>
 									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{01CCA235-EAF6-445D-809B-C7997610DDAC}" ShortID="609396778">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="mainMenu_music" ID="{2A22BADF-FDB8-42E9-8C15-8894998DE4CB}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
 								</MusicPlaylistItem>
 							</Custom>
 						</Reference>
@@ -261,6 +285,18 @@
 									<PropertyList>
 										<Property Name="LoopCount" Type="int16" Value="0"/>
 									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{63BC67E8-D916-4283-B2B9-03077DDFF183}" ShortID="198485271">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="fighting_music" ID="{C8C1C822-B71F-46D6-B5C2-1D1145BDF7B8}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
 								</MusicPlaylistItem>
 							</Custom>
 						</Reference>
