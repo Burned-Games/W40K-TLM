@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
     "Language": "SFX",
-    "Hash": "{4CEAC3A7-403A-686D-4BBE-27D2065C528F}",
+    "Hash": "{453BFBA4-5B8C-449F-395C-6FED0290999C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -40,12 +40,36 @@
       "CachePath": "B0/{B094FC28-F337-A6DD-89D5-C15204C66E4C}.wem"
      },
      {
+      "Id": "63830455",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "enemy_die.wav",
+      "CachePath": "E9/{E91D8E4D-1E8E-6538-C2F2-F86856D0A364}.wem"
+     },
+     {
+      "Id": "99736871",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_damage_1.wav",
+      "CachePath": "A6/{A64613C2-450A-6D8E-EA8E-A2BAA7AF03B6}.wem"
+     },
+     {
       "Id": "106007111",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ar_shot_1.wav",
       "CachePath": "55/{55B72CDB-93CC-3DF4-C8E8-7BD1F74DF04C}.wem"
+     },
+     {
+      "Id": "109561412",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_damage_3.wav",
+      "CachePath": "E0/{E0ACC4D3-710F-1182-4F8D-44F7926AEFC3}.wem"
      },
      {
       "Id": "144115171",
@@ -104,6 +128,14 @@
       "CachePath": "D3/{D3CB9606-E2D5-3B1D-6AC5-47FE6A659977}.wem"
      },
      {
+      "Id": "326305142",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_attack_3.wav",
+      "CachePath": "CF/{CF8F3271-6764-495E-C673-583DDA1CCB4A}.wem"
+     },
+     {
       "Id": "328169470",
       "Language": "SFX",
       "Streaming": "false",
@@ -134,6 +166,14 @@
       "Location": "Memory",
       "ShortName": "melee_chainsaw_idle.wav",
       "CachePath": "DD/{DD80291D-456E-D873-D952-DA0D516D933B}.wem"
+     },
+     {
+      "Id": "502480266",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_attack_2.wav",
+      "CachePath": "41/{41BFAF43-2323-D46A-5E13-4F25C8FEB816}.wem"
      },
      {
       "Id": "547456275",
@@ -184,6 +224,14 @@
       "CachePath": "B8/{B8530FFC-A4D3-6470-8ED6-00ADA4B30605}.wem"
      },
      {
+      "Id": "792020146",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_attack_1.wav",
+      "CachePath": "CD/{CD64A128-A800-BFFD-70CD-D743FC8A1BD3}.wem"
+     },
+     {
       "Id": "792750110",
       "Language": "SFX",
       "Streaming": "false",
@@ -230,6 +278,14 @@
       "Location": "Memory",
       "ShortName": "melee_attack_3.wav",
       "CachePath": "23/{2318BA40-AC7E-035C-87DE-9779C059F966}.wem"
+     },
+     {
+      "Id": "929908216",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_damage_2.wav",
+      "CachePath": "6A/{6AC7B17E-2335-E08B-9564-298C820FB325}.wem"
      },
      {
       "Id": "962002990",
@@ -336,6 +392,20 @@
       "MediaRefs": [
        {
         "Id": "262613032"
+       }
+      ]
+     },
+     {
+      "Id": "2448258477",
+      "Name": "Play_enemy_die",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_enemy_die",
+      "GUID": "{2AFF4A42-223F-4DE6-A635-DC89DE213A77}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.479161",
+      "DurationMax": "0.479161",
+      "MediaRefs": [
+       {
+        "Id": "63830455"
        }
       ]
      },
@@ -518,6 +588,90 @@
       "MediaRefs": [
        {
         "Id": "912672974"
+       }
+      ]
+     },
+     {
+      "Id": "3216105751",
+      "Name": "Play_monster_attack_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_attack_1",
+      "GUID": "{518AF875-9ECC-4848-8958-E5284EB60D02}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.75",
+      "DurationMax": "0.75",
+      "MediaRefs": [
+       {
+        "Id": "792020146"
+       }
+      ]
+     },
+     {
+      "Id": "3216105748",
+      "Name": "Play_monster_attack_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_attack_2",
+      "GUID": "{EC5FA914-DF10-46E3-B403-86F513933A62}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.687483",
+      "DurationMax": "0.687483",
+      "MediaRefs": [
+       {
+        "Id": "502480266"
+       }
+      ]
+     },
+     {
+      "Id": "3216105749",
+      "Name": "Play_monster_attack_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_attack_3",
+      "GUID": "{236C7FB6-9011-4C31-914A-C692C1B7962D}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.479161",
+      "DurationMax": "0.479161",
+      "MediaRefs": [
+       {
+        "Id": "326305142"
+       }
+      ]
+     },
+     {
+      "Id": "2094551132",
+      "Name": "Play_monster_damage_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_damage_1",
+      "GUID": "{C8DF752C-0970-45B4-BF6F-9595C8D73318}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.31249434",
+      "DurationMax": "0.31249434",
+      "MediaRefs": [
+       {
+        "Id": "99736871"
+       }
+      ]
+     },
+     {
+      "Id": "2094551135",
+      "Name": "Play_monster_damage_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_damage_2",
+      "GUID": "{8EC81612-1EBC-4214-8AD3-7368CD607A70}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.56249434",
+      "DurationMax": "0.56249434",
+      "MediaRefs": [
+       {
+        "Id": "929908216"
+       }
+      ]
+     },
+     {
+      "Id": "2094551134",
+      "Name": "Play_monster_damage_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_damage_3",
+      "GUID": "{E2B3CE7F-C988-4B27-B5DA-BF69C10CC32A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5",
+      "DurationMax": "0.5",
+      "MediaRefs": [
+       {
+        "Id": "109561412"
        }
       ]
      },
@@ -715,6 +869,6 @@
     ]
    }
   ],
-  "FileHash": "{EEE9492A-AEB5-3B49-A20F-6C7DE9F0E01A}"
+  "FileHash": "{9C192F35-EB49-7694-E27D-312C70B024C5}"
  }
 }
