@@ -1,0 +1,65 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "TinyRocks_Cube.002",
+                        "value": {
+                            "value0": 5090992034792601125
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Cube.004",
+                        "value": {
+                            "value0": 4354151916036497725
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Cube.005",
+                        "value": {
+                            "value0": 6818207834988944033
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Cube.003",
+                        "value": {
+                            "value0": 7430434464567504785
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Plane",
+                        "value": {
+                            "value0": 4894166029055763934
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "TinyRocks_Mat0",
+                        "value": {
+                            "value0": 10967076602299585402
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 5736867082382936923
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/prop_tinyRocks_v01/TinyRocks.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/5736867082382936923.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Prop_OrkBarricade_v01_Prop_OrkBarricade_v01",
+                        "value": {
+                            "value0": 4743027813841624282
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "lambert4_Mat0",
+                        "value": {
+                            "value0": 3655999753847496794
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 10951977468384435466
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/Prop_OrkBarricade_v01/Prop_OrkBarricade_v01.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10951977468384435466.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

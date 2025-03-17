@@ -9,6 +9,7 @@ local footstep_delay = 0.4
 
 local randomFootstep
 
+local playerScript;;;;
 
 function on_ready()
     local footstep_one_entity = current_scene:get_entity_by_name("SandFootstep1")
@@ -23,34 +24,43 @@ function on_ready()
     local footstep_four_entity = current_scene:get_entity_by_name("SandFootstep4")
     footstep_four = footstep_four_entity:get_component("AudioSourceComponent")
 
+
+    playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+
+
 end
 
 function on_update(dt)
     footstep_timer = footstep_timer + dt
 
-    if footstep_timer > footstep_delay then
-        footstep_timer = 0
+    if playerScript.isMoving then
 
-        randomNumber = math.random(1, 4)
+        if footstep_timer > footstep_delay then
+            footstep_timer = 0
 
-        footstep_one:pause()
-        footstep_two:pause()
-        footstep_three:pause()
-        footstep_four:pause()
+            randomNumber = math.random(1, 4)
 
-        if randomNumber == 1 then
-            footstep_one:play()
-        
-        elseif randomNumber == 2 then
-            footstep_two:play()
-        
-        elseif randomNumber == 3 then
-            footstep_three:play()
-        
-        elseif randomNumber == 4 then
-            footstep_four:play()
+            footstep_one:pause()
+            footstep_two:pause()
+            footstep_three:pause()
+            footstep_four:pause()
+
+            if randomNumber == 1 then
+                footstep_one:play()
+            
+            elseif randomNumber == 2 then
+                footstep_two:play()
+            
+            elseif randomNumber == 3 then
+                footstep_three:play()
+            
+            elseif randomNumber == 4 then
+                footstep_four:play()
+            end
         end
     end
+
+
 end
 
 function on_exit()

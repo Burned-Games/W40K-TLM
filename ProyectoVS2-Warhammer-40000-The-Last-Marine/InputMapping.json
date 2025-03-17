@@ -1,0 +1,165 @@
+{
+    "value0": [
+        {
+            "cereal_class_version": 1,
+            "Name": "UiMoveHorizontal",
+            "KeyPos": 7,
+            "KeyNeg": 4,
+            "ButtonPos": 14,
+            "ButtonNeg": 13,
+            "Axis": 0
+        },
+        {
+            "Name": "UiMoveVertical",
+            "KeyPos": 26,
+            "KeyNeg": 22,
+            "ButtonPos": 11,
+            "ButtonNeg": 12,
+            "Axis": 1
+        },
+        {
+            "Name": "Confirm",
+            "KeyPos": 40,
+            "KeyNeg": 0,
+            "ButtonPos": 0,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Cancel",
+            "KeyPos": 229,
+            "KeyNeg": 0,
+            "ButtonPos": 1,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "MoveHorizontal",
+            "KeyPos": 7,
+            "KeyNeg": 4,
+            "ButtonPos": -1,
+            "ButtonNeg": -1,
+            "Axis": 0
+        },
+        {
+            "Name": "MoveVertical",
+            "KeyPos": 26,
+            "KeyNeg": 22,
+            "ButtonPos": -1,
+            "ButtonNeg": -1,
+            "Axis": 1
+        },
+        {
+            "Name": "AimHorizontal",
+            "KeyPos": 94,
+            "KeyNeg": 92,
+            "ButtonPos": -1,
+            "ButtonNeg": -1,
+            "Axis": 2
+        },
+        {
+            "Name": "AimVertical",
+            "KeyPos": 96,
+            "KeyNeg": 90,
+            "ButtonPos": -1,
+            "ButtonNeg": -1,
+            "Axis": 3
+        },
+        {
+            "Name": "Shoot",
+            "KeyPos": 98,
+            "KeyNeg": 0,
+            "ButtonPos": -1,
+            "ButtonNeg": -1,
+            "Axis": 5
+        },
+        {
+            "Name": "Melee",
+            "KeyPos": 8,
+            "KeyNeg": 0,
+            "ButtonPos": 10,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Interact",
+            "KeyPos": 25,
+            "KeyNeg": 0,
+            "ButtonPos": 0,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Dash",
+            "KeyPos": 44,
+            "KeyNeg": 0,
+            "ButtonPos": 1,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Cover",
+            "KeyPos": 6,
+            "KeyNeg": 0,
+            "ButtonPos": 2,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Skill1",
+            "KeyPos": 30,
+            "KeyNeg": 0,
+            "ButtonPos": 3,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Skill2",
+            "KeyPos": 31,
+            "KeyNeg": 0,
+            "ButtonPos": 9,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Skill3",
+            "KeyPos": 32,
+            "KeyNeg": 0,
+            "ButtonPos": -1,
+            "ButtonNeg": -1,
+            "Axis": 4
+        },
+        {
+            "Name": "Injector",
+            "KeyPos": 33,
+            "KeyNeg": 0,
+            "ButtonPos": 11,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Grenade",
+            "KeyPos": 20,
+            "KeyNeg": 0,
+            "ButtonPos": 14,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Map",
+            "KeyPos": 43,
+            "KeyNeg": 0,
+            "ButtonPos": 4,
+            "ButtonNeg": -1,
+            "Axis": -1
+        },
+        {
+            "Name": "Pause",
+            "KeyPos": 41,
+            "KeyNeg": 0,
+            "ButtonPos": 6,
+            "ButtonNeg": -1,
+            "Axis": -1
+        }
+    ]
+}

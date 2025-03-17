@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 483320440563882681
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/props/prop_tinyRocks_v01/TinyRocks_low_TinyRocks_Metallic-TinyRocks_low_TinyRocks_Roughness.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/483320440563882681.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
