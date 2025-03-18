@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "rpop_estructura_orka_v02_Cube.131",
+                        "value": {
+                            "value0": 18035895511600560145
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "estructura_MAT_Mat0",
+                        "value": {
+                            "value0": 9928681404951180141
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 17676408101485072080
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/prop_estructura_orka_v01/prop_estructura_orka_v01/rpop_estructura_orka_v02.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/17676408101485072080.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

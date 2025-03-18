@@ -1,0 +1,65 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "TinyRocks_Cube.002",
+                        "value": {
+                            "value0": 10462502930118795821
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Cube.004",
+                        "value": {
+                            "value0": 16254960050575446310
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Cube.005",
+                        "value": {
+                            "value0": 17182222915083240441
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Cube.003",
+                        "value": {
+                            "value0": 1627661372427294441
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Plane",
+                        "value": {
+                            "value0": 7901073525641499172
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "TinyRocks_Mat0",
+                        "value": {
+                            "value0": 3190656417703624773
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 16075773244009774970
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/propsnew/prop_tinyRocks_v01/TinyRocks.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/16075773244009774970.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
