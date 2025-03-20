@@ -162,7 +162,59 @@ end
 function attack_state(dt)
 
     -- Logica de la explosion
-    make_damage()                       -- Provisional (hasta que sepa como quieren la logica de la explosion)
+    local explosionPos = bombRb:get_position()
+
+        local entities = current_scene:get_all_entities()
+
+        for _, entity in ipairs(entities) do 
+            if entity ~= granadeEntity and entity:has_component("RigidbodyComponent") then 
+                local entityRb = entity:get_component("RigidbodyComponent").rb
+                local entityPos = entityRb:get_position()
+
+                local direction = Vector3.new(
+                    entityPos.x - explosionPos.x,
+                    entityPos.y - explosionPos.y,
+                    entityPos.z - explosionPos.z
+                )
+
+                local distance = math.sqrt(
+                    direction.x * direction.x +
+                    direction.y * direction.y +
+                    direction.z * direction.z
+                )
+
+                if distance > 0 then
+                    direction.x = direction.x / distance
+                    direction.y = direction.y / distance
+                    direction.z = direction.z / distance
+                end
+
+                if distance < explosionRadius then
+                    local forceFactor = (explosionRadius - distance) / explosionRadius
+                    direction.y = direction.y + explosionUpward
+                    local finalForce = Vector3.new(
+                        direction.x * explosionForce * forceFactor,
+                        direction.y * explosionForce * forceFactor,
+                        direction.z * explosionForce * forceFactor
+                    )
+                    entityRb:apply_impulse(finalForce)
+
+                    local rotationFactor = explosionForce * forceFactor 
+                    local randomRotation = Vector3.new(
+                        (math.random() - 0.5) * rotationFactor,
+                        (math.random() - 0.5) * rotationFactor,
+                        (math.random() - 0.5) * rotationFactor
+                    )
+
+                    entityRb:set_angular_velocity(randomRotation)
+                end
+            end
+        end
+        
+        rb:set_velocity(Vector3.new(0, 0, 0))
+        rb:set_angular_velocity(Vector3.new(0, 0, 0))
+        throwingGranade = false
+    --make_damage()                       -- Provisional (hasta que sepa como quieren la logica de la explosion)
     die()
 
     health = 0

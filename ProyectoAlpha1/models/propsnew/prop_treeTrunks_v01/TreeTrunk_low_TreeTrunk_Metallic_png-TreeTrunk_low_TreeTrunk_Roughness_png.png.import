@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 13251236137550865013
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/propsnew/prop_treeTrunks_v01/TreeTrunk_low_TreeTrunk_Metallic_png-TreeTrunk_low_TreeTrunk_Roughness_png.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13251236137550865013.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}

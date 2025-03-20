@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "prop_droppod_v01_Cylinder.005",
+                        "value": {
+                            "value0": 775045306596432410
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Droppod_MAT_Mat0",
+                        "value": {
+                            "value0": 16414539488617233689
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 18028593766239263220
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/propsnew/prop_dropPod_v01/prop_droppod_v01/prop_droppod_v01.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/18028593766239263220.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
