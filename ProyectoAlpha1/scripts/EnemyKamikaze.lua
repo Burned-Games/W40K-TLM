@@ -34,6 +34,10 @@ local timeSinceLastHit = 0                                              -- Este 
 
 local currentPathIndex = 1
 
+local explosionRadius = 7.0
+local explosionForce = 13.0
+local explosionUpward = 2.0
+
 function on_ready() 
     enemyTransf = self:get_component("TransformComponent")
     enemyNavmesh = self:get_component("NavigationAgentComponent")
@@ -162,7 +166,46 @@ end
 function attack_state(dt)
 
     -- Logica de la explosion
-    make_damage()                       -- Provisional (hasta que sepa como quieren la logica de la explosion)
+    local explosionPos = enemyRb:get_position()
+    local entities = current_scene:get_all_entities()
+
+        for _, entity in ipairs(entities) do 
+            if entity ~= self and entity:has_component("RigidbodyComponent") then 
+                local entityRb = entity:get_component("RigidbodyComponent").rb
+                local entityPos = entityRb:get_position()
+
+                local direction = Vector3.new(
+                    entityPos.x - explosionPos.x,
+                    entityPos.y - explosionPos.y,
+                    entityPos.z - explosionPos.z
+                )
+
+                local distance = math.sqrt(
+                    direction.x * direction.x +
+                    direction.y * direction.y +
+                    direction.z * direction.z
+                )
+
+                if distance > 0 then
+                    direction.x = direction.x / distance
+                    direction.y = direction.y / distance
+                    direction.z = direction.z / distance
+                end
+
+                if distance < explosionRadius then
+                    local forceFactor = (explosionRadius - distance) / explosionRadius
+                    direction.y = direction.y + explosionUpward
+                    local finalForce = Vector3.new(
+                        direction.x * explosionForce * forceFactor,
+                        direction.y * explosionForce * forceFactor,
+                        direction.z * explosionForce * forceFactor
+                    )
+                    entityRb:apply_impulse(finalForce)
+                end
+            end
+        end
+
+    make_damage()
     die()
 
     health = 0
