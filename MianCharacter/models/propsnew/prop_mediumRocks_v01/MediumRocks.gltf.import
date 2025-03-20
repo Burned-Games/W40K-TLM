@@ -1,0 +1,59 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "MediumRocks_Plane.002",
+                        "value": {
+                            "value0": 17634266576236522266
+                        }
+                    },
+                    {
+                        "key": "MediumRocks_Plane.003",
+                        "value": {
+                            "value0": 7940539920053940716
+                        }
+                    },
+                    {
+                        "key": "MediumRocks_Plane.004",
+                        "value": {
+                            "value0": 6723418597693971081
+                        }
+                    },
+                    {
+                        "key": "MediumRocks_Plane.005",
+                        "value": {
+                            "value0": 7151644360588343605
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "MediumRocks_Mat0",
+                        "value": {
+                            "value0": 7499421107071876339
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 6078594110287133845
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/propsnew/prop_mediumRocks_v01/MediumRocks.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/6078594110287133845.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

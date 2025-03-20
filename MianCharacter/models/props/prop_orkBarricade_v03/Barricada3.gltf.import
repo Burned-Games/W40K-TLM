@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Barricada3_Cylinder",
+                        "value": {
+                            "value0": 6792303837477617253
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "barricada_Mat0",
+                        "value": {
+                            "value0": 5977665204359458646
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 703439971380531850
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/prop_orkBarricade_v03/Barricada3.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/703439971380531850.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
