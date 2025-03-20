@@ -191,6 +191,33 @@ function on_ready()
            
             --make_damage()
         end
+
+        if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
+            local enemyKamikaze = nil
+            local enemyKamikazeScript = nil
+            if nameA == "EnemyKamikaze" then
+                enemyKamikaze = entityA
+                
+            end
+
+            if nameB == "EnemyKamikaze" then
+                enemyKamikaze = entityB
+            end
+            if enemyKamikaze ~= nil then               
+                enemyKamikazeScript = enemyKamikaze:get_component("ScriptComponent")
+            end
+
+            if enemyKamikaze ~= nil then
+                if enemyKamikazeScript ~= nil then
+                    local damage = 10
+                    bulletDamageParticleComponent:emit(20)
+                    enemyKamikazeScript.enemyHealth = enemyKamikazeScript.enemyHealth - damage
+            
+                end
+            end
+           
+            --make_damage()
+        end
     end)
 
 
@@ -308,8 +335,6 @@ function on_update(dt)
             currentAnim = 4
             animator:set_current_animation(currentAnim)
         end
-
-        print(timerAnimacionEntrada)
 
         return
     end

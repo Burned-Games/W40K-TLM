@@ -102,7 +102,6 @@ function on_ready()
                     rendererComp.mesh = prefabRenderer.mesh
                     rendererCmop.material = prefabRenderer.material
                 end
-                print("Shield visible and mesh applied")
             end
             
             -- Configurar transformación
@@ -110,7 +109,6 @@ function on_ready()
                 transformActualShield.scale = Vector3.new(1, 1, 1)
             end
         end
-        transformShield = actualshield:get_component("TransformComponent")
     end
 
 
@@ -130,8 +128,6 @@ function on_ready()
             waypointPositions[1] = wp1Transform.position
             waypointPositions[2] = wp2Transform.position
             waypointPositions[3] = wp3Transform.position
-        else
-            print("Error: Could not get transformation components of waypoints")
         end
     else
         waypointPositions[1] = Vector3.new(10, 0, 10)
@@ -219,16 +215,12 @@ function on_update(dt)
     -- Execute current state
     if currentState == state.Idle then
         idle_state(dt)
-        print("IDLE " )
     elseif currentState == state.Shield then
         shield_state(dt)
-        print("SHIELD " )
     elseif currentState == state.Chase then
         chase_state(dt)
-        print("CHASE " )
     elseif currentState == state.Flee then
         flee_state(dt)
-        print("FLEE " )
     end
     
 end
@@ -467,7 +459,6 @@ function shield_state(dt)
                         if enemiesScript ~= nil then
                             enemiesScript.shield_state = true
                             enemiesScript.shieldHealth = enemiesScript.shieldHealth + 25
-                            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA " .. enemiesScript.shieldHealth)
                             shieldTimer = 0
                             find_range_enemies()
                             check_enemies_shield_status()
