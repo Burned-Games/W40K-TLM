@@ -106,7 +106,6 @@ function on_update(dt)
     end
 
     if shield_state and shieldHealth <= 0 then
-        print("Shield desactivado" .. shieldHealth .. enemyHealth)
         shield_state = false
         shield_destroyed=true
     end
@@ -161,7 +160,6 @@ function player_distance()
 
     -- Primera deteccion (Idle -> Move).
     if not playerDetected and playerDistance <= detectDistance then
-        print("Player detectado! Pasando de Idle a Move.")
         currentState = state.Move
         playerDetected = true
     end
@@ -170,12 +168,10 @@ function player_distance()
     if isChasing then
         if playerDistance <= stabDistance then
             if currentState ~= state.Stab then
-                print("Player en rango de Stab! Cambiando a Stab.")
                 currentState = state.Stab
             end
 
         elseif playerDistance > stabDistance and currentState == state.Stab then
-            print("Player fuera de rango! Volviendo a Chase.")
             currentState = state.Chase
         end
 
@@ -185,27 +181,23 @@ function player_distance()
     -- **ORDEN IMPORTANTE** Chase y Stab tienen que evaluarse primero, sino no funcionara bien!!!
     if playerDistance <= stabDistance then
         if currentState ~= state.Stab then
-            print("Player en rango de cuerpo a cuerpo! Cambiando a Stab.")
             currentState = state.Stab
             isChasing = true
         end
 
     elseif playerDistance <= chaseDistance then
         if currentState ~= state.Chase then
-            print("Player en rango de persecucion! Cambiando a Chase.")
             currentState = state.Chase
             isChasing = true
         end
 
     elseif playerDistance <= shootDistance then
         if currentState ~= state.Shoot then
-            print("Player en rango de disparo! Cambiando a Shoot.")
             currentState = state.Shoot
         end
 
     elseif playerDistance > shootDistance and currentState == state.Shoot then
         if currentState ~= state.Move then
-            print("Player fuera de rango! Volviendo a Move.")
             currentState = state.Move
         end
     end
@@ -332,7 +324,6 @@ function make_damage()
 
             audioDanoPlayerMusic:pause()
             audioDanoPlayerMusic:play()
-            print("PlayerHealth: " .. playerScript.playerHealth)
             timeSinceLastHit = 0
         end
     end
