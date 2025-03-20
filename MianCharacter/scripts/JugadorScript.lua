@@ -9,10 +9,20 @@ local acceleration = 10
 local deceleration = 8
 local forwardVector
 moveDirection = nil
+local rotationDirection = nil
 local angleRotation = 0
 local godMode = false
 isMoving = false
-
+local dashSpeed = 15
+local impulseApplied = false
+local dashTimeCounter = 0
+local dashTime = 0.3
+local dashColdownCounter = 0
+local dashColdown = 3.5
+local dashAvailable = true
+intangibleDash = false
+local intangibleDashTimeCounter = 0
+local intangibleDashTime = 0.15
 local deathAnimationTime = 3
 local deathTimeCounter = 0
 
@@ -245,6 +255,43 @@ function on_update(dt)
         end
     end
 
+    if (Input.is_button_pressed(Input.controllercode.East) or Input.is_key_pressed(Input.keycode.M)) and dashAvailable == true then
+        if moveDirection ~= nil then
+            local impulse = Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed)
+            print("Impulso aplicado: X=", impulse.x, ", Y=", impulse.y, ", Z=", impulse.z)
+            playerRb:set_trigger(true)
+            playerRb:apply_impulse(Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed) )
+            impulseApplied = true
+            dashAvailable = false
+            intangibleDash = true
+            
+        end       
+    end
+    
+    if dashAvailable == false then
+        dashColdownCounter = dashColdownCounter + dt
+        if dashColdownCounter >= dashColdown then
+            dashAvailable = true
+            dashColdownCounter = 0
+        end
+    end
+
+    if impulseApplied == true then
+        dashTimeCounter = dashTimeCounter + dt
+        if dashTimeCounter >= dashTime then
+            impulseApplied = false
+            dashTimeCounter = 0
+            playerRb:set_trigger(false)
+        end
+    end
+
+    if intangibleDash then
+        intangibleDashTimeCounter = intangibleDashTimeCounter + dt
+        if intangibleDashTimeCounter >= intangibleDashTime then
+            intangibleDash = false
+        end
+    end
+
     if Input.is_key_pressed(Input.keycode.F1) then
         if pressedButton == false then
             godMode = not godMode
@@ -392,7 +439,9 @@ function playerMovement(dt)
 
     moveDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
 
+    rotationDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
 
+    if impulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
         isMoving = true
         -- Animacian walk
@@ -449,8 +498,9 @@ function playerMovement(dt)
                 end
             end
 
-
+            
         end
+    end
     end
 
     if blasterammo >= maxAmmo or shootgunAmmo >= maxAmmo then

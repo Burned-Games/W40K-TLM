@@ -321,7 +321,7 @@ function make_damage()
     end
 
     if player ~= nil then
-        if playerScript ~= nil then
+        if playerScript ~= nil and playerScript.intangibleDash == false then
             local damage = 10
 
             if playerScript.playerHealth > 0 then
