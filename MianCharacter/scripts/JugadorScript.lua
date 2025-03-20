@@ -200,7 +200,6 @@ end
 
 function on_update(dt)
 
-print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     shootCoolDownTimer = shootCoolDownTimer - dt
     tripleShootTimer = tripleShootTimer - dt
 
