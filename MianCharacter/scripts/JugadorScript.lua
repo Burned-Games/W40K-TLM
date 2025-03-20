@@ -1,57 +1,47 @@
-
-local sphere1RigidBody = nil
-local sphere1RigidBodyComponent = nil
-local sphereSpeed = 100
-
-local playerTransf
-
-local forwardVector
-moveDirection = nil
-
-
-local currentAnim = -1
-local animator
-
-
-local contadorDisparo = 0
-
-local angleRotation = 0
-
-
-
-
-maxAmmo = 24
-blasterammo = 0
-shootgunAmmo = 0
-ammo = 0
-local maxReloadTime = 2.5
-local reloadTime = 0
-
-
+-- Player
 playerHealth = 100
-local deathAnimationTime = 3
-local deathTimeCounter = 0
-
+local playerTransf
 local playerRb = nil
 local moveSpeed = 6
 local lastValidRotation = 0
 local currentSpeed = 0         
 local acceleration = 10      
 local deceleration = 8
-
+local forwardVector
+moveDirection = nil
+local angleRotation = 0
+local godMode = false
 isMoving = false
 
-
-local rifleAudioManagerScript 
-local escopetaAudioManagerScript 
-
-local actualweapon = 0 -- 0 = rifle 1 = escopeta
+local deathAnimationTime = 3
+local deathTimeCounter = 0
 
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
-local disparable = true
+-- Disparo
 
+local sphere1RigidBody = nil
+local sphere1RigidBodyComponent = nil
+local sphereSpeed = 100
+local contadorDisparo = 0
+maxAmmo = 24
+blasterammo = 0
+shootgunAmmo = 0
+ammo = 0
+local maxReloadTime = 2.5
+local reloadTime = 0
+local actualweapon = 0 -- 0 = rifle 1 = escopeta
+local currentAnim = -1
+local animator
+local disparable = true
+local shootCoolDown = 0.5
+local shootCoolDownTimer = 0
+local tripleShootTimer = 0
+local tripleShootCount = 0
+local tripleShootInterval = 0.1
+local shootParticlesComponent
+local bulletDamageParticleComponent
 
 --granadas
 
@@ -65,32 +55,23 @@ local explosionForce = 13.0
 local explosionUpward = 2.0
 local granadeParticlesExplosion = nil
 
-
-local shootParticlesComponent
-local bulletDamageParticleComponent
-
-local godMode = false
-local pressedButton = false
-local pressedButtonChangeWeapon = false
-
-local prevBackgroundMusicToPlay = -1
-backgroundMusicToPlay = 0 -- 0 exploration 1 combat
-
+-- Audio
 local explorationMusic = nil
 local combatMusic = nil
 
 local combatMusicVolume = 0
 local explorationMusicVolume = 0.05
 
+local prevBackgroundMusicToPlay = -1
+backgroundMusicToPlay = 0 -- 0 exploration 1 combat
+
+local rifleAudioManagerScript 
+local escopetaAudioManagerScript 
+
+-- Extras
+local pressedButton = false
+local pressedButtonChangeWeapon = false
 local sceneChanged = false
-
-
-local shootCoolDown = 0.5
-local shootCoolDownTimer = 0
-
-local tripleShootTimer = 0
-local tripleShootCount = 0
-local tripleShootInterval = 0.1
 
 function on_ready()
     -- Add initialization code here
@@ -111,17 +92,10 @@ function on_ready()
     
     playerRb = self:get_component("RigidbodyComponent").rb
 
-    --playerRb:set_angular_velocity(Vector3.new(0, 0, 0))
-
     forwardVector = Vector3.new(1,0,0)
     disparado = false
 
-    --enemyOrk = current_scene:get_entity_by_name("EnemyOrk")
-    --enemyOrkScript = enemyOrk:get_component("ScriptComponent")
-
     sphere1 = current_scene:get_entity_by_name("Sphere1")
-    --sphere2 = current_scene:get_entity_by_name("Sphere2")
-    --sphere3 = current_scene:get_entity_by_name("Sphere3")
 
     transformSphere1 = sphere1:get_component("TransformComponent")
 
@@ -129,7 +103,7 @@ function on_ready()
     sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
     sphere1RigidBody:set_trigger(true)
 
-    sphere1RigidBodyComponent:on_collision_enter(function(entityA, entityB)                -- El OnCollisionEnter no funciona, hay que mirar porque
+    sphere1RigidBodyComponent:on_collision_enter(function(entityA, entityB)               
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
@@ -162,7 +136,6 @@ function on_ready()
                 end
             end
            
-            --make_damage()
         end
 
         if nameA == "EnemySupp" or nameB == "EnemySupp" then
@@ -189,7 +162,6 @@ function on_ready()
                 end
             end
            
-            --make_damage()
         end
     end)
 
@@ -227,8 +199,8 @@ function on_ready()
 end
 
 function on_update(dt)
-    -- Add update code here
 
+print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     shootCoolDownTimer = shootCoolDownTimer - dt
     tripleShootTimer = tripleShootTimer - dt
 
@@ -348,7 +320,7 @@ function on_update(dt)
         playerHealth = 0
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
-            --cambiar a loseEscene
+            --change to loseEscene
             sceneChanged = true
             SceneManager.change_scene("levelLose.TeaScene")
         end
@@ -409,10 +381,10 @@ function playerMovement(dt)
     local rightTrigger = Input.get_axis_position(Input.axiscode.RightTrigger)
 
 
-    -- Angulo de la camara en radianes (45 grados)
+    -- amera angle in radians (45 degrees)
     local cameraAngle = math.rad(45)
 
-    -- Rotar los ejes de entrada para alinearlos con la camara
+    -- Rotate the entry axes to align the with the camera
     local moveDirectionX = axisX_l * math.cos(cameraAngle) - axisY_l * math.sin(cameraAngle)
     local moveDirectionY = axisX_l * math.sin(cameraAngle) + axisY_l * math.cos(cameraAngle)
 
@@ -439,16 +411,14 @@ function playerMovement(dt)
         end
         
     
-        -- Aceleraci�n progresiva hasta alcanzar moveSpeed
+        -- Progressive acceleration until reaching moveSpeed
         currentSpeed = math.min(currentSpeed + acceleration * dt, moveSpeed)
     
-        -- Calcular la nueva velocidad
         local velocity = Vector3.new(moveDirection.x * currentSpeed, 0, moveDirection.z * currentSpeed)
     
-        -- Aplicar velocidad al Rigidbody
         playerRb:set_velocity(velocity)
     
-        -- Rotar el jugador en la direcci�n del movimiento solo si no est� usando el joystick derecho
+        -- Rotate the player with the movement if not aiming
         if axisX_r == 0 and axisY_r == 0 then
             angleRotation = math.atan(moveDirection.x, moveDirection.z)
             playerTransf.rotation.y = math.deg(angleRotation) 
@@ -456,18 +426,18 @@ function playerMovement(dt)
     
     else
         isMoving = false
-        -- Si no hay movimiento, desacelerar suavemente
+        -- deaccelerate
         if currentSpeed > 0 then
             currentSpeed = math.max(currentSpeed - deceleration * dt, 0) -- Reducir velocidad gradualmente
             local velocity = Vector3.new(moveDirection.x * currentSpeed, 0, moveDirection.z * currentSpeed)
             playerRb:set_velocity(velocity)
         else
-            -- Cuando la velocidad llegue a 0, detener al jugador completamente
+            -- Stop the player
             playerRb:set_velocity(Vector3.new(0, 0, 0))
         end
     
         if rightTrigger == 0 and shootCoolDownTimer <= shootCoolDown/2 then
-            -- Animacion idle
+            -- Animation idle
             if actualweapon == 0 then
                 if currentAnim ~= 4 then
                     currentAnim = 4
@@ -541,7 +511,7 @@ function playerMovement(dt)
     end
 
 
-    --Rotacion
+    --Aiming Rotation
     if (rotationDirectionX ~= 0 or rotationDirectionY ~= 0) then
         local lookLength = rotationDirectionX*rotationDirectionX + rotationDirectionY*rotationDirectionY
         if(lookLength > 0) then
@@ -550,35 +520,18 @@ function playerMovement(dt)
         end
     end
 
-    --assegurar problemas de rotacion
+
     if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
-        -- Rotar con el joystick derecho
         lastValidRotation = math.atan(rotationDirectionX, rotationDirectionY)
         playerTransf.rotation.y = math.deg(lastValidRotation)  
         isAiming = true
     elseif moveDirectionX ~= 0 or moveDirectionY ~= 0 then
-        -- Actualizar la ultima rotacion valida
         lastValidRotation = math.atan(moveDirection.x, moveDirection.z)
         playerTransf.rotation.y = math.deg(lastValidRotation)
     else
-        -- Si no hay entrada, mantener la ultima rotacion
         playerTransf.rotation.y = math.deg(lastValidRotation)
         isAiming = false
     end
-
-    --[[if(isMoving and isAiming) then   
-        local moveAngle = math.atan(moveDirection.x, moveDirection.z)
-        local angleDifference = math.deg(math.abs(moveAngle - lastValidRotation))
-        
-        if angleDifference <= 90 then
-            -- Permitir girar dentro de 180 en total (90 a cada lado)
-            lastValidRotation = moveAngle
-            playerTransf.rotation.y = math.deg(lastValidRotation)
-        end
-    end]]
-
-
-
 end
 
 
