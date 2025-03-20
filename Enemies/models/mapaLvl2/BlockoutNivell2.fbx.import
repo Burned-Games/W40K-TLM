@@ -1,0 +1,47 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "BlockoutNivell2_Scene",
+                        "value": {
+                            "value0": 3079946116007990409
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Default_Material_Mat0",
+                        "value": {
+                            "value0": 10369106574706064648
+                        }
+                    },
+                    {
+                        "key": "Captura_Definitiva_Blockout_Nivell_2_Mat1",
+                        "value": {
+                            "value0": 18112158541004555614
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 16510315700717523946
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/mapaLvl2/BlockoutNivell2.fbx"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/16510315700717523946.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
