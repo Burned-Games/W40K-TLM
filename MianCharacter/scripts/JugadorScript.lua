@@ -73,6 +73,19 @@ local pressedButton = false
 local pressedButtonChangeWeapon = false
 local sceneChanged = false
 
+--UpgradeManager
+local UpgradeManager = nil
+
+-- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
+local reloadTimeRifle = 0
+local shootCoolDownRifle = 0.6
+local damageRifle = 25
+
+local reloadTimeShotgun = 0
+local shootCoolDownShotgun = 1.3
+local damageShotgun = 120
+
+
 function on_ready()
     -- Add initialization code here
 
@@ -85,6 +98,14 @@ function on_ready()
     shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
     --aleix
+
+    --UpgradeManager START
+    UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+    if UpgradeManager ~= nil then
+        UpgradeManager:apply_to_player(self)
+    end
+    --UpgradeManager END
+
 
     playerTransf = self:get_component("TransformComponent")
     
@@ -280,7 +301,7 @@ function on_update(dt)
             animator:set_current_animation(currentAnim)
         end
 
-        print(timerAnimacionEntrada)
+        --print(timerAnimacionEntrada)
 
         return
     end
