@@ -36,6 +36,8 @@ local pathUpdateInterval = 0.5  -- Update path every 0.5 seconds
 local lastTargetPos = nil
 local currentPathIndex = 1
 
+haveShield = false
+
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     if player then

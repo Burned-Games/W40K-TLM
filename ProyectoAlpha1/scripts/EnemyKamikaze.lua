@@ -38,6 +38,8 @@ local explosionRadius = 7.0
 local explosionForce = 13.0
 local explosionUpward = 2.0
 
+haveShield = false
+
 function on_ready() 
     enemyTransf = self:get_component("TransformComponent")
     enemyNavmesh = self:get_component("NavigationAgentComponent")

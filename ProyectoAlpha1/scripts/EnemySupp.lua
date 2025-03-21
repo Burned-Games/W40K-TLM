@@ -1,5 +1,5 @@
 local enemies
-local enemiesScript
+local rangeScript
 local enemyTransf 
 local enemyWorldTransf
 local enemyRangeEntity
@@ -84,25 +84,25 @@ function on_ready()
         enemyRangeTransf = enemyRangeEntity:get_component("TransformComponent")
     end
 
-    enemyRangeEntity = current_scene:get_entity_by_name("TankOrk")
-    if enemyRangeEntity then
-        enemyRangeTransf = enemyRangeEntity:get_component("TransformComponent")
+    enemyTankEntity = current_scene:get_entity_by_name("TankOrk")
+    if enemyTankEntity then
+        enemyTankTransf = enemyTankEntity:get_component("TransformComponent")
     end
 
-    enemyRangeEntity = current_scene:get_entity_by_name("KamikazeEnemy")
-    if enemyRangeEntity then
-        enemyRangeTransf = enemyRangeEntity:get_component("TransformComponent")
+    enemyKamikazeEntity = current_scene:get_entity_by_name("EnemyKamikaze")
+    if enemyKamikazeEntity then
+        enemyKamikazeTransf = enemyKamikazeEntity:get_component("TransformComponent")
     end
 
-    enemyRangeEntity = current_scene:get_entity_by_name("EnemySupp")
-    if enemyRangeEntity then
-        enemyRangeTransf = enemyRangeEntity:get_component("TransformComponent")
+    enemySuppEntity = current_scene:get_entity_by_name("EnemySupp")
+    if enemySuppEntity then
+        enemySuppTransf = enemySuppEntity:get_component("TransformComponent")
     end
     
     rangeScript = enemyRangeEntity:get_component("ScriptComponent")
-    tankScript = enemyRangeEntity:get_component("ScriptComponent")
-    kamikazeScript = enemyRangeEntity:get_component("ScriptComponent")
-    suppScript = enemyRangeEntity:get_component("ScriptComponent")
+    tankScript = enemyTankEntity:get_component("ScriptComponent")
+    kamikazeScript = enemyKamikazeEntity:get_component("ScriptComponent")
+    suppScript = enemySuppEntity:get_component("ScriptComponent")
 
     enemyNavmesh = self:get_component("NavigationAgentComponent")
 
@@ -201,7 +201,7 @@ function on_update(dt)
         check_enemies_shield_status()
     end
 
-    if enemiesScript.shield_destroyed then
+    if rangeScript.shield_destroyed then
         Shield_CoolDown()
         currentState = state.Flee
         return
@@ -483,10 +483,10 @@ function shield_state(dt)
             if canUseShield then
                 if transformShield ~= nil then
                     transformShield.position = enemyRangeTransf.position
-                    if enemyRangeEntity ~= nil and not enemiesScript.haveShield  then
-                        if enemiesScript ~= nil then
-                            enemiesScript.haveShield = true
-                            enemiesScript.shieldHealth = enemiesScript.shieldHealth + 25
+                    if enemyRangeEntity ~= nil and not rangeScript.haveShield  then
+                        if rangeScript ~= nil then
+                            rangeScript.haveShield = true
+                            rangeScript.shieldHealth = rangeScript.shieldHealth + 25
                             shieldTimer = 0
                             find_enemies()
                             check_enemies_shield_status()
@@ -501,12 +501,12 @@ function shield_state(dt)
 end
 
 function Shield_CoolDown()
-    if enemiesScript ~= nil and enemiesScript.shield_destroyed then
-        enemiesScript.haveShield = false
+    if rangeScript ~= nil and rangeScript.shield_destroyed then
+        rangeScript.haveShield = false
         current_scene:destroy_entity(actualshield)
         actualshield= nil 
         transformShield = nil 
-        enemiesScript.shield_destroyed = false
+        rangeScript.shield_destroyed = false
         canUseShield = false  
         shieldCooldownTimer = 0
         currentState = state.Chase
@@ -610,11 +610,11 @@ function check_enemies_shield_status()
                 enemyName = enemy:get_name() or "Unknown"
             end)
             
-            if enemiesScript then
+            if rangeScript then
                 -- Safe way to check shield state
                 local hasShield = false
                 pcall(function()
-                    hasShield = enemiesScript.haveShield or false
+                    hasShield = rangeScript.haveShield or false
                 end)
                 
                 if not hasShield then
@@ -622,7 +622,7 @@ function check_enemies_shield_status()
                     allHaveShield = false -- Found an enemy without shield
                 end
             else
-                allHaveShield = false -- If enemiesScript is nil, consider as no shield
+                allHaveShield = false -- If rangeScript is nil, consider as no shield
             end
         else
             table.remove(alianceEnemies, i)
