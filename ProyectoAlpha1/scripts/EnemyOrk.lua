@@ -12,7 +12,7 @@ local bulletRb = nil
 local moveSpeed = 3
 enemyHealth = 50
 shieldHealth = 0
-shield_state = false
+haveShield = false
 shield_destroyed = false
 
 local detectDistance = 25
@@ -105,8 +105,8 @@ function on_update(dt)
         Die()
     end
 
-    if shield_state and shieldHealth <= 0 then
-        shield_state = false
+    if haveShield and shieldHealth <= 0 then
+        haveShield = false
         shield_destroyed=true
     end
 
