@@ -222,10 +222,10 @@ function on_update(dt)
         print("IDLE " )
     elseif currentState == state.Shield then
         shield_state(dt)
-        print("SHIELD " )
+        -- print("SHIELD " )
     elseif currentState == state.Chase then
         chase_state(dt)
-        print("CHASE " )
+        -- print("CHASE " )
     elseif currentState == state.Flee then
         flee_state(dt)
         print("FLEE " )

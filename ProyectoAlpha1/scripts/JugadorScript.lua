@@ -55,6 +55,10 @@ local explosionForce = 13.0
 local explosionUpward = 2.0
 local granadeParticlesExplosion = nil
 
+local scrapObjects = {}
+local attractionActive = false 
+local attractionSpeed = 5
+
 -- Audio
 local explorationMusic = nil
 local combatMusic = nil
@@ -75,6 +79,13 @@ local sceneChanged = false
 
 function on_ready()
     -- Add initialization code here
+
+    --[[
+    for entity in ipairs(current_scene.get_entity_by_name("prop_scrap_v01.gltf")) do
+        --table.insert(scrapObjects, entity)
+        print("Ola que hase")
+    end
+    ]]
 
     explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
@@ -201,6 +212,18 @@ end
 function on_update(dt)
 
 print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+     if Input.is_key_pressed(Input.keycode.A) then
+        print("Cambio de iman")
+        attractionActive = not attractionActive 
+    end
+
+    if attractionActive then
+        print("Activado")
+       attract_scrap(dt)
+    
+    end
+
     shootCoolDownTimer = shootCoolDownTimer - dt
     tripleShootTimer = tripleShootTimer - dt
 
@@ -625,3 +648,22 @@ function explodeGranade()
     end
 end
 
+function attract_scrap(dt)
+    --[[
+    print("empieza a atraer")
+    local player = current_scene.get_entity_by_name("Player")
+    print("empieza a atraer2")
+    
+    
+    if not player then return end 
+    print ("Ven a mi")
+
+    local playerPos = player.transform.position 
+    
+    for _, scrap in ipairs(scrapObjects) do
+        local scrapPos = scrap.transform.position
+        local direction = (playerPos - scrapPos):normalized() 
+        scrap.transform.position = scrapPos + direction * attractionSpeed * dt
+    end
+    ]]
+end
