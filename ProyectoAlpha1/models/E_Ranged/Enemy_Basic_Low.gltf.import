@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Enemy_Basic_Low_Plane.004",
+                        "value": {
+                            "value0": 16490706159772140201
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "ork_Mat1",
+                        "value": {
+                            "value0": 2341244458374778983
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 11972598575488371715
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/E_Ranged/Enemy_Basic_Low.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11972598575488371715.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

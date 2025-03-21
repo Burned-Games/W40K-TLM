@@ -218,6 +218,33 @@ function on_ready()
            
             --make_damage()
         end
+
+        if nameA == "TankOrk" or nameB == "TankOrk" then
+            local enemyOrk = nil
+            local tankOrkScript = nil
+            if nameA == "TankOrk" then
+                enemyOrk = entityA
+                
+            end
+
+            if nameB == "EnemyKamikaze" then
+                enemyOrk = entityB
+            end
+            if enemyOrk ~= nil then               
+                tankOrkScript = enemyOrk:get_component("ScriptComponent")
+            end
+
+            if enemyOrk ~= nil then
+                if tankOrkScript ~= nil then
+                    local damage = 10
+                    bulletDamageParticleComponent:emit(20)
+                    tankOrkScript.tankHealth = tankOrkScript.tankHealth - damage
+            
+                end
+            end
+           
+            --make_damage()
+        end
     end)
 
 

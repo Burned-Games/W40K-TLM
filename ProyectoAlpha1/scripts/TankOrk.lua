@@ -15,16 +15,15 @@ local forwardVector
 local tankRigidbody = nil
 local tankScript = nil
 
-local tankVelocity = 2.5
+local tankVelocity = 2
 local tankHealth = 75
 local tankDamage = 10
 local AttackCooldown = 3
 local tankNavmesh = nil
 
--- Nuevas variables para el cooldown del tackle
-local tackleCooldown = 8.0  -- Cooldown más largo entre tackles (8 segundos)
-local tackleTimer = 0       -- Contador para el cooldown
-local canTackle = true      -- Flag para controlar si puede hacer tackle
+local tackleCooldown = 8.
+local tackleTimer = 0       
+local canTackle = true      
 
 local currentAnim = 0
 local animator
@@ -63,6 +62,11 @@ function on_update(dt)
             canTackle = true
             tackleTimer = 0
         end
+    end
+
+    if haveShield and shieldHealth <= 0 then
+        haveShield = false
+        shield_destroyed=true
     end
 
     -- Check player existence and update distances
@@ -176,7 +180,7 @@ function chase_state(dt)
         -- Calculate direction to player
         local direction = Vector3.new(
             playerTransf.position.x - tankTransform.position.x,
-            0, -- Mantenemos Y en 0 para movimiento en plano
+            0, 
             playerTransf.position.z - tankTransform.position.z
         )
         
@@ -189,7 +193,7 @@ function chase_state(dt)
                 direction.z / distance
             )
             
-            -- Apply velocity for chase (using the defined tankVelocity)
+            -- Apply velocity for chase 
             local velocity = Vector3.new(
                 normalizedDirection.x * tankVelocity,
                 0,
@@ -240,8 +244,7 @@ function tackle_state(dt)
     
     -- Perform charge for 1.5 seconds
     if chargeTime < 1.5 then
-        -- Apply higher velocity for tackle (increased to 7 as requested)
-        local tackleVelocity = 7
+        local tackleVelocity = 10
         local velocity = Vector3.new(
             forwardVector.x * tackleVelocity,
             0,
@@ -264,9 +267,9 @@ function tackle_state(dt)
     else
         -- Tackle completed, reset state and start cooldown
         tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
-        IsCharging = true  -- Reset for next charge
-        canTackle = false  -- Start cooldown
-        tackleTimer = 0    -- Reset cooldown timer
+        IsCharging = true  
+        canTackle = false  
+        tackleTimer = 0    
         
         -- Check player distance to decide next state
         if player and playerTransf then
@@ -377,11 +380,6 @@ function Die()
     tankRigidbody:set_position(Vector3.new(-500, 0, 0))
     tankHealth = 0
     
-    -- Optional: play death animation
-    if animator and currentAnim ~= 5 then  -- Assuming 5 is death animation
-        animator:set_current_animation(5)
-        currentAnim = 5
-    end
 end
 
 function on_exit() 

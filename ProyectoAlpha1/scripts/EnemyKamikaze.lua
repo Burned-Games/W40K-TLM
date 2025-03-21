@@ -92,7 +92,10 @@ function on_update(dt)
 
     player_distance()                                                   -- Para detectar al player (hay que cambiarlo por el raycast)
 
-
+    if haveShield and shieldHealth <= 0 then
+        haveShield = false
+        shield_destroyed=true
+    end
 
     -- Actualiza el path hacia el player con el navmesh
     pathUpdateTimer = pathUpdateTimer + dt
