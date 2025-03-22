@@ -18,7 +18,7 @@ local deathTimeCounter = 0
 
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
-
+local scrapCounter = 0
 -- Disparo
 
 local sphere1RigidBody = nil
@@ -56,8 +56,10 @@ local explosionUpward = 2.0
 local granadeParticlesExplosion = nil
 
 local scrapObjects = {}
+local distanceToPlayerToDestroy = 2, 2, 2
+local scrapPos
 local attractionActive = false 
-local attractionSpeed = 5
+local attractionSpeed = 2
 
 -- Audio
 local explorationMusic = nil
@@ -80,12 +82,8 @@ local sceneChanged = false
 function on_ready()
     -- Add initialization code here
 
-    --[[
-    for entity in ipairs(current_scene.get_entity_by_name("prop_scrap_v01.gltf")) do
-        --table.insert(scrapObjects, entity)
-        print("Ola que hase")
-    end
-    ]]
+    
+    
 
     explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
@@ -211,18 +209,21 @@ end
 
 function on_update(dt)
 
-print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+ --print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 
-     if Input.is_key_pressed(Input.keycode.A) then
+     if Input.is_key_pressed(Input.keycode.A) and attractionActive == false then
         print("Cambio de iman")
         attractionActive = not attractionActive 
+        find_scrap()
+
     end
 
-    if attractionActive then
-        print("Activado")
-       attract_scrap(dt)
+    if next(scrapObjects) ~= nill then 
+        attract_scrap(dt)
     
     end
+
+    
 
     shootCoolDownTimer = shootCoolDownTimer - dt
     tripleShootTimer = tripleShootTimer - dt
@@ -648,22 +649,47 @@ function explodeGranade()
     end
 end
 
-function attract_scrap(dt)
-    --[[
-    print("empieza a atraer")
-    local player = current_scene.get_entity_by_name("Player")
-    print("empieza a atraer2")
+function find_scrap()
+    local entities = current_scene:get_all_entities()
     
-    
-    if not player then return end 
-    print ("Ven a mi")
+    scrapObjects = {}
 
-    local playerPos = player.transform.position 
-    
-    for _, scrap in ipairs(scrapObjects) do
-        local scrapPos = scrap.transform.position
-        local direction = (playerPos - scrapPos):normalized() 
-        scrap.transform.position = scrapPos + direction * attractionSpeed * dt
+    for _, entity in ipairs(entities) do
+        local entitiname = entity:get_component("TagComponent").tag
+        if entitiname == "prop_scrap_v01.gltf" then
+            table.insert(scrapObjects, entity:get_component("TransformComponent"))
+        end
     end
-    ]]
+end
+
+function attract_scrap(dt)
+    for _, scrap in ipairs(scrapObjects) do
+        
+        playerPos = playerTransf.position
+        local direction = Vector3.new(playerPos.x - scrap.position.x,
+        playerPos.y - scrap.position.y, 
+        playerPos.z - scrap.position.z)
+
+        local l = attractionSpeed * dt
+        local p = Vector3.new(direction.x * l,
+                              direction.y * l, 
+                              direction.z * l)
+        scrapPos = Vector3.new(scrap.position.x + p.x,
+                                     scrap.position.y + p.y, 
+                                     scrap.position.z + p.z)
+        scrap.position = scrapPos
+
+        -- Calcular la distancia entre el player y la chatarra
+        local cercania = Vector3.new(
+            math.abs(playerPos.x - scrap.position.x),
+            math.abs(playerPos.y - scrap.position.y),
+            math.abs(playerPos.z - scrap.position.z)
+        )
+        print("algo", cercania.x, cercania.y, cercania.z)
+
+        if cercania.x < 2 and cercania.y < 2 and cercania.z < 2 then
+            print("destroy")
+            current_scene:destroy_entity(scrap)
+        end
+    end 
 end
