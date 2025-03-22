@@ -1,0 +1,71 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "scene_Object_0",
+                        "value": {
+                            "value0": 10377514304411347747
+                        }
+                    },
+                    {
+                        "key": "scene_Object_1",
+                        "value": {
+                            "value0": 4668384371130654693
+                        }
+                    },
+                    {
+                        "key": "scene_Object_2",
+                        "value": {
+                            "value0": 14476708719642056576
+                        }
+                    },
+                    {
+                        "key": "scene_Object_3",
+                        "value": {
+                            "value0": 15798797092880595792
+                        }
+                    },
+                    {
+                        "key": "scene_Object_4",
+                        "value": {
+                            "value0": 3069519649140380390
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.002_Mat0",
+                        "value": {
+                            "value0": 18259200479070117979
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat1",
+                        "value": {
+                            "value0": 15999974217857029457
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 350790802133031605
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/explosive_barrel/scene.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/350790802133031605.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

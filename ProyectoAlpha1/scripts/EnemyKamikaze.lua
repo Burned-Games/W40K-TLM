@@ -224,7 +224,7 @@ function drop_bomb()
         return
     end
 
-    bombRb:set_position(enemyTransf.position)
+    bombRb:set_position(Vector3.new(enemyTransf.position.x, 0.4, enemyTransf.position.z))
 
 end
 
