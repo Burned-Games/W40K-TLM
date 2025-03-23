@@ -10,7 +10,7 @@ local deceleration = 8
 local forwardVector
 moveDirection = nil
 local rotationDirection = nil
-local angleRotation = 0
+angleRotation = 0
 local godMode = false
 isMoving = false
 local dashSpeed = 15
@@ -31,27 +31,13 @@ local timerAnimacionEntrada = 0
 
 -- Disparo
 
-local sphere1RigidBody = nil
-local sphere1RigidBodyComponent = nil
-local sphereSpeed = 100
-local contadorDisparo = 0
-maxAmmo = 24
-blasterammo = 0
-shootgunAmmo = 0
-ammo = 0
-local maxReloadTime = 2.5
-local reloadTime = 0
+shotgunammo = 0
 local actualweapon = 0 -- 0 = rifle 1 = escopeta
 local currentAnim = -1
 local animator
-local disparable = true
-local shootCoolDown = 0.5
-local shootCoolDownTimer = 0
-local tripleShootTimer = 0
-local tripleShootCount = 0
-local tripleShootInterval = 0.1
-local shootParticlesComponent
-local bulletDamageParticleComponent
+
+local bolter = nil
+local bolterScript = nil
 
 --granadas
 
@@ -87,9 +73,7 @@ local sceneChanged = false
 local UpgradeManager = nil
 
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
-local reloadTimeRifle = 0
-local shootCoolDownRifle = 0.6
-local damageRifle = 25
+
 
 local reloadTimeShotgun = 0
 local shootCoolDownShotgun = 1.3
@@ -103,11 +87,6 @@ function on_ready()
     combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
     
 
-    rifleAudioManagerScript = current_scene:get_entity_by_name("AudiosRifle"):get_component("ScriptComponent")
-    escopetaAudioManagerScript = current_scene:get_entity_by_name("AudiosEscopeta"):get_component("ScriptComponent")
-    shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
-    bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
-    --aleix
 
     --UpgradeManager START
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
@@ -126,75 +105,10 @@ function on_ready()
     forwardVector = Vector3.new(1,0,0)
     disparado = false
 
-    sphere1 = current_scene:get_entity_by_name("Sphere1")
-
-    transformSphere1 = sphere1:get_component("TransformComponent")
-
-    sphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
-    sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
-    sphere1RigidBody:set_trigger(true)
-
-    sphere1RigidBodyComponent:on_collision_enter(function(entityA, entityB)               
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
+    bolter = current_scene:get_entity_by_name("Bolter")
+    bolterScript = bolter:get_component("ScriptComponent")
 
 
-        if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
-            local enemyOrk = nil
-            local enemyOrkScript = nil
-            if nameA == "EnemyOrk" then
-                enemyOrk = entityA
-                
-            end
-
-            if nameB == "EnemyOrk" then
-                enemyOrk = entityB
-            end
-            if enemyOrk ~= nil then               
-                enemyOrkScript = enemyOrk:get_component("ScriptComponent")
-            end
-
-            if enemyOrk ~= nil then
-                if enemyOrkScript ~= nil then
-                    local damage = 10
-                    if enemyOrkScript.shieldHealth > 0 then
-                        bulletDamageParticleComponent:emit(20)
-                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
-                    else
-                    bulletDamageParticleComponent:emit(20)
-                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
-                    end
-                end
-            end
-           
-        end
-
-        if nameA == "EnemySupp" or nameB == "EnemySupp" then
-            local enemySupp = nil
-            local enemySuppScript = nil
-            if nameA == "EnemySupp" then
-                enemySupp = entityA
-                
-            end
-
-            if nameB == "EnemySupp" then
-                enemySupp = entityB
-            end
-            if enemySupp ~= nil then               
-                enemySuppScript = enemySupp:get_component("ScriptComponent")
-            end
-
-            if enemySupp ~= nil then
-                if enemySuppScript ~= nil then
-                    local damage = 10
-                    bulletDamageParticleComponent:emit(20)
-                    enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - damage
-            
-                end
-            end
-           
-        end
-    end)
 
 
 
@@ -231,7 +145,6 @@ end
 
 function on_update(dt)
 
-    updateShooting(dt)
     updateMusic(dt)
     updateDash(dt)
     updateGodMode()
@@ -242,7 +155,6 @@ function on_update(dt)
         return
     end
 
-    contadorDisparo = contadorDisparo + dt
 
     playerMovement(dt)
     handleGranade(dt)
@@ -255,49 +167,7 @@ function on_exit()
     -- Add cleanup code here
 end
 
-function updateShooting(dt)
-    shootCoolDownTimer = shootCoolDownTimer - dt
-    tripleShootTimer = tripleShootTimer - dt
 
-    if tripleShootCount > 0 and tripleShootTimer <= 0 then
-        shoot(dt)
-        tripleShootCount = tripleShootCount - 1
-        tripleShootTimer = tripleShootInterval
-    end
-end
-
-function tripleShoot()
-    tripleShootCount = 3
-    tripleShootTimer = 0
-end
-
-function shoot(dt)
-    
-    shootCoolDownTimer = shootCoolDown
-
-
-
-    local playerPosition = playerTransf.position
-    local playerRotation = playerTransf.rotation
-
-
-    playShoot = true
-
-
-    forwardVector = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
-    
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
-
-    transformSphere1.position = newPosition
-    transformSphere1.rotation = Vector3.new(0,math.deg(angleRotation),0)
-
-    sphere1RigidBody:set_position(playerPosition)
-
-    sphere1RigidBody:set_rotation(Vector3.new(0,math.deg(angleRotation),0))
-
-    local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
-    sphere1RigidBody:set_velocity(velocity)
-end
 
 function updateMusic(dt)
     if backgroundMusicToPlay == 0 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
@@ -334,7 +204,6 @@ function updateDash(dt)
     if (Input.is_button_pressed(Input.controllercode.East) or Input.is_key_pressed(Input.keycode.M)) and dashAvailable == true then
         if moveDirection ~= nil then
             local impulse = Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed)
-            print("Impulso aplicado: X=", impulse.x, ", Y=", impulse.y, ", Z=", impulse.z)
             playerRb:set_trigger(true)
             playerRb:apply_impulse(Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed))
             impulseApplied = true
@@ -384,7 +253,7 @@ function updateGodMode()
 
     if godMode then
         playerHealth = 100
-        blasterammo = 0
+        bolterScript.ammo = 0
         shotgunammo = 0
         moveSpeed = 12
         playerRb:set_trigger(true)
@@ -427,9 +296,9 @@ function handleWeaponSwitch()
     end
 
     if actualweapon == 0 then
-        ammo = blasterammo
+        bolterScript.using = true
     else
-        ammo = shootgunAmmo
+        bolterScript.using = false
     end
 end
 
@@ -464,12 +333,12 @@ function playerMovement(dt)
         -- Animacian walk
 
         if actualweapon == 0 then
-            if currentAnim ~= 7 and shootCoolDownTimer <= shootCoolDown/2  then
+            if currentAnim ~= 7 then
                 currentAnim = 7
                 animator:set_current_animation(currentAnim)
             end
         else
-            if currentAnim ~= 8 and shootCoolDownTimer <= shootCoolDown/2  then
+            if currentAnim ~= 8 then
                 currentAnim = 8
                 animator:set_current_animation(currentAnim)
             end
@@ -501,7 +370,7 @@ function playerMovement(dt)
             playerRb:set_velocity(Vector3.new(0, 0, 0))
         end
     
-        if rightTrigger == 0 and shootCoolDownTimer <= shootCoolDown/2 then
+        if rightTrigger == 0 then
             -- Animation idle
             if actualweapon == 0 then
                 if currentAnim ~= 4 then
@@ -519,63 +388,6 @@ function playerMovement(dt)
         end
     end
     end
-
-    if blasterammo >= maxAmmo or shootgunAmmo >= maxAmmo then
-        if reloadTime == 0 then
-            rifleAudioManagerScript:playReload()
-        end
-        reloadTime = reloadTime + dt
-        if reloadTime >= maxReloadTime then
-            if actualweapon == 0 then
-                blasterammo = 0
-            else
-                shootgunAmmo = 0
-            end
-            reloadTime = 0
-        end
-    end
-
-    if Input.is_key_pressed(Input.keycode.Z) then
-
-        rightTrigger = 1
-    end
-
-
-    
-
-    if rightTrigger >= 0.8 and rightTrigger <= 1 and disparable and ((shootgunAmmo < maxAmmo and actualweapon == 1)  or (blasterammo < maxAmmo and actualweapon == 0)) and shootCoolDownTimer <= 0 then
-        
-            if actualweapon == 0 then
-                animator:set_current_animation(0)
-                tripleShoot()
-                rifleAudioManagerScript:playShoot()
-            else
-                animator:set_current_animation(1)
-                shoot(dt)
-                escopetaAudioManagerScript:playShoot()
-            end
-
-            shootParticlesComponent:emit(6)
-            if actualweapon == 0 then
-                blasterammo = blasterammo + 3
-            else
-                shootgunAmmo = shootgunAmmo + 1
-            end
-
-        if currentAnim ~= 0 then
-            --animator:set_current_animation(0)
-            currentAnim = 0
-        end
-    end
-
-    if rightTrigger == 0 then
-        disparable = true
-    elseif rightTrigger > 0 and rightTrigger < 0.8 then
-        disparable = false
-    else
-        disparable = true
-    end
-
 
     --Aiming Rotation
     if (rotationDirectionX ~= 0 or rotationDirectionY ~= 0) then

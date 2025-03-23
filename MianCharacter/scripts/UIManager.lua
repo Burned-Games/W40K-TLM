@@ -4,6 +4,7 @@
 local ammoTextComponent
 local lifeTextComponent
 local playerScript
+local bolterScript = nil
 
 
 function on_ready()
@@ -11,11 +12,16 @@ function on_ready()
     ammoTextComponent = current_scene:get_entity_by_name("actual_ammo"):get_component("UITextComponent")
     lifeTextComponent = current_scene:get_entity_by_name("vida"):get_component("UITextComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+    bolterScript = current_scene:get_entity_by_name("Bolter"):get_component("ScriptComponent")
+
 end
 
 function on_update(dt)
     -- Add update code here
-    ammoTextComponent:set_text(tostring(playerScript.maxAmmo - playerScript.ammo))
+    if bolterScript.using == true then
+        ammoTextComponent:set_text(tostring(bolterScript.maxAmmo - bolterScript.ammo))
+    end
+    
 
     local playerHealth = playerScript.playerHealth
 
