@@ -38,6 +38,8 @@ local animator
 
 local bolter = nil
 local bolterScript = nil
+--ShotGun
+local shotGunScript = nil
 
 --granadas
 
@@ -107,6 +109,8 @@ function on_ready()
 
     bolter = current_scene:get_entity_by_name("Bolter")
     bolterScript = bolter:get_component("ScriptComponent")
+
+    shotGunScript = current_scene:get_entity_by_name("Shotgun_low"):get_component("ScriptComponent")
 
 
 
@@ -297,8 +301,10 @@ function handleWeaponSwitch()
 
     if actualweapon == 0 then
         bolterScript.using = true
+        shotGunScript.using = false
     else
         bolterScript.using = false
+        shotGunScript.using = true
     end
 end
 
