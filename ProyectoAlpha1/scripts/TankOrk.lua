@@ -16,7 +16,7 @@ local tankRigidbody = nil
 local tankScript = nil
 
 local tankVelocity = 2
-local tankHealth = 75
+local tankHealth = 10
 local tankDamage = 10
 local AttackCooldown = 3
 local tankNavmesh = nil
@@ -29,7 +29,7 @@ local currentAnim = 0
 local animator
 local attackTimer = 0
 
--- Variables necesarias para el path finding
+
 local pathUpdateTimer = 0
 local pathUpdateInterval = 0.5  -- Update path every 0.5 seconds
 local lastTargetPos = nil
@@ -41,6 +41,7 @@ function on_ready()
     player = current_scene:get_entity_by_name("Player")
     if player then
         playerTransf = player:get_component("TransformComponent")
+        playerScript = player:get_component("ScriptComponent")
     end
 
     tankTransform = self:get_component("TransformComponent")
@@ -244,7 +245,7 @@ function tackle_state(dt)
     
     -- Perform charge for 1.5 seconds
     if chargeTime < 1.5 then
-        local tackleVelocity = 10
+        local tackleVelocity = 13
         local velocity = Vector3.new(
             forwardVector.x * tackleVelocity,
             0,
@@ -314,9 +315,9 @@ function attack_state(dt)
             local attackDistance = get_distance(tankTransform.position, playerTransf.position)
             
             if attackDistance <= meleeDistance then
-                -- Deal damage to player
+                -- Deal damage to player with proper null checks
                 local playerScript = player:get_component("ScriptComponent")
-                if playerScript then
+                if playerScript and type(playerScript.call_function) == "function" then
                     playerScript:call_function("take_damage", tankDamage)
                 end
             end
@@ -328,6 +329,29 @@ function attack_state(dt)
         -- Return to Chase state after attacking
         currentState = state.Chase
     end
+end
+
+function make_damage()
+    if timeSinceLastHit < invulnerability then
+        return
+    end
+
+    if player ~= nil then
+        if playerScript ~= nil then
+            local damage = 10
+
+            if playerScript.playerHealth > 0 then
+                playerScript.playerHealth = playerScript.playerHealth - damage
+            end
+            
+
+
+            audioDanoPlayerMusic:pause()
+            audioDanoPlayerMusic:play()
+            timeSinceLastHit = 0
+        end
+    end
+
 end
 
 -- Function to check distance from player and update state

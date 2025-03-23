@@ -15,7 +15,7 @@ local enemyRb
 
 local moveSpeed = 5
 enemyHealth = 50
-shieldLive = 50
+shieldHealth = 0
 local allEnemieswithShield = false
 local shieldCooldown = 3  -- 30 segundos de cooldown
 local canUseShield = true
@@ -82,27 +82,29 @@ function on_ready()
     enemyRangeEntity = current_scene:get_entity_by_name("EnemyOrk")
     if enemyRangeEntity then
         enemyRangeTransf = enemyRangeEntity:get_component("TransformComponent")
+        rangeScript = enemyRangeEntity:get_component("ScriptComponent")
+        if  rangeScript then
+            print ("EnemyOrk founded")
+        end
     end
 
     enemyTankEntity = current_scene:get_entity_by_name("TankOrk")
     if enemyTankEntity then
         enemyTankTransf = enemyTankEntity:get_component("TransformComponent")
+        tankScript = enemyTankEntity:get_component("ScriptComponent")
+        if tankScript then
+            print ("TankOrk founded")
+        end
     end
 
     enemyKamikazeEntity = current_scene:get_entity_by_name("EnemyKamikaze")
     if enemyKamikazeEntity then
         enemyKamikazeTransf = enemyKamikazeEntity:get_component("TransformComponent")
+        kamikazeScript = enemyKamikazeEntity:get_component("ScriptComponent")
+        if kamikazeScript then
+            print ("EnemyKamikaze founded")
+        end
     end
-
-    enemySuppEntity = current_scene:get_entity_by_name("EnemySupp")
-    if enemySuppEntity then
-        enemySuppTransf = enemySuppEntity:get_component("TransformComponent")
-    end
-    
-    rangeScript = enemyRangeEntity:get_component("ScriptComponent")
-    tankScript = enemyTankEntity:get_component("ScriptComponent")
-    kamikazeScript = enemyKamikazeEntity:get_component("ScriptComponent")
-    suppScript = enemySuppEntity:get_component("ScriptComponent")
 
     enemyNavmesh = self:get_component("NavigationAgentComponent")
 
@@ -201,12 +203,6 @@ function on_update(dt)
         check_enemies_shield_status()
     end
 
-    if rangeScript.shield_destroyed then
-        Shield_CoolDown()
-        currentState = state.Flee
-        return
-    end
-
     pathUpdateTimer = pathUpdateTimer + dt
     -- Update path always, not just in Chase state
     if pathUpdateTimer >= pathUpdateInterval then
@@ -220,8 +216,8 @@ function on_update(dt)
     end
     
     -- Check if the EnemyOrk exists
-    if enemyRangeEntity and enemyRangeTransf then
-        enemyRange_distance()
+    if enemyRangeEntity and enemyRangeTransf  and enemyKamikazeEntity and enemyKamikazeTransf and enemyTankEntity and enemyTankTransf then
+        enemies_Distance()
     else
         -- If EnemyOrk doesn't exist, change to flee_state if we're not already in that state
         if currentState ~= state.Flee and currentState ~= state.Attack then
@@ -325,18 +321,25 @@ function player_distance()
     end
 end
 
-function enemyRange_distance()
+function enemies_Distance()
     -- Use enemyRangeTransf.position directly
     local rangeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
     local tankDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
     local kamikazeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
-    local suppDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
-    
+
     if rangeDistance <= shieldDistance - 1.0 then  -- Added buffer to prevent oscillation
         if currentState ~= state.Shield then
             currentState = state.Shield
         end
-    elseif rangeDistance <= detectDistance - 2.0 then  -- Added buffer
+    elseif tankDistance <= shieldDistance - 1.0 then  -- Added buffer
+        if currentState ~= state.Shield then
+            currentState = state.Shield
+        end
+    elseif kamikazeDistance <= shieldDistance - 1.0 then  -- Added buffer
+        if currentState ~= state.Shield then
+            currentState = state.Shield
+        end
+    elseif rangeDistance <= detectDistance - 2.0 or tankDistance <= detectDistance - 2.0 or kamikazeDistance <= detectDistance - 2.0 then  
         if currentState ~= state.Chase and currentState ~= state.Shield then
             currentState = state.Chase
             lastTargetPos = enemyRangeTransf.position
@@ -572,18 +575,26 @@ function find_enemies()
     local baseEnemy = current_scene:get_entity_by_name("EnemyOrk")
     local tankEnemy = current_scene:get_entity_by_name("TankOrk")
     local kamikazeEnemy = current_scene:get_entity_by_name("EnemyKamikaze")
-    local suppEnemy = current_scene:get_entity_by_name("EnemySupp")
 
     if baseEnemy then
         table.insert(alianceEnemies, baseEnemy)
     end
-    
-    -- Buscar enemigos adicionales con nombres como "EnemyOrk1", "EnemyOrk2", etc.
-    for i = 1, 10 do  
-        local enemies = current_scene:get_entity_by_name("EnemyOrk" .. i)
-        if enemy then
-            table.insert(alianceEnemies, enemy)
-        end
+    if tankEnemy then
+        table.insert(alianceEnemies, tankEnemy)
+    end
+    if kamikazeEnemy then
+        table.insert(alianceEnemies, kamikazeEnemy)
+    end
+
+    for i = 1, 10 do
+        local numberedBase = current_scene:get_entity_by_name("EnemyOrk" .. i)
+        local numberedTank = current_scene:get_entity_by_name("TankOrk" .. i)
+        local numberedKamikaze = current_scene:get_entity_by_name("EnemyKamikaze" .. i)
+
+        
+        if numberedBase then table.insert(alianceEnemies, numberedBase) end
+        if numberedTank then table.insert(alianceEnemies, numberedTank) end
+        if numberedKamikaze then table.insert(alianceEnemies, numberedKamikaze) end
     end
     
     return #alianceEnemies > 0

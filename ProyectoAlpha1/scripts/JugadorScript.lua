@@ -228,21 +228,21 @@ function on_ready()
         end
 
         if nameA == "TankOrk" or nameB == "TankOrk" then
-            local enemyOrk = nil
+            local tankOrk = nil
             local tankOrkScript = nil
             if nameA == "TankOrk" then
-                enemyOrk = entityA
+                tankOrk = entityA
                 
             end
 
-            if nameB == "EnemyKamikaze" then
-                enemyOrk = entityB
+            if nameB == "TankOrk" then
+                tankOrk = entityB
             end
-            if enemyOrk ~= nil then               
-                tankOrkScript = enemyOrk:get_component("ScriptComponent")
+            if tankOrk ~= nil then               
+                tankOrkScript = tankOrk:get_component("ScriptComponent")
             end
 
-            if enemyOrk ~= nil then
+            if tankOrk ~= nil then
                 if tankOrkScript ~= nil then
                     local damage = 10
                     bulletDamageParticleComponent:emit(20)
