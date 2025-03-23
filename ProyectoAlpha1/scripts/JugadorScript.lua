@@ -32,6 +32,14 @@ playerHealth = 100
 local deathAnimationTime = 3
 local deathTimeCounter = 0
 
+-- sangrado
+local isBleeding = false
+local bleedTimer = 0
+local bleedDuration = 5
+local bleedDamage = 2
+local timeSinceLastBleed = 0
+local bleedInterval = 1
+
 local playerRb = nil
 local moveSpeed = 6
 local lastValidRotation = 0
@@ -371,6 +379,7 @@ function on_update(dt)
 
     playerMovement(dt)
     handleGranade(dt)
+    handleBleed(dt)             -- Gestiona el sangrado del player
 
     if Input.is_button_pressed(Input.controllercode.North) == true then -- TODO
         
@@ -724,3 +733,28 @@ function explodeGranade()
     end
 end
 
+function handleBleed(dt)
+
+    if isBleeding then
+        bleedTimer = bleedTimer - dt
+        timeSinceLastBleed = timeSinceLastBleed + dt
+
+        if timeSinceLastBleed >= bleedInterval then
+            if playerHealth > 0 then
+                playerHealth = playerHealth - bleedDamage
+            end
+            timeSinceLastBleed = 0
+        end
+
+        if bleedTimer <= 0 then
+            isBleeding = false
+        end
+    end
+
+end
+
+function applyBleed()
+    isBleeding = true
+    bleedTimer = bleedDuration
+    timeSinceLastBleed = 0
+end

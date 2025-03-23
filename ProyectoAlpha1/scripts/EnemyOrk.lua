@@ -32,6 +32,10 @@ local pathUpdateTimer = 0
 local pathUpdateInterval = 0.5
 local lastTargetPos = nil
 
+local delayedPlayerPos = nil
+local updateTargetTimer = 0
+local updateTargetInterval = 1
+
 local burstCount = 0
 local maxBurstShots = 4
 local burstCooldown = 0.3
@@ -76,7 +80,7 @@ function on_ready()
     bulletRb = bulletComponent.rb
     bulletRb:set_trigger(true)
     
-    bulletComponent:on_collision_enter(function(entityA, entityB)                -- El OnCollisionEnter no funciona, hay que mirar porque
+    bulletComponent:on_collision_enter(function(entityA, entityB)
          local nameA = entityA:get_component("TagComponent").tag
          local nameB = entityB:get_component("TagComponent").tag
 
@@ -87,6 +91,7 @@ function on_ready()
 
     if player ~= nil then
         lastTargetPos = playerTransf.position
+        delayedPlayerPos = playerTransf.position
         update_path()
     end
 
@@ -102,7 +107,7 @@ function on_update(dt)
     end
 
     if enemyHealth <= 0 then
-        Die()
+        die()
     end
 
     if haveShield and shieldHealth <= 0 then
@@ -115,6 +120,7 @@ function on_update(dt)
 
     pathUpdateTimer = pathUpdateTimer + dt
     timeSinceLastHit = timeSinceLastHit + dt
+    updateTargetTimer = updateTargetTimer + dt
 
     -- Verificar si el jugador se movio lo suficiente o si paso el tiempo del intervalo
     local currentTargetPos = playerTransf.position
@@ -124,6 +130,10 @@ function on_update(dt)
         pathUpdateTimer = 0
     end
 
+    if updateTargetTimer >= updateTargetInterval then
+        delayedPlayerPos = Vector3.new(playerTransf.position.x, playerTransf.position.y, playerTransf.position.z)
+        updateTargetTimer = 0
+    end
 
     if playerDetected then
         rotate_enemy(playerTransf.position)
@@ -299,6 +309,7 @@ function stab_state(dt)
 
     if timeSinceLastStab >= stabTimer then
         make_damage()
+        bleed_damage()
         timeSinceLastStab = 0
     end
 
@@ -334,9 +345,17 @@ function shoot_projectile(dt)
 
     bulletRb:set_position(enemyTransf.position)
 
-    local direction = Vector3.new(playerTransf.position.x - enemyTransf.position.x, 0, playerTransf.position.z - enemyTransf.position.z)
+    local direction = Vector3.new(delayedPlayerPos.x - enemyTransf.position.x, 0, delayedPlayerPos.z - enemyTransf.position.z)
     local velocity = Vector3.new(direction.x * bulletSpeed, 0, direction.z * bulletSpeed)
     bulletRb:set_velocity(velocity)
+
+end
+
+function bleed_damage()
+
+    if playerScript ~= nil then
+        playerScript:applyBleed()
+    end
 
 end
 
@@ -405,7 +424,7 @@ function get_distance(pos1, pos2)
 
 end
 
-function Die()
+function die()
     currentState = state.Idle
     enemyRb:set_position(Vector3.new(-500, 0, 0))
     isDead = true
