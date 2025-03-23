@@ -231,6 +231,31 @@ end
 
 function on_update(dt)
 
+    updateShooting(dt)
+    updateMusic(dt)
+    updateDash(dt)
+    updateGodMode()
+    updateEntranceAnimation(dt)
+    handleWeaponSwitch()
+
+    if not animacionEntradaRealizada then
+        return
+    end
+
+    contadorDisparo = contadorDisparo + dt
+
+    playerMovement(dt)
+    handleGranade(dt)
+    checkPlayerDeath(dt)
+
+    backgroundMusicToPlay = 0
+end
+
+function on_exit()
+    -- Add cleanup code here
+end
+
+function updateShooting(dt)
     shootCoolDownTimer = shootCoolDownTimer - dt
     tripleShootTimer = tripleShootTimer - dt
 
@@ -239,163 +264,6 @@ function on_update(dt)
         tripleShootCount = tripleShootCount - 1
         tripleShootTimer = tripleShootInterval
     end
-
-
-    if backgroundMusicToPlay == 0 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
-
-
-
-        if explorationMusicVolume >= 0.05 then
-            explorationMusicVolume = 0.05
-            combatMusicVolume = 0
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
-            prevBackgroundMusicToPlay = 0
-        else 
-            explorationMusicVolume = explorationMusicVolume + dt * 0.05
-            combatMusicVolume = combatMusicVolume - dt  * 0.05
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
-        end
-        
-
-
-        
-    elseif backgroundMusicToPlay == 1 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
-        if combatMusicVolume >= 0.05 then
-            combatMusicVolume = 0.05
-            explorationMusicVolume = 0
-            combatMusic:set_volume(combatMusicVolume)
-            explorationMusic:set_volume(explorationMusicVolume)
-            prevBackgroundMusicToPlay = 1
-        else 
-            explorationMusicVolume = explorationMusicVolume - dt * 0.05
-            combatMusicVolume = combatMusicVolume + dt * 0.05
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
-        end
-    end
-
-    if (Input.is_button_pressed(Input.controllercode.East) or Input.is_key_pressed(Input.keycode.M)) and dashAvailable == true then
-        if moveDirection ~= nil then
-            local impulse = Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed)
-            print("Impulso aplicado: X=", impulse.x, ", Y=", impulse.y, ", Z=", impulse.z)
-            playerRb:set_trigger(true)
-            playerRb:apply_impulse(Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed) )
-            impulseApplied = true
-            dashAvailable = false
-            intangibleDash = true
-            
-        end       
-    end
-    
-    if dashAvailable == false then
-        dashColdownCounter = dashColdownCounter + dt
-        if dashColdownCounter >= dashColdown then
-            dashAvailable = true
-            dashColdownCounter = 0
-        end
-    end
-
-    if impulseApplied == true then
-        dashTimeCounter = dashTimeCounter + dt
-        if dashTimeCounter >= dashTime then
-            impulseApplied = false
-            dashTimeCounter = 0
-            playerRb:set_trigger(false)
-        end
-    end
-
-    if intangibleDash then
-        intangibleDashTimeCounter = intangibleDashTimeCounter + dt
-        if intangibleDashTimeCounter >= intangibleDashTime then
-            intangibleDash = false
-        end
-    end
-
-    if Input.is_key_pressed(Input.keycode.F1) then
-        if pressedButton == false then
-            godMode = not godMode
-        end
-        pressedButton = true
-    else
-        pressedButton = false
-    end
-
-    if godMode then
-        playerHealth = 100
-        blasterammo = 0
-        shotgunammo = 0
-        moveSpeed = 12
-        playerRb:set_trigger(true)
-    else
-        moveSpeed = 6
-        playerRb:set_trigger(false)
-    end
-
-
-    if animacionEntradaRealizada == false then
-        if(currentAnim ~= 3) then
-            currentAnim = 3
-            animator:set_current_animation(currentAnim)
-        end
-        timerAnimacionEntrada = timerAnimacionEntrada + dt
-
-        if(timerAnimacionEntrada > 6.2 )then
-            playerTransf.rotation.y = 0
-            animacionEntradaRealizada = true
-            currentAnim = 4
-            animator:set_current_animation(currentAnim)
-        end
-
-        --print(timerAnimacionEntrada)
-
-        return
-    end
-
-
-    contadorDisparo = contadorDisparo + dt
-
-    playerMovement(dt)
-    handleGranade(dt)
-
-    if Input.is_button_pressed(Input.controllercode.North) == true then -- TODO
-        
-        if pressedButtonChangeWeapon == false then
-            if actualweapon == 0 then
-                actualweapon = 1
-            else
-                actualweapon = 0
-            end
-            pressedButtonChangeWeapon = true
-        end
-    
-    else
-        pressedButtonChangeWeapon = false
-    end
-
-    if actualweapon == 0 then
-        ammo = blasterammo
-    else
-        ammo = shootgunAmmo
-    end
-
-    backgroundMusicToPlay = 0
-
-    if playerHealth <= 0 then
-        --death animation here
-        playerHealth = 0
-        deathTimeCounter = deathTimeCounter + dt
-        if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
-            --change to loseEscene
-            sceneChanged = true
-            SceneManager.change_scene("levelLose.TeaScene")
-        end
-    end
-end 
-
-function on_exit()
-    -- Add cleanup code here
 end
 
 function tripleShoot()
@@ -429,13 +297,141 @@ function shoot(dt)
 
     local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
     sphere1RigidBody:set_velocity(velocity)
-
-   
 end
 
+function updateMusic(dt)
+    if backgroundMusicToPlay == 0 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
+        if explorationMusicVolume >= 0.05 then
+            explorationMusicVolume = 0.05
+            combatMusicVolume = 0
+            explorationMusic:set_volume(explorationMusicVolume)
+            combatMusic:set_volume(combatMusicVolume)
+            prevBackgroundMusicToPlay = 0
+        else 
+            explorationMusicVolume = explorationMusicVolume + dt * 0.05
+            combatMusicVolume = combatMusicVolume - dt  * 0.05
+            explorationMusic:set_volume(explorationMusicVolume)
+            combatMusic:set_volume(combatMusicVolume)
+        end
+    elseif backgroundMusicToPlay == 1 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
+        if combatMusicVolume >= 0.05 then
+            combatMusicVolume = 0.05
+            explorationMusicVolume = 0
+            combatMusic:set_volume(combatMusicVolume)
+            explorationMusic:set_volume(explorationMusicVolume)
+            prevBackgroundMusicToPlay = 1
+        else 
+            explorationMusicVolume = explorationMusicVolume - dt * 0.05
+            combatMusicVolume = combatMusicVolume + dt * 0.05
+            explorationMusic:set_volume(explorationMusicVolume)
+            combatMusic:set_volume(combatMusicVolume)
+        end
+    end
+end
 
+function updateDash(dt)
+    -- Check for dash activation
+    if (Input.is_button_pressed(Input.controllercode.East) or Input.is_key_pressed(Input.keycode.M)) and dashAvailable == true then
+        if moveDirection ~= nil then
+            local impulse = Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed)
+            print("Impulso aplicado: X=", impulse.x, ", Y=", impulse.y, ", Z=", impulse.z)
+            playerRb:set_trigger(true)
+            playerRb:apply_impulse(Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed))
+            impulseApplied = true
+            dashAvailable = false
+            intangibleDash = true
+        end       
+    end
+    
+    -- Update dash cooldown
+    if dashAvailable == false then
+        dashColdownCounter = dashColdownCounter + dt
+        if dashColdownCounter >= dashColdown then
+            dashAvailable = true
+            dashColdownCounter = 0
+        end
+    end
 
+    -- Update dash duration
+    if impulseApplied == true then
+        dashTimeCounter = dashTimeCounter + dt
+        if dashTimeCounter >= dashTime then
+            impulseApplied = false
+            dashTimeCounter = 0
+            playerRb:set_trigger(false)
+        end
+    end
 
+    -- Update intangibility during dash
+    if intangibleDash then
+        intangibleDashTimeCounter = intangibleDashTimeCounter + dt
+        if intangibleDashTimeCounter >= intangibleDashTime then
+            intangibleDash = false
+            intangibleDashTimeCounter = 0
+        end
+    end
+end
+
+function updateGodMode()
+    if Input.is_key_pressed(Input.keycode.F1) then
+        if pressedButton == false then
+            godMode = not godMode
+        end
+        pressedButton = true
+    else
+        pressedButton = false
+    end
+
+    if godMode then
+        playerHealth = 100
+        blasterammo = 0
+        shotgunammo = 0
+        moveSpeed = 12
+        playerRb:set_trigger(true)
+    else
+        moveSpeed = 6
+        playerRb:set_trigger(false)
+    end
+end
+
+function updateEntranceAnimation(dt)
+    if animacionEntradaRealizada == false then
+        if(currentAnim ~= 3) then
+            currentAnim = 3
+            animator:set_current_animation(currentAnim)
+        end
+        timerAnimacionEntrada = timerAnimacionEntrada + dt
+
+        if(timerAnimacionEntrada > 6.2 )then
+            playerTransf.rotation.y = 0
+            animacionEntradaRealizada = true
+            currentAnim = 4
+            animator:set_current_animation(currentAnim)
+        end
+        return
+    end
+end
+
+function handleWeaponSwitch()
+    if Input.is_button_pressed(Input.controllercode.North) == true then
+        if pressedButtonChangeWeapon == false then
+            if actualweapon == 0 then
+                actualweapon = 1
+            else
+                actualweapon = 0
+            end
+            pressedButtonChangeWeapon = true
+        end
+    else
+        pressedButtonChangeWeapon = false
+    end
+
+    if actualweapon == 0 then
+        ammo = blasterammo
+    else
+        ammo = shootgunAmmo
+    end
+end
 
 function playerMovement(dt)
 
@@ -448,7 +444,7 @@ function playerMovement(dt)
     local rightTrigger = Input.get_axis_position(Input.axiscode.RightTrigger)
 
 
-    -- amera angle in radians (45 degrees)
+    -- Camera angle in radians (45 degrees)
     local cameraAngle = math.rad(45)
 
     -- Rotate the entry axes to align the with the camera
@@ -604,6 +600,17 @@ function playerMovement(dt)
     end
 end
 
+
+function checkPlayerDeath(dt)
+    if playerHealth <= 0 then
+        playerHealth = 0
+        deathTimeCounter = deathTimeCounter + dt
+        if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
+            sceneChanged = true
+            SceneManager.change_scene("levelLose.TeaScene")
+        end
+    end
+end
 
 function handleGranade(dt)
     if timerGranade > 0 then
