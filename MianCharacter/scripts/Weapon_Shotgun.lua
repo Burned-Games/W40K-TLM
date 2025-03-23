@@ -1,15 +1,15 @@
 using = false
--- 记录游戏当前运行时间
+-- Time
 local current_time = 0  
-local shotgun_fire_rate = 1.5  -- 设定射速（秒/每次射击）
-local next_fire_time = 0  -- 记录下一次允许射击的时间
+local shotgun_fire_rate = 1.5 
+local next_fire_time = 0 
 
--- 弹夹相关
-maxAmmo = 6  -- 弹夹最大容量
-ammo = maxAmmo  -- 当前子弹数
-local reload_time = 2.5  -- 换弹时间
-local is_reloading = false  -- 是否正在换弹
-local reload_end_time = 0  -- 记录换弹完成的时间
+-- ammo
+maxAmmo = 6  -- maxammo
+ammo = maxAmmo  -- curreamoo
+local reload_time = 2.5  -- reloadtime
+local is_reloading = false  -- inReloading?
+local reload_end_time = 0  -- record_reload_time
 
 --PlayerTransform
 local playerTransf = nil
@@ -25,8 +25,15 @@ local sphere1RigidBodyComponent = nil
 local sphereSpeed = 100
 local sphere1 = nil
 
+
+
 local shootParticlesComponent
 local bulletDamageParticleComponent
+
+--duplicate
+local duplicateBullet = nil
+local duplicatesphere1RigidBody
+local duplicatesphere1RigidBodyComponent = nil
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -109,27 +116,27 @@ end
 function on_update(dt)
     
     if using == true then
-        -- 更新游戏运行时间
+        -- updateTime
         current_time = current_time + dt  
-        -- 如果正在换弹，检查是否完成
+        -- if in reload, check is fishing
         if is_reloading then
             if current_time >= reload_end_time then
-                ammo = maxAmmo  -- 重新装满子弹
+                ammo = maxAmmo  -- reload bullet
                 is_reloading = false
                 print("Reload complet！")
             else
                 print("in reload")
-                return  -- 换弹过程中不能射击
+                return  -- in reload cant shoot
             end
         end
 
-        -- 射击逻辑
+        -- shoot
         if Input.is_key_pressed(Input.keycode.U) then
             if ammo > 0 and current_time >= next_fire_time then
-                ammo = ammo - 1  -- 消耗子弹
+                ammo = ammo - 1  -- use bulle 
                 print("fire")
                 shoot(dt)
-                next_fire_time = current_time + shotgun_fire_rate  -- 设定下一次开枪时间
+                next_fire_time = current_time + shotgun_fire_rate  -- next shoot time
             elseif ammo == 0 then
                 print("no bullet")
             else
@@ -137,11 +144,11 @@ function on_update(dt)
             end
         end
 
-        -- 换弹逻辑
+        -- reload
         if Input.is_key_pressed(Input.keycode.R) and not is_reloading then
             print("Start reload")
             is_reloading = true
-            reload_end_time = current_time + reload_time  -- 设定换弹结束时间
+            reload_end_time = current_time + reload_time  -- setting reload time
         end
     end
 end
@@ -175,6 +182,26 @@ function shoot(dt)
 
     local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
     sphere1RigidBody:set_velocity(velocity)
+
+
+    --duplicate bullet (not working now)
+   
+    duplicateBullet = current_scene:duplicate_entity(sphere1)
+    duplicateTransformSphere1 = duplicateBullet:get_component("TransformComponent")
+    duplicatesphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
+    duplicatesphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
+    duplicatesphere1RigidBody:set_trigger(true)
+
+    local newPosition1 = Vector3.new((forwardVector.x + playerPosition.x+5) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
+
+    duplicateTransformSphere1.position = newPosition1
+    duplicateTransformSphere1.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
+
+    duplicatesphere1RigidBody:set_position(playerPosition)
+    duplicatesphere1RigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+
+    local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
+    duplicatesphere1RigidBody:set_velocity(velocity)
 
    
 end
