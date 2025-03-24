@@ -17,6 +17,7 @@ local tankScript = nil
 
 local tankVelocity = 2
 local tankHealth = 10
+isDead = false
 local tankDamage = 10
 local AttackCooldown = 3
 local tankNavmesh = nil
@@ -36,6 +37,7 @@ local lastTargetPos = nil
 local currentPathIndex = 1
 
 haveShield = false
+shieldHealth = 0
 
 function on_ready()
     player = current_scene:get_entity_by_name("Player")

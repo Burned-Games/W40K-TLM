@@ -39,6 +39,7 @@ local explosionForce = 13.0
 local explosionUpward = 2.0
 
 haveShield = false
+shieldHealth = 0
 
 function on_ready() 
     enemyTransf = self:get_component("TransformComponent")
