@@ -18,33 +18,41 @@ local playerScript = nil
 
 -- Define the bullet speed
 local bullet_speed = 10.0
-
+local sphereSpeed = 100
 --Bullet
 local sphere1RigidBody = nil
 local sphere1RigidBodyComponent = nil
-local sphereSpeed = 100
 local sphere1 = nil
 
+--Bullet2
+local sphere2RigidBody = nil
+local sphere2RigidBodyComponent = nil
+local sphere2 = nil
 
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
 
---duplicate
-local duplicateBullet = nil
-local duplicatesphere1RigidBody
-local duplicatesphere1RigidBodyComponent = nil
+
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
+     --Sphere1
     sphere1 = current_scene:get_entity_by_name("Sphere1")
     transformSphere1 = sphere1:get_component("TransformComponent")
-
     sphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
     sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
     sphere1RigidBody:set_trigger(true)
+     --Sphere1
+    --Sphere2
+    sphere2 = current_scene:get_entity_by_name("Sphere2")
+    transformSphere2 = sphere2:get_component("TransformComponent")
+    sphere2RigidBodyComponent = sphere2:get_component("RigidbodyComponent")
+    sphere2RigidBody = sphere2:get_component("RigidbodyComponent").rb
+    sphere2RigidBody:set_trigger(true)
+    --Sphere2
 
     shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
@@ -161,9 +169,6 @@ end
 
 function shoot(dt)
     
-    shootCoolDownTimer = shootCoolDown
-
-
 
     local playerPosition = playerTransf.position
     local playerRotation = playerTransf.rotation
@@ -183,25 +188,20 @@ function shoot(dt)
     local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
     sphere1RigidBody:set_velocity(velocity)
 
+    --
+    local forwardVector1 = Vector3.new(math.sin(playerScript.angleRotation+40), 0, math.cos(playerScript.angleRotation))
+    
+    local newPosition1 = Vector3.new((forwardVector1.x + playerPosition.x) , (forwardVector1.y+ playerPosition.y)  , (forwardVector1.z+ playerPosition.z) )
 
-    --duplicate bullet (not working now)
-   
-    duplicateBullet = current_scene:duplicate_entity(sphere1)
-    duplicateTransformSphere1 = duplicateBullet:get_component("TransformComponent")
-    duplicatesphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
-    duplicatesphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
-    duplicatesphere1RigidBody:set_trigger(true)
+    transformSphere2.position = newPosition1
+    transformSphere2.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
 
-    local newPosition1 = Vector3.new((forwardVector.x + playerPosition.x+5) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
+    sphere2RigidBody:set_position(playerPosition)
 
-    duplicateTransformSphere1.position = newPosition1
-    duplicateTransformSphere1.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
+    sphere2RigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
 
-    duplicatesphere1RigidBody:set_position(playerPosition)
-    duplicatesphere1RigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-
-    local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
-    duplicatesphere1RigidBody:set_velocity(velocity)
+    local velocity1 = Vector3.new(forwardVector1.x * sphereSpeed, 0, forwardVector1.z * sphereSpeed)
+    sphere2RigidBody:set_velocity(velocity1)
 
    
 end
