@@ -1,13 +1,18 @@
 local enemies
-local rangeScript
 local enemyTransf 
 local enemyWorldTransf
 local enemyRangeEntity
 local enemyRangeTransf
+local rangeScript
+local rangecanUseShield = false
 local enemyTankEntity
 local enemyTankTransf
+local tankScript
+local tankcanUseShield = false
 local enemyKamikazeEntity
 local enemyKamikazeTransf
+local kamikazeScript
+local kamikazecanUseShield = false
 local enemySuppEntity
 local enemySuppTransf
 local forwardVector
@@ -32,10 +37,10 @@ local prefabShield = nil
 
 local sphere = nil
 
-local detectDistance = 30  -- Detection distance 
-local shieldDistance = 9       
+local detectDistance = 20  -- Detection distance 
+local shieldDistance = 4.5       
 local meleeDistance = 1
-local chaseDistance = 3
+local chaseDistance = 7
 local alianceEnemies = {}
 local checkEnemyTimer = 0
 local checkEnemyInterval = 2.0
@@ -64,6 +69,7 @@ local AttackCooldown = 3
 local pathUpdateTimer = 0
 local pathUpdateInterval = 1.0  -- Increased from 0.5 to 1.0
 local lastTargetPos = nil
+local currentShieldTarget = nil
 
 -- Inicialización del índice de navegación
 local currentPathIndex = 1
@@ -83,27 +89,18 @@ function on_ready()
     if enemyRangeEntity then
         enemyRangeTransf = enemyRangeEntity:get_component("TransformComponent")
         rangeScript = enemyRangeEntity:get_component("ScriptComponent")
-        if  rangeScript then
-            print ("EnemyOrk founded")
-        end
     end
 
     enemyTankEntity = current_scene:get_entity_by_name("TankOrk")
     if enemyTankEntity then
         enemyTankTransf = enemyTankEntity:get_component("TransformComponent")
         tankScript = enemyTankEntity:get_component("ScriptComponent")
-        if tankScript then
-            print ("TankOrk founded")
-        end
     end
 
     enemyKamikazeEntity = current_scene:get_entity_by_name("EnemyKamikaze")
     if enemyKamikazeEntity then
         enemyKamikazeTransf = enemyKamikazeEntity:get_component("TransformComponent")
         kamikazeScript = enemyKamikazeEntity:get_component("ScriptComponent")
-        if kamikazeScript then
-            print ("EnemyKamikaze founded")
-        end
     end
 
     enemyNavmesh = self:get_component("NavigationAgentComponent")
@@ -119,7 +116,7 @@ function on_ready()
         actualshield = current_scene:duplicate_entity(prefabShield)
         if actualshield then
             transformActualShield = actualshield:get_component("TransformComponent")
-            local rendererComp = actualshield:get_component("Mesh")
+            local rendererComp = actualshield:get_component("MeshRendererComponent")
 
             if rendererComp then
                 rendererComp.enabled = true
@@ -215,11 +212,11 @@ function on_update(dt)
         player_distance()
     end
     
-    -- Check if the EnemyOrk exists
+    -- Check if the enemies existsl
     if enemyRangeEntity and enemyRangeTransf  and enemyKamikazeEntity and enemyKamikazeTransf and enemyTankEntity and enemyTankTransf then
         enemies_Distance()
     else
-        -- If EnemyOrk doesn't exist, change to flee_state if we're not already in that state
+        -- If enemies doesn't exist, change to flee_state if we're not already in that state
         if currentState ~= state.Flee and currentState ~= state.Attack then
             currentState = state.Flee
         end
@@ -264,47 +261,83 @@ function chase_state(dt)
         currentAnim = 2
     end
 
- 
-
-    -- Determine chase target
+    -- Determine chase target with priority
     local chaseTarget = nil
-    if player and playerTransf and enemyRangeEntity and enemyRangeTransf then
+    local targetDistance = math.huge -- Initialize with infinity
+    
+    -- Check all possible targets and their distances
+    if player and playerTransf then
         local playerDistance = get_distance(enemyTransf.position, playerTransf.position)
-        local rangeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
-        
-        -- Prioritize closest target
-        if playerDistance <= chaseDistance and playerDistance <= rangeDistance then
+        if playerDistance <= chaseDistance and playerDistance < targetDistance then
             chaseTarget = playerTransf.position
-        else
+            targetDistance = playerDistance
+        end
+    end
+    
+    -- Check Kamikaze first (highest priority)
+    if enemyKamikazeEntity and enemyKamikazeTransf then
+        local kamikazeDistance = get_distance(enemyTransf.position, enemyKamikazeTransf.position)
+        if kamikazeDistance <= detectDistance and kamikazeDistance < targetDistance then
+            chaseTarget = enemyKamikazeTransf.position
+            targetDistance = kamikazeDistance
+            
+            -- Check if in shield range
+            if kamikazeDistance <= shieldDistance and not kamikazeScript.haveShield then
+                currentState = state.Shield
+                print ("Cambiando a Shield del kamikaze")
+                return
+            end
+        end
+    end
+    
+    -- Then check Tank
+    if enemyTankEntity and enemyTankTransf then
+        local tankDistance = get_distance(enemyTransf.position, enemyTankTransf.position)
+        if tankDistance <= detectDistance and tankDistance < targetDistance then
+            chaseTarget = enemyTankTransf.position
+            targetDistance = tankDistance
+            
+            -- Check if in shield range
+            if tankDistance <= shieldDistance and not tankScript.haveShield then
+                currentState = state.Shield
+                print ("Cambiando a Shield del tank")
+                return
+            end
+        end
+    end
+    
+    -- Finally check Range
+    if enemyRangeEntity and enemyRangeTransf then
+        local rangeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
+        if rangeDistance <= detectDistance and rangeDistance < targetDistance then
             chaseTarget = enemyRangeTransf.position
+            targetDistance = rangeDistance
+            
+            -- Check if in shield range
+            if rangeDistance <= shieldDistance and not rangeScript.haveShield then
+                currentState = state.Shield
+                print ("Cambiando a Shield del range")
+                return
+            end
         end
-        
-        -- Check if in shield range for EnemyOrk
-        if rangeDistance <= shieldDistance then
-            currentState = state.Shield
-            return
-        end
+    end
 
-    elseif enemyRangeEntity and enemyRangeTransf then
-        chaseTarget = enemyRangeTransf.position
-    else
-        currentState = state.Flee 
+    -- If no target found, go to flee state
+    if chaseTarget == nil then
+        currentState = state.Flee
         return
     end
     
     -- Perform chase
     if enemyNavmesh and chaseTarget then
         if #enemyNavmesh.path == 0 or get_distance(lastTargetPos, chaseTarget) > 1.0 then
-            lastTargetPos = chaseTarget
             enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, chaseTarget)
+            lastTargetPos = chaseTarget
             currentPathIndex = 1
         end
-        
         follow_path(dt)
     else
-        if chaseTarget then
-            move_towards_physics(chaseTarget, dt)
-        end
+        move_towards_physics(chaseTarget, dt)
     end
 end
 
@@ -322,32 +355,38 @@ function player_distance()
 end
 
 function enemies_Distance()
-    -- Use enemyRangeTransf.position directly
     local rangeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
-    local tankDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
-    local kamikazeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
+    local tankDistance = get_distance(enemyTransf.position, enemyTankTransf.position)
+    local kamikazeDistance = get_distance(enemyTransf.position, enemyKamikazeTransf.position)
 
-    if rangeDistance <= shieldDistance - 1.0 then  -- Added buffer to prevent oscillation
-        if currentState ~= state.Shield then
-            currentState = state.Shield
-        end
-    elseif tankDistance <= shieldDistance - 1.0 then  -- Added buffer
-        if currentState ~= state.Shield then
-            currentState = state.Shield
-        end
-    elseif kamikazeDistance <= shieldDistance - 1.0 then  -- Added buffer
-        if currentState ~= state.Shield then
-            currentState = state.Shield
-        end
-    elseif rangeDistance <= detectDistance - 2.0 or tankDistance <= detectDistance - 2.0 or kamikazeDistance <= detectDistance - 2.0 then  
-        if currentState ~= state.Chase and currentState ~= state.Shield then
+    -- Comprobar primero el estado de persecución antes que el escudo
+    if rangeDistance <= detectDistance - 2.0 or 
+       tankDistance <= detectDistance - 2.0 or 
+       kamikazeDistance <= detectDistance - 2.0 then  
+        if currentState ~= state.Shield then  -- Solo cambiar si no está dando escudo
             currentState = state.Chase
-            lastTargetPos = enemyRangeTransf.position
-            update_path() -- Update the path immediately
-            -- Reset el índice del camino
+            
+            if kamikazeDistance <= detectDistance - 2.0 and kamikazeDistance < rangeDistance and kamikazeDistance < tankDistance then
+                lastTargetPos = enemyKamikazeTransf.position
+            elseif tankDistance <= detectDistance - 2.0 and tankDistance < rangeDistance then
+                lastTargetPos = enemyTankTransf.position
+            else
+                lastTargetPos = enemyRangeTransf.position
+            end
+            update_path()
             currentPathIndex = 1
         end
-    elseif currentState ~= state.Flee and currentState  then
+    -- Comprobar el rango de escudo después
+    elseif kamikazeDistance <= shieldDistance - 1.0 and not kamikazeScript.haveShield then
+        currentState = state.Shield
+        kamikazecanUseShield = true
+    elseif tankDistance <= shieldDistance - 1.0 and not tankScript.haveShield then
+        currentState = state.Shield
+        tankcanUseShield = true
+    elseif rangeDistance <= shieldDistance - 1.0 and not rangeScript.haveShield then
+        currentState = state.Shield
+        rangecanUseShield = true
+    elseif currentState ~= state.Shield then  -- Solo cambiar a Flee si no está dando escudo
         currentState = state.Flee
     end
 end
@@ -430,8 +469,7 @@ function update_waypoint_path()
 end
 
 function shield_state(dt)
-
-    if actualshield== nil or transformShield == nil then
+    if actualshield == nil or transformShield == nil then
         if canUseShield then
             create_new_shield()
         else
@@ -440,24 +478,51 @@ function shield_state(dt)
         end
     end
 
-    if actualshield~= nil and transformShield ~= nil and canUseShield then
+    if actualshield ~= nil and transformShield ~= nil and canUseShield then
         -- Animation
         if currentAnim ~= 4 then
             animator:set_current_animation(4)
             currentAnim = 4
         end
 
-        local rangeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
-        
+        -- Determine priority target
+        local targetTransf = nil
+        local targetScript = nil
+        local targetDistance = 0
+
+        -- Check Kamikaze first
+        if enemyKamikazeTransf and kamikazeScript and not kamikazeScript.haveShield then
+            targetTransf = enemyKamikazeTransf
+            targetScript = kamikazeScript
+            targetDistance = get_distance(enemyTransf.position, enemyKamikazeTransf.position)
+        -- Then check Tank
+        elseif enemyTankTransf and tankScript and not tankScript.haveShield then
+            targetTransf = enemyTankTransf
+            targetScript = tankScript
+            targetDistance = get_distance(enemyTransf.position, enemyTankTransf.position)
+        -- Finally check Range
+        elseif enemyRangeTransf and rangeScript and not rangeScript.haveShield then
+            targetTransf = enemyRangeTransf
+            targetScript = rangeScript
+            targetDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
+        end
+
+        if targetTransf == nil then
+            currentState = state.Flee
+            return
+        end
+
         -- Add a buffer to prevent oscillation
         local minDistance = shieldDistance - 1.0
         local maxDistance = shieldDistance + 1.0
 
-        if rangeDistance < minDistance then
+        -- Handle movement based on distance
+        if targetDistance < minDistance then
+            -- Move away from target
             local direction = Vector3.new(
-                enemyTransf.position.x - enemyRangeTransf.position.x,
+                enemyTransf.position.x - targetTransf.position.x,
                 0,
-                enemyTransf.position.z - enemyRangeTransf.position.z
+                enemyTransf.position.z - targetTransf.position.z
             )
             local distance = math.sqrt(direction.x^2 + direction.z^2)
             if distance > 0 and enemyRb then
@@ -465,36 +530,37 @@ function shield_state(dt)
                 direction.z = direction.z / distance
                 enemyRb:set_velocity(Vector3.new(direction.x * moveSpeed * 0.5, 0, direction.z * moveSpeed * 0.5))
             end
-        elseif rangeDistance > maxDistance then
+        elseif targetDistance > maxDistance then
+            -- Move towards target
             if enemyNavmesh then
                 if #enemyNavmesh.path == 0 or pathUpdateTimer >= pathUpdateInterval then
-                    enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, enemyRangeTransf.position)
-                    lastTargetPos = enemyRangeTransf.position
+                    enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, targetTransf.position)
+                    lastTargetPos = targetTransf.position
                     pathUpdateTimer = 0
                     currentPathIndex = 1
                 end
                 follow_path(dt)
             else
-                move_towards_physics(enemyRangeTransf.position, dt)
+                move_towards_physics(targetTransf.position, dt)
             end
         else
-
+            -- In range - apply shield
             if enemyRb then
                 enemyRb:set_velocity(Vector3.new(0, 0, 0))
             end
             
-            if canUseShield then
-                if transformShield ~= nil then
-                    transformShield.position = enemyRangeTransf.position
-                    if enemyRangeEntity ~= nil and not rangeScript.haveShield  then
-                        if rangeScript ~= nil then
-                            rangeScript.haveShield = true
-                            rangeScript.shieldHealth = rangeScript.shieldHealth + 25
-                            shieldTimer = 0
-                            find_enemies()
-                            check_enemies_shield_status()
-                        end
+            if canUseShield and transformShield ~= nil then
+                transformShield.position = targetTransf.position
+                if not targetScript.haveShield then
+                    targetScript.haveShield = true
+                    -- Initialize shieldHealth if it doesn't exist
+                    if not targetScript.shieldHealth then
+                        targetScript.shieldHealth = 0
                     end
+                    targetScript.shieldHealth = targetScript.shieldHealth + 25
+                    shieldTimer = 0
+                    find_enemies()
+                    check_enemies_shield_status()
                 end
             end
         end
@@ -523,18 +589,35 @@ function create_new_shield()
     if actualshield then
         transformShield = actualshield:get_component("TransformComponent")
         
-        -- Asegura que el escudo sea visible
         local rendererComp = actualshield:get_component("MeshRendererComponent")
         if rendererComp then
             rendererComp.visible = true
         end
+
+        transformShield.scale = Vector3.new(1, 1, 1)
+
+        local targetTransf = nil
         
-        -- Ajusta la escala si es necesario
-        transformShield.scale = Vector3.new(1, 1, 1) -- Ajusta según sea necesario
-        
-        -- Posiciona el escudo correctamente
-        if enemyRangeTransf then
-            transformShield.position = enemyRangeTransf.position
+
+        if enemyKamikazeTransf and kamikazeScript and not kamikazeScript.haveShield then
+            targetTransf = enemyKamikazeTransf
+            kamikazecanUseShield = true
+            tankcanUseShield = false
+            rangecanUseShield = false
+        elseif enemyTankTransf and tankScript and not tankScript.haveShield then
+            targetTransf = enemyTankTransf
+            kamikazecanUseShield = false
+            tankcanUseShield = true
+            rangecanUseShield = false
+        elseif enemyRangeTransf and rangeScript and not rangeScript.haveShield then
+            targetTransf = enemyRangeTransf
+            kamikazecanUseShield = false
+            tankcanUseShield = false
+            rangecanUseShield = true
+        end
+
+        if targetTransf then
+            transformShield.position = targetTransf.position
         end
     end
 end
@@ -608,66 +691,43 @@ function check_enemies_shield_status()
         end
     end
 
-    -- Check which enemies need shield
-    local enemiesNeedingShield = {}
-    local allHaveShield = true -- Flag to track if all enemies have shields
-
-    for i, enemy in ipairs(alianceEnemies) do
-        -- Verify enemy is valid
-        if enemy and type(enemy) == "userdata" then
-            -- Safe way to get enemy name
-            local enemyName = ""
-            pcall(function()
-                enemyName = enemy:get_name() or "Unknown"
-            end)
-            
-            if rangeScript then
-                -- Safe way to check shield state
-                local hasShield = false
-                pcall(function()
-                    hasShield = rangeScript.haveShield or false
-                end)
-                
-                if not hasShield then
-                    table.insert(enemiesNeedingShield, enemy)
-                    allHaveShield = false -- Found an enemy without shield
-                end
-            else
-                allHaveShield = false -- If rangeScript is nil, consider as no shield
-            end
-        else
-            table.remove(alianceEnemies, i)
-        end
+    local allHaveShield = true
+    
+    -- Check in priority order: Kamikaze > Tank > Range
+    if enemyKamikazeEntity and kamikazeScript and not kamikazeScript.haveShield then
+        allHaveShield = false
+        kamikazecanUseShield = true
+        tankcanUseShield = false
+        rangecanUseShield = false
+        return true
     end
     
-    -- Update global state based on shield status
-    allEnemieswithShield = allHaveShield
+    if enemyTankEntity and tankScript and not tankScript.haveShield then
+        allHaveShield = false
+        kamikazecanUseShield = false
+        tankcanUseShield = true
+        rangecanUseShield = false
+        return true
+    end
+    
+    if enemyRangeEntity and rangeScript and not rangeScript.haveShield then
+        allHaveShield = false
+        kamikazecanUseShield = false
+        tankcanUseShield = false
+        rangecanUseShield = true
+        return true
+    end
 
-    -- If all enemies have shields, change to flee state
+    allEnemieswithShield = allHaveShield
+    
     if allEnemieswithShield then
         currentState = state.Flee
         return false
     end
     
-    -- If there are enemies without shield, choose the first one
-    if #enemiesNeedingShield > 0 then
-        currentTargetEnemy = enemiesNeedingShield[1]
-        if currentTargetEnemy then
-            enemyRangeEntity = currentTargetEnemy
-            enemyRangeTransf = currentTargetEnemy:get_component("TransformComponent")
-            
-            -- Safe way to get target name
-            local targetName = "Unknown"
-            pcall(function()
-                targetName = currentTargetEnemy:get_name() or "Unknown"
-            end)
-            
-            return true
-        end
-    end
-    
     return false
 end
+
 
 function follow_path(dt)
     if enemyNavmesh == nil or #enemyNavmesh.path == 0 then 
