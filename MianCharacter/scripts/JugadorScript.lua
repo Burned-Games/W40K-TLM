@@ -435,7 +435,7 @@ function handleGranade(dt)
         timerGranade = timerGranade - dt
     end
 
-    if Input.is_button_pressed(Input.controllercode.South) and timerGranade <= 0 then
+    if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
         throwGranade()
         escopetaAudioManagerScript:playLaunchGranade()
         timerGranade = granadeCooldown
