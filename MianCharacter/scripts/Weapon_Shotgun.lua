@@ -44,72 +44,15 @@ function on_ready()
         bullet.rigidBody:set_trigger(true)
         
         table.insert(bullets, bullet)  -- save to table
+
+        bullet.rigidBodyComponent:on_collision_enter(function(entityA, entityB)
+            handle_bullet_collision(entityA, entityB)
+        end)
     end
 
     shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
 
-    sphere1RigidBodyComponent:on_collision_enter(function(entityA, entityB)               
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
-
-
-        if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
-            local enemyOrk = nil
-            local enemyOrkScript = nil
-            if nameA == "EnemyOrk" then
-                enemyOrk = entityA
-                
-            end
-
-            if nameB == "EnemyOrk" then
-                enemyOrk = entityB
-            end
-            if enemyOrk ~= nil then               
-                enemyOrkScript = enemyOrk:get_component("ScriptComponent")
-            end
-
-            if enemyOrk ~= nil then
-                if enemyOrkScript ~= nil then
-                    
-                    if enemyOrkScript.shieldHealth > 0 then
-                        bulletDamageParticleComponent:emit(20)
-                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
-                    else
-                    bulletDamageParticleComponent:emit(20)
-                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
-                    end
-                end
-            end
-           
-        end
-
-        if nameA == "EnemySupp" or nameB == "EnemySupp" then
-            local enemySupp = nil
-            local enemySuppScript = nil
-            if nameA == "EnemySupp" then
-                enemySupp = entityA
-                
-            end
-
-            if nameB == "EnemySupp" then
-                enemySupp = entityB
-            end
-            if enemySupp ~= nil then               
-                enemySuppScript = enemySupp:get_component("ScriptComponent")
-            end
-
-            if enemySupp ~= nil then
-                if enemySuppScript ~= nil then
-                    
-                    bulletDamageParticleComponent:emit(20)
-                    enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - damage
-            
-                end
-            end
-           
-        end
-    end)
 end
 
 
@@ -184,4 +127,31 @@ function shoot(dt)
     end
 end
 
+
+function handle_bullet_collision(entityA, entityB)
+    local nameA = entityA:get_component("TagComponent").tag
+    local nameB = entityB:get_component("TagComponent").tag
+    
+    local function damage_enemy(enemyEntity)
+        if enemyEntity then
+            local enemyScript = enemyEntity:get_component("ScriptComponent")
+            if enemyScript then
+                bulletDamageParticleComponent:emit(20)
+                if enemyScript.shieldHealth and enemyScript.shieldHealth > 0 then
+                    enemyScript.shieldHealth = enemyScript.shieldHealth - damage
+                else
+                    enemyScript.enemyHealth = enemyScript.enemyHealth - damage
+                end
+            end
+        end
+    end
+    
+    if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
+        damage_enemy(nameA == "EnemyOrk" and entityA or entityB)
+    end
+    
+    if nameA == "EnemySupp" or nameB == "EnemySupp" then
+        damage_enemy(nameA == "EnemySupp" and entityA or entityB)
+    end
+end
 
