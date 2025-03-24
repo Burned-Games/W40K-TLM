@@ -437,7 +437,7 @@ function handleGranade(dt)
 
     if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
         throwGranade()
-        escopetaAudioManagerScript:playLaunchGranade()
+        --escopetaAudioManagerScript:playLaunchGranade()
         timerGranade = granadeCooldown
     end
 end
@@ -514,7 +514,7 @@ function explodeGranade()
         
         rb:set_velocity(Vector3.new(0, 0, 0))
         rb:set_angular_velocity(Vector3.new(0, 0, 0))
-        escopetaAudioManagerScript:playExplodeGranade()
+        --escopetaAudioManagerScript:playExplodeGranade()
         granadeParticlesExplosion:emit(10)
         throwingGranade = false
     end

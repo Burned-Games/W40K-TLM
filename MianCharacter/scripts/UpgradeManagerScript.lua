@@ -1,5 +1,5 @@
 scrap = 0
-
+local Player = nil
 -- Multipliers 
 local MULTIPLIERS = {
     weapons = {
@@ -8,7 +8,7 @@ local MULTIPLIERS = {
         fireRateBoost = 0.9      -- 10% faster firing 
     },
     armor = {
-        healthBoost = 1.2        -- 20% more health
+        healthBoost = 20       -- 20% more health
     }
 }
 
@@ -206,7 +206,6 @@ function get_reload_time(baseTime)
     end
     return baseTime
 end
-
 function get_shoot_cooldown(baseCooldown)
     if has_upgrade("weapons", "fireRateBoost") then
         return baseCooldown * MULTIPLIERS.weapons.fireRateBoost
@@ -223,7 +222,7 @@ end
 
 function get_max_health(baseHealth)
     if has_upgrade("armor", "healthBoost") then
-        return baseHealth * MULTIPLIERS.armor.healthBoost
+        return baseHealth + MULTIPLIERS.armor.healthBoost
     end
     return baseHealth
 end
@@ -345,6 +344,7 @@ end
 function on_update(dt)
     ----------------------------------
     -- TEST UPGRADES START (DELETE)
+    Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
     -- O: Select weapons category
     if Input.is_key_pressed(Input.keycode.O) then
@@ -382,6 +382,8 @@ function on_update(dt)
                 print("> Selected next available upgrade")
                 print_selected_upgrade()
             end
+
+            apply_to_player(Player)
         end
     else
         cPressed = false

@@ -123,6 +123,7 @@ end
 function on_update(dt)
     if using then
         local rightTrigger = Input.get_axis_position(Input.axiscode.RightTrigger)
+        local leftShoulder = Input.is_button_pressed(Input.controllercode.LeftShoulder)
 
         if ammo >= maxAmmo then
             if reloadTime == 0 then
@@ -160,6 +161,12 @@ function on_update(dt)
             tripleShootCount = tripleShootCount - 1
             tripleShootTimer = tripleShootInterval
         end
+
+        if leftShoulder then
+            disruptiveCharge()
+        end
+
+        
     end
 end
 
@@ -196,6 +203,12 @@ function shoot(dt)
     sphere1RigidBody:set_velocity(velocity)
 
    
+end
+
+function disruptiveCharge()
+    print("Habilidad Especial")
+
+
 end
 
 function playShoot()
