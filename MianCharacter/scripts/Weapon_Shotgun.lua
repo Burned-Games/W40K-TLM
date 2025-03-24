@@ -19,16 +19,10 @@ local playerScript = nil
 -- Define the bullet speed
 local bullet_speed = 10.0
 local sphereSpeed = 100
---Bullet
-local sphere1RigidBody = nil
-local sphere1RigidBodyComponent = nil
-local sphere1 = nil
-
---Bullet2
-local sphere2RigidBody = nil
-local sphere2RigidBodyComponent = nil
-local sphere2 = nil
-
+-- BulletList
+local bullets = {}
+local bulletCount = 8  -- Bullet Num
+local spreadAngle = 5  -- Bullet angle
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
@@ -39,20 +33,18 @@ function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
-     --Sphere1
-    sphere1 = current_scene:get_entity_by_name("Sphere1")
-    transformSphere1 = sphere1:get_component("TransformComponent")
-    sphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
-    sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
-    sphere1RigidBody:set_trigger(true)
-     --Sphere1
-    --Sphere2
-    sphere2 = current_scene:get_entity_by_name("Sphere2")
-    transformSphere2 = sphere2:get_component("TransformComponent")
-    sphere2RigidBodyComponent = sphere2:get_component("RigidbodyComponent")
-    sphere2RigidBody = sphere2:get_component("RigidbodyComponent").rb
-    sphere2RigidBody:set_trigger(true)
-    --Sphere2
+    for i = 1, bulletCount do
+        local bulletName = "Sphere" .. i  
+        local bullet = {}
+        
+        bullet.entity = current_scene:get_entity_by_name(bulletName)
+        bullet.transform = bullet.entity:get_component("TransformComponent")
+        bullet.rigidBodyComponent = bullet.entity:get_component("RigidbodyComponent")
+        bullet.rigidBody = bullet.rigidBodyComponent.rb
+        bullet.rigidBody:set_trigger(true)
+        
+        table.insert(bullets, bullet)  -- save to table
+    end
 
     shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
@@ -168,42 +160,28 @@ end
 
 
 function shoot(dt)
-    
-
     local playerPosition = playerTransf.position
-    local playerRotation = playerTransf.rotation
-
-
-    local forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+    local baseAngle = playerScript.angleRotation  
     
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
-
-    transformSphere1.position = newPosition
-    transformSphere1.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
-
-    sphere1RigidBody:set_position(playerPosition)
-
-    sphere1RigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-
-    local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
-    sphere1RigidBody:set_velocity(velocity)
-
-    --
-    local forwardVector1 = Vector3.new(math.sin(playerScript.angleRotation+40), 0, math.cos(playerScript.angleRotation))
-    
-    local newPosition1 = Vector3.new((forwardVector1.x + playerPosition.x) , (forwardVector1.y+ playerPosition.y)  , (forwardVector1.z+ playerPosition.z) )
-
-    transformSphere2.position = newPosition1
-    transformSphere2.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
-
-    sphere2RigidBody:set_position(playerPosition)
-
-    sphere2RigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-
-    local velocity1 = Vector3.new(forwardVector1.x * sphereSpeed, 0, forwardVector1.z * sphereSpeed)
-    sphere2RigidBody:set_velocity(velocity1)
-
-   
+    for i, bullet in ipairs(bullets) do
+        local angleOffset = (i - (bulletCount / 2)) * spreadAngle  -- angle
+        local shootAngle = baseAngle + math.rad(angleOffset) 
+        
+        local forwardVector = Vector3.new(math.sin(shootAngle), 0, math.cos(shootAngle))
+        local newPosition = Vector3.new(
+            playerPosition.x + forwardVector.x,
+            playerPosition.y,
+            playerPosition.z + forwardVector.z
+        )
+        
+        bullet.transform.position = newPosition
+        bullet.transform.rotation = Vector3.new(0, math.deg(shootAngle), 0)
+        bullet.rigidBody:set_position(playerPosition)
+        bullet.rigidBody:set_rotation(Vector3.new(0, math.deg(shootAngle), 0))
+        
+        local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
+        bullet.rigidBody:set_velocity(velocity)
+    end
 end
 
 
