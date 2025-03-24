@@ -3,6 +3,7 @@ local currentState = state.Idle
 
 local player
 local playerTransf
+local playerScript
 
 local detectDistance = 30
 local tackleDistance = 10
@@ -16,20 +17,19 @@ local tankRigidbody = nil
 local tankScript = nil
 
 local tankVelocity = 2
-local tankHealth = 10
-isDead = false
-local tankDamage = 10
+tankHealth = 75
+local isDead = false
+local tankDamage = 10  -- This will now be the melee damage
 local AttackCooldown = 3
 local tankNavmesh = nil
 
-local tackleCooldown = 8.
+local tackleCooldown = 8
 local tackleTimer = 0       
 local canTackle = true      
 
 local currentAnim = 0
 local animator
 local attackTimer = 0
-
 
 local pathUpdateTimer = 0
 local pathUpdateInterval = 0.5  -- Update path every 0.5 seconds
@@ -38,6 +38,7 @@ local currentPathIndex = 1
 
 haveShield = false
 shieldHealth = 0
+local tackleHasDamaged = false
 
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
@@ -52,6 +53,7 @@ function on_ready()
     tankNavmesh = self:get_component("NavigationAgentComponent")
 
     animator = self:get_component("AnimatorComponent")
+    
 end
 
 function on_update(dt)
@@ -69,7 +71,7 @@ function on_update(dt)
 
     if haveShield and shieldHealth <= 0 then
         haveShield = false
-        shield_destroyed=true
+        shield_destroyed = true
     end
 
     -- Check player existence and update distances
@@ -80,6 +82,7 @@ function on_update(dt)
         player = current_scene:get_entity_by_name("Player")
         if player then
             playerTransf = player:get_component("TransformComponent")
+            playerScript = player:get_component("ScriptComponent")
         else
             currentState = state.Idle
         end
@@ -166,6 +169,7 @@ function idle_state(dt)
             player = current_scene:get_entity_by_name("Player")
             if player then
                 playerTransf = player:get_component("TransformComponent")
+                playerScript = player:get_component("ScriptComponent")
             end
         end
     end
@@ -211,7 +215,6 @@ function chase_state(dt)
     end
 end
 
--- Tackle state - tank charges in a straight line at increased speed
 function tackle_state(dt)
     -- Animation for tackle
     if currentAnim ~= 3 then
@@ -239,7 +242,8 @@ function tackle_state(dt)
         end
         
         chargeTime = 0
-        IsCharging = false -- Set to false to indicate charge is in progress
+        IsCharging = false
+        tackleHasDamaged = false
     end
     
     -- Update charge time
@@ -257,14 +261,25 @@ function tackle_state(dt)
         tankRigidbody:set_velocity(velocity)
         
         -- Check for collision with player during charge
-        if player and playerTransf then
+        if player and playerTransf and playerScript and not tackleHasDamaged then
             local playerDistance = get_distance(tankTransform.position, playerTransf.position)
+            
+            -- Usar la misma lógica de distancia que en el ataque melee
             if playerDistance <= meleeDistance then
-                -- Deal damage to player during charge
-                local playerScript = player:get_component("ScriptComponent")
-                if playerScript then
-                    playerScript:call_function("take_damage", tankDamage * 1.5)  -- More damage for tackle
+                -- Attempt to damage player directly with 50 damage
+                local damage = 50
+                print("Tank Tackle Damage: " .. damage)
+                
+                -- Directly reduce player health
+                playerScript.playerHealth = playerScript.playerHealth - damage
+                
+                -- Optional: Apply bleeding effect
+                if playerScript.applyBleed then
+                    playerScript:applyBleed()
                 end
+                
+                -- Marcar que ya se ha hecho daño
+                tackleHasDamaged = true
             end
         end
     else
@@ -291,7 +306,6 @@ function tackle_state(dt)
         end
     end
 end
-
 -- Attack state - tank performs a slow melee attack
 function attack_state(dt)
     -- Animation for attack
@@ -313,15 +327,15 @@ function attack_state(dt)
     
     if attackTimer >= AttackCooldown then
         -- Perform the attack after cooldown
-        if player and playerTransf then
+        if player and playerTransf and playerScript then
             local attackDistance = get_distance(tankTransform.position, playerTransf.position)
             
             if attackDistance <= meleeDistance then
-                -- Deal damage to player with proper null checks
-                local playerScript = player:get_component("ScriptComponent")
-                if playerScript and type(playerScript.call_function) == "function" then
-                    playerScript:call_function("take_damage", tankDamage)
-                end
+                -- Attempt to damage player directly with 10 damage
+                local damage = 10
+                
+                -- Directly reduce player health
+                playerScript.playerHealth = playerScript.playerHealth - damage
             end
         end
         
@@ -330,56 +344,6 @@ function attack_state(dt)
         
         -- Return to Chase state after attacking
         currentState = state.Chase
-    end
-end
-
-function make_damage()
-    if timeSinceLastHit < invulnerability then
-        return
-    end
-
-    if player ~= nil then
-        if playerScript ~= nil then
-            local damage = 10
-
-            if playerScript.playerHealth > 0 then
-                playerScript.playerHealth = playerScript.playerHealth - damage
-            end
-            
-
-
-            audioDanoPlayerMusic:pause()
-            audioDanoPlayerMusic:play()
-            timeSinceLastHit = 0
-        end
-    end
-
-end
-
--- Function to check distance from player and update state
-function player_distance()
-    if player and playerTransf then
-        local playerDistance = get_distance(tankTransform.position, playerTransf.position)
-        
-        if playerDistance <= meleeDistance then
-            if currentState ~= state.Attack then
-                currentState = state.Attack
-                attackTimer = 0
-            end
-        elseif playerDistance <= tackleDistance and canTackle then
-            if currentState ~= state.Tackle and currentState ~= state.Attack then
-                currentState = state.Tackle
-                IsCharging = true
-            end
-        elseif playerDistance <= detectDistance then
-            if currentState ~= state.Chase and currentState ~= state.Tackle and currentState ~= state.Attack then
-                currentState = state.Chase
-            end
-        else
-            if currentState ~= state.Idle then
-                currentState = state.Idle
-            end
-        end
     end
 end
 
@@ -402,10 +366,24 @@ end
 
 -- Function to handle death
 function Die()
-    currentState = state.Idle
-    tankRigidbody:set_position(Vector3.new(-500, 0, 0))
-    tankHealth = 0
+    if not isDead then
+        print("Tank has died! Health: " .. tankHealth)
+        currentState = state.Idle
+        tankRigidbody:set_position(Vector3.new(-500, 0, 0))
+        tankHealth = 0
+        isDead = true
+    end
+end
+
+function take_damage(amount)
+    -- Reduce tank health
+    tankHealth = tankHealth - amount
+    print("Tank took damage. Current Health: " .. tankHealth)
     
+    -- Optional: Check for death
+    if tankHealth <= 0 then
+        Die()
+    end
 end
 
 function on_exit() 
