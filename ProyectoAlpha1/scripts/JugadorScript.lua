@@ -689,7 +689,34 @@ function attract_scrap(dt)
 
         if cercania.x < 2 and cercania.y < 2 and cercania.z < 2 then
             print("destroy")
-            current_scene:destroy_entity(scrap)
+            --current_scene:destroy_entity(scrap)
         end
     end 
+end
+
+
+function tuplet(...)
+    local data = { ... }  -- Guarda los valores en una tabla interna
+    
+    -- Convierte listas en tablas protegidas
+    for i, v in ipairs(data) do
+        if type(v) == "table" then
+            setmetatable(v, {
+                __index = function(tbl, k) return rawget(tbl, k) end,  -- Permite acceso normal
+                __newindex = function() error("Las listas dentro de la tupla son inmutables", 2) end
+            })
+        end
+    end
+    
+    return setmetatable({}, {
+        __index = function(_, k)
+            return data[k]  -- Permite acceder a los elementos con []
+        end,
+        __newindex = function(_, k, v)
+            error("Las tuplas son inmutables", 2)  -- Bloquea modificaciones
+        end,
+        __len = function(_) 
+            return #data  -- Permite usar #
+        end
+    })
 end
