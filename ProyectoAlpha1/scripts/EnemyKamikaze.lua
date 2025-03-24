@@ -26,7 +26,7 @@ local state = { Idle = 1, Move = 2, Attack = 3}
 local currentState = state.Idle
 
 local pathUpdateTimer = 0                                               -- Los timers se tendran que cambiar con los que hay en el LuaBackend
-local pathUpdateInterval = 0.5
+local pathUpdateInterval = 1.0
 local lastTargetPos = nil
 
 local invulnerability = 0.1                                             -- La invulnerabilidad es para la funcion de make_damage, para que no este aplicando el damage constantemente
@@ -34,9 +34,12 @@ local timeSinceLastHit = 0                                              -- Este 
 
 local currentPathIndex = 1
 
-local explosionRadius = 7.0
+local explosionRadius = 6.0
 local explosionForce = 13.0
 local explosionUpward = 2.0
+
+local attackTimer = 0
+local attackDelay = 2.0
 
 haveShield = false
 shieldHealth = 0
@@ -171,51 +174,58 @@ end
 
 function attack_state(dt)
 
-    -- Logica de la explosion
-    local explosionPos = enemyRb:get_position()
-    local entities = current_scene:get_all_entities()
+    enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
-        for _, entity in ipairs(entities) do 
-            if entity ~= self and entity:has_component("RigidbodyComponent") then 
-                local entityRb = entity:get_component("RigidbodyComponent").rb
-                local entityPos = entityRb:get_position()
+    attackTimer = attackTimer + dt
 
-                local direction = Vector3.new(
-                    entityPos.x - explosionPos.x,
-                    entityPos.y - explosionPos.y,
-                    entityPos.z - explosionPos.z
-                )
+    if attackTimer >= attackDelay then
+        -- Logica de la explosion
+        local explosionPos = enemyRb:get_position()
+        local entities = current_scene:get_all_entities()
 
-                local distance = math.sqrt(
-                    direction.x * direction.x +
-                    direction.y * direction.y +
-                    direction.z * direction.z
-                )
+            for _, entity in ipairs(entities) do 
+                if entity ~= self and entity:has_component("RigidbodyComponent") then 
+                    local entityRb = entity:get_component("RigidbodyComponent").rb
+                    local entityPos = entityRb:get_position()
 
-                if distance > 0 then
-                    direction.x = direction.x / distance
-                    direction.y = direction.y / distance
-                    direction.z = direction.z / distance
-                end
-
-                if distance < explosionRadius then
-                    local forceFactor = (explosionRadius - distance) / explosionRadius
-                    direction.y = direction.y + explosionUpward
-                    local finalForce = Vector3.new(
-                        direction.x * explosionForce * forceFactor,
-                        direction.y * explosionForce * forceFactor,
-                        direction.z * explosionForce * forceFactor
+                    local direction = Vector3.new(
+                        entityPos.x - explosionPos.x,
+                        entityPos.y - explosionPos.y,
+                        entityPos.z - explosionPos.z
                     )
-                    entityRb:apply_impulse(finalForce)
+
+                    local distance = math.sqrt(
+                        direction.x * direction.x +
+                        direction.y * direction.y +
+                        direction.z * direction.z
+                    )
+
+                    if distance > 0 then
+                        direction.x = direction.x / distance
+                        direction.y = direction.y / distance
+                        direction.z = direction.z / distance
+                    end
+
+                    if distance < explosionRadius then
+                        local forceFactor = (explosionRadius - distance) / explosionRadius
+                        direction.y = direction.y + explosionUpward
+                        local finalForce = Vector3.new(
+                            direction.x * explosionForce * forceFactor,
+                            direction.y * explosionForce * forceFactor,
+                            direction.z * explosionForce * forceFactor
+                        )
+                        entityRb:apply_impulse(finalForce)
+
+                        make_damage()
+                    end
                 end
             end
-        end
 
-    make_damage()
-    die()
+        die()
 
-    health = 0
-    hasExploded = true
+        health = 0
+        hasExploded = true
+    end
 
 end
 
@@ -286,6 +296,8 @@ function follow_path(dt)
     else
         if currentPathIndex < #enemyNavmesh.path then
             currentPathIndex = currentPathIndex + 1
+        else
+            currentState = state.Attack
         end
     end
 
