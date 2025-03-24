@@ -184,24 +184,6 @@ function shoot(dt)
     sphere1RigidBody:set_velocity(velocity)
 
 
-    --duplicate bullet (not working now)
-   
-    duplicateBullet = current_scene:duplicate_entity(sphere1)
-    duplicateTransformSphere1 = duplicateBullet:get_component("TransformComponent")
-    duplicatesphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
-    duplicatesphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
-    duplicatesphere1RigidBody:set_trigger(true)
-
-    local newPosition1 = Vector3.new((forwardVector.x + playerPosition.x+5) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
-
-    duplicateTransformSphere1.position = newPosition1
-    duplicateTransformSphere1.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
-
-    duplicatesphere1RigidBody:set_position(playerPosition)
-    duplicatesphere1RigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-
-    local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
-    duplicatesphere1RigidBody:set_velocity(velocity)
 
    
 end
