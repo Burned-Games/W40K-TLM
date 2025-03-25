@@ -27,7 +27,20 @@ local spreadAngle = 15  -- Bullet angle
 local shootParticlesComponent
 local bulletDamageParticleComponent
 local damage = 1
-local knockbackForce = 100  -- force
+local knockbackForce = 600  -- force
+
+
+--granadas
+
+local granadeCooldown= 1
+local timerGranade = 0
+local granadeEntity = nil
+local granadeInitialSpeed = 12
+
+local explosionRadius = 7.0
+local explosionForce = 13.0
+local explosionUpward = 2.0
+local granadeParticlesExplosion = nil
 
 
 function on_ready()
@@ -53,6 +66,29 @@ function on_ready()
 
     shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
+
+    --Granada
+   
+    granadeEntity = current_scene:get_entity_by_name("Granade")
+    transformGranade = granadeEntity:get_component("TransformComponent")
+    granadeParticlesExplosion = granadeEntity:get_component("ParticlesSystemComponent")
+
+    local rb = granadeEntity:get_component("RigidbodyComponent").rb
+    rb:set_use_gravity(true)
+    rb:set_mass(1.0) 
+    rb:set_trigger(false)
+
+    local rbComponent = granadeEntity:get_component("RigidbodyComponent")
+    rbComponent:on_collision_enter(function(entityA, entityB)
+
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "FloorCollider" or nameB == "FloorCollider" then
+            explodeGranade()
+        end
+    end)
+
 
 end
 
@@ -94,6 +130,8 @@ function on_update(dt)
             is_reloading = true
             reload_end_time = current_time + reload_time  -- setting reload time
         end
+
+        handleGranade(dt)
     end
 end
 
@@ -106,7 +144,8 @@ end
 function shoot(dt)
     local playerPosition = playerTransf.position
     local baseAngle = playerScript.angleRotation  
-    
+    print("Player Rotation (Y):", playerTransf.rotation.y)
+
     for i, bullet in ipairs(bullets) do
         local angleOffset = (i - (bulletCount / 2)) * spreadAngle  -- angle
         local shootAngle = baseAngle + math.rad(angleOffset) 
@@ -165,7 +204,8 @@ function handle_bullet_collision(entityA, entityB)
                 0,
                 knockbackDirection.z * knockbackForce
             )
-            enemyRigidBody:set_velocity(knockbackVelocity)
+
+            enemyRigidBody:apply_force(knockbackVelocity)
         end
     end
     
@@ -182,5 +222,120 @@ function handle_bullet_collision(entityA, entityB)
         damage_enemy(enemy, bullet)
     end
     
+end
+
+
+
+function handleGranade(dt)
+    if timerGranade > 0 then
+        timerGranade = timerGranade - dt
+    end
+
+    if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
+        throwGranade()
+        --escopetaAudioManagerScript:playLaunchGranade()
+        timerGranade = granadeCooldown
+    end
+end
+
+function throwGranade()
+    if granadeEntity ~= nil then
+        local rb = granadeEntity:get_component("RigidbodyComponent").rb
+
+        local playerYaw = playerScript.angleRotation
+        print("Player Rotation (Y):", playerYaw)
+
+
+        local direction = Vector3.new(
+            math.sin(playerYaw),  -- X 
+            0.5,                  -- Y 
+            math.cos(playerYaw)   -- Z 
+        )
+
+
+        local spawnPosition = Vector3.new(
+            playerTransf.position.x + direction.x,
+            playerTransf.position.y + 1.5,
+            playerTransf.position.z + direction.z
+        )
+        rb:set_position(spawnPosition)
+
+        local velocity = Vector3.new(
+            direction.x * granadeInitialSpeed,
+            direction.y * granadeInitialSpeed,
+            direction.z * granadeInitialSpeed
+        )
+        rb:set_velocity(velocity)
+
+        print("Throw Direction:", direction.x, direction.y, direction.z)
+        print("Granade Position:", spawnPosition.x, spawnPosition.y, spawnPosition.z)
+        print("Granade Velocity:", velocity.x, velocity.y, velocity.z)
+
+        throwingGranade = true
+    end
+end
+
+
+
+
+
+function explodeGranade()
+    if granadeEntity ~= nil then
+        local rb = granadeEntity:get_component("RigidbodyComponent").rb
+        local explosionPos = rb:get_position()
+
+        local entities = current_scene:get_all_entities()
+
+        for _, entity in ipairs(entities) do 
+            if entity ~= granadeEntity and entity:has_component("RigidbodyComponent") then 
+                local entityRb = entity:get_component("RigidbodyComponent").rb
+                local entityPos = entityRb:get_position()
+
+                local direction = Vector3.new(
+                    entityPos.x - explosionPos.x,
+                    entityPos.y - explosionPos.y,
+                    entityPos.z - explosionPos.z
+                )
+
+                local distance = math.sqrt(
+                    direction.x * direction.x +
+                    direction.y * direction.y +
+                    direction.z * direction.z
+                )
+
+                if distance > 0 then
+                    direction.x = direction.x / distance
+                    direction.y = direction.y / distance
+                    direction.z = direction.z / distance
+                end
+
+                if distance < explosionRadius then
+                    local forceFactor = (explosionRadius - distance) / explosionRadius
+                    direction.y = direction.y + explosionUpward
+                    local finalForce = Vector3.new(
+                        direction.x * explosionForce * forceFactor,
+                        direction.y * explosionForce * forceFactor,
+                        direction.z * explosionForce * forceFactor
+                    )
+                    entityRb:apply_impulse(finalForce)
+
+                    local rotationFactor = explosionForce * forceFactor 
+                    local randomRotation = Vector3.new(
+                        (math.random() - 0.5) * rotationFactor,
+                        (math.random() - 0.5) * rotationFactor,
+                        (math.random() - 0.5) * rotationFactor
+                    )
+
+                    entityRb:set_angular_velocity(randomRotation)
+                end
+            end
+        end
+        
+        rb:set_velocity(Vector3.new(0, 0, 0))
+        rb:set_angular_velocity(Vector3.new(0, 0, 0))
+        --escopetaAudioManagerScript:playExplodeGranade()
+        granadeParticlesExplosion:emit(10)
+        throwingGranade = false
+    end
 end
 

@@ -41,17 +41,7 @@ local bolterScript = nil
 --ShotGun
 local shotGunScript = nil
 
---granadas
 
-local granadeCooldown= 12
-local timerGranade = 0
-local granadeEntity = nil
-local granadeInitialSpeed = 12
-
-local explosionRadius = 7.0
-local explosionForce = 13.0
-local explosionUpward = 2.0
-local granadeParticlesExplosion = nil
 
 -- Audio
 local explorationMusic = nil
@@ -76,10 +66,6 @@ local UpgradeManager = nil
 
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
-
-local reloadTimeShotgun = 0
-local shootCoolDownShotgun = 1.3
-local damageShotgun = 120
 
 
 function on_ready()
@@ -113,34 +99,10 @@ function on_ready()
     shotGunScript = current_scene:get_entity_by_name("Shotgun_low"):get_component("ScriptComponent")
 
 
-
-
-
     animator = self:get_component("AnimatorComponent")
 
-
-    granadeEntity = current_scene:get_entity_by_name("Granade")
-    transformGranade = granadeEntity:get_component("TransformComponent")
-    granadeParticlesExplosion = granadeEntity:get_component("ParticlesSystemComponent")
     floorEntity = current_scene:get_entity_by_name("FloorCollider")
-
-    local rb = granadeEntity:get_component("RigidbodyComponent").rb
-    rb:set_use_gravity(true)
-    rb:set_mass(1.0) 
-    rb:set_trigger(false)
-
-
-    local rbComponent = granadeEntity:get_component("RigidbodyComponent")
-    rbComponent:on_collision_enter(function(entityA, entityB)
-
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
-
-        if nameA == "FloorCollider" or nameB == "FloorCollider" then
-            explodeGranade()
-        end
-    end)
-
+  
     combatMusic:play()
     explorationMusic:play()
 
@@ -161,7 +123,7 @@ function on_update(dt)
 
 
     playerMovement(dt)
-    handleGranade(dt)
+
     checkPlayerDeath(dt)
 
     backgroundMusicToPlay = 0
@@ -430,93 +392,5 @@ function checkPlayerDeath(dt)
     end
 end
 
-function handleGranade(dt)
-    if timerGranade > 0 then
-        timerGranade = timerGranade - dt
-    end
 
-    if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
-        throwGranade()
-        --escopetaAudioManagerScript:playLaunchGranade()
-        timerGranade = granadeCooldown
-    end
-end
-
-function throwGranade()
-    if granadeEntity ~= nil then
-        local rb = granadeEntity:get_component("RigidbodyComponent").rb
-        
-        local direction = Vector3.new(math.sin(math.rad(playerTransf.rotation.y)), 0.5, math.cos(math.rad(playerTransf.rotation.y)))
-        
-        local vectorPosition = Vector3.new(playerTransf.position.x + math.sin(math.rad(playerTransf.rotation.y)), playerTransf.position.y+2, playerTransf.position.z + math.cos(math.rad(playerTransf.rotation.y)))
-        rb:set_position(vectorPosition)
-
-       
-        
-        
-        local velocity = Vector3.new(direction.x * granadeInitialSpeed, direction.y * granadeInitialSpeed, direction.z * granadeInitialSpeed)
-        rb:set_velocity(velocity)
-        throwingGranade = true
-    end
-end
-
-function explodeGranade()
-    if granadeEntity ~= nil then
-        local rb = granadeEntity:get_component("RigidbodyComponent").rb
-        local explosionPos = rb:get_position()
-
-        local entities = current_scene:get_all_entities()
-
-        for _, entity in ipairs(entities) do 
-            if entity ~= granadeEntity and entity:has_component("RigidbodyComponent") then 
-                local entityRb = entity:get_component("RigidbodyComponent").rb
-                local entityPos = entityRb:get_position()
-
-                local direction = Vector3.new(
-                    entityPos.x - explosionPos.x,
-                    entityPos.y - explosionPos.y,
-                    entityPos.z - explosionPos.z
-                )
-
-                local distance = math.sqrt(
-                    direction.x * direction.x +
-                    direction.y * direction.y +
-                    direction.z * direction.z
-                )
-
-                if distance > 0 then
-                    direction.x = direction.x / distance
-                    direction.y = direction.y / distance
-                    direction.z = direction.z / distance
-                end
-
-                if distance < explosionRadius then
-                    local forceFactor = (explosionRadius - distance) / explosionRadius
-                    direction.y = direction.y + explosionUpward
-                    local finalForce = Vector3.new(
-                        direction.x * explosionForce * forceFactor,
-                        direction.y * explosionForce * forceFactor,
-                        direction.z * explosionForce * forceFactor
-                    )
-                    entityRb:apply_impulse(finalForce)
-
-                    local rotationFactor = explosionForce * forceFactor 
-                    local randomRotation = Vector3.new(
-                        (math.random() - 0.5) * rotationFactor,
-                        (math.random() - 0.5) * rotationFactor,
-                        (math.random() - 0.5) * rotationFactor
-                    )
-
-                    entityRb:set_angular_velocity(randomRotation)
-                end
-            end
-        end
-        
-        rb:set_velocity(Vector3.new(0, 0, 0))
-        rb:set_angular_velocity(Vector3.new(0, 0, 0))
-        --escopetaAudioManagerScript:playExplodeGranade()
-        granadeParticlesExplosion:emit(10)
-        throwingGranade = false
-    end
-end
 
