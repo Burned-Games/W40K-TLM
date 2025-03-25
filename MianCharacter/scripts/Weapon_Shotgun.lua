@@ -42,6 +42,8 @@ local explosionForce = 13.0
 local explosionUpward = 2.0
 local granadeParticlesExplosion = nil
 
+local lbapretado = false
+local dropGranade = false
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -129,6 +131,15 @@ function on_update(dt)
             print("Start reload")
             is_reloading = true
             reload_end_time = current_time + reload_time  -- setting reload time
+        end
+
+        if Input.is_button_pressed(Input.controllercode.LeftShoulder) then
+            lbapretado = true
+        else
+            if lbapretado then
+                dropGranade = true
+            end
+            lbapretado = false
         end
 
         handleGranade(dt)
@@ -231,8 +242,9 @@ function handleGranade(dt)
         timerGranade = timerGranade - dt
     end
 
-    if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
+    if  dropGranade and timerGranade <= 0 then
         throwGranade()
+        dropGranade = false
         --escopetaAudioManagerScript:playLaunchGranade()
         timerGranade = granadeCooldown
     end
