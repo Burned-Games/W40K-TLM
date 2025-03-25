@@ -21,12 +21,13 @@ local bullet_speed = 10.0
 local sphereSpeed = 100
 -- BulletList
 local bullets = {}
-local bulletCount = 8  -- Bullet Num
-local spreadAngle = 5  -- Bullet angle
+local bulletCount = 4  -- Bullet Num
+local spreadAngle = 15  -- Bullet angle
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
-
+local damage = 1
+local knockbackForce = 100  -- force
 
 
 function on_ready()
@@ -68,27 +69,27 @@ function on_update(dt)
                 is_reloading = false
                 print("Reload complet！")
             else
-                print("in reload")
+                --print("in reload")
                 return  -- in reload cant shoot
             end
         end
-
+        local rightTrigger = Input.get_axis_position(Input.axiscode.RightTrigger)
         -- shoot
-        if Input.is_key_pressed(Input.keycode.U) then
+        if rightTrigger ~= 0 then
             if ammo > 0 and current_time >= next_fire_time then
                 ammo = ammo - 1  -- use bulle 
                 print("fire")
                 shoot(dt)
                 next_fire_time = current_time + shotgun_fire_rate  -- next shoot time
             elseif ammo == 0 then
-                print("no bullet")
+                --print("no bullet")
             else
-                print("fire colddown")
+                --print("fire colddown")
             end
         end
 
         -- reload
-        if Input.is_key_pressed(Input.keycode.R) and not is_reloading then
+        if ammo==0 and not is_reloading then
             print("Start reload")
             is_reloading = true
             reload_end_time = current_time + reload_time  -- setting reload time
@@ -129,12 +130,17 @@ end
 
 
 function handle_bullet_collision(entityA, entityB)
+   
     local nameA = entityA:get_component("TagComponent").tag
     local nameB = entityB:get_component("TagComponent").tag
     
-    local function damage_enemy(enemyEntity)
+    local function damage_enemy(enemyEntity, bulletEntity)
         if enemyEntity then
             local enemyScript = enemyEntity:get_component("ScriptComponent")
+            local enemyRigidBody = enemyEntity:get_component("RigidbodyComponent").rb
+            local bulletTransform = bulletEntity:get_component("TransformComponent")
+             
+           
             if enemyScript then
                 bulletDamageParticleComponent:emit(20)
                 if enemyScript.shieldHealth and enemyScript.shieldHealth > 0 then
@@ -143,15 +149,38 @@ function handle_bullet_collision(entityA, entityB)
                     enemyScript.enemyHealth = enemyScript.enemyHealth - damage
                 end
             end
+
+            local enemyPosition = enemyEntity:get_component("TransformComponent").position
+            local bulletPosition = bulletTransform.position
+            local knockbackDirection = Vector3.normalize(Vector3.new(
+                enemyPosition.x - bulletPosition.x,
+                0,
+                enemyPosition.z - bulletPosition.z
+            ))
+            
+            print("Knockback Direction: ", knockbackDirection.x, knockbackDirection.z)
+            
+            local knockbackVelocity = Vector3.new(
+                knockbackDirection.x * knockbackForce,
+                0,
+                knockbackDirection.z * knockbackForce
+            )
+            enemyRigidBody:set_velocity(knockbackVelocity)
         end
     end
     
     if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
-        damage_enemy(nameA == "EnemyOrk" and entityA or entityB)
+        local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+        local bullet = (enemy == entityA) and entityB or entityA 
+        damage_enemy(enemy, bullet)
+    end
+
+
+    if nameA == "EnemySupp" or nameB == "EnemySupp" then
+        local enemy = (nameA == "EnemySupp" and entityA) or (nameB == "EnemySupp" and entityB)
+        local bullet = (enemy == entityA) and entityB or entityA 
+        damage_enemy(enemy, bullet)
     end
     
-    if nameA == "EnemySupp" or nameB == "EnemySupp" then
-        damage_enemy(nameA == "EnemySupp" and entityA or entityB)
-    end
 end
 
