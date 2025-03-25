@@ -103,14 +103,14 @@ local tripleShootInterval = 0.1
 function on_ready()
     -- Add initialization code here
 
-    explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
-    combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
+    --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
+    --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
     
 
-    rifleAudioManagerScript = current_scene:get_entity_by_name("AudiosRifle"):get_component("ScriptComponent")
-    escopetaAudioManagerScript = current_scene:get_entity_by_name("AudiosEscopeta"):get_component("ScriptComponent")
-    shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
-    bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
+    --rifleAudioManagerScript = current_scene:get_entity_by_name("AudiosRifle"):get_component("ScriptComponent")
+    --escopetaAudioManagerScript = current_scene:get_entity_by_name("AudiosEscopeta"):get_component("ScriptComponent")
+    --shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
+    --bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
     --aleix
 
     playerTransf = self:get_component("TransformComponent")
@@ -161,10 +161,10 @@ function on_ready()
                 if enemyOrkScript ~= nil then
                     local damage = 10
                     if enemyOrkScript.shieldHealth > 0 then
-                        bulletDamageParticleComponent:emit(20)
+                        --bulletDamageParticleComponent:emit(20)
                         enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
                     else
-                    bulletDamageParticleComponent:emit(20)
+                    --bulletDamageParticleComponent:emit(20)
                     enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
                     end
                 end
@@ -191,7 +191,7 @@ function on_ready()
             if enemySupp ~= nil then
                 if enemySuppScript ~= nil then
                     local damage = 10
-                    bulletDamageParticleComponent:emit(20)
+                    --bulletDamageParticleComponent:emit(20)
                     enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - damage
             
                 end
@@ -218,7 +218,7 @@ function on_ready()
             if enemyKamikaze ~= nil then
                 if enemyKamikazeScript ~= nil then
                     local damage = 10
-                    bulletDamageParticleComponent:emit(20)
+                    --bulletDamageParticleComponent:emit(20)
                     enemyKamikazeScript.enemyHealth = enemyKamikazeScript.enemyHealth - damage
             
                 end
@@ -245,7 +245,7 @@ function on_ready()
             if tankOrk ~= nil then
                 if tankOrkScript ~= nil then
                     local damage = 10
-                    bulletDamageParticleComponent:emit(20)
+                    --bulletDamageParticleComponent:emit(20)
                     tankOrkScript.tankHealth = tankOrkScript.tankHealth - damage
             
                 end
@@ -282,8 +282,8 @@ function on_ready()
         end
     end)
 
-    combatMusic:play()
-    explorationMusic:play()
+    --combatMusic:play()
+    --explorationMusic:play()
 
 
 end
@@ -308,14 +308,14 @@ function on_update(dt)
         if explorationMusicVolume >= 0.05 then
             explorationMusicVolume = 0.05
             combatMusicVolume = 0
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
+            --explorationMusic:set_volume(explorationMusicVolume)
+            --combatMusic:set_volume(combatMusicVolume)
             prevBackgroundMusicToPlay = 0
         else 
             explorationMusicVolume = explorationMusicVolume + dt * 0.05
             combatMusicVolume = combatMusicVolume - dt  * 0.05
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
+            --explorationMusic:set_volume(explorationMusicVolume)
+            --combatMusic:set_volume(combatMusicVolume)
         end
         
 
@@ -325,14 +325,14 @@ function on_update(dt)
         if combatMusicVolume >= 0.05 then
             combatMusicVolume = 0.05
             explorationMusicVolume = 0
-            combatMusic:set_volume(combatMusicVolume)
-            explorationMusic:set_volume(explorationMusicVolume)
+            --combatMusic:set_volume(combatMusicVolume)
+            --explorationMusic:set_volume(explorationMusicVolume)
             prevBackgroundMusicToPlay = 1
         else 
             explorationMusicVolume = explorationMusicVolume - dt * 0.05
             combatMusicVolume = combatMusicVolume + dt * 0.05
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
+            --explorationMusic:set_volume(explorationMusicVolume)
+            --combatMusic:set_volume(combatMusicVolume)
         end
     end
 
@@ -547,7 +547,7 @@ function playerMovement(dt)
 
     if blasterammo >= maxAmmo or shootgunAmmo >= maxAmmo then
         if reloadTime == 0 then
-            rifleAudioManagerScript:playReload()
+            --rifleAudioManagerScript:playReload()
         end
         reloadTime = reloadTime + dt
         if reloadTime >= maxReloadTime then
@@ -573,14 +573,14 @@ function playerMovement(dt)
             if actualweapon == 0 then
                 animator:set_current_animation(0)
                 tripleShoot()
-                rifleAudioManagerScript:playShoot()
+                --rifleAudioManagerScript:playShoot()
             else
                 animator:set_current_animation(1)
                 shoot(dt)
-                escopetaAudioManagerScript:playShoot()
+                --escopetaAudioManagerScript:playShoot()
             end
 
-            shootParticlesComponent:emit(6)
+            --shootParticlesComponent:emit(6)
             if actualweapon == 0 then
                 blasterammo = blasterammo + 3
             else
@@ -650,7 +650,7 @@ function handleGranade(dt)
 
     if Input.is_button_pressed(Input.controllercode.South) and timerGranade <= 0 then
         throwGranade()
-        escopetaAudioManagerScript:playLaunchGranade()
+        --escopetaAudioManagerScript:playLaunchGranade()
         timerGranade = granadeCooldown
     end
 end
@@ -727,8 +727,8 @@ function explodeGranade()
         
         rb:set_velocity(Vector3.new(0, 0, 0))
         rb:set_angular_velocity(Vector3.new(0, 0, 0))
-        escopetaAudioManagerScript:playExplodeGranade()
-        granadeParticlesExplosion:emit(10)
+        --escopetaAudioManagerScript:playExplodeGranade()
+        --granadeParticlesExplosion:emit(10)
         throwingGranade = false
     end
 end

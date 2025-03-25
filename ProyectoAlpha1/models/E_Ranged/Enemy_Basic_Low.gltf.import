@@ -7,30 +7,42 @@
             "data": {
                 "meshUUIDs": [
                     {
+                        "key": "Enemy_Basic_Low_BézierCurve",
+                        "value": {
+                            "value0": 5071981730852423609
+                        }
+                    },
+                    {
                         "key": "Enemy_Basic_Low_Plane.004",
                         "value": {
-                            "value0": 16490706159772140201
+                            "value0": 88269601936188096
                         }
                     }
                 ],
                 "materialUUIDs": [
                     {
+                        "key": "Material_Mat0",
+                        "value": {
+                            "value0": 14820855370575035224
+                        }
+                    },
+                    {
                         "key": "ork_Mat1",
                         "value": {
-                            "value0": 2341244458374778983
+                            "value0": 17398825505732406774
                         }
                     }
                 ],
                 "value0": {
                     "uuid": {
-                        "value0": 11972598575488371715
+                        "value0": 628198711894276030
                     },
                     "type": 4,
                     "originalPath": {
                         "value0": "models/E_Ranged/Enemy_Basic_Low.gltf"
                     },
                     "cachedPath": {
-                        "value0": ".CoffeeEngine/Cache/11972598575488371715.model"
+                        "value0": ".CoffeeEngine/Cache/628198711894276030.model"
                     },
                     "cache": true,
                     "internal": false

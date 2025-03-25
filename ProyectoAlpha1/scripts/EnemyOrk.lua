@@ -62,7 +62,7 @@ local audioDanoPlayerMusic = nil
 
 function on_ready() 
 
-    audioDanoPlayerMusic = current_scene:get_entity_by_name("AudioDanoPlayer"):get_component("AudioSourceComponent")
+    --audioDanoPlayerMusic = current_scene:get_entity_by_name("AudioDanoPlayer"):get_component("AudioSourceComponent")
 	enemyTransf = self:get_component("TransformComponent")
     enemyNavmesh = self:get_component("NavigationAgentComponent")
     enemyRb = self:get_component("RigidbodyComponent").rb
@@ -230,18 +230,18 @@ end
 -- Funciones para los distintos estados.
 function idle_state(dt)
 
-    if currentAnim ~= 0 then
-        animator:set_current_animation(0)
-        currentAnim = 0
+    if currentAnim ~= 2 then
+        currentAnim = 2
+        animator:set_current_animation(currentAnim)
     end
 
 end
 
 function move_state(dt)
 
-    if currentAnim ~= 1 then
-        animator:set_current_animation(1)
-        currentAnim = 1
+    if currentAnim ~= 3 then
+        currentAnim = 3
+        animator:set_current_animation(currentAnim)
     end
 
 	-- Movimiento
@@ -252,8 +252,8 @@ end
 function shoot_state(dt)
 
     if currentAnim ~= 1 then
-        animator:set_current_animation(1)
         currentAnim = 1
+        animator:set_current_animation(currentAnim)
     end
 
     enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -286,9 +286,9 @@ end
 
 function chase_state(dt)
 
-    if currentAnim ~= 1 then
-        animator:set_current_animation(1)
-        currentAnim = 1
+    if currentAnim ~= 3 then
+        currentAnim = 3
+        animator:set_current_animation(currentAnim)
     end
 
     follow_path(dt)
@@ -298,8 +298,8 @@ end
 function stab_state(dt)
 
     if currentAnim ~= 0 then
-        animator:set_current_animation(0)
         currentAnim = 0
+        animator:set_current_animation(currentAnim)
     end
 
     enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -329,12 +329,13 @@ function make_damage()
 
             if playerScript.playerHealth > 0 then
                 playerScript.playerHealth = playerScript.playerHealth - damage
+                print("PlayerHealth " .. playerScript.playerHealth)
             end
             
 
 
-            audioDanoPlayerMusic:pause()
-            audioDanoPlayerMusic:play()
+            --audioDanoPlayerMusic:pause()
+            --audioDanoPlayerMusic:play()
             timeSinceLastHit = 0
         end
     end
