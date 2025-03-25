@@ -1,3 +1,4 @@
+--Base shoot
 using = false
 local sphere1RigidBody = nil
 local sphere1RigidBodyComponent = nil
@@ -32,6 +33,16 @@ local rifle_reload
 local rifle_firerate = 0.8
 
 local rifle_firerate_count = 0
+
+-- Special ability
+local disruptorBullet = nil
+local disruptorBulletTransf = nil
+local disruptorBulletRbComponent = nil
+local disruptorBulletRb = nil
+
+local disruptorBulletDamage = 40
+
+local shieldMultiplier = 0.3
 
 
 function on_ready()
@@ -112,6 +123,74 @@ function on_ready()
                     
                     bulletDamageParticleComponent:emit(20)
                     enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - damage
+            
+                end
+            end
+           
+        end
+    end)
+
+    disruptorBullet = current_scene:get_entity_by_name("DisruptorBullet")
+    disruptorBulletTransf = disruptorBullet:get_component("TransformComponent")
+    disruptorBulletRbComponent = disruptorBullet:get_component("RigidbodyComponent")
+    disruptorBulletRb = disruptorBulletRbComponent.rb
+    disruptorBulletRb:set_trigger(true)
+
+    disruptorBulletRbComponent:on_collision_enter(function(entityA, entityB)               
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+
+        if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
+            local enemyOrk = nil
+            local enemyOrkScript = nil
+            if nameA == "EnemyOrk" then
+                enemyOrk = entityA
+                
+            end
+
+            if nameB == "EnemyOrk" then
+                enemyOrk = entityB
+            end
+            if enemyOrk ~= nil then               
+                enemyOrkScript = enemyOrk:get_component("ScriptComponent")
+            end
+
+            if enemyOrk ~= nil then
+                if enemyOrkScript ~= nil then
+                    
+                    if enemyOrkScript.shieldHealth > 0 then
+                        bulletDamageParticleComponent:emit(20)
+                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (disruptorBulletDamage + disruptorBulletDamage * shieldMultiplier)
+                    else
+                    bulletDamageParticleComponent:emit(20)
+                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - disruptorBulletDamage
+                    end
+                end
+            end
+           
+        end
+
+        if nameA == "EnemySupp" or nameB == "EnemySupp" then
+            local enemySupp = nil
+            local enemySuppScript = nil
+            if nameA == "EnemySupp" then
+                enemySupp = entityA
+                
+            end
+
+            if nameB == "EnemySupp" then
+                enemySupp = entityB
+            end
+            if enemySupp ~= nil then               
+                enemySuppScript = enemySupp:get_component("ScriptComponent")
+            end
+
+            if enemySupp ~= nil then
+                if enemySuppScript ~= nil then
+                    
+                    bulletDamageParticleComponent:emit(20)
+                    enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - disruptorBulletDamage
             
                 end
             end
@@ -206,8 +285,23 @@ function shoot(dt)
 end
 
 function disruptiveCharge()
-    print("Habilidad Especial")
 
+    local playerPosition = playerTransf.position
+    local playerRotation = playerTransf.rotation
+
+     local forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+    
+    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
+
+    disruptorBulletTransf.position = newPosition
+    disruptorBulletTransf.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
+
+    disruptorBulletRb:set_position(playerPosition)
+
+    disruptorBulletRb:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+
+    local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
+    disruptorBulletRb:set_velocity(velocity)
 
 end
 
