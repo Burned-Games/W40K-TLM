@@ -9,6 +9,7 @@ local detectDistance = 30
 local tackleDistance = 10
 local IsCharging = false
 local chargeTime = 0
+local damagedistance = 5
 local meleeDistance = 3
 
 local tankTransform = nil
@@ -265,20 +266,11 @@ function tackle_state(dt)
             local playerDistance = get_distance(tankTransform.position, playerTransf.position)
             
             -- Usar la misma lógica de distancia que en el ataque melee
-            if playerDistance <= meleeDistance then
-                -- Attempt to damage player directly with 50 damage
+            if playerDistance <= tackleDistance then
+
                 local damage = 50
                 print("Tank Tackle Damage: " .. damage)
-                
-                -- Directly reduce player health
                 playerScript.playerHealth = playerScript.playerHealth - damage
-                
-                -- Optional: Apply bleeding effect
-                if playerScript.applyBleed then
-                    playerScript:applyBleed()
-                end
-                
-                -- Marcar que ya se ha hecho daño
                 tackleHasDamaged = true
             end
         end
