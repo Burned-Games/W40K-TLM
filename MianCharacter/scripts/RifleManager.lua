@@ -11,7 +11,7 @@ ammo = 0
 local reloadTimeRifle = 0
 local shootCoolDown = 0
 local shootCoolDownRifle = 0.8
-local damageRifle = 25
+local damageRifle = 1
 local tripleShootTimer = 0
 local tripleShootCount = 0
 local tripleShootInterval = 0.1
@@ -25,7 +25,7 @@ local playerScript = nil
 
 local shooted = true
 
-local damage = 25
+local damage = 1
 
 --audio
 local burst_shot
@@ -118,9 +118,11 @@ function on_ready()
                     if enemyOrkScript.shieldHealth > 0 then
                         bulletDamageParticleComponent:emit(20)
                         enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
+                        playerScript.makeDamage = true
                     else
                     bulletDamageParticleComponent:emit(20)
                     enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
+                    playerScript.makeDamage  =true
                     end
                 end
             end
@@ -147,6 +149,7 @@ function on_ready()
                     
                     bulletDamageParticleComponent:emit(20)
                     enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - damage
+                    playerScript.makeDamage = true
             
                 end
             end
@@ -186,9 +189,11 @@ function on_ready()
                     if enemyOrkScript.shieldHealth > 0 then
                         bulletDamageParticleComponent:emit(20)
                         enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (disruptorBulletDamage + disruptorBulletDamage * shieldMultiplier)
+                        playerScript.makeDamage = true
                     else
                     bulletDamageParticleComponent:emit(20)
                     enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - disruptorBulletDamage
+                    playerScript.makeDamage = true
                     end
                     activateZone = true
                     chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
@@ -219,6 +224,7 @@ function on_ready()
                     
                     bulletDamageParticleComponent:emit(20)
                     enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - disruptorBulletDamage
+                    playerScript.makeDamage = true
             
                 end
                 activateZone = true
@@ -488,9 +494,11 @@ function chargedZoneUpdate(dt)
                             if enemyOrkScript.shieldHealth > 0 then
                                 bulletDamageParticleComponent:emit(20)
                                 enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
+                                playerScript.makeDamage = true
                             else
                                 bulletDamageParticleComponent:emit(20)
                                 enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
+                                playerScript.makeDamage = true
                             end
                             print("damage dealed")
                         end
@@ -502,6 +510,7 @@ function chargedZoneUpdate(dt)
                     
                             bulletDamageParticleComponent:emit(20)
                             enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - chargeZoneDamagePerSecond
+                            playerScript.makeDamage = true
                         end
                         print("damage dealed")
                     end              

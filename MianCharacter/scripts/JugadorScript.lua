@@ -30,7 +30,8 @@ local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
 damageReduction = 1
-tookDamage = false 
+tookDamage = false
+makeDamage = false 
 
 -- Disparo
 

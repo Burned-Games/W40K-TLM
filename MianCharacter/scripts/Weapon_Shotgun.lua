@@ -207,8 +207,10 @@ function handle_bullet_collision(entityA, entityB)
                 bulletDamageParticleComponent:emit(20)
                 if enemyScript.shieldHealth and enemyScript.shieldHealth > 0 then
                     enemyScript.shieldHealth = enemyScript.shieldHealth - damage
+                    playerScript.makeDamage = true
                 else
                     enemyScript.enemyHealth = enemyScript.enemyHealth - damage
+                    playerScript.makeDamage = true
                 end
             end
 
