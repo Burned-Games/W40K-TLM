@@ -1,13 +1,13 @@
 using = false
 -- Time
 local current_time = 0  
-local shotgun_fire_rate = 1.5 
+local shotgun_fire_rate = 1.3 
 local next_fire_time = 0 
 
 -- ammo
-maxAmmo = 6  -- maxammo
+maxAmmo = 12  -- maxammo
 ammo = maxAmmo  -- curreamoo
-local reload_time = 2.5  -- reloadtime
+local reload_time = 2.8  -- reloadtime
 local is_reloading = false  -- inReloading?
 local reload_end_time = 0  -- record_reload_time
 
@@ -26,18 +26,18 @@ local spreadAngle = 5  -- Bullet angle
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
-local damage = 0
+local damage = 15
 local knockbackForce = 6000  -- force
 
 
 --granadas
 
-local granadeCooldown= 1
+local granadeCooldown= 12
 local timerGranade = 0
 local granadeEntity = nil
 local granadeInitialSpeed = 12
 
-local explosionRadius = 7.0
+local explosionRadius = 6.0
 local explosionForce = 13.0
 local explosionUpward = 2.0
 local granadeParticlesExplosion = nil
@@ -144,7 +144,7 @@ function on_update(dt)
 
 
         --granade 
-        if Input.is_button_pressed(Input.controllercode.LeftShoulder) then
+        if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
             lbapretado = true
             granadasSpeed = true
             update_joystick_position()

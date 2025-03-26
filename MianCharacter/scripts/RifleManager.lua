@@ -313,8 +313,8 @@ end
 
 function on_update(dt)
     if using then
-        local rightTrigger = Input.get_axis_position(Input.axiscode.RightTrigger)
-        local leftShoulder = Input.is_button_pressed(Input.controllercode.LeftShoulder)
+        local rightTrigger = Input.get_button(Input.action.Shoot)
+        local leftShoulder = Input.get_button(Input.action.Skill1)
 
         if ammo >= maxAmmo then
             if reloadTime == 0 then
@@ -331,7 +331,7 @@ function on_update(dt)
             shootCoolDown = shootCoolDown + dt
         end
 
-        if rightTrigger ~= 0 and (ammo < maxAmmo) and shootCoolDown >= shootCoolDownRifle then
+        if rightTrigger == Input.state.Down and (ammo < maxAmmo) and shootCoolDown >= shootCoolDownRifle then
         
             
             tripleShoot()
@@ -353,7 +353,7 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder and cooldownDisruptorBulletTimeCounter >= cooldownDisruptorBulletTime then
+        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= cooldownDisruptorBulletTime then
             
             cooldownDisruptorBulletTimeCounter = 0
             disruptorShooted = true
