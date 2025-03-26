@@ -32,12 +32,12 @@ local knockbackForce = 6000  -- force
 
 --granadas
 
-local granadeCooldown= 1
+local granadeCooldown= 12
 local timerGranade = 0
 local granadeEntity = nil
 local granadeInitialSpeed = 12
 
-local explosionRadius = 7.0
+local explosionRadius = 6.0
 local explosionForce = 13.0
 local explosionUpward = 2.0
 local granadeParticlesExplosion = nil
@@ -144,7 +144,7 @@ function on_update(dt)
 
 
         --granade 
-        if Input.is_button_pressed(Input.controllercode.LeftShoulder) then
+        if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
             lbapretado = true
             granadasSpeed = true
             update_joystick_position()
