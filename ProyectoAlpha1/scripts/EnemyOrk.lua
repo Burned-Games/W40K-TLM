@@ -414,6 +414,13 @@ function rotate_enemy(targetPosition)
 
     enemyTransf.rotation.y = math.deg(angleRotation)
 
+    [[
+    local targetRotation = math.atan(dx, dz)
+    local currentRotation = math.rad(enemyTransf.rotation.y)
+    local smoothedRotation = lerp(currentRotation, targetRotation, 0.1)
+    enemyTransf.rotation.y = math.deg(smoothedRotation)
+    ]]
+
 end
 
 function get_distance(pos1, pos2)
@@ -423,6 +430,10 @@ function get_distance(pos1, pos2)
     local dz = pos2.z - pos1.z
     return math.sqrt(dx * dx + dy * dy + dz * dz)
 
+end
+
+function lerp(a, b, t)
+    return (1 - t) * a + t * b
 end
 
 function die()
