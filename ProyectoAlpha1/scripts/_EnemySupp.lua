@@ -521,34 +521,7 @@ function create_new_shield()
     end
 end
 
-function update_path()
-    if enemyNavmesh == nil then 
-        return 
-    end
-    
-    -- Determine target based on state
-    local targetPos = nil
-    
-    if currentState == state.Chase then
-        if player and playerTransf and get_distance(enemyTransf.position, playerTransf.position) <= chaseDistance then
-            targetPos = playerTransf.position
-        elseif enemyRangeEntity and enemyRangeTransf then
-            targetPos = enemyRangeTransf.position
-        end
-    elseif currentState == state.Shield and enemyRangeEntity and enemyRangeTransf then
-        targetPos = enemyRangeTransf.position
-    elseif currentState == state.Flee and #waypointPositions > 0 then
-        targetPos = waypointPositions[currentWaypoint]
-    end
-    
-    -- Update path if we have a target
-    if targetPos ~= nil then
-        enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, targetPos)
-        lastTargetPos = targetPos
-        -- Reset el índice del camino
-        currentPathIndex = 1
-    end
-end
+
 
 function find_range_enemies()
     rangeEnemies = {}
@@ -637,6 +610,35 @@ function check_enemies_shield_status()
     end
     
     return false
+end
+
+function update_path()
+    if enemyNavmesh == nil then 
+        return 
+    end
+    
+    -- Determine target based on state
+    local targetPos = nil
+    
+    if currentState == state.Chase then
+        if player and playerTransf and get_distance(enemyTransf.position, playerTransf.position) <= chaseDistance then
+            targetPos = playerTransf.position
+        elseif enemyRangeEntity and enemyRangeTransf then
+            targetPos = enemyRangeTransf.position
+        end
+    elseif currentState == state.Shield and enemyRangeEntity and enemyRangeTransf then
+        targetPos = enemyRangeTransf.position
+    elseif currentState == state.Flee and #waypointPositions > 0 then
+        targetPos = waypointPositions[currentWaypoint]
+    end
+    
+    -- Update path if we have a target
+    if targetPos ~= nil then
+        enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, targetPos)
+        lastTargetPos = targetPos
+        -- Reset el índice del camino
+        currentPathIndex = 1
+    end
 end
 
 function follow_path(dt)

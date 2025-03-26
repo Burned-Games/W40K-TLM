@@ -1,30 +1,30 @@
-local state = { Idle = 1, Move = 2, Chase = 3, Attack = 4, Tackle = 5 }
-local currentState = state.Idle
+--local state = { Idle = 1, Move = 2, Chase = 3, Attack = 4, Tackle = 5 }
+--local currentState = state.Idle
 
-local player
-local playerTransf
-local playerScript
+--local player
+--local playerTransf
+--local playerScript
 
-local detectDistance = 30
-local tackleDistance = 10
-local IsCharging = false
+--local detectDistance = 30
+--local tackleDistance = 10
+--local IsCharging = false
 local chargeTime = 0
 local damagedistance = 5
 local meleeDistance = 3
 
-local tankTransform = nil
+--local tankTransform = nil
 local forwardVector
-local tankRigidbody = nil
+--local tankRigidbody = nil
 local tankScript = nil
 
-local tankVelocity = 2
-tankHealth = 75
-local isDead = false
-local tankDamage = 10  -- This will now be the melee damage
-local AttackCooldown = 3
-local tankNavmesh = nil
+--local tankVelocity = 2
+--tankHealth = 75
+--local isDead = false
+--local tankDamage = 10  -- This will now be the melee damage
+--local AttackCooldown = 3
+--local tankNavmesh = nil
 
-local tackleCooldown = 8
+--local tackleCooldown = 8
 local tackleTimer = 0       
 local canTackle = true      
 
@@ -336,6 +336,89 @@ function attack_state(dt)
         
         -- Return to Chase state after attacking
         currentState = state.Chase
+    end
+end
+
+function update_path()
+    if enemyNavmesh == nil then 
+        return 
+    end
+    
+    -- Determine target based on state
+    local targetPos = nil
+    
+    if currentState == state.Chase then
+        if player and playerTransf and get_distance(enemyTransf.position, playerTransf.position) <= chaseDistance then
+            targetPos = playerTransf.position
+        elseif enemyRangeEntity and enemyRangeTransf then
+            targetPos = enemyRangeTransf.position
+        end
+    elseif currentState == state.Shield and enemyRangeEntity and enemyRangeTransf then
+        targetPos = enemyRangeTransf.position
+    elseif currentState == state.Flee and #waypointPositions > 0 then
+        targetPos = waypointPositions[currentWaypoint]
+    end
+    
+    -- Update path if we have a target
+    if targetPos ~= nil then
+        enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, targetPos)
+        lastTargetPos = targetPos
+        -- Reset el índice del camino
+        currentPathIndex = 1
+    end
+end
+
+function follow_path(dt)
+    if enemyNavmesh == nil or #enemyNavmesh.path == 0 then 
+        if enemyRb then
+            enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        end
+        return 
+    end
+    
+    -- Verificar que el índice es válido
+    if currentPathIndex > #enemyNavmesh.path then
+        currentPathIndex = 1
+        if #enemyNavmesh.path == 0 then
+            if enemyRb then
+                enemyRb:set_velocity(Vector3.new(0, 0, 0))
+            end
+            return
+        end
+    end
+
+    local nextPoint = enemyNavmesh.path[currentPathIndex]
+    local direction = Vector3.new(
+        nextPoint.x - enemyTransf.position.x,
+        0, -- Ignoramos la Y para movimiento en plano
+        nextPoint.z - enemyTransf.position.z
+    )
+
+    local distance = math.sqrt(direction.x^2 + direction.z^2)
+
+    if distance > 0.1 then
+        local normalizedDirection = Vector3.new(
+            direction.x / distance,
+            0,
+            direction.z / distance
+        )
+
+        -- Usar física para el movimiento
+        if enemyRb then
+            local velocity = Vector3.new(normalizedDirection.x * moveSpeed, 0, normalizedDirection.z * moveSpeed)
+            enemyRb:set_velocity(velocity)
+        end
+
+        rotate_enemy(nextPoint)
+    else
+        if currentPathIndex < #enemyNavmesh.path then
+            currentPathIndex = currentPathIndex + 1
+        else
+            -- Llegamos al final del camino, detener movimiento
+            if enemyRb then
+                enemyRb:set_velocity(Vector3.new(0, 0, 0))
+            end
+        end
     end
 end
 
