@@ -1,30 +1,30 @@
---local state = { Idle = 1, Move = 2, Chase = 3, Attack = 4, Tackle = 5 }
---local currentState = state.Idle
+local state = { Idle = 1, Move = 2, Chase = 3, Attack = 4, Tackle = 5 }
+local currentState = state.Idle
 
---local player
---local playerTransf
---local playerScript
+local player
+local playerTransf
+local playerScript
 
---local detectDistance = 30
---local tackleDistance = 10
---local IsCharging = false
+local detectDistance = 30
+local tackleDistance = 10
+local IsCharging = false
 local chargeTime = 0
 local damagedistance = 5
 local meleeDistance = 3
 
---local tankTransform = nil
+local tankTransform = nil
 local forwardVector
---local tankRigidbody = nil
-local tankScript = nil
+local tankRigidbody = nil
+local tankNavmesh = nil
 
---local tankVelocity = 2
---tankHealth = 75
---local isDead = false
---local tankDamage = 10  -- This will now be the melee damage
---local AttackCooldown = 3
---local tankNavmesh = nil
+local tankVelocity = 2
+tankHealth = 75
+local isDead = false
+local tankDamage = 10  -- This will now be the melee damage
+local AttackCooldown = 3
+local tankNavmesh = nil
 
---local tackleCooldown = 8
+local tackleCooldown = 8
 local tackleTimer = 0       
 local canTackle = true      
 
@@ -32,10 +32,9 @@ local currentAnim = 0
 local animator
 local attackTimer = 0
 
-local pathUpdateTimer = 0
-local pathUpdateInterval = 0.5  -- Update path every 0.5 seconds
+local pathUpdateTimer = 0                                        
+local pathUpdateInterval = 1.0
 local lastTargetPos = nil
-local currentPathIndex = 1
 
 haveShield = false
 shieldHealth = 0
@@ -95,12 +94,19 @@ function on_update(dt)
         return
     end
 
+    -- Update path if needed
+    local currentTargetPos = playerTransf and playerTransf.position or nil
+    if currentTargetPos and (pathUpdateTimer >= pathUpdateInterval or 
+        (lastTargetPos and get_distance(lastTargetPos, currentTargetPos) > 1.0)) then
+        update_path()
+        lastTargetPos = currentTargetPos
+        pathUpdateTimer = 0
+    end
+
     -- FSM { Idle -> Move -> Chase -> Attack -> Tackle}
     if currentState == state.Idle then
         idle_state(dt)
-    elseif currentState == state.Move then
-        chase_state(dt)  -- Assuming Move uses the same logic as Chase
-    elseif currentState == state.Chase then
+    elseif currentState == state.Move or currentState == state.Chase then
         chase_state(dt)
     elseif currentState == state.Attack then
         attack_state(dt)
@@ -108,6 +114,66 @@ function on_update(dt)
         tackle_state(dt)
     end
 end
+
+function update_path()
+    if tankNavmesh == nil or player == nil or playerTransf == nil then 
+        return 
+    end
+
+    tankNavmesh.path = tankNavmesh:find_path(tankTransform.position, playerTransf.position)
+    currentPathIndex = 1
+end
+
+function follow_path(dt)
+    if tankNavmesh == nil or #tankNavmesh.path == 0 then 
+        tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
+        return 
+    end
+    
+    -- Verificar que el índice es válido
+    if currentPathIndex > #tankNavmesh.path then
+        currentPathIndex = 1
+        if #tankNavmesh.path == 0 then
+            tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
+            return
+        end
+    end
+
+    local nextPoint = tankNavmesh.path[currentPathIndex]
+    local direction = Vector3.new(
+        nextPoint.x - tankTransform.position.x,
+        0,
+        nextPoint.z - tankTransform.position.z
+    )
+
+    local distance = math.sqrt(direction.x^2 + direction.z^2)
+
+    if distance > 0.1 then
+        local normalizedDirection = Vector3.new(
+            direction.x / distance,
+            0,
+            direction.z / distance
+        )
+
+        local velocity = Vector3.new(
+            normalizedDirection.x * tankVelocity, 
+            0, 
+            normalizedDirection.z * tankVelocity
+        )
+        
+        tankRigidbody:set_velocity(velocity)
+
+        rotate_tank(nextPoint)
+    else
+        if currentPathIndex < #tankNavmesh.path then
+            currentPathIndex = currentPathIndex + 1
+        else
+            -- Llegamos al final del camino
+            tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
+        end
+    end
+end
+
 
 function change_state()
     if player and playerTransf then
@@ -176,7 +242,6 @@ function idle_state(dt)
     end
 end
 
--- Chase state - tank moves toward player at normal speed
 function chase_state(dt)
     -- Animation for chase
     if currentAnim ~= 2 then
@@ -184,36 +249,7 @@ function chase_state(dt)
         currentAnim = 2
     end
     
-    if player and playerTransf then
-        -- Calculate direction to player
-        local direction = Vector3.new(
-            playerTransf.position.x - tankTransform.position.x,
-            0, 
-            playerTransf.position.z - tankTransform.position.z
-        )
-        
-        -- Normalize direction
-        local distance = math.sqrt(direction.x^2 + direction.y^2 + direction.z^2)
-        if distance > 0 then
-            local normalizedDirection = Vector3.new(
-                direction.x / distance,
-                0,
-                direction.z / distance
-            )
-            
-            -- Apply velocity for chase 
-            local velocity = Vector3.new(
-                normalizedDirection.x * tankVelocity,
-                0,
-                normalizedDirection.z * tankVelocity
-            )
-            
-            tankRigidbody:set_velocity(velocity)
-            
-            -- Rotate to face player
-            rotate_tank(playerTransf.position)
-        end
-    end
+    follow_path(dt)
 end
 
 function tackle_state(dt)
@@ -225,23 +261,6 @@ function tackle_state(dt)
     
     -- Initialize tackle if just entered this state
     if IsCharging == true then
-        -- Calculate forward direction at start of charge
-        local direction = Vector3.new(
-            playerTransf.position.x - tankTransform.position.x,
-            0,
-            playerTransf.position.z - tankTransform.position.z
-        )
-        
-        -- Save the initial direction for straight-line charge
-        local distance = math.sqrt(direction.x^2 + direction.y^2 + direction.z^2)
-        if distance > 0 then
-            forwardVector = Vector3.new(
-                direction.x / distance,
-                0,
-                direction.z / distance
-            )
-        end
-        
         chargeTime = 0
         IsCharging = false
         tackleHasDamaged = false
@@ -252,22 +271,13 @@ function tackle_state(dt)
     
     -- Perform charge for 1.5 seconds
     if chargeTime < 1.5 then
-        local tackleVelocity = 13
-        local velocity = Vector3.new(
-            forwardVector.x * tackleVelocity,
-            0,
-            forwardVector.z * tackleVelocity
-        )
-        
-        tankRigidbody:set_velocity(velocity)
+        follow_path(dt)
         
         -- Check for collision with player during charge
         if player and playerTransf and playerScript and not tackleHasDamaged then
             local playerDistance = get_distance(tankTransform.position, playerTransf.position)
             
-            -- Usar la misma lógica de distancia que en el ataque melee
             if playerDistance <= tackleDistance then
-
                 local damage = 50
                 print("Tank Tackle Damage: " .. damage)
                 playerScript.playerHealth = playerScript.playerHealth - damage
@@ -338,90 +348,6 @@ function attack_state(dt)
         currentState = state.Chase
     end
 end
-
-function update_path()
-    if enemyNavmesh == nil then 
-        return 
-    end
-    
-    -- Determine target based on state
-    local targetPos = nil
-    
-    if currentState == state.Chase then
-        if player and playerTransf and get_distance(enemyTransf.position, playerTransf.position) <= chaseDistance then
-            targetPos = playerTransf.position
-        elseif enemyRangeEntity and enemyRangeTransf then
-            targetPos = enemyRangeTransf.position
-        end
-    elseif currentState == state.Shield and enemyRangeEntity and enemyRangeTransf then
-        targetPos = enemyRangeTransf.position
-    elseif currentState == state.Flee and #waypointPositions > 0 then
-        targetPos = waypointPositions[currentWaypoint]
-    end
-    
-    -- Update path if we have a target
-    if targetPos ~= nil then
-        enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, targetPos)
-        lastTargetPos = targetPos
-        -- Reset el índice del camino
-        currentPathIndex = 1
-    end
-end
-
-function follow_path(dt)
-    if enemyNavmesh == nil or #enemyNavmesh.path == 0 then 
-        if enemyRb then
-            enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        end
-        return 
-    end
-    
-    -- Verificar que el índice es válido
-    if currentPathIndex > #enemyNavmesh.path then
-        currentPathIndex = 1
-        if #enemyNavmesh.path == 0 then
-            if enemyRb then
-                enemyRb:set_velocity(Vector3.new(0, 0, 0))
-            end
-            return
-        end
-    end
-
-    local nextPoint = enemyNavmesh.path[currentPathIndex]
-    local direction = Vector3.new(
-        nextPoint.x - enemyTransf.position.x,
-        0, -- Ignoramos la Y para movimiento en plano
-        nextPoint.z - enemyTransf.position.z
-    )
-
-    local distance = math.sqrt(direction.x^2 + direction.z^2)
-
-    if distance > 0.1 then
-        local normalizedDirection = Vector3.new(
-            direction.x / distance,
-            0,
-            direction.z / distance
-        )
-
-        -- Usar física para el movimiento
-        if enemyRb then
-            local velocity = Vector3.new(normalizedDirection.x * moveSpeed, 0, normalizedDirection.z * moveSpeed)
-            enemyRb:set_velocity(velocity)
-        end
-
-        rotate_enemy(nextPoint)
-    else
-        if currentPathIndex < #enemyNavmesh.path then
-            currentPathIndex = currentPathIndex + 1
-        else
-            -- Llegamos al final del camino, detener movimiento
-            if enemyRb then
-                enemyRb:set_velocity(Vector3.new(0, 0, 0))
-            end
-        end
-    end
-end
-
 -- Helper function to rotate the tank to face a target position
 function rotate_tank(targetPosition)
     local dx = targetPosition.x - tankTransform.position.x
