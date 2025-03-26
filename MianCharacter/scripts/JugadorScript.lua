@@ -302,7 +302,8 @@ function playerMovement(dt)
     local rotationDirectionX = axisX_r * math.cos(cameraAngle) - axisY_r * math.sin(cameraAngle)
     local rotationDirectionY = axisX_r * math.sin(cameraAngle) + axisY_r * math.cos(cameraAngle)
 
-    local keyboard = false
+    local keyboardleft = false
+    local keyboardRight = false
 
    
     if Input.is_key_pressed(Input.keycode.W) or Input.is_key_pressed(Input.keycode.A) or Input.is_key_pressed(Input.keycode.S) or Input.is_key_pressed(Input.keycode.D) then
@@ -323,11 +324,11 @@ function playerMovement(dt)
             moveDirectionX = 0
         end
 
-        keyboard = true
+        keyboardleft = true
         
     end
 
-    if keyboard then
+    if keyboardleft then
         moveDirection = Vector3.new(
         moveDirectionX * math.cos(cameraAngle) - moveDirectionY * math.sin(cameraAngle),
         0,
@@ -337,7 +338,39 @@ function playerMovement(dt)
         moveDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
     end
 
-    rotationDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
+    if Input.is_key_pressed(Input.keycode.Up) or Input.is_key_pressed(Input.keycode.Left) or Input.is_key_pressed(Input.keycode.Down) or Input.is_key_pressed(Input.keycode.Right) then
+        if Input.is_key_pressed(Input.keycode.Up) then
+            rotationDirectionY = -1  
+            
+        elseif Input.is_key_pressed(Input.keycode.Down) then
+            rotationDirectionY = 1  
+        else
+            rotationDirectionY = 0
+        end
+        
+        if Input.is_key_pressed(Input.keycode.Left) then
+            rotationDirectionX = -1  
+        elseif Input.is_key_pressed(Input.keycode.Right) then
+            rotationDirectionX = 1 
+        else
+            rotationDirectionX = 0
+        end
+
+        keyboardRight = true
+        
+    end
+
+    if keyboardRight then
+        rotationDirection = Vector3.new(
+        rotationDirectionX * math.cos(cameraAngle) - rotationDirectionY * math.sin(cameraAngle),
+        0,
+        rotationDirectionX * math.sin(cameraAngle) + rotationDirectionY * math.cos(cameraAngle)
+        )
+    else
+        rotationDirection = Vector3.new(rotationDirectionX, 0, rotationDirectionY)
+    end
+
+    
 
     if impulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
