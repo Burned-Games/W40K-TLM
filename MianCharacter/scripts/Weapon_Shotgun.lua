@@ -157,6 +157,31 @@ function on_exit()
     -- Add cleanup code here
 end
 
+function shoot(dt)
+    local playerPosition = playerTransf.position
+    local baseAngle = playerScript.angleRotation  
+    print("Player Rotation (Y):", playerTransf.rotation.y)
+
+    for i, bullet in ipairs(bullets) do
+        local angleOffset = (i - (bulletCount / 2)) * spreadAngle  -- angle
+        local shootAngle = baseAngle + math.rad(angleOffset) 
+        
+        local forwardVector = Vector3.new(math.sin(shootAngle), 0, math.cos(shootAngle))
+        local newPosition = Vector3.new(
+            playerPosition.x + forwardVector.x,
+            playerPosition.y,
+            playerPosition.z + forwardVector.z
+        )
+        
+        bullet.transform.position = newPosition
+        bullet.transform.rotation = Vector3.new(0, math.deg(shootAngle), 0)
+        bullet.rigidBody:set_position(playerPosition)
+        bullet.rigidBody:set_rotation(Vector3.new(0, math.deg(shootAngle), 0))
+        
+        local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
+        bullet.rigidBody:set_velocity(velocity)
+    end
+end
 
 function handle_bullet_collision(entityA, entityB)
    
@@ -218,7 +243,7 @@ end
 function update_joystick_position()
     local playerPos = playerTransf.position
     
-    -- 初始化目标位置（不再需要视角锁定）
+    -- 初始化目标位置
     if targetGranadePosition == nil then
         targetGranadePosition = Vector3.new(playerPos.x, playerPos.y + 1.5, playerPos.z)
     end
@@ -227,22 +252,59 @@ function update_joystick_position()
     local inputX = Input.get_axis_position(Input.axiscode.RightX)
     local inputY = Input.get_axis_position(Input.axiscode.RightY)
 
-    -- 直接根据输入计算偏移（X轴和Z轴平面）
-    local offsetX = inputX * granadeMoveSpeed
-    local offsetZ = inputY * granadeMoveSpeed
+    -- 等轴测视角参数
+    local isometricAngle = math.rad(-45)
+    
+    -- 计算等轴测坐标系基向量（使用三角函数手动计算）
+    local rightVector = {
+        x = math.cos(isometricAngle),
+        y = 0,
+        z = -math.sin(isometricAngle)
+    }
+    
+    local forwardVector = {
+        x = math.sin(isometricAngle) * math.cos(isometricAngle),
+        y = -math.sin(isometricAngle),
+        z = math.cos(isometricAngle) * math.cos(isometricAngle)
+    }
+
+    -- 计算移动方向分量
+    local moveX = (rightVector.x * inputX) + (forwardVector.x * inputY)
+    local moveZ = (rightVector.z * inputX) + (forwardVector.z * inputY)
+    
+    -- 创建移动方向向量
+    local moveDirection = Vector3.new(moveX, 0, moveZ)
+    
+    -- 标准化方向向量（手动计算）
+    local dirLength = math.sqrt(moveX^2 + moveZ^2)
+    if dirLength > 0 then
+        moveDirection = Vector3.new(
+            moveX / dirLength,
+            0,
+            moveZ / dirLength
+        )
+    else
+        moveDirection = Vector3.new(0, 0, 0)
+    end
+
+    -- 应用移动速度
+    local offset = Vector3.new(
+        moveDirection.x * granadeMoveSpeed,
+        0,
+        moveDirection.z * granadeMoveSpeed
+    )
 
     -- 更新目标位置
     targetGranadePosition = Vector3.new(
-        targetGranadePosition.x + offsetX,
-        playerPos.y + 1.5,  -- Y轴保持玩家头顶高度
-        targetGranadePosition.z + offsetZ
+        targetGranadePosition.x + offset.x,
+        playerPos.y + 1.5,
+        targetGranadePosition.z + offset.z
     )
 
     -- 更新手雷实体位置
     granadeEntity:get_component("TransformComponent").position = targetGranadePosition
 
-    print("Joystick Input (X, Y):", inputX, inputY)
-    print("Target Granade Position:", targetGranadePosition)
+    print("Move Offset:", offset.x, offset.z)
 end
 
 function handleGranade(dt)
@@ -293,8 +355,6 @@ function throwGranade()
         baseViewAngleForGranade = nil
     end
 end
-
-
 
 
 
