@@ -323,9 +323,9 @@ function make_damage()
     if player ~= nil then
         if playerScript ~= nil and playerScript.intangibleDash == false then
             local damage = 10
-
+           
             if playerScript.playerHealth > 0 then
-                playerScript.playerHealth = playerScript.playerHealth - damage
+                playerScript.take_damage(10)
             end
             
 
