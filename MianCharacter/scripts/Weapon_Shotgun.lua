@@ -21,13 +21,13 @@ local bullet_speed = 10.0
 local sphereSpeed = 100
 -- BulletList
 local bullets = {}
-local bulletCount = 4  -- Bullet Num
-local spreadAngle = 15  -- Bullet angle
+local bulletCount = 8  -- Bullet Num
+local spreadAngle = 5  -- Bullet angle
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
-local damage = 1
-local knockbackForce = 600  -- force
+local damage = 0
+local knockbackForce = 6000  -- force
 
 
 --granadas
@@ -44,6 +44,7 @@ local granadeParticlesExplosion = nil
 
 local lbapretado = false
 local dropGranade = false
+granadasSpeed = false
 
 
 local baseGranadePosition = nil       
@@ -115,7 +116,6 @@ function on_update(dt)
             if current_time >= reload_end_time then
                 ammo = maxAmmo  -- reload bullet
                 is_reloading = false
-                print("Reload complet！")
             else
                 --print("in reload")
                 return  -- in reload cant shoot
@@ -126,7 +126,6 @@ function on_update(dt)
         if rightTrigger ~= 0 then
             if ammo > 0 and current_time >= next_fire_time then
                 ammo = ammo - 1  -- use bulle 
-                print("fire")
                 shoot(dt)
                 next_fire_time = current_time + shotgun_fire_rate  -- next shoot time
             elseif ammo == 0 then
@@ -138,19 +137,23 @@ function on_update(dt)
 
         -- reload
         if ammo==0 and not is_reloading then
-            print("Start reload")
+            --print("Start reload")
             is_reloading = true
             reload_end_time = current_time + reload_time  -- setting reload time
         end
 
+
+        --granade 
         if Input.is_button_pressed(Input.controllercode.LeftShoulder) then
             lbapretado = true
+            granadasSpeed = true
             update_joystick_position()
         else
             if lbapretado then
                 dropGranade = true
             end
             lbapretado = false
+            granadasSpeed = false
         end
 
         handleGranade(dt)
@@ -165,7 +168,7 @@ end
 function shoot(dt)
     local playerPosition = playerTransf.position
     local baseAngle = playerScript.angleRotation  
-    print("Player Rotation (Y):", playerTransf.rotation.y)
+    --print("Player Rotation (Y):", playerTransf.rotation.y)
 
     for i, bullet in ipairs(bullets) do
         local angleOffset = (i - (bulletCount / 2)) * spreadAngle  -- angle
@@ -217,7 +220,7 @@ function handle_bullet_collision(entityA, entityB)
                 enemyPosition.z - bulletPosition.z
             ))
             
-            print("Knockback Direction: ", knockbackDirection.x, knockbackDirection.z)
+            --print("Knockback Direction: ", knockbackDirection.x, knockbackDirection.z)
             
             local knockbackVelocity = Vector3.new(
                 knockbackDirection.x * knockbackForce,
@@ -300,7 +303,7 @@ function update_joystick_position()
 
     granadeEntity:get_component("TransformComponent").position = targetGranadePosition
 
-    print("Move Offset:", offset.x, offset.z)
+    --print("Move Offset:", offset.x, offset.z)
 end
 
 function handleGranade(dt)
@@ -375,13 +378,6 @@ function throwGranade()
     rb:set_position(startPos)
     rb:set_velocity(finalVelocity)
     throwingGranade = true
-
-
-    print(string.format( 
-        horizontalDistance, 
-        math.sqrt(rawDeltaX^2 + rawDeltaZ^2),
-        math.sqrt(finalVelocity.x^2 + finalVelocity.z^2)
-    ))
 
 
     targetGranadePosition = nil

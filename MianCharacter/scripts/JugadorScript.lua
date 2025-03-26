@@ -68,6 +68,8 @@ local sceneChanged = false
 local UpgradeManager = nil
 local ArmorUpgradeSystem = nil
 
+--granadeSpeed
+local granadeVelocity = 0.65
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
 
@@ -229,7 +231,11 @@ function updateGodMode()
         moveSpeed = 12
         playerRb:set_trigger(true)
     else
+        if shotGunScript.granadasSpeed then
+        moveSpeed = 6*granadeVelocity
+        else
         moveSpeed = 6
+        end
         playerRb:set_trigger(false)
     end
 end
