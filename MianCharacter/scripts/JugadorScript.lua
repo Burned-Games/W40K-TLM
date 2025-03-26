@@ -4,7 +4,7 @@ local playerTransf
 local playerRb = nil
 local moveSpeed = 6
 local lastValidRotation = 0
-local currentSpeed = 0         
+local currentSpeed = 0
 local acceleration = 10      
 local deceleration = 8
 local forwardVector
@@ -174,7 +174,7 @@ end
 
 function updateDash(dt)
     -- Check for dash activation
-    if (Input.is_button_pressed(Input.controllercode.East) or Input.is_key_pressed(Input.keycode.M)) and dashAvailable == true then
+    if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true then
         if moveDirection ~= nil then
             local impulse = Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed)
             playerRb:set_trigger(true)
@@ -259,7 +259,7 @@ function updateEntranceAnimation(dt)
 end
 
 function handleWeaponSwitch()
-    if Input.is_button_pressed(Input.controllercode.North) == true then
+    if Input.get_button(Input.action.Skill1) == Input.state.Down then
         if pressedButtonChangeWeapon == false then
             if actualweapon == 0 then
                 actualweapon = 1
@@ -302,7 +302,40 @@ function playerMovement(dt)
     local rotationDirectionX = axisX_r * math.cos(cameraAngle) - axisY_r * math.sin(cameraAngle)
     local rotationDirectionY = axisX_r * math.sin(cameraAngle) + axisY_r * math.cos(cameraAngle)
 
-    moveDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
+    local keyboard = false
+
+   
+    if Input.is_key_pressed(Input.keycode.W) or Input.is_key_pressed(Input.keycode.A) or Input.is_key_pressed(Input.keycode.S) or Input.is_key_pressed(Input.keycode.D) then
+        if Input.is_key_pressed(Input.keycode.W) then
+            moveDirectionY = -1  
+            
+        elseif Input.is_key_pressed(Input.keycode.S) then
+            moveDirectionY = 1  
+        else
+            moveDirectionY = 0
+        end
+        
+        if Input.is_key_pressed(Input.keycode.A) then
+            moveDirectionX = -1  
+        elseif Input.is_key_pressed(Input.keycode.D) then
+            moveDirectionX = 1 
+        else
+            moveDirectionX = 0
+        end
+
+        keyboard = true
+        
+    end
+
+    if keyboard then
+        moveDirection = Vector3.new(
+        moveDirectionX * math.cos(cameraAngle) - moveDirectionY * math.sin(cameraAngle),
+        0,
+        moveDirectionX * math.sin(cameraAngle) + moveDirectionY * math.cos(cameraAngle)
+        )
+    else
+        moveDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
+    end
 
     rotationDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
 
