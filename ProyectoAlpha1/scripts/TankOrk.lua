@@ -17,7 +17,9 @@ local forwardVector
 local tankRigidbody = nil
 local tankNavmesh = nil
 
-local tankVelocity = 2
+local defaultVelocity = 2
+local tackleVelocity = 13
+local tankVelocity = defaultVelocity
 tankHealth = 75
 local isDead = false
 local tankDamage = 10  -- This will now be the melee damage
@@ -264,6 +266,7 @@ function tackle_state(dt)
         chargeTime = 0
         IsCharging = false
         tackleHasDamaged = false
+        tankVelocity = tackleVelocity -- Set high velocity for tackle
     end
     
     -- Update charge time
