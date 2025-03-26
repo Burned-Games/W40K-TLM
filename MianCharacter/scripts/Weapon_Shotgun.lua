@@ -46,8 +46,8 @@ local lbapretado = false
 local dropGranade = false
 
 
-local baseGranadePosition = nil       -- LB按下时记录玩家位置（固定起始点）
-local targetGranadePosition = nil     -- 当前手雷目标位置
+local baseGranadePosition = nil       
+local targetGranadePosition = nil    
 local granadeMoveSpeed = 0.1   
 
 function on_ready()
@@ -243,19 +243,15 @@ end
 function update_joystick_position()
     local playerPos = playerTransf.position
     
-    -- 初始化目标位置
     if targetGranadePosition == nil then
         targetGranadePosition = Vector3.new(playerPos.x, playerPos.y + 1.5, playerPos.z)
     end
 
-    -- 获取原始输入
     local inputX = Input.get_axis_position(Input.axiscode.RightX)
     local inputY = Input.get_axis_position(Input.axiscode.RightY)
 
-    -- 等轴测视角参数
     local isometricAngle = math.rad(-45)
     
-    -- 计算等轴测坐标系基向量（使用三角函数手动计算）
     local rightVector = {
         x = math.cos(isometricAngle),
         y = 0,
@@ -268,14 +264,11 @@ function update_joystick_position()
         z = math.cos(isometricAngle) * math.cos(isometricAngle)
     }
 
-    -- 计算移动方向分量
     local moveX = (rightVector.x * inputX) + (forwardVector.x * inputY)
     local moveZ = (rightVector.z * inputX) + (forwardVector.z * inputY)
     
-    -- 创建移动方向向量
     local moveDirection = Vector3.new(moveX, 0, moveZ)
     
-    -- 标准化方向向量（手动计算）
     local dirLength = math.sqrt(moveX^2 + moveZ^2)
     if dirLength > 0 then
         moveDirection = Vector3.new(
@@ -287,21 +280,19 @@ function update_joystick_position()
         moveDirection = Vector3.new(0, 0, 0)
     end
 
-    -- 应用移动速度
     local offset = Vector3.new(
         moveDirection.x * granadeMoveSpeed,
         0,
         moveDirection.z * granadeMoveSpeed
     )
 
-    -- 更新目标位置
     targetGranadePosition = Vector3.new(
         targetGranadePosition.x + offset.x,
         playerPos.y + 1.5,
         targetGranadePosition.z + offset.z
     )
 
-    -- 更新手雷实体位置
+
     granadeEntity:get_component("TransformComponent").position = targetGranadePosition
 
     print("Move Offset:", offset.x, offset.z)
@@ -325,11 +316,10 @@ function throwGranade()
         local rb = granadeEntity:get_component("RigidbodyComponent").rb
         local playerPos = playerTransf.position
 
-        -- 设置手雷起始位置为玩家上方
+
         local startPos = Vector3.new(playerPos.x, playerPos.y + 1.5, playerPos.z)
         rb:set_position(startPos)
 
-        -- 计算从起始位置到目标位置的方向向量
         local direction = Vector3.new(
             targetGranadePosition.x - startPos.x,
             targetGranadePosition.y - startPos.y,
@@ -337,7 +327,6 @@ function throwGranade()
         )
         direction = Vector3.normalize(direction)
 
-        -- 计算投掷速度（手动对各分量进行乘法计算）
         local velocity = Vector3.new(
             direction.x * granadeInitialSpeed,
             direction.y * granadeInitialSpeed,
@@ -350,7 +339,6 @@ function throwGranade()
         print("Throw Direction:", direction.x, direction.y, direction.z)
         print("Granade Velocity:", velocity.x, velocity.y, velocity.z)
 
-        -- 投掷后重置目标位置和锁定角度，便于下次使用
         targetGranadePosition = nil
         baseViewAngleForGranade = nil
     end
