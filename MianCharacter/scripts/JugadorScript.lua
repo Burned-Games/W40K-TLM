@@ -29,6 +29,9 @@ local deathTimeCounter = 0
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
+damageReduction = 1
+tookDamage = false 
+
 -- Disparo
 
 shotgunammo = 0
@@ -63,6 +66,7 @@ local sceneChanged = false
 
 --UpgradeManager
 local UpgradeManager = nil
+local ArmorUpgradeSystem = nil
 
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
@@ -82,7 +86,8 @@ function on_ready()
         UpgradeManager:apply_to_player(self)
     end
     --UpgradeManager END
-
+    
+    ArmorUpgradeSystem = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
 
     playerTransf = self:get_component("TransformComponent")
     
@@ -393,4 +398,16 @@ function checkPlayerDeath(dt)
 end
 
 
+
+function take_damage(amount)
+    if godMode or intangibleDash then 
+        return 
+    end
+
+    local finalDamage = amount * damageReduction
+    playerHealth = playerHealth - finalDamage
+    tookDamage = true
+    
+    print("Player took damage: " .. finalDamage .. " (Health: " .. playerHealth .. ")")
+end
 
