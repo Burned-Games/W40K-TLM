@@ -45,6 +45,11 @@ local granadeParticlesExplosion = nil
 local lbapretado = false
 local dropGranade = false
 
+
+local baseGranadePosition = nil       -- LB按下时记录玩家位置（固定起始点）
+local targetGranadePosition = nil     -- 当前手雷目标位置
+local granadeMoveSpeed = 0.1   
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -135,6 +140,7 @@ function on_update(dt)
 
         if Input.is_button_pressed(Input.controllercode.LeftShoulder) then
             lbapretado = true
+            update_joystick_position()
         else
             if lbapretado then
                 dropGranade = true
@@ -149,33 +155,6 @@ end
 
 function on_exit()
     -- Add cleanup code here
-end
-
-
-function shoot(dt)
-    local playerPosition = playerTransf.position
-    local baseAngle = playerScript.angleRotation  
-    print("Player Rotation (Y):", playerTransf.rotation.y)
-
-    for i, bullet in ipairs(bullets) do
-        local angleOffset = (i - (bulletCount / 2)) * spreadAngle  -- angle
-        local shootAngle = baseAngle + math.rad(angleOffset) 
-        
-        local forwardVector = Vector3.new(math.sin(shootAngle), 0, math.cos(shootAngle))
-        local newPosition = Vector3.new(
-            playerPosition.x + forwardVector.x,
-            playerPosition.y,
-            playerPosition.z + forwardVector.z
-        )
-        
-        bullet.transform.position = newPosition
-        bullet.transform.rotation = Vector3.new(0, math.deg(shootAngle), 0)
-        bullet.rigidBody:set_position(playerPosition)
-        bullet.rigidBody:set_rotation(Vector3.new(0, math.deg(shootAngle), 0))
-        
-        local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
-        bullet.rigidBody:set_velocity(velocity)
-    end
 end
 
 
@@ -236,6 +215,35 @@ function handle_bullet_collision(entityA, entityB)
 end
 
 
+function update_joystick_position()
+    local playerPos = playerTransf.position
+    
+    -- 初始化目标位置（不再需要视角锁定）
+    if targetGranadePosition == nil then
+        targetGranadePosition = Vector3.new(playerPos.x, playerPos.y + 1.5, playerPos.z)
+    end
+
+    -- 获取原始输入
+    local inputX = Input.get_axis_position(Input.axiscode.RightX)
+    local inputY = Input.get_axis_position(Input.axiscode.RightY)
+
+    -- 直接根据输入计算偏移（X轴和Z轴平面）
+    local offsetX = inputX * granadeMoveSpeed
+    local offsetZ = inputY * granadeMoveSpeed
+
+    -- 更新目标位置
+    targetGranadePosition = Vector3.new(
+        targetGranadePosition.x + offsetX,
+        playerPos.y + 1.5,  -- Y轴保持玩家头顶高度
+        targetGranadePosition.z + offsetZ
+    )
+
+    -- 更新手雷实体位置
+    granadeEntity:get_component("TransformComponent").position = targetGranadePosition
+
+    print("Joystick Input (X, Y):", inputX, inputY)
+    print("Target Granade Position:", targetGranadePosition)
+end
 
 function handleGranade(dt)
     if timerGranade > 0 then
@@ -251,39 +259,38 @@ function handleGranade(dt)
 end
 
 function throwGranade()
-    if granadeEntity ~= nil then
+    if granadeEntity ~= nil and targetGranadePosition ~= nil then
         local rb = granadeEntity:get_component("RigidbodyComponent").rb
+        local playerPos = playerTransf.position
 
-        local playerYaw = playerScript.angleRotation
-        print("Player Rotation (Y):", playerYaw)
+        -- 设置手雷起始位置为玩家上方
+        local startPos = Vector3.new(playerPos.x, playerPos.y + 1.5, playerPos.z)
+        rb:set_position(startPos)
 
-
+        -- 计算从起始位置到目标位置的方向向量
         local direction = Vector3.new(
-            math.sin(playerYaw),  -- X 
-            0.5,                  -- Y 
-            math.cos(playerYaw)   -- Z 
+            targetGranadePosition.x - startPos.x,
+            targetGranadePosition.y - startPos.y,
+            targetGranadePosition.z - startPos.z
         )
+        direction = Vector3.normalize(direction)
 
-
-        local spawnPosition = Vector3.new(
-            playerTransf.position.x + direction.x,
-            playerTransf.position.y + 1.5,
-            playerTransf.position.z + direction.z
-        )
-        rb:set_position(spawnPosition)
-
+        -- 计算投掷速度（手动对各分量进行乘法计算）
         local velocity = Vector3.new(
             direction.x * granadeInitialSpeed,
             direction.y * granadeInitialSpeed,
             direction.z * granadeInitialSpeed
         )
         rb:set_velocity(velocity)
+        throwingGranade = true
 
+        print("Throwing Granade from:", startPos.x, startPos.y, startPos.z)
         print("Throw Direction:", direction.x, direction.y, direction.z)
-        print("Granade Position:", spawnPosition.x, spawnPosition.y, spawnPosition.z)
         print("Granade Velocity:", velocity.x, velocity.y, velocity.z)
 
-        throwingGranade = true
+        -- 投掷后重置目标位置和锁定角度，便于下次使用
+        targetGranadePosition = nil
+        baseViewAngleForGranade = nil
     end
 end
 
