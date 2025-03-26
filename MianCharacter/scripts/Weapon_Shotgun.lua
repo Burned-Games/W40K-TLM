@@ -49,8 +49,11 @@ local dropGranade = false
 local baseGranadePosition = nil       
 local targetGranadePosition = nil    
 local granadeMoveSpeed = 0.1   
-local GRENADE_GRAVITY = 9.81  -- 重力加速度
-local GRENADE_LAUNCH_ANGLE = math.rad(45)  -- 最佳抛射角度
+local GRENADE_GRAVITY = 12.0  
+local GRENADE_LAUNCH_ANGLE = math.rad(30)  
+local GRENADE_SPEED_MULTIPLIER = 1.2      
+local ISOMETRIC_CORRECTION_FACTOR = 0.707  
+local DISTANCE_CALIBRATION = 1.22   
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -316,6 +319,7 @@ end
 function throwGranade()
     if not granadeEntity or not targetGranadePosition then return end
 
+
     local rb = granadeEntity:get_component("RigidbodyComponent").rb
     local playerPos = playerTransf.position
     local startPos = Vector3.new(
@@ -324,40 +328,61 @@ function throwGranade()
         playerPos.z
     )
     
-    local deltaX = targetGranadePosition.x - startPos.x
-    local deltaZ = targetGranadePosition.z - startPos.z
+
+    local ISOMETRIC_CORRECTION = 0.7071  
+    local DISTANCE_CALIBRATION = 1.22    
+
+
+    local rawDeltaX = targetGranadePosition.x - startPos.x
+    local rawDeltaZ = targetGranadePosition.z - startPos.z
+
+
+    local actualDeltaX = rawDeltaX / (math.cos(math.rad(-45)) * DISTANCE_CALIBRATION)
+    local actualDeltaZ = rawDeltaZ / (math.cos(math.rad(-45)) * DISTANCE_CALIBRATION)
     
-    local horizontalDistance = math.sqrt(deltaX^2 + deltaZ^2)
-    
-    local MIN_DISTANCE = 1.0
+
+    local horizontalDistance = math.sqrt(actualDeltaX^2 + actualDeltaZ^2) * ISOMETRIC_CORRECTION
+
+
+    local MIN_DISTANCE = 1.5
     if horizontalDistance < MIN_DISTANCE then
-        deltaX = deltaX * (MIN_DISTANCE / horizontalDistance)
-        deltaZ = deltaZ * (MIN_DISTANCE / horizontalDistance)
         horizontalDistance = MIN_DISTANCE
+        actualDeltaX = actualDeltaX * (MIN_DISTANCE / horizontalDistance)
+        actualDeltaZ = actualDeltaZ * (MIN_DISTANCE / horizontalDistance)
     end
 
-    local gravity = 9.81
-    local angle = math.rad(45)
-    
-    local vy = math.sqrt(gravity * horizontalDistance * math.tan(angle))
-    local flightTime = (2 * vy) / gravity
-    local vxz = horizontalDistance / (flightTime * math.cos(angle))
 
-    local dirX = deltaX / horizontalDistance
-    local dirZ = deltaZ / horizontalDistance
+    local LAUNCH_ANGLE = math.rad(35)   
+    local GRAVITY = 14.0               
+    local SPEED_BOOST = 1.15           
 
-    local velocity = Vector3.new(
-        dirX * vxz,
-        vy,
-        dirZ * vxz
+
+    local verticalSpeed = math.sqrt(GRAVITY * horizontalDistance * math.tan(LAUNCH_ANGLE))
+    local flightTime = (2 * verticalSpeed) / GRAVITY
+    local horizontalSpeed = (horizontalDistance / (flightTime * math.cos(LAUNCH_ANGLE))) * SPEED_BOOST
+
+    local dirX = rawDeltaX / (math.abs(rawDeltaX) + math.abs(rawDeltaZ) + 0.0001)  
+    local dirZ = rawDeltaZ / (math.abs(rawDeltaX) + math.abs(rawDeltaZ) + 0.0001)
+
+
+    local finalVelocity = Vector3.new(
+        dirX * horizontalSpeed,
+        verticalSpeed,
+        dirZ * horizontalSpeed
     )
+
+
     rb:set_position(startPos)
-    rb:set_velocity(velocity)
+    rb:set_velocity(finalVelocity)
     throwingGranade = true
 
-    local speed = math.sqrt(velocity.x^2 + velocity.y^2 + velocity.z^2)
-    print(string.format("Throw Speed: %.2f m/s (X:%.2f Y:%.2f Z:%.2f)", 
-        speed, velocity.x, velocity.y, velocity.z))
+
+    print(string.format( 
+        horizontalDistance, 
+        math.sqrt(rawDeltaX^2 + rawDeltaZ^2),
+        math.sqrt(finalVelocity.x^2 + finalVelocity.z^2)
+    ))
+
 
     targetGranadePosition = nil
 end
