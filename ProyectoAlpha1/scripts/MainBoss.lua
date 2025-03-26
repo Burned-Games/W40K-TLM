@@ -5,6 +5,7 @@ local mainboss = nil
 local bossTransform = nil
 local bossAnimator = nil
 local bossRigidbody = nil
+local bossNavmesh = nil
 
 local player = nil
 local playerTransform = nil
@@ -19,7 +20,7 @@ local waypointPositions = {}
 
 local bossHealth = 150
 local bossDamage = 25
-local bossSpeed = 5
+local moveSpeed = 5
 local bossAttackRange = 5
 local bossAttackCooldown = 2
 local bossAttackTimer = 0
@@ -31,21 +32,33 @@ function on_ready()
     bossTransform = self:get_component("TransformComponent")
     bossAnimator = self:get_component("AnimatorComponent")
     bossRigidbody = self:get_component("RigidbodyComponent").rb
+    bossNavmesh = self:get_component("NavigationAgentComponent")
 
     -- Get the player entity
     player = current_scene:get_entity_by_name("Player")
     playerTransform = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
 
-    -- Get the waypoints
-    waypoint1 = get_entity_by_name("Waypoint1")
-    waypoint2 = get_entity_by_name("Waypoint2")
-    waypoint3 = get_entity_by_name("Waypoint3")
+    waypoint1 = current_scene:get_entity_by_name("Waypoint1")
+    waypoint2 = current_scene:get_entity_by_name("Waypoint2")
+    waypoint3 = current_scene:get_entity_by_name("Waypoint3")
     
-    -- Get the positions of the waypoints
-    waypointPositions[1] = waypoint1:get_transform().position
-    waypointPositions[2] = waypoint2:get_transform().position
-    waypointPositions[3] = waypoint3:get_transform().position
+    if waypoint1 and waypoint2 and waypoint3 then
+        local wp1Transform = waypoint1:get_component("TransformComponent")
+        local wp2Transform = waypoint2:get_component("TransformComponent")
+        local wp3Transform = waypoint3:get_component("TransformComponent")
+        
+        if wp1Transform and wp2Transform and wp3Transform then
+            waypointPositions[1] = wp1Transform.position
+            waypointPositions[2] = wp2Transform.position
+            waypointPositions[3] = wp3Transform.position
+        end
+
+
+    elseif enemyRangeEntity ~= nil and enemyRangeTransf ~= nil then
+        lastTargetPos = enemyRangeTransf.position
+        update_path()
+    end
 
     -- Set the initial state
     currentState = state.Patrol
@@ -99,7 +112,7 @@ function patrol_state(dt)
     follow_path(dt)
     
     -- Calculate distance to current waypoint
-    local distance = get_distance(enemyTransf.position, currentTarget)
+    local distance = get_distance(bossTransform.position, currentTarget)
     
     -- If we're close enough, change to next waypoint
     if distance <= 1.0 then
@@ -117,29 +130,29 @@ function move_state(dt) end
 function attack_state(dt) end
 
 function follow_path(dt)
-    if enemyNavmesh == nil or #enemyNavmesh.path == 0 then 
-        if enemyRb then
-            enemyRb:set_velocity(Vector3.new(0, 0, 0))
+    if bossNavmesh == nil or #bossNavmesh.path == 0 then 
+        if bossRigidbody then
+            bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
         end
         return 
     end
     
     -- Verificar que el índice es válido
-    if currentPathIndex > #enemyNavmesh.path then
+    if currentPathIndex > #bossNavmesh.path then
         currentPathIndex = 1
-        if #enemyNavmesh.path == 0 then
-            if enemyRb then
-                enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        if #bossNavmesh.path == 0 then
+            if bossRigidbody then
+                bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
             end
             return
         end
     end
 
-    local nextPoint = enemyNavmesh.path[currentPathIndex]
+    local nextPoint = bossNavmesh.path[currentPathIndex]
     local direction = Vector3.new(
-        nextPoint.x - enemyTransf.position.x,
+        nextPoint.x - bossTransform.position.x,
         0, -- Ignoramos la Y para movimiento en plano
-        nextPoint.z - enemyTransf.position.z
+        nextPoint.z - bossTransform.position.z
     )
 
     local distance = math.sqrt(direction.x^2 + direction.z^2)
@@ -152,39 +165,39 @@ function follow_path(dt)
         )
 
         -- Usar física para el movimiento
-        if enemyRb then
+        if bossRigidbody then
             local velocity = Vector3.new(normalizedDirection.x * moveSpeed, 0, normalizedDirection.z * moveSpeed)
-            enemyRb:set_velocity(velocity)
+            bossRigidbody:set_velocity(velocity)
         end
 
         rotate_enemy(nextPoint)
     else
-        if currentPathIndex < #enemyNavmesh.path then
+        if currentPathIndex < #bossNavmesh.path then
             currentPathIndex = currentPathIndex + 1
         else
             -- Llegamos al final del camino, detener movimiento
-            if enemyRb then
-                enemyRb:set_velocity(Vector3.new(0, 0, 0))
+            if bossRigidbody then
+                bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
             end
         end
     end
 end
 
 function update_waypoint_path()
-    if enemyNavmesh then
+    if bossNavmesh then
         local currentTarget = waypointPositions[currentWaypoint]
-        enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, currentTarget)
+        bossNavmesh.path = bossNavmesh:find_path(bossTransform.position, currentTarget)
         lastTargetPos = currentTarget
         currentPathIndex = 1
     end
 end
 
 function rotate_enemy(targetPosition)
-    local dx = targetPosition.x - enemyTransf.position.x
-    local dz = targetPosition.z - enemyTransf.position.z
+    local dx = targetPosition.x - bossTransform.position.x
+    local dz = targetPosition.z - bossTransform.position.z
 
     local angleRotation = math.atan(dx, dz)
-    enemyTransf.rotation.y = math.deg(angleRotation)
+    bossTransform.rotation.y = math.deg(angleRotation)
 end
 
 function get_distance(pos1, pos2)
@@ -196,7 +209,7 @@ end
 
 function Die()
     currentState = state.Idle
-    enemyRb:set_position(Vector3.new(-500, 0, 0))
+    bossRigidbody:set_position(Vector3.new(-500, 0, 0))
     isDead = true
 end
 
