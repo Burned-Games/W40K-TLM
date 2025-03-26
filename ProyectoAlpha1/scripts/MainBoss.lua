@@ -15,6 +15,7 @@ local waypoint1
 local waypoint2
 local waypoint3
 local currentWaypoint = 1
+local currentPathIndex = 1
 local waypointPositions = {}
 
 
@@ -26,9 +27,7 @@ local bossAttackCooldown = 2
 local bossAttackTimer = 0
 
 function on_ready() 
-
     -- Get the main boss entity
-
     bossTransform = self:get_component("TransformComponent")
     bossAnimator = self:get_component("AnimatorComponent")
     bossRigidbody = self:get_component("RigidbodyComponent").rb
@@ -53,16 +52,14 @@ function on_ready()
             waypointPositions[2] = wp2Transform.position
             waypointPositions[3] = wp3Transform.position
         end
-
-
-    elseif enemyRangeEntity ~= nil and enemyRangeTransf ~= nil then
-        lastTargetPos = enemyRangeTransf.position
-        update_path()
     end
+
+    -- Forzar inicialización del primer waypoint
+    currentWaypoint = 1
+    update_waypoint_path()
 
     -- Set the initial state
     currentState = state.Patrol
-
 end
 
 -- FSM General
@@ -93,9 +90,9 @@ function change_state()
 end
 
 function patrol_state(dt)
-    if animator then
+    if bossAnimator then
         if currentAnim ~= 2 then
-            animator:set_current_animation(2)
+            bossAnimator:set_current_animation(2)
             currentAnim = 2
         end
     end
@@ -104,7 +101,7 @@ function patrol_state(dt)
     local currentTarget = waypointPositions[currentWaypoint]
     
     -- Update path to current waypoint if needed
-    if lastTargetPos == nil or get_distance(lastTargetPos, currentTarget) > 1.0 then
+    if not lastTargetPos or get_distance(lastTargetPos, currentTarget) > 1.0 then
         update_waypoint_path()
     end
     
@@ -113,21 +110,24 @@ function patrol_state(dt)
     
     -- Calculate distance to current waypoint
     local distance = get_distance(bossTransform.position, currentTarget)
-    
-    -- If we're close enough, change to next waypoint
-    if distance <= 1.0 then
+
+    -- Cambiar de waypoint con un umbral más amplio
+    if distance <= 2.0 then
         currentWaypoint = currentWaypoint % #waypointPositions + 1
         update_waypoint_path()
     end
-    
-   
 end
--- Funciones para los distintos estados.
-function idle_state(dt) end
 
-function move_state(dt) end
-
-function attack_state(dt) end
+function update_waypoint_path()
+    if bossNavmesh then
+        local currentTarget = waypointPositions[currentWaypoint]
+        
+        bossNavmesh.path = bossNavmesh:find_path(bossTransform.position, currentTarget) 
+        
+        lastTargetPos = currentTarget
+        currentPathIndex = 1
+    end
+end
 
 function follow_path(dt)
     if bossNavmesh == nil or #bossNavmesh.path == 0 then 
@@ -137,18 +137,14 @@ function follow_path(dt)
         return 
     end
     
-    -- Verificar que el índice es válido
+
     if currentPathIndex > #bossNavmesh.path then
         currentPathIndex = 1
-        if #bossNavmesh.path == 0 then
-            if bossRigidbody then
-                bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
-            end
-            return
-        end
     end
 
     local nextPoint = bossNavmesh.path[currentPathIndex]
+    
+
     local direction = Vector3.new(
         nextPoint.x - bossTransform.position.x,
         0, -- Ignoramos la Y para movimiento en plano
@@ -166,8 +162,13 @@ function follow_path(dt)
 
         -- Usar física para el movimiento
         if bossRigidbody then
-            local velocity = Vector3.new(normalizedDirection.x * moveSpeed, 0, normalizedDirection.z * moveSpeed)
+            local velocity = Vector3.new(
+                normalizedDirection.x * moveSpeed, 
+                0, 
+                normalizedDirection.z * moveSpeed
+            )
             bossRigidbody:set_velocity(velocity)
+            
         end
 
         rotate_enemy(nextPoint)
@@ -182,15 +183,14 @@ function follow_path(dt)
         end
     end
 end
+-- Funciones para los distintos estados.
+function idle_state(dt) end
 
-function update_waypoint_path()
-    if bossNavmesh then
-        local currentTarget = waypointPositions[currentWaypoint]
-        bossNavmesh.path = bossNavmesh:find_path(bossTransform.position, currentTarget)
-        lastTargetPos = currentTarget
-        currentPathIndex = 1
-    end
-end
+function move_state(dt) end
+
+function attack_state(dt) end
+
+
 
 function rotate_enemy(targetPosition)
     local dx = targetPosition.x - bossTransform.position.x
