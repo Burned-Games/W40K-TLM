@@ -56,10 +56,15 @@ local explosionUpward = 2.0
 local granadeParticlesExplosion = nil
 
 local scrapObjects = {}
+--local tuplaScrap = { {}, {} }
+---local tuplaP1 = {}
+--local tuplaP2 = {}
 local distanceToPlayerToDestroy = 2, 2, 2
-local scrapPos
 local attractionActive = false 
 local attractionSpeed = 2
+local amountOfScrap = 0
+local scrapDestroyed = 0
+local partOfList = 0
 
 -- Audio
 local explorationMusic = nil
@@ -218,7 +223,8 @@ function on_update(dt)
 
     end
 
-    if next(scrapObjects) ~= nill then 
+    if attractionActive == true then 
+        print("empieza a atraer")
         attract_scrap(dt)
     
     end
@@ -651,30 +657,72 @@ end
 
 function find_scrap()
     local entities = current_scene:get_all_entities()
-    
+    print("hola")
+    --tuplaScrap = { {}, {} }
+    amountOfScrap = 0
+
+
     scrapObjects = {}
 
     for _, entity in ipairs(entities) do
         local entitiname = entity:get_component("TagComponent").tag
         if entitiname == "prop_scrap_v01.gltf" then
+            playerPos = playerTransf.position
+
+            local transform = entity:get_component("TransformComponent")
+            local cercania = Vector3.new(
+            math.abs(playerPos.x - transform.position.x),
+            math.abs(playerPos.y - transform.position.y),
+            math.abs(playerPos.z - transform.position.z)
+            )
+            
+            if cercania.x < 200 and cercania.y < 200 and cercania.z < 200 then
+                
+
+
+            
+
             table.insert(scrapObjects, entity:get_component("TransformComponent"))
+
+            --tuplaScrap = tuplet_insert(tuplaScrap, entity, 1)
+            
+            --tuplaScrap = tuplet_insert(tuplaScrap, transform, 2)
+            amountOfScrap = amountOfScrap + 1
+            end
         end
+        
+        
     end
+    if amountOfScrap == 0 then
+        attractionActive = false
+
+    end
+
+    --tuplaP1 = tuplaScrap[1]
+    --tuplaP2 = tuplaScrap[2]
 end
 
 function attract_scrap(dt)
+    partOfList = partOfList + 1
+    
     for _, scrap in ipairs(scrapObjects) do
         
         playerPos = playerTransf.position
+        local cercania = Vector3.new(
+            math.abs(playerPos.x - scrap.position.x),
+            math.abs(playerPos.y - scrap.position.y),
+            math.abs(playerPos.z - scrap.position.z)
+        )
+        
         local direction = Vector3.new(playerPos.x - scrap.position.x,
         playerPos.y - scrap.position.y, 
         playerPos.z - scrap.position.z)
 
         local l = attractionSpeed * dt
-        local p = Vector3.new(direction.x * l,
-                              direction.y * l, 
-                              direction.z * l)
-        scrapPos = Vector3.new(scrap.position.x + p.x,
+        local p = Vector3.new(direction.x * l ,
+                              direction.y * l , 
+                              direction.z * l )
+        local scrapPos = Vector3.new(scrap.position.x + p.x,
                                      scrap.position.y + p.y, 
                                      scrap.position.z + p.z)
         scrap.position = scrapPos
@@ -685,16 +733,38 @@ function attract_scrap(dt)
             math.abs(playerPos.y - scrap.position.y),
             math.abs(playerPos.z - scrap.position.z)
         )
-        print("algo", cercania.x, cercania.y, cercania.z)
+        --print("algo", cercania.x, cercania.y, cercania.z)
 
         if cercania.x < 2 and cercania.y < 2 and cercania.z < 2 then
             print("destroy")
-            --current_scene:destroy_entity(scrap)
+            --current_scene:destroy_entity(tuplaP1[partOfList])
+            scrap.position.x = 5000000000
+            scrap.position.y = 5000000000
+            scrap.position.z = 5000000000
+            scrapCounter = scrapCounter + 1
+            scrapDestroyed = scrapDestroyed + 1
+
+
+
+
         end
+        if amountOfScrap == scrapDestroyed then
+            print("para")
+            scrapDestroyed = 0
+            attractionActive = false
+
+        end
+
+        --[[
+        if partOfList >= amountOfScrap then
+            partOfList = 0
+        end
+        ]]
+    
     end 
 end
 
-
+--[[
 function tuplet(...)
     local data = { ... }  -- Guarda los valores en una tabla interna
     
@@ -720,3 +790,26 @@ function tuplet(...)
         end
     })
 end
+function tuplet_insert(tupla, valor, pos)
+    if type(tupla[pos]) ~= "table" then
+        error("La posición especificada no contiene una lista", 2)
+    end
+
+    -- Copiar la lista existente en la posición `pos`
+    local nueva_lista = { table.unpack(tupla[pos]) }
+    table.insert(nueva_lista, valor)  -- Agregar el nuevo elemento a la lista
+
+    -- Crear una nueva tupla con la lista actualizada
+    local nueva_tupla = {}
+    for i = 1, #tupla do
+        if i == pos then
+            nueva_tupla[i] = nueva_lista  -- Reemplazar solo la lista modificada
+        else
+            nueva_tupla[i] = tupla[i]  -- Mantener el resto igual
+        end
+    end
+
+    return setmetatable(nueva_tupla, getmetatable(tupla))  -- Mantener metatable
+end
+
+]]
