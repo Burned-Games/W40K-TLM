@@ -1,5 +1,8 @@
 scrap = 0
 local Player = nil
+local visual1 = nil
+local jetpack = nil
+local helmet = nil
 -- Multipliers 
 local MULTIPLIERS = {
     weapons = {
@@ -339,12 +342,17 @@ function on_ready()
     print_selected_upgrade()
     -- TEST UPGRADES END (DELETE)
     ----------------------------------
+
+    visual1 = current_scene:get_entity_by_name("mejora1"):get_component("TransformComponent")
+    jetpack = current_scene:get_entity_by_name("Jetpack_low"):get_component("TransformComponent")
+    --helmet = current_scene:get_entity_by_name("Helmet"):get_component("TransformComponent")
 end
 
 function on_update(dt)
     ----------------------------------
     -- TEST UPGRADES START (DELETE)
     Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+    playerTransform = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     
     -- O: Select weapons category
     if Input.is_key_pressed(Input.keycode.O) then
@@ -410,4 +418,24 @@ function on_update(dt)
     end
     -- TEST UPGRADES END (DELETE)
     ----------------------------------
+
+    if has_upgrade("armor", "healthBoost") then
+        local newPosition = Vector3.new(0 , -6 , 0) 
+        visual1.position = newPosition
+
+        local newPosJetpack = Vector3.new(0 , 8 , 0)
+        jetpack.position = newPosJetpack
+    end
+
+    if has_upgrade("armor", "protection") then
+        local newPosition = Vector3.new(0 , -6 , 2) 
+        visual1.position = newPosition
+
+        local newPosJetpack = Vector3.new(0 , 0 , 0)
+        jetpack.position = newPosJetpack
+
+        --local newPosHelmet = Vector3.new(0 , 8 , 0)
+        --helmet.position = newPosHelmet
+    end
+        
 end
