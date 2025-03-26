@@ -35,14 +35,38 @@ local rifle_firerate = 0.8
 local rifle_firerate_count = 0
 
 -- Special ability
-local disruptorBullet = nil
-local disruptorBulletTransf = nil
-local disruptorBulletRbComponent = nil
-local disruptorBulletRb = nil
 
-local disruptorBulletDamage = 40
+    --Bullet
+    local disruptorBullet = nil
+    local disruptorBulletTransf = nil
+    local disruptorBulletRbComponent = nil
+    local disruptorBulletRb = nil
 
-local shieldMultiplier = 0.3
+    local disruptorBulletDamage = 40
+
+    local shieldMultiplier = 0.3
+
+    local cooldownDisruptorBulletTime = 18
+    local cooldownDisruptorBulletTimeCounter = 18
+    local disruptorShooted = true
+    local disruptorShooted2 = false
+    local disruptorChargeTime = 0.8
+    local disruptorChargeTimeCounter = 0
+
+    --Zone
+    local activateZone = false
+    local chargeZone = nil
+    local chargeZoneTransf = nil
+    local chargeZoneRbComponent = nil
+    local chargeZoneRb = nil
+
+    local zoneRadius = 4
+    local chargeZoneDamagePerSecond = 15
+    local chargeZoneDuration = 5
+    local secondCounter = 0
+    local secondCounterTimes = 0
+    local damageDealed = false
+
 
 
 function on_ready()
@@ -166,6 +190,10 @@ function on_ready()
                     bulletDamageParticleComponent:emit(20)
                     enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - disruptorBulletDamage
                     end
+                    activateZone = true
+                    chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                    disruptorBulletRb:set_position(Vector3.new(0,1000,0))
+                    disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
                 end
             end
            
@@ -193,10 +221,88 @@ function on_ready()
                     enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - disruptorBulletDamage
             
                 end
+                activateZone = true
+                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                disruptorBulletRb:set_position(Vector3.new(0,1000,0))
+                disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+
             end
            
         end
     end)
+
+    chargeZone = current_scene:get_entity_by_name("ChargeZone")
+    chargeZoneTransf = chargeZone:get_component("TransformComponent")
+    chargeZoneRbComponent = chargeZone:get_component("RigidbodyComponent")
+    chargeZoneRb = chargeZoneRbComponent.rb
+    chargeZoneRb:set_trigger(true)
+
+    --[[chargeZoneRbComponent:on_collision_enter(function(entityA, entityB)
+        print("chargedZone second", secondCounterTimes)
+       
+            
+            local nameA = entityA:get_component("TagComponent").tag
+            local nameB = entityB:get_component("TagComponent").tag
+
+
+            if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
+                local enemyOrk = nil
+                local enemyOrkScript = nil
+                if nameA == "EnemyOrk" then
+                    enemyOrk = entityA
+                
+                end
+
+                if nameB == "EnemyOrk" then
+                    enemyOrk = entityB
+                end
+                if enemyOrk ~= nil then               
+                    enemyOrkScript = enemyOrk:get_component("ScriptComponent")
+                end
+
+                if enemyOrk ~= nil then
+                    if enemyOrkScript ~= nil then
+                    
+                        if enemyOrkScript.shieldHealth > 0 then
+                            bulletDamageParticleComponent:emit(20)
+                            enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
+                        else
+                        bulletDamageParticleComponent:emit(20)
+                        enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
+                        end
+                    end
+                end
+           
+            end
+
+            if nameA == "EnemySupp" or nameB == "EnemySupp" then
+                local enemySupp = nil
+                local enemySuppScript = nil
+                if nameA == "EnemySupp" then
+                    enemySupp = entityA
+                
+                end
+
+                if nameB == "EnemySupp" then
+                    enemySupp = entityB
+                end
+                if enemySupp ~= nil then               
+                    enemySuppScript = enemySupp:get_component("ScriptComponent")
+                end
+
+                if enemySupp ~= nil then
+                    if enemySuppScript ~= nil then
+                    
+                        bulletDamageParticleComponent:emit(20)
+                        enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - chargeZoneDamagePerSecond
+            
+                    end
+                end
+           
+            end
+            secondCounter = 0
+        
+    end)]]
 end
 
 function on_update(dt)
@@ -241,11 +347,34 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder then
-            disruptiveCharge()
+        if leftShoulder and cooldownDisruptorBulletTimeCounter >= cooldownDisruptorBulletTime then
+            
+            cooldownDisruptorBulletTimeCounter = 0
+            disruptorShooted = true
+            disruptorShooted2 = true
+        end
+
+        if disruptorShooted and cooldownDisruptorBulletTimeCounter < cooldownDisruptorBulletTime then
+            cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTimeCounter + dt
+            
+
+        end
+
+        if disruptorShooted2 then
+            disruptorChargeTimeCounter = disruptorChargeTimeCounter + dt
+            if disruptorChargeTimeCounter >= disruptorChargeTime then
+            print("dentrooooooooooooooo")
+                disruptiveCharge()
+                disruptorChargeTimeCounter = 0
+                disruptorShooted2 = false
+            end
         end
 
         
+    end
+
+    if activateZone == true then
+        chargedZoneUpdate(dt)
     end
 end
 
@@ -302,6 +431,95 @@ function disruptiveCharge()
 
     local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
     disruptorBulletRb:set_velocity(velocity)
+
+end
+
+function chargedZoneUpdate(dt)
+
+    
+
+        
+     if secondCounterTimes < 5 then
+            
+        secondCounter = secondCounter + dt
+         --print("secondCounter", secondCounter)
+     else
+        print("chargedZone Finished")
+        activateZone = false
+     end
+
+     if secondCounter >= 1 then
+        
+         
+
+        local entities = current_scene:get_all_entities()
+
+        for _, entity in ipairs(entities) do 
+            if entity ~= chargeZone and entity:has_component("RigidbodyComponent") then
+                local entityRb = entity:get_component("RigidbodyComponent").rb
+                local entityPos = entityRb:get_position()
+
+                local direction = Vector3.new(
+                    entityPos.x - chargeZoneTransf.position.x,
+                    entityPos.y - chargeZoneTransf.position.y,
+                    entityPos.z - chargeZoneTransf.position.z
+                )
+
+                local distance = math.sqrt(
+                    direction.x * direction.x +
+                    direction.y * direction.y +
+                    direction.z * direction.z
+                )
+
+                if distance > 0 then
+                    direction.x = direction.x / distance
+                    direction.y = direction.y / distance
+                    direction.z = direction.z / distance
+                end
+
+                if distance < zoneRadius then
+                print("closeeeee")
+                    local name = entity:get_component("TagComponent").tag
+
+                    if name == "EnemyOrk" then  
+                        enemyOrkScript = entity:get_component("ScriptComponent")
+                        if enemyOrkScript ~= nil then
+                    
+                            if enemyOrkScript.shieldHealth > 0 then
+                                bulletDamageParticleComponent:emit(20)
+                                enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
+                            else
+                                bulletDamageParticleComponent:emit(20)
+                                enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
+                            end
+                            print("damage dealed")
+                        end
+                    end
+
+                    if name == "EnemySupp" then
+                        enemySuppScript = entity:get_component("ScriptComponent")
+                        if enemySuppScript ~= nil then
+                    
+                            bulletDamageParticleComponent:emit(20)
+                            enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - chargeZoneDamagePerSecond
+                        end
+                        print("damage dealed")
+                    end              
+                end
+            end
+        end
+        
+        
+        secondCounter = 0
+        secondCounterTimes = secondCounterTimes + 1
+        print("secondCounterTimes", secondCounterTimes)
+
+    end
+
+
+   
+    
+
 
 end
 
