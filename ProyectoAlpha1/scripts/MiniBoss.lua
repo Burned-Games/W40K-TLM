@@ -27,26 +27,29 @@ local lastTargetPos = nil
 local hachaTimer = 0
 local isGiratoria = false
 
+local currentPathIndex = 1
+
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
 
     miniNavmesh = self:get_component("NavigationAgentComponent")
-    miniRb = self:get_component("RigidbodyComponent").rb
+    --miniRb = self:get_component("RigidbodyComponent").rb
     miniTransf = self:get_component("TransformComponent")
 
-    animator = self:get_component("AnimatorComponent")
+   -- animator = self:get_component("AnimatorComponent")
 
-    if player ~= nil then
-        lastTargetPos = playerTransf.position
-        update_path()
-    end
+   -- if player ~= nil then
+    --    lastTargetPos = playerTransf.position
+   --     update_path()
+    --end
     currentState = state.Idle
 end
 
 -- FSM General
 function on_update(dt)
+    
     if player == nil or isDead == true then                             -- Comprueba si el player existe o si el enemigo esta muerto para evitar entrar en el update 
         return                                                          -- (poned las variables, ahora no tienen referencia)
     end
@@ -67,17 +70,17 @@ function on_update(dt)
         isGiratoria = false
     end
 
-    if pathUpdateTimer >= pathUpdateInterval or get_distance(lastTargetPos, currentTargetPos) > 1.0 then
-        update_path()
-        lastTargetPos = currentTargetPos
-        pathUpdateTimer = 0
-    end
+    --if pathUpdateTimer >= pathUpdateInterval or get_distance(lastTargetPos, currentTargetPos) > 1.0 then
+   --     update_path()
+    --    lastTargetPos = currentTargetPos
+    --    pathUpdateTimer = 0
+   -- end
 
     if playerDetected then
         rotate_enemy(playerTransf.position)
     end
 
-
+    
     -- FSM { Idle -> Move -> Attack}
     if currentState == state.Idle then
         idle_state(dt)
@@ -90,7 +93,17 @@ function on_update(dt)
     end
 
 end
-
+function rotate_enemy(targetPosition)
+    local dx = targetPosition.x - miniTransf.position.x
+    local dz = targetPosition.z - miniTransf.position.z
+    miniTransf.rotation.y = math.deg(math.atan(dx, dz))
+end 
+--function update_path()
+   -- if player and squighogNavmesh then 
+    --    miniNavmesh.path = squighogNavmesh:find_path(miniTransf.position, playerTransf.position)
+   --     currentPathIndex = 1
+   -- end
+--end
 --function change_state()
 
     -- Aqui la logica que necesiteis para cambiar de estado (distancia del player o alguna condicion especial)
@@ -139,7 +152,12 @@ function player_distance()
     local pDist = get_distance(miniTransf.position, playerTransf.position)
     return pDist
 end
-
+function get_distance(pos1, pos2)
+    local dx = pos2.x - pos1.x
+    local dy = pos2.y - pos1.y
+    local dz = pos2.z - pos1.z
+    return math.sqrt(dx * dx + dy * dy + dz * dz) 
+end
 function change_state()
 
     local playerDistance = player_distance()
@@ -156,7 +174,7 @@ function change_state()
             print("Player en rango de disparo! Cambiando a Attack.")
             currentState = state.Attack
         end
-
+    end
     --elseif playerDistance > shootDistance and currentState == state.Shoot then
     --    if currentState ~= state.Move then
     --        print("Player fuera de rango! Volviendo a Move.")

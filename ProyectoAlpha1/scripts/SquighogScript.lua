@@ -1,55 +1,59 @@
-local state = { Idle = 1, Move = 2, Chase = 3, Attack = 4, Tackle = 5 }
+local state = { Idle = 1, Advise = 2, Charge = 3, Positioning = 4, TailWhip = 5 }
 local currentState = state.Idle
 
 local player = nil
 local playerTransf = nil
 local playerScript = nil
+local playerDetected = false
 
 -- Squighog stats 
-local squighogHealth = 100
+local squighogHealth = 50
 local squighogSpeed = 5
 local isDead = false
+
+-- Squighog habilities
+local attackType = nil
+local chargeSpeed = 10 
+local chargeRangeAttack = 3 -- Change to raycast later
+local tailwhipRangeAttack = 1 -- Change to raycast later
+local chargeCooldown = 5
+local tailwhipCooldown = 10
+local chargeCooldownTime = 0
+local tailWhipCooldownTime = 0
+local chargeDmg = 5
+local tailwhipDmg = 10
+local isCharging = false 
+local lastChargeTime = 0
+local lastTailWhipTime = 0
 
 local squighogNavmesh = nil 
 local squighogRb = nil
 local squighogTransf = nil
 
-local detectRange = 30
-
--- Squighog habilities
-local attackType = nil
-
-local chargeSpeed = 10 
-local chargeRangeAttack = 3 
-local chargeCooldown = 5
-local chargeDmg = 5
-local isCharging = false 
-local ChargeTime = 0
-
-local tailwhipRangeAttack = 1
-local tailwhipCooldown = 10
-local tailwhipDmg = 10
-local TailWhipTime = 0
-
---local animator = nil
-
 local pathUpdateTimer = 0
 local pathUpdateInterval = 0.5
 local lastTargetPos = nil
+
+local canDealDamage = true; 
+
 local currentPathIndex = 1
+
+local chargeTimer = 0
+local tailwhipTimer = 0
 
 function on_ready() 
     player = current_scene:get_entity_by_name("Player")
     if player then
         playerTransf = player:get_component("TransformComponent")
         playerScript = player:get_component("ScriptComponent")
+        lastTargetPos = playerTransf.position
     end
 
-    squighogTransf = self:get_component("TransformComponent")
-    squighogRb = self:get_component("RigidbodyComponent").rb
     squighogNavmesh = self:get_component("NavigationAgentComponent")
-    
-    --animator = self:get_component("AnimatorComponent")
+    squighogRb = self:get_component("RigidbodyComponent").rb
+    squighogTransf = self:get_component("TransformComponent")
+
+    update_path()
 end 
 
 function on_collision(entityA, entityB)
@@ -71,8 +75,9 @@ function on_update(dt)
     if squighogHealth <= 0 then die() end
 
     pathUpdateTimer = pathUpdateTimer + dt
-    
-    
+    chargeCooldownTime = math.max(0, chargeCooldownTime - dt)
+    tailWhipCooldownTime  = math.max(0, tailWhipCooldownTime  - dt)
+
     if pathUpdateTimer >= pathUpdateInterval then
         update_path()
         pathUpdateTimer = 0
@@ -228,4 +233,3 @@ function die()
 end
 
 function on_exit() end 
-
