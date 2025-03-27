@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 13664749325344936980
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/Final/Main_menu_backgorund_reference.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13664749325344936980.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
