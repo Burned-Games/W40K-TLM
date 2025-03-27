@@ -11,10 +11,13 @@ ammo = 0
 local reloadTimeRifle = 0
 local shootCoolDown = 0
 local shootCoolDownRifle = 0.8
-local damageRifle = 1
+local damageRifle = 25
 local tripleShootTimer = 0
 local tripleShootCount = 0
 local tripleShootInterval = 0.1
+
+local attackSpeedMultiplier = 1.0
+local reloadSpeedMultiplier = 1.0
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
@@ -25,7 +28,7 @@ local playerScript = nil
 
 local shooted = true
 
-local damage = 1
+local damage = 25
 
 --audio
 local burst_shot
@@ -312,6 +315,11 @@ function on_ready()
 end
 
 function on_update(dt)
+    -- Applying multipliers
+    local currentShootCoolDownRifle = shootCoolDownRifle * (1 / attackSpeedMultiplier)
+    local currentDisruptorBulletTimeCooldown = cooldownDisruptorBulletTime * (1 / attackSpeedMultiplier)
+    local currentMaxReloadTime = maxReloadTime * (1 / reloadSpeedMultiplier)
+
     if using then
         local rightTrigger = Input.get_button(Input.action.Shoot)
         local leftShoulder = Input.get_button(Input.action.Skill1)
@@ -321,7 +329,7 @@ function on_update(dt)
                 playReload()
             end
             reloadTime = reloadTime + dt
-            if reloadTime >= maxReloadTime then
+            if reloadTime >= currentMaxReloadTime then
                 
                 ammo = 0
                 reloadTime = 0
@@ -331,7 +339,7 @@ function on_update(dt)
             shootCoolDown = shootCoolDown + dt
         end
 
-        if rightTrigger == Input.state.Down and (ammo < maxAmmo) and shootCoolDown >= shootCoolDownRifle then
+        if rightTrigger == Input.state.Down and (ammo < maxAmmo) and shootCoolDown >= currentShootCoolDownRifle then
         
             
             tripleShoot()
@@ -353,14 +361,14 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= cooldownDisruptorBulletTime then
+        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
             
             cooldownDisruptorBulletTimeCounter = 0
             disruptorShooted = true
             disruptorShooted2 = true
         end
 
-        if disruptorShooted and cooldownDisruptorBulletTimeCounter < cooldownDisruptorBulletTime then
+        if disruptorShooted and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown then
             cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTimeCounter + dt
             
 
@@ -382,6 +390,16 @@ function on_update(dt)
     if activateZone == true then
         chargedZoneUpdate(dt)
     end
+end
+
+-- multiplyer of the armor ability
+function set_attack_speed_multiplier(multiplier)
+    attackSpeedMultiplier = multiplier
+end
+
+-- multiplyer of the armor ability
+function set_reload_speed_multiplier(multiplier)
+    reloadSpeedMultiplier = multiplier
 end
 
 function tripleShoot()

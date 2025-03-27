@@ -418,7 +418,11 @@ function on_update(dt)
     end
     -- TEST UPGRADES END (DELETE)
     ----------------------------------
+    handle_visuals()
+        
+end
 
+function handle_visuals()
     if has_upgrade("armor", "healthBoost") then
         local newPosition = Vector3.new(0 , -6 , 0) 
         visual1.position = newPosition
@@ -437,5 +441,4 @@ function on_update(dt)
         --local newPosHelmet = Vector3.new(0 , 8 , 0)
         --helmet.position = newPosHelmet
     end
-        
 end

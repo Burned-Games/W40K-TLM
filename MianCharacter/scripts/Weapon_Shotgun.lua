@@ -15,6 +15,9 @@ local reload_end_time = 0  -- record_reload_time
 local playerTransf = nil
 local playerScript = nil
 
+-- Multipliers
+local attackSpeedMultiplier = 1.0
+local reloadSpeedMultiplier = 1.0
 
 -- Define the bullet speed
 local bullet_speed = 10.0
@@ -107,7 +110,9 @@ end
 
 
 function on_update(dt)
-    
+    -- Applying multipliers
+    local currentShootCoolDownRifle = shotgun_fire_rate * (1 / attackSpeedMultiplier)
+    local currentMaxReloadTime = reload_time * (1 / reloadSpeedMultiplier)
     if using == true then
         -- updateTime
         current_time = current_time + dt  
@@ -127,7 +132,7 @@ function on_update(dt)
             if ammo > 0 and current_time >= next_fire_time then
                 ammo = ammo - 1  -- use bulle 
                 shoot(dt)
-                next_fire_time = current_time + shotgun_fire_rate  -- next shoot time
+                next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
             elseif ammo == 0 then
                 --print("no bullet")
             else
@@ -139,7 +144,7 @@ function on_update(dt)
         if ammo==0 and not is_reloading then
             --print("Start reload")
             is_reloading = true
-            reload_end_time = current_time + reload_time  -- setting reload time
+            reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
         end
 
 
@@ -158,6 +163,16 @@ function on_update(dt)
 
         handleGranade(dt)
     end
+end
+
+-- multiplyer of the armor ability
+function set_attack_speed_multiplier(multiplier)
+    attackSpeedMultiplier = multiplier
+end
+
+-- multiplyer of the armor ability
+function set_reload_speed_multiplier(multiplier)
+    reloadSpeedMultiplier = multiplier
 end
 
 
