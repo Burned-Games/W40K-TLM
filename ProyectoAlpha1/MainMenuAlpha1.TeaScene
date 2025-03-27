@@ -1,7 +1,7 @@
 {
     "value0": {
-        "value0": 6,
-        "value1": 6,
+        "value0": 11,
+        "value1": 11,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -9,123 +9,148 @@
         "value6": 4,
         "value7": 5,
         "value8": 6,
-        "value9": 0,
-        "value10": {
-            "Tag": "MenuManager"
+        "value9": 7,
+        "value10": 8,
+        "value11": 9,
+        "value12": 10,
+        "value13": 11,
+        "value14": 0,
+        "value15": {
+            "Tag": "Base"
         },
-        "value11": 1,
-        "value12": {
+        "value16": 1,
+        "value17": {
             "Tag": "botonStart"
         },
-        "value13": 2,
-        "value14": {
+        "value18": 2,
+        "value19": {
             "Tag": "botonContinue"
         },
-        "value15": 3,
-        "value16": {
+        "value20": 3,
+        "value21": {
             "Tag": "botonSettings"
         },
-        "value17": 4,
-        "value18": {
+        "value22": 4,
+        "value23": {
             "Tag": "botonExit"
         },
-        "value19": 5,
-        "value20": {
+        "value24": 5,
+        "value25": {
             "Tag": "Camera"
         },
-        "value21": 6,
-        "value22": 0,
-        "value23": {
-            "Position": {
-                "x": 0.0,
-                "y": 50.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value24": 1,
-        "value25": {
-            "Position": {
-                "x": 0.0,
-                "y": -150.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value26": 2,
+        "value26": 6,
         "value27": {
-            "Position": {
-                "x": 0.0,
-                "y": -49.99999237060547,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
+            "Tag": "Start"
         },
-        "value28": 3,
+        "value28": 7,
         "value29": {
-            "Position": {
-                "x": 0.0,
-                "y": 50.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
+            "Tag": "Continue"
         },
-        "value30": 4,
+        "value30": 8,
         "value31": {
-            "Position": {
-                "x": 0.0,
-                "y": 150.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
+            "Tag": "Settings"
         },
-        "value32": 5,
+        "value32": 9,
         "value33": {
+            "Tag": "Exit"
+        },
+        "value34": 10,
+        "value35": {
+            "Tag": "Logo"
+        },
+        "value36": 11,
+        "value37": 0,
+        "value38": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -180.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 1,
+        "value40": {
+            "Position": {
+                "x": -463.8998107910156,
+                "y": -36.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value41": 2,
+        "value42": {
+            "Position": {
+                "x": -463.8998107910156,
+                "y": 54.400001525878909,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value43": 3,
+        "value44": {
+            "Position": {
+                "x": -463.8998107910156,
+                "y": 144.8000030517578,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value45": 4,
+        "value46": {
+            "Position": {
+                "x": -463.8998107910156,
+                "y": 235.2000732421875,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value47": 5,
+        "value48": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -142,52 +167,177 @@
                 "z": 1.0
             }
         },
-        "value34": 6,
-        "value35": 0,
-        "value36": {
+        "value49": 6,
+        "value50": {
+            "Position": {
+                "x": -497.3998107910156,
+                "y": -25.20000457763672,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value51": 7,
+        "value52": {
+            "Position": {
+                "x": -522.2996826171875,
+                "y": 63.600006103515628,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value53": 8,
+        "value54": {
+            "Position": {
+                "x": -517.9996337890625,
+                "y": 154.39999389648438,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value55": 9,
+        "value56": {
+            "Position": {
+                "x": -492.2997741699219,
+                "y": 245.2000732421875,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value57": 10,
+        "value58": {
+            "Position": {
+                "x": -326.70001220703127,
+                "y": -130.10000610351563,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 180.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value59": 11,
+        "value60": 0,
+        "value61": {
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value37": 1,
-        "value38": {
+        "value62": 1,
+        "value63": {
             "Parent": 0,
-            "First": 4294967295,
+            "First": 6,
             "Next": 2,
             "Prev": 1
         },
-        "value39": 2,
-        "value40": {
+        "value64": 2,
+        "value65": {
             "Parent": 0,
-            "First": 4294967295,
+            "First": 7,
             "Next": 3,
             "Prev": 2
         },
-        "value41": 3,
-        "value42": {
+        "value66": 3,
+        "value67": {
             "Parent": 0,
-            "First": 4294967295,
+            "First": 8,
             "Next": 4,
             "Prev": 3
         },
-        "value43": 4,
-        "value44": {
+        "value68": 4,
+        "value69": {
             "Parent": 0,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
+            "First": 9,
+            "Next": 10,
+            "Prev": 4
         },
-        "value45": 5,
-        "value46": {
+        "value70": 5,
+        "value71": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value47": 1,
-        "value48": 5,
-        "value49": {
+        "value72": 6,
+        "value73": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value74": 7,
+        "value75": {
+            "Parent": 2,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value76": 8,
+        "value77": {
+            "Parent": 3,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value78": 9,
+        "value79": {
+            "Parent": 4,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value80": 10,
+        "value81": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value82": 1,
+        "value83": 5,
+        "value84": {
             "Camera": {
                 "FOV": 45.0,
                 "AspectRatio": 1.7777777910232545,
@@ -198,56 +348,158 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value50": 0,
-        "value51": 0,
-        "value52": 0,
-        "value53": 0,
-        "value54": 1,
-        "value55": 0,
-        "value56": {
-            "ScriptPath": "MainMenu.lua",
+        "value85": 0,
+        "value86": 0,
+        "value87": 0,
+        "value88": 0,
+        "value89": 1,
+        "value90": 0,
+        "value91": {
+            "ScriptPath": "scripts/NEW-MainMenu-Alpha1.lua",
             "Language": 0
         },
-        "value57": 0,
-        "value58": 0,
-        "value59": 0,
-        "value60": 0,
-        "value61": 0,
-        "value62": 0,
-        "value63": 0,
-        "value64": 1,
-        "value65": 0,
-        "value66": {
+        "value92": 0,
+        "value93": 0,
+        "value94": 0,
+        "value95": 0,
+        "value96": 0,
+        "value97": 0,
+        "value98": 0,
+        "value99": 2,
+        "value100": 0,
+        "value101": {
             "cereal_class_version": 1,
             "TextureUUID": {
-                "value0": 17129420897164576733
+                "value0": 13664749325344936980
             },
             "Size": {
-                "x": 100.0,
-                "y": 100.0
+                "x": -1233.800048828125,
+                "y": 611.4000244140625
             },
             "Anchor": 4,
             "Position": {
                 "x": 0.0,
                 "y": 0.0
             },
-            "Visible": false,
+            "Visible": true,
             "Layer": 0
         },
-        "value67": 0,
-        "value68": 0,
-        "value69": 4,
-        "value70": 1,
-        "value71": {
+        "value102": 10,
+        "value103": {
+            "TextureUUID": {
+                "value0": 7887021533438967408
+            },
+            "Size": {
+                "x": -883.0999755859375,
+                "y": 624.2000122070313
+            },
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value104": 4,
+        "value105": 6,
+        "value106": {
+            "cereal_class_version": 1,
+            "Text": "Start",
+            "FontPath": "",
+            "FontSize": 36.599998474121097,
+            "LineSpacing": 1.0,
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Alignment": 0,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value107": 7,
+        "value108": {
+            "Text": "Continue",
+            "FontPath": "",
+            "FontSize": 36.599998474121097,
+            "LineSpacing": 1.0,
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Alignment": 0,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value109": 8,
+        "value110": {
+            "Text": "Settings",
+            "FontPath": "",
+            "FontSize": 36.599998474121097,
+            "LineSpacing": 1.0,
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Alignment": 0,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value111": 9,
+        "value112": {
+            "Text": "Exit",
+            "FontPath": "",
+            "FontSize": 36.599998474121097,
+            "LineSpacing": 1.0,
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Alignment": 0,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value113": 0,
+        "value114": 4,
+        "value115": 1,
+        "value116": {
             "cereal_class_version": 1,
             "BaseTextureUUID": {
-                "value0": 14919838401814017609
+                "value0": 7211287619061158872
             },
             "SelectedTextureUUID": {
-                "value0": 1541987716065758758
+                "value0": 3338098751148955172
             },
             "PressedTextureUUID": {
-                "value0": 17129420897164576733
+                "value0": 10176974217541453461
             },
             "BaseSize": {
                 "x": 250.0,
@@ -268,8 +520,8 @@
                 "w": 1.0
             },
             "SelectedColor": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 0.800000011920929,
+                "y": 0.800000011920929,
                 "z": 1.0,
                 "w": 1.0
             },
@@ -288,16 +540,16 @@
             "Visible": true,
             "Layer": 0
         },
-        "value72": 2,
-        "value73": {
+        "value117": 2,
+        "value118": {
             "BaseTextureUUID": {
-                "value0": 14919838401814017609
+                "value0": 7211287619061158872
             },
             "SelectedTextureUUID": {
-                "value0": 1541987716065758758
+                "value0": 3338098751148955172
             },
             "PressedTextureUUID": {
-                "value0": 17129420897164576733
+                "value0": 10176974217541453461
             },
             "BaseSize": {
                 "x": 250.0,
@@ -318,8 +570,8 @@
                 "w": 1.0
             },
             "SelectedColor": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 0.800000011920929,
+                "y": 0.800000011920929,
                 "z": 1.0,
                 "w": 1.0
             },
@@ -338,16 +590,16 @@
             "Visible": true,
             "Layer": 0
         },
-        "value74": 3,
-        "value75": {
+        "value119": 3,
+        "value120": {
             "BaseTextureUUID": {
-                "value0": 14919838401814017609
+                "value0": 7211287619061158872
             },
             "SelectedTextureUUID": {
-                "value0": 1541987716065758758
+                "value0": 3338098751148955172
             },
             "PressedTextureUUID": {
-                "value0": 17129420897164576733
+                "value0": 10176974217541453461
             },
             "BaseSize": {
                 "x": 250.0,
@@ -368,8 +620,8 @@
                 "w": 1.0
             },
             "SelectedColor": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 0.800000011920929,
+                "y": 0.800000011920929,
                 "z": 1.0,
                 "w": 1.0
             },
@@ -388,16 +640,16 @@
             "Visible": true,
             "Layer": 0
         },
-        "value76": 4,
-        "value77": {
+        "value121": 4,
+        "value122": {
             "BaseTextureUUID": {
-                "value0": 14919838401814017609
+                "value0": 7211287619061158872
             },
             "SelectedTextureUUID": {
-                "value0": 1541987716065758758
+                "value0": 3338098751148955172
             },
             "PressedTextureUUID": {
-                "value0": 17129420897164576733
+                "value0": 10176974217541453461
             },
             "BaseSize": {
                 "x": 250.0,
@@ -418,15 +670,15 @@
                 "w": 1.0
             },
             "SelectedColor": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 0.800000011920929,
+                "y": 0.800000011920929,
                 "z": 1.0,
                 "w": 1.0
             },
             "PressedColor": {
-                "x": 1.0,
-                "y": 0.0,
-                "z": 0.7016129493713379,
+                "x": 0.6000000238418579,
+                "y": 0.6000000238418579,
+                "z": 1.0,
                 "w": 1.0
             },
             "CurrentState": 0,
@@ -438,7 +690,7 @@
             "Visible": true,
             "Layer": 0
         },
-        "value78": 0,
-        "value79": 0
+        "value123": 0,
+        "value124": 0
     }
 }
