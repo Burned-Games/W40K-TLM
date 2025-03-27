@@ -1,4 +1,4 @@
-scrap = 0
+scrap = 3
 
 -- Multipliers 
 local MULTIPLIERS = {
@@ -69,7 +69,8 @@ local upgradeOrder = {
     armor = {"healthBoost", "protection", "specialAbility"}
 }
 
-local upgradeNames = {
+-- Upgrade names
+upgradeNames = {
     weapons = {
         reloadReduction = "Reload reduction (-20%)... CAMBIAR POR NOMBRE QUE DIGA DESIGN",
         damageBoost = "Damage boost (+15%)... CAMBIAR POR NOMBRE QUE DIGA DESIGN",
@@ -83,7 +84,7 @@ local upgradeNames = {
     }
 }
 
-local upgradeDescriptions = {
+upgradeDescriptions = {
     weapons = {
         reloadReduction = "Reduces reload time by 20%... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN",
         damageBoost = "Increases base damage by 15%... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN",
