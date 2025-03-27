@@ -17,7 +17,7 @@ local contadorMovimientoBotones = 0
 
 
 -- Current category and upgrade
-local selectedCategory = "weapons"  -- We're using the weapons category
+local selectedCategory = "weapons"
 local upgradeTypes = {"reloadReduction", "damageBoost", "fireRateBoost", "specialAbility"}
 local currentUpgradeIndex = 0  -- Index of the current upgrade being offered
 
@@ -48,21 +48,14 @@ function on_ready()
     gunScrapIcon = current_scene:get_entity_by_name("GunScrapIcon"):get_component("UIImageComponent")
     gunBackground = current_scene:get_entity_by_name("GunBackground"):get_component("UIImageComponent")
     characterBackground = current_scene:get_entity_by_name("CharacterBackground"):get_component("UIImageComponent")
-    gunBuyButton:set_visible(false)
 
-
-    -- -- Find the first available upgrade)
-    -- find_next_available_upgrade()
-    
-    -- -- Update the UI to show the current upgrade
-    -- update_ui()
+    hide_ui()
 end
 
 function find_next_available_upgrade()
-    -- Find the next unpurchased upgrade
     for i, upgradeName in ipairs(upgradeTypes) do
         if not upgradeManager.upgrades.weapons[upgradeName] then
-            currentUpgradeIndex = i - 1  -- Arrays in Lua are 1-indexed, but we use 0-indexed
+            currentUpgradeIndex = i - 1
             return true
         end
     end
@@ -70,7 +63,6 @@ function find_next_available_upgrade()
 end
 
 function update_ui()
-    -- Update perk buttons to show which perks are purchased
     update_perk_buttons()
     
     -- Update the text for the current upgrade
@@ -90,28 +82,21 @@ function update_ui()
                        upgradeManager.scrap >= cost
                        
         -- Set button state based on whether player can buy
-        if canBuy then
-            --gunBuyButton:set_visible(true)
+        if not canBuy then
         else
-            -- If all upgrades are purchased or not enough scrap, show appropriate message
             if upgradeManager.upgrades.weapons[currentUpgrade] then
                 gunBuyText:set_text("PURCHASED")
-                --gunBuyButton:set_visible(false)
                 
-                -- Find next upgrade if available
                 find_next_available_upgrade()
             else
-                gunBuyText:set_text("NEED " .. cost .. " SCRAP")
-                --gunBuyButton:set_visible(true)
+                gunBuyText:set_text(tostring(cost))
             end
         end
     end
 end
 
 function update_perk_buttons()
-    -- Update perk buttons based on purchase status
     if upgradeManager then
-        -- Set button states based on purchase status
         if upgradeManager.upgrades.weapons.reloadReduction then
             gunPerk1Button:set_state("Selected")
         else
@@ -158,17 +143,11 @@ function on_update(dt)
                 -- Buy the currently selected upgrade
                 local currentUpgrade = upgradeTypes[currentUpgradeIndex + 1]
                 if currentUpgrade then
-                    -- Fix: Call buy_upgrade with dot notation instead of colon notation
                     local success = upgradeManager.buy_upgrade("weapons", currentUpgrade)
                     
                     if success then
-                        -- Play purchase sound or effect here
                         print("Purchased upgrade: " .. currentUpgrade)
-                        
-                        -- Find and select the next available upgrade
                         find_next_available_upgrade()
-                        
-                        -- Update UI to reflect changes
                         update_ui()
                     end
                 else
@@ -185,6 +164,7 @@ function on_update(dt)
             if(index == 1) then
                 exitButton:set_state("Pressed")
                 print("Exit button pressed!")
+                hide_ui()
                 -- Exit workbench logic here
             end
         end
@@ -215,12 +195,12 @@ end
 
 function show_ui()
     -- Show all UI elements
-    -- gunBuyButton:set_visible(true)
-    -- exitButton:set_visible(true)
-    -- gunPerk1Button:set_visible(true)
-    -- gunPerk2Button:set_visible(true)
-    -- gunPerk3Button:set_visible(true)
-    -- gunPerk4Button:set_visible(true)
+    gunBuyButton:set_visible(true)
+    exitButton:set_visible(true)
+    gunPerk1Button:set_visible(true)
+    gunPerk2Button:set_visible(true)
+    gunPerk3Button:set_visible(true)
+    gunPerk4Button:set_visible(true)
     gunPerk1Text:set_visible(true)
     gunPerk2Text:set_visible(true)
     gunPerk3Text:set_visible(true)
@@ -238,12 +218,12 @@ end
 
 function hide_ui()
     -- Hide all UI elements
-    -- gunBuyButton:set_visible(false)
-    -- exitButton:set_visible(false)
-    -- gunPerk1Button:set_visible(false)
-    -- gunPerk2Button:set_visible(false)
-    -- gunPerk3Button:set_visible(false)
-    -- gunPerk4Button:set_visible(false)
+    gunBuyButton:set_visible(false)
+    exitButton:set_visible(false)
+    gunPerk1Button:set_visible(false)
+    gunPerk2Button:set_visible(false)
+    gunPerk3Button:set_visible(false)
+    gunPerk4Button:set_visible(false)
     gunPerk1Text:set_visible(false)
     gunPerk2Text:set_visible(false)
     gunPerk3Text:set_visible(false)
