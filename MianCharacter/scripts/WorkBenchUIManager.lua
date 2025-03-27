@@ -15,11 +15,13 @@ local buttonCooldown = 0
 local buttonCooldownTime = 0.1
 local contadorMovimientoBotones = 0
 
+-- Workbench state
+local isWorkBenchOpen = false
 
 -- Current category and upgrade
 local selectedCategory = "weapons"
 local upgradeTypes = {"reloadReduction", "damageBoost", "fireRateBoost", "specialAbility"}
-local currentUpgradeIndex = 0  -- Index of the current upgrade being offered
+local currentUpgradeIndex = 0
 
 function on_ready()
     -- Initialize upgrade manager
@@ -43,6 +45,8 @@ function on_ready()
     gunDescriptionText = current_scene:get_entity_by_name("GunDescriptionTXT"):get_component("UITextComponent")
     gunBuyText = current_scene:get_entity_by_name("GunBuyTXT"):get_component("UITextComponent")
     gunNameText = current_scene:get_entity_by_name("GunNameTXT"):get_component("UITextComponent")
+    exitText = current_scene:get_entity_by_name("ExitTXT"):get_component("UITextComponent")
+    currentScrapText = current_scene:get_entity_by_name("CurrentScrapTXT"):get_component("UITextComponent")
     
     -- Initialize image components
     gunScrapIcon = current_scene:get_entity_by_name("GunScrapIcon"):get_component("UIImageComponent")
@@ -72,6 +76,7 @@ function update_ui()
         -- Update name and description
         gunNameText:set_text(upgradeManager.upgradeNames.weapons[currentUpgrade])
         gunDescriptionText:set_text(upgradeManager.upgradeDescriptions.weapons[currentUpgrade])
+        currentScrapText:set_text(tostring(upgradeManager.scrap))
         
         -- Update buy button text with cost
         local cost = upgradeManager.costs.weapons[currentUpgrade]
@@ -83,7 +88,6 @@ function update_ui()
                        
         -- Set button state based on whether player can buy
         if not canBuy then
-        else
             if upgradeManager.upgrades.weapons[currentUpgrade] then
                 gunBuyText:set_text("PURCHASED")
                 
@@ -165,7 +169,6 @@ function on_update(dt)
                 exitButton:set_state("Pressed")
                 print("Exit button pressed!")
                 hide_ui()
-                -- Exit workbench logic here
             end
         end
     end
@@ -197,6 +200,7 @@ function show_ui()
     -- Show all UI elements
     gunBuyButton:set_visible(true)
     exitButton:set_visible(true)
+    exitText:set_visible(true)
     gunPerk1Button:set_visible(true)
     gunPerk2Button:set_visible(true)
     gunPerk3Button:set_visible(true)
@@ -211,15 +215,18 @@ function show_ui()
     gunScrapIcon:set_visible(true)
     gunBackground:set_visible(true)
     characterBackground:set_visible(true)
+    currentScrapText:set_visible(true)
     find_next_available_upgrade()
     update_ui()
-
+    
+    isWorkBenchOpen = true
 end
 
 function hide_ui()
     -- Hide all UI elements
     gunBuyButton:set_visible(false)
     exitButton:set_visible(false)
+    exitText:set_visible(false)
     gunPerk1Button:set_visible(false)
     gunPerk2Button:set_visible(false)
     gunPerk3Button:set_visible(false)
@@ -234,6 +241,13 @@ function hide_ui()
     gunScrapIcon:set_visible(false)
     gunBackground:set_visible(false)
     characterBackground:set_visible(false)
+    currentScrapText:set_visible(false)
+    
+    isWorkBenchOpen = false
+end
+
+function is_workbench_open()
+    return isWorkBenchOpen
 end
 
 function on_exit()
