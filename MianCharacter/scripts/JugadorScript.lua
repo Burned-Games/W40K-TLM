@@ -45,7 +45,8 @@ local bolterScript = nil
 --ShotGun
 local shotGunScript = nil
 
-
+--SawSword
+local sawSwordScript = nil
 
 -- Audio
 local explorationMusic = nil
@@ -105,6 +106,8 @@ function on_ready()
     bolterScript = bolter:get_component("ScriptComponent")
 
     shotGunScript = current_scene:get_entity_by_name("Shotgun_low"):get_component("ScriptComponent")
+
+    sawSwordScript = current_scene:get_entity_by_name("Saw_Sword"):get_component("ScriptComponent")
 
 
     animator = self:get_component("AnimatorComponent")
@@ -260,26 +263,30 @@ function updateEntranceAnimation(dt)
 end
 
 function handleWeaponSwitch()
-    if Input.get_button(Input.action.Skill1) == Input.state.Down then
+    if Input.get_button(Input.action.Map) == Input.state.Down then
         if pressedButtonChangeWeapon == false then
-            if actualweapon == 0 then
-                actualweapon = 1
-            else
-                actualweapon = 0
-            end
+            actualweapon = (actualweapon + 1) % 3
             pressedButtonChangeWeapon = true
         end
     else
         pressedButtonChangeWeapon = false
     end
+    
 
     if actualweapon == 0 then
         bolterScript.using = true
         shotGunScript.using = false
-    else
+        sawSwordScript.using = false
+    elseif actualweapon == 1 then
         bolterScript.using = false
         shotGunScript.using = true
+        sawSwordScript.using = false
+    elseif actualweapon == 2 then
+        bolterScript.using = false
+        shotGunScript.using = false
+        sawSwordScript.using = true
     end
+    
 end
 
 function playerMovement(dt)
