@@ -1,204 +1,320 @@
-local state = { Idle = 1, Advise = 2, Charge = 3, Positioning = 4, TailWhip = 5 }
+local state = { Idle = 1, Chase = 2, Tackle = 3, TailWhip = 4 } 
 local currentState = state.Idle
 
 local player = nil
 local playerTransf = nil
 local playerScript = nil
-local playerDetected = false
 
 -- Squighog stats 
-local squighogHealth = 50
-local squighogSpeed = 5
+local squighogHealth = 100
+local squighogSpeed = 3
 local isDead = false
-
--- Squighog habilities
-local attackType = nil
-local chargeSpeed = 10 
-local chargeRangeAttack = 3 -- Change to raycast later
-local tailwhipRangeAttack = 1 -- Change to raycast later
-local chargeCooldown = 5
-local tailwhipCooldown = 10
-local chargeCooldownTime = 0
-local tailWhipCooldownTime = 0
-local chargeDmg = 5
-local tailwhipDmg = 10
-local isCharging = false 
-local lastChargeTime = 0
-local lastTailWhipTime = 0
 
 local squighogNavmesh = nil 
 local squighogRb = nil
 local squighogTransf = nil
 
+local detectDistance = 30 
+
+-- Squighog habilities
+local tackleSpeed = 10 
+local tackleRangeAttack = 10 
+local tackleCooldown = 5
+local tackleDmg = 5
+local tackleTimer = 0
+local canTackle = true
+local tackleHasDamaged = false 
+local isCharging = false
+
+local tailwhipRangeAttack = 5 
+local tailwhipCooldown = 10
+local tailwhipDmg = 10
+local tailwhipTimer = 0 
+local canTailwhip = true
+local tailwhipHasDamaged = false 
+local isTailwhiping = false
+
 local pathUpdateTimer = 0
 local pathUpdateInterval = 0.5
 local lastTargetPos = nil
 
-local canDealDamage = true; 
-
-local currentPathIndex = 1
-
-local chargeTimer = 0
-local tailwhipTimer = 0
+local isPlayerBehind = false 
+local tailCollider = nil 
 
 function on_ready() 
     player = current_scene:get_entity_by_name("Player")
     if player then
         playerTransf = player:get_component("TransformComponent")
         playerScript = player:get_component("ScriptComponent")
-        lastTargetPos = playerTransf.position
     end
 
     squighogNavmesh = self:get_component("NavigationAgentComponent")
     squighogRb = self:get_component("RigidbodyComponent").rb
     squighogTransf = self:get_component("TransformComponent")
 
-    update_path()
+    local tail = current_scene:get_entity_by_name("tail")
+    if tail then
+        tailCollider = tail:get_component("ColliderComponent")
+    end
 end 
-
-function on_collision(entityA, entityB)
-    local nameA = entityA:get_component("TagComponent").tag
-    local nameB = entityB:get_component("TagComponent").tag
-
-    if nameA == "Player" or nameB == "Player" then 
-        if attackType and canDealDamage then
-            make_damage(attackType)  
-            attackType = nil 
-            canDealDamage = false
-            chargeTimer = 1
-        end
-    end 
-end
 
 function on_update(dt)
     if not player or isDead then return end
     if squighogHealth <= 0 then die() end
 
     pathUpdateTimer = pathUpdateTimer + dt
-    chargeCooldownTime = math.max(0, chargeCooldownTime - dt)
-    tailWhipCooldownTime  = math.max(0, tailWhipCooldownTime  - dt)
 
-    if pathUpdateTimer >= pathUpdateInterval then
-        update_path()
-        pathUpdateTimer = 0
-    end
-
-    if playerDetected then
-        rotate_enemy(playerTransf.position)
-    end
-
-    change_state()
-
-    if currentState == state.Idle then
-        idle_state(dt)
-    elseif currentState == state.Advise then
-        advise_state(dt)
-    elseif currentState == state.Charge then
-        charge_state(dt)
-    elseif currentState == state.Positioning then
-        positioning_state(dt)
-    elseif currentState == state.TailWhip then
-        tailwhip_state(dt)
-    end
-
-    if chargeTimer > 0 then
-        chargeTimer = chargeTimer - dt
-        if chargeTimer <= 0 then
-            canDealDamage = true
+    if not canTackle then
+        tackleTimer = tackleTimer + dt
+        if tackleTimer >= tackleCooldown then
+            canTackle = true
+            tackleTimer = 0
         end
     end
 
-    if tailwhipTimer > 0 then
-        tailwhipTimer = tailwhipTimer - dt
-        if tailwhipTimer <= 0 then
-            currentState = state.Positioning
+    if not canTailwhip then
+        tailwhipTimer = tailwhipTimer + dt
+        if tailwhipTimer >= tailwhipCooldown then
+            canTailwhip = true
+            tailwhipTimer = 0
+        end
+    end
+
+    if player and playerTransf then
+        change_state()
+    else 
+        player = current_scene:get_entity_by_name("Player")
+        if player then
+            playerTransf = player:get_component("TransformComponent")
+            playerScript = player:get_component("ScriptComponent")
+        else
+            currentState = state.Idle
+        end
+    end
+
+    local currentTargetPos = playerTransf and playerTransf.position or nil
+    if currentTargetPos and (pathUpdateTimer >= pathUpdateInterval or 
+        (lastTargetPos and get_distance(lastTargetPos, currentTargetPos) > 1.0)) then
+        update_path()
+        lastTargetPos = currentTargetPos
+        pathUpdateTimer = 0
+    end
+
+    if currentState == state.Idle then
+        idle_state(dt)
+    elseif currentState == state.Chase then 
+        chase_state(dt)
+    elseif currentState == state.TailWhip then
+        tailwhip_state(dt)
+    elseif currentState == state.Tackle then
+        tackle_state(dt)
+    end
+end
+
+function update_path()
+    if squighogNavmesh == nil or player == nil or playerTransf == nil then 
+        return 
+    end
+
+    squighogNavmesh.path = squighogNavmesh:find_path(squighogTransf.position, playerTransf.position)
+    currentPathIndex = 1
+end
+
+function follow_path(dt)
+    if squighogNavmesh == nil or #squighogNavmesh.path == 0 then 
+        squighogRb:set_velocity(Vector3.new(0, 0, 0))
+        return 
+    end
+    
+    if currentPathIndex > #squighogNavmesh.path then
+        currentPathIndex = 1
+        if #squighogNavmesh.path == 0 then
+            squighogRb:set_velocity(Vector3.new(0, 0, 0))
+            return
+        end
+    end
+
+    local nextPoint = squighogNavmesh.path[currentPathIndex]
+    local direction = Vector3.new(
+        nextPoint.x - squighogTransf.position.x,
+        0,
+        nextPoint.z - squighogTransf.position.z
+    )
+
+    local distance = math.sqrt(direction.x^2 + direction.z^2)
+
+    if distance > 0.1 then
+        local normalizedDirection = Vector3.new(
+            direction.x / distance,
+            0,
+            direction.z / distance
+        )
+
+        local velocity = Vector3.new(
+            normalizedDirection.x * squighogSpeed, 
+            0, 
+            normalizedDirection.z * squighogSpeed
+        )
+        
+        squighogRb:set_velocity(velocity)
+
+        rotate_squighog(nextPoint)
+    else
+        if currentPathIndex < #squighogNavmesh.path then
+            currentPathIndex = currentPathIndex + 1
+        else
+            squighogRb:set_velocity(Vector3.new(0, 0, 0))
         end
     end
 end
 
 function change_state()
-    if not squighogTransf or not playerTransf then
-        return
-    end
-
-    local distance = get_distance(squighogTransf.position, playerTransf.position)
+    if player and playerTransf then
+        local playerDistance = get_distance(squighogTransf.position, playerTransf.position)
     
-    if distance < chargeRangeAttack and not isCharging then
-        currentState = state.Charge
-    elseif distance < tailwhipRangeAttack then
-        currentState = state.TailWhip
-    elseif distance > chargeRangeAttack then
-        currentState = state.Positioning
+        if playerDistance <= tackleRangeAttack and canTackle then
+            if currentState ~= state.Tackle then
+                currentState = state.Tackle
+                isCharging = true
+            end
+        elseif playerDistance <=  tailwhipRangeAttack and canTailwhip and isPlayerBehind then
+            if currentState ~= state.TailWhip then
+                currentState = state.TailWhip
+                isTailwhiping = true
+            end
+        elseif playerDistance <= detectDistance then
+            if currentState ~= state.Chase and currentState ~= state.Tackle then
+                currentState = state.Chase
+            end
+        else
+            if currentState ~= state.Idle then
+                currentState = state.Idle
+            end
+        end
     else
-        currentState = state.Advise
-    end
-end
-
-function advise_state(dt)
-    playerDetected = true
-    currentState = state.Positioning
-end
-
-function charge_state(dt)
-    if chargeCooldownTime <= 0 and not isCharging then
-        isCharging = true
-        attackType = "charge"
-        lastTargetPos = playerTransf.position
-        move_towards(lastTargetPos, chargeSpeed)
-        chargeTimer = 1.5 
-    end
-    if chargeTimer <= 0 and isCharging then
-        isCharging = false
-        currentState = state.Positioning
-    end
-end
-
-function positioning_state(dt)
-    local distanceToPlayer = get_distance(squighogTransf.position, playerTransf.position)
-
-    if distanceToPlayer > 1 then
-        move_towards(playerTransf.position, squighogSpeed) 
-    elseif distanceToPlayer <= tailwhipRangeAttack then
-        currentState = state.TailWhip  
-    end
-end
-
-function tailwhip_state(dt)
-    if tailWhipCooldownTime <= 0 then
-        attackType = "tailwhip"
-        tailwhipTimer = 1 
-        tailWhipCooldownTime = tailwhipCooldown
-    end
-end
-
-function make_damage(attackType)
-    if playerScript then
-        if attackType == "charge" then
-            playerScript.playerHealth = playerScript.playerHealth - chargeDmg
-            --audioDanoPlayerMusic:pause()
-            --audioDanoPlayerMusic:play()
-            print("PlayerHealth: " .. playerScript.playerHealth)
-        elseif attackType == "tailwhip" then
-            knockback_player(player, 5)
-            playerScript.playerHealth = playerScript.playerHealth - tailwhipDmg
-            --audioDanoPlayerMusic:pause()
-            --audioDanoPlayerMusic:play()
-            print("PlayerHealth: " .. playerScript.playerHealth)
+        if currentState ~= state.Idle then
+            currentState = state.Idle
         end
     end
 end
 
-function move_towards(targetPosition, speed)
-    local direction = Vector3.new(targetPosition.x - squighogTransf.position.x, 0, targetPosition.z - squighogTransf.position.z)
-    local distance = math.sqrt(direction.x^2 + direction.z^2)
+local idleTimer = 0
+local idleDuration = 1.0 
 
-    if distance > 0.1 then
-        local normalizedDirection = Vector3.new(direction.x / distance, 0, direction.z / distance)
-        local velocity = Vector3.new(normalizedDirection.x * speed, 0, normalizedDirection.z * speed)
-        squighogRb:set_velocity(velocity)
-    else
-        squighogRb:set_velocity(Vector3.new(0, 0, 0)) 
+function idle_state(dt) 
+    idleTimer = idleTimer + dt
+
+    squighogRb:set_velocity(Vector3.new(0, 0, 0))
+
+    if idleTimer >= idleDuration then
+        idleTimer = 0
+        
+        if not player then
+            player = current_scene:get_entity_by_name("Player")
+            if player then
+                playerTransf = player:get_component("TransformComponent")
+                playerScript = player:get_component("ScriptComponent")
+            end
+        end
     end
+end
+
+function chase_state(dt)
+    follow_path(dt)
+end
+
+function tackle_state(dt)
+    if isCharging == true then
+        chargeTime = 0
+        isCharging = false
+        tackleHasDamaged = false
+        squighogSpeed = tackleSpeed
+    end
+
+    chargeTime = chargeTime + dt
+
+    if chargeTime < 1.5 then 
+        follow_path(dt)
+
+        if player and playerTransf and playerScript and not tackleHasDamaged then 
+            local playerDistance = get_distance(squighogTransf.position, playerTransf.position)
+            
+            if playerDistance <= tackleRangeAttack then
+                print("Squighog Tackle Damage: " .. tackleDmg)
+                playerScript.playerHealth = playerScript.playerHealth - tackleDmg
+                print("Player Health after Tackle: " .. playerScript.playerHealth)
+                tackleHasDamaged = true
+            end
+        end
+    else
+        squighogRb:set_velocity(Vector3.new(0, 0, 0))
+        isCharging = true  
+        canTackle = false  
+        tackleTimer = 0    
+        
+        if player and playerTransf then
+            local playerDistance = get_distance(squighogTransf.position, playerTransf.position)
+            
+            if playerDistance <= tailwhipRangeAttack and isPlayerBehind then
+                currentState = state.TailWhip
+                tailwhipTimer = 0
+            elseif playerDistance <= detectDistance then
+                currentState = state.Chase
+            else
+                currentState = state.Idle
+            end
+        else
+            currentState = state.Idle
+        end
+    end    
+end
+
+function tailwhip_state(dt)
+    if not tailwhipHasDamaged then
+        -- Aplicar daño y empuje solo una vez
+        if player and playerTransf and playerScript then
+            local distance = get_distance(squighogTransf.position, playerTransf.position)
+            
+            if distance <= tailwhipRangeAttack then
+                print("Squighog Tailwhip Damage: " .. tailwhipDmg)
+                playerScript.playerHealth = playerScript.playerHealth - tailwhipDmg
+                print("Player Health after Tailwhip: " .. playerScript.playerHealth)
+                
+                local direction = Vector3.new(
+                    playerTransf.position.x - squighogTransf.position.x,
+                    0,
+                    playerTransf.position.z - squighogTransf.position.z
+                ):normalize()
+
+                local knockbackForce = 10 
+                playerTransf.position = Vector3.new(
+                    playerTransf.position.x + direction.x * knockbackForce,
+                    playerTransf.position.y,
+                    playerTransf.position.z + direction.z * knockbackForce
+                )
+
+                tailwhipHasDamaged = true 
+                canTailwhip = false
+            end
+        end
+    end
+
+    tailwhipTimer = tailwhipTimer + dt
+    if tailwhipTimer >= tailwhipCooldown then
+        tailwhipTimer = 0
+        tailwhipHasDamaged = false 
+        canTailwhip = true
+        isTailwhiping = false
+        currentState = state.Chase 
+    end
+end
+
+function rotate_squighog(targetPosition)
+    local dx = targetPosition.x - squighogTransf.position.x
+    local dz = targetPosition.z - squighogTransf.position.z
+
+    local angleRotation = math.atan(dx, dz)
+    squighogTransf.rotation.y = math.deg(angleRotation)
 end
 
 function get_distance(pos1, pos2)
@@ -208,28 +324,28 @@ function get_distance(pos1, pos2)
     return math.sqrt(dx * dx + dy * dy + dz * dz) 
 end
 
-function knockback_player(player, force)
-    local direction = (playerTransf.position - squighogTransf.position):normalize()
-    playerTransf.position = playerTransf.position + direction * force
-end
-
-function update_path()
-    if player and squighogNavmesh then 
-        squighogNavmesh.path = squighogNavmesh:find_path(squighogTransf.position, playerTransf.position)
-        currentPathIndex = 1
+function on_trigger_enter(other)
+    if other.name == "Player" and tailCollider then
+        isPlayerBehind = true
+        print("Player entered tail trigger. isPlayerBehind: " .. tostring(isPlayerBehind))
     end
 end
 
-function rotate_enemy(targetPosition)
-    local dx = targetPosition.x - squighogTransf.position.x
-    local dz = targetPosition.z - squighogTransf.position.z
-    squighogTransf.rotation.y = math.deg(math.atan(dx, dz))
-end 
-
-function die()
-    currentState = state.Idle
-    squighogRb:set_position(Vector3.new(-500, 0, 0))
-    isDead = true
+function on_trigger_exit(other)
+    if other.name == "Player" and tailCollider then
+        isPlayerBehind = false
+        print("Player exited tail trigger. isPlayerBehind: " .. tostring(isPlayerBehind))
+    end
 end
 
-function on_exit() end 
+function die()
+    if not isDead then
+        print("Squighog has died! Health: " .. squighogHealth)
+        currentState = state.Idle
+        squighogRb:set_position(Vector3.new(-500, 0, 0))
+        squighogHealth = 0
+        isDead = true
+    end
+end
+
+function on_exit() end
