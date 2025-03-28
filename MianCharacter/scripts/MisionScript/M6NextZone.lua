@@ -1,16 +1,16 @@
-local mission4RigidBodyComponent = nil
-local mission4RigidBody = nil
+local mission6RigidBodyComponent = nil
+local mission6RigidBody = nil
 
-m4_Clear = false
+m6_Clear = false
 function on_ready()
-    mission4RigidBodyComponent = self:get_component("RigidbodyComponent")
-    mission4RigidBody = mission4RigidBodyComponent.rb
-    mission4RigidBody:set_trigger(true)
-    mission4RigidBodyComponent:on_collision_enter(function(entityA, entityB)  
+    mission6RigidBodyComponent = self:get_component("RigidbodyComponent")
+    mission6RigidBody = mission6RigidBodyComponent.rb
+    mission6RigidBody:set_trigger(true)
+    mission6RigidBodyComponent:on_collision_enter(function(entityA, entityB)  
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag   
     if nameA == "Player" or nameB == "Player" then
-        m4_Clear =true
+        m6_Clear =true
         print("player in zone")
     end
     end)
