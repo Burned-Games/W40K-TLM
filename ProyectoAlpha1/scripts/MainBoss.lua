@@ -40,6 +40,13 @@ local rageAttackCooldown = 10
 local rageVulnerableTimer = 0
 local isAttacking = true
 
+local damageInterval = 1.0  
+local damageDuration = 3   
+local isDamaging = false
+local damageTimer = 0
+local timeSinceLastDamage = 0
+local damagePerSecond = 15
+
 function on_ready() 
     -- Get the main boss entity
     bossTransf = self:get_component("TransformComponent")
@@ -59,6 +66,20 @@ function on_ready()
         local fist1Transform = fist1:get_component("TransformComponent")
         local fist2Transform = fist2:get_component("TransformComponent")
         local fist3Transform = fist3:get_component("TransformComponent")
+
+        local fist1Collider = fist1:get_component("RigidbodyComponent").rb
+        local fist2Collider = fist2:get_component("RigidbodyComponent").rb
+        local fist3Collider = fist3:get_component("RigidbodyComponent").rb
+
+        if fist1Collider then
+            fist1Collider:set_is_trigger(true)
+        end
+        if fist2Collider then
+            fist2Collider:set_is_trigger(true)
+        end
+        if fist3Collider then
+            fist3Collider:set_is_trigger(true)
+        end
         
         if fist1Transform and fist2Transform and fist3Transform then
             fistsPositions[1] = fist1Transform.position
@@ -304,13 +325,13 @@ end
 function fists()
     log("Steel Claw lanza Puños")
     scalingFists = {}
-
+    player_on_fists()
     for i, fist in ipairs({fist1, fist2, fist3}) do
         local fistTransform = fist:get_component("TransformComponent")
         if fistTransform then
             -- Calcular nueva posición usando componentes individuales
-            local newX = playerTransf.position.x + math.random(-3, 3)
-            local newZ = playerTransf.position.z + math.random(-3, 3)
+            local newX = playerTransf.position.x + math.random(-4, 4)
+            local newZ = playerTransf.position.z + math.random(-4, 4)
             
             fistTransform.position = Vector3.new(
                 newX,
@@ -318,17 +339,65 @@ function fists()
                 newZ
             )
 
-            -- Configurar escalado
             fistTransform.scale = Vector3.new(1, 1, 1)
             table.insert(scalingFists, {
                 fist = fist,
                 elapsed = 0,
                 duration = 3,
                 startScale = Vector3.new(1, 1, 1),
-                targetScale = Vector3.new(1.5, 1.5, 1.5)
+                targetScale = Vector3.new(1.7, 1.7, 1.7)
             })
         end
     end
+end
+
+function handleDamage(dt)
+    if isDamaging then
+        damageTimer = damageTimer - dt
+        timeSinceLastDamage = timeSinceLastDamage + dt
+
+        if timeSinceLastDamage >= damageInterval then
+            make_damage()
+            timeSinceLastDamage = 0
+        end
+
+        if damageTimer <= 0 then
+            isDamaging = false
+        end
+    end
+end
+
+function applyDamage()
+    isDamaging = true
+    damageTimer = damageDuration
+    timeSinceLastDamage = 0
+end
+
+function player_on_fists(other)
+    fist1:on_collision_enter(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            make_damage()
+        end
+   end)
+   fist2:on_collision_enter(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            make_damage()
+        end
+   end)
+   fist3:on_collision_enter(function(entityA, entityB)
+    local nameA = entityA:get_component("TagComponent").tag
+    local nameB = entityB:get_component("TagComponent").tag
+
+    if nameA == "Player" or nameB == "Player" then
+        make_damage()
+    end
+end)
 end
 
 function update_fist_scaling(dt)
@@ -355,9 +424,33 @@ function update_fist_scaling(dt)
     end
 end
 
+function make_damage()
+    if timeSinceLastHit < invulnerability then
+        return
+    end
+
+    if player ~= nil then
+        if playerScript ~= nil then
+            local damage = 10
+
+            if playerScript.playerHealth > 0 then
+                playerScript.playerHealth = playerScript.playerHealth - damage
+                print("PlayerHealth " .. playerScript.playerHealth)
+            end
+
+            --audioDanoPlayerMusic:pause()
+            --audioDanoPlayerMusic:play()
+            timeSinceLastHit = 0
+        end
+    end
+
+end
+
+
 function waaaagh_ray()
     log("Steel Claw desata el Rayo de Waaaagh!")
 end
+
 
 
 function rotate_enemy(targetPosition)
