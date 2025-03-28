@@ -1,14 +1,14 @@
-local state = { Idle = 1, Move = 2, Attack = 3, Patrol =4}
+local state = { Idle = 1, Move = 2, Attack = 3, Patrol = 4, Rage = 5 }
 local currentState = state.Idle
 
 local mainboss = nil
-local bossTransform = nil
+local bossTransf = nil
 local bossAnimator = nil
 local bossRigidbody = nil
 local bossNavmesh = nil
 
 local player = nil
-local playerTransform = nil
+local playerTransf = nil
 local playerScript = nil
 
 local waypoint1
@@ -20,22 +20,31 @@ local waypointPositions = {}
 
 
 local bossHealth = 150
+local bossMaxHealth = 150
 local bossDamage = 25
 local moveSpeed = 5
-local bossAttackRange = 5
-local bossAttackCooldown = 2
-local bossAttackTimer = 0
+local attackRange = 5
+local attackCooldown = 5
+local attackTimer = 0
+local shieldActive = true
+local shieldCooldown = 30
+local shieldTimer = 0
+local isRaging = false
+local rageAttackTimer = 0
+local rageAttackCooldown = 10
+local rageVulnerableTimer = 0
+local isAttacking = true
 
 function on_ready() 
     -- Get the main boss entity
-    bossTransform = self:get_component("TransformComponent")
+    bossTransf = self:get_component("TransformComponent")
     bossAnimator = self:get_component("AnimatorComponent")
     bossRigidbody = self:get_component("RigidbodyComponent").rb
     bossNavmesh = self:get_component("NavigationAgentComponent")
 
     -- Get the player entity
     player = current_scene:get_entity_by_name("Player")
-    playerTransform = player:get_component("TransformComponent")
+    playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
 
     waypoint1 = current_scene:get_entity_by_name("Waypoint1")
@@ -65,9 +74,23 @@ end
 -- FSM General
 function on_update(dt)
 
-    change_state() -- Funcion para cambiar de estados
+    if not isAttacking then
+        attackTimer = attackTimer + dt
+        if attackTimer >= attackCooldown then
+            isAttacking = true
+        end
+    end
 
-    -- FSM { Idle -> Move -> Attack}
+    if not shieldActive then
+        shieldTimer = shieldTimer + dt
+        if shieldTimer >= shieldCooldown then
+            shieldActive = false
+            shieldTimer = 0
+        end
+    end
+
+    update_state()
+
     if currentState == state.Idle then
         idle_state(dt)
 
@@ -79,13 +102,29 @@ function on_update(dt)
 
     elseif currentState == state.Attack then
         attack_state(dt)
+
+    elseif currentState == state.Rage then
+        rage_state(dt)
     end
 
 end
 
-function change_state()
+function update_state()
 
-    -- Aqui la logica que necesiteis para cambiar de estado (distancia del player o alguna condicion especial)
+    local distance = get_distance(bossTransf.position, playerTransf.position)
+
+    if isRaging then return end
+
+    if bossHealth <= bossMaxHealth * 0.4 and not isRaging then
+        isRaging = true
+        currentState = state.Rage
+    end
+
+    if isAttacking then
+        currentState = state.Attack
+    else
+        currentState = state.Patrol
+    end
 
 end
 
@@ -114,7 +153,7 @@ function patrol_state(dt)
     follow_path(dt)
     
     -- Calculate distance to current waypoint
-    local distance = get_distance(bossTransform.position, currentTarget)
+    local distance = get_distance(bossTransf.position, currentTarget)
     
     -- Cambiar de waypoint con un umbral más amplio
     if distance <= 2.0 then
@@ -132,7 +171,7 @@ function update_waypoint_path()
             return
         end
         
-        bossNavmesh.path = bossNavmesh:find_path(bossTransform.position, currentTarget)
+        bossNavmesh.path = bossNavmesh:find_path(bossTransf.position, currentTarget)
         
         -- Verificar si se generó el path
         if not bossNavmesh.path or #bossNavmesh.path == 0 then
@@ -161,9 +200,9 @@ function follow_path(dt)
     local nextPoint = bossNavmesh.path[currentPathIndex]
 
     local direction = Vector3.new(
-        nextPoint.x - bossTransform.position.x,
+        nextPoint.x - bossTransf.position.x,
         0, -- Ignoramos la Y para movimiento en plano
-        nextPoint.z - bossTransform.position.z
+        nextPoint.z - bossTransf.position.z
     )
 
     local distance = math.sqrt(direction.x^2 + direction.z^2)
@@ -202,16 +241,59 @@ function idle_state(dt) end
 
 function move_state(dt) end
 
-function attack_state(dt) end
+function attack_state(dt) 
+    local distance = get_distance(bossTransf.position, playerTransf.position)
+    local attackChance = math.random()
 
+    if attackChance < 0.3 then
+        lightning()
+        fists()
+    else
+        if distance <= 10 then
+            lightning()
+        else
+            fists()
+        end
+    end
+
+    isAttacking = false
+    attackTimer = 0
+
+end
+
+function rage_state(dt)
+    rageAttackTimer = rageAttackTimer + dt
+
+    if rageAttackTimer >= rageAttackCooldown then
+        rageAttackTimer = 0
+        waaaagh_ray()
+        rageVulnerableTimer = 5
+    end
+
+    if rageVulnerableTimer > 0 then
+        rageVulnerableTimer = rageVulnerableTimer - dt
+    end
+end
+
+function lightning()
+    log("Steel Claw lanza Rayos")
+end
+
+function fists()
+    log("Steel Claw lanza Puños")
+end
+
+function waaaagh_ray()
+    log("Steel Claw desata el Rayo de Waaaagh!")
+end
 
 
 function rotate_enemy(targetPosition)
-    local dx = targetPosition.x - bossTransform.position.x
-    local dz = targetPosition.z - bossTransform.position.z
+    local dx = targetPosition.x - bossTransf.position.x
+    local dz = targetPosition.z - bossTransf.position.z
 
     local angleRotation = math.atan(dx, dz)
-    bossTransform.rotation.y = math.deg(angleRotation)
+    bossTransf.rotation.y = math.deg(angleRotation)
 end
 
 function get_distance(pos1, pos2)
@@ -221,7 +303,7 @@ function get_distance(pos1, pos2)
     return math.sqrt(dx * dx + dy * dy + dz * dz)
 end
 
-function Die()
+function die()
     currentState = state.Idle
     bossRigidbody:set_position(Vector3.new(-500, 0, 0))
     isDead = true
