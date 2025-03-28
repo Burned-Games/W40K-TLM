@@ -168,47 +168,76 @@ function player_distance()
 
     local playerDistance = get_distance(enemyTransf.position, playerTransf.position)
 
-    -- Primera deteccion (Idle -> Move).
-    if not playerDetected and playerDistance <= detectDistance then
-        currentState = state.Move
-        playerDetected = true
-    end
+    --Calcular direccion del raycast
+    local direction = Vector3.new(
+       playerTransf.position.x - enemyTransf.position.x,
+       playerTransf.position.y - enemyTransf.position.y,
+       playerTransf.position.z - enemyTransf.position.z
+    )
+    local origin = enemyTransf.position
+    local maxDistance = 100.0
 
-    -- Si esta en Chasing no vuelve a Shoot ni a Move.
-    if isChasing then
-        if playerDistance <= stabDistance then
-            if currentState ~= state.Stab then
-                currentState = state.Stab
+    Physics.DebugDrawRaycast(
+        origin, 
+        direction, 
+        maxDistance,
+        Vector4.new(1.0, 0.0, 0.0, 1.0),  -- Red ray
+        Vector4.new(0.0, 1.0, 0.0, 1.0)   -- Green hit point
+    )
+
+    local rayHit = Physics.Raycast(origin, direction, maxDistance)
+
+    if rayHit and rayHit.hasHit then
+        -- Only try to access the entity if it's valid
+        if rayHit.hitEntity and rayHit.hitEntity:is_valid() then
+            if rayHit.hitEntity == player then
+
+                local playerDistance = get_distance(origin, rayHit.hitPoint)
+
+                if not playerDetected and playerDistance <= detectDistance then
+                        currentState = state.Move
+                        playerDetected = true
+                end
+                
+                -- Si esta en Chasing no vuelve a Shoot ni a Move.
+                if isChasing then
+                    if playerDistance <= stabDistance then
+                        if currentState ~= state.Stab then
+                            currentState = state.Stab
+                        end
+                
+                    elseif playerDistance > stabDistance and currentState == state.Stab then
+                        currentState = state.Chase
+                    end
+                
+                    return      -- Evita que vuelva a Move o Shoot.
+                end
+                
+                -- **ORDEN IMPORTANTE** Chase y Stab tienen que evaluarse primero, sino no funcionara bien!!!
+                if playerDistance <= stabDistance then
+                    if currentState ~= state.Stab then
+                        currentState = state.Stab
+                        isChasing = true
+                    end
+                
+                elseif playerDistance <= chaseDistance then
+                    if currentState ~= state.Chase then
+                        currentState = state.Chase
+                        isChasing = true
+                    end
+                
+                elseif playerDistance <= shootDistance then
+                    if currentState ~= state.Shoot then
+                        currentState = state.Shoot
+                    end
+                
+                elseif playerDistance > shootDistance and currentState == state.Shoot then
+                    if currentState ~= state.Move then
+                        currentState = state.Move
+                    end
+                end
+
             end
-
-        elseif playerDistance > stabDistance and currentState == state.Stab then
-            currentState = state.Chase
-        end
-
-        return      -- Evita que vuelva a Move o Shoot.
-    end
-
-    -- **ORDEN IMPORTANTE** Chase y Stab tienen que evaluarse primero, sino no funcionara bien!!!
-    if playerDistance <= stabDistance then
-        if currentState ~= state.Stab then
-            currentState = state.Stab
-            isChasing = true
-        end
-
-    elseif playerDistance <= chaseDistance then
-        if currentState ~= state.Chase then
-            currentState = state.Chase
-            isChasing = true
-        end
-
-    elseif playerDistance <= shootDistance then
-        if currentState ~= state.Shoot then
-            currentState = state.Shoot
-        end
-
-    elseif playerDistance > shootDistance and currentState == state.Shoot then
-        if currentState ~= state.Move then
-            currentState = state.Move
         end
     end
 
@@ -344,7 +373,7 @@ end
 
 function shoot_projectile(dt)
 
-    bulletRb:set_position(enemyTransf.position)
+    bulletRb:set_position(Vector3.new(enemyTransf.position.x, enemyTransf.position.y + 0.65, enemyTransf.position.z))
 
     local direction = Vector3.new(delayedPlayerPos.x - enemyTransf.position.x, 0, delayedPlayerPos.z - enemyTransf.position.z)
     local velocity = Vector3.new(direction.x * bulletSpeed, 0, direction.z * bulletSpeed)
@@ -414,12 +443,12 @@ function rotate_enemy(targetPosition)
 
     enemyTransf.rotation.y = math.deg(angleRotation)
 
-    [[
-    local targetRotation = math.atan(dx, dz)
-    local currentRotation = math.rad(enemyTransf.rotation.y)
-    local smoothedRotation = lerp(currentRotation, targetRotation, 0.1)
-    enemyTransf.rotation.y = math.deg(smoothedRotation)
-    ]]
+    
+    --local targetRotation = math.atan(dx, dz)
+    --local currentRotation = math.rad(enemyTransf.rotation.y)
+    --local smoothedRotation = lerp(currentRotation, targetRotation, 0.1)
+    --enemyTransf.rotation.y = math.deg(smoothedRotation)
+    
 
 end
 

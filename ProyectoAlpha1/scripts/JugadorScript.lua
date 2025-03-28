@@ -440,7 +440,7 @@ function shoot(dt)
 
     forwardVector = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
     
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
+    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y + playerPosition.y + 1.0)  , (forwardVector.z + playerPosition.z) )
 
     transformSphere1.position = newPosition
     transformSphere1.rotation = Vector3.new(0,math.deg(angleRotation),0)
