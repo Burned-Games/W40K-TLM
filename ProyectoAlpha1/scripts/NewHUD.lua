@@ -5,8 +5,13 @@ local currentHealth = maxHealth
 local chatarraCount = 0
 
 local ammoTextComponent
+local lifeFullComponent
+local lifeValorComponent
+local life75Component
+local life50Component
+local life25Component
+local life10Component
 local lifeTextComponent
-local chatarraTextComponent
 
 local skill1
 local skill1TextCooldown
@@ -25,20 +30,15 @@ local currentWeapon = 1
 local weaponSwitchCooldown = 0.2 
 local weaponSwitchTimer = 0
 
-
 function on_ready()
-    -- Add initialization code here
     ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
+    lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
+    lifeValorComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
+    life75Component = current_scene:get_entity_by_name("Vida75"):get_component("UIImageComponent")
+    life50Component = current_scene:get_entity_by_name("Vida50"):get_component("UIImageComponent")
+    life25Component = current_scene:get_entity_by_name("Vida25"):get_component("UIImageComponent")
+    life10Component = current_scene:get_entity_by_name("Vida10"):get_component("UIImageComponent")
     lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
-    chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
-    skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
-    skill1TextCooldown = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("UITextComponent")
-    skill2 = current_scene:get_entity_by_name("Habilidad2"):get_component("UIImageComponent")
-    skill2TextCooldown = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("UITextComponent")
-    skill3 = current_scene:get_entity_by_name("Habilidad3"):get_component("UIImageComponent")
-    skill3TextCooldown = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("UITextComponent")
-    arma1 = current_scene:get_entity_by_name("Arma1"):get_component("UIImageComponent")
-    arma2 = current_scene:get_entity_by_name("Arma2"):get_component("UIImageComponent")
 
 end
 
@@ -47,7 +47,7 @@ function on_update(dt)
     abilityManager(dt)
 
     weaponManager(dt)
-    
+
 end
 
 function on_exit()
@@ -140,3 +140,40 @@ function weaponManager(dt)
         weaponSwitchTimer = weaponSwitchCooldown 
     end
 end
+
+
+
+function update_health_display()
+
+    lifeFullComponent:set_visible(false)
+    life75Component:set_visible(false)
+    life50Component:set_visible(false)
+    life25Component:set_visible(false)
+    life10Component:set_visible(false)
+
+    if currentHealth > 75 then
+        lifeFullComponent:set_visible(true)
+    elseif currentHealth > 50 then
+        life75Component:set_visible(true)
+    elseif currentHealth > 25 then
+        life50Component:set_visible(true)
+    elseif currentHealth > 10 then
+        life25Component:set_visible(true)
+    elseif currentHealth > 0 then
+        life10Component:set_visible(true)
+    end
+
+    lifeTextComponent:set_text(tostring(math.floor(currentHealth)))
+end
+
+function take_damage(damage)
+    currentHealth = math.max(0, currentHealth - damage)
+    
+    update_health_display()
+    
+    if currentHealth <= 0 then
+        --Logic to restart game
+        print("Game Over!")
+    end
+end
+
