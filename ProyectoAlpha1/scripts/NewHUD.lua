@@ -76,9 +76,6 @@ function on_update(dt)
 
     weaponManager(dt)
 
-    add_chatarra(5)
-
-
 end
 
 function on_exit()
@@ -213,7 +210,7 @@ function update_chatarra_display()
 
     local displayChatarra = math.min(currentChatarra, maxChatarraDisplay)
 
-    if currentChatarra > 1000 then  -- Cambio aquí
+    if currentChatarra > 1000 then  
         chatarraFullComponent:set_visible(true)
     elseif displayChatarra > 750 then
         chatarra75Component:set_visible(true)
