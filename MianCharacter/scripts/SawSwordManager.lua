@@ -1,6 +1,6 @@
 
-using = false
-local radiusAttack = 2.5
+
+local radiusAttack = 5
 local damage = 50
 local HpStealed = 10
 local coolDown = 6
@@ -26,8 +26,8 @@ function on_ready()
 end
 
 function on_update(dt)
-    if using then
-        local rightTrigger = Input.get_button(Input.action.Shoot)
+
+        local rightTrigger = Input.get_button(Input.action.Melee)
 
         if (rightTrigger == Input.state.Down or Input.is_key_pressed(Input.keycode.U))and coolDownCounter >= coolDown then
 
@@ -39,7 +39,7 @@ function on_update(dt)
         if coolDownCounter < coolDown then
             coolDownCounter = coolDownCounter + dt
         end
-    end
+
 end
 
 

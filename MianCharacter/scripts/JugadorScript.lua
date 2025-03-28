@@ -265,27 +265,25 @@ end
 function handleWeaponSwitch()
     if Input.get_button(Input.action.Map) == Input.state.Down then
         if pressedButtonChangeWeapon == false then
-            actualweapon = (actualweapon + 1) % 3
+            if actualweapon == 0 then
+                actualweapon = 1
+            else
+                actualweapon = 0
+            end
             pressedButtonChangeWeapon = true
         end
     else
         pressedButtonChangeWeapon = false
     end
-    
 
     if actualweapon == 0 then
         bolterScript.using = true
         shotGunScript.using = false
-        sawSwordScript.using = false
-    elseif actualweapon == 1 then
+    else
         bolterScript.using = false
         shotGunScript.using = true
-        sawSwordScript.using = false
-    elseif actualweapon == 2 then
-        bolterScript.using = false
-        shotGunScript.using = false
-        sawSwordScript.using = true
     end
+
     
 end
 
