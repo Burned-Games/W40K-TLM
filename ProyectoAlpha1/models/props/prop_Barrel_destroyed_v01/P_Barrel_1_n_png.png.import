@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 1716696398023444027
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/props/prop_Barrel_destroyed_v01/P_Barrel_1_n_png.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/1716696398023444027.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}

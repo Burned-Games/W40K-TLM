@@ -1,0 +1,125 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.001",
+                        "value": {
+                            "value0": 18273036427298419059
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.002",
+                        "value": {
+                            "value0": 12202071206646671835
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.003",
+                        "value": {
+                            "value0": 14077747114106778207
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.004",
+                        "value": {
+                            "value0": 13777768781257634814
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.005",
+                        "value": {
+                            "value0": 9784982882123064585
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.006",
+                        "value": {
+                            "value0": 14579091591443945075
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.007",
+                        "value": {
+                            "value0": 16941191413151032867
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.008",
+                        "value": {
+                            "value0": 11490641426619632533
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.009",
+                        "value": {
+                            "value0": 2897939358298698843
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.010",
+                        "value": {
+                            "value0": 3961884221680254103
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.011",
+                        "value": {
+                            "value0": 10679833300140162786
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.012",
+                        "value": {
+                            "value0": 12989791918389374044
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.013",
+                        "value": {
+                            "value0": 15066307136002721297
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.014",
+                        "value": {
+                            "value0": 4252420340102705013
+                        }
+                    },
+                    {
+                        "key": "TestBarrilRoto_Prop_Barrel_v01.015",
+                        "value": {
+                            "value0": 11461659898885524638
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "barrelMAT.001_Mat0",
+                        "value": {
+                            "value0": 13863298482529252054
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 9635561146548435713
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/prop_Barrel_destroyed_v01/TestBarrilRoto.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/9635561146548435713.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
