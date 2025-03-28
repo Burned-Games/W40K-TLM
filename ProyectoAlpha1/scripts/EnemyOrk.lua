@@ -60,6 +60,12 @@ local isDead = false
 
 local audioDanoPlayerMusic = nil
 
+local playerDistance = 0
+
+local visionAngle = 0 -- Ángulo actual del rayo
+local visionSpeed = 60 -- Velocidad de oscilación (grados por segundo)
+local visionRange = 30 -- Máximo desplazamiento (grados)
+
 function on_ready() 
 
     --audioDanoPlayerMusic = current_scene:get_entity_by_name("AudioDanoPlayer"):get_component("AudioSourceComponent")
@@ -115,8 +121,7 @@ function on_update(dt)
         shield_destroyed=true
     end
 
-    player_distance()
-    --check_bullet_collision()
+    change_state(dt)
 
     pathUpdateTimer = pathUpdateTimer + dt
     timeSinceLastHit = timeSinceLastHit + dt
@@ -164,92 +169,145 @@ end
 
 
 -- Deteccion del Player y cambio de estados en funcion de la distancia.
-function player_distance()
+function change_state(dt)
 
-    local playerDistance = get_distance(enemyTransf.position, playerTransf.position)
-
-    --Calcular direccion del raycast
-    local direction = Vector3.new(
-       playerTransf.position.x - enemyTransf.position.x,
-       playerTransf.position.y - enemyTransf.position.y,
-       playerTransf.position.z - enemyTransf.position.z
-    )
-    local origin = enemyTransf.position
-    local maxDistance = 100.0
-
-    Physics.DebugDrawRaycast(
-        origin, 
-        direction, 
-        maxDistance,
-        Vector4.new(1.0, 0.0, 0.0, 1.0),  -- Red ray
-        Vector4.new(0.0, 1.0, 0.0, 1.0)   -- Green hit point
-    )
-
-    local rayHit = Physics.Raycast(origin, direction, maxDistance)
-
-    if rayHit and rayHit.hasHit then
-        -- Only try to access the entity if it's valid
-        if rayHit.hitEntity and rayHit.hitEntity:is_valid() then
-            if rayHit.hitEntity == player then
-
-                local playerDistance = get_distance(origin, rayHit.hitPoint)
-
-                if not playerDetected and playerDistance <= detectDistance then
-                        currentState = state.Move
-                        playerDetected = true
-                end
+    if playerDetected == false then
+        detect_area()
+    else
+        single_raycast()
+    end
                 
-                -- Si esta en Chasing no vuelve a Shoot ni a Move.
-                if isChasing then
-                    if playerDistance <= stabDistance then
-                        if currentState ~= state.Stab then
-                            currentState = state.Stab
-                        end
-                
-                    elseif playerDistance > stabDistance and currentState == state.Stab then
-                        currentState = state.Chase
-                    end
-                
-                    return      -- Evita que vuelva a Move o Shoot.
-                end
-                
-                -- **ORDEN IMPORTANTE** Chase y Stab tienen que evaluarse primero, sino no funcionara bien!!!
-                if playerDistance <= stabDistance then
-                    if currentState ~= state.Stab then
-                        currentState = state.Stab
-                        isChasing = true
-                    end
-                
-                elseif playerDistance <= chaseDistance then
-                    if currentState ~= state.Chase then
-                        currentState = state.Chase
-                        isChasing = true
-                    end
-                
-                elseif playerDistance <= shootDistance then
-                    if currentState ~= state.Shoot then
-                        currentState = state.Shoot
-                    end
-                
-                elseif playerDistance > shootDistance and currentState == state.Shoot then
-                    if currentState ~= state.Move then
-                        currentState = state.Move
-                    end
-                end
-
+    -- Si esta en Chasing no vuelve a Shoot ni a Move.
+    if isChasing then
+        if playerDistance <= stabDistance then
+            if currentState ~= state.Stab then
+                currentState = state.Stab
             end
+                
+        elseif playerDistance > stabDistance and currentState == state.Stab then
+            currentState = state.Chase
+        end
+                
+        return      -- Evita que vuelva a Move o Shoot.
+    end
+                
+    -- **ORDEN IMPORTANTE** Chase y Stab tienen que evaluarse primero, sino no funcionara bien!!!
+    if playerDistance <= stabDistance then
+        if currentState ~= state.Stab then
+            currentState = state.Stab
+            isChasing = true
+        end
+                
+    elseif playerDistance <= chaseDistance then
+        if currentState ~= state.Chase then
+            currentState = state.Chase
+            isChasing = true
+        end
+                
+    elseif playerDistance <= shootDistance then
+        if currentState ~= state.Shoot then
+            currentState = state.Shoot
+        end
+                
+    elseif playerDistance > shootDistance and currentState == state.Shoot then
+        if currentState ~= state.Move then
+            currentState = state.Move
         end
     end
 
 end
 
-function check_bullet_collision()
+function detect_player(rayHit)
 
-    local bulletPos = bulletTransform.position
-    local playerPos = playerTransf.position
+    return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity == player
 
-    if get_distance(bulletPos, playerPos) <= bulletDamageRadius then
-        make_damage()
+end
+
+function detect_area()
+
+    local direction = Vector3.new(
+        math.sin(math.rad(enemyTransf.rotation.y)), 
+        0, 
+        math.cos(math.rad(enemyTransf.rotation.y))
+    )
+
+    -- Normalizar dirección para evitar distancias erróneas
+    local distance = math.sqrt(direction.x^2 + direction.z^2)
+    if distance > 0 then
+        direction.x = direction.x / distance
+        direction.z = direction.z / distance
+    end
+
+    -- Ángulo de separación en radianes (~30 grados)
+    local angleOffset = math.rad(15)  
+
+    -- Rotar la dirección hacia la izquierda y derecha
+    local leftDirection = Vector3.new(
+        direction.x * math.cos(angleOffset) - direction.z * math.sin(angleOffset),
+        0,
+        direction.x * math.sin(angleOffset) + direction.z * math.cos(angleOffset)
+    )
+
+    local rightDirection = Vector3.new(
+        direction.x * math.cos(-angleOffset) - direction.z * math.sin(-angleOffset),
+        0,
+        direction.x * math.sin(-angleOffset) + direction.z * math.cos(-angleOffset)
+    )
+
+    local origin = enemyTransf.position
+    local maxDistance = 20.0
+
+    -- Dibujar los tres rayos para depuración
+    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+
+    -- Lanzar los rayos
+    local centerHit = Physics.Raycast(origin, direction, maxDistance)
+    local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
+    local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
+
+    if detect_player(centerHit) then
+
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, centerHit.hitPoint)
+
+    elseif detect_player(leftHit) then
+
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, leftHit.hitPoint)
+
+    elseif detect_player(rightHit) then
+
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, rightHit.hitPoint)
+        
+    end
+
+end
+
+function single_raycast()
+    
+    local direction = Vector3.new(
+        playerTransf.position.x - enemyTransf.position.x,
+        playerTransf.position.y - enemyTransf.position.y,
+        playerTransf.position.z - enemyTransf.position.z
+    )
+
+    local origin = enemyTransf.position
+    local maxDistance = 20.0
+
+    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+
+    local rayHit = Physics.Raycast(origin, direction, maxDistance)
+
+    if detect_player(rayHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, rayHit.hitPoint)
     end
 
 end
