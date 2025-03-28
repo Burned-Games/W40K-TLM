@@ -65,7 +65,7 @@ function on_update(dt)
     -- Update tackle cooldown timer
     if not canTackle then
         tackleTimer = tackleTimer + dt
-        if tackleTimer >= tackleCooldown then
+        if tackleTimer >= 25 then  
             canTackle = true
             tackleTimer = 0
         end
@@ -260,57 +260,56 @@ function tackle_state(dt)
         animator:set_current_animation(3)
         currentAnim = 3
     end
-    
-    -- Initialize tackle if just entered this state
+
     if IsCharging == true then
+        local directPath = {}
+        local startPos = tankTransform.position
+        local targetPos = playerTransf.position
+        
+
+        table.insert(directPath, startPos)
+        table.insert(directPath, targetPos)
+        
+        tankNavmesh.path = directPath
+        currentPathIndex = 1
+        
         chargeTime = 0
         IsCharging = false
         tackleHasDamaged = false
-        tankVelocity = tackleVelocity -- Set high velocity for tackle
+        tankVelocity = 13 
     end
     
-    -- Update charge time
+
     chargeTime = chargeTime + dt
     
-    -- Perform charge for 1.5 seconds
+
     if chargeTime < 1.5 then
         follow_path(dt)
         
-        -- Check for collision with player during charge
+
         if player and playerTransf and playerScript and not tackleHasDamaged then
             local playerDistance = get_distance(tankTransform.position, playerTransf.position)
             
             if playerDistance <= tackleDistance then
                 local damage = 50
-                print("Tank Tackle Damage: " .. damage)
                 playerScript.playerHealth = playerScript.playerHealth - damage
                 tackleHasDamaged = true
             end
         end
     else
-        -- Tackle completed, reset state and start cooldown
+
         tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
-        IsCharging = true  
-        canTackle = false  
-        tackleTimer = 0    
+
+        canTackle = false
+        tackleTimer = 0
         
-        -- Check player distance to decide next state
-        if player and playerTransf then
-            local playerDistance = get_distance(tankTransform.position, playerTransf.position)
-            
-            if playerDistance <= meleeDistance then
-                currentState = state.Attack
-                attackTimer = 0
-            elseif playerDistance <= detectDistance then
-                currentState = state.Chase
-            else
-                currentState = state.Idle
-            end
-        else
-            currentState = state.Idle
-        end
+
+        tankVelocity = defaultVelocity
+
+        currentState = state.Chase
     end
 end
+
 -- Attack state - tank performs a slow melee attack
 function attack_state(dt)
     -- Animation for attack
