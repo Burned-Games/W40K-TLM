@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
     "Language": "SFX",
-    "Hash": "{453BFBA4-5B8C-449F-395C-6FED0290999C}",
+    "Hash": "{97E01BF5-D2DE-8C3F-83EE-149863C450CD}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -94,6 +94,14 @@
       "Location": "Memory",
       "ShortName": "sand_step_2.wav",
       "CachePath": "F7/{F77749BC-8E5D-B776-CBE7-C1F09FC819AF}.wem"
+     },
+     {
+      "Id": "192602485",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerDash.wav",
+      "CachePath": "38/{38310215-51F8-81EB-D0ED-1AF970C710BA}.wem"
      },
      {
       "Id": "214263635",
@@ -750,6 +758,20 @@
       "MediaRefs": [
        {
         "Id": "768779297"
+       }
+      ]
+     },
+     {
+      "Id": "1927031969",
+      "Name": "Play_PlayerDash",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerDash",
+      "GUID": "{B85F94B2-F0B7-4525-B584-F1A0736E7B21}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9813333",
+      "DurationMax": "0.9813333",
+      "MediaRefs": [
+       {
+        "Id": "192602485"
        }
       ]
      },
@@ -1560,6 +1582,6 @@
     ]
    }
   ],
-  "FileHash": "{8AA8C2FD-F8F8-B8EB-F986-88758C4896D8}"
+  "FileHash": "{186986DC-E76A-34EF-D439-5BD01CACED73}"
  }
 }

@@ -115,6 +115,28 @@
 								<ActiveSource Name="player_die_1" ID="{6FF11803-925C-4177-AEF0-CBE1D3C70E29}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="PlayerDash" ID="{09E4EDAE-61DC-426C-A2C9-A2CD930FBE2B}" ShortID="653165582">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PlayerDash" ID="{032150DB-2F4F-42B1-BD91-A9C6353A831C}">
+									<Language>SFX</Language>
+									<AudioFile>PlayerDash.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="192602485"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PlayerDash" ID="{032150DB-2F4F-42B1-BD91-A9C6353A831C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemies" ID="{13EEAAA6-7D54-4864-9757-2CD30ABA22B4}" ShortID="839343169">

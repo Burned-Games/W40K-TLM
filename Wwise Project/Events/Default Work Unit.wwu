@@ -60,6 +60,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_PlayerDash" ID="{B85F94B2-F0B7-4525-B584-F1A0736E7B21}">
+							<ChildrenList>
+								<Action Name="" ID="{35B425C0-2961-4A24-A989-7B09A422426F}" ShortID="1061404937">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PlayerDash" ID="{09E4EDAE-61DC-426C-A2C9-A2CD930FBE2B}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Weapons" ID="{1F453973-3ECF-482C-BB71-71CA807F87C5}" ShortID="952167920">
