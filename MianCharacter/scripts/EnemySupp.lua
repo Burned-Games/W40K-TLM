@@ -61,6 +61,10 @@ local lastTargetPos = nil
 -- Inicialización del índice de navegación
 local currentPathIndex = 1
 
+pushed = false
+local pushedTime = 0.5
+local pushedTimeCounter = 0
+
 function on_ready() 
     enemyTransf = self:get_component("TransformComponent")
     enemyWorldTransf = enemyTransf:get_world_transform()
@@ -216,19 +220,28 @@ function on_update(dt)
         enemyRb:set_velocity(Vector3.new(0, 0, 0))
     end
 
-    -- Execute current state
-    if currentState == state.Idle then
-        idle_state(dt)
-        --print("IDLE " )
-    elseif currentState == state.Shield then
-        shield_state(dt)
-        --print("SHIELD " )
-    elseif currentState == state.Chase then
-        chase_state(dt)
-        --print("CHASE " )
-    elseif currentState == state.Flee then
-        flee_state(dt)
-        --print("FLEE " )
+    if pushed == false then
+        -- Execute current state
+        if currentState == state.Idle then
+            idle_state(dt)
+            --print("IDLE " )
+        elseif currentState == state.Shield then
+            shield_state(dt)
+            --print("SHIELD " )
+        elseif currentState == state.Chase then
+            chase_state(dt)
+            --print("CHASE " )
+        elseif currentState == state.Flee then
+            flee_state(dt)
+            --print("FLEE " )
+        end
+    else
+        pushedTimeCounter = pushedTimeCounter + dt
+        if pushedTimeCounter >= pushedTime then
+            pushedTimeCounter = 0
+            pushed = false
+            
+        end
     end
     
 end
