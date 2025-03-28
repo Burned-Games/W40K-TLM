@@ -18,6 +18,11 @@ local currentWaypoint = 1
 local currentPathIndex = 1
 local waypointPositions = {}
 
+local fist1 = nil
+local fist2 = nil
+local fist3 = nil
+local fistsPositions = {}
+local scalingFists = {}
 
 local bossHealth = 150
 local bossMaxHealth = 150
@@ -46,6 +51,21 @@ function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
+
+    fist1 = current_scene:get_entity_by_name("Fist1")
+    fist2 = current_scene:get_entity_by_name("Fist2")
+    fist3 = current_scene:get_entity_by_name("Fist3")
+    if fist1 and fist2 and fist3 then
+        local fist1Transform = fist1:get_component("TransformComponent")
+        local fist2Transform = fist2:get_component("TransformComponent")
+        local fist3Transform = fist3:get_component("TransformComponent")
+        
+        if fist1Transform and fist2Transform and fist3Transform then
+            fistsPositions[1] = fist1Transform.position
+            fistsPositions[2] = fist2Transform.position
+            fistsPositions[3] = fist3Transform.position
+        end
+    end
 
     waypoint1 = current_scene:get_entity_by_name("Waypoint1")
     waypoint2 = current_scene:get_entity_by_name("Waypoint2")
@@ -149,6 +169,8 @@ function patrol_state(dt)
         update_waypoint_path()
     end
     
+    update_fist_scaling(dt)
+
     -- Follow the path
     follow_path(dt)
     
@@ -281,6 +303,56 @@ end
 
 function fists()
     log("Steel Claw lanza Puños")
+    scalingFists = {}
+
+    for i, fist in ipairs({fist1, fist2, fist3}) do
+        local fistTransform = fist:get_component("TransformComponent")
+        if fistTransform then
+            -- Calcular nueva posición usando componentes individuales
+            local newX = playerTransf.position.x + math.random(-3, 3)
+            local newZ = playerTransf.position.z + math.random(-3, 3)
+            
+            fistTransform.position = Vector3.new(
+                newX,
+                fistsPositions[i].y,  -- Usar la Y original guardada
+                newZ
+            )
+
+            -- Configurar escalado
+            fistTransform.scale = Vector3.new(1, 1, 1)
+            table.insert(scalingFists, {
+                fist = fist,
+                elapsed = 0,
+                duration = 3,
+                startScale = Vector3.new(1, 1, 1),
+                targetScale = Vector3.new(1.5, 1.5, 1.5)
+            })
+        end
+    end
+end
+
+function update_fist_scaling(dt)
+    for i = #scalingFists, 1, -1 do
+        local data = scalingFists[i]
+        data.elapsed = data.elapsed + dt
+
+        if data.elapsed <= data.duration then
+            local t = data.elapsed / data.duration
+            local scale = Vector3.lerp(data.startScale, data.targetScale, t)
+            local fistTransform = data.fist:get_component("TransformComponent")
+            
+            if fistTransform then
+                fistTransform.scale = scale
+            end
+        else
+            -- Opcional: Resetear escala al finalizar
+            local fistTransform = data.fist:get_component("TransformComponent")
+            if fistTransform then
+                fistTransform.scale = data.targetScale
+            end
+            table.remove(scalingFists, i)
+        end
+    end
 end
 
 function waaaagh_ray()

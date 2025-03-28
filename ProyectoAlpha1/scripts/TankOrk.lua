@@ -266,7 +266,6 @@ function tackle_state(dt)
         local startPos = tankTransform.position
         local targetPos = playerTransf.position
         
-
         table.insert(directPath, startPos)
         table.insert(directPath, targetPos)
         
@@ -278,11 +277,9 @@ function tackle_state(dt)
         tackleHasDamaged = false
         tankVelocity = 13 
     end
-    
 
     chargeTime = chargeTime + dt
     
-
     if chargeTime < 1.5 then
         follow_path(dt)
         
@@ -303,7 +300,6 @@ function tackle_state(dt)
         canTackle = false
         tackleTimer = 0
         
-
         tankVelocity = defaultVelocity
 
         currentState = state.Chase
@@ -317,36 +313,28 @@ function attack_state(dt)
         animator:set_current_animation(4)
         currentAnim = 4
     end
-    
-    -- Static during attack
+
     tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
-    
-    -- Face player during attack
+
     if player and playerTransf then
         rotate_tank(playerTransf.position)
     end
     
-    -- Attack cooldown system
     attackTimer = attackTimer + dt
     
     if attackTimer >= AttackCooldown then
-        -- Perform the attack after cooldown
+
         if player and playerTransf and playerScript then
             local attackDistance = get_distance(tankTransform.position, playerTransf.position)
             
             if attackDistance <= meleeDistance then
-                -- Attempt to damage player directly with 10 damage
                 local damage = 10
-                
-                -- Directly reduce player health
                 playerScript.playerHealth = playerScript.playerHealth - damage
             end
         end
-        
-        -- Reset timer after attack
+
         attackTimer = 0
-        
-        -- Return to Chase state after attacking
+
         currentState = state.Chase
     end
 end
@@ -370,7 +358,6 @@ end
 -- Function to handle death
 function Die()
     if not isDead then
-        print("Tank has died! Health: " .. tankHealth)
         currentState = state.Idle
         tankRigidbody:set_position(Vector3.new(-500, 0, 0))
         tankHealth = 0
@@ -381,7 +368,6 @@ end
 function take_damage(amount)
     -- Reduce tank health
     tankHealth = tankHealth - amount
-    print("Tank took damage. Current Health: " .. tankHealth)
     
     -- Optional: Check for death
     if tankHealth <= 0 then
