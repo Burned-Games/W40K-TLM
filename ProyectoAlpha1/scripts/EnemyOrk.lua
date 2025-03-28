@@ -60,7 +60,7 @@ local isDead = false
 
 local audioDanoPlayerMusic = nil
 
-local playerDistance = 0
+local playerDistance = nil
 
 local visionAngle = 0 -- Ángulo actual del rayo
 local visionSpeed = 60 -- Velocidad de oscilación (grados por segundo)
@@ -96,6 +96,7 @@ function on_ready()
     end)
 
     if player ~= nil then
+        playerDistance = get_distance(enemyTransf.position, playerTransf.position)
         lastTargetPos = playerTransf.position
         delayedPlayerPos = playerTransf.position
         update_path()
