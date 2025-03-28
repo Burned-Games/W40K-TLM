@@ -100,6 +100,11 @@ function patrol_state(dt)
     -- Get current waypoint
     local currentTarget = waypointPositions[currentWaypoint]
     
+    -- Seguridad
+    if not currentTarget then
+        return
+    end
+    
     -- Update path to current waypoint if needed
     if not lastTargetPos or get_distance(lastTargetPos, currentTarget) > 1.0 then
         update_waypoint_path()
@@ -110,7 +115,7 @@ function patrol_state(dt)
     
     -- Calculate distance to current waypoint
     local distance = get_distance(bossTransform.position, currentTarget)
-
+    
     -- Cambiar de waypoint con un umbral más amplio
     if distance <= 2.0 then
         currentWaypoint = currentWaypoint % #waypointPositions + 1
@@ -122,7 +127,17 @@ function update_waypoint_path()
     if bossNavmesh then
         local currentTarget = waypointPositions[currentWaypoint]
         
-        bossNavmesh.path = bossNavmesh:find_path(bossTransform.position, currentTarget) 
+        -- Verificación de seguridad
+        if not currentTarget then
+            return
+        end
+        
+        bossNavmesh.path = bossNavmesh:find_path(bossTransform.position, currentTarget)
+        
+        -- Verificar si se generó el path
+        if not bossNavmesh.path or #bossNavmesh.path == 0 then
+            return
+        end
         
         lastTargetPos = currentTarget
         currentPathIndex = 1
@@ -130,6 +145,7 @@ function update_waypoint_path()
 end
 
 function follow_path(dt)
+    -- Verificaciones de seguridad
     if bossNavmesh == nil or #bossNavmesh.path == 0 then 
         if bossRigidbody then
             bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
@@ -137,13 +153,12 @@ function follow_path(dt)
         return 
     end
     
-
+    -- Verificar índice de path
     if currentPathIndex > #bossNavmesh.path then
         currentPathIndex = 1
     end
 
     local nextPoint = bossNavmesh.path[currentPathIndex]
-    
 
     local direction = Vector3.new(
         nextPoint.x - bossTransform.position.x,
@@ -168,7 +183,6 @@ function follow_path(dt)
                 normalizedDirection.z * moveSpeed
             )
             bossRigidbody:set_velocity(velocity)
-            
         end
 
         rotate_enemy(nextPoint)
