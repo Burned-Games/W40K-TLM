@@ -2,7 +2,7 @@
 using = false
 local radiusAttack = 2.5
 local damage = 50
-local HpStealed = 20
+local HpStealed = 10
 local coolDown = 6
 local coolDownCounter = 6
 local impulseDirection = nil
