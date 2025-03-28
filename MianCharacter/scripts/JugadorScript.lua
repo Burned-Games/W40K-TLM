@@ -475,6 +475,9 @@ function checkPlayerDeath(dt)
             SceneManager.change_scene("levelLose.TeaScene")
         end
     end
+    if playerHealth >= 100 then
+        playerHealth = 100
+    end
 end
 
 
