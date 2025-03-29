@@ -26,6 +26,10 @@ local mission5Component = nil
 --Mission6
 local mission6Component = nil
 
+--Mission7
+local mission7Complet = false
+enemyDie = 3
+
 --misionNoheho
 local nohecho = false
 
@@ -103,11 +107,17 @@ function missionBlue_ZoneTutor()
     if(currentTaskIndex == 5 and mission5Component.m5_IndicateTable == true)  then
         completeCurrentTask();
     end
-
+ 
     if(currentTaskIndex == 6 and mission6Component.m6_Clear == true)  then
         completeCurrentTask();
     end
-    if currentTaskIndex == 7 and nohecho == true  then
+    
+    if mission6Component.m7_missionOpen == true then
+        if enemyDie <= 0 then
+            mission7Complet = true
+        end
+    end
+    if currentTaskIndex == 7 and mission7Complet == true  then
         completeCurrentTask();
     end
     if currentTaskIndex == 8 and nohecho == true  then

@@ -2,6 +2,7 @@ local mission6RigidBodyComponent = nil
 local mission6RigidBody = nil
 
 m6_Clear = false
+m7_missionOpen = false
 function on_ready()
     mission6RigidBodyComponent = self:get_component("RigidbodyComponent")
     mission6RigidBody = mission6RigidBodyComponent.rb
@@ -11,7 +12,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag   
     if nameA == "Player" or nameB == "Player" then
         m6_Clear =true
-        print("player in zone")
+        m7_missionOpen = true
     end
     end)
     -- Add initialization code here
