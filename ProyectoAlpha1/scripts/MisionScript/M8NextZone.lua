@@ -23,10 +23,6 @@ end
 
 function on_update(dt)
     -- Add update code here
-    print("M8TOOCCCCAAAA",nameA,nameB)   
-    if m8_Clear ==true then
-        print("M8TOOCCCCAAAA")
-    end
 end
 
 function on_exit()

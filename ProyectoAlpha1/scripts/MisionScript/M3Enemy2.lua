@@ -23,7 +23,7 @@ function on_update(dt)
     end
 
     if Input.is_key_pressed(Input.keycode.J) then
-        if mission8Component.m8_missionOpen == true then
+        if mission8Component.m10_missionOpen == true then
             missionManagerComponent.enemyDie_M10 = missionManagerComponent.enemyDie_M10-1
             print("Enemy die")
         end
