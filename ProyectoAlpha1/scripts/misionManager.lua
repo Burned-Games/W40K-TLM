@@ -58,7 +58,7 @@ function on_ready()
     --Mission8
     mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
     --Mission9
-    mission9Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
+    mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
 end
 
 -- Perform task completion check in each frame update
@@ -90,7 +90,7 @@ end
 function getCurrentTask()
     if currentTaskIndex > #tasks then
         --print("No mission")
-        return ""
+        return "All missions done!"
     else
         --print("Current mission: " .. tasks[currentTaskIndex].description)
         return tasks[currentTaskIndex].description
@@ -137,6 +137,10 @@ function missionBlue_ZoneTutor()
     end
     if currentTaskIndex == 8 and mission8Component.m8_Clear == true  then
         completeCurrentTask();
+    end
+    
+    if mission9Component.m9_Clear == true then
+        jumpToNextMission(9)
     end
     if currentTaskIndex == 9 and mission9Component.m9_IndicateTable == true  then
         completeCurrentTask();
