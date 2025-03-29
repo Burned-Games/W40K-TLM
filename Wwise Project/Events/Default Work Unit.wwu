@@ -71,6 +71,61 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_MetalicDead2" ID="{6E1913E3-B2BB-419F-984E-73C0AF936AD2}">
+							<ChildrenList>
+								<Action Name="" ID="{EFA0C88A-7956-4446-9AE3-E25D9F33C266}" ShortID="618834852">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalicDead2" ID="{BDD058D6-D1B7-4985-AC3E-30AE69359F9C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MetalicDead" ID="{840E3342-E379-4205-BBE9-500BC61EF717}">
+							<ChildrenList>
+								<Action Name="" ID="{F48E0F05-10ED-419C-88CD-060A3F654CB9}" ShortID="835828176">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalicDead" ID="{EF1DC1E8-DEF7-4DF7-8968-FED340B07DFA}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MetalicDamage" ID="{E32A43FF-50E8-47C7-BAA8-4D414518A3BD}">
+							<ChildrenList>
+								<Action Name="" ID="{F97B03B0-8DB1-4403-8858-528B08F8A392}" ShortID="412881572">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalicDamage" ID="{33159D19-B39E-4D1F-920C-45B582174B3C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MetalicDamage2" ID="{A2855844-9E0A-4833-BC6E-AD2DA2511726}">
+							<ChildrenList>
+								<Action Name="" ID="{6CE51E75-F773-46B7-ADFD-5ADA98FA1EA7}" ShortID="345022781">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalicDamage2" ID="{3AEEC224-D38F-4752-8F80-A21CA68CD3C5}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MetalicDamage3" ID="{03A110D2-4900-4A85-87EE-2B3CC92A1D81}">
+							<ChildrenList>
+								<Action Name="" ID="{29392F76-3839-4F30-886E-FC8CF917FCFB}" ShortID="124730544">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalicDamage3" ID="{252D8617-59AA-4248-86B0-FB19AB92F0EA}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Weapons" ID="{1F453973-3ECF-482C-BB71-71CA807F87C5}" ShortID="952167920">
@@ -262,6 +317,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_BolterHabilityShot" ID="{2D48573B-6EAF-4806-B3B1-0043FCEE5A26}">
+							<ChildrenList>
+								<Action Name="" ID="{11712B6A-246E-400C-8284-5ABE516BB72A}" ShortID="503278912">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BolterHabilityShot" ID="{0043B2B0-EAE5-48AC-8BD9-FA6E11F6C42A}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BolterHabilityCharge" ID="{E03D3520-A007-4C79-95F6-5AB92E79C35B}">
+							<ChildrenList>
+								<Action Name="" ID="{AF7252C1-C14B-4577-94DA-E928F584A227}" ShortID="532555960">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BolterHabilityCharge" ID="{D734E4DC-2200-4AAE-8661-0F64672F49E3}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BolterHabilityElectric" ID="{1F8CA803-FFAC-4BCB-9AB3-B60BF8090FBC}">
+							<ChildrenList>
+								<Action Name="" ID="{AC8A5E2B-E367-4AFC-9910-2FF892E95D8B}" ShortID="422754663">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BolterHabilityElectric" ID="{563CFF48-155E-4B77-ABC6-F50328698202}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Steps" ID="{9173133C-2CCE-42F7-9348-17AB269EDB6E}" ShortID="874303960">
@@ -354,6 +442,50 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_MetalSandStep" ID="{63BCEB5C-0EA7-4B61-8093-3786BDC345D8}">
+							<ChildrenList>
+								<Action Name="" ID="{790BCF6E-A00D-4F24-99C0-91791A25AB7E}" ShortID="495393517">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalSandStep" ID="{9F52C81E-88DE-493E-896C-D54D39D38EF9}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MetalSandStep3" ID="{8C477539-B58D-4AF6-B08A-6CE9958B86CB}">
+							<ChildrenList>
+								<Action Name="" ID="{81DF3CCA-7744-4294-A155-55DF5D026857}" ShortID="201217014">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalSandStep3" ID="{FBF0A7F4-E39C-49B5-98B3-9E4F4A92775C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MetalSandStep4" ID="{DC44BBF0-21F5-4A48-9142-20044C54EEDC}">
+							<ChildrenList>
+								<Action Name="" ID="{62CBE9F6-5380-48EA-B1A7-EDEC4AE995E1}" ShortID="559611594">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalSandStep4" ID="{28CAFA4B-EECD-4AA0-9723-78E803A33F5C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MetalSandStep2" ID="{CD419573-5830-4ADB-BA52-77A64E91A81C}">
+							<ChildrenList>
+								<Action Name="" ID="{7897C33E-6297-474F-A08C-E6A15B925391}" ShortID="51265580">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MetalSandStep2" ID="{D1187A31-75B7-4B66-A894-CF1576DEE345}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemies" ID="{4A7B3928-028B-4413-ACB7-ACDC3007E046}" ShortID="726731799">
@@ -430,6 +562,105 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="enemy_die" ID="{595CB5CD-FD51-4A32-9C13-8333CBCB7FEB}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_KamikazeDeath" ID="{44742111-50F4-4A87-8211-C1CEC1E5326A}">
+							<ChildrenList>
+								<Action Name="" ID="{7ACBBE78-F012-4035-AF76-06AB70CA8244}" ShortID="912387084">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="KamikazeDeath" ID="{A788A63B-0310-4772-B70A-6457D60A70F1}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_KamikazeScream" ID="{A5E27D89-980D-4E4E-BE6B-D29524F06854}">
+							<ChildrenList>
+								<Action Name="" ID="{47409DBD-D162-493F-914C-96A4C8F7229D}" ShortID="226727801">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="KamikazeScream" ID="{AA7EFE84-16D0-4D5F-9068-2656794DF395}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueDamage2" ID="{0D8694B2-57C0-4AE6-96AE-CFC36AA917AC}">
+							<ChildrenList>
+								<Action Name="" ID="{A0B4247D-9276-4BFD-A65C-B65EA122B2F7}" ShortID="833904546">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueDamage2" ID="{5EE897E8-B823-41E0-AA10-6FB65739EAA1}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_KamikazeExplosion" ID="{4152F0B7-4354-4714-9501-3463592BA1B9}">
+							<ChildrenList>
+								<Action Name="" ID="{763D74FF-1890-482A-B13F-A3622B30446C}" ShortID="133580326">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="KamikazeExplosion" ID="{188FADC9-7E4F-43F7-A243-A308CA3CD6CD}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_KamikazeScream2" ID="{9BC60790-4A25-433E-ACE7-C8E72E5BCC2B}">
+							<ChildrenList>
+								<Action Name="" ID="{EA8645B3-F1D1-44C7-9079-FFCFFC35FC0A}" ShortID="918328287">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="KamikazeScream2" ID="{57965CA6-9793-43B4-ABF8-E2011FE0CFA4}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_SupportShield" ID="{66C8AAE2-EECF-4F95-8583-255EB28D8618}">
+							<ChildrenList>
+								<Action Name="" ID="{93D17E75-F4C6-4B60-97FD-B8CAFEB58DCE}" ShortID="367713551">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SupportShield" ID="{07ACF523-ECF4-485D-A9FC-CB33B42DE5B2}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueDamage" ID="{6634FA43-FFF5-4431-9972-3795CF4A04A8}">
+							<ChildrenList>
+								<Action Name="" ID="{C06D7F00-0D7C-44B0-9242-00CDF2278AD5}" ShortID="447430923">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueDamage" ID="{AC57CA3F-1741-4EC8-AE16-11E0CAD527BF}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueDeath" ID="{998EC812-3E67-44AE-8C9C-A60018EA45E6}">
+							<ChildrenList>
+								<Action Name="" ID="{3241D43F-5746-40A9-B89B-B978A6344DDA}" ShortID="666915837">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueDeath" ID="{50510E45-2147-448B-A749-D33A32F71AB1}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueRoca" ID="{50A16BE8-79FF-4B95-9C6B-509655B262BE}">
+							<ChildrenList>
+								<Action Name="" ID="{9AC44BEE-60CA-4B8E-8501-1DAD2652AFC1}" ShortID="418316313">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueRoca" ID="{C5C4F9A0-CF78-4CAC-BB1D-1DD9024B6E5F}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

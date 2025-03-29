@@ -1,14 +1,30 @@
 Event	ID	Name			Wwise Object Path	Notes
+	61546944	Play_MetalicDamage			\Default Work Unit\Player\Play_MetalicDamage	
 	173797128	Play_metal_step_1			\Default Work Unit\Steps\Play_metal_step_1	
 	173797130	Play_metal_step_3			\Default Work Unit\Steps\Play_metal_step_3	
 	173797131	Play_metal_step_2			\Default Work Unit\Steps\Play_metal_step_2	
 	173797133	Play_metal_step_4			\Default Work Unit\Steps\Play_metal_step_4	
+	389413188	Play_TanqueDeath			\Default Work Unit\Enemies\Play_TanqueDeath	
+	551224745	Play_TanqueDamage			\Default Work Unit\Enemies\Play_TanqueDamage	
+	671570996	Play_KamikazeScream			\Default Work Unit\Enemies\Play_KamikazeScream	
+	932586990	Play_KamikazeScream2			\Default Work Unit\Enemies\Play_KamikazeScream2	
 	1009433944	Play_melee_chainsaw_idle			\Default Work Unit\Weapons\Play_melee_chainsaw_idle	
+	1055490779	Play_MetalSandStep			\Default Work Unit\Steps\Play_MetalSandStep	
+	1078507541	Play_MetalicDead2			\Default Work Unit\Player\Play_MetalicDead2	
 	1248355840	Play_shotgun_reload			\Default Work Unit\Weapons\Play_shotgun_reload	
+	1337601612	Play_BolterHabilityShot			\Default Work Unit\Weapons\Play_BolterHabilityShot	
+	1640622393	Play_TanqueDamage2			\Default Work Unit\Enemies\Play_TanqueDamage2	
+	1680378519	Play_TanqueRoca			\Default Work Unit\Enemies\Play_TanqueRoca	
+	1801603881	Play_BolterHabilityElectric			\Default Work Unit\Weapons\Play_BolterHabilityElectric	
 	1927031969	Play_PlayerDash			\Default Work Unit\Player\Play_PlayerDash	
+	2090162640	Play_SupportShield			\Default Work Unit\Enemies\Play_SupportShield	
 	2094551132	Play_monster_damage_1			\Default Work Unit\Enemies\Play_monster_damage_1	
 	2094551134	Play_monster_damage_3			\Default Work Unit\Enemies\Play_monster_damage_3	
 	2094551135	Play_monster_damage_2			\Default Work Unit\Enemies\Play_monster_damage_2	
+	2099886864	Play_BolterHabilityCharge			\Default Work Unit\Weapons\Play_BolterHabilityCharge	
+	2254840178	Play_MetalicDamage2			\Default Work Unit\Player\Play_MetalicDamage2	
+	2254840179	Play_MetalicDamage3			\Default Work Unit\Player\Play_MetalicDamage3	
+	2276842397	Play_MetalicDead			\Default Work Unit\Player\Play_MetalicDead	
 	2448258477	Play_enemy_die			\Default Work Unit\Enemies\Play_enemy_die	
 	2459475889	Play_player_die_2			\Default Work Unit\Player\Play_player_die_2	
 	2459475890	Play_player_die_1			\Default Work Unit\Player\Play_player_die_1	
@@ -16,6 +32,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2547373757	Play_melee_attack_1			\Default Work Unit\Weapons\Play_melee_attack_1	
 	2547373758	Play_melee_attack_2			\Default Work Unit\Weapons\Play_melee_attack_2	
 	2547373759	Play_melee_attack_3			\Default Work Unit\Weapons\Play_melee_attack_3	
+	2723827487	Play_KamikazeDeath			\Default Work Unit\Enemies\Play_KamikazeDeath	
 	2888830865	Play_sand_step_1			\Default Work Unit\Steps\Play_sand_step_1	
 	2888830866	Play_sand_step_2			\Default Work Unit\Steps\Play_sand_step_2	
 	2888830867	Play_sand_step_3			\Default Work Unit\Steps\Play_sand_step_3	
@@ -28,7 +45,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	3216105749	Play_monster_attack_3			\Default Work Unit\Enemies\Play_monster_attack_3	
 	3216105751	Play_monster_attack_1			\Default Work Unit\Enemies\Play_monster_attack_1	
 	3350351765	Play_smokeGrenade			\Default Work Unit\Weapons\Play_smokeGrenade	
+	3533005344	Play_KamikazeExplosion			\Default Work Unit\Enemies\Play_KamikazeExplosion	
 	3661419601	Play_ar_reload			\Default Work Unit\Weapons\Play_ar_reload	
+	3835231986	Play_MetalSandStep3			\Default Work Unit\Steps\Play_MetalSandStep3	
+	3835231987	Play_MetalSandStep2			\Default Work Unit\Steps\Play_MetalSandStep2	
+	3835231989	Play_MetalSandStep4			\Default Work Unit\Steps\Play_MetalSandStep4	
 	3906147804	Play_grenade_explosion			\Default Work Unit\Weapons\Play_grenade_explosion	
 	3950543718	Play_grenade_launch			\Default Work Unit\Weapons\Play_grenade_launch	
 	3980927384	Play_player_damage_2			\Default Work Unit\Player\Play_player_damage_2	
@@ -50,40 +71,61 @@ Effect plug-ins	ID	Name	Type				Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	908001	metal_step_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AF\{AF01CF72-A051-7932-3285-5094B4E561E5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\metal_step_2		33268
 	8851557	metal_step_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\33\{33451F25-4FC2-2410-4BD6-4D11C29427E4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\metal_step_1		28698
+	30027997	TanqueDamage2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\D1\{D1AEFE8B-9EE1-AD13-6DB4-7663A2CCE8BF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\TanqueDamage2		70210
 	35598177	metal_step_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B0\{B094FC28-F337-A6DD-89D5-C15204C66E4C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\metal_step_3		32224
+	43542722	KamikazeDeath	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\46\{463E68FE-5223-03A8-93E9-B144A80DD0B5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\KamikazeDeath		64900
 	63830455	enemy_die	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\E9\{E91D8E4D-1E8E-6538-C2F2-F86856D0A364}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\enemy_die		84684
+	74667837	BolterHabilityCharge	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A1\{A1CAD19E-AB0B-19E1-7E30-F1138E0F6B4D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\BolterHabilityCharge		173144
 	99736871	monster_damage_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A6\{A64613C2-450A-6D8E-EA8E-A2BAA7AF03B6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\monster_damage_1		55284
 	106007111	ar_shot_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\55\{55B72CDB-93CC-3DF4-C8E8-7BD1F74DF04C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\ar_shot_1		131412
 	109561412	monster_damage_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\E0\{E0ACC4D3-710F-1182-4F8D-44F7926AEFC3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\monster_damage_3		88360
+	125923430	KamikazeScream2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\79\{792EBB4A-0C35-521F-6EFD-D0E6B11B605B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\KamikazeScream2		866396
 	144115171	smokeGrenade	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8C\{8CDCA6A5-C885-DABC-E1AA-E9AF0FA44152}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\smokeGrenade		2958576
+	169224025	MetalicDamage	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\22\{2284F32B-88B2-A36A-CA2B-A3CCEF6379EA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\MetalicDamage		126320
+	174829407	MetalSandStep	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\D9\{D9DD909B-CE89-9E22-DD36-37384062A494}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\MetalSandStep		18198
 	175447611	sand_step_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F7\{F77749BC-8E5D-B776-CBE7-C1F09FC819AF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\sand_step_2		9952
 	192602485	PlayerDash	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\38\{38310215-51F8-81EB-D0ED-1AF970C710BA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerDash		188512
 	214263635	player_damage_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\EA\{EAD3560F-AE51-EDAF-E4AB-14BEFDF4EC3B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\player_damage_2		42938
 	234402737	melee_chainsaw_attack_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\2A\{2AA6A8FD-E989-605C-B071-5886DE3ED142}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\melee_chainsaw_attack_2		223648
+	250587593	MetalicDead	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\78\{78E83917-7CD5-2607-69F2-883F50A97E13}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\MetalicDead		175216
 	262613032	burst_shot	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B2\{B2D82CA9-538A-EEBB-B5A3-DFB0773BBC7A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\burst_shot		148208
 	264762800	player_die_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\6E\{6E574CF3-6906-4A18-CA7B-2E0ACE4D7D5C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\player_die_1		85872
 	325425347	melee_chainsaw_attack_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\D3\{D3CB9606-E2D5-3B1D-6AC5-47FE6A659977}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\melee_chainsaw_attack_1		166512
 	326305142	monster_attack_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\CF\{CF8F3271-6764-495E-C673-583DDA1CCB4A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\monster_attack_3		84684
 	328169470	player_damage_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F6\{F6489AB2-723D-F4D1-1350-96A16F5027C5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\player_damage_1		47920
+	329079499	KamikazeExplosion	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\41\{41F19A1E-4B04-0CEE-C02D-035F5B5072AD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\KamikazeExplosion		538252
+	341174396	MetalicDamage2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\3F\{3FE6BD61-D69F-69C6-1D65-04968E738F0F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\MetalicDamage2		143316
 	415581673	ar_reload	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\1C\{1CAFA0C0-E25B-E284-3718-645B70D8A357}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\ar_reload		278624
 	423447629	shotgun_reload	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\94\{94B32A4F-DAB6-5B0D-0EB8-A96FD05819EB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\shotgun_reload		440416
+	457730650	TanqueDeath	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C8\{C8864AF9-1889-BBE2-7AA4-CF84C6FB070D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\TanqueDeath		109648
 	477122320	melee_chainsaw_idle	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\DD\{DD80291D-456E-D873-D952-DA0D516D933B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\melee_chainsaw_idle		988908
 	502480266	monster_attack_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\41\{41BFAF43-2323-D46A-5E13-4F25C8FEB816}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\monster_attack_2		121432
+	521620224	MetalicDead2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\65\{655260EF-F46C-259B-7FCC-FCFADE89D5F4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\MetalicDead2		183448
+	534913639	BolterHabilityElectric	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\39\{398EA627-5F76-430B-E9EC-562E23427081}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\BolterHabilityElectric		777704
 	547456275	grenade_explosion	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\E2\{E2DF08CB-1F6B-9C27-C37D-0887F7C34A0D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\grenade_explosion		528016
+	634227420	KamikazeScream	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F9\{F949A58F-D72E-7F9A-5847-992BC6E03684}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\KamikazeScream		556828
 	652609025	grenade_launch	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\4C\{4CE80ECB-C88D-E2FF-83D3-C1DC975116A3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\grenade_launch		142944
 	662366300	player_damage_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\4D\{4D760DC4-A63D-C05C-349F-6BABD3B80E29}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\player_damage_3		42362
+	695036394	TanqueDamage	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\CE\{CE56A8FA-C63E-0FCB-22B3-C6D5B59450BB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\TanqueDamage		48784
 	731088056	melee_chainsaw_attack_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\52\{52E65DE0-519D-77B2-7044-2C5E85084D4C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\melee_chainsaw_attack_3		203776
 	735085480	melee_attack_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\CB\{CB0982C1-24A9-343D-B28D-7E72E1FDBAA0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\melee_attack_2		223648
 	768779297	player_die_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B8\{B8530FFC-A4D3-6470-8ED6-00ADA4B30605}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\player_die_2		100458
+	784979147	MetalSandStep3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\6D\{6DC6E29E-3FDC-5540-EE44-AA453B181A14}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\MetalSandStep3		31358
 	792020146	monster_attack_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\CD\{CD64A128-A800-BFFD-70CD-D743FC8A1BD3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\monster_attack_1		132460
 	792750110	ar_shot_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\FE\{FEA2E505-9C81-BF1F-AB06-09E0AF2B492E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\ar_shot_2		65704
 	795771959	sand_step_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\70\{705F8C52-3DC6-7D61-0CD2-4DCBC48E4860}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\sand_step_1		18400
+	813472966	MetalSandStep4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8E\{8E925B89-F433-A173-CB2C-165B47EAB303}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\MetalSandStep4		22118
+	828697396	TanqueRoca	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A1\{A180E613-3DDD-07A1-6977-5682B266AC9C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\TanqueRoca		124012
+	834315411	BolterHabilityShot	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\CC\{CC0F7228-0AC2-8A9B-CC2F-42264E9A808A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\BolterHabilityShot		129436
 	835309600	ar_shot_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8A\{8A0B1B71-A7F5-CF76-1793-F13FC43DCC88}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\ar_shot_3		90360
+	848474775	SupportShield	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\04\{0433969C-3480-23AE-7EC6-0CAF12AE07DA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\SupportShield		786988
 	905580413	sand_step_4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F1\{F140A2B0-81D4-EF1F-5506-29CFB6824B27}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\sand_step_4		20448
 	912672974	metal_step_4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C0\{C02C1348-7E54-6737-43FF-0D944A8EBBC8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\metal_step_4		18144
 	928549664	melee_attack_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\23\{2318BA40-AC7E-035C-87DE-9779C059F966}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\melee_attack_3		203776
 	929908216	monster_damage_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\6A\{6AC7B17E-2335-E08B-9564-298C820FB325}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\monster_damage_2		99384
 	962002990	melee_attack_1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\47\{478B4FFA-091A-8F3B-E8CD-2344CB971878}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\melee_attack_1		166512
+	1005007747	MetalicDamage3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\1E\{1E46E3D9-8B21-D812-43F5-9F1135C93230}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\MetalicDamage3		168680
 	1037416568	sand_step_3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\FE\{FEF8B093-41FD-1D1C-5583-448840D39A2B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\sand_step_3		14048
+	1047720961	MetalSandStep2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\6C\{6C6CE1BC-A2F9-5C59-0F80-E4A74F30644D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\MetalSandStep2		33524
 	1054847420	shotgun_shot	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\75\{75450B1F-616A-339F-CB5A-CF186C35AA51}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\shotgun_shot		245700
 
