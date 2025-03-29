@@ -505,21 +505,24 @@ function follow_path(dt)
 
 end
 
+local currentRotationY = 0
+
 function rotate_enemy(targetPosition)
 
 	local dx = targetPosition.x - enemyTransf.position.x
 	local dz = targetPosition.z - enemyTransf.position.z
 
-	local angleRotation = math.atan(dx, dz)
+    local targetAngle = math.deg(math.atan(dx / dz))
+    if dz < 0 then
+        targetAngle = targetAngle + 180
+    end
 
-    enemyTransf.rotation.y = math.deg(angleRotation)
+    targetAngle = (targetAngle + 180) % 360 - 180
+    local currentAngle = (currentRotationY + 180) % 360 - 180
+    local deltaAngle = (targetAngle - currentAngle + 180) % 360 - 180
 
-    
-    --local targetRotation = math.atan(dx, dz)
-    --local currentRotation = math.rad(enemyTransf.rotation.y)
-    --local smoothedRotation = lerp(currentRotation, targetRotation, 0.1)
-    --enemyTransf.rotation.y = math.deg(smoothedRotation)
-    
+    currentRotationY = currentAngle + deltaAngle * 0.1
+    enemyTransf.rotation.y = currentRotationY
 
 end
 
@@ -530,10 +533,6 @@ function get_distance(pos1, pos2)
     local dz = pos2.z - pos1.z
     return math.sqrt(dx * dx + dy * dy + dz * dz)
 
-end
-
-function lerp(a, b, t)
-    return (1 - t) * a + t * b
 end
 
 function die()
