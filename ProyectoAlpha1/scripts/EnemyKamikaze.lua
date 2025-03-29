@@ -39,7 +39,7 @@ local explosionForce = 13.0
 local explosionUpward = 2.0
 
 local attackTimer = 0
-local attackDelay = 2.0
+local attackDelay = 0.75
 
 haveShield = false
 shieldHealth = 0
@@ -153,18 +153,18 @@ end
 -- Funciones para los distintos estados.
 function idle_state(dt)
 
-    if currentAnim ~= 1 then
-        animator:set_current_animation(1)
-        currentAnim = 1
+    if currentAnim ~= 3 then
+        currentAnim = 3
+        animator:set_current_animation(currentAnim)
     end
 
 end
 
 function move_state(dt)
 
-    if currentAnim ~= 3 then
-        animator:set_current_animation(3)
-        currentAnim = 3
+    if currentAnim ~= 5 then
+        currentAnim = 5
+        animator:set_current_animation(currentAnim)
     end
 
 	-- Movimiento
@@ -175,6 +175,11 @@ end
 function attack_state(dt)
 
     enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+    if currentAnim ~= 7 then
+        currentAnim = 7
+        animator:set_current_animation(currentAnim)
+    end
 
     attackTimer = attackTimer + dt
 
@@ -324,9 +329,11 @@ function get_distance(pos1, pos2)
 end
 
 function die()                                      -- !! IMPORTANTE !! Se tendra que cambiar para destruir el enemigo al morir, ahora solo se mueve lejos y se le pone en Idle :)
+
     currentState = state.Idle
     enemyRb:set_position(Vector3.new(-500, 0, 0))
     isDead = true
+
 end
 
 function on_exit() end

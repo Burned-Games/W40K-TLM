@@ -87,12 +87,12 @@ function on_ready()
     bulletRb:set_trigger(true)
     
     bulletComponent:on_collision_enter(function(entityA, entityB)
-         local nameA = entityA:get_component("TagComponent").tag
-         local nameB = entityB:get_component("TagComponent").tag
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
 
-         if nameA == "Player" or nameB == "Player" then
-             make_damage()
-         end
+        if nameA == "Player" or nameB == "Player" then
+            make_damage()
+        end
     end)
 
     if player ~= nil then

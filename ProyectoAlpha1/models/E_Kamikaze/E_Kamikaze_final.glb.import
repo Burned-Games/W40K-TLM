@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "E_Kamikaze_final_Plane.027",
+                        "value": {
+                            "value0": 4368770122201445907
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.016_Mat0",
+                        "value": {
+                            "value0": 12411560154465212134
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 13531819732448903233
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/E_Kamikaze/E_Kamikaze_final.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13531819732448903233.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
