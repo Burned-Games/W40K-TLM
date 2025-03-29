@@ -48,8 +48,10 @@ local bulletSpeed = 5
 local bulletDirection = Vector3.new(0, 0, 0)
 local bulletDamageRadius = 1.5
 
-local stabTimer = 2
+local stabTimer = 1
 local timeSinceLastStab = 0
+local stabCooldown = 2 
+local stabCooldownTimer = 0 
 
 local invulnerability = 0.1
 local timeSinceLastHit = 0
@@ -339,15 +341,14 @@ end
 
 function shoot_state(dt)
 
-    if currentAnim ~= 1 then
-        currentAnim = 1
-        animator:set_current_animation(currentAnim)
-    end
-
     enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
     -- Logica de disparo
     if isShootingBurst then
+        if currentAnim ~= 1 then
+            currentAnim = 1
+            animator:set_current_animation(currentAnim)
+        end
         timeSinceLastShot = timeSinceLastShot + dt
 
         if timeSinceLastShot >= burstCooldown and burstCount < maxBurstShots then
@@ -361,6 +362,10 @@ function shoot_state(dt)
             end
         end
     else
+        if currentAnim ~= 2 then
+            currentAnim = 2
+            animator:set_current_animation(currentAnim)
+        end
         burstCooldownTimer = burstCooldownTimer + dt
 
         if burstCooldownTimer >= timeBetweenBursts then
@@ -385,25 +390,32 @@ end
 
 function stab_state(dt)
 
-    if currentAnim ~= 0 then
-        currentAnim = 0
-        animator:set_current_animation(currentAnim)
-    end
-
     enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
-    -- Logica de Stab
-    timeSinceLastStab = timeSinceLastStab + dt
+    if stabCooldownTimer > 0 then
+        stabCooldownTimer = stabCooldownTimer - dt
+        if currentAnim ~= 2 then
+            currentAnim = 2
+            animator:set_current_animation(currentAnim)
+        end
+        return 
+    end
 
-    if timeSinceLastStab >= stabTimer then
+        timeSinceLastStab = timeSinceLastStab + dt
+
+    if timeSinceLastStab < stabTimer then
+        if currentAnim ~= 0 then
+            currentAnim = 0
+            animator:set_current_animation(currentAnim)
+        end
         make_damage()
         bleed_damage()
+    elseif timeSinceLastStab >= stabTimer then
         timeSinceLastStab = 0
+        stabCooldownTimer = stabCooldown 
     end
 
 end
-
-
 
 -- Funciones para calcular cosas.    :)
 function make_damage()
