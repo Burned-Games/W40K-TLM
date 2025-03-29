@@ -308,14 +308,24 @@ function follow_path(dt)
 
 end
 
+local currentRotationY = 0
+
 function rotate_enemy(targetPosition)
 
 	local dx = targetPosition.x - enemyTransf.position.x
 	local dz = targetPosition.z - enemyTransf.position.z
 
-	local angleRotation = math.atan(dx, dz)
+    local targetAngle = math.deg(math.atan(dx / dz))
+    if dz < 0 then
+        targetAngle = targetAngle + 180
+    end
 
-    enemyTransf.rotation.y = math.deg(angleRotation)
+    targetAngle = (targetAngle + 180) % 360 - 180
+    local currentAngle = (currentRotationY + 180) % 360 - 180
+    local deltaAngle = (targetAngle - currentAngle + 180) % 360 - 180
+
+    currentRotationY = currentAngle + deltaAngle * 0.1
+    enemyTransf.rotation.y = currentRotationY
 
 end
 

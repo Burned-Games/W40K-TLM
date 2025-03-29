@@ -338,13 +338,27 @@ function attack_state(dt)
         currentState = state.Chase
     end
 end
+
 -- Helper function to rotate the tank to face a target position
+local currentRotationY = 0
+
 function rotate_tank(targetPosition)
-    local dx = targetPosition.x - tankTransform.position.x
-    local dz = targetPosition.z - tankTransform.position.z
-    
-    local angleRotation = math.atan(dx, dz)
-    tankTransform.rotation.y = math.deg(angleRotation)
+
+	local dx = targetPosition.x - enemyTransf.position.x
+	local dz = targetPosition.z - enemyTransf.position.z
+
+    local targetAngle = math.deg(math.atan(dx / dz))
+    if dz < 0 then
+        targetAngle = targetAngle + 180
+    end
+
+    targetAngle = (targetAngle + 180) % 360 - 180
+    local currentAngle = (currentRotationY + 180) % 360 - 180
+    local deltaAngle = (targetAngle - currentAngle + 180) % 360 - 180
+
+    currentRotationY = currentAngle + deltaAngle * 0.1
+    tankTransform.rotation.y = currentRotationY
+
 end
 
 -- Helper function to calculate distance between two positions

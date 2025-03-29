@@ -492,14 +492,25 @@ function waaaagh_ray()
     --log("Steel Claw desata el Rayo de Waaaagh!")
 end
 
-
+local currentRotationY = 0
 
 function rotate_enemy(targetPosition)
-    local dx = targetPosition.x - bossTransf.position.x
-    local dz = targetPosition.z - bossTransf.position.z
 
-    local angleRotation = math.atan(dx, dz)
-    bossTransf.rotation.y = math.deg(angleRotation)
+	local dx = targetPosition.x - enemyTransf.position.x
+	local dz = targetPosition.z - enemyTransf.position.z
+
+    local targetAngle = math.deg(math.atan(dx / dz))
+    if dz < 0 then
+        targetAngle = targetAngle + 180
+    end
+
+    targetAngle = (targetAngle + 180) % 360 - 180
+    local currentAngle = (currentRotationY + 180) % 360 - 180
+    local deltaAngle = (targetAngle - currentAngle + 180) % 360 - 180
+
+    currentRotationY = currentAngle + deltaAngle * 0.1
+    bossTransf.rotation.y = currentRotationY
+
 end
 
 function get_distance(pos1, pos2)

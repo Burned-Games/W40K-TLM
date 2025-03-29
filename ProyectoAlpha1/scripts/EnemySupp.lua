@@ -685,12 +685,25 @@ function follow_path(dt)
     end
 end
 
-function rotate_enemy(targetPosition)
-    local dx = targetPosition.x - enemyTransf.position.x
-    local dz = targetPosition.z - enemyTransf.position.z
+local currentRotationY = 0
 
-    local angleRotation = math.atan(dx, dz)
-    enemyTransf.rotation.y = math.deg(angleRotation)
+function rotate_enemy(targetPosition)
+
+	local dx = targetPosition.x - enemyTransf.position.x
+	local dz = targetPosition.z - enemyTransf.position.z
+
+    local targetAngle = math.deg(math.atan(dx / dz))
+    if dz < 0 then
+        targetAngle = targetAngle + 180
+    end
+
+    targetAngle = (targetAngle + 180) % 360 - 180
+    local currentAngle = (currentRotationY + 180) % 360 - 180
+    local deltaAngle = (targetAngle - currentAngle + 180) % 360 - 180
+
+    currentRotationY = currentAngle + deltaAngle * 0.1
+    enemyTransf.rotation.y = currentRotationY
+
 end
 
 function get_distance(pos1, pos2)
