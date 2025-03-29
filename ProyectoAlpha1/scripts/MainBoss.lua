@@ -496,8 +496,8 @@ local currentRotationY = 0
 
 function rotate_enemy(targetPosition)
 
-	local dx = targetPosition.x - enemyTransf.position.x
-	local dz = targetPosition.z - enemyTransf.position.z
+	local dx = targetPosition.x - bossTransf.position.x
+	local dz = targetPosition.z - bossTransf.position.z
 
     local targetAngle = math.deg(math.atan(dx / dz))
     if dz < 0 then

@@ -25,6 +25,7 @@ local isDead = false
 local tankDamage = 10  -- This will now be the melee damage
 local AttackCooldown = 3
 local tankNavmesh = nil
+local tankHealth = 75
 
 local tackleCooldown = 8
 local tackleTimer = 0       
@@ -344,8 +345,8 @@ local currentRotationY = 0
 
 function rotate_tank(targetPosition)
 
-	local dx = targetPosition.x - enemyTransf.position.x
-	local dz = targetPosition.z - enemyTransf.position.z
+	local dx = targetPosition.x - tankTransform.position.x
+	local dz = targetPosition.z - tankTransform.position.z
 
     local targetAngle = math.deg(math.atan(dx / dz))
     if dz < 0 then
