@@ -28,7 +28,17 @@ local mission6Component = nil
 
 --Mission7
 local mission7Complet = false
-enemyDie = 3
+enemyDie_M7 = 3
+
+--Mission8
+local mission8Component = nil
+
+--Mission9
+local mission9Component = nil
+
+--Mission10
+local mission10Complet = false
+enemyDie_M10 = 3
 
 --misionNoheho
 local nohecho = false
@@ -45,6 +55,10 @@ function on_ready()
     mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
     --Mission6
     mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
+    --Mission8
+    mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
+    --Mission9
+    mission9Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
 end
 
 -- Perform task completion check in each frame update
@@ -113,20 +127,28 @@ function missionBlue_ZoneTutor()
     end
     
     if mission6Component.m7_missionOpen == true then
-        if enemyDie <= 0 then
+        if enemyDie_M7 <= 0 then
             mission7Complet = true
         end
     end
+
     if currentTaskIndex == 7 and mission7Complet == true  then
         completeCurrentTask();
     end
-    if currentTaskIndex == 8 and nohecho == true  then
+    if currentTaskIndex == 8 and mission8Component.m8_Clear == true  then
         completeCurrentTask();
     end
-    if currentTaskIndex == 9 and nohecho == true  then
+    if currentTaskIndex == 9 and mission9Component.m9_IndicateTable == true  then
         completeCurrentTask();
     end
-    if currentTaskIndex == 10 and nohecho == true then
+
+    if mission8Component.m10_missionOpen == true then
+        if enemyDie_M10 <= 0 then
+            mission10Complet = true
+        end
+    end
+
+    if currentTaskIndex == 10 and mission10Complet == true then
         completeCurrentTask();
     end
 end
