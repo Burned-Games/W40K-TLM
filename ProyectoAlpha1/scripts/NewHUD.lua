@@ -1,12 +1,13 @@
-local maxAmmo = 30
-local currentAmmo = maxAmmo
+local maxAmmoWeapon1 = 30
+local currentAmmoWeapon1 = maxAmmoWeapon1
+local maxAmmoWeapon2 = 15
+local currentAmmoWeapon2 = maxAmmoWeapon2
+local ammoTextComponent
+
 local maxHealth = 100
 local currentHealth = maxHealth
-local chatarraCount = 0
 
-local ammoTextComponent
 local lifeFullComponent
-local lifeValorComponent
 local life75Component
 local life50Component
 local life25Component
@@ -30,15 +31,43 @@ local currentWeapon = 1
 local weaponSwitchCooldown = 0.2 
 local weaponSwitchTimer = 0
 
+local maxChatarraDisplay = 1000
+local currentChatarra = 0
+
+local chatarraTextComponent
+local chatarraFullComponent
+local chatarra75Component
+local chatarra50Component
+local chatarra25Component
+
 function on_ready()
-    ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
+    --Vida
     lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
-    lifeValorComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
     life75Component = current_scene:get_entity_by_name("Vida75"):get_component("UIImageComponent")
     life50Component = current_scene:get_entity_by_name("Vida50"):get_component("UIImageComponent")
     life25Component = current_scene:get_entity_by_name("Vida25"):get_component("UIImageComponent")
     life10Component = current_scene:get_entity_by_name("Vida10"):get_component("UIImageComponent")
     lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
+
+    --Habilidades
+    skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
+    skill1TextCooldown = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("UITextComponent")
+    skill2 = current_scene:get_entity_by_name("Habilidad2"):get_component("UIImageComponent")
+    skill2TextCooldown = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("UITextComponent")
+    skill3 = current_scene:get_entity_by_name("Habilidad3"):get_component("UIImageComponent")
+    skill3TextCooldown = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("UITextComponent")
+
+    --Armas
+    arma1 = current_scene:get_entity_by_name("Arma1"):get_component("UIImageComponent")
+    arma2 = current_scene:get_entity_by_name("Arma2"):get_component("UIImageComponent")
+    ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
+    
+    --Chatarra
+    chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
+    chatarraFullComponent = current_scene:get_entity_by_name("ChatarraCantidad100"):get_component("UIImageComponent")
+    chatarra75Component = current_scene:get_entity_by_name("ChatarraCantidad75"):get_component("UIImageComponent")
+    chatarra50Component = current_scene:get_entity_by_name("ChatarraCantidad50"):get_component("UIImageComponent")
+    chatarra25Component = current_scene:get_entity_by_name("ChatarraCantidad25"):get_component("UIImageComponent")
 
 end
 
@@ -121,12 +150,10 @@ function abilityManager(dt)
 end
 
 function weaponManager(dt)
-    -- Reducimos el cooldown con el tiempo
     if weaponSwitchTimer > 0 then
         weaponSwitchTimer = weaponSwitchTimer - dt
     end
 
-    -- Si se presiona Skill3 y el cooldown ha terminado, cambiar de arma
     if Input.is_button_pressed(Input.action.Skill3) and weaponSwitchTimer <= 0 then
         if currentWeapon == 1 then
             arma1:set_visible(false)
@@ -137,11 +164,37 @@ function weaponManager(dt)
             arma2:set_visible(false)
             currentWeapon = 1
         end
-        weaponSwitchTimer = weaponSwitchCooldown 
+        weaponSwitchTimer = weaponSwitchCooldown
+        
+        updateAmmoText()
     end
 end
 
+function updateAmmoText()
+    if currentWeapon == 1 then
+        ammoTextComponent:set_text(tostring(currentAmmoWeapon1))
+    else
+        ammoTextComponent:set_text(tostring(currentAmmoWeapon2))
+    end
+end
 
+function reload()
+    if currentWeapon == 1 then
+        currentAmmoWeapon1 = maxAmmoWeapon1
+    else
+        currentAmmoWeapon2 = maxAmmoWeapon2
+    end
+    updateAmmoText()
+end
+
+function use_ammo(amount)
+    if currentWeapon == 1 then
+        currentAmmoWeapon1 = math.max(0, currentAmmoWeapon1 - amount)
+    else
+        currentAmmoWeapon2 = math.max(0, currentAmmoWeapon2 - amount)
+    end
+    updateAmmoText()
+end
 
 function update_health_display()
 
@@ -177,3 +230,28 @@ function take_damage(damage)
     end
 end
 
+function update_chatarra_display()
+    chatarraFullComponent:set_visible(false)
+    chatarra75Component:set_visible(false)
+    chatarra50Component:set_visible(false)
+    chatarra25Component:set_visible(false)
+
+    local displayChatarra = math.min(currentChatarra, maxChatarraDisplay)
+
+    if currentChatarra > 1000 then  
+        chatarraFullComponent:set_visible(true)
+    elseif displayChatarra > 750 then
+        chatarra75Component:set_visible(true)
+    elseif displayChatarra > 500 then
+        chatarra50Component:set_visible(true)
+    elseif displayChatarra > 250 then
+        chatarra25Component:set_visible(true)
+    end
+
+    chatarraTextComponent:set_text(tostring(math.floor(currentChatarra)))
+end
+
+function add_chatarra(amount)
+    currentChatarra = currentChatarra + amount
+    update_chatarra_display()
+end
