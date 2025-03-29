@@ -33,6 +33,11 @@ local fist3Rb = nil
 local fistsPositions = {}
 local scalingFists = {}
 
+local lightning = nil
+local lightningTransf = nil
+local lightningCollider = nil
+local lightningRb = nil
+
 enemyHealth = 150
 local bossMaxHealth = 150
 shieldHealth = 30
@@ -66,6 +71,9 @@ local stateDelayTimer = 0
 local stateDelayDuration = 1
 local isStateDelaying = false
 
+local invulnerability = 1
+local timeSinceLastHit = 0
+
 function on_ready() 
     -- Get the main boss entity
     bossTransf = self:get_component("TransformComponent")
@@ -98,7 +106,7 @@ function on_ready()
         fist2Rb:set_trigger(true)
         fist3Rb:set_trigger(true)
 
-        fist1Collider:on_collision_enter(function(entityA, entityB)
+        fist1Collider:on_collision_stay(function(entityA, entityB)
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
 
@@ -106,7 +114,7 @@ function on_ready()
                 make_damage()
             end
        end)
-       fist2Collider:on_collision_enter(function(entityA, entityB)
+       fist2Collider:on_collision_stay(function(entityA, entityB)
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
 
@@ -114,7 +122,7 @@ function on_ready()
                 make_damage()
             end
        end)
-       fist3Collider:on_collision_enter(function(entityA, entityB)
+       fist3Collider:on_collision_stay(function(entityA, entityB)
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
 
@@ -129,6 +137,22 @@ function on_ready()
             fistsPositions[3] = fist3Transform.position
         end
     end
+
+    lightning = current_scene:get_entity_by_name("Lightning")
+    lightningTransf = lightning:get_component("TransformComponent")
+    lightningCollider = lightning:get_component("RigidbodyComponent")
+    lightningRb = lightningCollider.rb
+
+    lightningRb:set_trigger(true)
+
+    lightningCollider:on_collision_stay(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            make_damage()
+        end
+    end)
 
     waypoint1 = current_scene:get_entity_by_name("Waypoint1")
     waypoint2 = current_scene:get_entity_by_name("Waypoint2")
@@ -161,6 +185,10 @@ end
 -- FSM General
 function on_update(dt)
 
+    if enemyHealth <= 0 then
+        die()
+    end
+
     update_state(dt)
 
     if shieldActive then
@@ -184,6 +212,8 @@ function on_update(dt)
             isAttacking = true
         end
     end
+
+    timeSinceLastHit = timeSinceLastHit + dt
 
     -- Ejecutar el estado principal
     if currentState == state.Idle then
@@ -387,18 +417,22 @@ end
 
 function move_state(dt) end
 
-function attack_state(dt) 
+function attack_state(dt)
+    if not isAttacking then
+        return
+    end
+
     local distance = get_distance(bossTransf.position, playerTransf.position)
     local attackChance = math.random()
 
     if attackChance < 0.3 then
-        lightning()
-        fists()
+        lightning_attack()
+        fists_attack()
     else
         if distance <= 10 then
-            lightning()
+            lightning_attack()
         else
-            fists()
+            fists_attack()
         end
     end
 
@@ -421,11 +455,31 @@ function rage_state(dt)
     end
 end
 
-function lightning()
-    log("Steel Claw lanza Rayos")
+function lightning_attack()
+    log("Lightning attack")
+    if lightningTransf and bossTransf and playerTransf then
+        lightningRb:set_position(Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z))
+
+        lightningTransf.position = Vector3.new(
+            bossTransf.position.x,
+            bossTransf.position.y,
+            bossTransf.position.z
+        )
+
+        local dx = playerTransf.position.x - bossTransf.position.x
+        local dz = playerTransf.position.z - bossTransf.position.z
+
+        local angle = math.deg(math.atan(dx, dz))
+
+        if dz < 0 then
+            angle = angle + 180
+        end
+
+        lightningTransf.rotation.y = angle
+    end
 end
 
-function fists()
+function fists_attack()
     -- Position fists around the player
     local playerPos = playerTransf.position
     
@@ -493,6 +547,9 @@ function update_fist_scaling(dt)
 end
 
 function make_damage()
+    if timeSinceLastHit < invulnerability then
+        return
+    end
 
     if player ~= nil then
         if playerScript ~= nil then
@@ -505,6 +562,7 @@ function make_damage()
 
             --audioDanoPlayerMusic:pause()
             --audioDanoPlayerMusic:play()
+            timeSinceLastHit = 0
         end
     end
 

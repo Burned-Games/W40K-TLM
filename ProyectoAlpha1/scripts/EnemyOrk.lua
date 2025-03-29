@@ -431,8 +431,6 @@ function make_damage()
                 playerScript.playerHealth = playerScript.playerHealth - damage
                 print("PlayerHealth " .. playerScript.playerHealth)
             end
-            
-
 
             --audioDanoPlayerMusic:pause()
             --audioDanoPlayerMusic:play()
