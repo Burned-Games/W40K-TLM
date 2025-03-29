@@ -41,10 +41,11 @@ local moveSpeed = 5
 local attackRange = 5
 local attackCooldown = 5
 local attackTimer = 0
+local shieldMode = false 
 local shield=nil
 local shieldTransf=nil
-local shieldActive = true
-local shieldCooldown = 30
+local shieldActive = false
+local shieldCooldown = 5
 local shieldTimer = 0
 local isRaging = false
 local rageAttackTimer = 0
@@ -162,7 +163,6 @@ end
 
 -- FSM General
 function on_update(dt)
-
     if not isAttacking then
         attackTimer = attackTimer + dt
         if attackTimer >= attackCooldown then
@@ -170,60 +170,68 @@ function on_update(dt)
         end
     end
 
-    if shieldActive then
-        currentState = state.Shield
-    end
-
     update_state()
 
-    if currentState == state.Idle then
-        idle_state(dt)
-
-    elseif currentState == state.Move then
-        move_state(dt)
-
-    elseif currentState == state.Patrol then
-        patrol_state(dt)
-
-    elseif currentState == state.Attack then
-        attack_state(dt)
-
-    elseif currentState == state.Rage then
-        rage_state(dt)
-
-    elseif currentState == state.Shield then
-        shield_state(dt)
-        print ("shield")
+    if shieldHealth <= 0 then
+        shieldActive = false
+        shieldMode = false
+        shieldHealth = 30
     end
 
+    -- Ejecutar el estado principal
+    if currentState == state.Idle then
+        idle_state(dt)
+    elseif currentState == state.Move then
+        move_state(dt)
+    elseif currentState == state.Patrol then
+        patrol_state(dt)
+    elseif currentState == state.Attack then
+        attack_state(dt)
+    elseif currentState == state.Rage then
+        rage_state(dt)
+    end
+
+    if shieldMode then
+        shield_state(dt)
+    end
 end
 
 function update_state()
-
     local distance = get_distance(bossTransf.position, playerTransf.position)
 
-    if isRaging then return end
+    if not shieldMode then
+        shieldTimer = shieldTimer + 1
+        if shieldTimer >= shieldCooldown then
+            shieldMode = true
+            shieldActive = true
+            shieldTimer = 0
+        end
+    end
 
     if bossHealth <= bossMaxHealth * 0.4 and not isRaging then
         isRaging = true
         currentState = state.Rage
+        return
+    end
+    
+    if isRaging then
+        currentState = state.Rage
+        return
     end
 
-    if not shieldActive and shieldCooldown > 30 then
-        shieldCooldown = shieldCooldown - 1
-        if shieldCooldown <= 0 then
-            shieldActive = true
-            shieldCooldown = 30
-        end
-    end
-
-    if isAttacking then
+    local attackDistance = 25  
+    
+    if isAttacking and distance <= attackDistance then
         currentState = state.Attack
     else
+        if isAttacking and distance > attackDistance then
+            isAttacking = false  
+            attackTimer = 0     
+        end
         currentState = state.Patrol
     end
-
 end
+
 
 function patrol_state(dt)
     if bossAnimator then
@@ -254,7 +262,6 @@ function patrol_state(dt)
     -- Calculate distance to current waypoint
     local distance = get_distance(bossTransf.position, currentTarget)
     
-    -- Cambiar de waypoint con un umbral más amplio
     if distance <= 2.0 then
         currentWaypoint = currentWaypoint % #waypointPositions + 1
         update_waypoint_path()
@@ -350,11 +357,9 @@ function shield_state(dt)
         shieldTransf.position = Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z)
         shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
 
-        shieldActive = true
-    else
-        shieldTransf.position = Vector3.new(-500, -500, -500)
     end
 end
+
 function move_state(dt) end
 
 function attack_state(dt) 

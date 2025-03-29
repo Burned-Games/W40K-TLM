@@ -253,6 +253,36 @@ function on_ready()
            
             --make_damage()
         end
+
+        if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
+            local BossOrk = nil
+            local BossOrkScript = nil
+            if nameA == "EnemyBoss" then
+                BossOrk = entityA
+                
+            end
+
+            if nameB == "EnemyBoss" then
+                BossOrk = entityB
+            end
+            if BossOrk ~= nil then               
+                BossOrkScript = BossOrk:get_component("ScriptComponent")
+            end
+
+            if BossOrk ~= nil then
+                if BossOrkScript ~= nil then
+                    if BossOrkScript.shieldHealth > 0 then
+                        --bulletDamageParticleComponent:emit(20)
+                        BossOrkScript.shieldHealth = BossOrkScript.shieldHealth - damage
+                    else
+                    --bulletDamageParticleComponent:emit(20)
+                    BossOrkScript.bossHealth = BossOrkScript.bossHealth - damage
+                    end
+                end
+            end
+           
+            --make_damage()
+        end
     end)
 
 
