@@ -218,8 +218,13 @@ function on_ready()
             if enemyKamikaze ~= nil then
                 if enemyKamikazeScript ~= nil then
                     local damage = 10
-                    --bulletDamageParticleComponent:emit(20)
-                    enemyKamikazeScript.enemyHealth = enemyKamikazeScript.enemyHealth - damage
+                    if enemyKamikazeScript.shieldHealth > 0 then
+                        --bulletDamageParticleComponent:emit(20)
+                        enemyKamikazeScript.shieldHealth = enemyKamikazeScript.shieldHealth - damage
+                    else
+                        --bulletDamageParticleComponent:emit(20)
+                        enemyKamikazeScript.enemyHealth = enemyKamikazeScript.enemyHealth - damage
+                    end
             
                 end
             end
@@ -245,8 +250,13 @@ function on_ready()
             if tankOrk ~= nil then
                 if tankOrkScript ~= nil then
                     local damage = 10
-                    --bulletDamageParticleComponent:emit(20)
-                    tankOrkScript.tankHealth = tankOrkScript.tankHealth - damage
+                    if tankOrkScript.shieldHealth > 0 then
+                        --bulletDamageParticleComponent:emit(20)
+                        tankOrkScript.shieldHealth = tankOrkScript.shieldHealth - damage
+                    else
+                        --bulletDamageParticleComponent:emit(20)
+                        tankOrkScript.enemyHealth = tankOrkScript.enemyHealth - damage
+                    end
             
                 end
             end
@@ -259,24 +269,27 @@ function on_ready()
             local BossOrkScript = nil
             if nameA == "EnemyBoss" then
                 BossOrk = entityA
-                
             end
 
             if nameB == "EnemyBoss" then
                 BossOrk = entityB
             end
+
             if BossOrk ~= nil then               
                 BossOrkScript = BossOrk:get_component("ScriptComponent")
             end
 
             if BossOrk ~= nil then
                 if BossOrkScript ~= nil then
+                    local damage = 10
                     if BossOrkScript.shieldHealth > 0 then
                         --bulletDamageParticleComponent:emit(20)
                         BossOrkScript.shieldHealth = BossOrkScript.shieldHealth - damage
+                        log("BossShield: " .. BossOrkScript.shieldHealth)
                     else
-                    --bulletDamageParticleComponent:emit(20)
-                    BossOrkScript.bossHealth = BossOrkScript.bossHealth - damage
+                        --bulletDamageParticleComponent:emit(20)
+                        BossOrkScript.enemyHealth = BossOrkScript.enemyHealth - damage
+                        log("BossShield: " .. BossOrkScript.enemyHealth)
                     end
                 end
             end
@@ -470,7 +483,7 @@ function shoot(dt)
 
     forwardVector = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
     
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y + playerPosition.y + 1.0)  , (forwardVector.z + playerPosition.z) )
+    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y + playerPosition.y)  , (forwardVector.z + playerPosition.z) )
 
     transformSphere1.position = newPosition
     transformSphere1.rotation = Vector3.new(0,math.deg(angleRotation),0)
