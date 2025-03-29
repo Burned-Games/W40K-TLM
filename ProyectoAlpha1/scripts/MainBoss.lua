@@ -1,4 +1,4 @@
-local state = { Idle = 1, Move = 2, Attack = 3, Patrol = 4, Rage = 5 }
+local state = { Idle = 1, Move = 2, Attack = 3, Patrol = 4, Rage = 5 , Shield = 6 }
 local currentState = state.Idle
 
 local mainboss = nil
@@ -21,16 +21,28 @@ local waypointPositions = {}
 local fist1 = nil
 local fist2 = nil
 local fist3 = nil
+local fist1Transform = nil
+local fist2Transform = nil
+local fist3Transform = nil
+local fist1Collider = nil
+local fist2Collider = nil
+local fist3Collider = nil
+local fist1Rb = nil
+local fist2Rb = nil
+local fist3Rb = nil
 local fistsPositions = {}
 local scalingFists = {}
 
 local bossHealth = 150
 local bossMaxHealth = 150
+local shieldHealth = 30
 local bossDamage = 25
 local moveSpeed = 5
 local attackRange = 5
 local attackCooldown = 5
 local attackTimer = 0
+local shield=nil
+local shieldTransf=nil
 local shieldActive = true
 local shieldCooldown = 30
 local shieldTimer = 0
@@ -63,23 +75,55 @@ function on_ready()
     fist2 = current_scene:get_entity_by_name("Fist2")
     fist3 = current_scene:get_entity_by_name("Fist3")
     if fist1 and fist2 and fist3 then
-        local fist1Transform = fist1:get_component("TransformComponent")
-        local fist2Transform = fist2:get_component("TransformComponent")
-        local fist3Transform = fist3:get_component("TransformComponent")
+        fist1Transform = fist1:get_component("TransformComponent")
+        fist2Transform = fist2:get_component("TransformComponent")
+        fist3Transform = fist3:get_component("TransformComponent")
 
-        local fist1Collider = fist1:get_component("RigidbodyComponent").rb
-        local fist2Collider = fist2:get_component("RigidbodyComponent").rb
-        local fist3Collider = fist3:get_component("RigidbodyComponent").rb
+        fist1Collider = fist1:get_component("RigidbodyComponent")
+        fist2Collider = fist2:get_component("RigidbodyComponent")
+        fist3Collider = fist3:get_component("RigidbodyComponent")
+
+        fist1Rb = fist1Collider.rb
+        fist2Rb = fist2Collider.rb
+        fist3Rb = fist3Collider.rb
 
         if fist1Collider then
-            fist1Collider:set_is_trigger(true)
+            fist1Rb:set_trigger(true)
         end
         if fist2Collider then
-            fist2Collider:set_is_trigger(true)
+            fist2Rb:set_trigger(true)
         end
         if fist3Collider then
-            fist3Collider:set_is_trigger(true)
+            fist3Rb:set_trigger(true)
         end
+
+        fist1Collider:on_collision_enter(function(entityA, entityB)
+            local nameA = entityA:get_component("TagComponent").tag
+            local nameB = entityB:get_component("TagComponent").tag
+    
+            if nameA == "Player" or nameB == "Player" then
+                make_damage()
+                log ("AAAAAAAAAAAAAAA")
+            end
+       end)
+       fist2Collider:on_collision_enter(function(entityA, entityB)
+            local nameA = entityA:get_component("TagComponent").tag
+            local nameB = entityB:get_component("TagComponent").tag
+    
+            if nameA == "Player" or nameB == "Player" then
+                make_damage()
+                log ("AAAAAAAAAAAAAAA")
+            end
+       end)
+       fist3Collider:on_collision_enter(function(entityA, entityB)
+            local nameA = entityA:get_component("TagComponent").tag
+            local nameB = entityB:get_component("TagComponent").tag
+    
+            if nameA == "Player" or nameB == "Player" then
+                make_damage()
+                log ("AAAAAAAAAAAAAAA")
+            end
+        end)
         
         if fist1Transform and fist2Transform and fist3Transform then
             fistsPositions[1] = fist1Transform.position
@@ -104,6 +148,10 @@ function on_ready()
         end
     end
 
+    shield = current_scene:get_entity_by_name("Shield")
+    if shield then
+        shieldTransf = shield:get_component("TransformComponent")
+    end
     -- Forzar inicialización del primer waypoint
     currentWaypoint = 1
     update_waypoint_path()
@@ -122,12 +170,8 @@ function on_update(dt)
         end
     end
 
-    if not shieldActive then
-        shieldTimer = shieldTimer + dt
-        if shieldTimer >= shieldCooldown then
-            shieldActive = false
-            shieldTimer = 0
-        end
+    if shieldActive then
+        currentState = state.Shield
     end
 
     update_state()
@@ -146,6 +190,10 @@ function on_update(dt)
 
     elseif currentState == state.Rage then
         rage_state(dt)
+
+    elseif currentState == state.Shield then
+        shield_state(dt)
+        print ("shield")
     end
 
 end
@@ -159,6 +207,14 @@ function update_state()
     if bossHealth <= bossMaxHealth * 0.4 and not isRaging then
         isRaging = true
         currentState = state.Rage
+    end
+
+    if not shieldActive and shieldCooldown > 30 then
+        shieldCooldown = shieldCooldown - 1
+        if shieldCooldown <= 0 then
+            shieldActive = true
+            shieldCooldown = 30
+        end
     end
 
     if isAttacking then
@@ -282,6 +338,23 @@ end
 -- Funciones para los distintos estados.
 function idle_state(dt) end
 
+function shield_state(dt)
+    if shieldActive then
+        if bossAnimator then
+            if currentAnim ~= 3 then
+                bossAnimator:set_current_animation(3)
+                currentAnim = 3
+            end
+        end
+
+        shieldTransf.position = Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z)
+        shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
+
+        shieldActive = true
+    else
+        shieldTransf.position = Vector3.new(-500, -500, -500)
+    end
+end
 function move_state(dt) end
 
 function attack_state(dt) 
@@ -324,24 +397,36 @@ end
 
 function fists()
     log("Steel Claw lanza Puños")
-    scalingFists = {}
-    player_on_fists()
-    for i, fist in ipairs({fist1, fist2, fist3}) do
-        local fistTransform = fist:get_component("TransformComponent")
-        if fistTransform then
-            -- Calcular nueva posición usando componentes individuales
-            local newX = playerTransf.position.x + math.random(-4, 4)
-            local newZ = playerTransf.position.z + math.random(-4, 4)
-            
-            fistTransform.position = Vector3.new(
-                newX,
-                fistsPositions[i].y,  -- Usar la Y original guardada
-                newZ
-            )
 
-            fistTransform.scale = Vector3.new(1, 1, 1)
+    -- Position fists around the player
+    local playerPos = playerTransf.position
+    
+    -- Calculate positions around the player (equidistant points in a circle)
+    local radius = 3.5  -- Distance from player
+    local fistPositions = {
+        Vector3.new(playerPos.x + radius, 0, playerPos.z),  -- Right
+        Vector3.new(playerPos.x - radius/2, 0, playerPos.z + radius * 0.866),  -- Bottom left
+        Vector3.new(playerPos.x - radius/2, 0, playerPos.z - radius * 0.866)   -- Top left
+    }
+    
+    -- Set positions and prepare scaling for each fist
+    local fistTransforms = {fist1Transform, fist2Transform, fist3Transform}
+    local fistRbs = {fist1Rb, fist2Rb, fist3Rb}
+    
+    -- Clear previous scaling operations
+    scalingFists = {}
+    
+    for i = 1, 3 do
+        if fistRbs[i] and fistTransforms[i] then
+            -- Set initial position
+            fistRbs[i]:set_position(fistPositions[i])
+            
+            -- Reset scale
+            fistTransforms[i].scale = Vector3.new(1, 1, 1)
+            
+            -- Add to scaling list with reference to the specific fist transform
             table.insert(scalingFists, {
-                fist = fist,
+                transform = fistTransforms[i],
                 elapsed = 0,
                 duration = 3,
                 startScale = Vector3.new(1, 1, 1),
@@ -351,73 +436,28 @@ function fists()
     end
 end
 
-function handleDamage(dt)
-    if isDamaging then
-        damageTimer = damageTimer - dt
-        timeSinceLastDamage = timeSinceLastDamage + dt
-
-        if timeSinceLastDamage >= damageInterval then
-            make_damage()
-            timeSinceLastDamage = 0
-        end
-
-        if damageTimer <= 0 then
-            isDamaging = false
-        end
-    end
-end
-
-function applyDamage()
-    isDamaging = true
-    damageTimer = damageDuration
-    timeSinceLastDamage = 0
-end
-
-function player_on_fists(other)
-    fist1:on_collision_enter(function(entityA, entityB)
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
-
-        if nameA == "Player" or nameB == "Player" then
-            make_damage()
-        end
-   end)
-   fist2:on_collision_enter(function(entityA, entityB)
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
-
-        if nameA == "Player" or nameB == "Player" then
-            make_damage()
-        end
-   end)
-   fist3:on_collision_enter(function(entityA, entityB)
-    local nameA = entityA:get_component("TagComponent").tag
-    local nameB = entityB:get_component("TagComponent").tag
-
-    if nameA == "Player" or nameB == "Player" then
-        make_damage()
-    end
-end)
-end
-
 function update_fist_scaling(dt)
     for i = #scalingFists, 1, -1 do
         local data = scalingFists[i]
         data.elapsed = data.elapsed + dt
 
         if data.elapsed <= data.duration then
+            -- Calculate scale based on elapsed time (linear interpolation)
             local t = data.elapsed / data.duration
-            local scale = Vector3.lerp(data.startScale, data.targetScale, t)
-            local fistTransform = data.fist:get_component("TransformComponent")
+            local newScale = Vector3.new(
+                data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
+                data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
+                data.startScale.z + (data.targetScale.z - data.startScale.z) * t
+            )
             
-            if fistTransform then
-                fistTransform.scale = scale
+            -- Apply scale to the specific fist transform
+            if data.transform then
+                data.transform.scale = newScale
             end
         else
-            -- Opcional: Resetear escala al finalizar
-            local fistTransform = data.fist:get_component("TransformComponent")
-            if fistTransform then
-                fistTransform.scale = data.targetScale
+            -- Scaling complete, set to final scale
+            if data.transform then
+                data.transform.scale = data.targetScale
             end
             table.remove(scalingFists, i)
         end

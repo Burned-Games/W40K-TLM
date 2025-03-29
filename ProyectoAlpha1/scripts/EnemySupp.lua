@@ -116,18 +116,7 @@ function on_ready()
         actualshield = current_scene:duplicate_entity(prefabShield)
         if actualshield then
             transformActualShield = actualshield:get_component("TransformComponent")
-            local rendererComp = actualshield:get_component("MeshRendererComponent")
 
-            if rendererComp then
-                rendererComp.enabled = true
-                rendererComp.visible = true
-                local prefabRenderer = prefabShield:get_component("MeshRendererComponent")
-                if prefabRenderer then
-                    rendererComp.mesh = prefabRenderer.mesh
-                    rendererCmop.material = prefabRenderer.material
-                end
-            end
-            
             -- Configurar transformación
             if transformActualShield then
                 transformActualShield.scale = Vector3.new(1, 1, 1)
