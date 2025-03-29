@@ -289,7 +289,7 @@ function on_ready()
                     else
                         --bulletDamageParticleComponent:emit(20)
                         BossOrkScript.enemyHealth = BossOrkScript.enemyHealth - damage
-                        log("BossShield: " .. BossOrkScript.enemyHealth)
+                        log("BossHealth: " .. BossOrkScript.enemyHealth)
                     end
                 end
             end

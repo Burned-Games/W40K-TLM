@@ -38,20 +38,22 @@ local bossMaxHealth = 150
 shieldHealth = 30
 local bossDamage = 25
 local moveSpeed = 5
+
+local isAttacking = true
 local attackRange = 5
 local attackCooldown = 10
 local attackTimer = 0
-local shieldMode = false 
+
 local shield = nil
 local shieldTransf = nil
 local shieldActive = false
 local shieldCooldown = 5
 local shieldTimer = 0
+
 local isRaging = false
 local rageAttackTimer = 0
 local rageAttackCooldown = 10
 local rageVulnerableTimer = 0
-local isAttacking = true
 
 local damageInterval = 1.0  
 local damageDuration = 3   
@@ -59,6 +61,9 @@ local isDamaging = false
 local damageTimer = 0
 local timeSinceLastDamage = 0
 local damagePerSecond = 15
+
+local invulnerability = 0.1
+local timeSinceLastHit = 0
 
 function on_ready() 
     -- Get the main boss entity
@@ -88,41 +93,32 @@ function on_ready()
         fist2Rb = fist2Collider.rb
         fist3Rb = fist3Collider.rb
 
-        if fist1Collider then
-            fist1Rb:set_trigger(true)
-        end
-        if fist2Collider then
-            fist2Rb:set_trigger(true)
-        end
-        if fist3Collider then
-            fist3Rb:set_trigger(true)
-        end
+        fist1Rb:set_trigger(true)
+        fist2Rb:set_trigger(true)
+        fist3Rb:set_trigger(true)
 
         fist1Collider:on_collision_enter(function(entityA, entityB)
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
-    
+
             if nameA == "Player" or nameB == "Player" then
                 make_damage()
-                log ("AAAAAAAAAAAAAAA")
             end
        end)
        fist2Collider:on_collision_enter(function(entityA, entityB)
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
-    
+
             if nameA == "Player" or nameB == "Player" then
                 make_damage()
-                log ("AAAAAAAAAAAAAAA")
             end
        end)
        fist3Collider:on_collision_enter(function(entityA, entityB)
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
-    
+
             if nameA == "Player" or nameB == "Player" then
                 make_damage()
-                log ("AAAAAAAAAAAAAAA")
             end
         end)
         
@@ -163,19 +159,29 @@ end
 
 -- FSM General
 function on_update(dt)
+
+    update_state(dt)
+
+    if shieldActive then
+        if shieldHealth <= 0 then
+            shieldActive = false
+        end
+        move_shield()
+    else
+        shieldTimer = shieldTimer + dt
+        if shieldTimer >= shieldCooldown then
+            shieldHealth = 30
+            shieldActive = true
+            shieldTimer = 0
+            currentState = state.Shield
+        end
+    end
+
     if not isAttacking then
         attackTimer = attackTimer + dt
         if attackTimer >= attackCooldown then
             isAttacking = true
         end
-    end
-
-    update_state()
-
-    if shieldHealth <= 0 then
-        shieldActive = false
-        shieldMode = false
-        shieldHealth = 30
     end
 
     -- Ejecutar el estado principal
@@ -189,26 +195,16 @@ function on_update(dt)
         attack_state(dt)
     elseif currentState == state.Rage then
         rage_state(dt)
-    end
-
-    if shieldMode then
+    elseif currentState == state.Shield then
         shield_state(dt)
     end
+
 end
 
 function update_state()
     local distance = get_distance(bossTransf.position, playerTransf.position)
 
-    if not shieldMode then
-        shieldTimer = shieldTimer + 1
-        if shieldTimer >= shieldCooldown then
-            shieldMode = true
-            shieldActive = true
-            shieldTimer = 0
-        end
-    end
-
-    if bossHealth <= bossMaxHealth * 0.4 and not isRaging then
+    if enemyHealth <= bossMaxHealth * 0.4 and not isRaging then
         isRaging = true
         currentState = state.Rage
         return
@@ -346,17 +342,23 @@ end
 function idle_state(dt) end
 
 function shield_state(dt)
+
+    if currentAnim ~= 3 then
+        bossAnimator:set_current_animation(3)
+        currentAnim = 3
+    end
+
+    shieldTransf.position = Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z)
+    shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
+
+    log("Shield Health: " .. shieldHealth)
+end
+
+function move_shield()
     if shieldActive then
-        if bossAnimator then
-            if currentAnim ~= 3 then
-                bossAnimator:set_current_animation(3)
-                currentAnim = 3
-            end
-        end
-
         shieldTransf.position = Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z)
-        shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
-
+    else
+        shieldTransf.position = Vector3.new(-500, 10, -200)
     end
 end
 
@@ -401,8 +403,6 @@ function lightning()
 end
 
 function fists()
-    log("Steel Claw lanza Puños")
-
     -- Position fists around the player
     local playerPos = playerTransf.position
     
@@ -470,9 +470,6 @@ function update_fist_scaling(dt)
 end
 
 function make_damage()
-    if timeSinceLastHit < invulnerability then
-        return
-    end
 
     if player ~= nil then
         if playerScript ~= nil then
@@ -480,12 +477,11 @@ function make_damage()
 
             if playerScript.playerHealth > 0 then
                 playerScript.playerHealth = playerScript.playerHealth - damage
-                print("PlayerHealth " .. playerScript.playerHealth)
+                --log("PlayerHealth " .. playerScript.playerHealth)
             end
 
             --audioDanoPlayerMusic:pause()
             --audioDanoPlayerMusic:play()
-            timeSinceLastHit = 0
         end
     end
 
@@ -493,7 +489,7 @@ end
 
 
 function waaaagh_ray()
-    log("Steel Claw desata el Rayo de Waaaagh!")
+    --log("Steel Claw desata el Rayo de Waaaagh!")
 end
 
 
