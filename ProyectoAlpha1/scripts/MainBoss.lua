@@ -62,8 +62,9 @@ local damageTimer = 0
 local timeSinceLastDamage = 0
 local damagePerSecond = 15
 
-local invulnerability = 0.1
-local timeSinceLastHit = 0
+local stateDelayTimer = 0
+local stateDelayDuration = 1
+local isStateDelaying = false
 
 function on_ready() 
     -- Get the main boss entity
@@ -201,31 +202,53 @@ function on_update(dt)
 
 end
 
-function update_state()
+function update_state(dt)
+    if isStateDelaying then
+        stateDelayTimer = stateDelayTimer + dt
+        if stateDelayTimer >= stateDelayDuration then
+            isStateDelaying = false
+            stateDelayTimer = 0
+        else
+            -- Durante el delay, el boss no se mueve
+            if bossRigidbody then
+                bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
+            end
+            return
+        end
+    end
+
     local distance = get_distance(bossTransf.position, playerTransf.position)
 
     if enemyHealth <= bossMaxHealth * 0.4 and not isRaging then
         isRaging = true
-        currentState = state.Rage
+        set_new_state(state.Rage)
         return
     end
     
     if isRaging then
-        currentState = state.Rage
+        set_new_state(state.Rage)
         return
     end
 
     local attackDistance = 25  
     
     if isAttacking and distance <= attackDistance then
-        currentState = state.Attack
+        set_new_state(state.Attack)
     else
         if isAttacking and distance > attackDistance then
             isAttacking = false  
             attackTimer = 0     
         end
-        currentState = state.Patrol
+        set_new_state(state.Patrol)
     end
+end
+
+function set_new_state(newState)
+    if newState == state.Attack or newState == state.Shield or newState == state.Rage then
+        isStateDelaying = true
+        stateDelayTimer = 0
+    end
+    currentState = newState
 end
 
 
@@ -477,7 +500,7 @@ function make_damage()
 
             if playerScript.playerHealth > 0 then
                 playerScript.playerHealth = playerScript.playerHealth - damage
-                --log("PlayerHealth " .. playerScript.playerHealth)
+                log("PlayerHealth " .. playerScript.playerHealth)
             end
 
             --audioDanoPlayerMusic:pause()
@@ -489,7 +512,7 @@ end
 
 
 function waaaagh_ray()
-    --log("Steel Claw desata el Rayo de Waaaagh!")
+    log("Steel Claw desata el Rayo de Waaaagh!")
 end
 
 local currentRotationY = 0
