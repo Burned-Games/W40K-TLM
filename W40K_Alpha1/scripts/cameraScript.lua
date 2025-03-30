@@ -20,6 +20,8 @@ local radiusSpawn = 20
 
 local entities = nil
 
+local orkEntities = nil
+
 -- Camera Rotation -45,-45, 0
 function on_ready()
     -- Add initialization code here
@@ -50,11 +52,14 @@ function on_ready()
 
     entities = current_scene:get_all_entities()
 
+    orkEntities = {} 
+
     for _, entity in ipairs(entities) do 
-        if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent")then
-
-            entity:set_active(false)
-
+        if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent") then
+            if entity:get_component("TagComponent").tag == "EnemyOrk" then
+                table.insert(orkEntities, entity) 
+                entity:set_active(false)
+            end
         end
     end
 
@@ -63,7 +68,9 @@ end
 function on_update(dt)
 
     if playerScript and playerScript.moveDirection then
-        updateEnemyActivation()
+        if playerScript.moveDirection.x ~= 0 and playerScript.moveDirection.z ~= 0 then
+            updateEnemyActivation()
+        end
         -- Add update code here
         local zoomOffSet = Vector3.new(baseOffset.x * (1 + zoom * 0.2), baseOffset.y * (1 + zoom * 0.2), baseOffset.z * (1 + zoom * 0.2))  
 
@@ -93,7 +100,7 @@ end
 function updateEnemyActivation()
 
 
-    for _, entity in ipairs(entities) do 
+    for _, entity in ipairs(orkEntities) do 
         if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent")then
             local entityRb = entity:get_component("RigidbodyComponent").rb
             local entityPos = entityRb:get_position()

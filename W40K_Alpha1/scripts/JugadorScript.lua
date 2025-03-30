@@ -171,7 +171,7 @@ function updateDash(dt)
         if moveDirection ~= nil then
             local impulse = Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed)
             playerRb:set_trigger(true)
-            playerRb:apply_impulse(Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed))
+            playerRb:apply_impulse(Vector3.new(impulse.x, impulse.y, impulse.z))
             impulseApplied = true
             dashAvailable = false
             intangibleDash = true
@@ -252,7 +252,7 @@ function updateEntranceAnimation(dt)
 end
 
 function handleWeaponSwitch()
-    if Input.get_button(Input.action.Map) == Input.state.Down then
+    if Input.get_button(Input.action.Skill1) == Input.state.Down then
         if pressedButtonChangeWeapon == false then
             if actualweapon == 0 then
                 actualweapon = 1
@@ -538,7 +538,7 @@ function take_damage(amount)
     playerHealth = playerHealth - finalDamage
     tookDamage = true
     
-    print("Player took damage: " .. finalDamage .. " (Health: " .. playerHealth .. ")")
+
 end
 
 function handleBleed(dt)

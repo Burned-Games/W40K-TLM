@@ -87,7 +87,6 @@ local entities = current_scene:get_all_entities()
                             playerScript.makeDamage = true
                             playerScript.playerHealth = playerScript.playerHealth + HpStealed
                         end
-                        print("damage dealed")
                         enemyOrkScript.pushed = true
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
@@ -113,7 +112,6 @@ local entities = current_scene:get_all_entities()
                         entityPos.z - playerTransf.position.z)
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
                     end
-                    print("damage dealed")
                     
                 end              
                 
