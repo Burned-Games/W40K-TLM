@@ -241,6 +241,7 @@ function detect_area()
 
     -- Ángulo de separación en radianes (~30 grados)
     local angleOffset = math.rad(15)  
+    local intermediateAngleOffset = math.rad(7.5)
 
     -- Rotar la dirección hacia la izquierda y derecha
     local leftDirection = Vector3.new(
@@ -255,31 +256,64 @@ function detect_area()
         direction.x * math.sin(-angleOffset) + direction.z * math.cos(-angleOffset)
     )
 
+    local intermediateLeftDirection = Vector3.new(
+        direction.x * math.cos(intermediateAngleOffset) - direction.z * math.sin(intermediateAngleOffset),
+        0,
+        direction.x * math.sin(intermediateAngleOffset) + direction.z * math.cos(intermediateAngleOffset)
+    )
+
+    local intermediateRightDirection = Vector3.new(
+        direction.x * math.cos(-intermediateAngleOffset) - direction.z * math.sin(-intermediateAngleOffset),
+        0,
+        direction.x * math.sin(-intermediateAngleOffset) + direction.z * math.cos(-intermediateAngleOffset)
+    )
+
     local origin = tankTransform.position  
     local maxDistance = 20.0
 
     -- Dibujar los tres rayos para depuración
     Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
     Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
     Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
 
     -- Lanzar los rayos
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
+    local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
     local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
+    local intermediateRightHit = Physics.Raycast(origin, intermediateRightDirection, maxDistance)
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
+    
 
     if detect_player(centerHit) then
+
         currentState = state.Move
         playerDetected = true
         playerDistance = get_distance(origin, centerHit.hitPoint)
+
+    elseif detect_player(intermediateLeftHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, intermediateLeftHit.hitPoint)
+
     elseif detect_player(leftHit) then
+
         currentState = state.Move
         playerDetected = true
         playerDistance = get_distance(origin, leftHit.hitPoint)
+
+    elseif detect_player(intermediateRightHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, intermediateRightHit.hitPoint)
+
     elseif detect_player(rightHit) then
+
         currentState = state.Move
         playerDetected = true
         playerDistance = get_distance(origin, rightHit.hitPoint)
+        
     end
 end
 
