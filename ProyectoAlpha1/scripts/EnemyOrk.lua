@@ -24,7 +24,7 @@ local currentAnim = 0
 local animator = nil
 
 local state = { Idle = 1, Move = 2, Shoot = 3, Chase = 4, Stab = 5}
-local currentState = state.Idle
+currentState = state.Idle
 local playerDetected = false
 local isChasing = false
 
@@ -58,7 +58,7 @@ local timeSinceLastHit = 0
 
 local currentPathIndex = 1
 
-local isDead = false
+isDead = false
 
 local audioDanoPlayerMusic = nil
 
