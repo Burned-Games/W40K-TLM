@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 343275941548865689
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "mapa/BushesTransparent3.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/343275941548865689.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

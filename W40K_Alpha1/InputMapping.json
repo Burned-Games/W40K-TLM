@@ -1,0 +1,205 @@
+{
+    "value0": [
+        {
+            "key": "UiX",
+            "value": {
+                "cereal_class_version": 2,
+                "KeyPos": 7,
+                "KeyNeg": 4,
+                "ButtonPos": 14,
+                "ButtonNeg": 13,
+                "Axis": 0
+            }
+        },
+        {
+            "key": "UiY",
+            "value": {
+                "KeyPos": 26,
+                "KeyNeg": 22,
+                "ButtonPos": 11,
+                "ButtonNeg": 12,
+                "Axis": 1
+            }
+        },
+        {
+            "key": "Melee",
+            "value": {
+                "KeyPos": 8,
+                "KeyNeg": 0,
+                "ButtonPos": 10,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Cancel",
+            "value": {
+                "KeyPos": 229,
+                "KeyNeg": 0,
+                "ButtonPos": 1,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "MoveY",
+            "value": {
+                "KeyPos": 26,
+                "KeyNeg": 22,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 1
+            }
+        },
+        {
+            "key": "Interact",
+            "value": {
+                "KeyPos": 25,
+                "KeyNeg": 0,
+                "ButtonPos": 0,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Confirm",
+            "value": {
+                "KeyPos": 40,
+                "KeyNeg": 0,
+                "ButtonPos": 0,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "MoveX",
+            "value": {
+                "KeyPos": 7,
+                "KeyNeg": 4,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 0
+            }
+        },
+        {
+            "key": "AimX",
+            "value": {
+                "KeyPos": 94,
+                "KeyNeg": 92,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 2
+            }
+        },
+        {
+            "key": "AimY",
+            "value": {
+                "KeyPos": 96,
+                "KeyNeg": 90,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 3
+            }
+        },
+        {
+            "key": "Shoot",
+            "value": {
+                "KeyPos": 98,
+                "KeyNeg": 0,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 5
+            }
+        },
+        {
+            "key": "Dash",
+            "value": {
+                "KeyPos": 44,
+                "KeyNeg": 0,
+                "ButtonPos": 1,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Cover",
+            "value": {
+                "KeyPos": 6,
+                "KeyNeg": 0,
+                "ButtonPos": 2,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Skill1",
+            "value": {
+                "KeyPos": 30,
+                "KeyNeg": 0,
+                "ButtonPos": 3,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Skill2",
+            "value": {
+                "KeyPos": 31,
+                "KeyNeg": 0,
+                "ButtonPos": 9,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Skill3",
+            "value": {
+                "KeyPos": 32,
+                "KeyNeg": 0,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 4
+            }
+        },
+        {
+            "key": "Injector",
+            "value": {
+                "KeyPos": 33,
+                "KeyNeg": 0,
+                "ButtonPos": 11,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Grenade",
+            "value": {
+                "KeyPos": 20,
+                "KeyNeg": 0,
+                "ButtonPos": 14,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Map",
+            "value": {
+                "KeyPos": 43,
+                "KeyNeg": 0,
+                "ButtonPos": 4,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        },
+        {
+            "key": "Pause",
+            "value": {
+                "KeyPos": 41,
+                "KeyNeg": 0,
+                "ButtonPos": 6,
+                "ButtonNeg": -1,
+                "Axis": -1
+            }
+        }
+    ]
+}

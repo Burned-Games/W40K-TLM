@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Ray_Cube",
+                        "value": {
+                            "value0": 17324557897020976956
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material_Mat0",
+                        "value": {
+                            "value0": 13438094441251872084
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 15011264416701475555
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/misc/Ray.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15011264416701475555.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

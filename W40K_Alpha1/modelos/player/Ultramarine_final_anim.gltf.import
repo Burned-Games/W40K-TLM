@@ -1,0 +1,131 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Ultramarine_final_anim_Cylinder.002",
+                        "value": {
+                            "value0": 5666698624459403458
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cube.003",
+                        "value": {
+                            "value0": 4941765896087361075
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cube.007",
+                        "value": {
+                            "value0": 12493959449402825719
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cylinder.004",
+                        "value": {
+                            "value0": 15326944084357058481
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Plane.002",
+                        "value": {
+                            "value0": 14580843767179198448
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cylinder.003",
+                        "value": {
+                            "value0": 12021623746682576829
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Plane.001",
+                        "value": {
+                            "value0": 1582154024395967605
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cube.004",
+                        "value": {
+                            "value0": 11217903425515667337
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cube.001",
+                        "value": {
+                            "value0": 10825388595728467152
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cube.002",
+                        "value": {
+                            "value0": 9009713376809765975
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_final_anim_Cylinder.038",
+                        "value": {
+                            "value0": 1726189829584872451
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Bolter_Mat0",
+                        "value": {
+                            "value0": 13120160043799491646
+                        }
+                    },
+                    {
+                        "key": "Checker.001_Mat4",
+                        "value": {
+                            "value0": 11271612908438897627
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_MAT_Mat1",
+                        "value": {
+                            "value0": 12728028572948561762
+                        }
+                    },
+                    {
+                        "key": "Checker.002_Mat2",
+                        "value": {
+                            "value0": 15961517054669669369
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat3",
+                        "value": {
+                            "value0": 13306202866582825645
+                        }
+                    },
+                    {
+                        "key": "Escpoeta_MAT_Mat5",
+                        "value": {
+                            "value0": 17845319390109094244
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 15690310397869106164
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/player/Ultramarine_final_anim.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15690310397869106164.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

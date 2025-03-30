@@ -1,0 +1,397 @@
+{
+    "value0": {
+        "value0": 7,
+        "value1": 7,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 0,
+        "value11": {
+            "Tag": "Camera"
+        },
+        "value12": 1,
+        "value13": {
+            "Tag": "Title"
+        },
+        "value14": 2,
+        "value15": {
+            "Tag": "Base"
+        },
+        "value16": 3,
+        "value17": {
+            "Tag": "Volume"
+        },
+        "value18": 4,
+        "value19": {
+            "Tag": "VolumeText"
+        },
+        "value20": 5,
+        "value21": {
+            "Tag": "FX"
+        },
+        "value22": 6,
+        "value23": {
+            "Tag": "FXText"
+        },
+        "value24": 7,
+        "value25": 0,
+        "value26": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value27": 1,
+        "value28": {
+            "Position": {
+                "x": 132.1999969482422,
+                "y": 70.4000015258789,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 2,
+        "value30": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value31": 3,
+        "value32": {
+            "Position": {
+                "x": 0.0,
+                "y": -76.4000015258789,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value33": 4,
+        "value34": {
+            "Position": {
+                "x": -328.1000061035156,
+                "y": -67.5999984741211,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value35": 5,
+        "value36": {
+            "Position": {
+                "x": 0.0,
+                "y": 28.600000381469728,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value37": 6,
+        "value38": {
+            "Position": {
+                "x": -337.5,
+                "y": 38.70000076293945,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 7,
+        "value40": 0,
+        "value41": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value42": 1,
+        "value43": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value44": 2,
+        "value45": {
+            "Parent": 4294967295,
+            "First": 3,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value46": 3,
+        "value47": {
+            "Parent": 2,
+            "First": 4,
+            "Next": 5,
+            "Prev": 3
+        },
+        "value48": 4,
+        "value49": {
+            "Parent": 3,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value50": 5,
+        "value51": {
+            "Parent": 2,
+            "First": 6,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value52": 6,
+        "value53": {
+            "Parent": 5,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value54": 1,
+        "value55": 0,
+        "value56": {
+            "Camera": {
+                "FOV": 45.0,
+                "AspectRatio": 1.7777777910232545,
+                "NearClip": 0.10000000149011612,
+                "FarClip": 1000.0,
+                "ProjectionType": 0,
+                "ViewportWidth": 1280.0,
+                "ViewportHeight": 720.0
+            }
+        },
+        "value57": 0,
+        "value58": 0,
+        "value59": 0,
+        "value60": 0,
+        "value61": 1,
+        "value62": 2,
+        "value63": {
+            "ScriptPath": "scripts/settingsMainMenu.lua",
+            "Language": 0
+        },
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 0,
+        "value68": 0,
+        "value69": 0,
+        "value70": 0,
+        "value71": 1,
+        "value72": 2,
+        "value73": {
+            "cereal_class_version": 1,
+            "TextureUUID": {
+                "value0": 11703619554581617535
+            },
+            "Size": {
+                "x": 1920.0,
+                "y": 1080.0
+            },
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value74": 3,
+        "value75": 1,
+        "value76": {
+            "cereal_class_version": 1,
+            "Text": "Settings",
+            "FontPath": "",
+            "FontSize": 50.0,
+            "LineSpacing": 1.0,
+            "Color": {
+                "x": 1.0,
+                "y": 0.772549033164978,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Alignment": 0,
+            "Anchor": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value77": 4,
+        "value78": {
+            "Text": "Volume",
+            "FontPath": "",
+            "FontSize": 35.0,
+            "LineSpacing": 1.0,
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Alignment": 0,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value79": 6,
+        "value80": {
+            "Text": "Sound FX",
+            "FontPath": "",
+            "FontSize": 35.0,
+            "LineSpacing": 1.0,
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Alignment": 0,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value81": 2,
+        "value82": 3,
+        "value83": {
+            "cereal_class_version": 1,
+            "BarTextureUUID": {
+                "value0": 15028042946678321950
+            },
+            "HandleTextureUUID": {
+                "value0": 5109543824163395684
+            },
+            "Size": {
+                "x": 300.0,
+                "y": -33.20000076293945
+            },
+            "HandleSize": {
+                "x": 54.0,
+                "y": -54.0
+            },
+            "Value": 0.5,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value84": 5,
+        "value85": {
+            "BarTextureUUID": {
+                "value0": 15028042946678321950
+            },
+            "HandleTextureUUID": {
+                "value0": 5109543824163395684
+            },
+            "Size": {
+                "x": 300.0,
+                "y": -33.20000076293945
+            },
+            "HandleSize": {
+                "x": 54.0,
+                "y": -54.0
+            },
+            "Value": 0.5,
+            "Anchor": 4,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Visible": true,
+            "Layer": 0
+        },
+        "value86": 0,
+        "value87": 0,
+        "value88": 0,
+        "value89": 7,
+        "value90": 0,
+        "value91": 1,
+        "value92": 2,
+        "value93": 3,
+        "value94": 4,
+        "value95": 5,
+        "value96": 6,
+        "value97": 0
+    }
+}

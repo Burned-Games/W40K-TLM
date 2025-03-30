@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 5713782359080753399
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/MisionBlue.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/5713782359080753399.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

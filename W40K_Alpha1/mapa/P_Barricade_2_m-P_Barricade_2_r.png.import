@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 11218542917759547642
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "mapa/P_Barricade_2_m-P_Barricade_2_r.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11218542917759547642.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}
