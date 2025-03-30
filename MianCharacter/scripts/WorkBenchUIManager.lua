@@ -253,16 +253,16 @@ function toggle_screen()
 end
 
 function on_update(dt)
-    if not isWorkBenchOpen then
-        if Input.is_key_pressed(Input.keycode.U) then
-            show_ui()
-        end
-        return
-    end
+    -- if not isWorkBenchOpen then
+    --     if Input.is_key_pressed(Input.keycode.U) then
+    --         show_ui()
+    --     end
+    --     return
+    -- end
     
-    if Input.is_key_pressed(Input.keycode.I) then
-        hide_ui()
-    end
+    -- if Input.is_key_pressed(Input.keycode.I) then
+    --     hide_ui()
+    -- end
     
     local leftShoulderState = Input.get_button(Input.controllercode.LeftShoulder)
     local rightShoulderState = Input.get_button(Input.controllercode.RightShoulder)
