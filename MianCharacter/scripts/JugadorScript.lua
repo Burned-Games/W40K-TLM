@@ -468,9 +468,15 @@ function playerMovement(dt)
     else
         -- If the player doesn't move 360 rotation
         if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
-            angleRotation = math.atan(rotationDirectionX, rotationDirectionY)
-            local newRotation = math.deg(angleRotation)
-            playerTransf.rotation.y = normalizeAngle(newRotation)
+            lastValidRotation = math.atan(rotationDirectionX, rotationDirectionY)
+            playerTransf.rotation.y = math.deg(lastValidRotation)  
+            isAiming = true
+        elseif moveDirectionX ~= 0 or moveDirectionY ~= 0 then
+            lastValidRotation = math.atan(moveDirection.x, moveDirection.z)
+            playerTransf.rotation.y = math.deg(lastValidRotation)
+        else
+            playerTransf.rotation.y = math.deg(lastValidRotation)
+            isAiming = false
         end
     end
 
