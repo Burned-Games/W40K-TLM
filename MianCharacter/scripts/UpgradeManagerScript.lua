@@ -98,16 +98,6 @@ upgradeDescriptions = {
     }
 }
 
-----------------------------------
--- TEST UPGRADES START (DELETE)
-local xPressed = false
-local onePressed = false
-local twoPressed = false
-local cPressed = false
-local mPressed = false
--- TEST UPGRADES END (DELETE)
-----------------------------------
-
 function add_scrap(amount)
     scrap = scrap + amount
     print("Scrap added: " .. amount .. " - Total: " .. scrap)
@@ -170,32 +160,6 @@ function select_next_upgrade(category)
     
     -- Update selection
     selectedUpgrades[category] = upgradeOrder[category][currentIndex]
-end
-
-----------------------------------
--- Display currently selected upgrade (DEBUG)
-----------------------------------
-function print_selected_upgrade()
-    local category = selectedCategory
-    local upgrade = selectedUpgrades[category]
-    local status = upgrades[category][upgrade] and "PURCHASED" or "NOT PURCHASED"
-    local price = costs[category][upgrade]
-    
-    print("\n=== SELECTED UPGRADE ===")
-    print("Category: " .. (category == "weapons" and "WEAPONS" or "ARMOR"))
-    print("Upgrade: " .. upgradeNames[category][upgrade])
-    print("Status: " .. status)
-    print("Price: " .. price .. " scrap")
-    print("Your scrap: " .. scrap)
-    
-    if can_buy(category, upgrade) then
-        print("YOU CAN BUY THIS UPGRADE (Press C)")
-    elseif upgrades[category][upgrade] then
-        print("YOU ALREADY PURCHASED THIS UPGRADE")
-    else
-        print("NOT ENOUGH SCRAP (You need " .. (price - scrap) .. " more)")
-    end
-    print("===========================\n")
 end
 
 ----------------------------------
@@ -265,148 +229,9 @@ function apply_to_player(player)
     return player
 end
 
-----------------------------------
--- PRINT ALL VALUES (DEBUG)
-----------------------------------
-function print_all_values()
-    print("\n======= UPGRADE SYSTEM STATUS =======")
-    print("Scrap: " .. scrap)
-    
-    print("\n--- WEAPON UPGRADES ---")
-    print("Reload reduction: " .. tostring(upgrades.weapons.reloadReduction) .. 
-          " (Cost: " .. costs.weapons.reloadReduction .. 
-          ", Effect: " .. (MULTIPLIERS.weapons.reloadReduction * 100) .. "% of base time)")
-    
-    print("Damage boost: " .. tostring(upgrades.weapons.damageBoost) .. 
-          " (Cost: " .. costs.weapons.damageBoost .. 
-          ", Effect: +" .. ((MULTIPLIERS.weapons.damageBoost - 1) * 100) .. "% damage)")
-    
-    print("Fire rate: " .. tostring(upgrades.weapons.fireRateBoost) .. 
-          " (Cost: " .. costs.weapons.fireRateBoost .. 
-          ", Effect: " .. (MULTIPLIERS.weapons.fireRateBoost * 100) .. "% of base cooldown)")
-    
-    print("Special ability: " .. tostring(upgrades.weapons.specialAbility) .. 
-          " (Cost: " .. costs.weapons.specialAbility .. ")")
-    
-    print("\n--- ARMOR UPGRADES ---")
-    print("Health boost: " .. tostring(upgrades.armor.healthBoost) .. 
-          " (Cost: " .. costs.armor.healthBoost .. 
-          ", Effect: +" .. ((MULTIPLIERS.armor.healthBoost - 1) * 100) .. "% health)")
-    
-    print("Protection: " .. tostring(upgrades.armor.protection) .. 
-          " (Cost: " .. costs.armor.protection .. ")")
-    
-    print("Special ability: " .. tostring(upgrades.armor.specialAbility) .. 
-          " (Cost: " .. costs.armor.specialAbility .. ")")
-    
-    print("\n--- CALCULATED VALUES ---")
-    print("\n| Rifle |")
-    print("Reload time RIFLE (base " .. BASE_VALUES.reloadTimeRifle .. "s): " .. 
-          get_reload_time(BASE_VALUES.reloadTimeRifle) .. "s")
-    
-    print("Shoot cooldown RIFLE (base " .. BASE_VALUES.shootCoolDownRifle .. "s): " .. 
-          get_shoot_cooldown(BASE_VALUES.shootCoolDownRifle) .. "s")
-
-    print("Damage RIFLE (base " .. BASE_VALUES.damageRifle .. "): " .. 
-          get_damage(BASE_VALUES.damageRifle))
-
-    print("\n| SHOTGUN |")
-    print("Reload time SHOTGUN (base " .. BASE_VALUES.reloadTimeShotgun .. "s): " .. 
-          get_reload_time(BASE_VALUES.reloadTimeShotgun) .. "s")
-    
-    print("Shoot cooldown SHOTGUN (base " .. BASE_VALUES.shootCoolDownShotgun .. "s): " ..
-          get_shoot_cooldown(BASE_VALUES.shootCoolDownShotgun) .. "s")
-
-    print("Damage SHOTGUN (base " .. BASE_VALUES.damageShotgun .. "): " ..
-          get_damage(BASE_VALUES.damageShotgun))
-    
-    print("\n| HEALTH |")
-    print("Max health (base " .. BASE_VALUES.maxHealth .. "): " .. 
-          get_max_health(BASE_VALUES.maxHealth))
-    
-    print("============================================\n")
-end
-
 function on_ready()
     -- Add initialization code here
-
-    ----------------------------------
-    -- TEST UPGRADES START (DELETE)
-    print("Upgrade system initialized")
-    print("\nControls:")
-    print("O - Select WEAPONS upgrades")
-    print("P - Select ARMOR upgrades")
-    print("C - Purchase selected upgrade")
-    print("X - Show complete system status")
-    print_selected_upgrade()
-    -- TEST UPGRADES END (DELETE)
-    ----------------------------------
 end
 
 function on_update(dt)
-    ----------------------------------
-    -- TEST UPGRADES START (DELETE)
-    
-    -- O: Select weapons category
-    if Input.is_key_pressed(Input.keycode.O) then
-        if not onePressed then
-            onePressed = true
-            selectedCategory = "weapons"
-            print("\n> SELECTED CATEGORY: WEAPONS")
-            print_selected_upgrade()
-        end
-    else
-        onePressed = false
-    end
-    
-    -- P: Select armor category
-    if Input.is_key_pressed(Input.keycode.P) then
-        if not twoPressed then
-            twoPressed = true
-            selectedCategory = "armor"
-            print("\n> SELECTED CATEGORY: ARMOR")
-            print_selected_upgrade()
-        end
-    else
-        twoPressed = false
-    end
-    
-    -- C: Buy upgrade selected
-    if Input.is_key_pressed(Input.keycode.C) then
-        if not cPressed then
-            cPressed = true
-            local category = selectedCategory
-            local upgrade = selectedUpgrades[category]
-            
-            if buy_upgrade(category, upgrade) then
-                select_next_upgrade(category)
-                print("> Selected next available upgrade")
-                print_selected_upgrade()
-            end
-        end
-    else
-        cPressed = false
-    end
-    
-    -- X: Print all values
-    if Input.is_key_pressed(Input.keycode.X) then
-        if not xPressed then
-            xPressed = true
-            print_all_values()
-        end
-    else
-        xPressed = false
-    end
-
-    -- M: Add scrap
-    if Input.is_key_pressed(Input.keycode.M) then
-        if not mPressed then
-            mPressed = true
-            add_scrap(1000)
-        end
-    else
-        mPressed = false
-    end
-    -- TEST UPGRADES END (DELETE)
-    ----------------------------------
 end
