@@ -21,6 +21,7 @@ local player = nil
 local playerTransf = nil
 local playerScript = nil
 local playerDetected = false
+local playerDistance = nil
 
 local state = { Idle = 1, Move = 2, Attack = 3}
 local currentState = state.Idle
@@ -72,13 +73,12 @@ function on_ready()
     end)
 
     if player ~= nil then
+        playerDistance = get_distance(enemyTransf.position, playerTransf.position)
         lastTargetPos = playerTransf.position
         update_path()
     end
 
 end
-
-
 
 -- FSM Kamikaze
 function on_update(dt)
@@ -94,7 +94,7 @@ function on_update(dt)
         die()
     end
 
-    player_distance()                                                   -- Para detectar al player (hay que cambiarlo por el raycast)
+    player_distance()                                                  
 
     if haveShield and shieldHealth <= 0 then
         haveShield = false
@@ -111,14 +111,10 @@ function on_update(dt)
         pathUpdateTimer = 0
     end
 
-
-
     -- Para que mire al player
     if playerDetected then
         rotate_enemy(playerTransf.position)
     end
-
-
 
     -- FSM { Idle -> Move -> Attack}
     if currentState == state.Idle then
@@ -135,10 +131,14 @@ end
 
 
 
--- Deteccion del Player y cambio de estados en funcion de la distancia.
+-- Deteccion del Player con raycast y cambio de estados.
 function player_distance()
 
-    local playerDistance = get_distance(enemyTransf.position, playerTransf.position)
+    if playerDetected == false then
+        detect_area()
+    else
+        single_raycast()
+    end
 
     if not playerDetected and playerDistance <= detectDistance then
         print("Player detectado! Pasando de Idle a Move.")
@@ -148,7 +148,126 @@ function player_distance()
 
 end
 
+function detect_player(rayHit)
 
+    return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity == player
+
+end
+
+function detect_area()
+
+    local direction = Vector3.new(
+        math.sin(math.rad(enemyTransf.rotation.y)), 
+        0, 
+        math.cos(math.rad(enemyTransf.rotation.y))
+    )
+
+    -- Normalizar dirección para evitar distancias erróneas
+    local distance = math.sqrt(direction.x^2 + direction.z^2)
+    if distance > 0 then
+        direction.x = direction.x / distance
+        direction.z = direction.z / distance
+    end
+
+    -- Ángulo de separación en radianes (~30 grados)
+    local angleOffset = math.rad(15)  
+    local intermediateAngleOffset = math.rad(7.5)
+
+    -- Rotar la dirección hacia la izquierda y derecha
+    local leftDirection = Vector3.new(
+        direction.x * math.cos(angleOffset) - direction.z * math.sin(angleOffset),
+        0,
+        direction.x * math.sin(angleOffset) + direction.z * math.cos(angleOffset)
+    )
+
+    local rightDirection = Vector3.new(
+        direction.x * math.cos(-angleOffset) - direction.z * math.sin(-angleOffset),
+        0,
+        direction.x * math.sin(-angleOffset) + direction.z * math.cos(-angleOffset)
+    )
+
+    local intermediateLeftDirection = Vector3.new(
+        direction.x * math.cos(intermediateAngleOffset) - direction.z * math.sin(intermediateAngleOffset),
+        0,
+        direction.x * math.sin(intermediateAngleOffset) + direction.z * math.cos(intermediateAngleOffset)
+    )
+
+    local intermediateRightDirection = Vector3.new(
+        direction.x * math.cos(-intermediateAngleOffset) - direction.z * math.sin(-intermediateAngleOffset),
+        0,
+        direction.x * math.sin(-intermediateAngleOffset) + direction.z * math.cos(-intermediateAngleOffset)
+    )
+
+    local origin = enemyTransf.position
+    local maxDistance = 20.0
+
+    -- Dibujar los tres rayos para depuración
+    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
+    Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+
+    -- Lanzar los rayos
+    local centerHit = Physics.Raycast(origin, direction, maxDistance)
+    local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
+    local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
+    local intermediateRightHit = Physics.Raycast(origin, intermediateRightDirection, maxDistance)
+    local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
+
+    if detect_player(centerHit) then
+
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, centerHit.hitPoint)
+
+    elseif detect_player(intermediateLeftHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, intermediateLeftHit.hitPoint)
+
+    elseif detect_player(leftHit) then
+
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, leftHit.hitPoint)
+
+    elseif detect_player(intermediateRightHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, intermediateRightHit.hitPoint)
+
+    elseif detect_player(rightHit) then
+
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, rightHit.hitPoint)
+        
+    end
+end
+
+function single_raycast()
+    
+    local direction = Vector3.new(
+        playerTransf.position.x - enemyTransf.position.x,
+        playerTransf.position.y - enemyTransf.position.y,
+        playerTransf.position.z - enemyTransf.position.z
+    )
+
+    local origin = enemyTransf.position
+    local maxDistance = 20.0
+
+    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+
+    local rayHit = Physics.Raycast(origin, direction, maxDistance)
+
+    if detect_player(rayHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, rayHit.hitPoint)
+    end
+
+end
 
 -- Funciones para los distintos estados.
 function idle_state(dt)

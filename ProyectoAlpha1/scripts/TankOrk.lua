@@ -4,30 +4,27 @@ local currentState = state.Idle
 local player
 local playerTransf
 local playerScript
+local playerDetected = false
+local playerDistance = nil
 
-local detectDistance = 30
 local tackleDistance = 10
 local IsCharging = false
 local chargeTime = 0
-local damagedistance = 5
 local meleeDistance = 3
 
 local tankTransform = nil
-local forwardVector
 local tankRigidbody = nil
 local tankNavmesh = nil
 
 local defaultVelocity = 2
 local tackleVelocity = 13
 local tankVelocity = defaultVelocity
-enemyHealth = 75
-local isDead = false
-local tankDamage = 10  -- This will now be the melee damage
-local AttackCooldown = 3
-local tankNavmesh = nil
-local tankHealth = 75
 
-local tackleCooldown = 8
+local isDead = false
+local tankDamage = 10  -- Daño de ataque melee
+local AttackCooldown = 3
+local tankHealth = 75
+local tackleCooldown = 8  -- Unificamos este valor
 local tackleTimer = 0       
 local canTackle = true      
 
@@ -44,19 +41,19 @@ shieldHealth = 0
 local tackleHasDamaged = false
 
 function on_ready()
-    player = current_scene:get_entity_by_name("Player")
-    if player then
-        playerTransf = player:get_component("TransformComponent")
-        playerScript = player:get_component("ScriptComponent")
-    end
-
     tankTransform = self:get_component("TransformComponent")
     tankRigidbody = self:get_component("RigidbodyComponent").rb
     tankScript = self:get_component("ScriptComponent")
     tankNavmesh = self:get_component("NavigationAgentComponent")
 
     animator = self:get_component("AnimatorComponent")
-    
+
+    player = current_scene:get_entity_by_name("Player")
+    if player then
+        playerTransf = player:get_component("TransformComponent")
+        playerScript = player:get_component("ScriptComponent")
+        playerDistance = get_distance(tankTransform.position, playerTransf.position)
+    end
 end
 
 function on_update(dt)
@@ -66,7 +63,7 @@ function on_update(dt)
     -- Update tackle cooldown timer
     if not canTackle then
         tackleTimer = tackleTimer + dt
-        if tackleTimer >= 25 then  
+        if tackleTimer >= tackleCooldown then  -- Usamos la variable tackleCooldown
             canTackle = true
             tackleTimer = 0
         end
@@ -77,9 +74,9 @@ function on_update(dt)
         shield_destroyed = true
     end
 
-    -- Check player existence and update distances
+    -- Check player existence
     if player and playerTransf then
-        change_state() -- Function to change states based on distances
+        change_state() -- Function to change states based on raycast
     else
         -- Try to find player in case it was not found before
         player = current_scene:get_entity_by_name("Player")
@@ -93,7 +90,7 @@ function on_update(dt)
 
     -- Handle death condition
     if tankHealth <= 0 then
-        Die()
+        die()
         return
     end
 
@@ -104,6 +101,10 @@ function on_update(dt)
         update_path()
         lastTargetPos = currentTargetPos
         pathUpdateTimer = 0
+    end
+
+    if playerDetected then
+        rotate_tank(playerTransf.position)
     end
 
     -- FSM { Idle -> Move -> Chase -> Attack -> Tackle}
@@ -177,13 +178,19 @@ function follow_path(dt)
     end
 end
 
-
 function change_state()
-    if player and playerTransf then
-        local playerDistance = get_distance(tankTransform.position, playerTransf.position)
-        
-        -- Check distances in order of priority
-        if playerDistance <= meleeDistance then
+    if not playerDetected then
+        detect_area()
+    else
+        single_raycast()
+    end
+
+    if playerDetected then
+        playerDistance = get_distance(tankTransform.position, playerTransf.position)
+    end
+
+    if player and playerTransf then 
+        if playerDetected and playerDistance <= meleeDistance then
             -- Close enough to attack
             if currentState ~= state.Attack then
                 currentState = state.Attack
@@ -195,8 +202,8 @@ function change_state()
                 currentState = state.Tackle
                 IsCharging = true
             end
-        elseif playerDistance <= detectDistance then
-            -- Within detection range but not tackle range or tackle on cooldown
+        elseif playerDetected then
+            -- Player detected but not close enough for attack or tackle
             if currentState ~= state.Chase and currentState ~= state.Attack and currentState ~= state.Tackle then
                 currentState = state.Chase
             end
@@ -211,6 +218,126 @@ function change_state()
         if currentState ~= state.Idle then
             currentState = state.Idle
         end
+    end
+end
+
+function detect_player(rayHit)
+    return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity == player
+end
+
+function detect_area()
+    local direction = Vector3.new(
+        math.sin(math.rad(tankTransform.rotation.y)), 
+        0, 
+        math.cos(math.rad(tankTransform.rotation.y))
+    )
+
+    -- Normalizar dirección para evitar distancias erróneas
+    local distance = math.sqrt(direction.x^2 + direction.z^2)
+    if distance > 0 then
+        direction.x = direction.x / distance
+        direction.z = direction.z / distance
+    end
+
+    -- Ángulo de separación en radianes (~30 grados)
+    local angleOffset = math.rad(15)  
+    local intermediateAngleOffset = math.rad(7.5)
+
+    -- Rotar la dirección hacia la izquierda y derecha
+    local leftDirection = Vector3.new(
+        direction.x * math.cos(angleOffset) - direction.z * math.sin(angleOffset),
+        0,
+        direction.x * math.sin(angleOffset) + direction.z * math.cos(angleOffset)
+    )
+
+    local rightDirection = Vector3.new(
+        direction.x * math.cos(-angleOffset) - direction.z * math.sin(-angleOffset),
+        0,
+        direction.x * math.sin(-angleOffset) + direction.z * math.cos(-angleOffset)
+    )
+
+    local intermediateLeftDirection = Vector3.new(
+        direction.x * math.cos(intermediateAngleOffset) - direction.z * math.sin(intermediateAngleOffset),
+        0,
+        direction.x * math.sin(intermediateAngleOffset) + direction.z * math.cos(intermediateAngleOffset)
+    )
+
+    local intermediateRightDirection = Vector3.new(
+        direction.x * math.cos(-intermediateAngleOffset) - direction.z * math.sin(-intermediateAngleOffset),
+        0,
+        direction.x * math.sin(-intermediateAngleOffset) + direction.z * math.cos(-intermediateAngleOffset)
+    )
+
+    local origin = tankTransform.position  
+    local maxDistance = 20.0
+
+    -- Dibujar los rayos para depuración
+    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
+    Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+
+    -- Lanzar los rayos
+    local centerHit = Physics.Raycast(origin, direction, maxDistance)
+    local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
+    local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
+    local intermediateRightHit = Physics.Raycast(origin, intermediateRightDirection, maxDistance)
+    local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
+    
+    if detect_player(centerHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, centerHit.hitPoint)
+    elseif detect_player(intermediateLeftHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, intermediateLeftHit.hitPoint)
+    elseif detect_player(leftHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, leftHit.hitPoint)
+    elseif detect_player(intermediateRightHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, intermediateRightHit.hitPoint)
+    elseif detect_player(rightHit) then
+        currentState = state.Move
+        playerDetected = true
+        playerDistance = get_distance(origin, rightHit.hitPoint)
+    end
+end
+
+function single_raycast()
+    if not playerTransf then return end
+
+    local direction = Vector3.new(
+        playerTransf.position.x - tankTransform.position.x, 
+        playerTransf.position.y - tankTransform.position.y,
+        playerTransf.position.z - tankTransform.position.z
+    )
+
+    -- Normalizar dirección
+    local distance = math.sqrt(direction.x^2 + direction.y^2 + direction.z^2)
+    if distance > 0 then
+        direction.x = direction.x / distance
+        direction.y = direction.y / distance
+        direction.z = direction.z / distance
+    end
+
+    local origin = tankTransform.position 
+    local maxDistance = 20.0
+
+    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+
+    local rayHit = Physics.Raycast(origin, direction, maxDistance)
+
+    if detect_player(rayHit) then
+        playerDetected = true
+        playerDistance = get_distance(origin, rayHit.hitPoint)
+    else
+        -- Si el raycast no detecta al jugador, actualizar distancia directamente
+        playerDistance = get_distance(tankTransform.position, playerTransf.position)
     end
 end
 
@@ -252,6 +379,9 @@ function chase_state(dt)
         currentAnim = 2
     end
     
+    -- Asegurar que la velocidad es la normal durante chase
+    tankVelocity = defaultVelocity
+    
     follow_path(dt)
 end
 
@@ -276,7 +406,7 @@ function tackle_state(dt)
         chargeTime = 0
         IsCharging = false
         tackleHasDamaged = false
-        tankVelocity = 13 
+        tankVelocity = tackleVelocity  -- Usar tackleVelocity en lugar de hardcodear 13
     end
 
     chargeTime = chargeTime + dt
@@ -284,25 +414,25 @@ function tackle_state(dt)
     if chargeTime < 1.5 then
         follow_path(dt)
         
-
         if player and playerTransf and playerScript and not tackleHasDamaged then
             local playerDistance = get_distance(tankTransform.position, playerTransf.position)
             
-            if playerDistance <= tackleDistance then
+            if playerDistance <= meleeDistance then  -- Cambio a meleeDistance para mejor detección
                 local damage = 50
                 playerScript.playerHealth = playerScript.playerHealth - damage
                 tackleHasDamaged = true
             end
         end
     else
-
+        -- Finalizar tackle
         tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
-
-        canTackle = false
-        tackleTimer = 0
         
+        -- Restablecer variables
+        canTackle = false  -- Activar cooldown
+        tackleTimer = 0
         tankVelocity = defaultVelocity
-
+        
+        -- Cambiar estado a Chase después del tackle
         currentState = state.Chase
     end
 end
@@ -324,18 +454,16 @@ function attack_state(dt)
     attackTimer = attackTimer + dt
     
     if attackTimer >= AttackCooldown then
-
         if player and playerTransf and playerScript then
             local attackDistance = get_distance(tankTransform.position, playerTransf.position)
             
             if attackDistance <= meleeDistance then
-                local damage = 10
+                local damage = tankDamage  -- Usar tankDamage en lugar de hardcodear 10
                 playerScript.playerHealth = playerScript.playerHealth - damage
             end
         end
 
         attackTimer = 0
-
         currentState = state.Chase
     end
 end
@@ -344,9 +472,8 @@ end
 local currentRotationY = 0
 
 function rotate_tank(targetPosition)
-
-	local dx = targetPosition.x - tankTransform.position.x
-	local dz = targetPosition.z - tankTransform.position.z
+    local dx = targetPosition.x - tankTransform.position.x
+    local dz = targetPosition.z - tankTransform.position.z
 
     local targetAngle = math.deg(math.atan(dx / dz))
     if dz < 0 then
@@ -359,7 +486,6 @@ function rotate_tank(targetPosition)
 
     currentRotationY = currentAngle + deltaAngle * 0.1
     tankTransform.rotation.y = currentRotationY
-
 end
 
 -- Helper function to calculate distance between two positions
@@ -371,23 +497,10 @@ function get_distance(pos1, pos2)
 end
 
 -- Function to handle death
-function Die()
-    if not isDead then
-        currentState = state.Idle
-        tankRigidbody:set_position(Vector3.new(-500, 0, 0))
-        tankHealth = 0
-        isDead = true
-    end
-end
-
-function take_damage(amount)
-    -- Reduce tank health
-    tankHealth = tankHealth - amount
-    
-    -- Optional: Check for death
-    if tankHealth <= 0 then
-        Die()
-    end
+function die()
+    currentState = state.Idle
+    tankRigidbody:set_position(Vector3.new(-500, 0, 0))
+    isDead = true
 end
 
 function on_exit() 
