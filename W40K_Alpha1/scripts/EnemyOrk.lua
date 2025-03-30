@@ -68,6 +68,10 @@ local visionAngle = 0 -- Ángulo actual del rayo
 local visionSpeed = 60 -- Velocidad de oscilación (grados por segundo)
 local visionRange = 30 -- Máximo desplazamiento (grados)
 
+pushed = false
+local pushedTime = 0.5
+local pushedTimeCounter = 0
+
 function on_ready() 
 
     --audioDanoPlayerMusic = current_scene:get_entity_by_name("AudioDanoPlayer"):get_component("AudioSourceComponent")
@@ -148,23 +152,32 @@ function on_update(dt)
     end
 
 
-    if currentState == state.Idle then
-        idle_state(dt)
+    if pushed == false then
+        if currentState == state.Idle then
+            idle_state(dt)
 
-    elseif currentState == state.Move then
-        move_state(dt)
+        elseif currentState == state.Move then
+            move_state(dt)
 
-    elseif currentState == state.Shoot then
-        shoot_state(dt)
-        playerScript.backgroundMusicToPlay = 1
+        elseif currentState == state.Shoot then
+            shoot_state(dt)
+            playerScript.backgroundMusicToPlay = 1
 
-    elseif currentState == state.Chase then
-        chase_state(dt)                                 -- Voy a mantener el Chase y el Move como funciones separadas para cuando sean orkos de niveles mas altos.
-        playerScript.backgroundMusicToPlay = 1
+        elseif currentState == state.Chase then
+            chase_state(dt)                                 -- Voy a mantener el Chase y el Move como funciones separadas para cuando sean orkos de niveles mas altos.
+            playerScript.backgroundMusicToPlay = 1
 
-    elseif currentState == state.Stab then
-        stab_state(dt)
-        playerScript.backgroundMusicToPlay = 1
+        elseif currentState == state.Stab then
+            stab_state(dt)
+            playerScript.backgroundMusicToPlay = 1
+        end
+    else
+        pushedTimeCounter = pushedTimeCounter + dt
+        if pushedTimeCounter >= pushedTime then
+            pushedTimeCounter = 0
+            pushed = false
+            
+        end
     end
 
 end

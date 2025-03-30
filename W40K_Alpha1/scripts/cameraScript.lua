@@ -55,11 +55,9 @@ function on_ready()
     orkEntities = {} 
 
     for _, entity in ipairs(entities) do 
-        if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent") then
-            if entity:get_component("TagComponent").tag == "EnemyOrk" then
-                table.insert(orkEntities, entity) 
-                entity:set_active(false)
-            end
+        if entity:get_component("TagComponent").tag == "EnemyOrk" then
+            table.insert(orkEntities, entity) 
+            entity:set_active(false)
         end
     end
 

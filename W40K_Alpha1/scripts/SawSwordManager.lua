@@ -11,6 +11,9 @@ local impulseForce = 10
 local player = nil
 local playerTransf = nil
 local playerScript = nil
+
+local entities = nil
+local enemies = nil
 --local ----------shootParticlesComponent = nil
 --local --bulletDamageParticleComponent = nil
 
@@ -22,6 +25,14 @@ function on_ready()
     --------------shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     ----bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
 
+    entities = current_scene:get_all_entities()
+    enemies = {} 
+    for _, entity in ipairs(entities) do 
+        if entity:get_component("TagComponent").tag == "EnemyOrk" or entity:get_component("TagComponent").tag == "EnemySupp" then
+            print("sooooooooooooooooo")
+            table.insert(enemies, entity)
+        end
+    end
 
 end
 
@@ -45,8 +56,7 @@ end
 
 function Slash()
     
-local entities = current_scene:get_all_entities()
-    for _, entity in ipairs(entities) do 
+    for _, entity in ipairs(enemies) do 
         if entity ~= player and entity:has_component("RigidbodyComponent") then
             local entityRb = entity:get_component("RigidbodyComponent").rb
             local entityPos = entityRb:get_position()
@@ -113,13 +123,13 @@ local entities = current_scene:get_all_entities()
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
                     end
                     
-                end              
+                end           
                 
 
                 
             end
         end
-    end
+    end         
 
    
 end
