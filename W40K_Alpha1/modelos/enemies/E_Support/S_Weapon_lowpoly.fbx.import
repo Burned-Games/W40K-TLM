@@ -1,0 +1,179 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "S_Weapon_lowpoly_paloCruzadoCalavera_low",
+                        "value": {
+                            "value0": 17012923799870648971
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_calavera_low",
+                        "value": {
+                            "value0": 364348839354490008
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_soporteMetalBola_low",
+                        "value": {
+                            "value0": 15993579601430593439
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_placa_low",
+                        "value": {
+                            "value0": 2608603139237683926
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_pinchos_low",
+                        "value": {
+                            "value0": 467049754632799519
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_paloSoporteBola_low",
+                        "value": {
+                            "value0": 14481851248572649774
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cuerda3_low",
+                        "value": {
+                            "value0": 15558949890201334368
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_paloBase_low",
+                        "value": {
+                            "value0": 13223415607672374188
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_hueso_low",
+                        "value": {
+                            "value0": 8663401923166088473
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cuerda2_low",
+                        "value": {
+                            "value0": 10307310204559305336
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cadena4_low",
+                        "value": {
+                            "value0": 13688482134708166458
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cuerda1_low",
+                        "value": {
+                            "value0": 5084208382148483801
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cableInferior_low",
+                        "value": {
+                            "value0": 4565828998087830226
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_colgante2_low",
+                        "value": {
+                            "value0": 11794615222989146444
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_colgante1_low",
+                        "value": {
+                            "value0": 8310329820102401831
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cableSuperior_low",
+                        "value": {
+                            "value0": 16103388604451996928
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_campana_low",
+                        "value": {
+                            "value0": 336702596754439413
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cadena3_low",
+                        "value": {
+                            "value0": 9583347890997986618
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cadena2_low",
+                        "value": {
+                            "value0": 2759137612744028050
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cadena1_low",
+                        "value": {
+                            "value0": 13524736154735882975
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_bolaSuperior_low",
+                        "value": {
+                            "value0": 13929834504927485562
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_bolaInferior_low",
+                        "value": {
+                            "value0": 3614933427681896201
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_anclajePaloCadena_low",
+                        "value": {
+                            "value0": 8199215067982112847
+                        }
+                    },
+                    {
+                        "key": "S_Weapon_lowpoly_cuerdasCruzadas_low",
+                        "value": {
+                            "value0": 5586878278341369651
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "lambert1_Mat0",
+                        "value": {
+                            "value0": 667724875212069562
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 11209647501245503917
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/enemies/E_Support/S_Weapon_lowpoly.fbx"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11209647501245503917.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

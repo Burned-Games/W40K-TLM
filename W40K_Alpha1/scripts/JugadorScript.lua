@@ -53,6 +53,13 @@ local explorationMusicVolume = 0.05
 local prevBackgroundMusicToPlay = -1
 backgroundMusicToPlay = 0 -- 0 exploration 1 combat
 
+-- sangrado
+local isBleeding = false
+local bleedTimer = 0
+local bleedDuration = 5
+local bleedDamage = 2
+local timeSinceLastBleed = 0
+local bleedInterval = 1
 
 -- Extras
 local pressedButton = false
@@ -108,6 +115,7 @@ function on_update(dt)
     updateGodMode()
     updateEntranceAnimation(dt)
     handleWeaponSwitch()
+    handleBleed(dt)
 
     if not animacionEntradaRealizada then
         return
@@ -435,21 +443,23 @@ function playerMovement(dt)
             -- If Is moving and aiming
             local desiredRotation = math.deg(math.atan(rotationDirectionX, rotationDirectionY))
             print("Desired Rotation: " .. desiredRotation)
-        
+
             local moveAngle = math.deg(math.atan(moveDirection.x, moveDirection.z))
             local minAngle = moveAngle - 90
             local maxAngle = moveAngle + 90
-    
+
             -- Limit the rotation
             local clampedRotation = clampRotation(desiredRotation, minAngle, maxAngle)
-    
+
+            angleRotation = math.rad(clampedRotation)
             playerTransf.rotation.y = clampedRotation
         end
     else
         -- If the player doesn't move 360 rotation
         if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
-            local angleRotation = math.deg(math.atan(rotationDirectionX, rotationDirectionY))
-            playerTransf.rotation.y = normalizeAngle(angleRotation)
+            angleRotation = math.atan(rotationDirectionX, rotationDirectionY)
+            local newRotation = math.deg(angleRotation)
+            playerTransf.rotation.y = normalizeAngle(newRotation)
         end
     end
 
@@ -523,5 +533,31 @@ function take_damage(amount)
     tookDamage = true
     
     print("Player took damage: " .. finalDamage .. " (Health: " .. playerHealth .. ")")
+end
+
+function handleBleed(dt)
+
+    if isBleeding then
+        bleedTimer = bleedTimer - dt
+        timeSinceLastBleed = timeSinceLastBleed + dt
+
+        if timeSinceLastBleed >= bleedInterval then
+            if playerHealth > 0 then
+                playerHealth = playerHealth - bleedDamage
+            end
+            timeSinceLastBleed = 0
+        end
+
+        if bleedTimer <= 0 then
+            isBleeding = false
+        end
+    end
+
+end
+
+function applyBleed()
+    isBleeding = true
+    bleedTimer = bleedDuration
+    timeSinceLastBleed = 0
 end
 

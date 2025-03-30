@@ -257,7 +257,7 @@ function on_update(dt)
 
     if using then
         local rightTrigger = Input.get_button(Input.action.Shoot)
-        local leftShoulder = Input.get_button(Input.action.Skill1)
+        local leftShoulder = Input.get_button(Input.action.Skill2)
 
         if ammo >= maxAmmo then
             if reloadTime == 0 then

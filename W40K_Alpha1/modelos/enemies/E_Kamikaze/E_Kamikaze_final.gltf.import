@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "E_Kamikaze_final_Plane.027",
+                        "value": {
+                            "value0": 16204617737375838954
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.016_Mat0",
+                        "value": {
+                            "value0": 5027434270374035213
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 1133954634078995597
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/enemies/E_Kamikaze/E_Kamikaze_final.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/1133954634078995597.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

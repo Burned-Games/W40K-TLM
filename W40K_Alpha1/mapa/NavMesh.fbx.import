@@ -1,0 +1,89 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "NavMesh_Cube.400",
+                        "value": {
+                            "value0": 18398349653658020694
+                        }
+                    },
+                    {
+                        "key": "NavMesh_Cube.1049",
+                        "value": {
+                            "value0": 4313152820841293425
+                        }
+                    },
+                    {
+                        "key": "NavMesh_Cube.062",
+                        "value": {
+                            "value0": 6859450546397847640
+                        }
+                    },
+                    {
+                        "key": "NavMesh_Cube.618",
+                        "value": {
+                            "value0": 13404029192135089346
+                        }
+                    },
+                    {
+                        "key": "NavMesh_Cylinder.014",
+                        "value": {
+                            "value0": 3386483639554956499
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.002_Mat0",
+                        "value": {
+                            "value0": 12606654493310288152
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat1",
+                        "value": {
+                            "value0": 13639073835488556787
+                        }
+                    },
+                    {
+                        "key": "Material_Mat2",
+                        "value": {
+                            "value0": 6448960470341843178
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat3",
+                        "value": {
+                            "value0": 17570800786283974238
+                        }
+                    },
+                    {
+                        "key": "DefaultMaterial_Mat4",
+                        "value": {
+                            "value0": 16071731653155686860
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 10605385442095368946
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "mapa/NavMesh.fbx"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10605385442095368946.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "vanguard_vanguard_body",
+                        "value": {
+                            "value0": 15609533797396413347
+                        }
+                    },
+                    {
+                        "key": "vanguard_vanguard_visor",
+                        "value": {
+                            "value0": 15421363902493340317
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "VanguardBodyMat_Mat0",
+                        "value": {
+                            "value0": 12142309893822440689
+                        }
+                    },
+                    {
+                        "key": "Vanguard_VisorMat_Mat1",
+                        "value": {
+                            "value0": 13682641623157832110
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 15619286373187567511
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/enemies/vanguard.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15619286373187567511.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

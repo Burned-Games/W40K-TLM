@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "E_Support_lowpoly_Mesh.001",
+                        "value": {
+                            "value0": 10274509894604602636
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "standardSurface2_Mat0",
+                        "value": {
+                            "value0": 7762079408881160844
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 15419139563032504663
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/enemies/E_Support/E_Support_lowpoly.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15419139563032504663.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
