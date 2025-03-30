@@ -1,4 +1,5 @@
 local player
+local playerTransf = nil
 local playerScript = nil
 local playerPos
 local playerDirectionX = 0
@@ -15,12 +16,16 @@ local directionCached = false
 
 local offsetPlayer = 5
 
+local radiusSpawn = 20
+
+local entities = nil
+
 -- Camera Rotation -45,-45, 0
 function on_ready()
     -- Add initialization code here
     player = current_scene:get_entity_by_name("Player")
 
-
+    playerTransf = player:get_component("TransformComponent")
 
     playerScript = player:get_component("ScriptComponent")
 
@@ -43,12 +48,22 @@ function on_ready()
 
     cameraTransform.position = targetPos
 
+    entities = current_scene:get_all_entities()
+
+    for _, entity in ipairs(entities) do 
+        if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent")then
+
+            entity:set_active(false)
+
+        end
+    end
+
 end
 
 function on_update(dt)
 
     if playerScript and playerScript.moveDirection then
-
+        updateEnemyActivation()
         -- Add update code here
         local zoomOffSet = Vector3.new(baseOffset.x * (1 + zoom * 0.2), baseOffset.y * (1 + zoom * 0.2), baseOffset.z * (1 + zoom * 0.2))  
 
@@ -72,6 +87,42 @@ function on_update(dt)
             end
         end
 
+    end
+end
+
+function updateEnemyActivation()
+
+
+    for _, entity in ipairs(entities) do 
+        if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent")then
+            local entityRb = entity:get_component("RigidbodyComponent").rb
+            local entityPos = entityRb:get_position()
+
+            local direction = Vector3.new(
+                entityPos.x - playerTransf.position.x,
+                entityPos.y - playerTransf.position.y,
+                entityPos.z - playerTransf.position.z
+            )
+
+            local distance = math.sqrt(
+                direction.x * direction.x +
+                direction.y * direction.y +
+                direction.z * direction.z
+            )
+
+            if distance > 0 then
+                direction.x = direction.x / distance
+                direction.y = direction.y / distance
+                direction.z = direction.z / distance
+            end
+
+            if distance < radiusSpawn then
+                     
+                entity:set_active(true)
+
+                
+            end
+        end
     end
 end
 
