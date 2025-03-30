@@ -256,6 +256,7 @@ function on_ready()
                     else
                         --bulletDamageParticleComponent:emit(20)
                         tankOrkScript.enemyHealth = tankOrkScript.enemyHealth - damage
+                        log (tankOrkScript.enemyHealth)
                     end
             
                 end

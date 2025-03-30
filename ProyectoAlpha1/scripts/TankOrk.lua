@@ -92,8 +92,8 @@ function on_update(dt)
     end
 
     -- Handle death condition
-    if tankHealth <= 0 then
-        Die()
+    if enemyHealth <= 0 then
+        die()
         return
     end
 
@@ -371,23 +371,10 @@ function get_distance(pos1, pos2)
 end
 
 -- Function to handle death
-function Die()
-    if not isDead then
-        currentState = state.Idle
-        tankRigidbody:set_position(Vector3.new(-500, 0, 0))
-        tankHealth = 0
-        isDead = true
-    end
-end
-
-function take_damage(amount)
-    -- Reduce tank health
-    tankHealth = tankHealth - amount
-    
-    -- Optional: Check for death
-    if tankHealth <= 0 then
-        Die()
-    end
+function die()
+    currentState = state.Idle
+    tankRigidbody:set_position(Vector3.new(-500, 0, 0))
+    isDead = true
 end
 
 function on_exit() 
