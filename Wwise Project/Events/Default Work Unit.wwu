@@ -126,6 +126,50 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_RecogerEstandarte" ID="{05D3D5E7-96EA-4B82-A840-642809A41512}">
+							<ChildrenList>
+								<Action Name="" ID="{41C3E131-0186-4B95-BC44-9A3B8D5846AC}" ShortID="114634428">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="RecogerEstandarte" ID="{313DCE30-CE0F-4C93-997C-777717C78DF9}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_PonerEstandarte" ID="{46D879B8-ED2D-4B31-B989-EEA3B548ACEE}">
+							<ChildrenList>
+								<Action Name="" ID="{D8056F19-33D0-48B1-83FF-4175093FF771}" ShortID="126477807">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PonerEstandarte" ID="{3882EEEE-144F-466C-8E7A-DE40C2491F0F}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_PlayerInyector" ID="{E2721888-EACC-4784-9952-C530054948DC}">
+							<ChildrenList>
+								<Action Name="" ID="{C6D8E1E1-FF79-40C0-8FC1-1A4037C49804}" ShortID="1001388978">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PlayerInyector" ID="{8E95BB54-57D8-4379-B013-4F7DAD89350E}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ZonaEstandarte" ID="{F80EB2F5-2F36-43A6-9319-389199207D7E}">
+							<ChildrenList>
+								<Action Name="" ID="{BAEEBBF1-84B3-4C6A-BC46-C45B9B8E45AD}" ShortID="1009032567">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ZonaEstandarte" ID="{AE191F61-E33A-444E-8C90-464A26A39D1D}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Weapons" ID="{1F453973-3ECF-482C-BB71-71CA807F87C5}" ShortID="952167920">
@@ -661,6 +705,204 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="TanqueRoca" ID="{C5C4F9A0-CF78-4CAC-BB1D-1DD9024B6E5F}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BasicoImpactoMetal" ID="{1D272A98-194B-4FB2-AF96-1A9647813B5C}">
+							<ChildrenList>
+								<Action Name="" ID="{4BEACCEA-8F79-4648-B93F-32D88C1F07D7}" ShortID="242655308">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BasicoImpactoMetal" ID="{575AA74C-F0D3-4F86-9D9A-F7EC001D1BDE}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BasicoShot" ID="{B4CADE1D-D83F-48D9-981B-64738AFB3A02}">
+							<ChildrenList>
+								<Action Name="" ID="{DEFCE242-FA3B-41D9-941C-6A5BCE35F1A3}" ShortID="309554588">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BasicoShot" ID="{50E37B43-59C1-4091-9835-37621CC31C09}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_EscudoBoss" ID="{CB6EF97D-977C-4B8F-8430-8B06156480F9}">
+							<ChildrenList>
+								<Action Name="" ID="{62CBDA98-21F5-43FA-B506-F2C62264ADBF}" ShortID="983291979">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EscudoBoss" ID="{212BC15F-CF63-423D-9438-68BBED0FC9F8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossDamage" ID="{D1DFBB48-6D74-474D-819E-0BF7D1E55BE6}">
+							<ChildrenList>
+								<Action Name="" ID="{EC0E09DA-DF48-48DC-8BE8-57A33AA5D447}" ShortID="882893406">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossDamage" ID="{F495571F-C2E5-4D62-9BC4-23BE67280182}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossDeath" ID="{48A87C1B-D3E8-41D5-9543-324E11554C45}">
+							<ChildrenList>
+								<Action Name="" ID="{28C44B88-2CC8-498D-B265-E0A6903D60B1}" ShortID="118190806">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossDeath" ID="{5C1F8AE9-DBC2-467C-ABEE-C259BC21DFBF}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossDamage2" ID="{49266AB8-053A-4290-A392-9EBA804E8661}">
+							<ChildrenList>
+								<Action Name="" ID="{25176970-7EE7-4BAE-89FD-7D3EA140A4F8}" ShortID="3802210">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossDamage2" ID="{6A2B91F2-098A-4E69-B0EF-CC88CF2B9B5C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossExplosion" ID="{F9706C27-20EE-4514-97F4-579106503473}">
+							<ChildrenList>
+								<Action Name="" ID="{8F2FFAE0-3604-4C87-8EEA-376AA5EEF904}" ShortID="884357796">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossExplosion" ID="{AB85FEC2-0761-4094-A436-9AAB90FAC8DD}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossLaser" ID="{F596B00C-DAB8-4D65-959D-0138154CC285}">
+							<ChildrenList>
+								<Action Name="" ID="{AF7432D2-2C2E-4001-B67B-751893EACF9A}" ShortID="691919918">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossLaser" ID="{1363B813-B2AE-42A9-B608-1FB10856F3C6}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossMissile" ID="{7D1BBA67-99A4-4C18-9C6A-963A5089D32A}">
+							<ChildrenList>
+								<Action Name="" ID="{61ECFE83-6A86-4BA8-AEB7-FCA707DDA662}" ShortID="435527849">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossMissile" ID="{585CD9E8-9082-49E4-942C-9744C53B2EB8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossThunder" ID="{5B8DE902-01FC-44A9-9FE9-9D5ED2A6CF0C}">
+							<ChildrenList>
+								<Action Name="" ID="{20741AFF-B9EB-4DCF-9CBA-191947EC4693}" ShortID="184532041">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossThunder" ID="{3AED2846-06D1-4BEE-ABA6-77CBF62D77A8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossBrokenMask" ID="{E15F0313-6F08-45C3-97B1-2A7B05FCD9BE}">
+							<ChildrenList>
+								<Action Name="" ID="{089745F6-3D65-42B3-B8B5-1B325113DED8}" ShortID="794697044">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossBrokenMask" ID="{9C06CFC9-2874-4173-AA16-28E258BCB6F0}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossBrokenShield" ID="{7041C376-76F3-4C6B-B314-216F874E99D4}">
+							<ChildrenList>
+								<Action Name="" ID="{13DE9D3A-8640-41B9-A428-D098EB85F6CB}" ShortID="801483297">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossBrokenShield" ID="{42234013-645D-4482-A438-32B77D98A383}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueStep2" ID="{48E1E877-FB66-47B7-8F55-C14EE952306B}">
+							<ChildrenList>
+								<Action Name="" ID="{3307A49A-D2EE-4732-9A61-2F6A7D3EBF02}" ShortID="413491985">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueStep2" ID="{73A08BEA-72B2-44D0-A4F7-517FE66F1BF8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueGrito" ID="{3123066B-1A06-4922-8F22-2E050885423A}">
+							<ChildrenList>
+								<Action Name="" ID="{607DB775-157E-4E73-BFDF-905379D2D058}" ShortID="671425422">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueGrito" ID="{5859E2C2-A2FD-4BA2-BDDF-6112C660B9C4}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueImpactoMetal" ID="{3C3E41AB-0606-406B-919B-587016A2FCEF}">
+							<ChildrenList>
+								<Action Name="" ID="{20F4B1EC-560D-4F30-98F2-28829D95C64B}" ShortID="725619063">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueImpactoMetal" ID="{CDFB7E5A-9042-41FF-BF3C-7F264177EB32}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueStep" ID="{C0496F85-3EA0-4DEF-BD83-B94A7CE9FF8F}">
+							<ChildrenList>
+								<Action Name="" ID="{4DC552F4-DCA0-437A-91EF-F8F5216C2891}" ShortID="1008730175">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueStep" ID="{75D9424A-F04D-456B-AFD4-E4243C33C5BF}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueStep3" ID="{D58A6C8D-D260-4F55-A398-BA8EAE20F705}">
+							<ChildrenList>
+								<Action Name="" ID="{5DB18BBE-6D9E-413B-A622-87C352A07AAB}" ShortID="484285617">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueStep3" ID="{411692D9-B93E-45EB-A961-2A94E226E2F9}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_TanqueStep4" ID="{6550D9E1-C1F5-4C69-8CC4-31ACDCA4CC36}">
+							<ChildrenList>
+								<Action Name="" ID="{EA82F1DF-D76F-4DF6-9B56-8008DBBABC81}" ShortID="310852685">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TanqueStep4" ID="{FF4AF371-1EC5-4DA7-A925-AD8999908324}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

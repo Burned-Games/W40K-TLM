@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
     "Language": "SFX",
-    "Hash": "{20F1339D-DD6F-5536-FC39-E3B0A691594F}",
+    "Hash": "{71C2A4B2-680C-FCCB-0FAC-F8EC2F9AC2BB}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -40,6 +40,14 @@
       "CachePath": "D1/{D1AEFE8B-9EE1-AD13-6DB4-7663A2CCE8BF}.wem"
      },
      {
+      "Id": "32762271",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossDamage.wav",
+      "CachePath": "C8/{C88D453B-495C-B641-F38E-2C98B9FC6280}.wem"
+     },
+     {
       "Id": "35598177",
       "Language": "SFX",
       "Streaming": "false",
@@ -64,12 +72,28 @@
       "CachePath": "E9/{E91D8E4D-1E8E-6538-C2F2-F86856D0A364}.wem"
      },
      {
+      "Id": "73308504",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EscudoBoss.wav",
+      "CachePath": "9B/{9B877574-9EF6-3502-AEAC-C2304A722E0D}.wem"
+     },
+     {
       "Id": "74667837",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "BolterHabilityCharge.wav",
       "CachePath": "A1/{A1CAD19E-AB0B-19E1-7E30-F1138E0F6B4D}.wem"
+     },
+     {
+      "Id": "86108419",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueImpactoMetal.wav",
+      "CachePath": "24/{24D4E4E9-AB94-2AC8-FB56-6F1D0AFDF64D}.wem"
      },
      {
       "Id": "99736871",
@@ -96,6 +120,14 @@
       "CachePath": "E0/{E0ACC4D3-710F-1182-4F8D-44F7926AEFC3}.wem"
      },
      {
+      "Id": "114443847",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep3.wav",
+      "CachePath": "25/{25926324-0EA9-571B-15B2-13740BE12E53}.wem"
+     },
+     {
       "Id": "125923430",
       "Language": "SFX",
       "Streaming": "false",
@@ -110,6 +142,14 @@
       "Location": "Memory",
       "ShortName": "smokeGrenade.wav",
       "CachePath": "8C/{8CDCA6A5-C885-DABC-E1AA-E9AF0FA44152}.wem"
+     },
+     {
+      "Id": "164099644",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossDeath.wav",
+      "CachePath": "35/{352508DD-AA6D-70CA-55A3-DB91F6BAD18B}.wem"
      },
      {
       "Id": "169224025",
@@ -176,6 +216,14 @@
       "CachePath": "B2/{B2D82CA9-538A-EEBB-B5A3-DFB0773BBC7A}.wem"
      },
      {
+      "Id": "264018379",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RecogerEstandarte.wav",
+      "CachePath": "64/{64033A88-5002-F7AE-BBB3-1806BC4D2EA9}.wem"
+     },
+     {
       "Id": "264762800",
       "Language": "SFX",
       "Streaming": "false",
@@ -224,6 +272,30 @@
       "CachePath": "3F/{3FE6BD61-D69F-69C6-1D65-04968E738F0F}.wem"
      },
      {
+      "Id": "375156615",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep.wav",
+      "CachePath": "97/{97D9EA12-DFD4-BF2E-A46A-3A8B3F14D37D}.wem"
+     },
+     {
+      "Id": "384772397",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossBrokenShield.wav",
+      "CachePath": "30/{3037DCAD-07BC-4409-D5B4-AAC7C3BF02C6}.wem"
+     },
+     {
+      "Id": "392571893",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossThunder.wav",
+      "CachePath": "53/{53F70797-3AD9-F659-BA18-8717F1FDC5DC}.wem"
+     },
+     {
       "Id": "415581673",
       "Language": "SFX",
       "Streaming": "false",
@@ -254,6 +326,14 @@
       "Location": "Memory",
       "ShortName": "melee_chainsaw_idle.wav",
       "CachePath": "DD/{DD80291D-456E-D873-D952-DA0D516D933B}.wem"
+     },
+     {
+      "Id": "493812160",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossBrokenMask.wav",
+      "CachePath": "1E/{1EFD27D9-BD3A-BDA4-A524-643648603D62}.wem"
      },
      {
       "Id": "502480266",
@@ -288,12 +368,28 @@
       "CachePath": "E2/{E2DF08CB-1F6B-9C27-C37D-0887F7C34A0D}.wem"
      },
      {
+      "Id": "593561193",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerInyector.wav",
+      "CachePath": "58/{58183C13-BDFC-9DF1-7EE1-6F6D47C17B11}.wem"
+     },
+     {
       "Id": "634227420",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "KamikazeScream.wav",
       "CachePath": "F9/{F949A58F-D72E-7F9A-5847-992BC6E03684}.wem"
+     },
+     {
+      "Id": "645657738",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossLaser.wav",
+      "CachePath": "34/{34FF9A31-5EAE-E96E-3DCF-36ED73C9A50D}.wem"
      },
      {
       "Id": "652609025",
@@ -310,6 +406,14 @@
       "Location": "Memory",
       "ShortName": "player_damage_3.wav",
       "CachePath": "4D/{4D760DC4-A63D-C05C-349F-6BABD3B80E29}.wem"
+     },
+     {
+      "Id": "669921209",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ZonaEstandarte.wav",
+      "CachePath": "63/{639E494C-7994-D92D-C7C0-3E9F063DF4D6}.wem"
      },
      {
       "Id": "695036394",
@@ -334,6 +438,14 @@
       "Location": "Memory",
       "ShortName": "melee_attack_2.wav",
       "CachePath": "CB/{CB0982C1-24A9-343D-B28D-7E72E1FDBAA0}.wem"
+     },
+     {
+      "Id": "764159685",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BasicoImpactoMetal.wav",
+      "CachePath": "86/{86C49876-8223-D0E1-73B8-D89407A3B52D}.wem"
      },
      {
       "Id": "768779297",
@@ -416,6 +528,14 @@
       "CachePath": "04/{0433969C-3480-23AE-7EC6-0CAF12AE07DA}.wem"
      },
      {
+      "Id": "884633856",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueGrito.wav",
+      "CachePath": "8F/{8F1A4C38-F8C1-ED10-D278-FC6D424F2D21}.wem"
+     },
+     {
       "Id": "905580413",
       "Language": "SFX",
       "Streaming": "false",
@@ -424,12 +544,28 @@
       "CachePath": "F1/{F140A2B0-81D4-EF1F-5506-29CFB6824B27}.wem"
      },
      {
+      "Id": "911923091",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossMissile.wav",
+      "CachePath": "8B/{8B48663F-AD54-5C13-40CA-2051F9DC3A1B}.wem"
+     },
+     {
       "Id": "912672974",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "metal_step_4.wav",
       "CachePath": "C0/{C02C1348-7E54-6737-43FF-0D944A8EBBC8}.wem"
+     },
+     {
+      "Id": "925735143",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BasicoShot.wav",
+      "CachePath": "ED/{EDF8DAB3-381A-0893-2CE1-522A6E48CF25}.wem"
      },
      {
       "Id": "928549664",
@@ -456,12 +592,52 @@
       "CachePath": "47/{478B4FFA-091A-8F3B-E8CD-2344CB971878}.wem"
      },
      {
+      "Id": "965164765",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep4.wav",
+      "CachePath": "88/{88CEA6D9-132B-18FA-4271-7989EF3E3B72}.wem"
+     },
+     {
+      "Id": "969097679",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PonerEstandarte.wav",
+      "CachePath": "09/{09A1EB3F-D7F5-B093-0367-C04E218A6A5F}.wem"
+     },
+     {
+      "Id": "981630785",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossDamage2.wav",
+      "CachePath": "11/{1157787F-A097-B3EF-0607-E4DBAB69E180}.wem"
+     },
+     {
+      "Id": "993318002",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossExplosion.wav",
+      "CachePath": "D7/{D7ABB6E7-24B5-BB4E-31E0-8477A75F837A}.wem"
+     },
+     {
       "Id": "1005007747",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "MetalicDamage3.wav",
       "CachePath": "1E/{1E46E3D9-8B21-D812-43F5-9F1135C93230}.wem"
+     },
+     {
+      "Id": "1020788773",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep2.wav",
+      "CachePath": "8F/{8F5957E4-69A0-D5E2-8D23-89CA17AD62E3}.wem"
      },
      {
       "Id": "1037416568",
@@ -558,6 +734,34 @@
       ]
      },
      {
+      "Id": "289316669",
+      "Name": "Play_BasicoImpactoMetal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BasicoImpactoMetal",
+      "GUID": "{1D272A98-194B-4FB2-AF96-1A9647813B5C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0931667",
+      "DurationMax": "1.0931667",
+      "MediaRefs": [
+       {
+        "Id": "764159685"
+       }
+      ]
+     },
+     {
+      "Id": "1921800587",
+      "Name": "Play_BasicoShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BasicoShot",
+      "GUID": "{B4CADE1D-D83F-48D9-981B-64738AFB3A02}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5776871",
+      "DurationMax": "0.5776871",
+      "MediaRefs": [
+       {
+        "Id": "925735143"
+       }
+      ]
+     },
+     {
       "Id": "2099886864",
       "Name": "Play_BolterHabilityCharge",
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_BolterHabilityCharge",
@@ -600,6 +804,132 @@
       ]
      },
      {
+      "Id": "3622820970",
+      "Name": "Play_BossBrokenMask",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossBrokenMask",
+      "GUID": "{E15F0313-6F08-45C3-97B1-2A7B05FCD9BE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6782917",
+      "DurationMax": "0.6782917",
+      "MediaRefs": [
+       {
+        "Id": "493812160"
+       }
+      ]
+     },
+     {
+      "Id": "4180520881",
+      "Name": "Play_BossBrokenShield",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossBrokenShield",
+      "GUID": "{7041C376-76F3-4C6B-B314-216F874E99D4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.7540208",
+      "DurationMax": "0.7540208",
+      "MediaRefs": [
+       {
+        "Id": "384772397"
+       }
+      ]
+     },
+     {
+      "Id": "4207882818",
+      "Name": "Play_BossDamage",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossDamage",
+      "GUID": "{D1DFBB48-6D74-474D-819E-0BF7D1E55BE6}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6592517",
+      "DurationMax": "0.6592517",
+      "MediaRefs": [
+       {
+        "Id": "32762271"
+       }
+      ]
+     },
+     {
+      "Id": "371989972",
+      "Name": "Play_BossDamage2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossDamage2",
+      "GUID": "{49266AB8-053A-4290-A392-9EBA804E8661}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6592517",
+      "DurationMax": "0.6592517",
+      "MediaRefs": [
+       {
+        "Id": "981630785"
+       }
+      ]
+     },
+     {
+      "Id": "694925737",
+      "Name": "Play_BossDeath",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossDeath",
+      "GUID": "{48A87C1B-D3E8-41D5-9543-324E11554C45}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0448072",
+      "DurationMax": "2.0448072",
+      "MediaRefs": [
+       {
+        "Id": "164099644"
+       }
+      ]
+     },
+     {
+      "Id": "511087946",
+      "Name": "Play_BossExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossExplosion",
+      "GUID": "{F9706C27-20EE-4514-97F4-579106503473}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3949791",
+      "DurationMax": "1.3949791",
+      "MediaRefs": [
+       {
+        "Id": "993318002"
+       }
+      ]
+     },
+     {
+      "Id": "4258909638",
+      "Name": "Play_BossLaser",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossLaser",
+      "GUID": "{F596B00C-DAB8-4D65-959D-0138154CC285}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0240817",
+      "DurationMax": "2.0240817",
+      "MediaRefs": [
+       {
+        "Id": "645657738"
+       }
+      ]
+     },
+     {
+      "Id": "2161370723",
+      "Name": "Play_BossMissile",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossMissile",
+      "GUID": "{7D1BBA67-99A4-4C18-9C6A-963A5089D32A}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.3808126",
+      "DurationMax": "4.3808126",
+      "MediaRefs": [
+       {
+        "Id": "911923091"
+       }
+      ]
+     },
+     {
+      "Id": "420325949",
+      "Name": "Play_BossThunder",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossThunder",
+      "GUID": "{5B8DE902-01FC-44A9-9FE9-9D5ED2A6CF0C}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.2372084",
+      "DurationMax": "3.2372084",
+      "MediaRefs": [
+       {
+        "Id": "392571893"
+       }
+      ]
+     },
+     {
       "Id": "3166312347",
       "Name": "Play_burst_shot",
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_burst_shot",
@@ -624,6 +954,20 @@
       "MediaRefs": [
        {
         "Id": "63830455"
+       }
+      ]
+     },
+     {
+      "Id": "3477839710",
+      "Name": "Play_EscudoBoss",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_EscudoBoss",
+      "GUID": "{CB6EF97D-977C-4B8F-8430-8B06156480F9}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.090625",
+      "DurationMax": "1.090625",
+      "MediaRefs": [
+       {
+        "Id": "73308504"
        }
       ]
      },
@@ -1160,6 +1504,48 @@
       ]
      },
      {
+      "Id": "1338027560",
+      "Name": "Play_PlayerInyector",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerInyector",
+      "GUID": "{E2721888-EACC-4784-9952-C530054948DC}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.6206459",
+      "DurationMax": "1.6206459",
+      "MediaRefs": [
+       {
+        "Id": "593561193"
+       }
+      ]
+     },
+     {
+      "Id": "3708622915",
+      "Name": "Play_PonerEstandarte",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PonerEstandarte",
+      "GUID": "{46D879B8-ED2D-4B31-B989-EEA3B548ACEE}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1504166",
+      "DurationMax": "1.1504166",
+      "MediaRefs": [
+       {
+        "Id": "969097679"
+       }
+      ]
+     },
+     {
+      "Id": "2700298292",
+      "Name": "Play_RecogerEstandarte",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_RecogerEstandarte",
+      "GUID": "{05D3D5E7-96EA-4B82-A840-642809A41512}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.3075964",
+      "DurationMax": "0.3075964",
+      "MediaRefs": [
+       {
+        "Id": "264018379"
+       }
+      ]
+     },
+     {
       "Id": "2888830865",
       "Name": "Play_sand_step_1",
       "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_1",
@@ -1314,6 +1700,34 @@
       ]
      },
      {
+      "Id": "937554585",
+      "Name": "Play_TanqueGrito",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueGrito",
+      "GUID": "{3123066B-1A06-4922-8F22-2E050885423A}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.3116875",
+      "DurationMax": "2.3116875",
+      "MediaRefs": [
+       {
+        "Id": "884633856"
+       }
+      ]
+     },
+     {
+      "Id": "2750399184",
+      "Name": "Play_TanqueImpactoMetal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueImpactoMetal",
+      "GUID": "{3C3E41AB-0606-406B-919B-587016A2FCEF}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.49335417",
+      "DurationMax": "0.49335417",
+      "MediaRefs": [
+       {
+        "Id": "86108419"
+       }
+      ]
+     },
+     {
       "Id": "1680378519",
       "Name": "Play_TanqueRoca",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueRoca",
@@ -1324,6 +1738,76 @@
       "MediaRefs": [
        {
         "Id": "828697396"
+       }
+      ]
+     },
+     {
+      "Id": "3804965476",
+      "Name": "Play_TanqueStep",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep",
+      "GUID": "{C0496F85-3EA0-4DEF-BD83-B94A7CE9FF8F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1885625",
+      "DurationMax": "0.1885625",
+      "MediaRefs": [
+       {
+        "Id": "375156615"
+       }
+      ]
+     },
+     {
+      "Id": "1775483742",
+      "Name": "Play_TanqueStep2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep2",
+      "GUID": "{48E1E877-FB66-47B7-8F55-C14EE952306B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.34820834",
+      "DurationMax": "0.34820834",
+      "MediaRefs": [
+       {
+        "Id": "1020788773"
+       }
+      ]
+     },
+     {
+      "Id": "1775483743",
+      "Name": "Play_TanqueStep3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep3",
+      "GUID": "{D58A6C8D-D260-4F55-A398-BA8EAE20F705}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.32564583",
+      "DurationMax": "0.32564583",
+      "MediaRefs": [
+       {
+        "Id": "114443847"
+       }
+      ]
+     },
+     {
+      "Id": "1775483736",
+      "Name": "Play_TanqueStep4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep4",
+      "GUID": "{6550D9E1-C1F5-4C69-8CC4-31ACDCA4CC36}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.22939584",
+      "DurationMax": "0.22939584",
+      "MediaRefs": [
+       {
+        "Id": "965164765"
+       }
+      ]
+     },
+     {
+      "Id": "1361581271",
+      "Name": "Play_ZonaEstandarte",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_ZonaEstandarte",
+      "GUID": "{F80EB2F5-2F36-43A6-9319-389199207D7E}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1039374",
+      "DurationMax": "2.1039374",
+      "MediaRefs": [
+       {
+        "Id": "669921209"
        }
       ]
      }
@@ -1353,6 +1837,6 @@
     ]
    }
   ],
-  "FileHash": "{2D6AEB82-4A73-9042-3D83-A8161C2109DF}"
+  "FileHash": "{D55AE945-F707-9C9A-1BA7-DD4AB427E686}"
  }
 }
