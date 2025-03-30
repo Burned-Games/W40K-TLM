@@ -441,16 +441,39 @@ function playerMovement(dt)
     end
 
     --Aiming Rotation
-    if (rotationDirectionX ~= 0 or rotationDirectionY ~= 0) then
+    --[[if (rotationDirectionX ~= 0 or rotationDirectionY ~= 0) then
         local lookLength = rotationDirectionX*rotationDirectionX + rotationDirectionY*rotationDirectionY
         if(lookLength > 0) then
             angleRotation = math.atan(rotationDirectionX, rotationDirectionY)
             playerTransf.rotation.y = angleRotation * 57.2958
         end
+    end]]
+
+    if moveDirection.x ~= 0 or moveDirection.z ~= 0 then
+        if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
+            -- If Is moving and aiming
+            local desiredRotation = math.deg(math.atan(rotationDirectionX, rotationDirectionY))
+            print("Desired Rotation: " .. desiredRotation)
+        
+            local moveAngle = math.deg(math.atan(moveDirection.x, moveDirection.z))
+            local minAngle = moveAngle - 90
+            local maxAngle = moveAngle + 90
+    
+            -- Limit the rotation
+            local clampedRotation = clampRotation(desiredRotation, minAngle, maxAngle)
+    
+            playerTransf.rotation.y = clampedRotation
+        end
+    else
+        -- If the player doesn't move 360 rotation
+        if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
+            local angleRotation = math.deg(math.atan(rotationDirectionX, rotationDirectionY))
+            playerTransf.rotation.y = normalizeAngle(angleRotation)
+        end
     end
 
 
-    if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
+    --[[if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
         lastValidRotation = math.atan(rotationDirectionX, rotationDirectionY)
         playerTransf.rotation.y = math.deg(lastValidRotation)  
         isAiming = true
@@ -460,9 +483,38 @@ function playerMovement(dt)
     else
         playerTransf.rotation.y = math.deg(lastValidRotation)
         isAiming = false
-    end
+    end]]
 end
 
+function normalizeAngle(angle)
+    while angle > 180 do
+        angle = angle - 360
+    end
+    while angle < -180 do
+        angle = angle + 360
+    end
+    return angle
+end
+function clampRotation(angle, minAngle, maxAngle)
+    angle = normalizeAngle(angle)
+    minAngle = normalizeAngle(minAngle)
+    maxAngle = normalizeAngle(maxAngle)
+
+    -- Si el minAngle es mayor que el maxAngle, significa que cruza el umbral de -180°/180°
+    if minAngle > maxAngle then
+        if angle > minAngle or angle < maxAngle then
+            return angle
+        end
+        -- Elegir el límite más cercano
+        if math.abs(angle - minAngle) < math.abs(angle - maxAngle) then
+            return minAngle
+        else
+            return maxAngle
+        end
+    else
+        return math.max(minAngle, math.min(angle, maxAngle))
+    end
+end
 
 function checkPlayerDeath(dt)
     if playerHealth <= 0 then
