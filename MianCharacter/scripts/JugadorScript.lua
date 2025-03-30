@@ -461,14 +461,16 @@ function playerMovement(dt)
     
             -- Limit the rotation
             local clampedRotation = clampRotation(desiredRotation, minAngle, maxAngle)
-    
+            
+            angleRotation = math.rad(clampedRotation)
             playerTransf.rotation.y = clampedRotation
         end
     else
         -- If the player doesn't move 360 rotation
         if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
-            local angleRotation = math.deg(math.atan(rotationDirectionX, rotationDirectionY))
-            playerTransf.rotation.y = normalizeAngle(angleRotation)
+            angleRotation = math.atan(rotationDirectionX, rotationDirectionY)
+            local newRotation = math.deg(angleRotation)
+            playerTransf.rotation.y = normalizeAngle(newRotation)
         end
     end
 
