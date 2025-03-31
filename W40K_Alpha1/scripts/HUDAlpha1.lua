@@ -77,7 +77,7 @@ function on_ready()
     ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
     
     --Chatarra
-    --chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
+    chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
     --chatarraFullComponent = current_scene:get_entity_by_name("ChatarraCantidad100"):get_component("UIImageComponent")
 
     player = current_scene:get_entity_by_name("Player")
@@ -96,6 +96,8 @@ function on_update(dt)
     weaponManager(dt)
 
     update_health_display()
+
+    chatarraTextComponent:set_text(tostring(playerScript.scrap))
 end
 
 function on_exit()
@@ -195,13 +197,13 @@ function weaponManager(dt)
         end
     end   
     
-    --updateAmmoText()
+    updateAmmoText()
 
 end
 
 function updateAmmoText()
-    if currentWeapon == 1 then
-        ammoTextComponent:set_text(tostring(rifleScript.ammo))
+    if playerScript.actualweapon == 0 then
+        ammoTextComponent:set_text(tostring(rifleScript.maxAmmo - rifleScript.ammo))
         maxAmmoTextComponent:set_text(tostring(rifleScript.maxAmmo))
     else
         ammoTextComponent:set_text(tostring(shotGunScript.ammo))

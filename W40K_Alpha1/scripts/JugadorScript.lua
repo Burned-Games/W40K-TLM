@@ -74,6 +74,7 @@ local UpgradeManager = nil
 local granadeVelocity = 0.65
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
+scrap = 0
 
 
 function on_ready()
