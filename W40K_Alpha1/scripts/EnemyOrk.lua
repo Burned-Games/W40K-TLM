@@ -470,7 +470,7 @@ function stab_state(dt)
             currentAnim = 0
             animator:set_current_animation(currentAnim)
         end
-        --make_damage()
+        make_damage()
         bleed_damage()
     elseif timeSinceLastStab >= stabTimer then
         timeSinceLastStab = 0

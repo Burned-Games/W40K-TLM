@@ -1,0 +1,125 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.001",
+                        "value": {
+                            "value0": 5123685968675323852
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.002",
+                        "value": {
+                            "value0": 1309440926070361541
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.003",
+                        "value": {
+                            "value0": 16505679158560545143
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.004",
+                        "value": {
+                            "value0": 6600472343024946367
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.005",
+                        "value": {
+                            "value0": 12747039450360734798
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.006",
+                        "value": {
+                            "value0": 18303409995978349219
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.007",
+                        "value": {
+                            "value0": 12860967216076088983
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.008",
+                        "value": {
+                            "value0": 1553310389693708889
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.009",
+                        "value": {
+                            "value0": 508894511561596075
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.010",
+                        "value": {
+                            "value0": 5231359882191537090
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.011",
+                        "value": {
+                            "value0": 13141018622463416340
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.012",
+                        "value": {
+                            "value0": 17166670719147941265
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.013",
+                        "value": {
+                            "value0": 13081974722514113499
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.014",
+                        "value": {
+                            "value0": 2878088286866477309
+                        }
+                    },
+                    {
+                        "key": "P_Barrel_Destroy_Prop_Barrel_v01.015",
+                        "value": {
+                            "value0": 433413815986361295
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "barrelMAT.001_Mat0",
+                        "value": {
+                            "value0": 16860422755115543467
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 14513622564014113843
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/props/P_Barrel/P_Barrel_Destroy.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/14513622564014113843.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
