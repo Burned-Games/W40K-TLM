@@ -587,17 +587,14 @@ function die()
     enemyRb:set_position(Vector3.new(-500, 0, 0))
     isDead = true
 
-    if mission_Component.m7_missionOpen == true then
-        missionManagerComponent.enemyDie_M7 = missionManagerComponent.enemyDie_M7-1
-    end
     mission_Component.enemyDieCount = mission_Component.enemyDieCount + 1
 
     if mission6Component.m7_missionOpen == true then
-        missionManagerComponent.enemyDie_M7 = missionManagerComponent.enemyDie_M7-1
+        mission_Component.enemyDie_M7 = mission_Component.enemyDie_M7-1
     end
 
     if mission8Component.m10_missionOpen == true then
-        missionManagerComponent.enemyDie_M10 = missionManagerComponent.enemyDie_M10-1
+        mission_Component.enemyDie_M10 = mission_Component.enemyDie_M10-1
     end
 
 end
