@@ -129,7 +129,7 @@ function on_update(dt)
         return 
     end
 
-    printf("EnemyDie ",mission_Component.enemyDieCount)
+    print("EnemyDie ",mission_Component.enemyDieCount)
     if enemyHealth <= 0 then
         die()
     end
