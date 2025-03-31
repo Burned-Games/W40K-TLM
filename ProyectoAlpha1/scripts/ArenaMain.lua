@@ -23,7 +23,7 @@ local arenaEnded = true
 function on_ready()
     -- Add initialization code here
 
-    
+    do return end
     
     enemyPool = current_scene:get_entity_by_name("ArenaEnemyPool")
     battleTrigger = current_scene:get_entity_by_name("ArenaBattleTrigger")
@@ -52,6 +52,8 @@ end
 
 function on_update(dt)
     -- Add update code here
+    do return end
+    if true then return end
     if not arenaEnded then 
 
     local enemyCount = 0
