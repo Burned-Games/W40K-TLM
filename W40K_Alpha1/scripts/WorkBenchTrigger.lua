@@ -18,6 +18,11 @@ function on_ready()
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
     initialPosition = Vector3.new(rigidbodyComponent.rb:get_position().x, rigidbodyComponent.rb:get_position().y, rigidbodyComponent.rb:get_position().z)
 
+     --Mission
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+    mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
+    mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
+
 end
 
 function on_update(dt)
@@ -27,6 +32,15 @@ function on_update(dt)
         if workbenchOpen == false and rigidbodyComponent.rb:get_position() ~= Vector3.new(0, -20, 0) then
             workbenchUIManagerScript:show_ui()
             rigidbodyComponent.rb:set_position(Vector3.new(0, -20, 0))
+
+        end
+
+        if mission4Component.m4_Clear == true then
+            mission_Component.M5_WorkBrech = true
+        end
+
+        if mission8Component.m8_Clear == true then
+            mission_Component.M9_WorkBrech = true
         end
     else         
         -- Close the workbench UI

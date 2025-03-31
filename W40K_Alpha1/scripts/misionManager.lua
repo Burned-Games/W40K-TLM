@@ -45,6 +45,10 @@ local textComponent = nil
 
 --EnemyDieCount
 enemyDieCount = 0
+
+--WorkBrech
+M5_WorkBrech = false
+M9_WorkBrech = false
 --misionNoheho
 local nohecho = false
 
@@ -167,7 +171,7 @@ function missionBlue_ZoneTutor()
     if mission6Component.m6_Clear == true then
         jumpToNextMission(5)
     end
-    if(currentTaskIndex == 5 and mission5Component.m5_IndicateTable == true)  then
+    if(currentTaskIndex == 5 and M5_WorkBrech == true)  then
         completeCurrentTask();
     end
  
@@ -191,7 +195,7 @@ function missionBlue_ZoneTutor()
     if mission9Component.m9_Clear == true then
         jumpToNextMission(9)
     end
-    if currentTaskIndex == 9 and mission9Component.m9_IndicateTable == true  then
+    if currentTaskIndex == 9 and M9_WorkBrech == true  then
         completeCurrentTask();
     end
 
