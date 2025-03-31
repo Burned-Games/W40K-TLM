@@ -83,6 +83,8 @@ local granadeVelocity = 0.65
 
 scrap = 0
 
+zonePlayer = 2
+
 
 function on_ready()
     -- Add initialization code here
