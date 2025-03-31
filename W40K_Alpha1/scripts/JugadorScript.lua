@@ -36,8 +36,10 @@ makeDamage = false
 
 shotgunammo = 0
 actualweapon = 0 -- 0 = rifle 1 = escopeta
-local currentAnim = -1
-local animator
+currentAnim = -1
+currentUpAnim = -1
+currentLowAnim = -1
+animator = nil
 
 local bolterUpper = nil
 local bolterLower = nil
@@ -50,6 +52,8 @@ local shotGunScript = nil
 swordUpper = nil
 swordLower = nil
 local swordScript = nil
+local swordAnimationTime = 1
+local swordAnimationTimeCounter = 0
 -- Audio
 local explorationMusic = nil
 local combatMusic = nil
@@ -82,6 +86,8 @@ local granadeVelocity = 0.65
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
 scrap = 0
+
+local deathAnimationSetted = false
 
 
 function on_ready()
@@ -129,11 +135,16 @@ end
 
 function on_update(dt)
 
+    checkPlayerDeath(dt)
+    handleWeaponSwitch(dt)
+    if deathAnimationSetted or swordScript.slashed then
+        return
+    end
     updateMusic(dt)
     updateDash(dt)
     updateGodMode()
     updateEntranceAnimation(dt)
-    handleWeaponSwitch()
+    
     handleBleed(dt)
 
     if not animacionEntradaRealizada then
@@ -143,7 +154,7 @@ function on_update(dt)
 
     playerMovement(dt)
 
-    checkPlayerDeath(dt)
+    
 
     backgroundMusicToPlay = 0
 end
@@ -187,14 +198,20 @@ end
 function updateDash(dt)
     -- Check for dash activation
     if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true then
-        if moveDirection ~= nil then
-            local impulse = Vector3.new(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed, moveDirection.z * dashSpeed)
-            playerRb:set_trigger(true)
-            playerRb:apply_impulse(Vector3.new(impulse.x, impulse.y, impulse.z))
-            impulseApplied = true
-            dashAvailable = false
-            intangibleDash = true
-        end       
+
+        if(currentAnim ~= 3) then
+            currentAnim = 3
+            animator:set_current_animation(currentAnim)
+        end
+        
+        local dashDirection = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
+        local impulse = Vector3.new(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed, dashDirection.z * dashSpeed)
+        playerRb:set_trigger(true)
+        playerRb:apply_impulse(Vector3.new(impulse.x, impulse.y, impulse.z))
+        impulseApplied = true
+        dashAvailable = false
+        intangibleDash = true
+            
     end
     
     -- Update dash cooldown
@@ -270,7 +287,7 @@ function updateEntranceAnimation(dt)
     end
 end
 
-function handleWeaponSwitch()
+function handleWeaponSwitch(dt)
     if Input.get_button(Input.action.Skill1) == Input.state.Down then
         if pressedButtonChangeWeapon == false then
             if actualweapon == 0 then
@@ -302,10 +319,34 @@ function handleWeaponSwitch()
     end
 
     if swordScript.slashed == true then
-        swordUpper:set_active(true)
-        shotgunUpper:set_active(false)
-        bolterUpper:set_active(false)
+        
+        if swordAnimationTimeCounter == 0 then
+            
+        
+            if currentAnim ~= 8 then
+                currentAnim = 8
+                animator:set_current_animation(currentAnim)
+            end
+            swordUpper:set_active(true)
+            shotgunUpper:set_active(false)
+            bolterUpper:set_active(false)
+
+        end
+
+        if swordAnimationTimeCounter <= swordAnimationTime then
+            swordAnimationTimeCounter = swordAnimationTimeCounter + dt
+        else
+            swordAnimationTimeCounter = 0
+            swordUpper:set_active(false)
+            shotgunUpper:set_active(true)
+            bolterUpper:set_active(true)
+            swordScript.slashed = false
+        end
+        
+        
     end
+
+    
 
     
 end
@@ -404,17 +445,17 @@ function playerMovement(dt)
     if impulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
         isMoving = true
-        -- Animacian walk
+        -- Animacion walk
 
         if actualweapon == 0 then
             if currentAnim ~= 9 then
                 currentAnim = 9
-                animator:set_current_animation(currentAnim)
+                animator:set_lower_animation(currentAnim)
             end
         else
             if currentAnim ~= 9 then
                 currentAnim = 9
-                animator:set_current_animation(currentAnim)
+                animator:set_lower_animation(currentAnim)
             end
         end
         
@@ -447,22 +488,24 @@ function playerMovement(dt)
     
         if rightTrigger == 0 then
             -- Animation idle
-            if actualweapon == 0 then
-                if currentAnim ~= 6 then
-                    currentAnim = 6
-                    animator:set_current_animation(currentAnim)
-                end
-            else
-                if currentAnim ~= 6 then
-                    currentAnim = 6
-                    animator:set_current_animation(currentAnim)
-                end
+            if currentAnim ~= 6 then
+                currentAnim = 6
+                animator:set_current_animation(currentAnim)
             end
+
 
             
         end
     end
     end
+
+    --[[if rightTrigger ~= 0 then
+        
+        animator:set_upper_animation(0)
+        
+    else
+        animator:set_upper_animation(-1)
+    end]]
 
     --Aiming Rotation
     --[[if (rotationDirectionX ~= 0 or rotationDirectionY ~= 0) then
@@ -547,6 +590,11 @@ end
 
 function checkPlayerDeath(dt)
     if playerHealth <= 0 then
+        if currentAnim ~= 4 and deathAnimationSetted == false then
+            currentAnim = 4
+            animator:set_current_animation(currentAnim)
+            deathAnimationSetted = true
+        end
         playerHealth = 0
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then

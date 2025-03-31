@@ -278,9 +278,13 @@ function on_update(dt)
             shootCoolDown = shootCoolDown + dt
         end
 
-        if rightTrigger == Input.state.Down and (ammo < maxAmmo) and shootCoolDown >= currentShootCoolDownRifle then
-        
-            
+        if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and shootCoolDown >= currentShootCoolDownRifle then
+
+                playerScript.currentAnim = -1
+                playerScript.animator:set_current_animation(playerScript.currentAnim)
+                playerScript.currentUpAnim = 0
+                playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                
             tripleShoot()
 
                 --shootParticlesComponent:emit(6)
@@ -289,6 +293,7 @@ function on_update(dt)
                 shootCoolDown = 0
 
         end
+
 
 
 
