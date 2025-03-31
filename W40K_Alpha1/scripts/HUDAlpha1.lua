@@ -6,6 +6,7 @@ local currentAmmoWeapon2 = maxAmmoWeapon2
 local ammoTextComponent
 
 local lifeFullComponent
+local life75Component
 local lifeTextComponent
 local lifeFullTransform
 
@@ -47,10 +48,12 @@ local rifleAbilityCooldown
 local maxRifleAbilityCooldown
 
 local shotGunScript
+local sawSwordScript
 
 function on_ready()
     --Vida
     lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
+    life75Component = current_scene:get_entity_by_name("Vida75"):get_component("UIImageComponent")
     lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
     lifeFullTransform = current_scene:get_entity_by_name("VidaFull"):get_component("TransformComponent")
     lifeFullStartingPosition = Vector3.new(lifeFullTransform.position.x, lifeFullTransform.position.y + 49, lifeFullTransform.position.z)
@@ -69,6 +72,7 @@ function on_ready()
     maxRifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTime
 
     shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
+    sawSwordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
 
     --Armas
     arma1 = current_scene:get_entity_by_name("Arma1"):get_component("UIImageComponent")
@@ -83,6 +87,11 @@ function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerScript = player:get_component("ScriptComponent")
 
+    skill1TextCooldown:set_visible(false)
+    skill2TextCooldown:set_visible(false)
+    skill3TextCooldown:set_visible(false)
+
+    life75Component:set_visible(false)
 
     --updateAmmoText()
 
@@ -106,9 +115,10 @@ end
 
 
 function abilityManager(dt)
-    if Input.get_button(Input.action.Dash) == Input.state.Down and not skill1Cooldown then
+
+    if playerScript.dashAvailable == false then
         skill1:set_visible(false)
-        skill1TextCooldown:set_text("3.5")
+        skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
         skill1TextCooldown:set_visible(true)
         skill1Timer = 0
         skill1Cooldown = true
@@ -116,20 +126,20 @@ function abilityManager(dt)
     
     if skill1Cooldown then
         skill1Timer = skill1Timer + dt
-        local remainingTime = 3.5 - skill1Timer
-        
-        skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
-        
-        if remainingTime <= 0 then
+
+        if playerScript.dashAvailable == true then
             skill1:set_visible(true)
             skill1TextCooldown:set_visible(false)
             skill1Cooldown = false
+        else
+            local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter
+            skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
         end
     end
 
-    if Input.get_button(Input.action.Melee) == Input.state.Down and not skill2Cooldown then
+    if sawSwordScript.sawSwordAvailable == false then
         skill2:set_visible(false)
-        skill2TextCooldown:set_text("8")
+        skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
         skill2TextCooldown:set_visible(true)
         skill2Timer = 0
         skill2Cooldown = true
@@ -137,14 +147,14 @@ function abilityManager(dt)
     
     if skill2Cooldown then
         skill2Timer = skill2Timer + dt
-        local remainingTime = 8 - skill2Timer
         
-        skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
-        
-        if remainingTime <= 0 then
+        if sawSwordScript.sawSwordAvailable == true then
             skill2:set_visible(true)
             skill2TextCooldown:set_visible(false)
             skill2Cooldown = false
+        else
+            local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
+            skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
         end
     end
 
