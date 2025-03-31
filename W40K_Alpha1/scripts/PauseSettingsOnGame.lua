@@ -112,7 +112,7 @@ function on_update(dt)
         button3:set_state("Base")
         button4:set_state("Base")
 
-        value = Input.get_button(Input.action.Confirm)
+        value = Input.get_button(Input.action.Interact)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
             if(index == 0) then
                 button1:set_state("Pressed")
@@ -137,7 +137,7 @@ function on_update(dt)
         button3:set_state("Base")
         button4:set_state("Base")
 
-        value = Input.get_button(Input.action.Confirm)
+        value = Input.get_button(Input.action.Interact)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
             if(index == 1) then
                 button2:set_state("Pressed")
@@ -181,7 +181,7 @@ function on_update(dt)
         button3:set_state("Base")
         button4:set_state("Selected")
 
-        value = Input.get_button(Input.action.Confirm)
+        value = Input.get_button(Input.action.Interact)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
             button4:set_state("Pressed")
             if(index == 3) then
