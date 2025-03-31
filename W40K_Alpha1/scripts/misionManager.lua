@@ -70,7 +70,9 @@ end
 function on_update(dt)
 
     textComponent:set_text(getCurrentTask())
+    
     missionBlue_ZoneTutor()
+
 end
 
 -- Cleanup when the game exits
@@ -78,6 +80,42 @@ function on_exit()
     print("Mission cleared!")
 end
 
+
+function insert_line_breaks(text, max_chars_per_line)
+    local result = {}
+    local current_line = ""
+    local current_length = 0
+
+    for word in text:gmatch("%S+") do  
+        local word_length = utf8_char_count(word) 
+
+        if current_length + word_length > max_chars_per_line then
+            table.insert(result, current_line) 
+            current_line = word  
+            current_length = word_length
+        else
+            if current_line ~= "" then
+                current_line = current_line .. " " .. word
+                current_length = current_length + 1 + word_length 
+            else
+                current_line = word
+                current_length = word_length
+            end
+        end
+    end
+
+    if current_line ~= "" then
+        table.insert(result, current_line)  
+    end
+
+    return table.concat(result, "\n")  
+end
+
+
+function utf8_char_count(s)
+    local _, count = s:gsub("[^\128-\191]", "")
+    return count
+end
 
 
 -- Complete the current task
@@ -89,6 +127,8 @@ function completeCurrentTask()
 
     print("Mission done: " .. tasks[currentTaskIndex].description)
     currentTaskIndex = currentTaskIndex + 1  -- Move to the next task
+
+
 end
 
 -- Get the current task
@@ -97,8 +137,11 @@ function getCurrentTask()
         --print("No mission")
         return "All missions done!"
     else
-        --print("Current mission: " .. tasks[currentTaskIndex].description)
-        return tasks[currentTaskIndex].description
+        local description = tasks[currentTaskIndex].description
+        local formatted_desc = insert_line_breaks(description, 26)
+        return formatted_desc
+
+
     end
 end
 
