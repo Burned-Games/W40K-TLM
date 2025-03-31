@@ -77,29 +77,29 @@ local upgradeOrder = {
 -- Upgrade names
 upgradeNames = {
     weapons = {
-        reloadReduction = "Reload reduction (-20%)... CAMBIAR POR NOMBRE QUE DIGA DESIGN",
-        damageBoost = "Damage boost (+15%)... CAMBIAR POR NOMBRE QUE DIGA DESIGN",
-        fireRateBoost = "Fire rate (+10%)... CAMBIAR POR NOMBRE QUE DIGA DESIGN",
-        specialAbility = "Weapon special ability... CAMBIAR POR NOMBRE QUE DIGA DESIGN"
+        reloadReduction = "Battle effectivenes",
+        damageBoost = "Blessed bolter",
+        fireRateBoost = "Fire rate (+10%)...",
+        specialAbility = "Weapon special ability..."
     },
     armor = {
-        healthBoost = "Max health increase (+20%)... CAMBIAR POR NOMBRE QUE DIGA DESIGN",
-        protection = "Protection after 5s out of combat... CAMBIAR POR NOMBRE QUE DIGA DESIGN",
-        specialAbility = "Armor special ability... CAMBIAR POR NOMBRE QUE DIGA DESIGN"
+        healthBoost = "Strenth through suffering",
+        protection = "Emperor’s Blessing",
+        specialAbility = "Ultramarine Ancient"
     }
 }
 
 upgradeDescriptions = {
     weapons = {
-        reloadReduction = "Reduces reload time by 20%... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN",
-        damageBoost = "Increases base damage by 15%... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN",
-        fireRateBoost = "Increases fire rate by 10%... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN",
-        specialAbility = "Unlocks a special ability for the weapon... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN"
+        reloadReduction = "Reduces reload time by 20%",
+        damageBoost = "Increases base damage by 15%",
+        fireRateBoost = "Increases fire rate by 10%",
+        specialAbility = "Unlocks a special ability for the weapon"
     },
     armor = {
-        healthBoost = "Increases max health by 20%... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN",
-        protection = "Grants protection after 5 seconds out of combat... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN",
-        specialAbility = "Unlocks a special ability for the armor... CAMBIAR POR DESCRIPCION QUE DIGA DESIGN"
+        healthBoost = "Increases max health by 20%",
+        protection = "Grants protection after 5 seconds out of combat",
+        specialAbility = "Unlocks a special ability for the armor"
     }
 }
 
@@ -124,7 +124,7 @@ function buy_upgrade(category, upgrade)
         scrap = scrap - costs[category][upgrade]
         upgrades[category][upgrade] = true
         print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. scrap)
-        apply_to_player(player)
+        apply_to_player()
         return true
     else
         if upgrades[category][upgrade] then
@@ -217,27 +217,28 @@ end
 ----------------------------------
 -- APPLY UPGRADES TO PLAYER
 ----------------------------------
-function apply_to_player(player)
+function apply_to_player()
     -- Health
     player.playerHealth = get_max_health(BASE_VALUES.maxHealth)
     
     -- Rifle
-    player.maxReloadTimeRifle = get_reload_time(BASE_VALUES.reloadTimeRifle)
-    player.shootCoolDownRifle = get_shoot_cooldown(BASE_VALUES.shootCoolDownRifle)
-    player.damageRifle = get_damage(BASE_VALUES.damageRifle)
+    rifle.maxReloadTime = get_reload_time(BASE_VALUES.reloadTimeRifle)
+    rifle.shootCoolDownRifle = get_shoot_cooldown(BASE_VALUES.shootCoolDownRifle)
+    rifle.damage = get_damage(BASE_VALUES.damageRifle)
 
     -- Shotgun
-    player.maxReloadTimeShotgun = get_reload_time(BASE_VALUES.reloadTimeShotgun)
-    player.shootCoolDownShotgun = get_shoot_cooldown(BASE_VALUES.shootCoolDownShotgun)
-    player.damageShotgun = get_damage(BASE_VALUES.damageShotgun)
+    shotgun.reload_time = get_reload_time(BASE_VALUES.reloadTimeShotgun)
+    shotgun.shotgun_fire_rate = get_shoot_cooldown(BASE_VALUES.shootCoolDownShotgun)
+    shotgun.damage = get_damage(BASE_VALUES.damageShotgun)
     
     print("Upgrades applied to player")
     handle_visuals()
-    return player
 end
 
 function on_ready()
     player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+    rifle = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
+    shotgun = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
     helmetlvl1 = current_scene:get_entity_by_name("Casco_lv1")
     helmetlvl2 = current_scene:get_entity_by_name("Casco_lvl_2")
     jetpacklvl1 = current_scene:get_entity_by_name("Jetpack_lv1")

@@ -1,13 +1,13 @@
 using = false
 -- Time
 local current_time = 0  
-local shotgun_fire_rate = 1.3 
+shotgun_fire_rate = 1.3 
 local next_fire_time = 0 
 
 -- ammo
 maxAmmo = 12  -- maxammo
 ammo = maxAmmo  -- curreamoo
-local reload_time = 2.8  -- reloadtime
+reload_time = 2.8  -- reloadtime
 local is_reloading = false  -- inReloading?
 local reload_end_time = 0  -- record_reload_time
 
@@ -29,7 +29,7 @@ local spreadAngle = 5  -- Bullet angle
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
-local damage = 15
+damage = 15
 local knockbackForce = 3000  -- force
 
 

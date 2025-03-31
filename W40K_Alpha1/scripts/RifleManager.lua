@@ -4,13 +4,13 @@ local sphere1RigidBody = nil
 local sphere1RigidBodyComponent = nil
 local sphereSpeed = 100
 local contadorDisparo = 0
-local maxReloadTime = 2.5
+maxReloadTime = 2.5
 local reloadTime = 0
 maxAmmo = 24
 ammo = 0
 local reloadTimeRifle = 0
 local shootCoolDown = 0
-local shootCoolDownRifle = 0.8
+shootCoolDownRifle = 0.8
 local damageRifle = 25
 local tripleShootTimer = 0
 local tripleShootCount = 0
@@ -28,7 +28,7 @@ local playerScript = nil
 
 local shooted = true
 
-local damage = 25
+damage = 25
 
 --audio
 local burst_shot
