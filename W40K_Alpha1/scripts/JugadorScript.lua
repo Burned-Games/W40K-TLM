@@ -25,6 +25,7 @@ local intangibleDashTime = 0.15
 local deathAnimationTime = 3
 local deathTimeCounter = 0
 local deathAnimationSetted = false
+
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
@@ -620,7 +621,7 @@ function checkPlayerDeath(dt)
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
             sceneChanged = true
-            SceneManager.change_scene("levelLose.TeaScene")
+            --SceneManager.change_scene("levelLose.TeaScene")
         end
     end
     if playerHealth >= 100 then

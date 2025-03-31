@@ -305,7 +305,7 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown and upgradeManager.has_weapon_special() then
+        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown --[[and upgradeManager.has_weapon_special()]] then
             
             cooldownDisruptorBulletTimeCounter = 0
             disruptorShooted = true
@@ -321,7 +321,7 @@ function on_update(dt)
         if disruptorShooted2 then
             disruptorChargeTimeCounter = disruptorChargeTimeCounter + dt
             if disruptorChargeTimeCounter >= disruptorChargeTime then
-            print("dentrooooooooooooooo")
+            
                 disruptiveCharge()
                 disruptorChargeTimeCounter = 0
                 disruptorShooted2 = false
