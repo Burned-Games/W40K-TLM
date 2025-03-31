@@ -3,8 +3,8 @@
 local radiusAttack = 5
 local damage = 50
 local HpStealed = 10
-local coolDown = 6
-local coolDownCounter = 6
+coolDown = 6
+coolDownCounter = 6
 local impulseDirection = nil
 local impulseForce = 10
 
@@ -17,6 +17,8 @@ local enemies = nil
 slashed = false
 --local ----------shootParticlesComponent = nil
 --local --bulletDamageParticleComponent = nil
+
+sawSwordAvailable = true
 
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
@@ -39,18 +41,23 @@ end
 
 function on_update(dt)
 
-        local rightShoulder = Input.get_button(Input.action.Melee)
+    local rightShoulder = Input.get_button(Input.action.Melee)
 
-        if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and coolDownCounter >= coolDown then
-            slashed = true
-            Slash()
+    if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true then
+        slashed = true
+        Slash()
             
+        sawSwordAvailable = false
+        
+    end
+    
+    if sawSwordAvailable == false then
+        coolDownCounter = coolDownCounter + dt
+        if coolDownCounter >= coolDown then
+            sawSwordAvailable = true
             coolDownCounter = 0
         end
-
-        if coolDownCounter < coolDown then
-            coolDownCounter = coolDownCounter + dt
-        end
+    end
 
 end
 
