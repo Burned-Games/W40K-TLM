@@ -50,6 +50,9 @@ local maxRifleAbilityCooldown
 local shotGunScript
 local sawSwordScript
 
+local armorUpgrade = nil
+local armorUpgradeScript = nil
+
 function on_ready()
     --Vida
     lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
@@ -86,6 +89,9 @@ function on_ready()
 
     player = current_scene:get_entity_by_name("Player")
     playerScript = player:get_component("ScriptComponent")
+
+    armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
+    armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
 
     skill1TextCooldown:set_visible(false)
     skill2TextCooldown:set_visible(false)
@@ -170,7 +176,7 @@ function abilityManager(dt)
         skill3Timer = skill3Timer + dt
         local remainingTime = 10 - skill3Timer
         
-        skill3TextCooldown:set_text(string.format("%.1f", remainingTime))
+        skill3TextCooldown:set_text(string.format("%.1f", armorUpgradeScript.fervorAstartesCooldown))
         
         if remainingTime <= 0 then
             skill3:set_visible(true)

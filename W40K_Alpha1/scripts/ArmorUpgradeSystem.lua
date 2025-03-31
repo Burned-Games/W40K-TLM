@@ -5,7 +5,7 @@ local combatTimer = 0
 local protectionTimer = 0
 local protectionActive = false
 
-local fervorAstartesCooldown = 0
+fervorAstartesCooldown = 0
 local fervorAstartesDuration = 10
 local fervorAstartesTimer = 0
 local fervorAstartesActive = false
