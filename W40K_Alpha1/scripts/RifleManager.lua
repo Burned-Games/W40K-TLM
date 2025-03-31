@@ -70,6 +70,8 @@ local rifle_firerate_count = 0
     local secondCounterTimes = 0
     local damageDealed = false
 
+    --Workbench
+    local upgradeManager = nil
 
 
 function on_ready()
@@ -77,6 +79,8 @@ function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
+
+    upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
 
     sphere1 = current_scene:get_entity_by_name("Sphere1")
     transformSphere1 = sphere1:get_component("TransformComponent")
@@ -296,7 +300,7 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
+        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown and upgradeManager.has_weapon_special() then
             
             cooldownDisruptorBulletTimeCounter = 0
             disruptorShooted = true

@@ -28,6 +28,12 @@ function on_update(dt)
             workbenchUIManagerScript:show_ui()
             rigidbodyComponent.rb:set_position(Vector3.new(0, -20, 0))
         end
+    else         
+        -- Close the workbench UI
+        local workbenchOpen = workbenchUIManagerScript.isWorkBenchOpen
+        if workbenchOpen == false and rigidbodyComponent.rb:get_position() ~= initialPosition then
+            rigidbodyComponent.rb:set_position(initialPosition)
+        end
     end
 end
 

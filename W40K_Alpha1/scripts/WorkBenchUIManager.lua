@@ -99,7 +99,7 @@ function on_ready()
     gunBackground = current_scene:get_entity_by_name("GunBackground"):get_component("UIImageComponent")
     charScrapIcon = current_scene:get_entity_by_name("CharScrapIcon"):get_component("UIImageComponent")
     charBackground = current_scene:get_entity_by_name("CharBackground"):get_component("UIImageComponent")
-
+        
     hide_ui()
 end
 

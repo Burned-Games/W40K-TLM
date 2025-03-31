@@ -49,6 +49,9 @@ local lbapretado = false
 dropGranade = false
 granadasSpeed = false
 
+--Workbench
+local upgradeManager = nil
+
 
 local baseGranadePosition = nil       
 local targetGranadePosition = nil    
@@ -105,6 +108,7 @@ function on_ready()
         end
     end)
 
+    upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
 
 end
 
@@ -161,7 +165,9 @@ function on_update(dt)
             granadasSpeed = false
         end
 
-        handleGranade(dt)
+        if upgradeManager.has_weapon_special() then
+            handleGranade(dt)
+        end
     end
 end
 

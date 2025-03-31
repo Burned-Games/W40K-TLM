@@ -1,4 +1,4 @@
-scrap = 30000
+scrap = 9999
 
 -- Multipliers 
 local MULTIPLIERS = {
