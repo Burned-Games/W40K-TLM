@@ -28,7 +28,7 @@ local mission6Component = nil
 
 --Mission7
 local mission7Complet = false
-enemyDie_M7 = 3
+enemyDie_M7 = 1
 
 --Mission8
 local mission8Component = nil
@@ -38,12 +38,13 @@ local mission9Component = nil
 
 --Mission10
 local mission10Complet = false
-enemyDie_M10 = 3
+enemyDie_M10 = 1
 
 --Text and Image
 local textComponent = nil
 
-
+--EnemyDieCount
+enemyDieCount = 0
 --misionNoheho
 local nohecho = false
 
@@ -154,7 +155,7 @@ function missionBlue_ZoneTutor()
         completeCurrentTask();
     end
 
-    if(currentTaskIndex == 3 and mission3_Enemy1_Component.m3_enemy1_die == true and mission3_Enemy2_Component.m3_enemy2_die == true)  then
+    if(currentTaskIndex == 3 and enemyDieCount >=2)  then
         completeCurrentTask();
     end
 

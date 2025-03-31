@@ -72,6 +72,10 @@ pushed = false
 local pushedTime = 0.5
 local pushedTimeCounter = 0
 
+--Mision
+mission_Component = nil
+
+
 function on_ready() 
 
     --audioDanoPlayerMusic = current_scene:get_entity_by_name("AudioDanoPlayer"):get_component("AudioSourceComponent")
@@ -101,12 +105,18 @@ function on_ready()
         end
     end)
 
+    mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
+    mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
+
     if player ~= nil then
         playerDistance = get_distance(enemyTransf.position, playerTransf.position)
         lastTargetPos = playerTransf.position
         delayedPlayerPos = playerTransf.position
         update_path()
     end
+
+    --Mission
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
 end
 
@@ -119,6 +129,7 @@ function on_update(dt)
         return 
     end
 
+    printf("EnemyDie ",mission_Component.enemyDieCount)
     if enemyHealth <= 0 then
         die()
     end
@@ -575,6 +586,20 @@ function die()
     currentState = state.Idle
     enemyRb:set_position(Vector3.new(-500, 0, 0))
     isDead = true
+
+    if mission_Component.m7_missionOpen == true then
+        missionManagerComponent.enemyDie_M7 = missionManagerComponent.enemyDie_M7-1
+    end
+    mission_Component.enemyDieCount = mission_Component.enemyDieCount + 1
+
+    if mission6Component.m7_missionOpen == true then
+        missionManagerComponent.enemyDie_M7 = missionManagerComponent.enemyDie_M7-1
+    end
+
+    if mission8Component.m10_missionOpen == true then
+        missionManagerComponent.enemyDie_M10 = missionManagerComponent.enemyDie_M10-1
+    end
+
 end
 
 function on_exit() end
