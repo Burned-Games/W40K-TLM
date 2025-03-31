@@ -24,7 +24,7 @@ local intangibleDashTimeCounter = 0
 local intangibleDashTime = 0.15
 local deathAnimationTime = 3
 local deathTimeCounter = 0
-
+local deathAnimationSetted = false
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
@@ -85,7 +85,17 @@ local UpgradeManager = nil
 local granadeVelocity = 0.65
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
-scrap = 0
+scrapCounter = 0
+local scrapObjects = {}
+--local tuplaScrap = { {}, {} }
+---local tuplaP1 = {}
+--local tuplaP2 = {}
+local distanceToPlayerToDestroy = 2, 2, 2
+local attractionActive = false 
+local attractionSpeed = 2
+local amountOfScrap = 0
+local scrapDestroyed = 0
+local partOfList = 0
 
 zonePlayer = 0
 
@@ -134,6 +144,17 @@ function on_ready()
 end
 
 function on_update(dt)
+
+    if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
+        attractionActive = not attractionActive 
+        find_scrap()
+
+    end
+
+    if attractionActive == true then 
+        attract_scrap(dt)
+    
+    end
 
     checkPlayerDeath(dt)
     handleWeaponSwitch(dt)
@@ -647,3 +668,108 @@ function applyBleed()
     timeSinceLastBleed = 0
 end
 
+function find_scrap()
+    local entities = current_scene:get_all_entities()
+    --tuplaScrap = { {}, {} }
+    amountOfScrap = 0
+
+
+    scrapObjects = {}
+
+    for _, entity in ipairs(entities) do
+        local entitiname = entity:get_component("TagComponent").tag
+        if entitiname == "Scrap" then
+            playerPos = playerTransf.position
+
+            local transform = entity:get_component("TransformComponent")
+            local cercania = Vector3.new(
+            math.abs(playerPos.x - transform.position.x),
+            math.abs(playerPos.y - transform.position.y),
+            math.abs(playerPos.z - transform.position.z)
+            )
+            
+            if cercania.x < 200 and cercania.y < 200 and cercania.z < 200 then
+                
+
+
+            
+
+            table.insert(scrapObjects, entity:get_component("TransformComponent"))
+
+            --tuplaScrap = tuplet_insert(tuplaScrap, entity, 1)
+            
+            --tuplaScrap = tuplet_insert(tuplaScrap, transform, 2)
+            amountOfScrap = amountOfScrap + 1
+            end
+        end
+        
+        
+    end
+    if amountOfScrap == 0 then
+        attractionActive = false
+
+    end
+
+    --tuplaP1 = tuplaScrap[1]
+    --tuplaP2 = tuplaScrap[2]
+end
+
+function attract_scrap(dt)
+    partOfList = partOfList + 1
+    
+    for _, scrap in ipairs(scrapObjects) do
+        
+        playerPos = playerTransf.position
+        local cercania = Vector3.new(
+            math.abs(playerPos.x - scrap.position.x),
+            math.abs(playerPos.y - scrap.position.y),
+            math.abs(playerPos.z - scrap.position.z)
+        )
+        
+        local direction = Vector3.new(playerPos.x - scrap.position.x,
+        playerPos.y - scrap.position.y, 
+        playerPos.z - scrap.position.z)
+
+        local l = attractionSpeed * dt
+        local p = Vector3.new(direction.x * l ,
+                              direction.y * l , 
+                              direction.z * l )
+        local scrapPos = Vector3.new(scrap.position.x + p.x,
+                                     scrap.position.y + p.y, 
+                                     scrap.position.z + p.z)
+        scrap.position = scrapPos
+
+        -- Calcular la distancia entre el player y la chatarra
+        local cercania = Vector3.new(
+            math.abs(playerPos.x - scrap.position.x),
+            math.abs(playerPos.y - scrap.position.y),
+            math.abs(playerPos.z - scrap.position.z)
+        )
+        --print("algo", cercania.x, cercania.y, cercania.z)
+
+        if cercania.x < 2 and cercania.y < 2 and cercania.z < 2 then
+            --current_scene:destroy_entity(tuplaP1[partOfList])
+            scrap.position.x = 5000000000
+            scrap.position.y = 5000000000
+            scrap.position.z = 5000000000
+            scrapCounter = scrapCounter + 100
+            scrapDestroyed = scrapDestroyed + 1
+
+
+
+
+        end
+        if amountOfScrap == scrapDestroyed then
+            scrapDestroyed = 0
+            attractionActive = false
+
+        end
+
+        --[[
+        if partOfList >= amountOfScrap then
+            partOfList = 0
+        end
+        ]]
+    
+    end 
+end

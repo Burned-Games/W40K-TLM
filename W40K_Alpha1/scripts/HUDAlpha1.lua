@@ -106,7 +106,7 @@ function on_update(dt)
 
     update_health_display()
 
-    chatarraTextComponent:set_text(tostring(playerScript.scrap))
+    chatarraTextComponent:set_text(tostring(playerScript.scrapCounter))
 end
 
 function on_exit()
