@@ -49,8 +49,8 @@ local rifle_firerate_count = 0
 
     local shieldMultiplier = 0.3
 
-    local cooldownDisruptorBulletTime = 18
-    local cooldownDisruptorBulletTimeCounter = 18
+    cooldownDisruptorBulletTime = 18
+    cooldownDisruptorBulletTimeCounter = 18
     local disruptorShooted = true
     local disruptorShooted2 = false
     local disruptorChargeTime = 0.8

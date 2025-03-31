@@ -35,7 +35,7 @@ makeDamage = false
 -- Disparo
 
 shotgunammo = 0
-local actualweapon = 0 -- 0 = rifle 1 = escopeta
+actualweapon = 0 -- 0 = rifle 1 = escopeta
 local currentAnim = -1
 local animator
 
