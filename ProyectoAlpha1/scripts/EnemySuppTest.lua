@@ -9,6 +9,8 @@ local suppAnimator
 local forwardVector
 suppEnemyHealth = 50
 shieldHealth = 35
+local suppVelocity = 5
+local suppVelocityFlee = 7
 
 local canUseShield=true
 local shieldCooldown = 5
@@ -162,14 +164,85 @@ end
 -- Funciones para los distintos estados.
 function idle_state(dt) end
 
-function move_state(dt) 
-
+function move_state(dt)
+    -- Animación
+    if suppAnimator and currentAnim ~= 1 then
+        suppAnimator:set_current_animation(1)
+        currentAnim = 1
+    end
     
+    local enemyDistances = enemies_distance()
+    local shieldStatuses = update_shield_status()
+    
+    local validTargets = {}
+    for _, distData in ipairs(enemyDistances) do
+        local hasShield = false
+        for _, shieldData in ipairs(shieldStatuses) do
+            if shieldData.enemy.name == distData.enemy.name then
+                hasShield = shieldData.haveShield
+                break
+            end
+        end
+        if not hasShield then
+            table.insert(validTargets, distData.enemy)
+        end
+    end
+
+    local bestTarget = nil
+    if #validTargets > 0 then
+        -- Encontrar máxima prioridad
+        local maxPriority = -math.huge
+        for _, enemy in ipairs(validTargets) do
+            if enemy.priority > maxPriority then
+                maxPriority = enemy.priority
+            end
+        end
+
+        local candidates = {}
+        for _, enemy in ipairs(validTargets) do
+            if enemy.priority == maxPriority then
+                table.insert(candidates, enemy)
+            end
+        end
+
+        local closestDist = math.huge
+        for _, candidate in ipairs(candidates) do
+            local dist = get_distance(suppEnemyTransf.position, candidate.transform.position)
+            if dist < closestDist then
+                closestDist = dist
+                bestTarget = candidate
+            end
+        end
+    end
+    -- Manejo del movimiento
+    if bestTarget and bestTarget.transform then
+        local targetPos = bestTarget.transform.position
+        
+        -- Actualización de ruta optimizada
+        pathUpdateTimer = pathUpdateTimer + dt
+        if pathUpdateTimer >= pathUpdateInterval or not lastTargetPos 
+            or get_distance(lastTargetPos, targetPos) > 1.0 then
+            
+            suppEnemyNav.path = suppEnemyNav:find_path(suppEnemyTransf.position, targetPos)
+            lastTargetPos = targetPos
+            pathUpdateTimer = 0
+            currentPathIndex = 1
+        end
+
+        follow_path(dt) 
+        
+        -- Transición a escudo
+        if get_distance(suppEnemyTransf.position, targetPos) <= shieldDistance and canUseShield then
+            currentState = state.Shield
+        end
+    else
+        currentState = state.Flee
+    end
 end
 
 function attack_state(dt) end
 
-function shield_state() end
+function shield_state(dt) end
 
 function flee_state(dt)
     if suppAnimator then
@@ -392,11 +465,11 @@ function follow_path(dt)
 end
 
 function rotate_enemy(targetPosition)
-    local dx = targetPosition.x - enemyTransf.position.x
-    local dz = targetPosition.z - enemyTransf.position.z
+    local dx = targetPosition.x - suppEnemyTransf.position.x
+    local dz = targetPosition.z - suppEnemyTransf.position.z
 
     local angleRotation = math.atan(dx, dz)
-    enemyTransf.rotation.y = math.deg(angleRotation)
+    suppEnemyTransf.rotation.y = math.deg(angleRotation)
 end
 
 function get_distance(pos1, pos2)
