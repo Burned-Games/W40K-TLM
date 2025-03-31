@@ -20,6 +20,10 @@ local shootDistance = 15
 local chaseDistance = 8
 local stabDistance = 2
 
+local scrap = nil
+local scrapTransform = nil
+local scrapRb = nil
+
 local currentAnim = 0
 local animator = nil
 
@@ -98,6 +102,11 @@ function on_ready()
     bulletComponent = bullet:get_component("RigidbodyComponent")
     bulletRb = bulletComponent.rb
     bulletRb:set_trigger(true)
+
+    scrap = current_scene:get_entity_by_name("Scrap")
+    scrapTransform = scrap:get_component("TransformComponent")
+    scrapRb = scrap:get_component("RigidbodyComponent").rb
+    scrapRb:set_trigger(true)
     
     bulletComponent:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
@@ -639,6 +648,7 @@ end
 
 function die()
     currentState = state.Idle
+    generate_scrap()
     enemyRb:set_position(Vector3.new(-500, 0, 0))
     isDead = true
 
@@ -652,6 +662,12 @@ function die()
         mission_Component.enemyDie_M10 = mission_Component.enemyDie_M10-1
     end
 
+end
+
+function generate_scrap()
+    scrapTransform.position = enemyTransf.position
+    scrapRb:set_velocity(Vector3.new(0, 0, 0))
+    scrapRb:set_position(enemyTransf.position)
 end
 
 function on_exit() end

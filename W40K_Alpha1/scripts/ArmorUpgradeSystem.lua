@@ -23,6 +23,7 @@ function on_ready()
 end
 
 function on_update(dt)
+
     update_combat_state(dt)
     update_protection(dt)
     handle_fervor_astartes(dt)

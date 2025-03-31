@@ -1,4 +1,9 @@
 scrap = 9999
+jetpacklvl1 = nil
+jetpacklvl2 = nil
+helmetlvl1 = nil
+helmetlvl2 = nil
+local player = nil
 
 -- Multipliers 
 local MULTIPLIERS = {
@@ -8,7 +13,7 @@ local MULTIPLIERS = {
         fireRateBoost = 0.9      -- 10% faster firing 
     },
     armor = {
-        healthBoost = 1.2        -- 20% more health
+        healthBoost = 20        -- 20% more health
     }
 }
 
@@ -119,6 +124,7 @@ function buy_upgrade(category, upgrade)
         scrap = scrap - costs[category][upgrade]
         upgrades[category][upgrade] = true
         print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. scrap)
+        apply_to_player(player)
         return true
     else
         if upgrades[category][upgrade] then
@@ -226,12 +232,29 @@ function apply_to_player(player)
     player.damageShotgun = get_damage(BASE_VALUES.damageShotgun)
     
     print("Upgrades applied to player")
+    handle_visuals()
     return player
 end
 
 function on_ready()
-    -- Add initialization code here
+    player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+    helmetlvl1 = current_scene:get_entity_by_name("Casco_lv1")
+    helmetlvl2 = current_scene:get_entity_by_name("Casco_lvl_2")
+    jetpacklvl1 = current_scene:get_entity_by_name("Jetpack_lv1")
+    jetpacklvl2 = current_scene:get_entity_by_name("Jetpack_lv2")
 end
 
 function on_update(dt)
+end
+
+function handle_visuals()
+    if has_upgrade("armor", "healthBoost") then
+        jetpacklvl1:set_active(false)
+        jetpacklvl2:set_active(true)
+    end
+
+    if has_upgrade("armor", "protection") then
+        helmetlvl1:set_active(false)
+        helmetlvl2:set_active(true)
+    end
 end
