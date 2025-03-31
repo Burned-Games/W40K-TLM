@@ -39,10 +39,17 @@ actualweapon = 0 -- 0 = rifle 1 = escopeta
 local currentAnim = -1
 local animator
 
+local bolterUpper = nil
+local bolterLower = nil
 local bolterScript = nil
 --ShotGun
+local shotgunUpper = nil
+local shotgunLower = nil
 local shotGunScript = nil
-
+--SawSword
+swordUpper = nil
+swordLower = nil
+local swordScript = nil
 -- Audio
 local explorationMusic = nil
 local combatMusic = nil
@@ -95,6 +102,17 @@ function on_ready()
     playerTransf = self:get_component("TransformComponent")
     
     playerRb = self:get_component("RigidbodyComponent").rb
+
+    bolterUpper = current_scene:get_entity_by_name("Bolter_upper")
+    bolterLower = current_scene:get_entity_by_name("Bolter_Lower")
+
+    shotgunUpper = current_scene:get_entity_by_name("Shotgun_upper")
+    shotgunLower = current_scene:get_entity_by_name("Shotgun_lower")
+    swordUpper = current_scene:get_entity_by_name("ChainSword_Upper")
+    swordUpper:set_active(false)
+    swordLower = current_scene:get_entity_by_name("ChainSword_Lower")
+
+    swordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
 
     bolterScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
 
@@ -257,7 +275,16 @@ function handleWeaponSwitch()
         if pressedButtonChangeWeapon == false then
             if actualweapon == 0 then
                 actualweapon = 1
+                shotgunUpper:set_active(true)
+                shotgunLower:set_active(false)
+                bolterUpper:set_active(false)
+                bolterLower:set_active(true)
             else
+                shotgunUpper:set_active(false)
+                shotgunLower:set_active(true)
+                bolterUpper:set_active(true)
+                bolterLower:set_active(false)
+                
                 actualweapon = 0
             end
             pressedButtonChangeWeapon = true
@@ -272,6 +299,12 @@ function handleWeaponSwitch()
     else
         bolterScript.using = false
         shotGunScript.using = true
+    end
+
+    if swordScript.slashed == true then
+        swordUpper:set_active(true)
+        shotgunUpper:set_active(false)
+        bolterUpper:set_active(false)
     end
 
     

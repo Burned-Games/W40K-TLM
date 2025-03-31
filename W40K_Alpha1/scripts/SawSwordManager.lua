@@ -14,6 +14,7 @@ local playerScript = nil
 
 local entities = nil
 local enemies = nil
+slashed = false
 --local ----------shootParticlesComponent = nil
 --local --bulletDamageParticleComponent = nil
 
@@ -38,10 +39,10 @@ end
 
 function on_update(dt)
 
-        local rightTrigger = Input.get_button(Input.action.Melee)
+        local rightShoulder = Input.get_button(Input.action.Melee)
 
-        if (rightTrigger == Input.state.Down or Input.is_key_pressed(Input.keycode.U))and coolDownCounter >= coolDown then
-
+        if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and coolDownCounter >= coolDown then
+            slashed = true
             Slash()
             
             coolDownCounter = 0
