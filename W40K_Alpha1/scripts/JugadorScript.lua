@@ -88,6 +88,7 @@ local granadeVelocity = 0.65
 scrap = 0
 
 local deathAnimationSetted = false
+zonePlayer = 2
 
 
 function on_ready()
