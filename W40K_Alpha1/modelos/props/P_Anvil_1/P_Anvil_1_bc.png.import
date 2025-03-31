@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 2089858917110129711
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "modelos/props/P_Anvil_1/P_Anvil_1_bc.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/2089858917110129711.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

@@ -35,7 +35,7 @@ local leftShoulderPressed = false
 local rightShoulderPressed = false
 
 -- Workbench state
-local isWorkBenchOpen = false
+isWorkBenchOpen = false
 local currentScreen = "gun" -- "gun" or "character"
 
 -- Current category and upgrade
@@ -253,19 +253,18 @@ function toggle_screen()
 end
 
 function on_update(dt)
-    if not isWorkBenchOpen then
-        if Input.is_key_pressed(Input.keycode.U) then
-            show_ui()
-        end
-        return
-    end
+    -- if not isWorkBenchOpen then
+    --     if Input.is_key_pressed(Input.keycode.U) then
+    --         show_ui()
+    --     end
+    --     return
+    -- end
     
-    if Input.is_key_pressed(Input.keycode.I) then
-        hide_ui()
-    end
-    
-    local leftShoulderState = Input.get_button(Input.controllercode.LeftShoulder)
-    local rightShoulderState = Input.get_button(Input.controllercode.RightShoulder)
+    -- if Input.is_key_pressed(Input.keycode.I) then
+    --     hide_ui()
+    -- end
+    local leftShoulderState = Input.get_button(Input.action.Grenade)
+    local rightShoulderState = Input.get_button(Input.action.Grenade)
     
     if (leftShoulderState == Input.state.Down and not leftShoulderPressed) or 
        (rightShoulderState == Input.state.Down and not rightShoulderPressed) then
