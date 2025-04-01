@@ -178,6 +178,12 @@ function on_ready()
             playerHealth = 80
         end
     end
+
+    if level > 1 then
+        scrapCounter = load_progress("scrap", 0)
+    end
+
+
 end
 
 function on_update(dt)
