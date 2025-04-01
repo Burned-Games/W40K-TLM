@@ -374,7 +374,7 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown --[[and upgradeManager.has_weapon_special()]] then
+        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown and upgradeManager.has_weapon_special() then
             
             cooldownDisruptorBulletTimeCounter = 0
             disruptorShooted = true

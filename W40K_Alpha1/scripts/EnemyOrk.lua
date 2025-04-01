@@ -139,6 +139,8 @@ function on_update(dt)
         zone_set = true
     end
 
+
+
     if player == nil or isDead == true then 
         return 
     end
@@ -153,6 +155,10 @@ function on_update(dt)
     end
 
     change_state(dt)
+
+    if currentState == state.Idle then
+            return
+    end
 
     pathUpdateTimer = pathUpdateTimer + dt
     timeSinceLastHit = timeSinceLastHit + dt
@@ -179,7 +185,7 @@ function on_update(dt)
     if pushed == false then
         if currentState == state.Idle then
             idle_state(dt)
-
+            return
         elseif currentState == state.Move then
             move_state(dt)
 
