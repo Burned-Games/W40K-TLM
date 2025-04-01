@@ -39,7 +39,7 @@ local lightningCollider = nil
 local lightningRb = nil
 
 enemyHealth = 50
-local bossMaxHealth = 500
+local bossMaxHealth = 50
 shieldHealth = 30
 local bossDamage = 25
 local moveSpeed = 5
@@ -258,7 +258,7 @@ function update_state(dt)
             return
         end
     end
-
+    
     local distance = get_distance(bossTransf.position, playerTransf.position)
 
     if enemyHealth <= bossMaxHealth * 0.4 and not isRaging then
@@ -271,7 +271,7 @@ function update_state(dt)
         set_new_state(state.Rage)
         return
     end
-
+    print("updating")
     local attackDistance = 25  
     
     if isAttacking and distance <= attackDistance then
