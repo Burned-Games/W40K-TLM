@@ -162,6 +162,39 @@ function on_ready()
             end
            
         end
+
+        if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
+            local enemyOrk = nil
+            local enemyOrkScript = nil
+            if nameA == "EnemyKamikaze" then
+                enemyOrk = entityA
+                
+            end
+
+            if nameB == "EnemyKamikaze" then
+                enemyOrk = entityB
+            end
+            if enemyOrk ~= nil then               
+                enemyOrkScript = enemyOrk:get_component("ScriptComponent")
+            end
+
+            if enemyOrk ~= nil then
+                if enemyOrkScript ~= nil then
+                    
+                    if enemyOrkScript.shieldHealth > 0 then
+                        -- bulletDamageParticleComponent:emit(20)
+                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
+                        playerScript.makeDamage = true
+                    else
+                    -- bulletDamageParticleComponent:emit(20)
+                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
+                    playerScript.makeDamage  =true
+                    end
+                end
+            end
+           
+        end
+        
     end)
 
     disruptorBullet = current_scene:get_entity_by_name("DisruptorBullet")
@@ -239,6 +272,42 @@ function on_ready()
                 disruptorBulletRb:set_position(Vector3.new(0,1000,0))
                 disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
 
+            end
+           
+        end
+
+        if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
+            local enemyOrk = nil
+            local enemyOrkScript = nil
+            if nameA == "EnemyKamikaze" then
+                enemyOrk = entityA
+                
+            end
+
+            if nameB == "EnemyKamikaze" then
+                enemyOrk = entityB
+            end
+            if enemyOrk ~= nil then               
+                enemyOrkScript = enemyOrk:get_component("ScriptComponent")
+            end
+
+            if enemyOrk ~= nil then
+                if enemyOrkScript ~= nil then
+                    
+                    if enemyOrkScript.shieldHealth > 0 then
+                        -- bulletDamageParticleComponent:emit(20)
+                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (disruptorBulletDamage + disruptorBulletDamage * shieldMultiplier)
+                        playerScript.makeDamage = true
+                    else
+                    -- bulletDamageParticleComponent:emit(20)
+                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - disruptorBulletDamage
+                    playerScript.makeDamage = true
+                    end
+                    activateZone = true
+                    chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                    disruptorBulletRb:set_position(Vector3.new(0,1000,0))
+                    disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+                end
             end
            
         end
@@ -475,7 +544,23 @@ function chargedZoneUpdate(dt)
                             playerScript.makeDamage = true
                         end
                         print("damage dealed")
-                    end              
+                    end 
+                    
+                    if name == "EnemyKamikaze" then  
+                        enemyOrkScript = entity:get_component("ScriptComponent")
+                        if enemyOrkScript ~= nil then
+                    
+                            if enemyOrkScript.shieldHealth > 0 then
+                                -- bulletDamageParticleComponent:emit(20)
+                                enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
+                                playerScript.makeDamage = true
+                            else
+                                -- bulletDamageParticleComponent:emit(20)
+                                enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
+                                playerScript.makeDamage = true
+                            end
+                        end
+                    end
                 end
             end
         end
