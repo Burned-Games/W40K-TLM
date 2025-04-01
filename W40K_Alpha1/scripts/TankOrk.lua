@@ -23,7 +23,7 @@ local tankVelocity = defaultVelocity
 local isDead = false
 local tankDamage = 10  -- Daño de ataque melee
 local AttackCooldown = 3
-local tankHealth = 75
+enemyHealth = 275
 local tackleCooldown = 8  -- Unificamos este valor
 local tackleTimer = 0       
 local canTackle = true      
@@ -98,7 +98,7 @@ function on_update(dt)
     end
 
     -- Handle death condition
-    if tankHealth <= 0 then
+    if enemyHealth <= 0 then
         die()
         return
     end
