@@ -10,7 +10,7 @@ local footstep_delay = 0.53
 local randomFootstep
 
 local playerScript
---local particleSystem
+local particleSystem
 
 function on_ready()
     local footstep_one_entity = current_scene:get_entity_by_name("PlayerStep1")
@@ -25,7 +25,7 @@ function on_ready()
     local footstep_four_entity = current_scene:get_entity_by_name("PlayerStep4")
     footstep_four = footstep_four_entity:get_component("AudioSourceComponent")
 
-    --particleSystem = current_scene:get_entity_by_name("ParticulasPisadas"):get_component("ParticlesSystemComponent");
+    particleSystem = current_scene:get_entity_by_name("ParticulasPisadas"):get_component("ParticlesSystemComponent");
 
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
@@ -39,7 +39,7 @@ function on_update(dt)
 
         if footstep_timer > footstep_delay then
             footstep_timer = 0
-            --particleSystem:emit(5);
+            particleSystem:emit(5);
             randomNumber = math.random(1, 4)
 
             footstep_one:pause()
