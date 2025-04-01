@@ -252,7 +252,6 @@ end
 
 function handle_visuals()
     if has_upgrade("armor", "healthBoost") then
-        jetpacklvl1:set_active(false)
         jetpacklvl2:set_active(true)
     end
 
