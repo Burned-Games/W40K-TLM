@@ -623,7 +623,7 @@ function checkPlayerDeath(dt)
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
             sceneChanged = true
-            --SceneManager.change_scene("levelLose.TeaScene")
+            SceneManager.change_scene("levelLose.TeaScene")
         end
     end
     if playerHealth >= 100 then

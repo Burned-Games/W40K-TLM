@@ -494,7 +494,7 @@ function make_damage()
 
     if player ~= nil then
         if playerScript ~= nil then
-            local damage = 5
+            local damage = 15
 
             if playerScript.playerHealth > 0 then
                 playerScript.playerHealth = playerScript.playerHealth - damage
