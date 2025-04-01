@@ -9,10 +9,15 @@ local suppAnimator
 local forwardVector
 suppEnemyHealth = 50
 shieldHealth = 35
+
 local suppVelocity = 5
 local suppVelocityFlee = 7
+local currentTarget = nil
 
 local canUseShield=true
+local actualshield = nil
+local prefabShield = nil
+
 local shieldCooldown = 5
 local detectDistance = 20
 local shieldDistance = 5
@@ -29,6 +34,7 @@ local currentPathIndex = 1
 local pathUpdateTimer = 0
 local pathUpdateInterval = 1.0  
 local lastTargetPos = nil
+
 
 local Enemies = {}
 
@@ -171,8 +177,14 @@ function move_state(dt)
         currentAnim = 1
     end
     
+    -- Añadir debug para verificar si estamos en este estado
+    print("En estado MOVE")
+    
     local enemyDistances = enemies_distance()
     local shieldStatuses = update_shield_status()
+    
+    -- Debug para comprobar si tenemos enemigos
+    print("Número de enemigos detectados: " .. #Enemies)
     
     local validTargets = {}
     for _, distData in ipairs(enemyDistances) do
@@ -188,7 +200,10 @@ function move_state(dt)
         end
     end
 
-    local bestTarget = nil
+    -- Debug para comprobar objetivos válidos
+    print("Número de objetivos válidos: " .. #validTargets)
+
+    currentTarget = nil  -- Reset current target
     if #validTargets > 0 then
         -- Encontrar máxima prioridad
         local maxPriority = -math.huge
@@ -211,27 +226,46 @@ function move_state(dt)
                 local dist = get_distance(suppEnemyTransf.position, candidate.transform.position)
                 if dist < closestDist then
                     closestDist = dist
-                    bestTarget = candidate
+                    currentTarget = candidate  -- Almacenar el objetivo seleccionado
                 end
             end
         end
     end
     
     -- Manejo del movimiento
-    if bestTarget and bestTarget.transform then
-        local targetPos = bestTarget.transform.position
+    if currentTarget and currentTarget.transform then
+        local targetPos = currentTarget.transform.position
+        
+        -- Debug para comprobar el target
+        print("Objetivo seleccionado: " .. currentTarget.name .. " a distancia: " .. get_distance(suppEnemyTransf.position, targetPos))
+        
+        -- Comprobar si suppEnemyNav es válido
+        if not suppEnemyNav then
+            print("ERROR: suppEnemyNav es nil")
+            return
+        end
         
         -- Actualización de ruta optimizada
         pathUpdateTimer = pathUpdateTimer + dt
         if pathUpdateTimer >= pathUpdateInterval or not lastTargetPos 
-            or get_distance(lastTargetPos, targetPos) > 1.0 then
+            or (lastTargetPos and get_distance(lastTargetPos, targetPos) > 1.0) then
             
+            print("Actualizando path hacia el objetivo")
             suppEnemyNav.path = suppEnemyNav:find_path(suppEnemyTransf.position, targetPos)
+            
+            -- Debug para verificar si el path se generó
+            if suppEnemyNav.path and #suppEnemyNav.path > 0 then
+                print("Path creado con " .. #suppEnemyNav.path .. " puntos")
+            else
+                print("ERROR: No se pudo crear un path")
+            end
+            
             lastTargetPos = targetPos
             pathUpdateTimer = 0
             currentPathIndex = 1
         end
 
+        -- Llamar a follow_path para moverse hacia el objetivo
         follow_path(dt) 
         
         -- Transición a escudo - adding nil checks
@@ -239,13 +273,94 @@ function move_state(dt)
             currentState = state.Shield
         end
     else
+        print("No hay objetivos válidos, cambiando a FLEE")
         currentState = state.Flee
     end
 end
 
 function attack_state(dt) end
 
-function shield_state(dt) end
+function shield_state(dt)
+    -- Animación para el estado de escudo
+    if suppAnimator and currentAnim ~= 3 then
+        suppAnimator:set_current_animation(3)
+        currentAnim = 3
+    end
+    
+    -- Usar el objetivo actual seleccionado en move_state
+    if currentTarget and currentTarget.transform then
+        local targetPos = currentTarget.transform.position
+        local distance = get_distance(suppEnemyTransf.position, targetPos)
+        
+        -- Verificar que seguimos en rango de escudo
+        if distance <= shieldDistance then
+            -- Crear nuevo escudo
+            create_new_shield()
+            
+            -- Aplicar escudo al objetivo
+            if actualshield and currentTarget.script then
+                -- Posicionar el escudo en la posición del objetivo
+                if transformShield and currentTarget.transform then
+                    transformShield.position = currentTarget.transform.position
+                end
+                
+                -- Establecer el booleano de escudo en el script del objetivo
+                currentTarget.script.haveShield = true
+                
+                -- Iniciar enfriamiento
+                canUseShield = false
+                
+                -- Configurar temporizador de enfriamiento (usando una corrutina)
+                current_scene:start_coroutine(function()
+                    local timer = 0
+                    while timer < shieldCooldown do
+                        timer = timer + current_scene:get_delta_time()
+                        coroutine.yield()
+                    end
+                    canUseShield = true
+                end)
+            end
+        end
+        
+        -- Después de aplicar el escudo, volver al estado de movimiento
+        currentState = state.Move
+        
+        -- Actualizar la lista de enemigos después de aplicar un escudo
+        find_all_enemies()
+    else
+        -- Si no hay objetivo válido, volver al estado de movimiento
+        currentState = state.Move
+    end
+end
+
+function create_new_shield()
+    -- Buscar prefab de escudo
+    if prefabShield == nil then
+        prefabShield = current_scene:get_entity_by_name("Shield")
+    end
+
+    if prefabShield then
+        -- Duplicar el prefab de escudo
+        actualshield = current_scene:duplicate_entity(prefabShield)
+        
+        if actualshield then
+            transformShield = actualshield:get_component("TransformComponent")
+            
+            -- Configurar renderizado
+            local rendererComp = actualshield:get_component("MeshRendererComponent")
+            if rendererComp then
+                rendererComp.visible = true
+                rendererComp.enabled = true
+            end
+
+            transformShield.scale = Vector3.new(1.3, 1.3, 1.3)
+
+            return actualshield
+        end
+    end
+    
+    return nil
+end
 
 function flee_state(dt)
     if suppAnimator then
@@ -263,7 +378,6 @@ function flee_state(dt)
 
     follow_path(dt)
 
-    -- Fix: Use suppEnemyTransf instead of enemyTransf
     local distance = get_distance(suppEnemyTransf.position, currentTarget)
 
     if distance <= 1.0 then
@@ -274,6 +388,10 @@ function flee_state(dt)
     checkEnemyTimer = (checkEnemyTimer or 0) + dt
     if (checkEnemyTimer >= (checkEnemyInterval or 2.0)) then
         checkEnemyTimer = 0
+        
+        -- Actualizar la lista de enemigos cuando estamos en flee
+        find_all_enemies()
+        
         local allEnemiesWithShield = true
         
         -- Check if all enemies have shields
@@ -390,30 +508,23 @@ function update_shield_status()
 end
 
 function update_path()
-    if enemyNavmesh == nil then 
+    if suppEnemyNav == nil then
         return 
     end
     
-    -- Determine target based on state
     local targetPos = nil
     
     if currentState == state.Move then
-        if player and playerTransf and get_distance(enemyTransf.position, playerTransf.position) <= MoveDistance then
-            targetPos = playerTransf.position
-        elseif enemyRangeEntity and enemyRangeTransf then
-            targetPos = enemyRangeTransf.position
+        if currentTarget and currentTarget.transform then 
+            targetPos = currentTarget.transform.position
         end
-    elseif currentState == state.Shield and enemyRangeEntity and enemyRangeTransf then
-        targetPos = enemyRangeTransf.position
     elseif currentState == state.Flee and #waypointPositions > 0 then
         targetPos = waypointPositions[currentWaypoint]
     end
     
-    -- Update path if we have a target
     if targetPos ~= nil then
-        enemyNavmesh.path = enemyNavmesh:find_path(enemyTransf.position, targetPos)
+        suppEnemyNav.path = suppEnemyNav:find_path(suppEnemyTransf.position, targetPos)  
         lastTargetPos = targetPos
-        -- Reset el índice del camino
         currentPathIndex = 1
     end
 end
@@ -432,7 +543,8 @@ function update_waypoint_path()
 end
 
 function follow_path(dt)
-    if suppEnemyNav == nil or #suppEnemyNav.path == 0 then 
+    if not suppEnemyNav or not suppEnemyNav.path or #suppEnemyNav.path == 0 then 
+        print("No hay path que seguir")
         if suppEnemyRb then
             suppEnemyRb:set_velocity(Vector3.new(0, 0, 0))
         end
@@ -441,6 +553,7 @@ function follow_path(dt)
     
     -- Check if index is valid
     if currentPathIndex > #suppEnemyNav.path then
+        print("Índice de path fuera de rango, reiniciando")
         currentPathIndex = 1
         if #suppEnemyNav.path == 0 then
             if suppEnemyRb then
@@ -451,6 +564,10 @@ function follow_path(dt)
     end
 
     local nextPoint = suppEnemyNav.path[currentPathIndex]
+    
+    -- Debug para verificar el punto al que nos movemos
+    print("Moviéndose hacia el punto: " .. nextPoint.x .. ", " .. nextPoint.z)
+    
     local direction = Vector3.new(
         nextPoint.x - suppEnemyTransf.position.x,
         0, -- Ignore Y for movement on plane
@@ -458,6 +575,7 @@ function follow_path(dt)
     )
 
     local distance = math.sqrt(direction.x^2 + direction.z^2)
+    print("Distancia al siguiente punto del path: " .. distance)
 
     if distance > 0.1 then
         local normalizedDirection = Vector3.new(
@@ -468,17 +586,25 @@ function follow_path(dt)
 
         -- Use physics for movement
         if suppEnemyRb then
-            local moveSpeed = 5.0  -- Define moveSpeed if not already defined
-            local velocity = Vector3.new(normalizedDirection.x * moveSpeed, 0, normalizedDirection.z * moveSpeed)
+            -- Usar suppVelocity como velocidad de movimiento (definido en tu código original)
+            local velocity = Vector3.new(normalizedDirection.x * suppVelocity, 0, normalizedDirection.z * suppVelocity)
+            
+            print("Aplicando velocidad: " .. velocity.x .. ", " .. velocity.z)
             suppEnemyRb:set_velocity(velocity)
+            
+        else
+            print("ERROR: suppEnemyRb es nil")
         end
 
         rotate_enemy(nextPoint)
     else
+        print("Llegó al punto " .. currentPathIndex .. " del path")
         if currentPathIndex < #suppEnemyNav.path then
             currentPathIndex = currentPathIndex + 1
+            print("Avanzando al siguiente punto del path: " .. currentPathIndex)
         else
             -- We've reached the end of the path, stop movement
+            print("Fin del path alcanzado")
             if suppEnemyRb then
                 suppEnemyRb:set_velocity(Vector3.new(0, 0, 0))
             end
