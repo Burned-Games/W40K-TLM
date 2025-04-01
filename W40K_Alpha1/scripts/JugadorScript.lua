@@ -159,19 +159,18 @@ function on_update(dt)
 
     checkPlayerDeath(dt)
     handleWeaponSwitch(dt)
-    if deathAnimationSetted or swordScript.slashed then
+    updateEntranceAnimation(dt)
+    if deathAnimationSetted or swordScript.slashed or animacionEntradaRealizada == false then
         return
     end
     updateMusic(dt)
     updateDash(dt)
     updateGodMode()
-    updateEntranceAnimation(dt)
+    
     
     handleBleed(dt)
 
-    if not animacionEntradaRealizada then
-        return
-    end
+
 
 
     playerMovement(dt)
@@ -229,6 +228,7 @@ function updateDash(dt)
         local dashDirection = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
         local impulse = Vector3.new(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed, dashDirection.z * dashSpeed)
         playerRb:set_trigger(true)
+        
         playerRb:apply_impulse(Vector3.new(impulse.x, impulse.y, impulse.z))
         impulseApplied = true
         dashAvailable = false
@@ -247,6 +247,7 @@ function updateDash(dt)
 
     -- Update dash duration
     if impulseApplied == true then
+        playerTransf.rotation.y = math.deg(angleRotation)
         dashTimeCounter = dashTimeCounter + dt
         if dashTimeCounter >= dashTime then
             impulseApplied = false
