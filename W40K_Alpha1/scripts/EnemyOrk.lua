@@ -498,7 +498,7 @@ function make_damage()
 
             if playerScript.playerHealth > 0 then
                 playerScript.playerHealth = playerScript.playerHealth - damage
-                print("PlayerHealth " .. playerScript.playerHealth)
+
             end
 
             --audioDanoPlayerMusic:pause()
