@@ -38,7 +38,7 @@ local lightningTransf = nil
 local lightningCollider = nil
 local lightningRb = nil
 
-enemyHealth = 500
+enemyHealth = 50
 local bossMaxHealth = 500
 shieldHealth = 30
 local bossDamage = 25
@@ -74,6 +74,8 @@ local isStateDelaying = false
 
 local invulnerability = 1
 local timeSinceLastHit = 0
+
+local winTimer = 0
 
 function on_ready() 
     -- Get the main boss entity
