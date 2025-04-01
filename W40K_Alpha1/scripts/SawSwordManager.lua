@@ -156,6 +156,30 @@ function Slash()
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
                     end
                 end
+
+                if name == "EnemyTank" then  
+                    enemyOrkScript = entity:get_component("ScriptComponent")
+                    if enemyOrkScript ~= nil then
+                
+                        if enemyOrkScript.shieldHealth > 0 then
+                            --bulletDamageParticleComponent:emit(20)
+                            enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
+                            playerScript.makeDamage = true
+                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
+                        else
+                            ----bulletDamageParticleComponent:emit(20)
+                            enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
+                            playerScript.makeDamage = true
+                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
+                        end
+                        enemyOrkScript.pushed = true
+                        impulseDirection = Vector3.new(
+                        entityPos.x - playerTransf.position.x,
+                        entityPos.y - playerTransf.position.y,
+                        entityPos.z - playerTransf.position.z)
+                        entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                    end
+                end
                 
 
                 

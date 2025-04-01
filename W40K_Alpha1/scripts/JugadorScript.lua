@@ -98,7 +98,7 @@ local amountOfScrap = 0
 local scrapDestroyed = 0
 local partOfList = 0
 
-zonePlayer = 0
+zonePlayer = 2
 
 
 function on_ready()
