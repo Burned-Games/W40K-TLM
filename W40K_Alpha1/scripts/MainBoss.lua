@@ -66,7 +66,7 @@ local isDamaging = false
 local damageTimer = 0
 local timeSinceLastDamage = 0
 local damagePerSecond = 15
-local isDead = true
+local isDead = false
 
 local stateDelayTimer = 0
 local stateDelayDuration = 1
@@ -187,9 +187,14 @@ end
 function on_update(dt)
 
     if isDead then
+        winTimer = winTimer + dt
         return
     end
+    
+    if isDead and winTimer >= 3 then
+        SceneManager.change_scene("levelWin.TeaScene")
     end
+
     if enemyHealth <= 0 then
         die()
     end
