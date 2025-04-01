@@ -169,7 +169,7 @@ function on_ready()
         playerRb:set_position(checkpointsPosition[zonePlayer])
         animacionEntradaRealizada = true
 
-        scrapCounter = load_progress("scrapCounter", 0)
+        scrapCounter = load_progress("scrap", 0)
 
         local newHealth = load_progress("health", 100)
         if newHealth > 80 then
