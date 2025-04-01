@@ -99,7 +99,9 @@ local scrapDestroyed = 0
 local partOfList = 0
 
 zonePlayer = 0
+level = 1
 
+local checkpointsPosition = { Vector3.new(83, 0, 35), Vector3.new(192, 0, -52)}
 
 function on_ready()
     -- Add initialization code here
@@ -141,7 +143,27 @@ function on_ready()
     combatMusic:play()
     explorationMusic:play()
 
+    self:get_component("RigidbodyComponent"):on_collision_enter(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
 
+        if nameA == "Checkpoint" .. tostring(zonePlayer) or nameB == "Checkpoint" .. tostring(zonePlayer) then
+            save_progress("zonePlayer", newIndex)
+        end
+    end)
+
+    level = load_progress("level", 1)
+
+    if level == 1 then
+        current_scene:get_entity_by_name("Checkpoint1"):get_component("RigidbodyComponent").rb:set_trigger(true)
+        current_scene:get_entity_by_name("Checkpoint2"):get_component("RigidbodyComponent").rb:set_trigger(true)
+    end
+
+    zonePlayer = load_progress("zonePlayer", 1)
+    if level == 1 and zonePlayer > 1 then
+        playerRb:set_position(checkpointsPosition[zonePlayer - 1])
+        animacionEntradaRealizada = true
+    end
 end
 
 function on_update(dt)

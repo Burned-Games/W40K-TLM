@@ -10,12 +10,16 @@ local buttonCooldownTime = 0.2
 local sceneChanged = false
 local contadorMovimientoBotones = 0
 
+local level = 1
+
 function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("botonStart"):get_component("UIButtonComponent")
     button2 = current_scene:get_entity_by_name("botonContinue"):get_component("UIButtonComponent")
     button3 = current_scene:get_entity_by_name("botonSettings"):get_component("UIButtonComponent")
     button4 = current_scene:get_entity_by_name("botonExit"):get_component("UIButtonComponent")
+
+    level = load_progress("level", 1)
 end
 
 function on_update(dt)
@@ -46,7 +50,13 @@ function on_update(dt)
             if(index == 1) then
                 button2:set_state("Pressed")
                 sceneChanged = true
-                SceneManager.change_scene("continue.TeaScene")
+                if level == 1 then
+                    SceneManager.change_scene("level1.TeaScene")
+                elseif level == 2 then
+                    SceneManager.change_scene("level2.TeaScene")
+                elseif level == 3 then
+                    SceneManager.change_scene("level3.TeaScene")
+                end
             end
         end
         

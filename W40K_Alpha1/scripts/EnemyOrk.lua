@@ -644,10 +644,10 @@ function check_zone()
         end)
     end
 
-    if zoneNumber < playerScript.zonePlayer then
+    --[[if zoneNumber < playerScript.zonePlayer then
         enemyRb:set_position(Vector3.new(-500, 0, 0))
         self:set_active(false)
-    end
+    end]]--
 end
 
 function die()

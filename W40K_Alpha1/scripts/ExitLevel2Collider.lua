@@ -14,10 +14,8 @@ function on_ready()
         if nameA == "Player" or nameB == "Player" then
             changeScene = true
             
+            save_progress("level", 3)
         end
-
-     
-
     end)
     
 end
@@ -27,9 +25,6 @@ function on_update(dt)
     if changeScene == true then
         SceneManager.change_scene("level3.TeaScene")
     end
-
-
-
 end
 
 function on_exit()
