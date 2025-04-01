@@ -13,7 +13,7 @@ local spawnRadius = 3 -- max distance from center to spawn enemies
 -- Arena data
 
 local currentRound = 0
-local WaveData = {{"Ranged", "Ranged", "Ranged"}, {"Tank"}, {"Ranged", "Support", "Tank"}} -- TODO change to correct names
+local WaveData = {{"EnemyOrk", "EnemyOrk", "EnemyOrk"}, {"EnemyOrk"}, {"EnemyOrk", "EnemyOrk"}} -- TODO change to correct names
 local activeEnemies = {}
 local activeEnemyScripts = {}
 
@@ -27,7 +27,7 @@ function on_ready()
     
     enemyPool = current_scene:get_entity_by_name("ArenaEnemyPool")
     battleTrigger = current_scene:get_entity_by_name("ArenaBattleTrigger")
-    --spawnPoint = current_scene:get_entity_by_name("ArenaSpawnPoint")
+    spawnPoint = current_scene:get_entity_by_name("ArenaSpawnCenter"):get_component("TransformComponent").position
     exitDoor = current_scene:get_entity_by_name("ArenaExitDoor")
     
     --[[
@@ -36,8 +36,8 @@ function on_ready()
         local tag = child:get_component("TagComponent").tag
         if (tag == "ArenaEnemyPool") then
             enemyPool = child
-        elseif (tag == "ArenaSpawnPoint") then
-            spawnPoint = child
+        elseif (tag == "ArenaSpawnCenter") then
+            spawnPoint = child:get_component("TransformComponent").position
         elseif (tag == "ArenaBattleTrigger") then
             battleTrigger = child
         elseif (tag == "ArenaExitDoor") then
@@ -93,11 +93,11 @@ end
 function spawnEnemies()
     -- TODO change logic when prefabs and/or safe entity deletion are implemented
 
-    local arenaCenter = self:get_component("TransformComponent").position
-    local position = Vector3.new(0,0,0)
+    local arenaCenter = spawnPoint--self:get_component("TransformComponent").position
+    local position = nil
     
     for _, entity in ipairs(activeEnemies) do
-        local scriptComponent = entity:get_component("ScriptComponent")
+        local scriptComponent = entity--:get_component("ScriptComponent")
         local transformComponent = entity:get_component("TransformComponent")
         -- TODO need a "reset enemy" function OR prefab instantiation
 
@@ -109,7 +109,7 @@ function spawnEnemies()
         position = Vector3.new(math.cos(math.random()*2*math.pi),0,math.sin(math.random()*2*math.pi))
         transformComponent:set_position(arenaCenter+position)
 
-        --log("Spawned at ("..(arenaCenter.x+position.x)..","..(arenaCenter.z+position.z)..")")
+        log("Spawned at ("..(arenaCenter.x+position.x)..","..(arenaCenter.z+position.z)..")")
     end
 
 end
