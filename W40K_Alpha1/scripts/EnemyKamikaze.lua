@@ -454,7 +454,7 @@ function rotate_enemy(targetPosition)
 	local dx = targetPosition.x - enemyTransf.position.x
 	local dz = targetPosition.z - enemyTransf.position.z
 
-    local targetAngle = math.deg(math.atan(-dx / dz))
+    local targetAngle = math.deg(math.atan(dx / dz))
     if dz < 0 then
         targetAngle = targetAngle + 180
     end
