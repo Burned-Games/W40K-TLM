@@ -188,14 +188,16 @@ end
 -- FSM General
 function on_update(dt)
 
+    if isDead and winTimer >= 3 then
+        SceneManager.change_scene("levelWin.TeaScene")
+    end
+
     if isDead then
         winTimer = winTimer + dt
         return
     end
     
-    if isDead and winTimer >= 3 then
-        SceneManager.change_scene("levelWin.TeaScene")
-    end
+    
 
     if enemyHealth <= 0 then
         die()

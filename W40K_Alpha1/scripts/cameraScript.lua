@@ -55,7 +55,8 @@ function on_ready()
     orkEntities = {} 
 
     for _, entity in ipairs(entities) do 
-        if entity:get_component("TagComponent").tag == "EnemyOrk" then
+        local tag = entity:get_component("TagComponent").tag
+        if tag == "EnemyOrk" or tag == "EnemySupp" or tag == "EnemyKamikaze" or tag == "EnemyTank" then
             table.insert(orkEntities, entity) 
             entity:set_active(false)
         end

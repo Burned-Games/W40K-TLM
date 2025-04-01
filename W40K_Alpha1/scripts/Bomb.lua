@@ -10,8 +10,6 @@ local explosionRadius = 7.0
 local explosionForce = 13.0
 local explosionUpward = 2.0
 
-local targets = nil
-
 function on_ready()
     
     bombRbComponent = self:get_component("RigidbodyComponent")
@@ -21,15 +19,6 @@ function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
-
-    local entities = current_scene:get_all_entities()
-    targets = {} 
-    for _, entity in ipairs(entities) do 
-        local tag = entity:get_component("TagComponent").tag
-        if  tag == "Player" or  tag == "EnemyOrk" or tag == "EnemySupp" or tag == "EnemyKamikaze" or tag == "EnemyTank" then
-            table.insert(targets, entity) 
-        end
-    end
 
     bombRbComponent:on_collision_enter(function(entityA, entityB)         -- Funcion para comprobar colisiones, ahora esta el enemyRb, pero cambiadlo por el que necesiteis
         local nameA = entityA:get_component("TagComponent").tag
@@ -49,11 +38,12 @@ function on_update(dt)
 end
 
 function explosion()
+
     -- Logica de la explosion
     local explosionPos = bombRb:get_position()
+    local entities = current_scene:get_all_entities()
 
-
-        for _, entity in ipairs(targets) do 
+        for _, entity in ipairs(entities) do 
             if entity ~= self and entity:has_component("RigidbodyComponent") then 
                 local entityRb = entity:get_component("RigidbodyComponent").rb
                 local entityPos = entityRb:get_position()
