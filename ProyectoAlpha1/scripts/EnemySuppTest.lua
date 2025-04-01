@@ -73,7 +73,7 @@ end
 -- FSM General
 function on_update(dt)
 
-    change_state() -- Funcion para cambiar de estados
+    change_state(dt) -- Funcion para cambiar de estados
 
     -- FSM { Idle -> Move -> Attack}
     if currentState == state.Idle then
@@ -94,7 +94,7 @@ function on_update(dt)
 
 end
 
-function change_state()
+function change_state(dt)
 
 
     findEnemiesTimer = findEnemiesTimer + dt
@@ -178,12 +178,12 @@ function move_state(dt)
     for _, distData in ipairs(enemyDistances) do
         local hasShield = false
         for _, shieldData in ipairs(shieldStatuses) do
-            if shieldData.enemy.name == distData.enemy.name then
+            if shieldData.enemy and distData.enemy and shieldData.enemy.name == distData.enemy.name then
                 hasShield = shieldData.haveShield
                 break
             end
         end
-        if not hasShield then
+        if not hasShield and distData.enemy then
             table.insert(validTargets, distData.enemy)
         end
     end
@@ -193,27 +193,30 @@ function move_state(dt)
         -- Encontrar máxima prioridad
         local maxPriority = -math.huge
         for _, enemy in ipairs(validTargets) do
-            if enemy.priority > maxPriority then
+            if enemy.priority and enemy.priority > maxPriority then
                 maxPriority = enemy.priority
             end
         end
 
         local candidates = {}
         for _, enemy in ipairs(validTargets) do
-            if enemy.priority == maxPriority then
+            if enemy.priority and enemy.priority == maxPriority then
                 table.insert(candidates, enemy)
             end
         end
 
         local closestDist = math.huge
         for _, candidate in ipairs(candidates) do
-            local dist = get_distance(suppEnemyTransf.position, candidate.transform.position)
-            if dist < closestDist then
-                closestDist = dist
-                bestTarget = candidate
+            if candidate.transform then
+                local dist = get_distance(suppEnemyTransf.position, candidate.transform.position)
+                if dist < closestDist then
+                    closestDist = dist
+                    bestTarget = candidate
+                end
             end
         end
     end
+    
     -- Manejo del movimiento
     if bestTarget and bestTarget.transform then
         local targetPos = bestTarget.transform.position
@@ -231,8 +234,8 @@ function move_state(dt)
 
         follow_path(dt) 
         
-        -- Transición a escudo
-        if get_distance(suppEnemyTransf.position, targetPos) <= shieldDistance and canUseShield then
+        -- Transición a escudo - adding nil checks
+        if shieldDistance ~= nil and get_distance(suppEnemyTransf.position, targetPos) <= shieldDistance and canUseShield then
             currentState = state.Shield
         end
     else
@@ -260,27 +263,40 @@ function flee_state(dt)
 
     follow_path(dt)
 
-    local distance = get_distance(enemyTransf.position, currentTarget)
+    -- Fix: Use suppEnemyTransf instead of enemyTransf
+    local distance = get_distance(suppEnemyTransf.position, currentTarget)
 
     if distance <= 1.0 then
         currentWaypoint = currentWaypoint % #waypointPositions + 1
         update_waypoint_path()
     end
 
-    if checkEnemyTimer >= checkEnemyInterval then
+    checkEnemyTimer = (checkEnemyTimer or 0) + dt
+    if (checkEnemyTimer >= (checkEnemyInterval or 2.0)) then
         checkEnemyTimer = 0
-        if not check_enemies_shield_status() then
-            -- If we found an enemy without shield, we should leave flee state
-            if not allEnemieswithShield then
-                currentState = state.Chase
+        local allEnemiesWithShield = true
+        
+        -- Check if all enemies have shields
+        local shieldStatuses = update_shield_status()
+        for _, shieldData in ipairs(shieldStatuses) do
+            if not shieldData.haveShield then
+                allEnemiesWithShield = false
+                break
             end
+        end
+        
+        -- If not all enemies have shields, we can move
+        if not allEnemiesWithShield then
+            currentState = state.Move
         end
     end
 end
 
 function find_all_enemies()
-
-    enemyNames = { "EnemyOrk", "TankOrk", "KamikazeOrk" }
+    -- Clear existing enemies table to avoid duplicates
+    Enemies = {}
+    
+    enemyNames = { "EnemyOrk", "TankOrk", "EnemyKamikaze" }
     local suppPos = suppEnemyTransf.position
 
     for _, name in ipairs(enemyNames) do
@@ -289,16 +305,17 @@ function find_all_enemies()
             local script = entity:get_component("ScriptComponent")
             local entityTransform = entity:get_component("TransformComponent")
 
-            if script then
-                local health = script.enemyHealth
-                local priority = script.priority
+            if script and entityTransform then
+                -- Access script properties safely with defaults
+                local health = script.enemyHealth or 100
+                local priority = script.priority or 1
                 local haveShield = script.haveShield or false 
                 local distance = get_distance(suppPos, entityTransform.position)
 
                 if distance <= detectDistance then
-                    enemyData = {
+                    local enemyData = {
                         name = name,
-                        transform = entity:get_component("TransformComponent"),
+                        transform = entityTransform,
                         script = script,
                         health = health,
                         priority = priority,
@@ -310,7 +327,10 @@ function find_all_enemies()
             end
         end
     end
-    get_priority_enemy()
+    
+    if #Enemies > 0 then
+        get_priority_enemy()
+    end
 end
 
 function get_priority_enemy()
@@ -327,8 +347,9 @@ function get_priority_enemy()
         end
     end
 
-    return priorityEnemy
     enemies_distance()
+    return priorityEnemy
+
 end
 
 function enemies_distance()
@@ -346,8 +367,9 @@ function enemies_distance()
         end
     end
 
-    return distances
     update_shield_status()  
+    return distances
+
 end
 
 function update_shield_status()
@@ -375,8 +397,8 @@ function update_path()
     -- Determine target based on state
     local targetPos = nil
     
-    if currentState == state.Chase then
-        if player and playerTransf and get_distance(enemyTransf.position, playerTransf.position) <= chaseDistance then
+    if currentState == state.Move then
+        if player and playerTransf and get_distance(enemyTransf.position, playerTransf.position) <= MoveDistance then
             targetPos = playerTransf.position
         elseif enemyRangeEntity and enemyRangeTransf then
             targetPos = enemyRangeTransf.position
