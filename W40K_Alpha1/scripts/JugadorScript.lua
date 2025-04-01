@@ -342,13 +342,14 @@ function handleWeaponSwitch(dt)
     end
 
     if swordScript.slashed == true then
-        
+        playerTransf.rotation.y = math.deg(angleRotation)
         if swordAnimationTimeCounter == 0 then
             
         
             if currentAnim ~= 8 then
                 currentAnim = 8
                 animator:set_current_animation(currentAnim)
+                
             end
             swordUpper:set_active(true)
             shotgunUpper:set_active(false)

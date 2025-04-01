@@ -32,7 +32,6 @@ function on_ready()
     enemies = {} 
     for _, entity in ipairs(entities) do 
         if entity:get_component("TagComponent").tag == "EnemyOrk" or entity:get_component("TagComponent").tag == "EnemySupp" then
-            print("sooooooooooooooooo")
             table.insert(enemies, entity)
         end
     end
