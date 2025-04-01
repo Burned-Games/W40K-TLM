@@ -279,6 +279,12 @@ function handle_bullet_collision(entityA, entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end
+
+    if nameA == "MainBoss" or nameB == "MainBoss" then
+        local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+        local bullet = (enemy == entityA) and entityB or entityA 
+        damage_enemy(enemy, bullet)
+    end
     
 end
 

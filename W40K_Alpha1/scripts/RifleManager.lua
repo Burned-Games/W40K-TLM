@@ -226,6 +226,38 @@ function on_ready()
             end
            
         end
+
+        if nameA == "MainBoss" or nameB == "MainBoss" then
+            local enemyOrk = nil
+            local enemyOrkScript = nil
+            if nameA == "MainBoss" then
+                enemyOrk = entityA
+                
+            end
+
+            if nameB == "MainBoss" then
+                enemyOrk = entityB
+            end
+            if enemyOrk ~= nil then               
+                enemyOrkScript = enemyOrk:get_component("ScriptComponent")
+            end
+
+            if enemyOrk ~= nil then
+                if enemyOrkScript ~= nil then
+                    
+                    if enemyOrkScript.shieldHealth > 0 then
+                        -- bulletDamageParticleComponent:emit(20)
+                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
+                        playerScript.makeDamage = true
+                    else
+                    -- bulletDamageParticleComponent:emit(20)
+                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
+                    playerScript.makeDamage  =true
+                    end
+                end
+            end
+           
+        end
         
     end)
 
@@ -353,6 +385,42 @@ function on_ready()
             end
 
             if nameB == "EnemyTank" then
+                enemyOrk = entityB
+            end
+            if enemyOrk ~= nil then               
+                enemyOrkScript = enemyOrk:get_component("ScriptComponent")
+            end
+
+            if enemyOrk ~= nil then
+                if enemyOrkScript ~= nil then
+                    
+                    if enemyOrkScript.shieldHealth > 0 then
+                        -- bulletDamageParticleComponent:emit(20)
+                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (disruptorBulletDamage + disruptorBulletDamage * shieldMultiplier)
+                        playerScript.makeDamage = true
+                    else
+                    -- bulletDamageParticleComponent:emit(20)
+                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - disruptorBulletDamage
+                    playerScript.makeDamage = true
+                    end
+                    activateZone = true
+                    chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                    disruptorBulletRb:set_position(Vector3.new(0,1000,0))
+                    disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+                end
+            end
+           
+        end
+
+        if nameA == "MainBoss" or nameB == "MainBoss" then
+            local enemyOrk = nil
+            local enemyOrkScript = nil
+            if nameA == "MainBoss" then
+                enemyOrk = entityA
+                
+            end
+
+            if nameB == "MainBoss" then
                 enemyOrk = entityB
             end
             if enemyOrk ~= nil then               
@@ -631,6 +699,22 @@ function chargedZoneUpdate(dt)
                     end
 
                     if name == "EnemyTank" then  
+                        enemyOrkScript = entity:get_component("ScriptComponent")
+                        if enemyOrkScript ~= nil then
+                    
+                            if enemyOrkScript.shieldHealth > 0 then
+                                -- bulletDamageParticleComponent:emit(20)
+                                enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
+                                playerScript.makeDamage = true
+                            else
+                                -- bulletDamageParticleComponent:emit(20)
+                                enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
+                                playerScript.makeDamage = true
+                            end
+                        end
+                    end
+
+                    if name == "MainBoss" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then
                     

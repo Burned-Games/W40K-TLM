@@ -56,8 +56,9 @@ local timeSinceLastStab = 0
 local stabCooldown = 2 
 local stabCooldownTimer = 0 
 
-local invulnerability = 0.1
+local invulnerability = 1
 local timeSinceLastHit = 0
+local bool = false
 
 local currentPathIndex = 1
 

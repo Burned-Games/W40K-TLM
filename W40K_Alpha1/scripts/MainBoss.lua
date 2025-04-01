@@ -38,8 +38,8 @@ local lightningTransf = nil
 local lightningCollider = nil
 local lightningRb = nil
 
-enemyHealth = 150
-local bossMaxHealth = 150
+enemyHealth = 500
+local bossMaxHealth = 500
 shieldHealth = 30
 local bossDamage = 25
 local moveSpeed = 5
