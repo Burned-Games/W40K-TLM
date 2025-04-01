@@ -71,7 +71,7 @@ function on_ready()
 
         if nameA == "Player" or nameB == "Player" then
             if currentState ~= state.Attack then
-                print("Player en contacto con el Kamikaze! Cambiando a Attack.")
+                --print("Player en contacto con el Kamikaze! Cambiando a Attack.")
                 currentState = state.Attack
             end
         end
@@ -157,7 +157,7 @@ function player_distance()
     end
 
     if not playerDetected and playerDistance <= detectDistance then
-        print("Player detectado! Pasando de Idle a Move.")
+        --print("Player detectado! Pasando de Idle a Move.")
         currentState = state.Move
         playerDetected = true
     end
@@ -224,11 +224,11 @@ function detect_area()
     local maxDistance = 20.0
 
     -- Dibujar los tres rayos para depuración
-    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
-    Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
-    Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
-    Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
-    Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    ----Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    ----Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
+    ----Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    ----Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
+    ----Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
 
     -- Lanzar los rayos
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
@@ -279,7 +279,7 @@ function single_raycast()
     local origin = enemyTransf.position
     local maxDistance = 20.0
 
-    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    --Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
 
     local rayHit = Physics.Raycast(origin, direction, maxDistance)
 
@@ -392,7 +392,7 @@ function make_damage()
         if playerScript ~= nil then
 
             playerScript.playerHealth = playerScript.playerHealth - enemyDamage
-            print("PlayerHealth: " .. playerScript.playerHealth)
+            --print("PlayerHealth: " .. playerScript.playerHealth)
 
             return
         end

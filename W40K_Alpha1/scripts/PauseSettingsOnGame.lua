@@ -171,7 +171,7 @@ function on_update(dt)
             button3:set_state("Pressed")
             if(index == 2) then
                 sceneChanged = true
-                print("Saving game...")
+                --print("Saving game...")
             end
         end
 

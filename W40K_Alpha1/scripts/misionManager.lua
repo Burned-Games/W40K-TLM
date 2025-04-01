@@ -82,7 +82,7 @@ end
 
 -- Cleanup when the game exits
 function on_exit()
-    print("Mission cleared!")
+    --print("Mission cleared!")
 end
 
 
@@ -126,11 +126,11 @@ end
 -- Complete the current task
 function completeCurrentTask()
     if currentTaskIndex > #tasks then
-        print("All missions done!")
+        --print("All missions done!")
         return
     end
 
-    print("Mission done: " .. tasks[currentTaskIndex].description)
+    --print("Mission done: " .. tasks[currentTaskIndex].description)
     currentTaskIndex = currentTaskIndex + 1  -- Move to the next task
 
 
@@ -139,7 +139,7 @@ end
 -- Get the current task
 function getCurrentTask()
     if currentTaskIndex > #tasks then
-        --print("No mission")
+        ----print("No mission")
         return "All missions done!"
     else
         local description = tasks[currentTaskIndex].description

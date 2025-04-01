@@ -226,7 +226,7 @@ function take_damage(damage)
     
     if currentHealth <= 0 then
         --Logic to restart game
-        print("Game Over!")
+        --print("Game Over!")
     end
 end
 

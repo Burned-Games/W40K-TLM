@@ -105,7 +105,7 @@ upgradeDescriptions = {
 
 function add_scrap(amount)
     scrap = scrap + amount
-    print("Scrap added: " .. amount .. " - Total: " .. scrap)
+    --print("Scrap added: " .. amount .. " - Total: " .. scrap)
 end
 
 function get_scrap()
@@ -123,14 +123,14 @@ function buy_upgrade(category, upgrade)
     if can_buy(category, upgrade) then
         scrap = scrap - costs[category][upgrade]
         upgrades[category][upgrade] = true
-        print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. scrap)
+        --print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. scrap)
         apply_to_player(player)
         return true
     else
         if upgrades[category][upgrade] then
-            print("ERROR: This upgrade has already been purchased")
+            --print("ERROR: This upgrade has already been purchased")
         else
-            print("ERROR: Not enough scrap. You need: " .. costs[category][upgrade] .. ", You have: " .. scrap)
+            --print("ERROR: Not enough scrap. You need: " .. costs[category][upgrade] .. ", You have: " .. scrap)
         end
         return false
     end
@@ -231,8 +231,8 @@ function apply_to_player(player)
     shotgun.shotgun_fire_rate = get_shoot_cooldown(BASE_VALUES.shootCoolDownShotgun)
     shotgun.damage = get_damage(BASE_VALUES.damageShotgun)
     
-    print("Upgrades applied to player")
-    print("Max health: " .. player.playerHealth)
+    --print("Upgrades applied to player")
+    --print("Max health: " .. player.playerHealth)
     handle_visuals()
     return player
 end

@@ -615,9 +615,9 @@ function chargedZoneUpdate(dt)
      if secondCounterTimes < 5 then
             
         secondCounter = secondCounter + dt
-         --print("secondCounter", secondCounter)
+         ----print("secondCounter", secondCounter)
      else
-        print("chargedZone Finished")
+        --print("chargedZone Finished")
         activateZone = false
      end
 
@@ -651,7 +651,7 @@ function chargedZoneUpdate(dt)
                 end
 
                 if distance < zoneRadius then
-                print("closeeeee")
+                --print("closeeeee")
                     local name = entity:get_component("TagComponent").tag
 
                     if name == "EnemyOrk" then  
@@ -667,7 +667,7 @@ function chargedZoneUpdate(dt)
                                 enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
                                 playerScript.makeDamage = true
                             end
-                            print("damage dealed")
+                            --print("damage dealed")
                         end
                     end
 
@@ -679,7 +679,7 @@ function chargedZoneUpdate(dt)
                             enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - chargeZoneDamagePerSecond
                             playerScript.makeDamage = true
                         end
-                        print("damage dealed")
+                        --print("damage dealed")
                     end 
                     
                     if name == "EnemyKamikaze" then  
@@ -736,7 +736,7 @@ function chargedZoneUpdate(dt)
         
         secondCounter = 0
         secondCounterTimes = secondCounterTimes + 1
-        print("secondCounterTimes", secondCounterTimes)
+        --print("secondCounterTimes", secondCounterTimes)
 
     end
 

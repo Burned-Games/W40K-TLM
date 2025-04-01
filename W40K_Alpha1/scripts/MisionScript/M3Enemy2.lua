@@ -18,14 +18,14 @@ function on_update(dt)
     if Input.is_key_pressed(Input.keycode.V) then
         if mission6Component.m7_missionOpen == true then
             missionManagerComponent.enemyDie_M7 = missionManagerComponent.enemyDie_M7-1
-            print("Enemy die")
+            --print("Enemy die")
         end
     end
 
     if Input.is_key_pressed(Input.keycode.J) then
         if mission8Component.m10_missionOpen == true then
             missionManagerComponent.enemyDie_M10 = missionManagerComponent.enemyDie_M10-1
-            print("Enemy die")
+            --print("Enemy die")
         end
     end
 end

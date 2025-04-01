@@ -61,7 +61,7 @@ function on_update(dt)
             button3:set_state("Pressed")
             if(index == 2) then
                 sceneChanged = true
-                print("Saving game...")
+                --print("Saving game...")
             end
         end
 
@@ -76,7 +76,7 @@ function on_update(dt)
             button4:set_state("Pressed")
             if(index == 3) then
                 -- preguntar como cerrar el juego 
-                print("Exiting game...")
+                --print("Exiting game...")
             end
         end
     end

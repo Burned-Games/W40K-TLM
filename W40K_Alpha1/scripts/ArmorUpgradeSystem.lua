@@ -80,7 +80,7 @@ function handle_fervor_astartes(dt)
     end
 
     if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesCooldown <= 0 and not fervorAstartesStandardPlaced then
-        print("Colocando estandarte")
+        --print("Colocando estandarte")
         place_fervor_astartes_standard(playerPosition, standardTransform)
 
     end
@@ -89,7 +89,7 @@ function handle_fervor_astartes(dt)
         fervorAstartesTimer = fervorAstartesTimer + dt
 
         if fervorAstartesTimer >= fervorAstartesDuration then
-            print("[Fervor Astartes] Tiempo agotado - Finalizando efecto")
+            --print("[Fervor Astartes] Tiempo agotado - Finalizando efecto")
             end_fervor_astartes(standardTransform)
         else
 

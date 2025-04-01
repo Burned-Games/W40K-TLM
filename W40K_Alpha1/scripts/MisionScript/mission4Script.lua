@@ -11,7 +11,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag   
     if nameA == "Player" or nameB == "Player" then
         m4_Clear =true
-        print("player in zone")
+        --print("player in zone")
     end
     end)
     -- Add initialization code here

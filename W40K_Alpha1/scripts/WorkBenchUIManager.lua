@@ -304,12 +304,12 @@ function handle_gun_controls(dt)
                 local success = upgradeManager.buy_upgrade("weapons", currentUpgrade)
                 
                 if success then
-                    --print("Purchased upgrade: " .. currentUpgrade)
+                    ----print("Purchased upgrade: " .. currentUpgrade)
                     find_next_available_upgrade("weapons")
                     update_ui()
                 end
             else
-                --print("Error: Invalid upgrade index")
+                ----print("Error: Invalid upgrade index")
             end
         elseif confirmState ~= Input.state.Down then
             confirmPressed = false
@@ -322,7 +322,7 @@ function handle_gun_controls(dt)
         if(confirmState == Input.state.Down and not confirmPressed) then
             confirmPressed = true
             gunExitButton:set_state("Pressed")
-            --print("Gun Exit button pressed!")
+            ----print("Gun Exit button pressed!")
             hide_ui()
         elseif confirmState ~= Input.state.Down then
             confirmPressed = false
@@ -368,12 +368,12 @@ function handle_character_controls(dt)
                 local success = upgradeManager.buy_upgrade("armor", currentUpgrade)
                 
                 if success then
-                    --print("Purchased character upgrade: " .. currentUpgrade)
+                    ----print("Purchased character upgrade: " .. currentUpgrade)
                     find_next_available_upgrade("armor")
                     update_ui()
                 end
             else
-                --print("Error: Invalid character upgrade index")
+                ----print("Error: Invalid character upgrade index")
             end
         elseif confirmState ~= Input.state.Down then
             confirmPressed = false
@@ -386,7 +386,7 @@ function handle_character_controls(dt)
         if(confirmState == Input.state.Down and not confirmPressed) then
             confirmPressed = true
             charExitButton:set_state("Pressed")
-            --print("Character Exit button pressed!")
+            ----print("Character Exit button pressed!")
             hide_ui()
         elseif confirmState ~= Input.state.Down then
             confirmPressed = false

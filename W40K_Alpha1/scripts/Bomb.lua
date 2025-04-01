@@ -108,7 +108,7 @@ function make_damage()
         if playerScript ~= nil then
 
             playerScript.playerHealth = playerScript.playerHealth - bombDamage
-            print("PlayerHealth: " .. playerScript.playerHealth)
+            --print("PlayerHealth: " .. playerScript.playerHealth)
 
             return
         end

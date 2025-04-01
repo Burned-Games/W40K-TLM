@@ -126,7 +126,7 @@ function on_update(dt)
                 ammo = maxAmmo  -- reload bullet
                 is_reloading = false
             else
-                --print("in reload")
+                ----print("in reload")
                 return  -- in reload cant shoot
             end
         end
@@ -138,15 +138,15 @@ function on_update(dt)
                 shoot(dt)
                 next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
             elseif ammo == 0 then
-                --print("no bullet")
+                ----print("no bullet")
             else
-                --print("fire colddown")
+                ----print("fire colddown")
             end
         end
 
         -- reload
         if ammo==0 and not is_reloading then
-            --print("Start reload")
+            ----print("Start reload")
             is_reloading = true
             reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
         end
@@ -189,7 +189,7 @@ end
 function shoot(dt)
     local playerPosition = playerTransf.position
     local baseAngle = playerScript.angleRotation  
-    --print("Player Rotation (Y):", playerTransf.rotation.y)
+    ----print("Player Rotation (Y):", playerTransf.rotation.y)
 
     for i, bullet in ipairs(bullets) do
         local angleOffset = (i - (bulletCount / 2)) * spreadAngle  -- angle
@@ -243,7 +243,7 @@ function handle_bullet_collision(entityA, entityB)
                 enemyPosition.z - bulletPosition.z
             ))
             
-            --print("Knockback Direction: ", knockbackDirection.x, knockbackDirection.z)
+            ----print("Knockback Direction: ", knockbackDirection.x, knockbackDirection.z)
             
             local knockbackVelocity = Vector3.new(
                 knockbackDirection.x * knockbackForce,
@@ -344,7 +344,7 @@ function update_joystick_position()
 
     granadeEntity:get_component("TransformComponent").position = targetGranadePosition
 
-    --print("Move Offset:", offset.x, offset.z)
+    ----print("Move Offset:", offset.x, offset.z)
 end
 
 function handleGranade(dt)

@@ -273,7 +273,7 @@ function update_state(dt)
         set_new_state(state.Rage)
         return
     end
-    print("updating")
+    --print("updating")
     local attackDistance = 25  
     
     if isAttacking and distance <= attackDistance then
@@ -418,7 +418,7 @@ function shield_state(dt)
     shieldTransf.position = Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z)
     shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
 
-    log("Shield Health: " .. shieldHealth)
+    --log("Shield Health: " .. shieldHealth)
 end
 
 function move_shield()
@@ -470,7 +470,7 @@ function rage_state(dt)
 end
 
 function lightning_attack()
-    log("Lightning attack")
+    --log("Lightning attack")
     if lightningTransf and bossTransf and playerTransf then
         lightningRb:set_position(Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z))
 
@@ -571,7 +571,7 @@ function make_damage()
 
             if playerScript.playerHealth > 0 then
                 playerScript.playerHealth = playerScript.playerHealth - damage
-                log("PlayerHealth " .. playerScript.playerHealth)
+                --log("PlayerHealth " .. playerScript.playerHealth)
             end
 
             --audioDanoPlayerMusic:pause()
@@ -584,7 +584,7 @@ end
 
 
 function waaaagh_ray()
-    log("Steel Claw desata el Rayo de Waaaagh!")
+    --log("Steel Claw desata el Rayo de Waaaagh!")
 end
 
 local currentRotationY = 0
