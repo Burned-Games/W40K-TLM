@@ -35,6 +35,8 @@ function on_update(dt)
             if(index == 0) then
                 button1:set_state("Pressed")
                 sceneChanged = true
+                save_progress("zonePlayer", 0)
+                save_progress("level", 1)
                 SceneManager.change_scene("level1.TeaScene")
             end
         end
@@ -86,7 +88,7 @@ function on_update(dt)
             button4:set_state("Pressed")
             if(index == 3) then
                 -- preguntar como cerrar el juego 
-                print("Exiting game...")
+                --print("Exiting game...")
             end
         end
     end

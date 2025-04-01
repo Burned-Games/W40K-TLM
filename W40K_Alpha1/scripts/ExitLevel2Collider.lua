@@ -12,9 +12,8 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
        
         if nameA == "Player" or nameB == "Player" then
-            changeScene = true
-            
             save_progress("level", 3)
+            changeScene = true
         end
     end)
     

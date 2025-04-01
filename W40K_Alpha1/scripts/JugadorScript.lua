@@ -143,12 +143,15 @@ function on_ready()
     combatMusic:play()
     explorationMusic:play()
 
+    
     self:get_component("RigidbodyComponent"):on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
+        local newIndex = zonePlayer + 1
 
-        if nameA == "Checkpoint" .. tostring(zonePlayer) or nameB == "Checkpoint" .. tostring(zonePlayer) then
+        if nameA == "Checkpoint" .. tostring(newIndex) or nameB == "Checkpoint" .. tostring(newIndex) then           
             save_progress("zonePlayer", newIndex)
+            zonePlayer = newIndex
         end
     end)
 
@@ -159,9 +162,9 @@ function on_ready()
         current_scene:get_entity_by_name("Checkpoint2"):get_component("RigidbodyComponent").rb:set_trigger(true)
     end
 
-    zonePlayer = load_progress("zonePlayer", 1)
-    if level == 1 and zonePlayer > 1 then
-        playerRb:set_position(checkpointsPosition[zonePlayer - 1])
+    zonePlayer = load_progress("zonePlayer", 0)
+    if level == 1 and zonePlayer >= 1 then
+        playerRb:set_position(checkpointsPosition[zonePlayer])
         animacionEntradaRealizada = true
     end
 end
@@ -770,7 +773,7 @@ function attract_scrap(dt)
             math.abs(playerPos.y - scrap.position.y),
             math.abs(playerPos.z - scrap.position.z)
         )
-        --print("algo", cercania.x, cercania.y, cercania.z)
+        ----print("algo", cercania.x, cercania.y, cercania.z)
 
         if cercania.x < 2 and cercania.y < 2 and cercania.z < 2 then
             --current_scene:destroy_entity(tuplaP1[partOfList])
