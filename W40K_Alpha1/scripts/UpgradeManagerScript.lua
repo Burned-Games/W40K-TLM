@@ -124,7 +124,7 @@ function buy_upgrade(category, upgrade)
         scrap = scrap - costs[category][upgrade]
         upgrades[category][upgrade] = true
         print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. scrap)
-        apply_to_player()
+        apply_to_player(player)
         return true
     else
         if upgrades[category][upgrade] then
@@ -194,7 +194,7 @@ end
 
 function get_max_health(baseHealth)
     if has_upgrade("armor", "healthBoost") then
-        return baseHealth * MULTIPLIERS.armor.healthBoost
+        return baseHealth + MULTIPLIERS.armor.healthBoost
     end
     return baseHealth
 end
@@ -217,7 +217,7 @@ end
 ----------------------------------
 -- APPLY UPGRADES TO PLAYER
 ----------------------------------
-function apply_to_player()
+function apply_to_player(player)
     -- Health
     player.playerHealth = get_max_health(BASE_VALUES.maxHealth)
     
@@ -232,7 +232,9 @@ function apply_to_player()
     shotgun.damage = get_damage(BASE_VALUES.damageShotgun)
     
     print("Upgrades applied to player")
+    print("Max health: " .. player.playerHealth)
     handle_visuals()
+    return player
 end
 
 function on_ready()
