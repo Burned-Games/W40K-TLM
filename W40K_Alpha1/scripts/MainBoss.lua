@@ -66,6 +66,7 @@ local isDamaging = false
 local damageTimer = 0
 local timeSinceLastDamage = 0
 local damagePerSecond = 15
+local isDead = true
 
 local stateDelayTimer = 0
 local stateDelayDuration = 1
@@ -185,6 +186,10 @@ end
 -- FSM General
 function on_update(dt)
 
+    if isDead then
+        return
+    end
+    end
     if enemyHealth <= 0 then
         die()
     end

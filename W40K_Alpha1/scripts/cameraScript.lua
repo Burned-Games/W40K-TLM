@@ -67,7 +67,7 @@ function on_update(dt)
 
     if playerScript and playerScript.moveDirection then
         if playerScript.moveDirection.x ~= 0 and playerScript.moveDirection.z ~= 0 then
-            updateEnemyActivation()
+            --updateEnemyActivation()
         end
         -- Add update code here
         local zoomOffSet = Vector3.new(baseOffset.x * (1 + zoom * 0.2), baseOffset.y * (1 + zoom * 0.2), baseOffset.z * (1 + zoom * 0.2))  
