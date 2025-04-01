@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "level2navmesh_Cylinder.017",
+                        "value": {
+                            "value0": 11927546430028740127
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "level2navmesh.glb_Mat0",
+                        "value": {
+                            "value0": 1344309534768474596
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 7375811302855279904
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "mapa/blocking_navmesh/level2navmesh.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/7375811302855279904.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
