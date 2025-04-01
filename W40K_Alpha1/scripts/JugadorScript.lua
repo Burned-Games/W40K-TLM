@@ -152,6 +152,8 @@ function on_ready()
         if nameA == "Checkpoint" .. tostring(newIndex) or nameB == "Checkpoint" .. tostring(newIndex) then           
             save_progress("zonePlayer", newIndex)
             zonePlayer = newIndex
+            save_progress("scrap", scrapCounter)
+            save_progress("health", playerHealth)
         end
     end)
 
@@ -166,6 +168,15 @@ function on_ready()
     if level == 1 and zonePlayer >= 1 then
         playerRb:set_position(checkpointsPosition[zonePlayer])
         animacionEntradaRealizada = true
+
+        scrapCounter = load_progress("scrapCounter", 0)
+
+        local newHealth = load_progress("health", 100)
+        if newHealth > 80 then
+            playerHealth = newHealth
+        else
+            playerHealth = 80
+        end
     end
 end
 
