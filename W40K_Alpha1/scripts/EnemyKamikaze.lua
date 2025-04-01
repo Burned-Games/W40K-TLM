@@ -87,7 +87,9 @@ end
 
 -- FSM Kamikaze
 function on_update(dt)
-
+    if player == nil or isDead == true then                             -- Comprueba si el player existe o si el enemigo esta muerto para evitar entrar en el update 
+        return                                                          -- (poned las variables, ahora no tienen referencia)
+    end
     if zone_set ~= true then
         check_zone()
         zone_set = true
@@ -99,9 +101,7 @@ function on_update(dt)
         return
     end
 
-    if player == nil or isDead == true then                             -- Comprueba si el player existe o si el enemigo esta muerto para evitar entrar en el update 
-        return                                                          -- (poned las variables, ahora no tienen referencia)
-    end
+
 
     if not hasExploded and enemyHealth <= 0 then
         drop_bomb()
