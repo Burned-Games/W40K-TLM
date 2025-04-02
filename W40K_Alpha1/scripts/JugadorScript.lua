@@ -660,8 +660,10 @@ function checkPlayerDeath(dt)
             currentAnim = 4
             animator:set_current_animation(currentAnim)
             deathAnimationSetted = true
+            playerRb:set_velocity(Vector3.new(0, 0, 0))
         end
         playerHealth = 0
+        playerTransf.rotation.y = math.deg(angleRotation)
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
             sceneChanged = true
