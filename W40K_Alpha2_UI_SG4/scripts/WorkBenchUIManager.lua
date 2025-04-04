@@ -263,6 +263,7 @@ function on_update(dt)
     -- if Input.is_key_pressed(Input.keycode.I) then
     --     hide_ui()
     -- end
+    
     local leftShoulderState = Input.get_button(Input.action.Grenade)
     local rightShoulderState = Input.get_button(Input.action.Grenade)
     
@@ -285,6 +286,11 @@ function on_update(dt)
         handle_gun_controls(dt)
     else
         handle_character_controls(dt)
+    end
+
+    local cancelState = Input.get_button(Input.action.Cancel)
+    if cancelState == Input.state.Down and isWorkBenchOpen then
+        hide_ui()
     end
 end
 

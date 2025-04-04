@@ -116,6 +116,8 @@ function on_ready()
     if UpgradeManager ~= nil then
         UpgradeManager:apply_to_player(self)
     end
+
+    workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
     --UpgradeManager END
 
     playerTransf = self:get_component("TransformComponent")
@@ -187,6 +189,12 @@ function on_ready()
 end
 
 function on_update(dt)
+    
+    checkPlayerDeath(dt)
+
+    if workbenchUIManager and workbenchUIManager.isWorkBenchOpen then
+        return
+    end
 
     if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
         attractionActive = not attractionActive 
@@ -199,7 +207,6 @@ function on_update(dt)
     
     end
 
-    checkPlayerDeath(dt)
     handleWeaponSwitch(dt)
     updateEntranceAnimation(dt)
     if deathAnimationSetted or swordScript.slashed or animacionEntradaRealizada == false then
@@ -685,6 +692,10 @@ function take_damage(amount)
     local finalDamage = amount * damageReduction
     playerHealth = playerHealth - finalDamage
     tookDamage = true
+
+    if workbenchUIManager.isWorkBenchOpen then
+        workbenchUIManager.hide_ui()
+    end
     
 
 end
