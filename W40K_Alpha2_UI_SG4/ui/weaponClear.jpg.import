@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 10298752251684759490
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/weaponClear.jpg"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10298752251684759490.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

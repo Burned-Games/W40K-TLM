@@ -1,0 +1,257 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "level3blockout_Cylinder.010",
+                        "value": {
+                            "value0": 11785825750223315898
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cube.119",
+                        "value": {
+                            "value0": 10783224046019197830
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.050",
+                        "value": {
+                            "value0": 13732209433310531024
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.052",
+                        "value": {
+                            "value0": 1950372560954913325
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.014",
+                        "value": {
+                            "value0": 1694293797994223308
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.015",
+                        "value": {
+                            "value0": 7627934537111884073
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.016",
+                        "value": {
+                            "value0": 10170379939436746307
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.025",
+                        "value": {
+                            "value0": 14234021478957480938
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.070",
+                        "value": {
+                            "value0": 12076913484091060080
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.071",
+                        "value": {
+                            "value0": 4675862365867012995
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.072",
+                        "value": {
+                            "value0": 11233784312448220605
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.073",
+                        "value": {
+                            "value0": 6412544214487501417
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.074",
+                        "value": {
+                            "value0": 17436156488394006569
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.075",
+                        "value": {
+                            "value0": 8892222281020470959
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.076",
+                        "value": {
+                            "value0": 11105466108316759659
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.077",
+                        "value": {
+                            "value0": 5180429053093997591
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.078",
+                        "value": {
+                            "value0": 15767117852833111135
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.079",
+                        "value": {
+                            "value0": 7385892988889337095
+                        }
+                    },
+                    {
+                        "key": "level3blockout_Cylinder.080",
+                        "value": {
+                            "value0": 11240794275090472517
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Cylinder.040_Mat0",
+                        "value": {
+                            "value0": 15417932629386439597
+                        }
+                    },
+                    {
+                        "key": "Cylinder.046_Mat0",
+                        "value": {
+                            "value0": 6042774259450343194
+                        }
+                    },
+                    {
+                        "key": "Pared.084_Mat0",
+                        "value": {
+                            "value0": 16783279661639281632
+                        }
+                    },
+                    {
+                        "key": "Cylinder.011_Mat0",
+                        "value": {
+                            "value0": 18398570665365448964
+                        }
+                    },
+                    {
+                        "key": "Cylinder.023_Mat0",
+                        "value": {
+                            "value0": 5270767437686096743
+                        }
+                    },
+                    {
+                        "key": "Cylinder.041_Mat0",
+                        "value": {
+                            "value0": 17302340314204486794
+                        }
+                    },
+                    {
+                        "key": "Cylinder.042_Mat0",
+                        "value": {
+                            "value0": 4445739103740737880
+                        }
+                    },
+                    {
+                        "key": "Cylinder.043_Mat0",
+                        "value": {
+                            "value0": 799169647298311618
+                        }
+                    },
+                    {
+                        "key": "Cylinder.044_Mat0",
+                        "value": {
+                            "value0": 7171294360837181389
+                        }
+                    },
+                    {
+                        "key": "Cylinder.045_Mat0",
+                        "value": {
+                            "value0": 7639314296186928841
+                        }
+                    },
+                    {
+                        "key": "Cylinder.047_Mat0",
+                        "value": {
+                            "value0": 4210924419572198363
+                        }
+                    },
+                    {
+                        "key": "Cylinder.048_Mat0",
+                        "value": {
+                            "value0": 571988518726196841
+                        }
+                    },
+                    {
+                        "key": "Cylinder.049_Mat0",
+                        "value": {
+                            "value0": 1100125955705353389
+                        }
+                    },
+                    {
+                        "key": "Cylinder.050_Mat0",
+                        "value": {
+                            "value0": 1595092753119417478
+                        }
+                    },
+                    {
+                        "key": "Cylinder.051_Mat0",
+                        "value": {
+                            "value0": 5533774773543437942
+                        }
+                    },
+                    {
+                        "key": "Cylinder.052_Mat0",
+                        "value": {
+                            "value0": 2232405695921624408
+                        }
+                    },
+                    {
+                        "key": "Cylinder.053_Mat0",
+                        "value": {
+                            "value0": 8842419243834067415
+                        }
+                    },
+                    {
+                        "key": "Cylinder.054_Mat0",
+                        "value": {
+                            "value0": 4420806034077860358
+                        }
+                    },
+                    {
+                        "key": "Cylinder.055_Mat0",
+                        "value": {
+                            "value0": 13526427013348118059
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 4249869690750351381
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "mapa/blocking_navmesh/level3blockout.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/4249869690750351381.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

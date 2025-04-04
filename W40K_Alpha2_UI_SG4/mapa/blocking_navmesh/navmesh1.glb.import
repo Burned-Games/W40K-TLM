@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "navmesh1_Cube.1306",
+                        "value": {
+                            "value0": 17296588716891094895
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "navmesh1.glb_Mat0",
+                        "value": {
+                            "value0": 16117575514583411736
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 2463978026741637799
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "mapa/blocking_navmesh/navmesh1.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/2463978026741637799.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

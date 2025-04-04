@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 11365217275645258483
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "mapa/DianaFinal_lp_Material_001_Metallic-DianaFinal_lp_Material_001_Roughness.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11365217275645258483.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "P_Anvil_1_Cube.003",
+                        "value": {
+                            "value0": 11566666300929708678
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Anvil_Mat0",
+                        "value": {
+                            "value0": 11464637615562051672
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 3992296576680684454
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/props/P_Anvil_1/P_Anvil_1.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/3992296576680684454.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

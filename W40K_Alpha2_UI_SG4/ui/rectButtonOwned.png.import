@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 5400469236609611136
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/rectButtonOwned.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/5400469236609611136.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

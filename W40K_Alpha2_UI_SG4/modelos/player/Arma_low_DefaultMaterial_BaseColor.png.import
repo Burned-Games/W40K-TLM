@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 8285700068054986515
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "modelos/player/Arma_low_DefaultMaterial_BaseColor.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/8285700068054986515.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

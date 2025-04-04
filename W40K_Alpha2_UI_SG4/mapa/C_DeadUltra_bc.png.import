@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 10731822702094230872
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "mapa/C_DeadUltra_bc.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10731822702094230872.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

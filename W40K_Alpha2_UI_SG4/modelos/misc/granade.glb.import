@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "granade_Hand_grenade",
+                        "value": {
+                            "value0": 4082509920717774673
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Diffuse_Color_Mat0",
+                        "value": {
+                            "value0": 11919739713865968547
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 12781100245703757683
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "modelos/misc/granade.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/12781100245703757683.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

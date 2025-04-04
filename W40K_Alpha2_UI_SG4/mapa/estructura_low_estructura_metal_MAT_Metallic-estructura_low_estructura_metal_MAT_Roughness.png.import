@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 905900573405869231
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "mapa/estructura_low_estructura_metal_MAT_Metallic-estructura_low_estructura_metal_MAT_Roughness.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/905900573405869231.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}
