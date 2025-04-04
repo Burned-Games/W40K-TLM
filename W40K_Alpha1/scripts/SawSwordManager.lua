@@ -64,7 +64,7 @@ end
 function Slash()
     
     for _, entity in ipairs(enemies) do 
-        if entity ~= player and entity:has_component("RigidbodyComponent") then
+        if entity ~= player and entity:has_component("RigidbodyComponent") and entity:is_active() then
             local entityRb = entity:get_component("RigidbodyComponent").rb
             local entityPos = entityRb:get_position()
 
@@ -89,22 +89,22 @@ function Slash()
             if distance < radiusAttack then
                 local name = entity:get_component("TagComponent").tag
 
-                if name == "EnemyOrk" then  
-                    enemyOrkScript = entity:get_component("ScriptComponent")
-                    if enemyOrkScript ~= nil then
+                if name == "EnemyOrk" or name == "EnemySupp" or name == "EnemyKamikaze" or name == "EnemyTank" or name == "MainBoss" then  
+                    local enemyScript = entity:get_component("ScriptComponent")
+                    if enemyScript ~= nil then
                 
-                        if enemyOrkScript.shieldHealth > 0 then
+                        if enemyScript.shieldHealth > 0 then
                             --bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
+                            enemyScript.shieldHealth = enemyScript.shieldHealth - damage
                             playerScript.makeDamage = true
                             playerScript.playerHealth = playerScript.playerHealth + HpStealed
                         else
                             ----bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
+                            enemyScript.enemyHealth = enemyScript.enemyHealth - damage
                             playerScript.makeDamage = true
                             playerScript.playerHealth = playerScript.playerHealth + HpStealed
                         end
-                        enemyOrkScript.pushed = true
+                        enemyScript.pushed = true
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
                         entityPos.y - playerTransf.position.y,
@@ -113,7 +113,7 @@ function Slash()
                     end
                 end
 
-                if name == "EnemySupp" then
+                --[[if name == "EnemySupp" then
                     enemySuppScript = entity:get_component("ScriptComponent")
                     if enemySuppScript ~= nil then
                 
@@ -130,7 +130,7 @@ function Slash()
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
                     end
                     
-                end 
+                end
                 
                 if name == "EnemyKamikaze" then  
                     enemyOrkScript = entity:get_component("ScriptComponent")
@@ -202,7 +202,7 @@ function Slash()
                         entityPos.z - playerTransf.position.z)
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
                     end
-                end
+                end]]
                 
 
                 

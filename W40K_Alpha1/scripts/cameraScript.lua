@@ -6,13 +6,17 @@ local playerDirectionX = 0
 local playerDirectionY = 0
 local playerDirectionZ = 0
 local cameraSpeed = 2
+--zoom
 local zoom = -1.5
+local baseZoom = -1.5
 local minZoom = -3.5
 local maxZoom = -1.5
 local zoomStep = 0.5
+local cameraBossActivated = false
 local baseOffset = Vector3.new(-10, 15, 10)
 local cameraTransform = nil
 local directionCached = false
+local smoothPos = Vector3.new(0, 0, 0)
 
 local offsetPlayer = 5
 
@@ -22,7 +26,11 @@ local entities = nil
 
 local orkEntities = nil
 
--- Camera Rotation -45,-45, 0
+--Shake
+local shakeAmount = 0
+local shakeDuration = 0
+local shakeDecay = 3
+
 function on_ready()
     -- Add initialization code here
     player = current_scene:get_entity_by_name("Player")
@@ -78,21 +86,61 @@ function on_update(dt)
     
         local currentPos = cameraTransform.position
 
-        local smoothPos = Vector3.lerp(currentPos, targetPos, dt * cameraSpeed)
+        smoothPos = Vector3.lerp(currentPos, targetPos, dt * cameraSpeed)
 
    
         cameraTransform.position = smoothPos
 
-        if Input.is_button_pressed(Input.controllercode.DpadUp) then
-            if zoom > minZoom then
-                zoom = zoom - zoomStep
-            end
-        elseif Input.is_button_pressed(Input.controllercode.DpadDown) then
-            if zoom < maxZoom then
-                zoom = zoom + zoomStep
+        if not cameraBossActivated then
+            if Input.is_button_pressed(Input.controllercode.DpadUp) then
+                if zoom > minZoom then
+                    zoom = zoom - zoomStep
+                end
+            elseif Input.is_button_pressed(Input.controllercode.DpadDown) then
+                if zoom < maxZoom then
+                    zoom = zoom + zoomStep
+                end
             end
         end
 
+    end
+
+    if Input.is_key_pressed(Input.keycode.L) then
+        startShake(3,5)
+    end
+
+    if Input.is_key_pressed(Input.keycode.J) then
+        startShake(1,5)
+    end
+
+    if Input.is_key_pressed(Input.keycode.G) then
+        startShake(0.2,5)
+    end
+
+    if Input.is_key_pressed(Input.keycode.O) then
+        if cameraBossActivated then
+            cameraBoss(false)
+        else
+            cameraBoss(true)
+        end
+    end
+
+
+
+    if shakeDuration > 0 then
+        local shakeOffset = Vector3.new(
+            (math.random() * 2 - 1) * shakeAmount,
+            (math.random() * 2 - 1) * shakeAmount,
+            (math.random() * 2 - 1) * shakeAmount
+        )
+
+        smoothPos = Vector3.new(smoothPos.x + shakeOffset.x, smoothPos.y + shakeOffset.y, smoothPos.z + shakeOffset.z) 
+
+        shakeDuration = shakeDuration - dt
+        shakeAmount = shakeAmount * math.exp(-shakeDecay * dt)
+        cameraTransform.position = smoothPos
+
+        print("shaaaaaaaaake")
     end
 end
 
@@ -130,6 +178,21 @@ function updateEnemyActivation()
             end
         end
     end
+end
+
+function startShake(amount, duration)
+    shakeAmount = amount
+    shakeDuration = duration
+end
+
+function cameraBoss(activate)
+    if activate then
+        zoom = 5
+    else
+        zoom = baseZoom
+    end
+    cameraBossActivated = activate
+
 end
 
 function on_exit()
