@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 3013428631301304464
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "player/C_Jetpack_BC.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/3013428631301304464.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

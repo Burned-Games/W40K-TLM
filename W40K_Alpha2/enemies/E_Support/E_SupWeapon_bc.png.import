@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 10069817323766975920
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "enemies/E_Support/E_SupWeapon_bc.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10069817323766975920.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

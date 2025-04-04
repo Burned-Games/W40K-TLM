@@ -1,0 +1,83 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Support_final_Mesh.004",
+                        "value": {
+                            "value0": 11442211724834016476
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.005",
+                        "value": {
+                            "value0": 12698979607916538125
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.001",
+                        "value": {
+                            "value0": 5573283723039382684
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.003",
+                        "value": {
+                            "value0": 12849026146812732170
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.002",
+                        "value": {
+                            "value0": 7458258358467050476
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh",
+                        "value": {
+                            "value0": 16247548900804841846
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.006",
+                        "value": {
+                            "value0": 1325739195238238754
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "E_SupWeapon_Mat0",
+                        "value": {
+                            "value0": 16113908639625489294
+                        }
+                    },
+                    {
+                        "key": "Support_Mat1",
+                        "value": {
+                            "value0": 17166608295640615426
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 13506481055856294051
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "enemies/E_Support/Support_final.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13506481055856294051.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
