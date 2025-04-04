@@ -345,14 +345,6 @@ function create_new_shield()
         
         if actualshield then
             transformShield = actualshield:get_component("TransformComponent")
-            
-            -- Configurar renderizado
-            local rendererComp = actualshield:get_component("MeshRendererComponent")
-            if rendererComp then
-                rendererComp.visible = true
-                rendererComp.enabled = true
-            end
-
             transformShield.scale = Vector3.new(1.3, 1.3, 1.3)
 
             return actualshield
@@ -414,7 +406,7 @@ function find_all_enemies()
     -- Clear existing enemies table to avoid duplicates
     Enemies = {}
     
-    enemyNames = { "EnemyOrk", "TankOrk", "EnemyKamikaze" }
+    enemyNames = { "EnemyOrk", "EnemyTank", "EnemyKamikaze" }
     local suppPos = suppEnemyTransf.position
 
     for _, name in ipairs(enemyNames) do

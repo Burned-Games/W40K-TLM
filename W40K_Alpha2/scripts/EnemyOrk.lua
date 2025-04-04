@@ -103,8 +103,8 @@ function on_ready()
     bulletRb = bulletComponent.rb
     bulletRb:set_trigger(true)
 
-    scrap = current_scene:get_entity_by_name("Scrap")
-    scrapTransform = scrap:get_component("TransformComponent")
+    -- scrap = current_scene:get_entity_by_name("Scrap")
+    -- scrapTransform = scrap:get_component("TransformComponent")
     
     bulletComponent:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
@@ -115,8 +115,8 @@ function on_ready()
         end
     end)
 
-    mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
-    mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
+    -- mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
+    -- mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
 
     if player ~= nil then
         playerDistance = get_distance(enemyTransf.position, playerTransf.position)
@@ -126,7 +126,7 @@ function on_ready()
     end
 
     --Mission
-    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+    -- mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
 end
 
@@ -135,12 +135,10 @@ end
 -- FSM del Orko Basico.
 function on_update(dt)
 
-    if zone_set ~= true then
-        check_zone()
-        zone_set = true
-    end
-
-
+    -- if zone_set ~= true then
+    --     check_zone()
+    --     zone_set = true
+    -- end
 
     if player == nil or isDead == true then 
         return 
@@ -602,53 +600,53 @@ function get_distance(pos1, pos2)
 
 end
 
-function check_zone()
-    if zoneNumber == 0 then
-        local zone1 = current_scene:get_entity_by_name("Zone1")
-        local zone2 = current_scene:get_entity_by_name("Zone2")
-        local zone3 = current_scene:get_entity_by_name("Zone3")
-        local zone1RbComponent = zone1:get_component("RigidbodyComponent")
-        local zone2RbComponent = zone2:get_component("RigidbodyComponent")
-        local zone3RbComponent = zone3:get_component("RigidbodyComponent")
+-- function check_zone()
+--     if zoneNumber == 0 then
+--         local zone1 = current_scene:get_entity_by_name("Zone1")
+--         local zone2 = current_scene:get_entity_by_name("Zone2")
+--         local zone3 = current_scene:get_entity_by_name("Zone3")
+--         local zone1RbComponent = zone1:get_component("RigidbodyComponent")
+--         local zone2RbComponent = zone2:get_component("RigidbodyComponent")
+--         local zone3RbComponent = zone3:get_component("RigidbodyComponent")
 
-        local zone1Rb = zone1RbComponent.rb
-        local zone2Rb = zone2RbComponent.rb
-        local zone3Rb = zone3RbComponent.rb
-        zone1Rb:set_trigger(true)
-        zone2Rb:set_trigger(true)
-        zone3Rb:set_trigger(true)
+--         local zone1Rb = zone1RbComponent.rb
+--         local zone2Rb = zone2RbComponent.rb
+--         local zone3Rb = zone3RbComponent.rb
+--         zone1Rb:set_trigger(true)
+--         zone2Rb:set_trigger(true)
+--         zone3Rb:set_trigger(true)
 
-        zone1RbComponent:on_collision_enter(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
+--         zone1RbComponent:on_collision_enter(function(entityA, entityB)
+--             local nameA = entityA:get_component("TagComponent").tag
+--             local nameB = entityB:get_component("TagComponent").tag
 
-            if nameA == "Zone1" or nameB == "Zone1" then
-                zoneNumber = 1
-            end
-        end)
-        zone2RbComponent:on_collision_enter(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
+--             if nameA == "Zone1" or nameB == "Zone1" then
+--                 zoneNumber = 1
+--             end
+--         end)
+--         zone2RbComponent:on_collision_enter(function(entityA, entityB)
+--             local nameA = entityA:get_component("TagComponent").tag
+--             local nameB = entityB:get_component("TagComponent").tag
 
-            if nameA == "Zone2" or nameB == "Zone2" then
-                zoneNumber = 2
-            end
-        end)
-        zone3RbComponent:on_collision_enter(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
+--             if nameA == "Zone2" or nameB == "Zone2" then
+--                 zoneNumber = 2
+--             end
+--         end)
+--         zone3RbComponent:on_collision_enter(function(entityA, entityB)
+--             local nameA = entityA:get_component("TagComponent").tag
+--             local nameB = entityB:get_component("TagComponent").tag
 
-            if nameA == "Zone3" or nameB == "Zone3" then
-                zoneNumber = 3
-            end
-        end)
-    end
+--             if nameA == "Zone3" or nameB == "Zone3" then
+--                 zoneNumber = 3
+--             end
+--         end)
+--     end
 
-    --[[if zoneNumber < playerScript.zonePlayer then
-        enemyRb:set_position(Vector3.new(-500, 0, 0))
-        self:set_active(false)
-    end]]--
-end
+--     --[[if zoneNumber < playerScript.zonePlayer then
+--         enemyRb:set_position(Vector3.new(-500, 0, 0))
+--         self:set_active(false)
+--     end]]--
+-- end
 
 function die()
     currentState = state.Idle

@@ -17,9 +17,6 @@ local contadorDisparo = 0
 
 local angleRotation = 0
 
-
-
-
 maxAmmo = 24
 blasterammo = 0
 shootgunAmmo = 0
