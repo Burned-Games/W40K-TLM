@@ -43,6 +43,8 @@ local tackleHasDamaged = false
 zoneNumber = 0
 local zone_set = false
 
+priority = 2
+
 function on_ready()
     tankTransform = self:get_component("TransformComponent")
     tankRigidbody = self:get_component("RigidbodyComponent").rb

@@ -79,6 +79,8 @@ local pushedTimeCounter = 0
 zoneNumber = 0
 local zone_set = false
 
+priority = 1
+
 --Mision
 mission_Component = nil
 
