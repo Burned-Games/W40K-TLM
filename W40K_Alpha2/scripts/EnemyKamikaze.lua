@@ -50,6 +50,8 @@ local isExploding = false
 zoneNumber = 0
 local zone_set = false
 
+priority = 3
+
 function on_ready() 
     enemyTransf = self:get_component("TransformComponent")
     enemyNavmesh = self:get_component("NavigationAgentComponent")

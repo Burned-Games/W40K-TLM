@@ -82,6 +82,8 @@ local zone_set = false
 --Mision
 mission_Component = nil
 
+priority = 1
+
 
 function on_ready() 
 

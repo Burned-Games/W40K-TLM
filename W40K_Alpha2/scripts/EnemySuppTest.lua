@@ -81,6 +81,14 @@ function on_update(dt)
 
     change_state(dt) -- Funcion para cambiar de estados
 
+    if shieldCooldownActive then
+        shieldTimer = shieldTimer + dt 
+        if shieldTimer >= shieldCooldown then
+            shieldCooldownActive = false
+            canUseShield = true        
+        end
+    end
+
     -- FSM { Idle -> Move -> Attack}
     if currentState == state.Idle then
         idle_state(dt)
@@ -90,6 +98,7 @@ function on_update(dt)
     
     elseif currentState == state.Shield then
         shield_state(dt)
+        print ("Shield state")
     
     elseif currentState == state.Flee then
         flee_state(dt)
@@ -177,14 +186,9 @@ function move_state(dt)
         currentAnim = 1
     end
     
-    -- Añadir debug para verificar si estamos en este estado
-    print("En estado MOVE")
-    
     local enemyDistances = enemies_distance()
     local shieldStatuses = update_shield_status()
     
-    -- Debug para comprobar si tenemos enemigos
-    print("Número de enemigos detectados: " .. #Enemies)
     
     local validTargets = {}
     for _, distData in ipairs(enemyDistances) do
@@ -199,9 +203,6 @@ function move_state(dt)
             table.insert(validTargets, distData.enemy)
         end
     end
-
-    -- Debug para comprobar objetivos válidos
-    print("Número de objetivos válidos: " .. #validTargets)
 
     currentTarget = nil  -- Reset current target
     if #validTargets > 0 then
@@ -236,29 +237,12 @@ function move_state(dt)
     if currentTarget and currentTarget.transform then
         local targetPos = currentTarget.transform.position
         
-        -- Debug para comprobar el target
-        print("Objetivo seleccionado: " .. currentTarget.name .. " a distancia: " .. get_distance(suppEnemyTransf.position, targetPos))
-        
-        -- Comprobar si suppEnemyNav es válido
-        if not suppEnemyNav then
-            print("ERROR: suppEnemyNav es nil")
-            return
-        end
-        
         -- Actualización de ruta optimizada
         pathUpdateTimer = pathUpdateTimer + dt
         if pathUpdateTimer >= pathUpdateInterval or not lastTargetPos 
             or (lastTargetPos and get_distance(lastTargetPos, targetPos) > 1.0) then
-            
-            print("Actualizando path hacia el objetivo")
+
             suppEnemyNav.path = suppEnemyNav:find_path(suppEnemyTransf.position, targetPos)
-            
-            -- Debug para verificar si el path se generó
-            if suppEnemyNav.path and #suppEnemyNav.path > 0 then
-                print("Path creado con " .. #suppEnemyNav.path .. " puntos")
-            else
-                print("ERROR: No se pudo crear un path")
-            end
             
             lastTargetPos = targetPos
             pathUpdateTimer = 0
@@ -273,7 +257,6 @@ function move_state(dt)
             currentState = state.Shield
         end
     else
-        print("No hay objetivos válidos, cambiando a FLEE")
         currentState = state.Flee
     end
 end
@@ -286,53 +269,33 @@ function shield_state(dt)
         suppAnimator:set_current_animation(3)
         currentAnim = 3
     end
-    
-    -- Usar el objetivo actual seleccionado en move_state
+
     if currentTarget and currentTarget.transform then
         local targetPos = currentTarget.transform.position
         local distance = get_distance(suppEnemyTransf.position, targetPos)
-        
-        -- Verificar que seguimos en rango de escudo
+
         if distance <= shieldDistance then
-            -- Crear nuevo escudo
             create_new_shield()
-            
-            -- Aplicar escudo al objetivo
+
             if actualshield and currentTarget.script then
-                -- Posicionar el escudo en la posición del objetivo
                 if transformShield and currentTarget.transform then
                     transformShield.position = currentTarget.transform.position
                 end
-                
-                -- Establecer el booleano de escudo en el script del objetivo
                 currentTarget.script.haveShield = true
                 
-                -- Iniciar enfriamiento
+                -- Iniciar cooldown manualmente (sin corrutina)
                 canUseShield = false
-                
-                -- Configurar temporizador de enfriamiento (usando una corrutina)
-                current_scene:start_coroutine(function()
-                    local timer = 0
-                    while timer < shieldCooldown do
-                        timer = timer + current_scene:get_delta_time()
-                        coroutine.yield()
-                    end
-                    canUseShield = true
-                end)
+                shieldCooldownActive = true  -- Activar el flag
+                shieldTimer = 0              -- Reiniciar timer
             end
         end
-        
-        -- Después de aplicar el escudo, volver al estado de movimiento
+
         currentState = state.Move
-        
-        -- Actualizar la lista de enemigos después de aplicar un escudo
         find_all_enemies()
     else
-        -- Si no hay objetivo válido, volver al estado de movimiento
         currentState = state.Move
     end
 end
-
 function create_new_shield()
     -- Buscar prefab de escudo
     if prefabShield == nil then
@@ -536,7 +499,6 @@ end
 
 function follow_path(dt)
     if not suppEnemyNav or not suppEnemyNav.path or #suppEnemyNav.path == 0 then 
-        print("No hay path que seguir")
         if suppEnemyRb then
             suppEnemyRb:set_velocity(Vector3.new(0, 0, 0))
         end
@@ -545,7 +507,6 @@ function follow_path(dt)
     
     -- Check if index is valid
     if currentPathIndex > #suppEnemyNav.path then
-        print("Índice de path fuera de rango, reiniciando")
         currentPathIndex = 1
         if #suppEnemyNav.path == 0 then
             if suppEnemyRb then
@@ -557,9 +518,6 @@ function follow_path(dt)
 
     local nextPoint = suppEnemyNav.path[currentPathIndex]
     
-    -- Debug para verificar el punto al que nos movemos
-    print("Moviéndose hacia el punto: " .. nextPoint.x .. ", " .. nextPoint.z)
-    
     local direction = Vector3.new(
         nextPoint.x - suppEnemyTransf.position.x,
         0, -- Ignore Y for movement on plane
@@ -567,7 +525,6 @@ function follow_path(dt)
     )
 
     local distance = math.sqrt(direction.x^2 + direction.z^2)
-    print("Distancia al siguiente punto del path: " .. distance)
 
     if distance > 0.1 then
         local normalizedDirection = Vector3.new(
@@ -576,31 +533,13 @@ function follow_path(dt)
             direction.z / distance
         )
 
-        -- Use physics for movement
         if suppEnemyRb then
             -- Usar suppVelocity como velocidad de movimiento (definido en tu código original)
             local velocity = Vector3.new(normalizedDirection.x * suppVelocity, 0, normalizedDirection.z * suppVelocity)
-            
-            print("Aplicando velocidad: " .. velocity.x .. ", " .. velocity.z)
             suppEnemyRb:set_velocity(velocity)
-            
-        else
-            print("ERROR: suppEnemyRb es nil")
         end
 
         rotate_enemy(nextPoint)
-    else
-        print("Llegó al punto " .. currentPathIndex .. " del path")
-        if currentPathIndex < #suppEnemyNav.path then
-            currentPathIndex = currentPathIndex + 1
-            print("Avanzando al siguiente punto del path: " .. currentPathIndex)
-        else
-            -- We've reached the end of the path, stop movement
-            print("Fin del path alcanzado")
-            if suppEnemyRb then
-                suppEnemyRb:set_velocity(Vector3.new(0, 0, 0))
-            end
-        end
     end
 end
 
