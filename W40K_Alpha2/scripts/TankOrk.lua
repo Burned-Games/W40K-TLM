@@ -1,4 +1,4 @@
-local state = { Idle = 1, Move = 2, Chase = 3, Attack = 4, Tackle = 5 }
+local state = { Idle = 1, Chase = 2, Attack = 3, Tackle = 4 } 
 local currentState = state.Idle
 
 local player
@@ -61,10 +61,10 @@ end
 
 function on_update(dt)
 
-    if zone_set ~= true then
-        check_zone()
-        zone_set = true
-    end
+    -- if zone_set ~= true then
+    --     check_zone()
+    --     zone_set = true
+    -- end
 
     -- Update timer for path updates
     pathUpdateTimer = pathUpdateTimer + dt
@@ -116,10 +116,10 @@ function on_update(dt)
         rotate_tank(playerTransf.position)
     end
 
-    -- FSM { Idle -> Move -> Chase -> Attack -> Tackle}
+    -- FSM { Idle -> Chase -> Attack -> Tackle}
     if currentState == state.Idle then
         idle_state(dt)
-    elseif currentState == state.Move or currentState == state.Chase then
+    elseif currentState == state.Chase then 
         chase_state(dt)
     elseif currentState == state.Attack then
         attack_state(dt)
@@ -214,7 +214,7 @@ function change_state()
         elseif playerDetected then
             -- Player detected but not close enough for attack or tackle
             if currentState ~= state.Chase and currentState ~= state.Attack and currentState ~= state.Tackle then
-                currentState = state.Chase
+                currentState = state.Chase 
             end
         else
             -- Out of range, go idle
@@ -294,26 +294,11 @@ function detect_area()
     local intermediateRightHit = Physics.Raycast(origin, intermediateRightDirection, maxDistance)
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
     
-    if detect_player(centerHit) then
-        currentState = state.Move
+    if detect_player(centerHit) or detect_player(intermediateLeftHit) or detect_player(leftHit) or 
+       detect_player(intermediateRightHit) or detect_player(rightHit) then
+        currentState = state.Chase 
         playerDetected = true
         playerDistance = get_distance(origin, centerHit.hitPoint)
-    elseif detect_player(intermediateLeftHit) then
-        currentState = state.Move
-        playerDetected = true
-        playerDistance = get_distance(origin, intermediateLeftHit.hitPoint)
-    elseif detect_player(leftHit) then
-        currentState = state.Move
-        playerDetected = true
-        playerDistance = get_distance(origin, leftHit.hitPoint)
-    elseif detect_player(intermediateRightHit) then
-        currentState = state.Move
-        playerDetected = true
-        playerDistance = get_distance(origin, intermediateRightHit.hitPoint)
-    elseif detect_player(rightHit) then
-        currentState = state.Move
-        playerDetected = true
-        playerDistance = get_distance(origin, rightHit.hitPoint)
     end
 end
 
@@ -511,53 +496,53 @@ function die()
     isDead = true
 end
 
-function check_zone()
-    if zoneNumber == 0 then
-        local zone1 = current_scene:get_entity_by_name("Zone1")
-        local zone2 = current_scene:get_entity_by_name("Zone2")
-        local zone3 = current_scene:get_entity_by_name("Zone3")
-        local zone1RbComponent = zone1:get_component("RigidbodyComponent")
-        local zone2RbComponent = zone2:get_component("RigidbodyComponent")
-        local zone3RbComponent = zone3:get_component("RigidbodyComponent")
+-- function check_zone()
+--     if zoneNumber == 0 then
+--         local zone1 = current_scene:get_entity_by_name("Zone1")
+--         local zone2 = current_scene:get_entity_by_name("Zone2")
+--         local zone3 = current_scene:get_entity_by_name("Zone3")
+--         local zone1RbComponent = zone1:get_component("RigidbodyComponent")
+--         local zone2RbComponent = zone2:get_component("RigidbodyComponent")
+--         local zone3RbComponent = zone3:get_component("RigidbodyComponent")
 
-        local zone1Rb = zone1RbComponent.rb
-        local zone2Rb = zone2RbComponent.rb
-        local zone3Rb = zone3RbComponent.rb
-        zone1Rb:set_trigger(true)
-        zone2Rb:set_trigger(true)
-        zone3Rb:set_trigger(true)
+--         local zone1Rb = zone1RbComponent.rb
+--         local zone2Rb = zone2RbComponent.rb
+--         local zone3Rb = zone3RbComponent.rb
+--         zone1Rb:set_trigger(true)
+--         zone2Rb:set_trigger(true)
+--         zone3Rb:set_trigger(true)
 
-        zone1RbComponent:on_collision_enter(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
+--         zone1RbComponent:on_collision_enter(function(entityA, entityB)
+--             local nameA = entityA:get_component("TagComponent").tag
+--             local nameB = entityB:get_component("TagComponent").tag
 
-            if nameA == "Zone1" or nameB == "Zone1" then
-                zoneNumber = 1
-            end
-        end)
-        zone2RbComponent:on_collision_enter(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
+--             if nameA == "Zone1" or nameB == "Zone1" then
+--                 zoneNumber = 1
+--             end
+--         end)
+--         zone2RbComponent:on_collision_enter(function(entityA, entityB)
+--             local nameA = entityA:get_component("TagComponent").tag
+--             local nameB = entityB:get_component("TagComponent").tag
 
-            if nameA == "Zone2" or nameB == "Zone2" then
-                zoneNumber = 2
-            end
-        end)
-        zone3RbComponent:on_collision_enter(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
+--             if nameA == "Zone2" or nameB == "Zone2" then
+--                 zoneNumber = 2
+--             end
+--         end)
+--         zone3RbComponent:on_collision_enter(function(entityA, entityB)
+--             local nameA = entityA:get_component("TagComponent").tag
+--             local nameB = entityB:get_component("TagComponent").tag
 
-            if nameA == "Zone3" or nameB == "Zone3" then
-                zoneNumber = 3
-            end
-        end)
-    end
+--             if nameA == "Zone3" or nameB == "Zone3" then
+--                 zoneNumber = 3
+--             end
+--         end)
+--     end
 
-    if zoneNumber < playerScript.zonePlayer then
-        tankRigidbody:set_position(Vector3.new(-500, 0, 0))
-        self:set_active(false)
-    end
-end
+--     if zoneNumber < playerScript.zonePlayer then
+--         tankRigidbody:set_position(Vector3.new(-500, 0, 0))
+--         self:set_active(false)
+--     end
+-- end
 
 function on_exit() 
     -- Clean up code here
