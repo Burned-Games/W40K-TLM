@@ -264,14 +264,17 @@ function on_update(dt)
     --     hide_ui()
     -- end
     
-    local leftShoulderState = Input.get_button(Input.action.Grenade)
-    local rightShoulderState = Input.get_button(Input.action.Grenade)
+    local leftShoulderState = Input.get_button(Input.action.Skill2)
+    local rightShoulderState = Input.get_button(Input.action.Melee)
     
     if (leftShoulderState == Input.state.Down and not leftShoulderPressed) or 
-       (rightShoulderState == Input.state.Down and not rightShoulderPressed) then
+       (rightShoulderState == Input.state.Down and not rightShoulderPressed)  then
         leftShoulderPressed = (leftShoulderState == Input.state.Down)
         rightShoulderPressed = (rightShoulderState == Input.state.Down)
-        toggle_screen()
+        
+        if isWorkBenchOpen then
+            toggle_screen()
+        end
     else
         if leftShoulderState ~= Input.state.Down then
             leftShoulderPressed = false
