@@ -214,7 +214,7 @@ function on_update(dt)
 
 
 
-
+    autoaimUpdate()
     playerMovement(dt)
 
     
@@ -633,17 +633,104 @@ function normalizeAngle(angle)
     end
     return angle
 end
+
+function detect_enemy(rayHit)
+
+    return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity:get_component("TagComponent").tag == "EnemyOrk"
+
+end
+
+function autoaimUpdate()
+    local direction = Vector3.new(
+        math.sin(angleRotation), 
+        0, 
+        math.cos(angleRotation)
+    )
+
+    print(angleRotation)
+
+    -- Normalizar dirección para evitar distancias erróneas
+    local distance = math.sqrt(direction.x^2 + direction.z^2)
+    if distance > 0 then
+        direction.x = direction.x / distance
+        direction.z = direction.z / distance
+    end
+
+    -- Ángulo de separación en radianes (~30 grados)
+    local angleOffset = math.rad(7.5)  
+    local intermediateAngleOffset = math.rad(3.75)
+
+    -- Rotar la dirección hacia la izquierda y derecha
+    local leftDirection = Vector3.new(
+        direction.x * math.cos(angleOffset) - direction.z * math.sin(angleOffset),
+        0,
+        direction.x * math.sin(angleOffset) + direction.z * math.cos(angleOffset)
+    )
+
+    local rightDirection = Vector3.new(
+        direction.x * math.cos(-angleOffset) - direction.z * math.sin(-angleOffset),
+        0,
+        direction.x * math.sin(-angleOffset) + direction.z * math.cos(-angleOffset)
+    )
+
+    local intermediateLeftDirection = Vector3.new(
+        direction.x * math.cos(intermediateAngleOffset) - direction.z * math.sin(intermediateAngleOffset),
+        0,
+        direction.x * math.sin(intermediateAngleOffset) + direction.z * math.cos(intermediateAngleOffset)
+    )
+
+    local intermediateRightDirection = Vector3.new(
+        direction.x * math.cos(-intermediateAngleOffset) - direction.z * math.sin(-intermediateAngleOffset),
+        0,
+        direction.x * math.sin(-intermediateAngleOffset) + direction.z * math.cos(-intermediateAngleOffset)
+    )
+
+    local origin = playerTransf.position
+    local maxDistance = 25.0
+
+    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
+    Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
+    Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+
+    local centerHit = Physics.Raycast(origin, direction, maxDistance)
+    local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
+    local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
+    local intermediateRightHit = Physics.Raycast(origin, intermediateRightDirection, maxDistance)
+    local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
+
+    if detect_enemy(centerHit) then
+    -- Ya está centrado
+    elseif detect_enemy(intermediateLeftHit) then
+        angleRotation = get_angle_to_target(origin, intermediateLeftHit.hitEntity:get_component("TransformComponent").position)
+        playerTransf.rotation.y = math.deg(angleRotation) 
+    elseif detect_enemy(leftHit) then
+        angleRotation = get_angle_to_target(origin, leftHit.hitEntity:get_component("TransformComponent").position)
+        playerTransf.rotation.y = math.deg(angleRotation) 
+    elseif detect_enemy(intermediateRightHit) then
+        angleRotation = get_angle_to_target(origin, intermediateRightHit.hitEntity:get_component("TransformComponent").position)
+        playerTransf.rotation.y = math.deg(angleRotation) 
+    elseif detect_enemy(rightHit) then
+        angleRotation = get_angle_to_target(origin, rightHit.hitEntity:get_component("TransformComponent").position)
+        playerTransf.rotation.y = math.deg(angleRotation) 
+end
+end
+
+function get_angle_to_target(origin, targetPosition)
+    local dir = Vector3.new(targetPosition.x - origin.x, targetPosition.y - origin.y, targetPosition.z - origin.z )
+    return math.atan(dir.x, dir.z) 
+end
+
 function clampRotation(angle, minAngle, maxAngle)
     angle = normalizeAngle(angle)
     minAngle = normalizeAngle(minAngle)
     maxAngle = normalizeAngle(maxAngle)
 
-    -- Si el minAngle es mayor que el maxAngle, significa que cruza el umbral de -180°/180°
     if minAngle > maxAngle then
         if angle > minAngle or angle < maxAngle then
             return angle
         end
-        -- Elegir el límite más cercano
         if math.abs(angle - minAngle) < math.abs(angle - maxAngle) then
             return minAngle
         else
