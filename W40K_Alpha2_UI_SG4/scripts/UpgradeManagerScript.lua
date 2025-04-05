@@ -245,6 +245,9 @@ function on_ready()
     helmetlvl2 = current_scene:get_entity_by_name("Casco_lvl_2")
     jetpacklvl1 = current_scene:get_entity_by_name("Jetpack_lv1")
     jetpacklvl2 = current_scene:get_entity_by_name("Jetpack_lv2")
+
+    -- Load upgrades from save
+    load_upgrades()
 end
 
 function on_update(dt)
@@ -259,4 +262,29 @@ function handle_visuals()
         helmetlvl1:set_active(false)
         helmetlvl2:set_active(true)
     end
+end
+
+function save_upgrades()
+    save_progress("weaponsReloadReduction", upgrades.weapons.reloadReduction)
+    save_progress("weaponsDamageBoost", upgrades.weapons.damageBoost)
+    save_progress("weaponsFireRateBoost", upgrades.weapons.fireRateBoost)
+    save_progress("weaponsSpecialAbility", upgrades.weapons.specialAbility)
+    save_progress("armorHealthBoost", upgrades.armor.healthBoost)
+    save_progress("armorProtection", upgrades.armor.protection)
+    save_progress("armorSpecialAbility", upgrades.armor.specialAbility)
+    
+    --print("Upgrades saved")
+end
+function load_upgrades()
+    upgrades.weapons.reloadReduction = load_progress("weaponsReloadReduction", false)
+    upgrades.weapons.damageBoost = load_progress("weaponsDamageBoost", false)
+    upgrades.weapons.fireRateBoost = load_progress("weaponsFireRateBoost", false)
+    upgrades.weapons.specialAbility = load_progress("weaponsSpecialAbility", false)
+    upgrades.armor.healthBoost = load_progress("armorHealthBoost", false)
+    upgrades.armor.protection = load_progress("armorProtection", false)
+    upgrades.armor.specialAbility = load_progress("armorSpecialAbility", false)
+
+    apply_to_player(player)
+
+    --print("\nUpgrades loaded\n")
 end

@@ -112,11 +112,10 @@ function on_ready()
 
 
     --UpgradeManager START
-    --UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+    UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     if UpgradeManager ~= nil then
         UpgradeManager:apply_to_player(self)
     end
-
     workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
     --UpgradeManager END
 
@@ -156,6 +155,7 @@ function on_ready()
             zonePlayer = newIndex
             save_progress("scrap", scrapCounter)
             save_progress("health", playerHealth)
+            UpgradeManager:save_upgrades()
         end
     end)
 
@@ -170,6 +170,7 @@ function on_ready()
     if level == 1 and zonePlayer >= 1 then
         playerRb:set_position(checkpointsPosition[zonePlayer])
         animacionEntradaRealizada = true
+        UpgradeManager:load_upgrades()
 
         scrapCounter = load_progress("scrap", 0)
 
@@ -183,6 +184,7 @@ function on_ready()
 
     if level > 1 then
         scrapCounter = load_progress("scrap", 0)
+        UpgradeManager:load_upgrades()
     end
 
 
