@@ -44,6 +44,7 @@ zoneNumber = 0
 local zone_set = false
 
 priority = 2
+local targetPosition = nil 
 
 function on_ready()
     tankTransform = self:get_component("TransformComponent")
@@ -196,8 +197,11 @@ function change_state()
         single_raycast()
     end
 
-    if playerDetected then
+    -- Asegurarnos de que playerDistance esté inicializado
+    if playerDetected and playerTransf then
         playerDistance = get_distance(tankTransform.position, playerTransf.position)
+    else
+        playerDistance = math.huge -- Usamos un valor muy grande para evitar comparaciones inválidas
     end
 
     if player and playerTransf then 
@@ -216,7 +220,8 @@ function change_state()
         elseif playerDetected then
             -- Player detected but not close enough for attack or tackle
             if currentState ~= state.Chase and currentState ~= state.Attack and currentState ~= state.Tackle then
-                currentState = state.Chase 
+                currentState = state.Chase
+                targetPosition = playerTransf.position -- Guardar la posición actual del jugador
             end
         else
             -- Out of range, go idle
@@ -374,11 +379,36 @@ function chase_state(dt)
         animator:set_current_animation(2)
         currentAnim = 2
     end
-    
+
     -- Asegurar que la velocidad es la normal durante chase
     tankVelocity = defaultVelocity
-    
-    follow_path(dt)
+
+    if targetPosition then
+        local direction = Vector3.new(
+            targetPosition.x - tankTransform.position.x,
+            0,
+            targetPosition.z - tankTransform.position.z
+        )
+
+        local distance = math.sqrt(direction.x^2 + direction.z^2)
+        if distance > 0 then
+            direction.x = direction.x / distance
+            direction.z = direction.z / distance
+        end
+
+        local velocity = Vector3.new(
+            direction.x * tankVelocity,
+            0,
+            direction.z * tankVelocity
+        )
+        tankRigidbody:set_velocity(velocity)
+
+        rotate_tank(targetPosition)
+    else
+        -- Si no hay posición objetivo, detener el tanque
+        tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
+        currentState = state.Idle
+    end
 end
 
 function tackle_state(dt)
