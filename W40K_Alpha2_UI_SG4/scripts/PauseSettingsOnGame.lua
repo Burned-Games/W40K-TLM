@@ -14,6 +14,7 @@ local SaveGameText
 local ExitText
 local PauseText
 local SettingsBaseText
+local BaseTextureBG
 
 isPaused = false
 
@@ -54,6 +55,8 @@ function on_ready()
 
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
 
+    BaseTextureBG = current_scene:get_entity_by_name("BaseMenus"):get_component("UIImageComponent")
+
     visibilidad2:set_visible(false)
     VolumeText:set_visible(false)
     FXText:set_visible(false)
@@ -64,6 +67,7 @@ function on_ready()
     button2:set_visible(false)
     button3:set_visible(false)
     button4:set_visible(false)
+    BaseTextureBG:set_visible(false)
 
 end
 
@@ -90,6 +94,7 @@ function on_update(dt)
             FXText:set_visible(false)
             SettingsBaseText:set_visible(false)
             visibilidad2:set_visible(false)
+            BaseTextureBG:set_visible(false)
 
         else
             isPaused = true
@@ -103,6 +108,7 @@ function on_update(dt)
             button3:set_visible(true)
             button4:set_visible(true)
             visibilidad1:set_visible(true)
+            BaseTextureBG:set_visible(true)
 
             if workbenchUIManagerScript.isWorkBenchOpen == true then
                 workbenchUIManagerScript:hide_ui()
@@ -110,9 +116,6 @@ function on_update(dt)
         end
     end
 
-    if isPaused == false then
-        return
-    end
 
     if index == 0 then
         button1:set_state("Selected")

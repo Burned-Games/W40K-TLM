@@ -26,6 +26,8 @@ local deathAnimationTime = 3
 local deathTimeCounter = 0
 local deathAnimationSetted = false
 
+local pauseScript = nil
+
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
@@ -138,6 +140,8 @@ function on_ready()
 
     shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
 
+    pauseScript = current_scene:get_entity_by_name("PauseMenu"):get_component("ScriptComponent")
+
 
     animator = self:get_component("AnimatorComponent")
   
@@ -187,6 +191,7 @@ function on_ready()
         UpgradeManager:load_upgrades()
     end
 
+    
 
 end
 
@@ -223,9 +228,9 @@ function on_update(dt)
 
 
 
-
-    playerMovement(dt)
-
+    if pauseScript.isPaused == false then
+        playerMovement(dt)
+    end
     
 
     backgroundMusicToPlay = 0
