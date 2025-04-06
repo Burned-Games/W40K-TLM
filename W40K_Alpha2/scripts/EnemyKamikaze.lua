@@ -1,6 +1,6 @@
 local enemy = require("scripts/utils/enemy")
 
-local enemy_kamikaze = enemy:new()
+enemy_kamikaze = enemy:new()
 
 local pathUpdateTimer = 0.0
 local pathUpdateInterval = 0.5
@@ -39,11 +39,12 @@ function on_ready()
     enemy_kamikaze.attackAnim = 7
     enemy_kamikaze.dieAnim = 0
 
-    enemy_kamikaze.playerDistance = enemy_kamikaze:get_distance(enemy_kamikaze.enemyTransf.position, enemy_kamikaze.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
-    enemy_kamikaze.lastTargetPos = enemy_kamikaze.playerTransf.position
     enemy_kamikaze.isExploding = false
     enemy_kamikaze.hasExploded = false
     enemy_kamikaze.hasDealtDamage = false
+
+    enemy_kamikaze.playerDistance = enemy_kamikaze:get_distance(enemy_kamikaze.enemyTransf.position, enemy_kamikaze.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
+    enemy_kamikaze.lastTargetPos = enemy_kamikaze.playerTransf.position
 
 end
 
@@ -60,10 +61,15 @@ function on_update(dt)
     end
 
     if not enemy_kamikaze.hasExploded and enemy_kamikaze.health <= 0 then
-        drop_bomb()
+        drop_explosive()
         enemy_kamikaze:die_state()
     elseif enemy_kamikaze.hasExploded and enemy_kamikaze.health <= 0 then
         enemy_kamikaze:die_state()
+    end
+
+    if enemy_kamikaze.haveShield and enemy_kamikaze.enemyShield <= 0 then
+        enemy_kamikaze.haveShield = false
+        enemy_kamikaze.shieldDestroyed = true
     end
 
     pathUpdateTimer = pathUpdateTimer + dt
@@ -108,6 +114,7 @@ function change_state()
 end
 
 function enemy_kamikaze:attack_state()
+
     enemy_kamikaze.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
     if enemy_kamikaze.currentAnim ~= enemy_kamikaze.attackAnim then
@@ -130,6 +137,15 @@ function enemy_kamikaze:attack_state()
         enemy_kamikaze.hasExploded = true
         enemy_kamikaze:die_state()
     end
+
+end
+
+function drop_explosive()
+
+    if enemy_kamikaze.explosiveBarrel == nil then return end
+
+    enemy_kamikaze.explosiveBarrelRb:set_position(Vector3.new(enemy_kamikaze.enemyTransf.position.x, 0.4, enemy_kamikaze.enemyTransf.position.z))
+
 end
 
 function on_exit() end

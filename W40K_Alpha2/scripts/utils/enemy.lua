@@ -44,6 +44,9 @@ function enemy:new(obj)
     obj.attackAnim = 3
 
     -- Variable for the functions of the enemy
+    obj.haveShield = false
+    obj.shieldDestroyed = false
+    obj.priority = 0
     obj.isDead = false
     obj.playerDistance = 0
     obj.playerDetected = false
