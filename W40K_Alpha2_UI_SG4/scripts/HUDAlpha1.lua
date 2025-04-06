@@ -34,10 +34,7 @@ local maxChatarraDisplay = 1000
 local currentChatarra = 0
 
 local chatarraTextComponent
-local chatarraFullComponent
-local chatarra75Component
-local chatarra50Component
-local chatarra25Component
+local chatarraBarComponent
 
 local player = nil
 local playerScript = nil
@@ -85,7 +82,7 @@ function on_ready()
     
     --Chatarra
     chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
-    --chatarraFullComponent = current_scene:get_entity_by_name("ChatarraCantidad100"):get_component("UIImageComponent")
+    chatarraBarComponent = current_scene:get_entity_by_name("ChatarraCantidad"):get_component("UIImageComponent")
 
     player = current_scene:get_entity_by_name("Player")
     playerScript = player:get_component("ScriptComponent")
@@ -130,16 +127,21 @@ function abilityManager(dt)
         skill1Cooldown = true
     end
     
-    if skill1Cooldown then
-        skill1Timer = skill1Timer + dt
-
+    if skill1Cooldown then 
+        skill1Timer = skill1Timer + dt 
+        local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter 
+        
         if playerScript.dashAvailable == true then
             skill1:set_visible(true)
             skill1TextCooldown:set_visible(false)
             skill1Cooldown = false
         else
-            local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter
-            skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
+            if remainingTime <= 1.1 and remainingTime > 0 then
+                skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
+            else
+                skill1TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+            end
+            skill1TextCooldown:set_visible(true)        
         end
     end
 
@@ -153,20 +155,24 @@ function abilityManager(dt)
     
     if skill2Cooldown then
         skill2Timer = skill2Timer + dt
+        local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
         
         if sawSwordScript.sawSwordAvailable == true then
             skill2:set_visible(true)
             skill2TextCooldown:set_visible(false)
             skill2Cooldown = false
         else
-            local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
-            skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
+            if remainingTime <= 1.1 and remainingTime > 0 then
+                skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
+            else
+                skill2TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+            end
+            skill2TextCooldown:set_visible(true)        
         end
     end
 
-    if Input.get_button(Input.action.Skill3) == Input.state.Down and not skill3Cooldown then
+    if armorUpgradeScript.fervorAstartesAvailable == false then
         skill3:set_visible(false)
-        skill3TextCooldown:set_text("10")
         skill3TextCooldown:set_visible(true)
         skill3Timer = 0
         skill3Cooldown = true
@@ -174,14 +180,19 @@ function abilityManager(dt)
     
     if skill3Cooldown then
         skill3Timer = skill3Timer + dt
-        local remainingTime = 10 - skill3Timer
-        
-        skill3TextCooldown:set_text(string.format("%.1f", armorUpgradeScript.fervorAstartesCooldown))
-        
-        if remainingTime <= 0 then
+        local remainingTime = armorUpgradeScript.fervorAstartesCooldown
+
+        if armorUpgradeScript.fervorAstartesAvailable == true then
             skill3:set_visible(true)
             skill3TextCooldown:set_visible(false)
             skill3Cooldown = false
+        else
+            if remainingTime <= 1.1 and remainingTime > 0 then
+                skill3TextCooldown:set_text(string.format("%.1f", remainingTime))
+            else
+                skill3TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+            end
+            skill3TextCooldown:set_visible(true)      
         end
     end
 end
@@ -237,28 +248,3 @@ function update_health_display()
     end
 end
 
-function update_chatarra_display()
-    chatarraFullComponent:set_visible(false)
-    chatarra75Component:set_visible(false)
-    chatarra50Component:set_visible(false)
-    chatarra25Component:set_visible(false)
-
-    local displayChatarra = math.min(currentChatarra, maxChatarraDisplay)
-
-    if currentChatarra > 1000 then  
-        chatarraFullComponent:set_visible(true)
-    elseif displayChatarra > 750 then
-        chatarra75Component:set_visible(true)
-    elseif displayChatarra > 500 then
-        chatarra50Component:set_visible(true)
-    elseif displayChatarra > 250 then
-        chatarra25Component:set_visible(true)
-    end
-
-    chatarraTextComponent:set_text(tostring(math.floor(currentChatarra)))
-end
-
-function add_chatarra(amount)
-    currentChatarra = currentChatarra + amount
-    update_chatarra_display()
-end

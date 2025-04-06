@@ -12,6 +12,8 @@ local fervorAstartesActive = false
 local fervorAstartesStandardPlaced = false
 local fervorAstartesStandardEntity = nil
 local fervorAstartesRadius = 6.0
+fervorAstartesAvailable = true
+fervorAstartesCooldownTotal = 25
 
 local attackSpeedBonus = 1.2 
 local reloadSpeedBonus = 1.15
@@ -75,15 +77,20 @@ function handle_fervor_astartes(dt)
     local playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     local standardTransform = current_scene:get_entity_by_name("FervorAstartesStandard"):get_component("TransformComponent")
 
-    if not fervorAstartesActive and fervorAstartesCooldown > 0 then
-        fervorAstartesCooldown = fervorAstartesCooldown - dt
-    end
-
-    if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesCooldown <= 0 and not fervorAstartesStandardPlaced then
-        --print("Colocando estandarte")
+    if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesAvailable and not fervorAstartesStandardPlaced then
         place_fervor_astartes_standard(playerPosition, standardTransform)
-
+        fervorAstartesAvailable = false
+        fervorAstartesCooldown = fervorAstartesCooldownTotal
     end
+
+    if not fervorAstartesAvailable then
+        fervorAstartesCooldown = fervorAstartesCooldown - dt
+        if fervorAstartesCooldown <= 0 then
+            fervorAstartesAvailable = true
+            fervorAstartesCooldown = 0
+        end
+    end
+    
     -- If the Fervor Astartes ability is active
     if fervorAstartesActive then
         fervorAstartesTimer = fervorAstartesTimer + dt
