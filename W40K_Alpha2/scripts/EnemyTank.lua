@@ -47,6 +47,8 @@ local zone_set = false
 priority = 2
 local targetPosition = nil 
 
+local collisionWithPlayer = false
+
 function on_ready()
     tankTransform = self:get_component("TransformComponent")
     tankRigidbody = self:get_component("RigidbodyComponent").rb
@@ -68,9 +70,8 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if (nameA == "Player" or nameB == "Player") then
-            print("Colisión con el jugador detectada")
-            if currentState == state.Tackle then
-                print("Cambiando a estado Attack")
+            collisionWithPlayer = true
+            if currentState == state.Tackle or currentState == state.Chase then
                 tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
                 IsCharging = false
                 canTackle = false
@@ -79,7 +80,6 @@ function on_ready()
             end
         else
             if currentState == state.Tackle then
-                print("Colisión con un objeto, saliendo de Tackle")
                 tankRigidbody:set_velocity(Vector3.new(0, 0, 0))
                 IsCharging = false
                 canTackle = false
@@ -88,10 +88,18 @@ function on_ready()
             end
         end
     end)
+    local rbComponent = self:get_component("RigidbodyComponent")
+    rbComponent:on_collision_exit(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+    
+        if (nameA == "Player" or nameB == "Player") then
+            collisionWithPlayer = false
+        end
+    end)
 end
 
 function on_update(dt)
-
     -- if zone_set ~= true then
     --     check_zone()
     --     zone_set = true
@@ -117,15 +125,6 @@ function on_update(dt)
     -- Check player existence
     if player and playerTransf then
         change_state() -- Function to change states based on raycast
-    else
-        -- Try to find player in case it was not found before
-        player = current_scene:get_entity_by_name("Player")
-        if player then
-            playerTransf = player:get_component("TransformComponent")
-            playerScript = player:get_component("ScriptComponent")
-        else
-            currentState = state.Idle
-        end
     end
 
     -- Handle death condition
@@ -233,8 +232,18 @@ function change_state()
     end
 
     if player and playerTransf then
-        if currentState == state.Attack and playerDistance > meleeDistance then
-            if canTackle then
+        if collisionWithPlayer then
+            if currentState == state.Tackle or currentState == state.Chase then
+                currentState = state.Attack -- Cambiar a estado Attack si está en Tackle o Chase
+            elseif currentState == state.Attack and playerDistance > meleeDistance then
+                currentState = state.Chase -- Cambiar a Chase si el jugador está fuera de rango
+            end
+            return
+        end
+
+        -- Si el jugador está detectado y puede hacer Tackle, cambiar a Tackle
+        if playerDetected and canTackle then
+            if currentState ~= state.Tackle then
                 currentState = state.Tackle
                 IsCharging = true
                 local direction = Vector3.new(
@@ -249,41 +258,22 @@ function change_state()
                 end
                 targetDirection = direction 
                 print("Direccion hacia el jugador:", targetDirection.x, targetDirection.z)
-            else
-                currentState = state.Chase 
             end
-        elseif playerDetected then
-            if canTackle then
-                if currentState ~= state.Tackle then
-                    currentState = state.Tackle
-                    IsCharging = true
-                    local direction = Vector3.new(
-                        playerTransf.position.x - tankTransform.position.x,
-                        0,
-                        playerTransf.position.z - tankTransform.position.z
-                    )
-                    local distance = math.sqrt(direction.x^2 + direction.z^2)
-                    if distance > 0 then
-                        direction.x = direction.x / distance
-                        direction.z = direction.z / distance
-                    end
-                    targetDirection = direction 
-                    print("Direccion hacia el jugador:", targetDirection.x, targetDirection.z)
-                end
-            else
-                if currentState ~= state.Chase then
-                    currentState = state.Chase
-                end
-            end
-        else
-            if currentState ~= state.Idle then
-                currentState = state.Idle
-            end
+            return
         end
-    else
-        if currentState ~= state.Idle then
-            currentState = state.Idle
+
+        -- Si el jugador está detectado pero no puede hacer Tackle, cambiar a Chase
+        if playerDetected then
+            if currentState ~= state.Chase then
+                currentState = state.Chase
+            end
+            return
         end
+    end
+
+    -- Si ninguna condición se cumple, cambiar a Idle
+    if currentState ~= state.Idle then
+        currentState = state.Idle
     end
 end
 
@@ -411,14 +401,10 @@ function idle_state(dt)
     -- Periodic scan for player
     if idleTimer >= idleDuration then
         idleTimer = 0
-        
-        -- Try to find player if not already found
-        if not player then
-            player = current_scene:get_entity_by_name("Player")
-            if player then
-                playerTransf = player:get_component("TransformComponent")
-                playerScript = player:get_component("ScriptComponent")
-            end
+
+        if collisionWithPlayer then
+            print("Volviendo al estado Attack desde Idle")
+            currentState = state.Attack
         end
     end
 end
@@ -461,7 +447,6 @@ end
 
 -- Attack state - tank performs a slow melee attack
 function attack_state(dt)
-    print("Attack state")
     -- Animation for attack
     if currentAnim ~= 4 then
         animator:set_current_animation(4)
@@ -475,16 +460,24 @@ function attack_state(dt)
     end
     
     attackTimer = attackTimer + dt
-    
     if attackTimer >= AttackCooldown then
         if player and playerTransf and playerScript then
             local attackDistance = get_distance(tankTransform.position, playerTransf.position)
-            
-            --if attackDistance <= meleeDistance then
-              --  playerScript.playerHealth = playerScript.playerHealth - tankDamage
-            --end
+            if attackDistance <= meleeDistance then
+                playerScript.playerHealth = playerScript.playerHealth - tankDamage
+                print("Player health after attack: " .. playerScript.playerHealth)
+            end
         end
         attackTimer = 0
+
+        local attackDistance = get_distance(tankTransform.position, playerTransf.position)
+        if collisionWithPlayer then
+            print("Ataque completado, cambiando a estado Idle")
+            currentState = state.Idle
+        elseif attackDistance > meleeDistance then
+            print("Jugador fuera de alcance, cambiando a estado Chase")
+            currentState = state.Chase
+        end
     end
 end
 
