@@ -492,6 +492,10 @@ function make_damage()
         return
     end
 
+    if playerScript.isCovering == true then
+        return
+    end
+
     if player ~= nil then
         if playerScript ~= nil then
             local damage = 15

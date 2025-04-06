@@ -81,6 +81,9 @@ local sceneChanged = false
 --UpgradeManager
 local UpgradeManager = nil
 
+--Barricade
+local barricadeScript = nil
+isCovering = false
 
 --granadeSpeed
 local granadeVelocity = 0.65
@@ -137,6 +140,7 @@ function on_ready()
 
     shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
 
+    barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
 
     animator = self:get_component("AnimatorComponent")
   
@@ -212,13 +216,11 @@ function on_update(dt)
     
     handleBleed(dt)
 
-
-
     autoaimUpdate()
     playerMovement(dt)
 
+    handleCover()
     
-
     backgroundMusicToPlay = 0
 end
 
@@ -326,9 +328,7 @@ function updateGodMode()
         playerRb:set_trigger(true)
     else
         if shotGunScript.granadasSpeed then
-        moveSpeed = 6*granadeVelocity
-        else
-        moveSpeed = 6
+            moveSpeed = 6 * granadeVelocity
         end
         playerRb:set_trigger(false)
     end
@@ -647,7 +647,7 @@ function autoaimUpdate()
         math.cos(angleRotation)
     )
 
-    print(angleRotation)
+    --print(angleRotation)
 
     -- Normalizar dirección para evitar distancias erróneas
     local distance = math.sqrt(direction.x^2 + direction.z^2)
@@ -771,9 +771,7 @@ function take_damage(amount)
 
     local finalDamage = amount * damageReduction
     playerHealth = playerHealth - finalDamage
-    tookDamage = true
-    
-
+    tookDamage = true    
 end
 
 function handleBleed(dt)
@@ -906,4 +904,22 @@ function attract_scrap(dt)
         ]]
     
     end 
+end
+
+function handleCover()
+    if barricadeScript.isPlayerInRange == false then
+        isCovering = false
+        moveSpeed = 6
+        return
+    end
+    if Input.get_button(Input.action.Cover) == Input.state.Down then
+        isCovering = not isCovering
+        print("isCovering", isCovering)
+    end
+
+    if isCovering then
+        moveSpeed = 4
+    else
+        moveSpeed = 6
+    end
 end
