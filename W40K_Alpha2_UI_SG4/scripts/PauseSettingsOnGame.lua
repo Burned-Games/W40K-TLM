@@ -27,6 +27,8 @@ local currentSelectedSlider = 1
 local inputCooldown = 0 
 local cooldownTime = 0.15 
 
+local workbenchUIManagerScript = nil
+
 function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
@@ -49,6 +51,8 @@ function on_ready()
     ExitText = current_scene:get_entity_by_name("ExitText"):get_component("UITextComponent")
     PauseText = current_scene:get_entity_by_name("PauseText"):get_component("UITextComponent")
     SettingsBaseText = current_scene:get_entity_by_name("SettingsBaseText"):get_component("UITextComponent")
+
+    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
 
     visibilidad2:set_visible(false)
     VolumeText:set_visible(false)
@@ -99,6 +103,10 @@ function on_update(dt)
             button3:set_visible(true)
             button4:set_visible(true)
             visibilidad1:set_visible(true)
+
+            if workbenchUIManagerScript.isWorkBenchOpen == true then
+                workbenchUIManagerScript:hide_ui()
+            end
         end
     end
 
