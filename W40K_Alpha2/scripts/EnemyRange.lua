@@ -1,51 +1,285 @@
 local enemy = require("scripts/utils/enemy")
 
-local range_enemy = enemy:new()
-local kamikazeEnemy = nil
-local kamikazeScript = nil
+range = enemy:new()
+
+local pathUpdateTimer = 0.0
+local pathUpdateInterval = 0.5
+local updateTargetTimer = 0.0
+local updateTargetInterval = 1.0
+local timeSinceLastHit = 0.0
+local timeSinceLastShot = 0.0
+local timeBetweenBursts = 1.0
+local burstCooldownTimer = 0.0
+local burstCooldown = 0.3
+local stabTimer = 1.0
+local timeSinceLastStab = 0.0
+local stabCooldown = 2.0
+local stabCooldownTimer = 0.0
 
 function on_ready() 
-    -- range_enemy.player = current_scene:get_entity_by_name("Player")
-    -- range_enemy.playerTransf = range_enemy.player:get_component("TransformComponent")
-    -- range_enemy.animator = self:get_component("AnimatorComponent")
-    -- range_enemy.enemyTransf = self:get_component("TransformComponent")
-    -- range_enemy.enemyRb = self:get_component("RigidbodyComponent").rb
-    -- range_enemy.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-    -- range_enemy:update_path(range_enemy.playerTransf)
+    range.player = current_scene:get_entity_by_name("Player")
+    range.playerTransf = range.player:get_component("TransformComponent")
+    range.playerScript = range.player:get_component("ScriptComponent")
 
-    local kamikazeEntity = current_scene:get_entity_by_name("EnemyKamikaze")
-    kamikazeScript = kamikazeEntity:get_component("ScriptComponent")
+    range.enemyTransf = self:get_component("TransformComponent")
+    range.animator = self:get_component("AnimatorComponent")
+    range.enemyRbComponent = self:get_component("RigidbodyComponent")
+    range.enemyRb = range.enemyRbComponent.rb
+    range.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-    kamikazeEnemy = kamikazeScript.enemy_kamikaze
+    range.bullet = current_scene:get_entity_by_name("EnemyBullet")
+    range.bulletTransf = range.bullet:get_component("TransformComponent")
+    range.bulletRbComponent = range.bullet:get_component("RigidbodyComponent")
+    range.bulletRb = range.bulletRbComponent.rb
+    range.bulletRb:set_trigger(true)
 
-    if kamikazeEnemy then
-        print("Kamikaze health: " .. kamikazeEnemy.health)
-    else
-        print("No se puede acceder a kamikazeEnemy")
-    end
 
-    --distance = enemy.get_distance(enemy.enemyTransf, enemy.playerTransf)
+
+    -- Stats of the Range
+    range.health = 95
+    range.speed = 3
+    range.bulletSpeed = 5
+    range.meleeDamage = 15
+    range.rangeDamage = 5
+    range.detectionRange = 25
+    range.meleeAttackRange = 1
+    range.rangeAttackRange = 15
+    range.chaseRange = 8
+
+
+
+    range.idleAnim = 3
+    range.moveAnim = 4
+    range.meleeAttackAnim = 0
+    range.rangeAttackAnim = 1
+    range.dieAnim = 2
+
+    range.state.Shoot = 4
+    range.state.Chase = 5
+    range.state.Stab = 6
+
+    range.isShootingBurst = false
+    range.isChasing = false
+    range.hasDealtDamage = false
+
+    range.burstCount = 0
+    range.maxBurstShots = 4
+
+    range.playerDistance = range:get_distance(range.enemyTransf.position, range.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
+    range.lastTargetPos = range.playerTransf.position
+    range.delayedPlayerPos = range.playerTransf.position
+
+
+
+    range.bulletRbComponent:on_collision_enter(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            range:make_damage(range.rangeDamage)
+        end
+    end)
+
 end
 
 
 
 function on_update(dt) 
-    if kamikazeEnemy == nil  then
-        kamikazeEnemy = kamikazeScript.enemy_kamikaze
+
+    if range.isDead then return end
+
+    change_state()
+
+    if range.currentState == range.state.Idle then return end
+
+    if range.health <= 0 then
+        range:die_state()
     end
 
-    if kamikazeEnemy then
-        print("Kamikaze health: " .. kamikazeEnemy.health)
-    else
-        print("No se puede acceder a kamikazeEnemy")
+    if range.haveShield and range.enemyShield <= 0 then
+        range.haveShield = false
+        range.shieldDestroyed=true
     end
-    --range_enemy:enemy_raycast()
-    --range_enemy:idle_state()
 
-    --range_enemy:follow_path()
+    pathUpdateTimer = pathUpdateTimer + dt
+    updateTargetTimer = updateTargetTimer + dt
+    timeSinceLastHit = timeSinceLastHit + dt
+
+    local currentTargetPos = range.playerTransf.position
+    if pathUpdateTimer >= pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
+        range.lastTargetPos = currentTargetPos
+        range:update_path(range.playerTransf)
+        pathUpdateTimer = 0
+    end
+
+    if updateTargetTimer >= updateTargetInterval then
+        range.delayedPlayerPos = Vector3.new(range.playerTransf.position.x, range.playerTransf.position.y, range.playerTransf.position.z)
+        updateTargetTimer = 0
+    end
+
+    if range.playerDetected then
+        range:rotate_enemy(range.playerTransf.position)
+    end
+
+    if range.currentState == range.state.Idle then
+        range:idle_state()
+        return
+
+    elseif range.currentState == range.state.Move then
+        range:move_state()
+
+    elseif range.currentState == range.state.Shoot then
+        range:shoot_state(dt)
+
+    elseif range.currentState == range.state.Chase then
+        range:chase_state()
+
+    elseif range.currentState == range.state.Stab then
+        range:stab_state(dt)
+    end
+
 end
 
---function range_enemy.attack_state() end
+function change_state()
+
+    range:enemy_raycast()
+
+    -- If is Chasing don't return to Shoot or Move
+    if range.isChasing then
+        if range.playerDistance <= range.meleeAttackRange then
+            if range.currentState ~= range.state.Stab then
+                range.currentState = range.state.Stab
+            end
+                
+        elseif range.playerDistance > range.meleeAttackRange and range.currentState == range.state.Stab then
+            range.currentState = range.state.Chase
+        end
+                
+        return
+    end
+
+    -- **IMPORTANT ORDER** Chase and Stab have to evaluate each other first, otherwise it won't work well !!!
+    if range.playerDistance <= range.meleeAttackRange then
+        if range.currentState ~= range.state.Stab then
+            range.currentState = range.state.Stab
+            range.isChasing = true
+        end
+                
+    elseif range.playerDistance <= range.chaseRange then
+        if range.currentState ~= range.state.Chase then
+            range.currentState = range.state.Chase
+            range.isChasing = true
+        end
+                
+    elseif range.playerDetected and range.playerDistance <= range.rangeAttackRange then
+        if range.currentState ~= range.state.Shoot then
+            range.currentState = range.state.Shoot
+        end
+                
+    elseif range.playerDetected and range.playerDistance > range.rangeAttackRange then
+        if range.currentState ~= range.state.Move then
+            range.currentState = range.state.Move
+        end
+    end
+
+end
+
+function range:shoot_state(dt)
+
+    range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+    if range.isShootingBurst then
+        if range.currentAnim ~= range.rangeAttackAnim then
+            range.currentAnim = range.rangeAttackAnim
+            range.animator:set_current_animation(range.currentAnim)
+        end
+
+        timeSinceLastShot = timeSinceLastShot + dt
+
+        if timeSinceLastShot >= burstCooldown and range.burstCount < range.maxBurstShots then
+            shoot_projectile(dt)
+            range.burstCount = range.burstCount + 1
+            timeSinceLastShot = 0
+
+            if range.burstCount >= range.maxBurstShots then
+                range.isShootingBurst = false
+                burstCooldownTimer = 0
+            end
+        end
+    else
+        if range.currentAnim ~= range.idleAnim then
+            range.currentAnim = range.idleAnim
+            range.animator:set_current_animation(range.currentAnim)
+        end
+
+        burstCooldownTimer = burstCooldownTimer + dt
+
+        if burstCooldownTimer >= timeBetweenBursts then
+            range.isShootingBurst = true
+            range.burstCount = 0
+            timeSinceLastShot = 0
+        end
+    end
+
+end
+
+function range:chase_state()
+
+    if range.currentAnim ~= range.moveAnim then
+        range.currentAnim = range.moveAnim
+        range.animator:set_current_animation(range.currentAnim)
+    end
+
+    range:follow_path()
+
+end
+
+function range:stab_state(dt)
+
+    range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+    if stabCooldownTimer > 0 then
+        stabCooldownTimer = stabCooldownTimer - dt
+        if range.currentAnim ~= range.idleAnim then
+            range.currentAnim = range.idleAnim
+            range.animator:set_current_animation(range.currentAnim)
+        end
+        return 
+    end
+
+        timeSinceLastStab = timeSinceLastStab + dt
+
+    if timeSinceLastStab < stabTimer then
+        if range.currentAnim ~= range.meleeAttackAnim then
+            range.currentAnim = range.meleeAttackAnim
+            range.animator:set_current_animation(range.currentAnim)
+        end
+
+        range:make_damage(range.meleeDamage)
+        bleed_damage()
+
+    elseif timeSinceLastStab >= stabTimer then
+        timeSinceLastStab = 0
+        stabCooldownTimer = stabCooldown 
+    end
+
+end
+
+function shoot_projectile()
+
+    range.bulletRb:set_position(Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y + 0.65, range.enemyTransf.position.z))
+
+    local direction = Vector3.new(range.delayedPlayerPos.x - range.enemyTransf.position.x, 0, range.delayedPlayerPos.z - range.enemyTransf.position.z)
+    local velocity = Vector3.new(direction.x * range.bulletSpeed, 0, direction.z * range.bulletSpeed)
+    range.bulletRb:set_velocity(velocity)
+
+end
+
+function bleed_damage()
+
+    range.playerScript:applyBleed()
+
+end
 
 function on_exit() end

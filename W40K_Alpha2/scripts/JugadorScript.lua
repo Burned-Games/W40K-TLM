@@ -139,31 +139,28 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
 
-        if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
+        if nameA == "EnemyRange" or nameB == "EnemyRange" then
             local enemyOrk = nil
             local enemyOrkScript = nil
-            if nameA == "EnemyOrk" then
+            local Range = nil
+            if nameA == "EnemyRange" then
                 enemyOrk = entityA
                 
             end
 
-            if nameB == "EnemyOrk" then
+            if nameB == "EnemyRange" then
                 enemyOrk = entityB
             end
             if enemyOrk ~= nil then               
                 enemyOrkScript = enemyOrk:get_component("ScriptComponent")
+                Range = enemyOrkScript.range
             end
 
             if enemyOrk ~= nil then
                 if enemyOrkScript ~= nil then
                     local damage = 10
-                    if enemyOrkScript.shieldHealth > 0 then
-                        --bulletDamageParticleComponent:emit(20)
-                        enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
-                    else
-                    --bulletDamageParticleComponent:emit(20)
-                    enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
-                    end
+                    Range:take_damage(damage)
+                    print(Range.health)
                 end
             end
            
@@ -200,6 +197,7 @@ function on_ready()
         if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
             local enemyKamikaze = nil
             local enemyKamikazeScript = nil
+            local Kamikaze = nil
             if nameA == "EnemyKamikaze" then
                 enemyKamikaze = entityA
                 
@@ -210,18 +208,14 @@ function on_ready()
             end
             if enemyKamikaze ~= nil then               
                 enemyKamikazeScript = enemyKamikaze:get_component("ScriptComponent")
+                Kamikaze = enemyOrkScript.kamikaze
             end
 
             if enemyKamikaze ~= nil then
                 if enemyKamikazeScript ~= nil then
                     local damage = 10
-                    if enemyKamikazeScript.shieldHealth > 0 then
-                        --bulletDamageParticleComponent:emit(20)
-                        enemyKamikazeScript.shieldHealth = enemyKamikazeScript.shieldHealth - damage
-                    else
-                        --bulletDamageParticleComponent:emit(20)
-                        enemyKamikazeScript.enemyHealth = enemyKamikazeScript.enemyHealth - damage
-                    end
+                    Kamikaze:take_damage(damage)
+                    print(Kamikaze.health)
             
                 end
             end

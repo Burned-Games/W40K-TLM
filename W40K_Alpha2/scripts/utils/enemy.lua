@@ -1,6 +1,6 @@
 local enemy = {}
 
-enemy.state = { Idle = 1, Move = 2, Shoot = 3, Chase = 4, Stab = 5}
+enemy.state = { Idle = 1, Move = 2, Attack = 3}
 enemy.godMode = true
 
 
@@ -81,15 +81,6 @@ function enemy:move_state()
     end
 
     self:follow_path()
-
-end
-
-function enemy:chase_state()
-
-    if self.currentAnim ~= self.moveAnim then
-        self.currentAnim = self.moveAnim
-        self.animator:set_current_animation(self.currentAnim)
-    end
 
 end
 
