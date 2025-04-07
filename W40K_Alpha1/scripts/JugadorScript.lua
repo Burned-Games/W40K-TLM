@@ -104,6 +104,8 @@ local partOfList = 0
 zonePlayer = 0
 level = 1
 
+enemyDirection = Vector3.new(0,0,0)
+
 local checkpointsPosition = { Vector3.new(83, 0, 35), Vector3.new(192, 0, -52)}
 
 function on_ready()
@@ -140,6 +142,7 @@ function on_ready()
 
     shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
 
+    
     barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
 
     animator = self:get_component("AnimatorComponent")
@@ -205,8 +208,8 @@ function on_update(dt)
 
     checkPlayerDeath(dt)
     handleWeaponSwitch(dt)
-    updateEntranceAnimation(dt)
-    if deathAnimationSetted or swordScript.slashed or animacionEntradaRealizada == false then
+    --updateEntranceAnimation(dt)
+    if --[[deathAnimationSetted or ]]swordScript.slashed--[[ or animacionEntradaRealizada == false]] then
         return
     end
     updateMusic(dt)
@@ -701,20 +704,44 @@ function autoaimUpdate()
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
 
     if detect_enemy(centerHit) then
-    -- Ya está centrado
+        local enemyPos = centerHit.hitEntity:get_component("TransformComponent").position
+        enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
     elseif detect_enemy(intermediateLeftHit) then
-        angleRotation = get_angle_to_target(origin, intermediateLeftHit.hitEntity:get_component("TransformComponent").position)
-        playerTransf.rotation.y = math.deg(angleRotation) 
+        local enemyPos = intermediateLeftHit.hitEntity:get_component("TransformComponent").position
+        enemyDirection = Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z )
+        --[[angleRotation = get_angle_to_target(origin, intermediateLeftHit.hitEntity:get_component("TransformComponent").position)
+        playerTransf.rotation.y = math.deg(angleRotation)]]
     elseif detect_enemy(leftHit) then
-        angleRotation = get_angle_to_target(origin, leftHit.hitEntity:get_component("TransformComponent").position)
-        playerTransf.rotation.y = math.deg(angleRotation) 
+        local enemyPos = leftHit.hitEntity:get_component("TransformComponent").position
+        enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
+        --angleRotation = get_angle_to_target(origin, leftHit.hitEntity:get_component("TransformComponent").position)
+        --playerTransf.rotation.y = math.deg(angleRotation) 
     elseif detect_enemy(intermediateRightHit) then
-        angleRotation = get_angle_to_target(origin, intermediateRightHit.hitEntity:get_component("TransformComponent").position)
-        playerTransf.rotation.y = math.deg(angleRotation) 
+        local enemyPos = intermediateRightHit.hitEntity:get_component("TransformComponent").position
+        enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
+        --angleRotation = get_angle_to_target(origin, intermediateRightHit.hitEntity:get_component("TransformComponent").position)
+        --playerTransf.rotation.y = math.deg(angleRotation) 
     elseif detect_enemy(rightHit) then
-        angleRotation = get_angle_to_target(origin, rightHit.hitEntity:get_component("TransformComponent").position)
-        playerTransf.rotation.y = math.deg(angleRotation) 
+        local enemyPos = rightHit.hitEntity:get_component("TransformComponent").position
+        enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
+        --angleRotation = get_angle_to_target(origin, rightHit.hitEntity:get_component("TransformComponent").position)
+        --playerTransf.rotation.y = math.deg(angleRotation) 
+    else
+        enemyDirection = nil
+    end
 end
+
+function normalizeVector(v)
+    -- Calcular la magnitud del vector
+    local magnitude = math.sqrt(v.x^2 + v.y^2 + v.z^2)
+
+    -- Evitar la división por cero si la magnitud es 0
+    if magnitude == 0 then
+        return Vector3.new(0, 0, 0)  -- Retorna un vector nulo si el vector tiene magnitud 0
+    end
+
+    -- Dividir cada componente del vector por la magnitud para normalizar
+    return Vector3.new(v.x / magnitude, v.y / magnitude, v.z / magnitude)
 end
 
 function get_angle_to_target(origin, targetPosition)

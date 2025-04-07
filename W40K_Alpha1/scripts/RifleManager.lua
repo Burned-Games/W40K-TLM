@@ -288,11 +288,15 @@ function shoot(dt)
 
 
     playShoot()
+    local forwardVector = Vector3.new(0,0,0)
 
-
-    local forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+    if playerScript.enemyDirection ~= nil then
+        forwardVector = playerScript.enemyDirection
+    else
+        forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+    end
     
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
+    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , 0  , (forwardVector.z+ playerPosition.z) )
 
     transformSphere1.position = newPosition
     transformSphere1.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
