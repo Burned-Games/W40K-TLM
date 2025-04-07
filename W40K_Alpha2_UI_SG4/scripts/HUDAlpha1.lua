@@ -86,7 +86,7 @@ function on_ready()
     chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
     chatarraBarComponent = current_scene:get_entity_by_name("ChatarraCantidad"):get_component("UIImageComponent") 
     chatarraTransform = current_scene:get_entity_by_name("ChatarraCantidad"):get_component("TransformComponent")
-    chatarraStartingPosition = Vector3.new(chatarraTransform.position.x, chatarraTransform.position.y, chatarraTransform.position.z)
+    chatarraStartingPosition = Vector3.new(chatarraTransform.position.x - 123, chatarraTransform.position.y, chatarraTransform.position.z)
 
     player = current_scene:get_entity_by_name("Player")
     playerScript = player:get_component("ScriptComponent")
@@ -243,7 +243,6 @@ function updateAmmoText()
 end
 
 function update_health_display()
-    
     if playerScript ~= nil then
         local vida = playerScript.playerHealth
         lifeFullComponent:set_size(Vector2.new(-94, -vida))
@@ -257,11 +256,19 @@ function update_scrap_display()
         local chatarra = playerScript.scrapCounter
         local max_chatarra = maxChatarraDisplay
         local porcentaje = chatarra / max_chatarra
-        if porcentaje > 1 then porcentaje = 1 end
+
+        if porcentaje > 1 then 
+            porcentaje = 1 
+        end
         
         local nuevoAncho = 248 * porcentaje
-
+        
         chatarraBarComponent:set_size(Vector2.new(nuevoAncho, 30))
+        
+        if(chatarra <= 1000) then
+            chatarraTransform.position.x = chatarraStartingPosition.x + (nuevoAncho / 2)
+        end
+        
         chatarraTextComponent:set_text(tostring(chatarra))
     end
 end
