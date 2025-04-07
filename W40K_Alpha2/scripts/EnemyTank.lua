@@ -9,7 +9,6 @@ local playerDistance = nil
 
 local tackleDistance = 10
 local IsCharging = false
-local chargeTime = 0
 local meleeDistance = 3
 
 local tankTransform = nil
@@ -21,10 +20,11 @@ local tackleVelocity = 13
 local tankVelocity = defaultVelocity
 
 local isDead = false
-local tankDamage = 10  -- Daño de ataque melee
+local meleeDamage = 40  
+local tackleDamage = 100
 local AttackCooldown = 3
-enemyHealth = 275
-local tackleCooldown = 8  -- Unificamos este valor
+enemyHealth = 250
+local tackleCooldown = 10 
 local tackleTimer = 0       
 local canTackle = true      
 
@@ -39,20 +39,21 @@ local currentPathIndex = 1
 
 haveShield = false
 shieldHealth = 0
-local tackleHasDamaged = false
 
 zoneNumber = 0
 local zone_set = false
 
 priority = 2
 local targetPosition = nil 
+local targetDirection = nil
 
 local collisionWithPlayer = false
+
+local level2 = true
 
 function on_ready()
     tankTransform = self:get_component("TransformComponent")
     tankRigidbody = self:get_component("RigidbodyComponent").rb
-    tankScript = self:get_component("ScriptComponent")
     tankNavmesh = self:get_component("NavigationAgentComponent")
 
     animator = self:get_component("AnimatorComponent")
@@ -100,6 +101,12 @@ function on_ready()
 end
 
 function on_update(dt)
+    if Input.is_key_pressed(Input.keycode.L) then
+        level2 = true
+    elseif Input.is_key_pressed(Input.keycode.O) then
+        level2 = false
+    end
+
     -- if zone_set ~= true then
     --     check_zone()
     --     zone_set = true
@@ -427,6 +434,11 @@ function tackle_state(dt)
         currentAnim = 3
     end
 
+    if collisionWithPlayer then
+        playerScript.playerHealth = playerScript.playerHealth - tackleDamage
+        print("Player health after attack: " .. playerScript.playerHealth)
+    end
+
     -- Si el tanque está cargando, moverse hacia la última posición detectada del jugador
     if IsCharging and targetDirection then
         local velocity = Vector3.new(
@@ -464,7 +476,7 @@ function attack_state(dt)
         if player and playerTransf and playerScript then
             local attackDistance = get_distance(tankTransform.position, playerTransf.position)
             if attackDistance <= meleeDistance then
-                playerScript.playerHealth = playerScript.playerHealth - tankDamage
+                playerScript.playerHealth = playerScript.playerHealth - meleeDamage
                 print("Player health after attack: " .. playerScript.playerHealth)
             end
         end
@@ -472,10 +484,8 @@ function attack_state(dt)
 
         local attackDistance = get_distance(tankTransform.position, playerTransf.position)
         if collisionWithPlayer then
-            print("Ataque completado, cambiando a estado Idle")
             currentState = state.Idle
         elseif attackDistance > meleeDistance then
-            print("Jugador fuera de alcance, cambiando a estado Chase")
             currentState = state.Chase
         end
     end
