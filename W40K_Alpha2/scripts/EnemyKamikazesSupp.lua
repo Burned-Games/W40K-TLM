@@ -1,265 +1,172 @@
+enemyHealth = 10
+local enemyDamage = 10
+local moveSpeed = 6
 local enemyTransf = nil
-local enemyWorldTransf = nil
 local enemyNavmesh = nil
+local enemyRbComponent = nil
 local enemyRb = nil
+local hasExploded = false
+local isDead = false
+
+local detectDistance = 25
+local bombDistance = 2
+
+local animator = nil
+local currentAnim = 0
+
+local bomb = nil
+local bombRb = nil
+
 local player = nil
 local playerTransf = nil
 local playerScript = nil
-local bullet = nil
-local bulletTransform = nil
-local bulletRb = nil
-
-local moveSpeed = 3
-enemyHealth = 95
-shieldHealth = 0
-haveShield = false
-shield_destroyed = false
-priority = 1
-
-local detectDistance = 25
-local shootDistance = 15
-local chaseDistance = 8
-local stabDistance = 2
-
-local scrap = nil
-local scrapTransform = nil
-
-local currentAnim = 0
-local animator = nil
-
-local state = { Idle = 1, Move = 2, Shoot = 3, Chase = 4, Stab = 5}
-currentState = state.Idle
 local playerDetected = false
-local isChasing = false
+local playerDistance = nil
 
-local pathUpdateTimer = 0
-local pathUpdateInterval = 0.5
+local state = { Idle = 1, Move = 2, Attack = 3}
+local currentState = state.Idle
+
+local pathUpdateTimer = 0                                               -- Los timers se tendran que cambiar con los que hay en el LuaBackend
+local pathUpdateInterval = 1.0
 local lastTargetPos = nil
 
-local delayedPlayerPos = nil
-local updateTargetTimer = 0
-local updateTargetInterval = 1
-
-local burstCount = 0
-local maxBurstShots = 4
-local burstCooldown = 0.3
-local timeSinceLastShot = 0
-local timeBetweenBursts = 1
-local burstCooldownTimer = 0
-local isShootingBurst = false
-
-local bulletSpeed = 5
-local bulletDirection = Vector3.new(0, 0, 0)
-local bulletDamageRadius = 1.5
-
-local stabTimer = 1
-local timeSinceLastStab = 0
-local stabCooldown = 2 
-local stabCooldownTimer = 0 
-
-local invulnerability = 1
-local timeSinceLastHit = 0
-local bool = false
+local invulnerability = 0.1                                             -- La invulnerabilidad es para la funcion de make_damage, para que no este aplicando el damage constantemente
+local timeSinceLastHit = 0                                              -- Este timer tambien hay que quitarlo en un futuro
 
 local currentPathIndex = 1
 
-isDead = false
+local explosionRadius = 6.0
+local explosionForce = 13.0
+local explosionUpward = 2.0
 
-local audioDanoPlayerMusic = nil
+local attackTimer = 0
+local attackDelay = 0.75
 
-local playerDistance = nil
+haveShield = false
+shieldHealth = 0
+priority = 3
 
-local visionAngle = 0 -- Ángulo actual del rayo
-local visionSpeed = 60 -- Velocidad de oscilación (grados por segundo)
-local visionRange = 30 -- Máximo desplazamiento (grados)
-
-pushed = false
-local pushedTime = 0.5
-local pushedTimeCounter = 0
+local isExploding = false
 
 zoneNumber = 0
 local zone_set = false
 
---Mision
-mission_Component = nil
-
-
-
 function on_ready() 
-
-    --audioDanoPlayerMusic = current_scene:get_entity_by_name("AudioDanoPlayer"):get_component("AudioSourceComponent")
-	enemyTransf = self:get_component("TransformComponent")
+    enemyTransf = self:get_component("TransformComponent")
     enemyNavmesh = self:get_component("NavigationAgentComponent")
-    enemyRb = self:get_component("RigidbodyComponent").rb
-    enemyWorldTransf = enemyTransf:get_world_transform()
+    enemyRbComponent = self:get_component("RigidbodyComponent")
+    enemyRb = enemyRbComponent.rb
 
     animator = self:get_component("AnimatorComponent")
+
+    bomb = current_scene:get_entity_by_name("Bomb")
+    bombRb = bomb:get_component("RigidbodyComponent").rb
 
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
-
-    bullet = current_scene:get_entity_by_name("EnemyBullet")
-    bulletTransform = bullet:get_component("TransformComponent")
-    bulletComponent = bullet:get_component("RigidbodyComponent")
-    bulletRb = bulletComponent.rb
-    bulletRb:set_trigger(true)
-
-    -- scrap = current_scene:get_entity_by_name("Scrap")
-    -- scrapTransform = scrap:get_component("TransformComponent")
     
-    bulletComponent:on_collision_enter(function(entityA, entityB)
+    enemyRbComponent:on_collision_enter(function(entityA, entityB)         -- Funcion para comprobar colisiones, ahora esta el enemyRb, pero cambiadlo por el que necesiteis
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            make_damage()
+            if currentState ~= state.Attack then
+                --print("Player en contacto con el Kamikaze! Cambiando a Attack.")
+                currentState = state.Attack
+            end
         end
     end)
-
-    -- mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
-    -- mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
 
     if player ~= nil then
         playerDistance = get_distance(enemyTransf.position, playerTransf.position)
         lastTargetPos = playerTransf.position
-        delayedPlayerPos = playerTransf.position
         update_path()
     end
 
-    --Mission
-    -- mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
-
 end
 
-
-
--- FSM del Orko Basico.
+-- FSM Kamikaze
 function on_update(dt)
-
+    if player == nil or isDead == true then                             -- Comprueba si el player existe o si el enemigo esta muerto para evitar entrar en el update 
+        return                                                          -- (poned las variables, ahora no tienen referencia)
+    end
     -- if zone_set ~= true then
     --     check_zone()
     --     zone_set = true
     -- end
 
-    if player == nil or isDead == true then 
-        return 
+    if isExploding then
+        attackTimer = attackTimer + dt
+        attack_state(dt)
+        return
     end
 
-    if enemyHealth <= 0 then
+
+
+    if not hasExploded and enemyHealth <= 0 then
+        drop_bomb()
+        die()
+    elseif hasExploded and enemyHealth <= 0 then
         die()
     end
+
+    player_distance()                                                  
 
     if haveShield and shieldHealth <= 0 then
         haveShield = false
         shield_destroyed=true
     end
 
-    change_state(dt)
-
-    if currentState == state.Idle then
-            return
-    end
-
+    -- Actualiza el path hacia el player con el navmesh
     pathUpdateTimer = pathUpdateTimer + dt
-    timeSinceLastHit = timeSinceLastHit + dt
-    updateTargetTimer = updateTargetTimer + dt
-
-    -- Verificar si el jugador se movio lo suficiente o si paso el tiempo del intervalo
     local currentTargetPos = playerTransf.position
+
     if pathUpdateTimer >= pathUpdateInterval or get_distance(lastTargetPos, currentTargetPos) > 1.0 then
         update_path()
         lastTargetPos = currentTargetPos
         pathUpdateTimer = 0
     end
 
-    if updateTargetTimer >= updateTargetInterval then
-        delayedPlayerPos = Vector3.new(playerTransf.position.x, playerTransf.position.y, playerTransf.position.z)
-        updateTargetTimer = 0
-    end
-
+    -- Para que mire al player
     if playerDetected then
         rotate_enemy(playerTransf.position)
     end
 
+    -- FSM { Idle -> Move -> Attack}
+    if currentState == state.Idle then
+        idle_state(dt)
 
-    if pushed == false then
-        if currentState == state.Idle then
-            idle_state(dt)
-            return
-        elseif currentState == state.Move then
-            move_state(dt)
-
-        elseif currentState == state.Shoot then
-            shoot_state(dt)
-            playerScript.backgroundMusicToPlay = 1
-
-        elseif currentState == state.Chase then
-            chase_state(dt)                                 -- Voy a mantener el Chase y el Move como funciones separadas para cuando sean orkos de niveles mas altos.
-            playerScript.backgroundMusicToPlay = 1
-
-        elseif currentState == state.Stab then
-            stab_state(dt)
-            playerScript.backgroundMusicToPlay = 1
-        end
-    else
-        pushedTimeCounter = pushedTimeCounter + dt
-        if pushedTimeCounter >= pushedTime then
-            pushedTimeCounter = 0
-            pushed = false
-            
-        end
+    elseif currentState == state.Move then
+        move_state(dt)
+    
+    elseif currentState == state.Attack then
+        attack_state(dt)
     end
 
 end
 
 
 
--- Deteccion del Player y cambio de estados en funcion de la distancia.
-function change_state(dt)
+-- Deteccion del Player con raycast y cambio de estados.
+function player_distance()
 
     if playerDetected == false then
         detect_area()
     else
         single_raycast()
     end
-                
-    -- Si esta en Chasing no vuelve a Shoot ni a Move.
-    if isChasing then
-        if playerDistance <= stabDistance then
-            if currentState ~= state.Stab then
-                currentState = state.Stab
-            end
-                
-        elseif playerDistance > stabDistance and currentState == state.Stab then
-            currentState = state.Chase
-        end
-                
-        return      -- Evita que vuelva a Move o Shoot.
+
+    if not playerDetected and playerDistance <= detectDistance then
+        --print("Player detectado! Pasando de Idle a Move.")
+        currentState = state.Move
+        playerDetected = true
     end
-                
-    -- **ORDEN IMPORTANTE** Chase y Stab tienen que evaluarse primero, sino no funcionara bien!!!
-    if playerDistance <= stabDistance then
-        if currentState ~= state.Stab then
-            currentState = state.Stab
-            isChasing = true
-        end
-                
-    elseif playerDistance <= chaseDistance then
-        if currentState ~= state.Chase then
-            currentState = state.Chase
-            isChasing = true
-        end
-                
-    elseif playerDistance <= shootDistance then
-        if currentState ~= state.Shoot then
-            currentState = state.Shoot
-        end
-                
-    elseif playerDistance > shootDistance and currentState == state.Shoot then
-        if currentState ~= state.Move then
-            currentState = state.Move
-        end
+
+    if playerDetected and playerDistance <= bombDistance then
+        isExploding = true
+        currentState = state.Attack
+
     end
 
 end
@@ -315,14 +222,14 @@ function detect_area()
     )
 
     local origin = enemyTransf.position
-    local maxDistance = 25.0
+    local maxDistance = 20.0
 
     -- Dibujar los tres rayos para depuración
-    --Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
-    --Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
-    --Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
-    --Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
-    --Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    ----Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    ----Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
+    ----Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    ----Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
+    ----Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
 
     -- Lanzar los rayos
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
@@ -330,7 +237,6 @@ function detect_area()
     local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
     local intermediateRightHit = Physics.Raycast(origin, intermediateRightDirection, maxDistance)
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
-    
 
     if detect_player(centerHit) then
 
@@ -361,7 +267,6 @@ function detect_area()
         playerDistance = get_distance(origin, rightHit.hitPoint)
         
     end
-
 end
 
 function single_raycast()
@@ -373,7 +278,7 @@ function single_raycast()
     )
 
     local origin = enemyTransf.position
-    local maxDistance = 25.0
+    local maxDistance = 20.0
 
     --Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
 
@@ -384,6 +289,7 @@ function single_raycast()
         playerDetected = true
         playerDistance = get_distance(origin, rayHit.hitPoint)
     end
+
 end
 
 -- Funciones para los distintos estados.
@@ -398,8 +304,8 @@ end
 
 function move_state(dt)
 
-    if currentAnim ~= 4 then
-        currentAnim = 4
+    if currentAnim ~= 5 then
+        currentAnim = 5
         animator:set_current_animation(currentAnim)
     end
 
@@ -408,121 +314,89 @@ function move_state(dt)
 
 end
 
-function shoot_state(dt)
+function attack_state(dt)
 
     enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
-    -- Logica de disparo
-    if isShootingBurst then
-        if currentAnim ~= 1 then
-            currentAnim = 1
-            animator:set_current_animation(currentAnim)
-        end
-        timeSinceLastShot = timeSinceLastShot + dt
-
-        if timeSinceLastShot >= burstCooldown and burstCount < maxBurstShots then
-            shoot_projectile(dt)
-            burstCount = burstCount + 1
-            timeSinceLastShot = 0
-
-            if burstCount >= maxBurstShots then
-                isShootingBurst = false
-                burstCooldownTimer = 0
-            end
-        end
-    else
-        if currentAnim ~= 3 then
-            currentAnim = 3
-            animator:set_current_animation(currentAnim)
-        end
-        burstCooldownTimer = burstCooldownTimer + dt
-
-        if burstCooldownTimer >= timeBetweenBursts then
-            isShootingBurst = true
-            burstCount = 0
-            timeSinceLastShot = 0
-        end
-    end
-
-end
-
-function chase_state(dt)
-
-    if currentAnim ~= 4 then
-        currentAnim = 4
+    if currentAnim ~= 7 then
+        currentAnim = 7
         animator:set_current_animation(currentAnim)
     end
 
-    follow_path(dt)
+    if attackTimer >= attackDelay then
+        -- Logica de la explosion
+        local explosionPos = enemyRb:get_position()
+        local entities = current_scene:get_all_entities()
+
+            for _, entity in ipairs(entities) do 
+                if entity ~= self and entity:has_component("RigidbodyComponent") then 
+                    local entityRb = entity:get_component("RigidbodyComponent").rb
+                    local entityPos = entityRb:get_position()
+
+                    local direction = Vector3.new(
+                        entityPos.x - explosionPos.x,
+                        entityPos.y - explosionPos.y,
+                        entityPos.z - explosionPos.z
+                    )
+
+                    local distance = math.sqrt(
+                        direction.x * direction.x +
+                        direction.y * direction.y +
+                        direction.z * direction.z
+                    )
+
+                    if distance > 0 then
+                        direction.x = direction.x / distance
+                        direction.y = direction.y / distance
+                        direction.z = direction.z / distance
+                    end
+
+                    if distance < explosionRadius then
+                        local forceFactor = (explosionRadius - distance) / explosionRadius
+                        direction.y = direction.y + explosionUpward
+                        local finalForce = Vector3.new(
+                            direction.x * explosionForce * forceFactor,
+                            direction.y * explosionForce * forceFactor,
+                            direction.z * explosionForce * forceFactor
+                        )
+                        entityRb:apply_impulse(finalForce)
+
+                        make_damage()
+                    end
+                end
+            end
+
+        die()
+
+        health = 0
+        hasExploded = true
+    end
 
 end
 
-function stab_state(dt)
+function drop_bomb()
 
-    enemyRb:set_velocity(Vector3.new(0, 0, 0))
-
-    if stabCooldownTimer > 0 then
-        stabCooldownTimer = stabCooldownTimer - dt
-        if currentAnim ~= 3 then
-            currentAnim = 3
-            animator:set_current_animation(currentAnim)
-        end
-        return 
-    end
-
-        timeSinceLastStab = timeSinceLastStab + dt
-
-    if timeSinceLastStab < stabTimer then
-        if currentAnim ~= 0 then
-            currentAnim = 0
-            animator:set_current_animation(currentAnim)
-        end
-        make_damage()
-        bleed_damage()
-    elseif timeSinceLastStab >= stabTimer then
-        timeSinceLastStab = 0
-        stabCooldownTimer = stabCooldown 
-    end
-
-end
-
--- Funciones para calcular cosas.    :)
-function make_damage()
-    if timeSinceLastHit < invulnerability then
+    if bomb == nil then
         return
     end
 
+    bombRb:set_position(Vector3.new(enemyTransf.position.x, 0.4, enemyTransf.position.z))
+
+end
+
+
+
+-- Funciones para calcular cosas.    :)
+function make_damage()
+
     if player ~= nil then
         if playerScript ~= nil then
-            local damage = 15
 
-            if playerScript.playerHealth > 0 then
-                playerScript.playerHealth = playerScript.playerHealth - damage
+            playerScript.playerHealth = playerScript.playerHealth - enemyDamage
+            --print("PlayerHealth: " .. playerScript.playerHealth)
 
-            end
-
-            --audioDanoPlayerMusic:pause()
-            --audioDanoPlayerMusic:play()
-            timeSinceLastHit = 0
+            return
         end
-    end
-
-end
-
-function shoot_projectile(dt)
-
-    bulletRb:set_position(Vector3.new(enemyTransf.position.x, enemyTransf.position.y + 0.65, enemyTransf.position.z))
-
-    local direction = Vector3.new(delayedPlayerPos.x - enemyTransf.position.x, 0, delayedPlayerPos.z - enemyTransf.position.z)
-    local velocity = Vector3.new(direction.x * bulletSpeed, 0, direction.z * bulletSpeed)
-    bulletRb:set_velocity(velocity)
-
-end
-
-function bleed_damage()
-
-    if playerScript ~= nil then
-        playerScript:applyBleed()
     end
 
 end
@@ -567,6 +441,8 @@ function follow_path(dt)
     else
         if currentPathIndex < #enemyNavmesh.path then
             currentPathIndex = currentPathIndex + 1
+        else
+            currentState = state.Attack
         end
     end
 
@@ -599,6 +475,14 @@ function get_distance(pos1, pos2)
     local dy = pos2.y - pos1.y
     local dz = pos2.z - pos1.z
     return math.sqrt(dx * dx + dy * dy + dz * dz)
+
+end
+
+function die()                                      -- !! IMPORTANTE !! Se tendra que cambiar para destruir el enemigo al morir, ahora solo se mueve lejos y se le pone en Idle :)
+
+    currentState = state.Idle
+    enemyRb:set_position(Vector3.new(-500, 0, 0))
+    isDead = true
 
 end
 
@@ -644,32 +528,10 @@ end
 --         end)
 --     end
 
---     --[[if zoneNumber < playerScript.zonePlayer then
+--     if zoneNumber < playerScript.zonePlayer then
 --         enemyRb:set_position(Vector3.new(-500, 0, 0))
 --         self:set_active(false)
---     end]]--
+--     end
 -- end
-
-function die()
-    currentState = state.Idle
-    generate_scrap()
-    enemyRb:set_position(Vector3.new(-500, 0, 0))
-    isDead = true
-
-    mission_Component.enemyDieCount = mission_Component.enemyDieCount + 1
-
-    if mission6Component.m7_missionOpen == true then
-        mission_Component.enemyDie_M7 = mission_Component.enemyDie_M7-1
-    end
-
-    if mission8Component.m10_missionOpen == true then
-        mission_Component.enemyDie_M10 = mission_Component.enemyDie_M10-1
-    end
-
-end
-
-function generate_scrap()
-    scrapTransform.position = enemyTransf.position
-end
 
 function on_exit() end

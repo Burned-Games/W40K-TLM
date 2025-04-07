@@ -283,10 +283,9 @@ function shield_state(dt)
                 end
                 currentTarget.script.haveShield = true
                 
-                -- Iniciar cooldown manualmente (sin corrutina)
                 canUseShield = false
-                shieldCooldownActive = true  -- Activar el flag
-                shieldTimer = 0              -- Reiniciar timer
+                shieldCooldownActive = true  
+                shieldTimer = 0              
             end
         end
 
@@ -296,6 +295,7 @@ function shield_state(dt)
         currentState = state.Move
     end
 end
+
 function create_new_shield()
     -- Buscar prefab de escudo
     if prefabShield == nil then

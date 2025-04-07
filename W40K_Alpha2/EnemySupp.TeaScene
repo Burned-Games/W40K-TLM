@@ -2658,9 +2658,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.4487724006175995,
-                                            "y": 0.4487724006175995,
-                                            "z": 0.4487724006175995
+                                            "x": 0.17386361956596375,
+                                            "y": 0.17386361956596375,
+                                            "z": 0.17386361956596375
                                         }
                                     }
                                 }
@@ -2710,9 +2710,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 499.9884033203125,
-                                            "y": 0.00874320324510336,
-                                            "z": 499.9884033203125
+                                            "x": 499.9830322265625,
+                                            "y": 0.003387294476851821,
+                                            "z": 499.9830322265625
                                         }
                                     }
                                 }
@@ -2762,9 +2762,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.4487724006175995,
-                                            "y": 0.4487724006175995,
-                                            "z": 0.4487724006175995
+                                            "x": 0.17386361956596375,
+                                            "y": 0.17386361956596375,
+                                            "z": 0.17386361956596375
                                         }
                                     }
                                 }
@@ -2814,9 +2814,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.4487724006175995,
-                                            "y": 0.4487724006175995,
-                                            "z": 0.4487724006175995
+                                            "x": 0.17386361956596375,
+                                            "y": 0.17386361956596375,
+                                            "z": 0.17386361956596375
                                         }
                                     }
                                 }
@@ -2866,9 +2866,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.4487724006175995,
-                                            "y": 0.4487724006175995,
-                                            "z": 0.4487724006175995
+                                            "x": 0.17386361956596375,
+                                            "y": 0.17386361956596375,
+                                            "z": 0.17386361956596375
                                         }
                                     }
                                 }
@@ -2918,9 +2918,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.4487724006175995,
-                                            "y": 0.4487724006175995,
-                                            "z": 0.4487724006175995
+                                            "x": 0.17386361956596375,
+                                            "y": 0.17386361956596375,
+                                            "z": 0.17386361956596375
                                         }
                                     }
                                 }
@@ -2970,9 +2970,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.49863600730895998,
-                                            "y": 0.49863600730895998,
-                                            "z": 0.49863600730895998
+                                            "x": 0.19318179786205293,
+                                            "y": 0.19318179786205293,
+                                            "z": 0.19318179786205293
                                         }
                                     }
                                 }
@@ -3022,9 +3022,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.49863600730895998,
-                                            "y": 0.49863600730895998,
-                                            "z": 0.49863600730895998
+                                            "x": 0.19318179786205293,
+                                            "y": 0.19318179786205293,
+                                            "z": 0.19318179786205293
                                         }
                                     }
                                 }
@@ -3074,9 +3074,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.49863600730895998,
-                                            "y": 0.49863600730895998,
-                                            "z": 0.49863600730895998
+                                            "x": 0.19318179786205293,
+                                            "y": 0.19318179786205293,
+                                            "z": 0.19318179786205293
                                         }
                                     }
                                 }
@@ -3126,9 +3126,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.5540400147438049,
-                                            "y": 0.5540400147438049,
-                                            "z": 0.5540400147438049
+                                            "x": 0.21464644372463227,
+                                            "y": 0.21464644372463227,
+                                            "z": 0.21464644372463227
                                         }
                                     }
                                 }
@@ -3138,7 +3138,7 @@
                 }
             }
         },
-        "value653": 7,
+        "value653": 6,
         "value654": 1,
         "value655": {
             "ScriptPath": "scripts/JugadorScript.lua",
@@ -3149,34 +3149,29 @@
             "ScriptPath": "scripts/cameraScript.lua",
             "Language": 0
         },
-        "value658": 1048603,
+        "value658": 50,
         "value659": {
-            "ScriptPath": "scripts/EnemyOrk.lua",
+            "ScriptPath": "scripts/TankOrkSupp.lua",
             "Language": 0
         },
-        "value660": 48,
+        "value660": 54,
         "value661": {
-            "ScriptPath": "scripts/Bomb.lua",
+            "ScriptPath": "scripts/EnemySuppTest.lua",
             "Language": 0
         },
         "value662": 45,
         "value663": {
-            "ScriptPath": "scripts/EnemyKamikaze.lua",
+            "ScriptPath": "scripts/EnemyKamikazesSupp.lua",
             "Language": 0
         },
-        "value664": 50,
+        "value664": 1048603,
         "value665": {
-            "ScriptPath": "scripts/TankOrk.lua",
+            "ScriptPath": "scripts/EnemyOrk.lua",
             "Language": 0
         },
-        "value666": 54,
-        "value667": {
-            "ScriptPath": "scripts/EnemySuppTest.lua",
-            "Language": 0
-        },
-        "value668": 1,
-        "value669": 1048576,
-        "value670": {
+        "value666": 1,
+        "value667": 1048576,
+        "value668": {
             "NavMesh": {
                 "ptr_wrapper": {
                     "id": 2147483669,
@@ -3189,9 +3184,9 @@
                 "value0": 1143534177240328823
             }
         },
-        "value671": 4,
-        "value672": 1048603,
-        "value673": {
+        "value669": 4,
+        "value670": 1048603,
+        "value671": {
             "NavMeshComponent": {
                 "ptr_wrapper": {
                     "id": 2147483670,
@@ -3208,8 +3203,8 @@
                 }
             }
         },
-        "value674": 45,
-        "value675": {
+        "value672": 45,
+        "value673": {
             "NavMeshComponent": {
                 "ptr_wrapper": {
                     "id": 2147483671,
@@ -3226,8 +3221,8 @@
                 }
             }
         },
-        "value676": 50,
-        "value677": {
+        "value674": 50,
+        "value675": {
             "NavMeshComponent": {
                 "ptr_wrapper": {
                     "id": 2147483672,
@@ -3244,8 +3239,8 @@
                 }
             }
         },
-        "value678": 54,
-        "value679": {
+        "value676": 54,
+        "value677": {
             "NavMeshComponent": {
                 "ptr_wrapper": {
                     "id": 2147483673,
@@ -3262,9 +3257,9 @@
                 }
             }
         },
-        "value680": 5,
-        "value681": 1,
-        "value682": {
+        "value678": 5,
+        "value679": 1,
+        "value680": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -3295,8 +3290,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 39
         },
-        "value683": 1048603,
-        "value684": {
+        "value681": 1048603,
+        "value682": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -3327,8 +3322,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value685": 45,
-        "value686": {
+        "value683": 45,
+        "value684": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -3359,8 +3354,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value687": 50,
-        "value688": {
+        "value685": 50,
+        "value686": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -3391,8 +3386,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value689": 54,
-        "value690": {
+        "value687": 54,
+        "value688": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -3423,6 +3418,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 15
         },
+        "value689": 0,
+        "value690": 0,
         "value691": 0,
         "value692": 0,
         "value693": 0,
@@ -3430,11 +3427,9 @@
         "value695": 0,
         "value696": 0,
         "value697": 0,
-        "value698": 0,
-        "value699": 0,
-        "value700": 1,
-        "value701": 1048609,
-        "value702": {
+        "value698": 1,
+        "value699": 1048609,
+        "value700": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
                     "id": 2147483684,
@@ -3687,7 +3682,7 @@
                         "value55": true,
                         "value56": 0,
                         "value57": 0,
-                        "value58": 1260.509033203125,
+                        "value58": 2402.518798828125,
                         "value59": {
                             "value0": 12583493175215192178
                         },
@@ -3701,78 +3696,78 @@
                 }
             }
         },
-        "value703": 71,
-        "value704": 1048576,
-        "value705": 1,
-        "value706": 2,
-        "value707": 3,
-        "value708": 4,
-        "value709": 5,
-        "value710": 6,
-        "value711": 7,
-        "value712": 8,
-        "value713": 9,
-        "value714": 10,
-        "value715": 11,
-        "value716": 12,
-        "value717": 13,
-        "value718": 14,
-        "value719": 15,
-        "value720": 16,
-        "value721": 17,
-        "value722": 18,
-        "value723": 19,
-        "value724": 20,
-        "value725": 21,
-        "value726": 22,
-        "value727": 1048599,
-        "value728": 1048611,
-        "value729": 1048610,
-        "value730": 1048609,
-        "value731": 1048608,
-        "value732": 1048607,
-        "value733": 1048606,
-        "value734": 1048605,
-        "value735": 1048604,
-        "value736": 1048603,
-        "value737": 1048602,
-        "value738": 1048601,
-        "value739": 1048600,
-        "value740": 36,
-        "value741": 37,
-        "value742": 38,
-        "value743": 39,
-        "value744": 40,
-        "value745": 41,
-        "value746": 42,
-        "value747": 43,
-        "value748": 44,
-        "value749": 45,
-        "value750": 46,
-        "value751": 47,
-        "value752": 48,
-        "value753": 49,
-        "value754": 50,
-        "value755": 51,
-        "value756": 52,
-        "value757": 53,
-        "value758": 54,
-        "value759": 55,
-        "value760": 56,
-        "value761": 57,
-        "value762": 58,
-        "value763": 59,
-        "value764": 60,
-        "value765": 61,
-        "value766": 62,
-        "value767": 63,
-        "value768": 64,
-        "value769": 65,
-        "value770": 66,
-        "value771": 67,
-        "value772": 68,
-        "value773": 69,
-        "value774": 70,
-        "value775": 0
+        "value701": 71,
+        "value702": 1048576,
+        "value703": 1,
+        "value704": 2,
+        "value705": 3,
+        "value706": 4,
+        "value707": 5,
+        "value708": 6,
+        "value709": 7,
+        "value710": 8,
+        "value711": 9,
+        "value712": 10,
+        "value713": 11,
+        "value714": 12,
+        "value715": 13,
+        "value716": 14,
+        "value717": 15,
+        "value718": 16,
+        "value719": 17,
+        "value720": 18,
+        "value721": 19,
+        "value722": 20,
+        "value723": 21,
+        "value724": 22,
+        "value725": 1048599,
+        "value726": 1048611,
+        "value727": 1048610,
+        "value728": 1048609,
+        "value729": 1048608,
+        "value730": 1048607,
+        "value731": 1048606,
+        "value732": 1048605,
+        "value733": 1048604,
+        "value734": 1048603,
+        "value735": 1048602,
+        "value736": 1048601,
+        "value737": 1048600,
+        "value738": 36,
+        "value739": 37,
+        "value740": 38,
+        "value741": 39,
+        "value742": 40,
+        "value743": 41,
+        "value744": 42,
+        "value745": 43,
+        "value746": 44,
+        "value747": 45,
+        "value748": 46,
+        "value749": 47,
+        "value750": 48,
+        "value751": 49,
+        "value752": 50,
+        "value753": 51,
+        "value754": 52,
+        "value755": 53,
+        "value756": 54,
+        "value757": 55,
+        "value758": 56,
+        "value759": 57,
+        "value760": 58,
+        "value761": 59,
+        "value762": 60,
+        "value763": 61,
+        "value764": 62,
+        "value765": 63,
+        "value766": 64,
+        "value767": 65,
+        "value768": 66,
+        "value769": 67,
+        "value770": 68,
+        "value771": 69,
+        "value772": 70,
+        "value773": 0
     }
 }
