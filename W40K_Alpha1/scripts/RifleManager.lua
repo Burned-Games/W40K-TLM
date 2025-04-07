@@ -292,6 +292,7 @@ function shoot(dt)
 
     if playerScript.enemyDirection ~= nil then
         forwardVector = playerScript.enemyDirection
+        playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
     else
         forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
     end

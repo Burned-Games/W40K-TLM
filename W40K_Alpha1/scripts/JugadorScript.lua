@@ -689,13 +689,13 @@ function autoaimUpdate()
     )
 
     local origin = playerTransf.position
-    local maxDistance = 25.0
+    local maxDistance = 12.0
 
-    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
-    Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
-    Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
-    Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
-    Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    --Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+    --Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
+    --Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    --Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
+    --Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
 
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
     local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
@@ -708,26 +708,26 @@ function autoaimUpdate()
         enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
     elseif detect_enemy(intermediateLeftHit) then
         local enemyPos = intermediateLeftHit.hitEntity:get_component("TransformComponent").position
-        enemyDirection = Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z )
-        --[[angleRotation = get_angle_to_target(origin, intermediateLeftHit.hitEntity:get_component("TransformComponent").position)
-        playerTransf.rotation.y = math.deg(angleRotation)]]
+        enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z ))
+
     elseif detect_enemy(leftHit) then
         local enemyPos = leftHit.hitEntity:get_component("TransformComponent").position
         enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
-        --angleRotation = get_angle_to_target(origin, leftHit.hitEntity:get_component("TransformComponent").position)
-        --playerTransf.rotation.y = math.deg(angleRotation) 
+
     elseif detect_enemy(intermediateRightHit) then
         local enemyPos = intermediateRightHit.hitEntity:get_component("TransformComponent").position
         enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
-        --angleRotation = get_angle_to_target(origin, intermediateRightHit.hitEntity:get_component("TransformComponent").position)
-        --playerTransf.rotation.y = math.deg(angleRotation) 
+
     elseif detect_enemy(rightHit) then
         local enemyPos = rightHit.hitEntity:get_component("TransformComponent").position
         enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
-        --angleRotation = get_angle_to_target(origin, rightHit.hitEntity:get_component("TransformComponent").position)
-        --playerTransf.rotation.y = math.deg(angleRotation) 
+
     else
         enemyDirection = nil
+    end
+
+    if enemyDirection then
+        
     end
 end
 
