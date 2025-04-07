@@ -42,6 +42,7 @@ enemyDie_M10 = 1
 
 --Text and Image
 local textComponent = nil
+local textTransform = nil
 
 --EnemyDieCount
 enemyDieCount = 0
@@ -51,6 +52,12 @@ M5_WorkBrech = false
 M9_WorkBrech = false
 --misionNoheho
 local nohecho = false
+
+--UIimage
+imgComponent = nil
+local timeLerp = 0.0
+local testB = false
+local testA = false
 
 -- Initialize tasks when the engine is ready
 function on_ready()
@@ -69,6 +76,11 @@ function on_ready()
     mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
 
     textComponent = current_scene:get_entity_by_name("MisionText"):get_component("UITextComponent")
+    textTransform = current_scene:get_entity_by_name("MisionText"):get_component("TransformComponent")
+   
+
+    imgComponent =current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
+    
 end
 
 -- Perform task completion check in each frame update
@@ -77,6 +89,40 @@ function on_update(dt)
     textComponent:set_text(getCurrentTask())
     
     missionBlue_ZoneTutor()
+
+    if Input.is_key_pressed(Input.keycode.M) then
+        testB = true
+        testA = false
+        timeLerp = 0.0
+    end
+
+    if Input.is_key_pressed(Input.keycode.N) then
+        testA = true
+        testB = false
+        timeLerp = 0.0
+    end
+
+    if testB == true then
+        imgComponent.position.x = lerp(-123, 124, timeLerp)
+        textTransform .position.x = lerp(-27, 220, timeLerp)
+        timeLerp = timeLerp + (dt * 3);
+        if timeLerp > 1 then
+            timeLerp = 1
+        end
+        print(imgComponent.position.x)
+    end
+
+    if testA == true then
+        imgComponent.position.x = lerp(124, -124, timeLerp)
+        textTransform .position.x = lerp(220, -27, timeLerp)
+        timeLerp = timeLerp + (dt * 3);
+        if timeLerp > 1 then
+            timeLerp = 1
+        end
+        print(imgComponent.position.x)
+    end
+   
+
 
 end
 
@@ -216,3 +262,6 @@ function jumpToNextMission(nowTaks)
     end
 end
 
+function lerp(a, b, t)
+    return a + (b - a) * t
+end
