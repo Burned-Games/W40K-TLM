@@ -264,7 +264,6 @@ end
 function attack_state(dt) end
 
 function shield_state(dt)
-    -- Animación para el estado de escudo
     if suppAnimator and currentAnim ~= 3 then
         suppAnimator:set_current_animation(3)
         currentAnim = 3
@@ -275,14 +274,15 @@ function shield_state(dt)
         local distance = get_distance(suppEnemyTransf.position, targetPos)
 
         if distance <= shieldDistance and not currentTarget.script.haveShield then
-            create_new_shield()
-            
-            if actualshield and currentTarget.script then
-                if transformShield and currentTarget.transform then
-                    transformShield.position = currentTarget.transform.position
+            local shieldEntity = create_new_shield(currentTarget)
+            if shieldEntity then
+                local shieldScript = shieldEntity:get_component("ScriptComponent")
+                if shieldScript then
+                    shieldScript.targetEnemy = currentTarget  -- Asignar target
+                    shieldScript.isActive = true  -- ¡Activar el escudo aquí!
                 end
+    
                 currentTarget.script.haveShield = true
-                
                 canUseShield = false
                 shieldCooldownActive = true  
                 shieldTimer = 0              
@@ -296,21 +296,22 @@ function shield_state(dt)
     end
 end
 
-function create_new_shield()
-    -- Buscar prefab de escudo
+function create_new_shield(targetEnemy)
+    if not targetEnemy then
+        print("Error: No target enemy provided for shield")
+        return nil
+    end
+
     if prefabShield == nil then
         prefabShield = current_scene:get_entity_by_name("Shield")
     end
 
     if prefabShield then
-        -- Duplicar el prefab de escudo
-        actualshield = current_scene:duplicate_entity(prefabShield)
-        
-        if actualshield then
-            transformShield = actualshield:get_component("TransformComponent")
-            transformShield.scale = Vector3.new(1.3, 1.3, 1.3)
-
-            return actualshield
+        local newShield = current_scene:duplicate_entity(prefabShield)
+        if newShield then
+            local shieldTransform = newShield:get_component("TransformComponent")
+            shieldTransform.scale = Vector3.new(1.3, 1.3, 1.3)
+            return newShield
         end
     end
     

@@ -1,22 +1,34 @@
 shieldHealth = 35
-local shield = nil
 local shieldTransform = nil
-
-enemies = {}
-enemyTransform = nil
-
+local targetEnemy = nil
+local isActive = false
 
 function on_ready()
-    -- Add initialization code here
-    shield = self:getEntity("shield")
-    shieldTransform = shield:get_component("TransformComponent")
+    shieldTransform = self:get_component("TransformComponent")
 
 end
 
-
 function on_update(dt)
-    -- Add update code here
+    
+    if not isActive then
+        local scriptComponent = self:get_component("ScriptComponent")
+        if scriptComponent and scriptComponent.targetEnemy then
+            targetEnemy = scriptComponent.targetEnemy
+            isActive = true
+        else
+            return  -- Seguir esperando
+        end
+    end
+    -- Verificar validez del target
+    if not targetEnemy or not targetEnemy.transform then
+        shieldDestroy()
+        return
+    end
 
+    -- Actualizar posición
+    shieldTransform.position = targetEnemy.transform.position
+
+    -- Destruir si no tiene salud
     if shieldHealth <= 0 then
         shieldDestroy()
     end
@@ -24,8 +36,6 @@ end
 
 function shieldDestroy()
 
-    
 end
-function on_exit()
-    -- Add cleanup code here
-end
+
+function on_exit() end
