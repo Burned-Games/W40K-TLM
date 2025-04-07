@@ -127,25 +127,21 @@ function change_state(dt)
     -- Obtener estados de escudo de los enemigos
     local shieldStatuses = update_shield_status()
     
-    -- Comprobar si todos los enemigos tienen escudo activo
-    local allShielded = false
-    for _, shieldData in ipairs(shieldStatuses) do
-        if  shieldData.haveShield then
-            allShielded = true
+    local allShielded = true
+    for _, enemyData in ipairs(Enemies) do
+        if not enemyData.haveShield then
+            allShielded = false
             break
         end
     end
     
-    -- Si todos tienen escudo, ir a Flee
     if allShielded then
         currentState = state.Flee
         return
     end
     
-    -- Obtener las distancias de los enemigos
     local enemyDistances = enemies_distance()
     
-    -- Buscar el enemigo sin escudo más cercano
     local closestUnshieldedEnemy = nil
     local minDistance = math.huge
     
@@ -285,8 +281,11 @@ function shield_state(dt)
                 currentTarget.script.haveShield = true
                 canUseShield = false
                 shieldCooldownActive = true  
-                shieldTimer = 0              
+                shieldTimer = 0  
+                
+                currentTarget = nil
             end
+
         end
 
         currentState = state.Move

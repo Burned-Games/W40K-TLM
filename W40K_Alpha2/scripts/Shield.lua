@@ -16,19 +16,17 @@ function on_update(dt)
             targetEnemy = scriptComponent.targetEnemy
             isActive = true
         else
-            return  -- Seguir esperando
+            return
         end
     end
-    -- Verificar validez del target
+    
     if not targetEnemy or not targetEnemy.transform then
         shieldDestroy()
         return
     end
 
-    -- Actualizar posición
     shieldTransform.position = targetEnemy.transform.position
 
-    -- Destruir si no tiene salud
     if shieldHealth <= 0 then
         shieldDestroy()
     end
