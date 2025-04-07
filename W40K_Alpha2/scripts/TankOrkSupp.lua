@@ -37,7 +37,7 @@ local pathUpdateInterval = 1.0
 local lastTargetPos = nil
 
 haveShield = false
-shieldHealth = 0
+shieldHealth = 35
 shield_destroyed = false
 priority = 2
 local tackleHasDamaged = false

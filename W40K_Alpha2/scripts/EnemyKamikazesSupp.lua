@@ -43,7 +43,7 @@ local attackTimer = 0
 local attackDelay = 0.75
 
 haveShield = false
-shieldHealth = 0
+shieldHealth = 35
 priority = 3
 
 local isExploding = false

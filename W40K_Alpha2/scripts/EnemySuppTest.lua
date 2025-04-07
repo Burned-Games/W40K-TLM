@@ -274,9 +274,9 @@ function shield_state(dt)
         local targetPos = currentTarget.transform.position
         local distance = get_distance(suppEnemyTransf.position, targetPos)
 
-        if distance <= shieldDistance then
+        if distance <= shieldDistance and not currentTarget.script.haveShield then
             create_new_shield()
-
+            
             if actualshield and currentTarget.script then
                 if transformShield and currentTarget.transform then
                     transformShield.position = currentTarget.transform.position
