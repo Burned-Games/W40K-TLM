@@ -281,6 +281,27 @@ function on_update(dt)
         
 end
 
+function hide_pause()
+    isPaused = false
+    ContinueText:set_visible(false)
+    SettingsText:set_visible(false)
+    SaveGameText:set_visible(false)
+    ExitText:set_visible(false)
+    PauseText:set_visible(false)
+    button1:set_visible(false)
+    button2:set_visible(false)
+    button3:set_visible(false)
+    button4:set_visible(false)
+    visibilidad1:set_visible(false)
+    slider1:set_visible(false)
+    slider2:set_visible(false)
+    VolumeText:set_visible(false)
+    FXText:set_visible(false)
+    SettingsBaseText:set_visible(false)
+    visibilidad2:set_visible(false)
+    BaseTextureBG:set_visible(false)
+end
+
 function on_exit()
     -- Add cleanup code here
 end
