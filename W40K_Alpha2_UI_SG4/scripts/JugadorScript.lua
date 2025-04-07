@@ -120,6 +120,8 @@ function on_ready()
     end
     workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
     --UpgradeManager END
+    pauseUIManager = current_scene:get_entity_by_name("PauseMenu"):get_component("ScriptComponent")
+
 
     playerTransf = self:get_component("TransformComponent")
     
@@ -704,6 +706,9 @@ function take_damage(amount)
         workbenchUIManager.hide_ui()
     end
     
+    if pauseUIManager.isPaused then
+        pauseUIManager.hide_pause()
+    end
 
 end
 
