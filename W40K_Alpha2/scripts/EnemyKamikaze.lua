@@ -31,6 +31,7 @@ function on_ready()
     kamikaze.detectionRange = 20
     kamikaze.attackRange = 1
     kamikaze.explosionRange = 5
+    kamikaze.priority = 3
 
 
 

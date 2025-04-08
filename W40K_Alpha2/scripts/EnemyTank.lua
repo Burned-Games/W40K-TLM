@@ -34,6 +34,7 @@ function on_ready()
     tank.tackleDamage = 100
     tank.detectionRange = 20
     tank.meleeAttackRange = 3
+    tank.priority = 2
 
 
     tank.level2 = false -- Toggle levels for testing
