@@ -1,88 +1,129 @@
-
 --local listUtils = require("scripts/ListHelper")
 
 -- Child references - Names in hierarchy are in PascalCase with "Arena" as prefix
 
-local enemyPool = nil -- child object with enemies inside
+--local enemyPool = nil -- child object with enemies inside (no se usará el pool)
 local battleTrigger = nil -- child object with rigidbody
---local spawnPoint = nil -- child object, no components required. Currently unused
+local spawnPoint = nil -- child object, no components required
 local exitDoor = nil -- child object, no components required
 
-local spawnRadius = 3 -- max distance from center to spawn enemies
+-- New target positions for enemies to move to
+local targetPositions = {}
+
+local spawnRadius = 0.1 -- max distance from center to spawn enemies
+
+-- Array de enemigos específicos por nombre
+local enemies = {}
+local enemyScripts = {}
 
 -- Arena data
-
 local currentRound = 0
-local WaveData = {{"EnemyOrk", "EnemyOrk", "EnemyOrk"}, {"EnemyOrk"}, {"EnemyOrk", "EnemyOrk"}} -- TODO change to correct names
+local WaveData = {
+    {1}, -- Oleada 1: 1 enemigo
+    {2,3,4,5}, -- Oleada 2: 4 enemigos
+    {6,7,8} -- Oleada 3: 3 enemigos
+}
 local activeEnemies = {}
 local activeEnemyScripts = {}
 
 local arenaEnded = true
+local waitingForKeyPress = false
+local allWavesCompleted = false
 
+-- Variables para controlar el estado de las teclas
+local m_key_pressed = false
+local n_key_pressed = false
 
 function on_ready()
     -- Add initialization code here
-
-    do return end
     
-    enemyPool = current_scene:get_entity_by_name("ArenaEnemyPool")
+    --enemyPool = current_scene:get_entity_by_name("ArenaEnemyPool")
     battleTrigger = current_scene:get_entity_by_name("ArenaBattleTrigger")
     spawnPoint = current_scene:get_entity_by_name("ArenaSpawnCenter"):get_component("TransformComponent").position
     exitDoor = current_scene:get_entity_by_name("ArenaExitDoor")
     
-    --[[
-    local children = self:get_children()
-    for _, child in ipairs(children) do
-        local tag = child:get_component("TagComponent").tag
-        if (tag == "ArenaEnemyPool") then
-            enemyPool = child
-        elseif (tag == "ArenaSpawnCenter") then
-            spawnPoint = child:get_component("TransformComponent").position
-        elseif (tag == "ArenaBattleTrigger") then
-            battleTrigger = child
-        elseif (tag == "ArenaExitDoor") then
-            exitDoor = child
+    -- Enemies rangedX
+    for i = 1, 8 do
+        local enemyName = "EnemyRange" .. i
+        local enemy = current_scene:get_entity_by_name(enemyName)
+        if enemy and enemy:is_valid() then
+            enemies[i] = enemy
+            enemyScripts[i] = enemy:get_component("ScriptComponent")
+            log("Found enemy: " .. enemyName)
+            
+            -- Mover enemigos fuera de la vista inicialmente
+            enemy:set_active(false)
+            --enemy:get_component("TransformComponent"):set_position(Vector3.new(5000, 0, 5000))
+        else
+            log("WARNING: Enemy " .. enemyName .. " not found!")
         end
     end
-    --]]
-
+    
+    --Get target position entities
+    for i = 1, 4 do
+        local targetPos = current_scene:get_entity_by_name("ArenaTargetPosition" .. i)
+        if targetPos and targetPos:is_valid() then
+            table.insert(targetPositions, targetPos)
+        else
+            log("Warning: ArenaTargetPosition" .. i .. " not found")
+        end
+    end
+    
     configureBattleTrigger()
-
 end
 
 function on_update(dt)
-    -- Add update code here
-    do return end
-    if true then return end
     if not arenaEnded then 
-
+        -- Control de tecla M (matar enemigos)
+        local current_m_state = Input.is_key_pressed(Input.keycode.M)
+        if current_m_state and not m_key_pressed then
+            if #activeEnemyScripts > 0 then
+                log("DEBUG: Killing all enemies with M key")
+                for _, enemy in ipairs(activeEnemyScripts) do
+                    enemy.health = 0
+                    log("Enemy killed by debug command")
+                end
+            else
+                log("No active enemies to kill")
+            end
+        end
+        m_key_pressed = current_m_state
+        
+        -- Check enemy status
         local enemyCount = 0
         local enemiesDead = 0
+        
         for _, enemy in ipairs(activeEnemyScripts) do
             enemyCount = enemyCount + 1
-            if (enemy.enemyHealth <= 0) then
-                log("Enemy dead")
+            if enemy.health <= 0 or enemy.isDead then
                 enemiesDead = enemiesDead + 1
             end
         end
 
-        -- If all enemies are dead spawn next wave
-        if (enemiesDead == enemyCount) then
-            spawnLogic()
-
-            -- Check if there's enemies spawned (no enemies after a call to spawnLogic == arena battle ended)
-            local elementsInList = false
-            for _, e in ipairs(activeEnemies) do
-                elementsInList = true
-                break
+        -- All enemies in current wave are defeated
+        if enemyCount > 0 and enemiesDead == enemyCount then
+            if not waitingForKeyPress then
+                log("Wave " .. currentRound .. " completed! Press N for next wave.")
+                waitingForKeyPress = true
             end
-
-            if (listUtils:listIsEmpty(activeEnemies)) then
-                openDoor()
-                log("Open Door")
+            
+            -- Control de tecla N (siguiente oleada) - Anti-spam
+            local current_n_state = Input.is_key_pressed(Input.keycode.N)
+            if current_n_state and not n_key_pressed and waitingForKeyPress then
+                waitingForKeyPress = false
+                -- Check if we've completed all waves
+                if currentRound >= #WaveData then
+                    openDoor()
+                    arenaEnded = true
+                    allWavesCompleted = true
+                    log("All waves completed! Door opened.")
+                else
+                    log("Starting next wave...")
+                    spawnLogic()
+                end
             end
+            n_key_pressed = current_n_state
         end
-
     end
 end
 
@@ -91,96 +132,125 @@ function on_exit()
 end
 
 function spawnEnemies()
-    -- TODO change logic when prefabs and/or safe entity deletion are implemented
-
-    local arenaCenter = spawnPoint--self:get_component("TransformComponent").position
-    local position = nil
+    local arenaCenter = spawnPoint
     
     for _, entity in ipairs(activeEnemies) do
-        local scriptComponent = entity--:get_component("ScriptComponent")
-        local transformComponent = entity:get_component("TransformComponent")
-        -- TODO need a "reset enemy" function OR prefab instantiation
 
-        scriptComponent.enemyHealth = 50
+        -- Set enemy to active and spawn at random position
+        entity:set_active(true)
+        local scriptComponent = entity:get_component("ScriptComponent")
+        local rigidbodyComponent = entity:get_component("RigidbodyComponent")
+        local navComponent = entity:get_component("NavigationAgentComponent")
+        
+        -- Reset enemy state
+        scriptComponent.health = 95
         scriptComponent.isDead = false
         scriptComponent.currentState = 1 -- state.Idle
-        scriptComponent.shield_destroyed = false
+        if scriptComponent.shield_destroyed ~= nil then
+            scriptComponent.shield_destroyed = false
+        end
+        
+        -- -- Initial spawn position
+        local spawnOffset = Vector3.new(
+            math.cos(math.random() * 2 * math.pi) * spawnRadius,
+            0,
+            math.sin(math.random() * 2 * math.pi) * spawnRadius
+        )
+        rigidbodyComponent.rb:set_position(Vector3.new(arenaCenter.x + spawnOffset.x, 0, arenaCenter.z + spawnOffset.z))
+        
+        
+        -- TODO - NOT WORKING: Set enemy to move to spawn point
 
-        position = Vector3.new(math.cos(math.random()*2*math.pi),0,math.sin(math.random()*2*math.pi))
-        transformComponent:set_position(arenaCenter+position)
 
-        log("Spawned at ("..(arenaCenter.x+position.x)..","..(arenaCenter.z+position.z)..")")
+        -- -- Set enemy to move to a random target position
+        -- if navComponent and #targetPositions > 0 then
+        --     local randomTargetPos = targetPositions[math.random(1, #targetPositions)]
+        --     log("Moving enemy to random position")
+        --     if scriptComponent.update_path then
+        --         scriptComponent:update_path(randomTargetPos)
+        --         log("Enemy path updated")
+        --     elseif navComponent.find_path then
+        --         navComponent.path = navComponent:find_path(transformComponent.position, randomTargetPos)
+        --         log("Enemy path found")
+        --     else
+        --         log("WARNING: Enemy pathfinding not available!")
+        --     end
+        -- end
+        
+        log("Enemy spawned at (" .. (arenaCenter.x + spawnOffset.x) .. "," .. (arenaCenter.z + spawnOffset.z) .. ")")
     end
-
 end
 
 function despawnEnemies()
     for _, entity in ipairs(activeEnemies) do
-        entity:get_component("TransformComponent"):set_position(Vector3.new(5000,0,5000))
+        --entity:get_component("TransformComponent"):set_position(Vector3.new(5000, 0, 5000))
+        entity:set_active(false)
     end
     activeEnemies = {}
     activeEnemyScripts = {}
-    --log("Enemies despawned")
 end
 
 function spawnLogic()
-    -- retrieve next enemy group and prepare to spawn
-
+    -- Increment round and prepare to spawn
     currentRound = currentRound + 1
-
+    
     despawnEnemies()
 
-    -- for each entry in the wave data table loop the pool searching for the correct type of enemy
-    local enemyList = enemyPool:get_children()
-    local enemyCount = 1
-    for _, enemyType in ipairs(WaveData[currentRound]) do
-        for _, entity in ipairs(enemyList) do
-            local tag = entity:get_component("TagComponent").tag
-            if (tag == enemyType and not listUtils.listContainsValue(activeEnemies, entity)) then
-                activeEnemies[enemyCount] = entity
-                activeEnemyScripts[enemyCount] = entity:get_component("ScriptComponent")
-                enemyCount = enemyCount + 1
-                break
-            end
+    -- Activar enemigos específicos según la oleada actual
+    activeEnemies = {}
+    activeEnemyScripts = {}
+    
+    for _, enemyIndex in ipairs(WaveData[currentRound]) do
+        if enemies[enemyIndex] and enemies[enemyIndex]:is_valid() then
+            table.insert(activeEnemies, enemies[enemyIndex])
+            table.insert(activeEnemyScripts, enemyScripts[enemyIndex])
+            log("Activating enemy EnemyRange" .. enemyIndex)
+        else
+            log("WARNING: Enemy EnemyRange" .. enemyIndex .. " not available!")
         end
     end
+    
+    log("Wave " .. currentRound .. " starting with " .. #activeEnemies .. " enemies")
     spawnEnemies()
+end
 
+-- Helper function to check if list contains a value
+function listContainsValue(list, value)
+    for _, v in ipairs(list) do
+        if v == value then
+            return true
+        end
+    end
+    return false
 end
 
 function openDoor()
-    -- Open the door once the arena waves are over
-    -- Add animation?
+    log("Opening exit door")
     -- TODO Change for entity disable once that's implemented
     local t = exitDoor:get_component("TransformComponent")
-    t:set_position(Vector3.new(5000,100,-5050))
+    t:set_position(Vector3.new(5000, 100, -5050))
 end
 
 function configureBattleTrigger()
-
     local rbComponent = battleTrigger:get_component("RigidbodyComponent")
     local rb = rbComponent.rb
     rb:set_trigger(true)
     rb:set_use_gravity(false)
-    rbComponent:on_collision_enter(function(entityA, entityB)
     
-        if (entityB:get_component("TagComponent").tag == "Player") then
+    rbComponent:on_collision_enter(function(entityA, entityB)
+        if entityB:get_component("TagComponent").tag == "Player" then
+            log("Player entered arena - Battle starting!")
             arenaEnded = false
             currentRound = 0
-            -- TODO change for entity disable when that's implemented
+            waitingForKeyPress = false
+            allWavesCompleted = false
+            
+            -- Start the first wave immediately
+            spawnLogic()
+            
+            -- Move trigger away to prevent re-triggering
             local t = entityA:get_component("TransformComponent")
-            t:set_position(Vector3.new(5000,-458760,5000))
-        --[[
-        elseif (entityA:get_component("TagComponent").tag == "Player") then
-            arenaEnded = false
-            currentRound = 0
-            -- TODO change for entity disable when that's implemented
-            local t = entityB:get_component("TransformComponent")
-            t:set_position(Vector3.new(5000,-458760,5000))
-        --]]
+            t:set_position(Vector3.new(5000, -458760, 5000))
         end
-
     end)
-
-
 end
