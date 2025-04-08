@@ -59,6 +59,16 @@ local timeLerp = 0.0
 local testB = false
 local testA = false
 
+--Animation
+local startAnimation = false
+local lerpReset = false
+local AnimationClose = true
+local changeText = false
+local imgPosOri = 0
+local imgPosDes = 0
+local textPosOri = 0
+local textPosDes = 0
+
 -- Initialize tasks when the engine is ready
 function on_ready()
     --Mission3
@@ -88,41 +98,32 @@ function on_update(dt)
 
     textComponent:set_text(getCurrentTask())
     
-    missionBlue_ZoneTutor()
+    missionBlue_ZoneTutor()   
 
-    if Input.is_key_pressed(Input.keycode.M) then
-        testB = true
-        testA = false
-        timeLerp = 0.0
-    end
-
-    if Input.is_key_pressed(Input.keycode.N) then
-        testA = true
-        testB = false
-        timeLerp = 0.0
-    end
-
-    if testB == true then
-        imgComponent.position.x = lerp(-123, 124, timeLerp)
-        textTransform .position.x = lerp(-27, 220, timeLerp)
-        timeLerp = timeLerp + (dt * 3);
-        if timeLerp > 1 then
-            timeLerp = 1
+    if startAnimation == true then
+        if AnimationClose == true then
+            
+            if misionAnimation(true,dt) == true and imgComponent.position.x == 124 then
+                if lerpReset == true then
+                    timeLerp = 0.0
+                    lerpReset = false
+                    AnimationClose =false
+                    completeCurrentTask();
+                end
+            end
+        else
+            if misionAnimation(false,dt) == true and imgComponent.position.x == -123 then
+                if lerpReset == true then
+                    timeLerp = 0.0
+                    lerpReset = false
+                    AnimationClose =true
+                    startAnimation = false
+                end
+            end
         end
-        print(imgComponent.position.x)
-    end
 
-    if testA == true then
-        imgComponent.position.x = lerp(124, -124, timeLerp)
-        textTransform .position.x = lerp(220, -27, timeLerp)
-        timeLerp = timeLerp + (dt * 3);
-        if timeLerp > 1 then
-            timeLerp = 1
-        end
-        print(imgComponent.position.x)
+       
     end
-   
-
 
 end
 
@@ -175,7 +176,6 @@ function completeCurrentTask()
         --print("All missions done!")
         return
     end
-
     --print("Mission done: " .. tasks[currentTaskIndex].description)
     currentTaskIndex = currentTaskIndex + 1  -- Move to the next task
 
@@ -198,19 +198,20 @@ end
 
 function missionBlue_ZoneTutor()
     if currentTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
-        completeCurrentTask();
+        startAnimation = true
+
     end
 
     if(currentTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0)  then
-        completeCurrentTask();
+        startAnimation = true
     end
 
     if(currentTaskIndex == 3 and enemyDieCount >=2)  then
-        completeCurrentTask();
+        startAnimation = true
     end
 
     if(currentTaskIndex == 4 and mission4Component.m4_Clear == true)  then
-        completeCurrentTask();
+        startAnimation = true
     end
 
 
@@ -218,11 +219,11 @@ function missionBlue_ZoneTutor()
         jumpToNextMission(5)
     end
     if(currentTaskIndex == 5 and M5_WorkBrech == true)  then
-        completeCurrentTask();
+        startAnimation = true
     end
  
     if(currentTaskIndex == 6 and mission6Component.m6_Clear == true)  then
-        completeCurrentTask();
+        startAnimation = true
     end
     
     if mission6Component.m7_missionOpen == true then
@@ -232,17 +233,17 @@ function missionBlue_ZoneTutor()
     end
 
     if currentTaskIndex == 7 and mission7Complet == true  then
-        completeCurrentTask();
+        startAnimation = true
     end
     if currentTaskIndex == 8 and mission8Component.m8_Clear == true  then
-        completeCurrentTask();
+        startAnimation = true
     end
     
     if mission9Component.m9_Clear == true then
         jumpToNextMission(9)
     end
     if currentTaskIndex == 9 and M9_WorkBrech == true  then
-        completeCurrentTask();
+        startAnimation = true
     end
 
     if mission8Component.m10_missionOpen == true then
@@ -252,16 +253,42 @@ function missionBlue_ZoneTutor()
     end
 
     if currentTaskIndex == 10 and mission10Complet == true then
-        completeCurrentTask();
+        startAnimation = true
     end
 end
 
 function jumpToNextMission(nowTaks)
     if currentTaskIndex == nowTaks then
-        completeCurrentTask();
+        startAnimation = true
     end
 end
 
 function lerp(a, b, t)
     return a + (b - a) * t
 end
+
+function misionAnimation(closeMision,dt)
+
+    if closeMision == true then
+        imgPosOri = -123
+        imgPosDes = 124
+        textPosOri = -27
+        textPosDes = 220
+    else
+        imgPosOri = 124
+        imgPosDes = -123
+        textPosOri = 220
+        textPosDes = -27
+    end
+
+    imgComponent.position.x = lerp(imgPosOri, imgPosDes, timeLerp)
+    textTransform .position.x = lerp(textPosOri, textPosDes, timeLerp)
+    timeLerp = timeLerp + (dt * 3);
+    if timeLerp > 1 then
+        timeLerp = 1
+        lerpReset = true
+        return true
+    end
+end
+
+
