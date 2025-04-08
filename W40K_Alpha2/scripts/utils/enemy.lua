@@ -22,6 +22,8 @@ function enemy:new(obj)
     obj.enemyRbComponent = nil
     obj.enemyRb = nil
     obj.enemyNavmesh = nil
+    obj.explosive = nil
+    obj.explosiveTransf = nil
 
     -- Generic stats of the enemy
     obj.health = 95
@@ -54,6 +56,8 @@ function enemy:new(obj)
     obj.raycastAngle = 15
     obj.currentPathIndex = 1
     obj.currentRotationY = 0
+    obj.invulnerable = false
+    obj.explosiveDetected = false
 
     return obj
 
@@ -177,6 +181,20 @@ function enemy:enemy_raycast()
 
     end
 
+    -- Raycast hitting the explosive
+    if self:detect(centerHit, self.explosive) then
+
+        self.explosiveDetected = true
+
+    elseif self:detect(leftHit, self.explosive) then
+
+        self.explosiveDetected = true
+
+    elseif self:detect(rightHit, self.explosive) then   
+
+        self.explosiveDetected = true
+    end
+
     -- Raycast hitting another entity
     if self:detect(centerHit, self.entity) then
 
@@ -274,9 +292,14 @@ end
 
 function enemy:take_damage(damage)
 
-    if self.shieldHealth > 0 then
-        self.shieldHealth = self.shieldHealth - damage
+    if self.invulnerable then
+        log("Enemy is invulnerable")
+        return
+    end
+    if self.enemyShield > 0 then
+        self.enemyShield = self.enemyShield - damage
     else
+        log("AAAUUU")
         self.health = self.health - damage
     end
 

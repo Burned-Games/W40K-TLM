@@ -15,12 +15,16 @@ local stabTimer = 1.0
 local timeSinceLastStab = 0.0
 local stabCooldown = 2.0
 local stabCooldownTimer = 0.0
+local invulnerableTime = 5.0
 
 function on_ready() 
 
     range.player = current_scene:get_entity_by_name("Player")
     range.playerTransf = range.player:get_component("TransformComponent")
     range.playerScript = range.player:get_component("ScriptComponent")
+
+    range.explosive = current_scene:get_entity_by_name("Explosive")
+    range.explosiveTransf = range.explosive:get_component("TransformComponent")
 
     range.enemyTransf = self:get_component("TransformComponent")
     range.animator = self:get_component("AnimatorComponent")
@@ -39,7 +43,7 @@ function on_ready()
     -- Stats of the Range
     range.health = 95
     range.speed = 3
-    range.bulletSpeed = 5
+    range.bulletSpeed = 15
     range.meleeDamage = 15
     range.rangeDamage = 5
     range.detectionRange = 25
@@ -62,6 +66,7 @@ function on_ready()
     range.isShootingBurst = false
     range.isChasing = false
     range.hasDealtDamage = false
+    range.isfirstChase = true
 
     range.burstCount = 0
     range.maxBurstShots = 4
@@ -105,6 +110,14 @@ function on_update(dt)
     pathUpdateTimer = pathUpdateTimer + dt
     updateTargetTimer = updateTargetTimer + dt
     timeSinceLastHit = timeSinceLastHit + dt
+
+    if range.invulnerable then
+        invulnerableTime = invulnerableTime - dt
+        if invulnerableTime <= 0 then
+            range.invulnerable = false
+            invulnerableTime = 5.0
+        end
+    end
 
     local currentTargetPos = range.playerTransf.position
     if pathUpdateTimer >= pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
@@ -189,16 +202,25 @@ function range:shoot_state(dt)
 
     range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
+    --Checks if explosive is detected and within range of the player
+    local shouldTargetExplosive = false
+    if range.explosiveDetected then
+        local playerToExplosive = range:get_distance(range.playerTransf.position, range.explosiveTransf.position)
+        if playerToExplosive <= 5.0 then
+            shouldTargetExplosive = true
+        end
+    end
+
     if range.isShootingBurst then
         if range.currentAnim ~= range.rangeAttackAnim then
             range.currentAnim = range.rangeAttackAnim
             range.animator:set_current_animation(range.currentAnim)
-        end
+        end 
 
         timeSinceLastShot = timeSinceLastShot + dt
 
         if timeSinceLastShot >= burstCooldown and range.burstCount < range.maxBurstShots then
-            shoot_projectile(dt)
+            shoot_projectile(shouldTargetExplosive)
             range.burstCount = range.burstCount + 1
             timeSinceLastShot = 0
 
@@ -221,11 +243,13 @@ function range:shoot_state(dt)
             timeSinceLastShot = 0
         end
     end
-
 end
 
 function range:chase_state()
-
+    if range.isfirstChase then
+        range.invulnerable = true
+        range.isfirstChase = false
+    end
     if range.currentAnim ~= range.moveAnim then
         range.currentAnim = range.moveAnim
         range.animator:set_current_animation(range.currentAnim)
@@ -238,7 +262,7 @@ end
 function range:stab_state(dt)
 
     range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-
+    
     if stabCooldownTimer > 0 then
         stabCooldownTimer = stabCooldownTimer - dt
         if range.currentAnim ~= range.idleAnim then
@@ -266,14 +290,37 @@ function range:stab_state(dt)
 
 end
 
-function shoot_projectile()
+function shoot_projectile(targetExplosive)
+    if not range.bulletRb then return end
+    
+    -- Bullet start position
+    local startPos = Vector3.new(
+        range.enemyTransf.position.x,
+        range.enemyTransf.position.y + 0.65,
+        range.enemyTransf.position.z
+    )
+    range.bulletRb:set_position(startPos)
+    
+    -- Target position
+    local targetPos = range.delayedPlayerPos -- Default to player
+    if targetExplosive and range.explosiveDetected then -- Switch to explosive if detected
+        targetPos = range.explosiveTransf.position 
+    end
 
-    range.bulletRb:set_position(Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y + 0.65, range.enemyTransf.position.z))
+    -- Calculate normalized direction
+    local dx = targetPos.x - startPos.x
+    local dz = targetPos.z - startPos.z
+    local dist = math.sqrt(dx * dx + dz * dz)
+    
+    --local direction = Vector3.new(range.delayedPlayerPos.x - range.enemyTransf.position.x, 0, range.delayedPlayerPos.z - range.enemyTransf.position.z)
+    --local velocity = Vector3.new(direction.x * range.bulletSpeed, 0, direction.z * range.bulletSpeed)
 
-    local direction = Vector3.new(range.delayedPlayerPos.x - range.enemyTransf.position.x, 0, range.delayedPlayerPos.z - range.enemyTransf.position.z)
-    local velocity = Vector3.new(direction.x * range.bulletSpeed, 0, direction.z * range.bulletSpeed)
-    range.bulletRb:set_velocity(velocity)
-
+    -- Set velocity
+    range.bulletRb:set_velocity(Vector3.new(
+        dx * range.bulletSpeed,
+        0,
+        dz * range.bulletSpeed
+    ))
 end
 
 function bleed_damage()
