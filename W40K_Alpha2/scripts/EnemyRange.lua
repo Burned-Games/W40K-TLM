@@ -50,6 +50,7 @@ function on_ready()
     range.meleeAttackRange = 1
     range.rangeAttackRange = 15
     range.chaseRange = 8
+    range.priority = 1
 
 
 

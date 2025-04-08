@@ -27,8 +27,8 @@ function enemy:new(obj)
 
     -- Generic stats of the enemy
     obj.health = 95
-    obj.shieldHealth = 35
-    obj.enemyShield = 0
+    obj.shieldHealth = 0
+    obj.enemyShield = 35
     obj.speed = 3
     obj.damage = 5
     obj.detectionRange = 25
@@ -296,8 +296,8 @@ function enemy:take_damage(damage)
         log("Enemy is invulnerable")
         return
     end
-    if self.enemyShield > 0 then
-        self.enemyShield = self.enemyShield - damage
+    if self.shieldHealth > 0 then
+        self.shieldHealth = self.shieldHealth - damage
     else
         log("AAAUUU")
         self.health = self.health - damage
