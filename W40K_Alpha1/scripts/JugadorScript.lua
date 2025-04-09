@@ -585,7 +585,7 @@ function playerMovement(dt)
         end
     end]]
 
-    if moveDirection.x ~= 0 or moveDirection.z ~= 0 then
+   --[[ if moveDirection.x ~= 0 or moveDirection.z ~= 0 then
         if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
             -- If Is moving and aiming
             local desiredRotation = math.deg(math.atan(rotationDirectionX, rotationDirectionY))
@@ -611,20 +611,23 @@ function playerMovement(dt)
             playerTransf.rotation.y = math.deg(lastValidRotation)
             isAiming = false
         end
-    end
+    end]]
 
 
-    --[[if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
+    if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
         lastValidRotation = math.atan(rotationDirectionX, rotationDirectionY)
+        angleRotation = lastValidRotation
         playerTransf.rotation.y = math.deg(lastValidRotation)  
         isAiming = true
     elseif moveDirectionX ~= 0 or moveDirectionY ~= 0 then
         lastValidRotation = math.atan(moveDirection.x, moveDirection.z)
+        angleRotation = lastValidRotation
         playerTransf.rotation.y = math.deg(lastValidRotation)
     else
         playerTransf.rotation.y = math.deg(lastValidRotation)
+        angleRotation = lastValidRotation
         isAiming = false
-    end]]
+    end
 end
 
 function normalizeAngle(angle)
