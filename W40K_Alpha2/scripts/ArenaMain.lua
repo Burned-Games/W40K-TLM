@@ -33,6 +33,7 @@ local allWavesCompleted = false
 -- Variables para controlar el estado de las teclas
 local m_key_pressed = false
 local n_key_pressed = false
+local player = nil
 
 function on_ready()
     -- Add initialization code here
@@ -41,7 +42,7 @@ function on_ready()
     battleTrigger = current_scene:get_entity_by_name("ArenaBattleTrigger")
     spawnPoint = current_scene:get_entity_by_name("ArenaSpawnCenter"):get_component("TransformComponent").position
     exitDoor = current_scene:get_entity_by_name("ArenaExitDoor")
-    
+    player = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     -- Enemies rangedX
     for i = 1, 8 do
         local enemyName = "EnemyRange" .. i
@@ -95,7 +96,7 @@ function on_update(dt)
         
         for _, enemy in ipairs(activeEnemyScripts) do
             enemyCount = enemyCount + 1
-            if enemy.health <= 0 or enemy.isDead then
+            if enemy.range.health <= 0 or enemy.range.isDead then
                 enemiesDead = enemiesDead + 1
             end
         end
@@ -141,13 +142,13 @@ function spawnEnemies()
         local scriptComponent = entity:get_component("ScriptComponent")
         local rigidbodyComponent = entity:get_component("RigidbodyComponent")
         local navComponent = entity:get_component("NavigationAgentComponent")
-        
+        local enemyEntity = scriptComponent.range
         -- Reset enemy state
-        scriptComponent.health = 95
-        scriptComponent.isDead = false
-        scriptComponent.currentState = 1 -- state.Idle
-        if scriptComponent.shield_destroyed ~= nil then
-            scriptComponent.shield_destroyed = false
+        enemyEntity.health = 95
+        enemyEntity.isDead = false
+        enemyEntity.currentState = 1 -- state.Idle
+        if enemyEntity.shield_destroyed ~= nil then
+            enemyEntity.shield_destroyed = false
         end
         
         -- -- Initial spawn position
@@ -157,25 +158,24 @@ function spawnEnemies()
             math.sin(math.random() * 2 * math.pi) * spawnRadius
         )
         rigidbodyComponent.rb:set_position(Vector3.new(arenaCenter.x + spawnOffset.x, 0, arenaCenter.z + spawnOffset.z))
+
         
         
         -- TODO - NOT WORKING: Set enemy to move to spawn point
 
 
-        -- -- Set enemy to move to a random target position
-        -- if navComponent and #targetPositions > 0 then
-        --     local randomTargetPos = targetPositions[math.random(1, #targetPositions)]
-        --     log("Moving enemy to random position")
-        --     if scriptComponent.update_path then
-        --         scriptComponent:update_path(randomTargetPos)
-        --         log("Enemy path updated")
-        --     elseif navComponent.find_path then
-        --         navComponent.path = navComponent:find_path(transformComponent.position, randomTargetPos)
-        --         log("Enemy path found")
-        --     else
-        --         log("WARNING: Enemy pathfinding not available!")
-        --     end
-        -- end
+
+
+        -- Set enemy to move to a random target position
+        if navComponent and #targetPositions > 0 then
+            local randomTargetPos = targetPositions[math.random(1, #targetPositions)]
+            log("Moving enemy to random position")
+            if enemyEntity then
+                log("Enemy path updated")
+                enemyEntity:update_path(player)
+                enemyEntity.currentState = enemyEntity.state.Move
+            end
+        end
         
         log("Enemy spawned at (" .. (arenaCenter.x + spawnOffset.x) .. "," .. (arenaCenter.z + spawnOffset.z) .. ")")
     end
