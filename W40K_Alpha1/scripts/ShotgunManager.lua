@@ -76,7 +76,7 @@ local finalTargetPos = nil
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
-
+    cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     
     
     for i = 1, bulletCount do
@@ -398,10 +398,11 @@ function handleGranade(dt)
     print(granadeDirection)
     granadeDistance = granadeDistance + granadeSpeed
     granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
-    local newPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, granadeOrigin.y + granadeDirection.y * granadeDistance, granadeOrigin.z + granadeDirection.z * granadeDistance)
+    local newPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0 * granadeDistance, granadeOrigin.z + granadeDirection.z * granadeDistance)
     print(rb)
-    rb:set_position(newPos)
     finalTargetPos = newPos
+    rb:set_position(newPos)
+    
     
 
 
@@ -452,10 +453,12 @@ function throwGranade(targetPosition)
     end
 
     local LAUNCH_ANGLE = math.rad(35)   
-    local GRAVITY = 14.0               
-    local SPEED_BOOST = 1           
+    local GRAVITY = 10.0                -- Gravedad
+    local SPEED_BOOST = 1.13            -- Aceleración horizontal adicional
 
+    -- Aquí agregamos el factor para la velocidad de caída
     local verticalSpeed = math.sqrt(GRAVITY * horizontalDistance * math.tan(LAUNCH_ANGLE))
+
     local flightTime = (2 * verticalSpeed) / GRAVITY
     local horizontalSpeed = (horizontalDistance / (flightTime * math.cos(LAUNCH_ANGLE))) * SPEED_BOOST
 
@@ -472,6 +475,7 @@ function throwGranade(targetPosition)
     rb:set_velocity(finalVelocity)
 
 end
+
 
 
 
@@ -533,6 +537,7 @@ function explodeGranade()
         --escopetaAudioManagerScript:playExplodeGranade()
         --granadeParticlesExplosion:emit(10)
         throwingGranade = false
+        cameraScript.startShake(0.2,5)
     end
 end
 

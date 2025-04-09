@@ -209,7 +209,7 @@ function on_update(dt)
     checkPlayerDeath(dt)
     handleWeaponSwitch(dt)
     --updateEntranceAnimation(dt)
-    if --[[deathAnimationSetted or ]]swordScript.slashed--[[ or animacionEntradaRealizada == false]] then
+    if deathAnimationSetted or swordScript.slashed--[[ or animacionEntradaRealizada == false]] then
         return
     end
     updateMusic(dt)
