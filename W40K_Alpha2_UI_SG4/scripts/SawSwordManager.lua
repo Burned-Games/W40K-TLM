@@ -25,6 +25,8 @@ function on_ready()
     playerTransf = player:get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
+    upgradeManager = current_scene:get_entity_by_name("UpgradeManager")
+    upgradeManagerScript = upgradeManager:get_component("ScriptComponent")
     --------------shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     ----bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
 
@@ -42,14 +44,14 @@ function on_update(dt)
 
     local rightShoulder = Input.get_button(Input.action.Melee)
 
-    if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true then
+    if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true and upgradeManagerScript:has_weapon_special() then
         slashed = true
         Slash()
             
         sawSwordAvailable = false
         
     end
-    
+     
     if sawSwordAvailable == false then
         coolDownCounter = coolDownCounter + dt
         if coolDownCounter >= coolDown then
