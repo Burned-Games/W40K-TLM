@@ -78,6 +78,10 @@ function on_ready()
                 tank.isCharging = false
                 tank.canTackle = false
                 tackleTimer = 0
+
+                if tank.currentState == tank.state.Tackle and tank.level2 and not tank.isBerserkaActive then
+                    tank:berserka_rage()
+                end
                 tank.currentState = tank.state.Attack
             end
         else
@@ -86,6 +90,9 @@ function on_ready()
                 tank.isCharging = false
                 tank.canTackle = false
                 tackleTimer = 0
+                if tank.level2 and not tank.isBerserkaActive then
+                    tank:berserka_rage()
+                end
                 tank.currentState = tank.state.Move
             end
         end
@@ -268,7 +275,6 @@ function tank:attack_state(dt)
 end
 
 function tank:tackle_state()
-
     if tank.currentAnim ~= tank.tackleAnim then
         tank.currentAnim = tank.tackleAnim
         tank.animator:set_current_animation(tank.currentAnim)
@@ -276,9 +282,6 @@ function tank:tackle_state()
 
     if tank.collisionWithPlayer then
         tank:make_damage(tank.tackleDamage)
-        if tank.level2 and not tank.isBerserkaActive then 
-            tank:berserka_rage() 
-        end 
     end
 
     if tank.isCharging and tank.targetDirection then
@@ -302,15 +305,11 @@ function tank:tackle_state()
 end
 
 function tank:berserka_rage()
-    
     tank.isBerserkaActive = true
 
-    print("Entrando en berserka_rage...") 
     tank.originalStats = {
         speed = tank.speed,
         tackleSpeed = tank.tackleSpeed,
-        meleeDamage = tank.meleeDamage,
-        tackleDamage = tank.tackleDamage
     } 
 
     -- Increase stats 50%
@@ -320,37 +319,24 @@ function tank:berserka_rage()
     tank.meleeDamage = tank.meleeDamage * 1.5
     tank.tackleDamage = tank.tackleDamage * 1.5
 
-    print("Stats después de entrar en berserka:")
-    print("Health:", tank.health)
-    print("Speed:", tank.speed)
-    print("Tackle Speed:", tank.tackleSpeed)
-    print("Melee Damage:", tank.meleeDamage)
-    print("Tackle Damage:", tank.tackleDamage)
-
     tank.berserkaTimer = 0
     tank.berserkaDuration = 180 
 
-    tank.update_berserka = function(dt)
-        tank.berserkaTimer = tank.berserkaTimer + dt
+    function tank:update_berserka(dt)
+        self.berserkaTimer = self.berserkaTimer + dt
 
-        if tank.berserkaTimer >= tank.berserkaDuration then
-            -- Reduce stats 50%
-            tank.health = tank.health * 0.5
-            tank.speed = tank.originalStats.speed
-            tank.tackleSpeed = tank.originalStats.tackleSpeed
-            tank.meleeDamage = tank.originalStats.meleeDamage
-            tank.tackleDamage = tank.originalStats.tackleDamage
+        if self.berserkaTimer >= self.berserkaDuration then
+            -- Reduce stats 33%
+            self.health = self.health * 0.33
+            self.meleeDamage = self.meleeDamage * 0.33
+            self.tackleDamage = self.tackleDamage * 0.33
 
-            print("Stats después de salir de berserka:")
-            print("Health:", tank.health)
-            print("Speed:", tank.speed)
-            print("Tackle Speed:", tank.tackleSpeed)
-            print("Melee Damage:", tank.meleeDamage)
-            print("Tackle Damage:", tank.tackleDamage)
+            self.speed = self.originalStats.speed
+            self.tackleSpeed = self.originalStats.tackleSpeed
             
-            tank.isBerserkaActive = false
-            tank.update_berserka = nil
-            tank.originalStats = nil
+            self.isBerserkaActive = false
+            self.update_berserka = nil
+            self.originalStats = nil
         end
     end
 end
