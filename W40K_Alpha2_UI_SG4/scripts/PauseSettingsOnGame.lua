@@ -27,6 +27,7 @@ local contadorMovimientoBotones = 0
 local currentSelectedSlider = 1 
 local inputCooldown = 0 
 local cooldownTime = 0.15 
+local isOnPauseSettings = false
 
 local workbenchUIManagerScript = nil
 
@@ -56,6 +57,9 @@ function on_ready()
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
 
     BaseTextureBG = current_scene:get_entity_by_name("BaseMenus"):get_component("UIImageComponent")
+
+    -- audio
+    explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
 
     visibilidad2:set_visible(false)
     VolumeText:set_visible(false)
@@ -95,6 +99,7 @@ function on_update(dt)
             SettingsBaseText:set_visible(false)
             visibilidad2:set_visible(false)
             BaseTextureBG:set_visible(false)
+            isOnPauseSettings = false
 
         else
             isPaused = true
@@ -168,6 +173,7 @@ function on_update(dt)
                 ExitText:set_visible(false)
                 SaveGameText:set_visible(false)
                 PauseText:set_visible(false)
+                isOnPauseSettings = true
             end
         end
         
@@ -228,19 +234,24 @@ function on_update(dt)
         return
     end
 
-    local horizontalInput = Input.get_axis(Input.action.UiMoveHorizontal)
-    if math.abs(horizontalInput) > 0.5 then
-        local selectedSlider = (currentSelectedSlider == 1) and slider1 or slider2
-        local currentValue = selectedSlider:get_value()
+    if isOnPauseSettings then
+        local horizontalInput = Input.get_axis(Input.action.UiMoveHorizontal)
+        if math.abs(horizontalInput) > 0.5 then
+            local selectedSlider = (currentSelectedSlider == 1) and slider1 or slider2
+            local currentValue = selectedSlider:get_value()
+            
         
-       
-        local newValue = currentValue + (horizontalInput * 0.05) 
-        newValue = math.max(0.0, math.min(1.0, newValue))
-        
-        selectedSlider:set_value(newValue)
-        inputCooldown = cooldownTime / 2 
-    end
+            local newValue = currentValue + (horizontalInput * 0.05) 
+            newValue = math.max(0.0, math.min(1.0, newValue))
+            
+            selectedSlider:set_value(newValue)
+            inputCooldown = cooldownTime / 2 
 
+            if currentSelectedSlider == 1 then
+                explorationMusic:set_volume(newValue)
+            end
+        end
+    end 
     local verticalInput = Input.get_axis(Input.action.UiMoveVertical)
     if math.abs(verticalInput) > 0.5 then
         if verticalInput > 0 then
@@ -277,7 +288,10 @@ function on_update(dt)
         ExitText:set_visible(true)
         SaveGameText:set_visible(true)
         PauseText:set_visible(true)
+        isOnPauseSettings = false
     end
+
+   
         
 end
 

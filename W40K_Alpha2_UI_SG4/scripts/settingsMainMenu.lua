@@ -9,6 +9,9 @@ local value = nil
 function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
+
+    --ajustes de audio
+    --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
 end
 
 function on_update(dt)
@@ -56,10 +59,14 @@ function on_update(dt)
         inputCooldown = cooldownTime / 2 
     end
 
-    
+    -- lógica de la actualización del volumen y de fxs
+
+    --if currentSelectedSlider == 1 then
+        --explorationMusic:set_volume(newValue * 0.05)
+   -- end
     
 end
 
 function on_exit()
-    -- Nada que hacer aquí por ahora
+   
 end
