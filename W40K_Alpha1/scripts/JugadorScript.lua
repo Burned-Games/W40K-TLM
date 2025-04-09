@@ -1,6 +1,6 @@
 -- Player
 playerHealth = 100
-local playerTransf
+playerTransf = nil
 local playerRb = nil
 local moveSpeed = 6
 local lastValidRotation = 0

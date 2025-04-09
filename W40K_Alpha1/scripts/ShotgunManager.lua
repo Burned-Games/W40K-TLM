@@ -62,9 +62,22 @@ local GRENADE_SPEED_MULTIPLIER = 1.2
 local ISOMETRIC_CORRECTION_FACTOR = 0.707  
 local DISTANCE_CALIBRATION = 1.22   
 
+local launched = false
+
+local granadeOrigin = nil
+local granadeDirection = nil
+local granadeSpeed = 0.1  
+local granadeDistance = 0 
+local initialize = true
+local rb = nil
+local throwing = false
+local finalTargetPos = nil
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+
+    
     
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
@@ -92,10 +105,9 @@ function on_ready()
     transformGranade = granadeEntity:get_component("TransformComponent")
     --granadeParticlesExplosion = granadeEntity:get_component("ParticlesSystemComponent")
 
-    local rb = granadeEntity:get_component("RigidbodyComponent").rb
-    rb:set_use_gravity(true)
-    rb:set_mass(1.0) 
-    rb:set_trigger(false)
+    rb = granadeEntity:get_component("RigidbodyComponent").rb
+    rb:set_mass(1.0)
+    rb:set_trigger(true)
 
     local rbComponent = granadeEntity:get_component("RigidbodyComponent")
     rbComponent:on_collision_enter(function(entityA, entityB)
@@ -103,8 +115,9 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if nameA == "FloorCollider" or nameB == "FloorCollider" then
+        if (nameA == "FloorCollider" or nameB == "FloorCollider") and throwing then
             explodeGranade()
+            throwing = false
         end
     end)
 
@@ -112,8 +125,27 @@ function on_ready()
 
 end
 
+function normalizeVector(v)
+    -- Calcular la magnitud del vector
+    local magnitude = math.sqrt(v.x^2 + v.y^2 + v.z^2)
+
+    -- Evitar la división por cero si la magnitud es 0
+    if magnitude == 0 then
+        return Vector3.new(0, 0, 0)  -- Retorna un vector nulo si el vector tiene magnitud 0
+    end
+
+    -- Dividir cada componente del vector por la magnitud para normalizar
+    return Vector3.new(v.x / magnitude, v.y / magnitude, v.z / magnitude)
+end
 
 function on_update(dt)
+
+    if initialize then
+        granadeOrigin = playerScript.playerTransf.position
+        print(granadeOrigin)
+        initialize = false
+    end
+    
     -- Applying multipliers
     local currentShootCoolDownRifle = shotgun_fire_rate * (1 / attackSpeedMultiplier)
     local currentMaxReloadTime = reload_time * (1 / reloadSpeedMultiplier)
@@ -145,18 +177,30 @@ function on_update(dt)
         end
 
         -- reload
-        if ammo==0 and not is_reloading then
+        if ammo == 0 and not is_reloading then
             ----print("Start reload")
             is_reloading = true
             reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
         end
 
+        local leftShoulder = Input.get_button(Input.action.Skill2)
+
+        if leftShoulder == Input.state.Up and launched then
+            granadeDistance = 0
+            launched = false
+            rb:set_use_gravity(true)
+            throwing = true
+            throwGranade(finalTargetPos)
+        end
 
         --granade 
-        if Input.is_button_pressed(Input.controllercode.LeftShoulder) and timerGranade <= 0 then
+        if leftShoulder == Input.state.Repeat and timerGranade <= 0 then
             lbapretado = true
             granadasSpeed = true
-            update_joystick_position()
+            print("dentrooooooo")
+            throwing = false
+            handleGranade(0)
+            --update_joystick_position()
         else
             if lbapretado then
                 dropGranade = true
@@ -165,8 +209,11 @@ function on_update(dt)
             granadasSpeed = false
         end
 
-        if upgradeManager.has_weapon_special() then
-            handleGranade(dt)
+        
+
+        if self--[[upgradeManager.has_weapon_special()]] then
+
+            
         end
     end
 end
@@ -348,7 +395,17 @@ function update_joystick_position()
 end
 
 function handleGranade(dt)
-    if timerGranade > 0 then
+    print(granadeDirection)
+    granadeDistance = granadeDistance + granadeSpeed
+    granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+    local newPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, granadeOrigin.y + granadeDirection.y * granadeDistance, granadeOrigin.z + granadeDirection.z * granadeDistance)
+    print(rb)
+    rb:set_position(newPos)
+    finalTargetPos = newPos
+    
+
+
+    --[[if timerGranade > 0 then
         timerGranade = timerGranade - dt
     end
 
@@ -357,12 +414,16 @@ function handleGranade(dt)
         dropGranade = false
         --escopetaAudioManagerScript:playLaunchGranade()
         timerGranade = granadeCooldown
-    end
+    end]]
+
+    launched = true
+        --granade 
+    
+
 end
 
-function throwGranade()
-    if not granadeEntity or not targetGranadePosition then return end
-
+function throwGranade(targetPosition)
+    if not granadeEntity or not targetPosition then return end
 
     local rb = granadeEntity:get_component("RigidbodyComponent").rb
     local playerPos = playerTransf.position
@@ -371,22 +432,17 @@ function throwGranade()
         playerPos.y + 1.5, 
         playerPos.z
     )
-    
 
     local ISOMETRIC_CORRECTION = 0.7071  
     local DISTANCE_CALIBRATION = 1.22    
 
-
-    local rawDeltaX = targetGranadePosition.x - startPos.x
-    local rawDeltaZ = targetGranadePosition.z - startPos.z
-
+    local rawDeltaX = targetPosition.x - startPos.x
+    local rawDeltaZ = targetPosition.z - startPos.z
 
     local actualDeltaX = rawDeltaX / (math.cos(math.rad(-45)) * DISTANCE_CALIBRATION)
     local actualDeltaZ = rawDeltaZ / (math.cos(math.rad(-45)) * DISTANCE_CALIBRATION)
-    
 
     local horizontalDistance = math.sqrt(actualDeltaX^2 + actualDeltaZ^2) * ISOMETRIC_CORRECTION
-
 
     local MIN_DISTANCE = 1.5
     if horizontalDistance < MIN_DISTANCE then
@@ -395,19 +451,16 @@ function throwGranade()
         actualDeltaZ = actualDeltaZ * (MIN_DISTANCE / horizontalDistance)
     end
 
-
     local LAUNCH_ANGLE = math.rad(35)   
     local GRAVITY = 14.0               
-    local SPEED_BOOST = 1.15           
-
+    local SPEED_BOOST = 1           
 
     local verticalSpeed = math.sqrt(GRAVITY * horizontalDistance * math.tan(LAUNCH_ANGLE))
     local flightTime = (2 * verticalSpeed) / GRAVITY
     local horizontalSpeed = (horizontalDistance / (flightTime * math.cos(LAUNCH_ANGLE))) * SPEED_BOOST
 
-    local dirX = rawDeltaX / (math.abs(rawDeltaX) + math.abs(rawDeltaZ) + 0.0001)  
+    local dirX = rawDeltaX / (math.abs(rawDeltaX) + math.abs(rawDeltaZ) + 0.0001)
     local dirZ = rawDeltaZ / (math.abs(rawDeltaX) + math.abs(rawDeltaZ) + 0.0001)
-
 
     local finalVelocity = Vector3.new(
         dirX * horizontalSpeed,
@@ -415,14 +468,11 @@ function throwGranade()
         dirZ * horizontalSpeed
     )
 
-
     rb:set_position(startPos)
     rb:set_velocity(finalVelocity)
-    throwingGranade = true
 
-
-    targetGranadePosition = nil
 end
+
 
 
 
