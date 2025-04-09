@@ -260,6 +260,7 @@ function support:shield_state()
             shieldScript.targetEnemy = support.currentTarget
             shieldScript.isActive = true
 
+            support.currentTarget.script.shieldHealth = support.enemyShield
             support.currentTarget.script.haveShield = true
             support.canUseShield = false
             support.shieldCooldownActive = true  

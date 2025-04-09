@@ -1,6 +1,6 @@
 shieldHealth = 35
 local shieldTransform = nil
-local targetEnemy = nil
+targetEnemy = nil
 local isActive = false
 
 function on_ready()
