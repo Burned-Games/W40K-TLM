@@ -1,4 +1,5 @@
 local enemy = require("scripts/utils/enemy")
+local stats_data = require("scripts/utils/enemy_stats")
 
 tank = enemy:new()
 
@@ -25,16 +26,27 @@ function on_ready()
 
 
 
+    local enemy_type = "tank"
+    tank.level = 1
+
+    local stats = stats_data[enemy_type] and stats_data[enemy_type][tank.level]
+    -- Debug in case is not working
+    if not stats then
+        log("No stats for type: " .. enemy_type .. " level: " .. tank.level)
+        return
+    end
+
+
+
     -- Stats of the Tank
-    tank.health = 250
-    tank.speed = 2
-    tank.defaultSpeed = 2
-    tank.tackleSpeed = 13
-    tank.meleeDamage = 40
-    tank.tackleDamage = 100
-    tank.detectionRange = 20
-    tank.meleeAttackRange = 3
-    tank.priority = 2
+    tank.health = stats.health
+    tank.speed = stats.speed
+    tank.tackleSpeed = stats.tackleSpeed
+    tank.meleeDamage = stats.meleeDamage
+    tank.tackleDamage = stats.tackleDamage
+    tank.detectionRange = stats.detectionRange
+    tank.meleeAttackRange = stats.meleeAttackRange
+    tank.priority = stats.priority
 
 
     tank.level2 = false -- Toggle levels for testing

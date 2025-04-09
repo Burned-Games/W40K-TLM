@@ -1,4 +1,5 @@
 local enemy = require("scripts/utils/enemy")
+local stats_data = require("scripts/utils/enemy_stats")
 
 support = enemy:new()
 
@@ -37,15 +38,27 @@ function on_ready()
 
 
 
+    local enemy_type = "support"
+    support.level = 1
+
+    local stats = stats_data[enemy_type] and stats_data[enemy_type][support.level]
+    -- Debug in case is not working
+    if not stats then
+        log("No stats for type: " .. enemy_type .. " level: " .. support.level)
+        return
+    end
+
+
+
     -- Stats of the Support
-    support.health = 50
-    support.speed = 5
-    support.fleeSpeed = 7
-    support.enemyShield = 35
-    support.damage = 30
-    support.detectionRange = 20
-    support.shieldRange = 5
-    support.attackRange = 10
+    support.health = stats.health
+    support.speed = stats.speed
+    support.fleeSpeed = stats.fleeSpeed
+    support.enemyShield = stats.enemyShield
+    support.damage = stats.damage
+    support.detectionRange = stats.detectionRange
+    support.shieldRange = stats.shieldRange
+    support.attackRange = stats.attackRange
 
 
 

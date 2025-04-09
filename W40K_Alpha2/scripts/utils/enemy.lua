@@ -14,6 +14,7 @@ function enemy:new(obj)
     self.__index = self
 
     -- Reference to the components of the entity
+    obj.level = nil
     obj.player = nil
     obj.playerTransf = nil
     obj.playerScript = nil
@@ -281,6 +282,12 @@ end
 
 
 -- Functions to calculate things
+function enemy:set_level()
+
+    
+
+end
+
 function enemy:make_damage(damage)
 
     if self.playerScript.playerHealth > 0 then

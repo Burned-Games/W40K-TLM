@@ -1,4 +1,5 @@
 local enemy = require("scripts/utils/enemy")
+local stats_data = require("scripts/utils/enemy_stats")
 
 range = enemy:new()
 
@@ -40,17 +41,28 @@ function on_ready()
 
 
 
+    local enemy_type = "range"
+    range.level = 1
+
+    local stats = stats_data[enemy_type] and stats_data[enemy_type][range.level]
+    -- Debug in case is not working
+    if not stats then
+        log("No stats for type: " .. enemy_type .. " level: " .. range.level)
+        return
+    end
+
     -- Stats of the Range
-    range.health = 95
-    range.speed = 3
-    range.bulletSpeed = 15
-    range.meleeDamage = 15
-    range.rangeDamage = 5
-    range.detectionRange = 25
-    range.meleeAttackRange = 1
-    range.rangeAttackRange = 15
-    range.chaseRange = 8
-    range.priority = 1
+    range.health = stats.health
+    range.speed = stats.speed
+    range.bulletSpeed = stats.bulletSpeed
+    range.meleeDamage = stats.meleeDamage
+    range.rangeDamage = stats.rangeDamage
+    range.detectionRange = stats.detectionRange
+    range.meleeAttackRange = stats.meleeAttackRange
+    range.rangeAttackRange = stats.rangeAttackRange
+    range.chaseRange = stats.chaseRange
+    range.maxBurstShots = stats.maxBurstShots
+    range.priority = stats.priority
 
 
 
@@ -70,7 +82,6 @@ function on_ready()
     range.isfirstChase = true
 
     range.burstCount = 0
-    range.maxBurstShots = 4
 
     range.playerDistance = range:get_distance(range.enemyTransf.position, range.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
     range.lastTargetPos = range.playerTransf.position

@@ -1,4 +1,5 @@
 local enemy = require("scripts/utils/enemy")
+local stats_data = require("scripts/utils/enemy_stats")
 
 kamikaze = enemy:new()
 
@@ -24,14 +25,26 @@ function on_ready()
 
 
 
+    local enemy_type = "kamikaze"
+    kamikaze.level = 1
+
+    local stats = stats_data[enemy_type] and stats_data[enemy_type][kamikaze.level]
+    -- Debug in case is not working
+    if not stats then
+        log("No stats for type: " .. enemy_type .. " level: " .. kamikaze.level)
+        return
+    end
+
+
+
     -- Stats of the Kamikaze
-    kamikaze.health = 45
-    kamikaze.speed = 10
-    kamikaze.damage = 40
-    kamikaze.detectionRange = 20
-    kamikaze.attackRange = 1
-    kamikaze.explosionRange = 5
-    kamikaze.priority = 3
+    kamikaze.health = stats.health
+    kamikaze.speed = stats.speed
+    kamikaze.damage = stats.damage
+    kamikaze.detectionRange = stats.detectionRange
+    kamikaze.attackRange = stats.attackRange
+    kamikaze.explosionRange = stats.explosionRange
+    kamikaze.priority = stats.priority
 
 
 
