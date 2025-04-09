@@ -1,257 +1,303 @@
-local maxAmmoWeapon1 = 30
-local currentAmmoWeapon1 = maxAmmoWeapon1
-local maxAmmoWeapon2 = 15
-local currentAmmoWeapon2 = maxAmmoWeapon2
-local ammoTextComponent
+    local maxAmmoWeapon1 = 15
+    local maxAmmoTextComponent
+    local currentAmmoWeapon1 = maxAmmoWeapon1
+    local maxAmmoWeapon2 = 30
+    local currentAmmoWeapon2 = maxAmmoWeapon2
+    local ammoTextComponent
 
-local maxHealth = 100
-local currentHealth = maxHealth
+    local lifeFullComponent
+    local life75Component
+    local lifeTextComponent
+    local lifeFullTransform
 
-local lifeFullComponent
-local life75Component
-local life50Component
-local life25Component
-local life10Component
-local lifeTextComponent
+    local skill1
+    local skill1TextCooldown
+    local skill1Cooldown = false
+    local skill1Timer = 0
+    local skill2
+    local skill2Button
+    local skill2Cooldown = false
+    local skill2Timer = 0
+    local skill3
+    local skill3Button
+    local skill3Cooldown = false
+    local skill3Timer = 0
+    local skillsArmasTextCooldown
+    local skillsArmasCooldown = false
+    local skillsArmasTimer = 0
 
-local skill1
-local skill1TextCooldown
-local skill1Cooldown = false
-local skill1Timer = 0
-local skill2
-local skill2Cooldown = false
-local skill2Timer = 0
-local skill3
-local skill3Cooldown = false
-local skill3Timer = 0
+    local arma1
+    local arma2
+    local currentWeapon = 1
+    local weaponSwitchCooldown = 0.2 
+    local weaponSwitchTimer = 0
 
-local arma1
-local arma2
-local currentWeapon = 1
-local weaponSwitchCooldown = 0.2 
-local weaponSwitchTimer = 0
+    local maxChatarraDisplay = 1000
+    local currentChatarra = 0
 
-local maxChatarraDisplay = 1000
-local currentChatarra = 0
+    local chatarraTextComponent
+    local chatarraBarComponent
+    local chatarraTransform
+    local chatarraStartingPosition
 
-local chatarraTextComponent
-local chatarraFullComponent
-local chatarra75Component
-local chatarra50Component
-local chatarra25Component
+    local player = nil
+    local playerScript = nil
+    local lifeFullStartingPosition
 
-function on_ready()
-    --Vida
-    lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
-    life75Component = current_scene:get_entity_by_name("Vida75"):get_component("UIImageComponent")
-    life50Component = current_scene:get_entity_by_name("Vida50"):get_component("UIImageComponent")
-    life25Component = current_scene:get_entity_by_name("Vida25"):get_component("UIImageComponent")
-    life10Component = current_scene:get_entity_by_name("Vida10"):get_component("UIImageComponent")
-    lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
+    local rifleScript = nil
+    local rifleAbilityCooldown
+    local maxRifleAbilityCooldown
 
-    --Habilidades
-    skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
-    skill1TextCooldown = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("UITextComponent")
-    skill2 = current_scene:get_entity_by_name("Habilidad2"):get_component("UIImageComponent")
-    skill2TextCooldown = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("UITextComponent")
-    skill3 = current_scene:get_entity_by_name("Habilidad3"):get_component("UIImageComponent")
-    skill3TextCooldown = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("UITextComponent")
+    local shotGunScript
+    local sawSwordScript
 
-    --Armas
-    arma1 = current_scene:get_entity_by_name("Arma1"):get_component("UIImageComponent")
-    arma2 = current_scene:get_entity_by_name("Arma2"):get_component("UIImageComponent")
-    ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
-    
-    --Chatarra
-    chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
-    chatarraFullComponent = current_scene:get_entity_by_name("ChatarraCantidad100"):get_component("UIImageComponent")
-    chatarra75Component = current_scene:get_entity_by_name("ChatarraCantidad75"):get_component("UIImageComponent")
-    chatarra50Component = current_scene:get_entity_by_name("ChatarraCantidad50"):get_component("UIImageComponent")
-    chatarra25Component = current_scene:get_entity_by_name("ChatarraCantidad25"):get_component("UIImageComponent")
+    local armorUpgrade = nil
+    local armorUpgradeScript = nil
 
-end
+    local upgradeManager = nil
+    local upgradeManagerScript = nil
 
-function on_update(dt)
+    function on_ready()
+        --Vida
+        lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
+        life75Component = current_scene:get_entity_by_name("Vida75"):get_component("UIImageComponent")
+        lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
+        lifeFullTransform = current_scene:get_entity_by_name("VidaFull"):get_component("TransformComponent")
+        lifeFullStartingPosition = Vector3.new(lifeFullTransform.position.x, lifeFullTransform.position.y + 49, lifeFullTransform.position.z)
 
-    abilityManager(dt)
+        --Habilidades
+        skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
+        skill1TextCooldown = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("UITextComponent")
+        skill2 = current_scene:get_entity_by_name("Habilidad2Activable"):get_component("UIToggleComponent")
+        skill2Button = current_scene:get_entity_by_name("Habilidad2Boton"):get_component("UIImageComponent")
+        skill2TextCooldown = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("UITextComponent")
+        skill3 = current_scene:get_entity_by_name("Habilidad3Activable"):get_component("UIToggleComponent")
+        skill3Button = current_scene:get_entity_by_name("Habilidad3Boton"):get_component("UIImageComponent")
+        skill3TextCooldown = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("UITextComponent")
+        skillsArmasTextCooldown = current_scene:get_entity_by_name("HabilidadesArmasCooldown"):get_component("UITextComponent")
 
-    weaponManager(dt)
+        rifleScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
+        rifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTimeCounter
+        maxRifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTime
 
-end
+        shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
+        sawSwordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
 
-function on_exit()
-    -- Add cleanup code here
-end
+        --Armas
+        arma1 = current_scene:get_entity_by_name("Arma1"):get_component("UIImageComponent")
+        arma2 = current_scene:get_entity_by_name("Arma2"):get_component("UIImageComponent")
+        maxAmmoTextComponent = current_scene:get_entity_by_name("BalasMax"):get_component("UITextComponent")
+        ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
+        
+        --Chatarra
+        chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
+        chatarraBarComponent = current_scene:get_entity_by_name("ChatarraCantidad"):get_component("UIImageComponent") 
+        chatarraTransform = current_scene:get_entity_by_name("ChatarraCantidad"):get_component("TransformComponent")
+        chatarraStartingPosition = Vector3.new(chatarraTransform.position.x - 123, chatarraTransform.position.y, chatarraTransform.position.z)
+
+        player = current_scene:get_entity_by_name("Player")
+        playerScript = player:get_component("ScriptComponent")
+
+        armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
+        armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
+
+        upgradeManager = current_scene:get_entity_by_name("UpgradeManager")
+        upgradeManagerScript = upgradeManager:get_component("ScriptComponent")
+
+        skill1TextCooldown:set_visible(false)
+        skill2TextCooldown:set_visible(false)
+        skill3TextCooldown:set_visible(false)
+        skill2Button:set_visible(false)
+        skill3Button:set_visible(false)
+        
+
+        life75Component:set_visible(false)
+
+        --updateAmmoText()
 
 
-function abilityManager(dt)
-    if Input.is_button_pressed(Input.action.Dash) and not skill1Cooldown then
-        skill1:set_visible(false)
-        skill1TextCooldown:set_text("5")
-        skill1TextCooldown:set_visible(true)
-        skill1Timer = 0
-        skill1Cooldown = true
     end
-    
-    if skill1Cooldown then
-        skill1Timer = skill1Timer + dt
-        local remainingTime = 5 - skill1Timer
+
+    function on_update(dt)
         
-        skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
-        
-        if remainingTime <= 0 then
-            skill1:set_visible(true)
-            skill1TextCooldown:set_visible(false)
-            skill1Cooldown = false
+        abilityManager(dt)
+
+        weaponManager(dt)
+
+        update_health_display()
+
+        update_scrap_display() 
+    end
+
+    function on_exit()
+        -- Add cleanup code here
+    end
+
+
+    function abilityManager(dt)
+
+        if playerScript.dashAvailable == false then
+            skill1:set_visible(false)
+            skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
+            skill1TextCooldown:set_visible(true)
+            skill1Timer = 0
+            skill1Cooldown = true
         end
-    end
-
-    if Input.is_button_pressed(Input.action.Skill1) and not skill2Cooldown then
-        skill2:set_visible(false)
-        skill2TextCooldown:set_text("8")
-        skill2TextCooldown:set_visible(true)
-        skill2Timer = 0
-        skill2Cooldown = true
-    end
-    
-    if skill2Cooldown then
-        skill2Timer = skill2Timer + dt
-        local remainingTime = 8 - skill2Timer
         
-        skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
-        
-        if remainingTime <= 0 then
-            skill2:set_visible(true)
-            skill2TextCooldown:set_visible(false)
-            skill2Cooldown = false
+        if skill1Cooldown then 
+            skill1Timer = skill1Timer + dt 
+            local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter 
+            
+            if playerScript.dashAvailable == true then
+                skill1:set_visible(true)
+                skill1TextCooldown:set_visible(false)
+                skill1Cooldown = false
+            else
+                if remainingTime <= 1.1 and remainingTime > 0 then
+                    skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
+                else
+                    skill1TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                end
+                skill1TextCooldown:set_visible(true)        
+            end
         end
-    end
-
-    if Input.is_button_pressed(Input.action.Skill2) and not skill3Cooldown then
-        skill3:set_visible(false)
-        skill3TextCooldown:set_text("10")
-        skill3TextCooldown:set_visible(true)
-        skill3Timer = 0
-        skill3Cooldown = true
-    end
-    
-    if skill3Cooldown then
-        skill3Timer = skill3Timer + dt
-        local remainingTime = 10 - skill3Timer
         
-        skill3TextCooldown:set_text(string.format("%.1f", remainingTime))
-        
-        if remainingTime <= 0 then
-            skill3:set_visible(true)
-            skill3TextCooldown:set_visible(false)
-            skill3Cooldown = false
+        if sawSwordScript.sawSwordAvailable == false then
+            skill2:set_visible(false)
+            skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
+            skill2TextCooldown:set_visible(true)
+            skill2Timer = 0
+            skill2Cooldown = true
         end
-    end
-end
+        
+        if skill2Cooldown then
+            skill2Timer = skill2Timer + dt
+            local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
+            
+            if sawSwordScript.sawSwordAvailable == true then
+                skill2:set_visible(true)
+                skill2TextCooldown:set_visible(false)
+                skill2Cooldown = false
+            else
+                if remainingTime <= 1.1 and remainingTime > 0 then
+                    skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
+                else
+                    skill2TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                end
+                skill2TextCooldown:set_visible(true)        
+            end
+        end
 
-function weaponManager(dt)
-    if weaponSwitchTimer > 0 then
-        weaponSwitchTimer = weaponSwitchTimer - dt
-    end
+        if armorUpgradeScript.fervorAstartesAvailable == false then
+            skill3:set_visible(false)
+            skill3TextCooldown:set_visible(true)
+            skill3Timer = 0
+            skill3Cooldown = true
+        end
+        
+        if skill3Cooldown then
+            skill3Timer = skill3Timer + dt
+            local remainingTime = armorUpgradeScript.fervorAstartesCooldown
 
-    if Input.is_button_pressed(Input.action.Skill3) and weaponSwitchTimer <= 0 then
-        if currentWeapon == 1 then
+            if armorUpgradeScript.fervorAstartesAvailable == true then
+                skill3:set_visible(true)
+                skill3TextCooldown:set_visible(false)
+                skill3Cooldown = false
+            else
+                if remainingTime <= 1.1 and remainingTime > 0 then
+                    skill3TextCooldown:set_text(string.format("%.1f", remainingTime))
+                else
+                    skill3TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                end
+                skill3TextCooldown:set_visible(true)      
+            end
+        end
+
+        if(upgradeManagerScript:has_weapon_special()) then
+            skill2:set_active(true)
+            skill2Button:set_visible(true)
+        end
+
+        if(upgradeManagerScript:has_armor_special()) then
+            skill3:set_active(true)
+            skill3Button:set_visible(true)
+        end
+    end     
+
+    function weaponManager(dt)
+
+        if playerScript.actualweapon == 0 then
             arma1:set_visible(false)
             arma2:set_visible(true)
-            currentWeapon = 2
-        else
+    
+            local remainingTime = rifleScript.cooldownDisruptorBulletTime - rifleScript.cooldownDisruptorBulletTimeCounter
+            if remainingTime > 0 then
+                if remainingTime <= 1.1 then
+                    skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
+                else
+                    skillsArmasTextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                end
+            else
+                skillsArmasTextCooldown:set_text("")
+            end
+    
+        elseif playerScript.actualweapon == 1 then
             arma1:set_visible(true)
             arma2:set_visible(false)
-            currentWeapon = 1
+    
+            local remainingTime = shotGunScript.timerGranade
+            if remainingTime > 0 then
+                if remainingTime <= 1.1 then
+                    skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
+                else
+                    skillsArmasTextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                end
+            else
+                skillsArmasTextCooldown:set_text("")
+            end
         end
-        weaponSwitchTimer = weaponSwitchCooldown
         
         updateAmmoText()
-    end
-end
 
-function updateAmmoText()
-    if currentWeapon == 1 then
-        ammoTextComponent:set_text(tostring(currentAmmoWeapon1))
-    else
-        ammoTextComponent:set_text(tostring(currentAmmoWeapon2))
-    end
-end
-
-function reload()
-    if currentWeapon == 1 then
-        currentAmmoWeapon1 = maxAmmoWeapon1
-    else
-        currentAmmoWeapon2 = maxAmmoWeapon2
-    end
-    updateAmmoText()
-end
-
-function use_ammo(amount)
-    if currentWeapon == 1 then
-        currentAmmoWeapon1 = math.max(0, currentAmmoWeapon1 - amount)
-    else
-        currentAmmoWeapon2 = math.max(0, currentAmmoWeapon2 - amount)
-    end
-    updateAmmoText()
-end
-
-function update_health_display()
-
-    lifeFullComponent:set_visible(false)
-    life75Component:set_visible(false)
-    life50Component:set_visible(false)
-    life25Component:set_visible(false)
-    life10Component:set_visible(false)
-
-    if currentHealth > 75 then
-        lifeFullComponent:set_visible(true)
-    elseif currentHealth > 50 then
-        life75Component:set_visible(true)
-    elseif currentHealth > 25 then
-        life50Component:set_visible(true)
-    elseif currentHealth > 10 then
-        life25Component:set_visible(true)
-    elseif currentHealth > 0 then
-        life10Component:set_visible(true)
     end
 
-    lifeTextComponent:set_text(tostring(math.floor(currentHealth)))
-end
-
-function take_damage(damage)
-    currentHealth = math.max(0, currentHealth - damage)
-    
-    update_health_display()
-    
-    if currentHealth <= 0 then
-        --Logic to restart game
-        --print("Game Over!")
-    end
-end
-
-function update_chatarra_display()
-    chatarraFullComponent:set_visible(false)
-    chatarra75Component:set_visible(false)
-    chatarra50Component:set_visible(false)
-    chatarra25Component:set_visible(false)
-
-    local displayChatarra = math.min(currentChatarra, maxChatarraDisplay)
-
-    if currentChatarra > 1000 then  
-        chatarraFullComponent:set_visible(true)
-    elseif displayChatarra > 750 then
-        chatarra75Component:set_visible(true)
-    elseif displayChatarra > 500 then
-        chatarra50Component:set_visible(true)
-    elseif displayChatarra > 250 then
-        chatarra25Component:set_visible(true)
+    function updateAmmoText()
+        if playerScript.actualweapon == 0 then
+            ammoTextComponent:set_text(tostring(rifleScript.maxAmmo - rifleScript.ammo))
+            maxAmmoTextComponent:set_text(tostring(rifleScript.maxAmmo))
+        else
+            ammoTextComponent:set_text(tostring(shotGunScript.ammo))
+            maxAmmoTextComponent:set_text(tostring(shotGunScript.maxAmmo))
+        end
     end
 
-    chatarraTextComponent:set_text(tostring(math.floor(currentChatarra)))
-end
+    function update_health_display()
+        if playerScript ~= nil then
+            local vida = playerScript.playerHealth
+            lifeFullComponent:set_size(Vector2.new(-94, -vida))
+            lifeFullTransform.position.y = lifeFullStartingPosition.y - (vida/2)
+            lifeTextComponent:set_text(tostring(math.floor(vida)))
+        end
+    end
 
-function add_chatarra(amount)
-    currentChatarra = currentChatarra + amount
-    update_chatarra_display()
-end
+    function update_scrap_display()
+        if playerScript ~= nil then
+            local chatarra = playerScript.scrapCounter
+            local max_chatarra = maxChatarraDisplay
+            local porcentaje = chatarra / max_chatarra
+
+            if porcentaje > 1 then 
+                porcentaje = 1 
+            end
+            
+            local nuevoAncho = 248 * porcentaje
+            
+            chatarraBarComponent:set_size(Vector2.new(nuevoAncho, 30))
+            
+            if(chatarra <= 1000) then
+                chatarraTransform.position.x = chatarraStartingPosition.x + (nuevoAncho / 2)
+            end
+            
+            chatarraTextComponent:set_text(tostring(chatarra))
+        end
+    end
