@@ -7,10 +7,7 @@ local battleTrigger = nil -- child object with rigidbody
 local spawnPoint = nil -- child object, no components required
 local exitDoor = nil -- child object, no components required
 
--- New target positions for enemies to move to
-local targetPositions = {}
-
-local spawnRadius = 0.1 -- max distance from center to spawn enemies
+local spawnRadius = 1.5 -- max distance from center to spawn enemies
 
 -- Array de enemigos específicos por nombre
 local enemies = {}
@@ -42,7 +39,7 @@ function on_ready()
     battleTrigger = current_scene:get_entity_by_name("ArenaBattleTrigger")
     spawnPoint = current_scene:get_entity_by_name("ArenaSpawnCenter"):get_component("TransformComponent").position
     exitDoor = current_scene:get_entity_by_name("ArenaExitDoor")
-    player = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
+    playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     -- Enemies rangedX
     for i = 1, 8 do
         local enemyName = "EnemyRange" .. i
@@ -60,17 +57,20 @@ function on_ready()
         end
     end
     
-    --Get target position entities
-    for i = 1, 4 do
-        local targetPos = current_scene:get_entity_by_name("ArenaTargetPosition" .. i)
-        if targetPos and targetPos:is_valid() then
-            table.insert(targetPositions, targetPos)
-        else
-            log("Warning: ArenaTargetPosition" .. i .. " not found")
-        end
-    end
-    
     configureBattleTrigger()
+end
+
+function advanceToNextWave()
+    waitingForKeyPress = false
+    if currentRound >= #WaveData then
+        openDoor()
+        arenaEnded = true
+        allWavesCompleted = true
+        log("All waves completed! Door opened.")
+    else
+        log("Starting next wave...")
+        spawnLogic()
+    end
 end
 
 function on_update(dt)
@@ -81,7 +81,7 @@ function on_update(dt)
             if #activeEnemyScripts > 0 then
                 log("DEBUG: Killing all enemies with M key")
                 for _, enemy in ipairs(activeEnemyScripts) do
-                    enemy.health = 0
+                    enemy.range.health = 0
                     log("Enemy killed by debug command")
                 end
             else
@@ -111,17 +111,7 @@ function on_update(dt)
             -- Control de tecla N (siguiente oleada) - Anti-spam
             local current_n_state = Input.is_key_pressed(Input.keycode.N)
             if current_n_state and not n_key_pressed and waitingForKeyPress then
-                waitingForKeyPress = false
-                -- Check if we've completed all waves
-                if currentRound >= #WaveData then
-                    openDoor()
-                    arenaEnded = true
-                    allWavesCompleted = true
-                    log("All waves completed! Door opened.")
-                else
-                    log("Starting next wave...")
-                    spawnLogic()
-                end
+                advanceToNextWave()
             end
             n_key_pressed = current_n_state
         end
@@ -151,7 +141,7 @@ function spawnEnemies()
             enemyEntity.shield_destroyed = false
         end
         
-        -- -- Initial spawn position
+        -- Initial spawn position
         local spawnOffset = Vector3.new(
             math.cos(math.random() * 2 * math.pi) * spawnRadius,
             0,
@@ -159,22 +149,10 @@ function spawnEnemies()
         )
         rigidbodyComponent.rb:set_position(Vector3.new(arenaCenter.x + spawnOffset.x, 0, arenaCenter.z + spawnOffset.z))
 
-        
-        
-        -- TODO - NOT WORKING: Set enemy to move to spawn point
-
-
-
-
-        -- Set enemy to move to a random target position
-        if navComponent and #targetPositions > 0 then
-            local randomTargetPos = targetPositions[math.random(1, #targetPositions)]
-            log("Moving enemy to random position")
-            if enemyEntity then
-                log("Enemy path updated")
-                enemyEntity:update_path(player)
-                enemyEntity.currentState = enemyEntity.state.Move
-            end
+        if navComponent and enemyEntity then
+            log("Enemy path updated")
+            enemyEntity:update_path(playerTransf)
+            enemyEntity.currentState = enemyEntity.state.Move
         end
         
         log("Enemy spawned at (" .. (arenaCenter.x + spawnOffset.x) .. "," .. (arenaCenter.z + spawnOffset.z) .. ")")
