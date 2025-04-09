@@ -51,6 +51,8 @@ function on_ready()
         return
     end
 
+
+    
     -- Stats of the Range
     range.health = stats.health
     range.speed = stats.speed

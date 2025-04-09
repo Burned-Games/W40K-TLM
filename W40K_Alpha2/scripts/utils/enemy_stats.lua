@@ -33,11 +33,11 @@ local enemy_stats = {
         },
 
         [3] = {
-            health = 110,
-            speed = 4,
+            health = 140,
+            speed = 5,
             bulletSpeed = 15,
-            meleeDamage = 25,
-            rangeDamage = 10,
+            meleeDamage = 35,
+            rangeDamage = 15,
             detectionRange = 25,
             meleeAttackRange = 1,
             rangeAttackRange = 10,
@@ -57,17 +57,17 @@ local enemy_stats = {
             speed = 5,
             fleeSpeed = 7,
             enemyShield = 35,
-            damage = 30,
+            damage = 0,
             detectionRange = 20,
             shieldRange = 5,
-            attackRange = 10
+            attackRange = 0
         },
 
         [2] = {
-            health = 50,
+            health = 75,
             speed = 5,
-            fleeSpeed = 7,
-            enemyShield = 35,
+            fleeSpeed = 2,
+            enemyShield = 70,
             damage = 30,
             detectionRange = 20,
             shieldRange = 5,
@@ -92,11 +92,11 @@ local enemy_stats = {
         },
 
         [2] = {
-            health = 250,
+            health = 300,
             speed = 2,
             tackleSpeed = 13,
-            meleeDamage = 40,
-            tackleDamage = 100,
+            meleeDamage = 60,
+            tackleDamage = 180,
             detectionRange = 20,
             meleeAttackRange = 3,
             priority = 2
@@ -119,12 +119,12 @@ local enemy_stats = {
         },
 
         [2] = {
-            health = 45,
-            speed = 10,
-            damage = 40,
+            health = 51,
+            speed = 12,
+            damage = 70,
             detectionRange = 20,
             attackRange = 1,
-            explosionRange = 5,
+            explosionRange = 7,
             priority = 3
         }
 
