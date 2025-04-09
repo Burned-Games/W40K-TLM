@@ -60,6 +60,7 @@ function on_ready()
 
     -- audio
     explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
+    combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
 
     visibilidad2:set_visible(false)
     VolumeText:set_visible(false)
@@ -249,6 +250,10 @@ function on_update(dt)
 
             if currentSelectedSlider == 1 then
                 explorationMusic:set_volume(newValue)
+                combatMusic:set_volume(newValue)
+            end
+            if currentSelectedSlider == 2 then
+                
             end
         end
     end 
