@@ -142,7 +142,6 @@ function on_update(dt)
 
     if initialize then
         granadeOrigin = playerScript.playerTransf.position
-        print(granadeOrigin)
         initialize = false
     end
     
@@ -158,7 +157,6 @@ function on_update(dt)
                 ammo = maxAmmo  -- reload bullet
                 is_reloading = false
             else
-                ----print("in reload")
                 return  -- in reload cant shoot
             end
         end
@@ -169,16 +167,12 @@ function on_update(dt)
                 ammo = ammo - 1  -- use bulle 
                 shoot(dt)
                 next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
-            elseif ammo == 0 then
-                ----print("no bullet")
-            else
-                ----print("fire colddown")
             end
+
         end
 
         -- reload
         if ammo == 0 and not is_reloading then
-            ----print("Start reload")
             is_reloading = true
             reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
         end
@@ -197,7 +191,6 @@ function on_update(dt)
         if leftShoulder == Input.state.Repeat and timerGranade <= 0 then
             lbapretado = true
             granadasSpeed = true
-            print("dentrooooooo")
             throwing = false
             handleGranade(0)
             --update_joystick_position()
@@ -236,7 +229,6 @@ end
 function shoot(dt)
     local playerPosition = playerTransf.position
     local baseAngle = playerScript.angleRotation  
-    ----print("Player Rotation (Y):", playerTransf.rotation.y)
 
     for i, bullet in ipairs(bullets) do
         local angleOffset = (i - (bulletCount / 2)) * spreadAngle  -- angle
@@ -290,7 +282,6 @@ function handle_bullet_collision(entityA, entityB)
                 enemyPosition.z - bulletPosition.z
             ))
             
-            ----print("Knockback Direction: ", knockbackDirection.x, knockbackDirection.z)
             
             local knockbackVelocity = Vector3.new(
                 knockbackDirection.x * knockbackForce,
@@ -391,15 +382,12 @@ function update_joystick_position()
 
     granadeEntity:get_component("TransformComponent").position = targetGranadePosition
 
-    ----print("Move Offset:", offset.x, offset.z)
 end
 
 function handleGranade(dt)
-    print(granadeDirection)
     granadeDistance = granadeDistance + granadeSpeed
     granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
     local newPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0 * granadeDistance, granadeOrigin.z + granadeDirection.z * granadeDistance)
-    print(rb)
     finalTargetPos = newPos
     rb:set_position(newPos)
     
