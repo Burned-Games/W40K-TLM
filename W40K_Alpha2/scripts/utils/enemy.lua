@@ -53,6 +53,7 @@ function enemy:new(obj)
     obj.isDead = false
     obj.playerDistance = 0
     obj.playerDetected = false
+    obj.enemyInitialPos = nil
     obj.lastTargetPos = Vector3.new(0, 0, 0)
     obj.raycastAngle = 15
     obj.currentPathIndex = 1
@@ -282,6 +283,18 @@ end
 
 
 -- Functions to calculate things
+function enemy:check_initial_distance()
+
+    local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
+    print(distance)
+    if distance > 40 then
+        self.playerDetected = false
+        self.update_path(self.enemyInitialPos)
+        self.currentState = self.state.Move
+    end
+
+end
+
 function enemy:set_level()
 
     
