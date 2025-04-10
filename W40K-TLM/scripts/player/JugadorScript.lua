@@ -108,6 +108,20 @@ enemyDirection = Vector3.new(0,0,0)
 
 local checkpointsPosition = { Vector3.new(83, 0, 35), Vector3.new(192, 0, -52)}
 
+--animation indexs
+local idle = 4
+attack = 0
+local dash = 1
+local die = 2
+local drop = 3
+local mainMenu = 5
+local melee = 6
+local run = 7
+local runB = 8
+local runL = 9
+local runR = 10
+local run_Shotgun = 11
+
 function on_ready()
     -- Add initialization code here
 
@@ -284,8 +298,8 @@ function updateDash(dt)
     -- Check for dash activation
     if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true then
 
-        if(currentAnim ~= 3) then
-            currentAnim = 3
+        if(currentAnim ~= dash) then
+            currentAnim = dash
             animator:set_current_animation(currentAnim)
         end
         
@@ -356,8 +370,8 @@ end
 
 function updateEntranceAnimation(dt)
     if animacionEntradaRealizada == false then
-        if(currentAnim ~= 5) then
-            currentAnim = 5
+        if(currentAnim ~= drop) then
+            currentAnim = drop
             animator:set_current_animation(currentAnim)
         end
         timerAnimacionEntrada = timerAnimacionEntrada + dt
@@ -365,7 +379,7 @@ function updateEntranceAnimation(dt)
         if(timerAnimacionEntrada > 6.2 )then
             playerTransf.rotation.y = 0
             animacionEntradaRealizada = true
-            currentAnim = 6
+            currentAnim = idle
             animator:set_current_animation(currentAnim)
         end
         return
@@ -408,9 +422,9 @@ function handleWeaponSwitch(dt)
         if swordAnimationTimeCounter == 0 then
             
         
-            if currentAnim ~= 8 then
-                currentAnim = 8
-                animator:set_current_animation(currentAnim)
+            if currentAnim ~= melee then
+                currentAnim = melee
+                animator:set_upper_animation(currentAnim)
                 
             end
             swordUpper:set_active(true)
@@ -445,7 +459,7 @@ function playerMovement(dt)
     local axisX_r = Input.get_axis_position(Input.axiscode.RightX)
     local axisY_r = Input.get_axis_position(Input.axiscode.RightY)
 
-    local rightTrigger = Input.get_axis_position(Input.axiscode.RightTrigger)
+    local rightTrigger = Input.get_button(Input.action.Shoot)
 
 
     -- Camera angle in radians (45 degrees)
@@ -534,15 +548,32 @@ function playerMovement(dt)
         -- Animacion walk
 
         if actualweapon == 0 then
-            if currentAnim ~= 9 then
-                currentAnim = 9
+            if currentAnim ~= run and bolterScript.shootAnimation == false then
+                currentAnim = run
+                animator:set_upper_animation(currentAnim)
                 animator:set_lower_animation(currentAnim)
             end
         else
-            if currentAnim ~= 9 then
-                currentAnim = 9
+            if currentAnim ~= run  then
+
+                currentAnim = run
+                print("siiiiiiii")
                 animator:set_lower_animation(currentAnim)
+                if currentUpAnim ~= run_Shotgun then
+                    
+                    currentUpAnim = run_Shotgun
+                    animator:set_upper_animation(currentUpAnim)
+                end
+                
+                
             end
+            if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                    
+                currentUpAnim = run_Shotgun
+                animator:set_upper_animation(currentUpAnim)
+            end
+
+            
         end
         
     
@@ -572,25 +603,26 @@ function playerMovement(dt)
             playerRb:set_velocity(Vector3.new(0, 0, 0))
         end
     
-        if rightTrigger == 0 then
+        
             -- Animation idle
-            if currentAnim ~= 6 then
-                currentAnim = 6
+            if currentAnim ~= idle then
+                currentAnim = idle
                 animator:set_current_animation(currentAnim)
             end
 
 
             
-        end
+        
     end
     end
 
-    --[[if rightTrigger ~= 0 then
-        
-        animator:set_upper_animation(0)
-        
-    else
-        animator:set_upper_animation(-1)
+    --[[if rightTrigger == Input.state.Down then
+        print("shooooot")
+        if currentAnim ~= attack then
+            
+            currentAnim = attack
+            animator:set_upper_animation(currentAnim)
+        end
     end]]
 
     --Aiming Rotation
@@ -790,8 +822,8 @@ end
 
 function checkPlayerDeath(dt)
     if playerHealth <= 0 then
-        if currentAnim ~= 4 and deathAnimationSetted == false then
-            currentAnim = 4
+        if currentAnim ~= die and deathAnimationSetted == false then
+            currentAnim = die
             animator:set_current_animation(currentAnim)
             deathAnimationSetted = true
             playerRb:set_velocity(Vector3.new(0, 0, 0))

@@ -2237,9 +2237,9 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.40389513969421389,
-                                            "y": 0.40389513969421389,
-                                            "z": 0.40389513969421389
+                                            "x": 0.32715505361557009,
+                                            "y": 0.32715505361557009,
+                                            "z": 0.32715505361557009
                                         }
                                     }
                                 }
@@ -2405,7 +2405,7 @@
                         "m_Properties": {
                             "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -2501,7 +2501,7 @@
                         "m_Properties": {
                             "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -2549,7 +2549,7 @@
                         "m_Properties": {
                             "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -2597,7 +2597,7 @@
                         "m_Properties": {
                             "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -2645,7 +2645,7 @@
                         "m_Properties": {
                             "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -2693,7 +2693,7 @@
                         "m_Properties": {
                             "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -2741,7 +2741,7 @@
                         "m_Properties": {
                             "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -2826,7 +2826,7 @@
                     "id": 2147483673,
                     "data": {
                         "cereal_class_version": 0,
-                        "CurrentAnimation": 4
+                        "CurrentAnimation": 10
                     }
                 }
             },
@@ -2834,7 +2834,7 @@
                 "ptr_wrapper": {
                     "id": 2147483674,
                     "data": {
-                        "CurrentAnimation": 4
+                        "CurrentAnimation": 10
                     }
                 }
             },

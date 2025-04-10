@@ -73,6 +73,8 @@ local rifle_firerate_count = 0
     --Workbench
     local upgradeManager = nil
 
+shootAnimation = false
+
 
 function on_ready()
 
@@ -204,20 +206,26 @@ function on_update(dt)
             shootCoolDown = shootCoolDown + dt
         end
 
-        if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and shootCoolDown >= currentShootCoolDownRifle then
-
-                playerScript.currentAnim = -1
-                playerScript.animator:set_current_animation(playerScript.currentAnim)
-                playerScript.currentUpAnim = 0
-                playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
-                
-            tripleShoot()
+        if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) then
+            
+            if playerScript.currentAnim ~= playerScript.attack and shootAnimation == false then
+                playerScript.currentAnim = playerScript.attack
+                playerScript.animator:set_upper_animation(playerScript.currentAnim)
+                shootAnimation = true
+            end
+            
+            if shootCoolDown >= currentShootCoolDownRifle then
+                tripleShoot()
 
                 --shootParticlesComponent:emit(6)
                 ammo = ammo + 3
                 shooted = true
                 shootCoolDown = 0
+                shootAnimation = false
+            end
 
+        else
+            shootAnimation = false
         end
 
 

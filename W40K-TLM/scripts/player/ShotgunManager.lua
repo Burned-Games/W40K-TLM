@@ -72,6 +72,7 @@ local initialize = true
 local rb = nil
 local throwing = false
 local finalTargetPos = nil
+shootAnimation = false
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -160,15 +161,24 @@ function on_update(dt)
                 return  -- in reload cant shoot
             end
         end
-        local rightTrigger = Input.get_axis_position(Input.axiscode.RightTrigger)
+        local rightTrigger = Input.get_button(Input.action.Shoot)
+
         -- shoot
-        if rightTrigger ~= 0 then
+        if rightTrigger == Input.state.Repeat then
+            if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
+                playerScript.currentUpAnim = playerScript.attack
+                playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                shootAnimation = true
+            end
             if ammo > 0 and current_time >= next_fire_time then
                 ammo = ammo - 1  -- use bulle 
                 shoot(dt)
                 next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
+                shootAnimation = false
             end
 
+        else
+            shootAnimation = false
         end
 
         -- reload
