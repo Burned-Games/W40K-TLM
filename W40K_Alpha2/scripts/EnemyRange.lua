@@ -18,6 +18,11 @@ local stabCooldown = 2.0
 local stabCooldownTimer = 0.0
 local invulnerableTime = 5.0
 
+local bulletPool = {}
+local currentBulletIndex = 1
+local BULLET_LIFETIME = 5.0
+local bulletTimers = {}
+
 function on_ready() 
 
     range.player = current_scene:get_entity_by_name("Player")
@@ -33,13 +38,21 @@ function on_ready()
     range.enemyRb = range.enemyRbComponent.rb
     range.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-    range.bullet = current_scene:get_entity_by_name("EnemyBullet")
-    range.bulletTransf = range.bullet:get_component("TransformComponent")
-    range.bulletRbComponent = range.bullet:get_component("RigidbodyComponent")
-    range.bulletRb = range.bulletRbComponent.rb
-    range.bulletRb:set_trigger(true)
-
-
+    -- Initialize bullet pool
+    for i = 1, 5 do
+        local bulletEntity = current_scene:get_entity_by_name("EnemyBullet" .. i)
+        local bullet = {
+            entity = bulletEntity,
+            transform = bulletEntity:get_component("TransformComponent"),
+            rbComponent = bulletEntity:get_component("RigidbodyComponent"),
+            active = false
+        }
+        bullet.rb = bullet.rbComponent.rb
+        bullet.rb:set_trigger(true)
+        bullet.rb:set_position(Vector3.new(0, 0, 0))
+        bulletPool[i] = bullet
+        bulletTimers[i] = 0
+    end
 
     local enemy_type = "range"
     range.level = 1
@@ -65,8 +78,9 @@ function on_ready()
     range.chaseRange = stats.chaseRange
     range.maxBurstShots = stats.maxBurstShots
     range.priority = stats.priority
-
-
+    range.level2 = false
+    range.level3 = false
+    range.enemyInDanger = false
 
     range.idleAnim = 3
     range.moveAnim = 4
@@ -90,25 +104,48 @@ function on_ready()
     range.lastTargetPos = range.playerTransf.position
     range.delayedPlayerPos = range.playerTransf.position
 
-
-
-    range.bulletRbComponent:on_collision_enter(function(entityA, entityB)
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
-
-        if nameA == "Player" or nameB == "Player" then
-            range:make_damage(range.rangeDamage)
-        end
-    end)
-
 end
 
+function update_bullets(dt)
+    for i, bullet in ipairs(bulletPool) do
+        if bullet.active then
+            bulletTimers[i] = bulletTimers[i] + dt
+            if bulletTimers[i] >= BULLET_LIFETIME then
+                deactivate_bullet(i)
+            end
+        end
+    end
+end
 
+function deactivate_bullet(index)
+    local bullet = bulletPool[index]
+    bullet.active = false
+    bullet.rb:set_position(Vector3.new(0, 0, 0))
+    bullet.rb:set_velocity(Vector3.new(0, 0, 0))
+    bulletTimers[index] = 0
+    --log("Bullet " .. index .. " deactivated")
+    --log("Bullet " .. index .. " position: " .. bullet.rb:get_position().x .. ", " .. bullet.rb:get_position().y .. ", " .. bullet.rb:get_position().z)
+end
 
 function on_update(dt) 
 
+    if Input.is_key_pressed(Input.keycode.L) then
+        range.level2 = true
+        print("Nivel 2 activado")
+    elseif Input.is_key_pressed(Input.keycode.O) then
+        tank.level2 = false
+        print("Nivel 2 desactivado")
+    end
+    if Input.is_key_pressed(Input.keycode.P) then
+        range.level3 = true
+        print("Nivel 3 activado")
+    elseif Input.is_key_pressed(Input.keycode.I) then
+        range.level3 = false
+        print("Nivel 3 desactivado")
+    end
     if range.isDead then return end
 
+    update_bullets(dt)
     change_state()
 
     if range.currentState == range.state.Idle then return end
@@ -202,7 +239,7 @@ function change_state()
             range.isChasing = true
         end
                 
-    elseif range.playerDetected and range.playerDistance <= range.rangeAttackRange then
+    elseif range.playerDetected and range.playerDistance <= range.rangeAttackRange and not range.enemyInDanger then
         if range.currentState ~= range.state.Shoot then
             range.currentState = range.state.Shoot
         end
@@ -263,10 +300,14 @@ function range:shoot_state(dt)
 end
 
 function range:chase_state()
-    if range.isfirstChase then
-        range.invulnerable = true
-        range.isfirstChase = false
+
+    if range.level3 then
+        if range.isfirstChase then
+            range.invulnerable = true
+            range.isfirstChase = false
+        end
     end
+    
     if range.currentAnim ~= range.moveAnim then
         range.currentAnim = range.moveAnim
         range.animator:set_current_animation(range.currentAnim)
@@ -308,36 +349,50 @@ function range:stab_state(dt)
 end
 
 function shoot_projectile(targetExplosive)
-    if not range.bulletRb then return end
+    local bullet = bulletPool[currentBulletIndex]
     
-    -- Bullet start position
     local startPos = Vector3.new(
         range.enemyTransf.position.x,
         range.enemyTransf.position.y + 0.65,
         range.enemyTransf.position.z
     )
-    range.bulletRb:set_position(startPos)
+    bullet.rb:set_position(startPos)
     
     -- Target position
     local targetPos = range.delayedPlayerPos -- Default to player
-    if targetExplosive and range.explosiveDetected then -- Switch to explosive if detected
+    if targetExplosive and range.explosiveDetected and range.leve3 then -- Switch to explosive if detected
         targetPos = range.explosiveTransf.position 
     end
 
     -- Calculate normalized direction
     local dx = targetPos.x - startPos.x
     local dz = targetPos.z - startPos.z
-    local dist = math.sqrt(dx * dx + dz * dz)
     
-    --local direction = Vector3.new(range.delayedPlayerPos.x - range.enemyTransf.position.x, 0, range.delayedPlayerPos.z - range.enemyTransf.position.z)
-    --local velocity = Vector3.new(direction.x * range.bulletSpeed, 0, direction.z * range.bulletSpeed)
-
-    -- Set velocity
-    range.bulletRb:set_velocity(Vector3.new(
+    -- Set velocity and activate bullet
+    bullet.rb:set_velocity(Vector3.new(
         dx * range.bulletSpeed,
         0,
         dz * range.bulletSpeed
     ))
+    bullet.active = true
+    bulletTimers[currentBulletIndex] = 0
+
+    -- collision handling for current bullet
+    bullet.rbComponent:on_collision_enter(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            range:make_damage(range.rangeDamage)
+        end
+        deactivate_bullet(currentBulletIndex)
+    end)
+
+    -- Update bullet index
+    currentBulletIndex = currentBulletIndex + 1
+    if currentBulletIndex > 5 then
+        currentBulletIndex = 1
+    end
 end
 
 function bleed_damage()
