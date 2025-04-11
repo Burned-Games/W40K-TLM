@@ -102,7 +102,7 @@ function on_ready()
 
     range.burstCount = 0
 
-    range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
+    range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, 0, range.enemyTransf.position.z)
     range.playerDistance = range:get_distance(range.enemyTransf.position, range.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
     range.lastTargetPos = range.playerTransf.position
     range.delayedPlayerPos = range.playerTransf.position
@@ -177,10 +177,13 @@ function on_update(dt)
     local currentTargetPos = range.playerTransf.position
     if pathUpdateTimer >= pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
         range.lastTargetPos = currentTargetPos
-        range:update_path(range.playerTransf)
-        pathUpdateTimer = 0
-
         range:check_initial_distance()
+        if range.playerDetected then
+            range:update_path(range.playerTransf)
+        else
+            range:update_path_position(range.enemyInitialPos)
+        end
+        pathUpdateTimer = 0
     end
 
     if updateTargetTimer >= updateTargetInterval then

@@ -61,7 +61,6 @@ function enemy:new(obj)
     obj.currentPathIndex = 1
     obj.currentRotationY = 0
     obj.invulnerable = false
-    obj.explosiveDetected = false
 
     return obj
 
@@ -237,13 +236,24 @@ function enemy:detect(rayHit, entity)
 end
 
 -- Function to calculate the path of an entity
-function enemy:update_path(entity)
+function enemy:update_path(transform)
 
-    if entity == nil or self.enemyNavmesh == nil then 
+    if transform == nil or self.enemyNavmesh == nil then 
         return 
     end
 
-    self.enemyNavmesh.path = self.enemyNavmesh:find_path(self.enemyTransf.position, entity.position)
+    self.enemyNavmesh.path = self.enemyNavmesh:find_path(self.enemyTransf.position, transform.position)
+    self.currentPathIndex = 1
+
+end
+
+function enemy:update_path_position(position)
+
+    if position == nil or self.enemyNavmesh == nil then 
+        return 
+    end
+
+    self.enemyNavmesh.path = self.enemyNavmesh:find_path(self.enemyTransf.position, position)
     self.currentPathIndex = 1
 
 end
@@ -296,10 +306,8 @@ end
 function enemy:check_initial_distance()
 
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
-    print(distance)
     if distance > 40 then
         self.playerDetected = false
-        self.update_path(self.enemyInitialPos)
         self.currentState = self.state.Move
     end
 
