@@ -7,6 +7,7 @@ local enemyRbComponent = nil
 local enemyRb = nil
 local hasExploded = false
 local isDead = false
+local key = 0
 
 local detectDistance = 25
 local bombDistance = 2
@@ -129,6 +130,11 @@ function on_update(dt)
 
     -- Para que mire al player
     if playerDetected then
+        if key == 0 then
+            
+            playerScript.enemys_targeting = playerScript.enemys_targeting + 1
+            key = key + 1
+        end
         rotate_enemy(playerTransf.position)
     end
 
@@ -477,7 +483,8 @@ function get_distance(pos1, pos2)
 
 end
 
-function die()                                      -- !! IMPORTANTE !! Se tendra que cambiar para destruir el enemigo al morir, ahora solo se mueve lejos y se le pone en Idle :)
+function die()   
+    playerScript.enemys_targeting = playerScript.enemys_targeting - 1                                   -- !! IMPORTANTE !! Se tendra que cambiar para destruir el enemigo al morir, ahora solo se mueve lejos y se le pone en Idle :)
 
     currentState = state.Idle
     enemyRb:set_position(Vector3.new(-500, 0, 0))

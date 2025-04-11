@@ -8,6 +8,7 @@ local playerScript = nil
 local bullet = nil
 local bulletTransform = nil
 local bulletRb = nil
+local key = 0
 
 local moveSpeed = 3
 enemyHealth = 95
@@ -179,7 +180,15 @@ function on_update(dt)
     end
 
     if playerDetected then
+        
+        if key == 0 then
+            
+            playerScript.enemys_targeting = playerScript.enemys_targeting + 1
+            key = key + 1
+        end
+        
         rotate_enemy(playerTransf.position)
+        
     end
 
 
@@ -265,6 +274,7 @@ function change_state(dt)
 end
 
 function detect_player(rayHit)
+    
 
     return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity == player
 
@@ -333,6 +343,7 @@ function detect_area()
     
 
     if detect_player(centerHit) then
+
 
         currentState = state.Move
         playerDetected = true
@@ -655,6 +666,7 @@ function check_zone()
 end
 
 function die()
+    playerScript.enemys_targeting = playerScript.enemys_targeting - 1
     currentState = state.Idle
     generate_scrap()
     enemyRb:set_position(Vector3.new(-500, 0, 0))
@@ -675,5 +687,6 @@ end
 function generate_scrap()
     scrapTransform.position = enemyTransf.position
 end
+
 
 function on_exit() end

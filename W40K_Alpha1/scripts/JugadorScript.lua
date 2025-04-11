@@ -5,7 +5,7 @@ local playerRb = nil
 local moveSpeed = 6
 local lastValidRotation = 0
 local currentSpeed = 0
-local acceleration = 10      
+local acceleration = 30      
 local deceleration = 8
 moveDirection = nil
 local rotationDirection = nil
@@ -32,6 +32,8 @@ local timerAnimacionEntrada = 0
 damageReduction = 1
 tookDamage = false
 makeDamage = false 
+
+local StimsCounter = 0
 
 -- Disparo
 
@@ -72,6 +74,8 @@ local bleedDuration = 5
 local bleedDamage = 2
 local timeSinceLastBleed = 0
 local bleedInterval = 1
+
+enemys_targeting = 0
 
 -- Extras
 local pressedButton = false
@@ -162,6 +166,11 @@ function on_ready()
             save_progress("scrap", scrapCounter)
             save_progress("health", playerHealth)
         end
+
+        if nameA == "Stims" .. tostring(newIndex) or nameB == "Stims" .. tostring(newIndex) then           
+            StimsCounter = StimsCounter + 1
+        end
+
     end)
 
     level = load_progress("level", 1)
@@ -194,6 +203,19 @@ function on_ready()
 end
 
 function on_update(dt)
+
+    if enemys_targeting == 0 then
+        print("mondongo")
+        attractionActive = not attractionActive 
+        find_scrap()
+    end
+
+
+    if Input.is_key_pressed(Input.keycode.L)  then
+        
+        print("", enemys_targeting)
+
+    end
 
     if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
         attractionActive = not attractionActive 
@@ -948,5 +970,13 @@ function handleCover()
         moveSpeed = 4
     else
         moveSpeed = 6
+    end
+end
+
+function HealPlayer()
+    playerHealth = playerHealth + 40
+
+    if playerHealth > 100 then
+        playerHealth = 100
     end
 end

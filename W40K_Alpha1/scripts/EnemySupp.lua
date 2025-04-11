@@ -6,6 +6,7 @@ local enemyRangeEntity
 local enemyRangeTransf
 local forwardVector
 local enemyRb 
+local key = 0
 
 local moveSpeed = 5
 enemyHealth = 50
@@ -248,6 +249,7 @@ function chase_state(dt)
     -- Determine chase target
     local chaseTarget = nil
     if player and playerTransf and enemyRangeEntity and enemyRangeTransf then
+        
         local playerDistance = get_distance(enemyTransf.position, playerTransf.position)
         local rangeDistance = get_distance(enemyTransf.position, enemyRangeTransf.position)
         
@@ -291,6 +293,11 @@ function player_distance()
     local playerDistance = get_distance(enemyTransf.position, playerTransf.position)
     
     if playerDistance <= chaseDistance then
+        if key == 0 then
+            
+            playerScript.enemys_targeting = playerScript.enemys_targeting + 1
+            key = key + 1
+        end
         if currentState ~= state.Chase and currentState ~= state.Attack then
             currentState = state.Chase
             lastTargetPos = playerTransf.position
@@ -697,6 +704,7 @@ function get_distance(pos1, pos2)
 end
 
 function Die()
+    playerScript.enemys_targeting = playerScript.enemys_targeting - 1
     currentState = state.Idle
     enemyRb:set_position(Vector3.new(-500, 0, 0))
     isDead = true
