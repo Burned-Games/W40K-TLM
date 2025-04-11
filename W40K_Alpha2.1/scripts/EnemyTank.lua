@@ -54,11 +54,11 @@ function on_ready()
 
     tank.state.Tackle = 4
 
-    tank.idleAnim = 1
-    tank.moveAnim = 3
-    tank.attackAnim = 4
-    tank.tackleAnim = 2
-    tank.dieAnim = 0
+    tank.idleAnim = 3
+    tank.moveAnim = 4
+    tank.attackAnim = 0
+    tank.tackleAnim = 1
+    tank.dieAnim = 2
 
     tank.collisionWithPlayer = false
     tank.isCharging = false
@@ -174,8 +174,31 @@ function on_update(dt)
 
 end
 
+function tank:is_other_tank_in_tackle()
+    if not tank.level2 then
+        return false
+    end
+
+    local entities = current_scene:get_all_entities()
+    for _, entity in ipairs(entities) do
+        local tagComponent = entity:get_component("TagComponent")
+        if tagComponent and tagComponent.tag == "EnemyTank" and entity ~= self then
+            local otherTankScript = entity:get_component("ScriptComponent")
+            if otherTankScript then                
+                local tankInstance = otherTankScript.tank
+                if tankInstance then
+                    if tankInstance.currentState == self.state.Tackle then
+                        return true
+                    end
+                end
+            end
+        end
+    end
+    return false    
+end
+
 function change_state()
-    
+
     tank:enemy_raycast()
 
     if tank.collisionWithPlayer then
@@ -188,20 +211,22 @@ function change_state()
     end
 
     if tank.playerDetected and tank.canTackle then
-        if tank.currentState ~= tank.state.Tackle then
-            tank.currentState = tank.state.Tackle
-            tank.isCharging = true
-            local direction = Vector3.new(
-                tank.playerTransf.position.x - tank.enemyTransf.position.x,
-                0,
-                tank.playerTransf.position.z - tank.enemyTransf.position.z
-            )
-            local distance = math.sqrt(direction.x^2 + direction.z^2)
-            if distance > 0 then
-                direction.x = direction.x / distance
-                direction.z = direction.z / distance
+        if not tank:is_other_tank_in_tackle() then
+            if tank.currentState ~= tank.state.Tackle then
+                tank.currentState = tank.state.Tackle
+                tank.isCharging = true
+                local direction = Vector3.new(
+                    tank.playerTransf.position.x - tank.enemyTransf.position.x,
+                    0,
+                    tank.playerTransf.position.z - tank.enemyTransf.position.z
+                )
+                local distance = math.sqrt(direction.x^2 + direction.z^2)
+                if distance > 0 then
+                    direction.x = direction.x / distance
+                    direction.z = direction.z / distance
+                end
+                tank.targetDirection = direction 
             end
-            tank.targetDirection = direction 
         end
         return
     end
