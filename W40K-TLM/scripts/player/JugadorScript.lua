@@ -33,6 +33,10 @@ damageReduction = 1
 tookDamage = false
 makeDamage = false 
 
+local StimsCounter = 0
+
+enemys_targeting = 0
+
 -- Disparo
 
 shotgunammo = 0
@@ -191,6 +195,9 @@ function on_ready()
             save_progress("scrap", scrapCounter)
             save_progress("health", playerHealth)
         end
+        if nameA == "Stims" .. tostring(newIndex) or nameB == "Stims" .. tostring(newIndex) then           
+            StimsCounter = StimsCounter + 1
+        end
     end)
 
     --[[level = load_progress("level", 1)
@@ -235,6 +242,19 @@ function on_update(dt)
     if attractionActive == true then 
         attract_scrap(dt)
     
+    end
+
+    if enemys_targeting == 0 then
+        
+        attractionActive = not attractionActive 
+        find_scrap()
+    end
+
+
+    if Input.is_key_pressed(Input.keycode.L)  then
+        
+        print("", enemys_targeting)
+
     end
 
     checkPlayerDeath(dt)
@@ -1002,5 +1022,13 @@ function handleCover()
         else
             moveSpeed = 6
         end
+    end
+end
+
+function HealPlayer()
+    playerHealth = playerHealth + 40
+
+    if playerHealth > 100 then
+        playerHealth = 100
     end
 end
