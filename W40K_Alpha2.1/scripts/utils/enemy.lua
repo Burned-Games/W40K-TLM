@@ -25,6 +25,8 @@ function enemy:new(obj)
     obj.enemyNavmesh = nil
     obj.explosive = nil
     obj.explosiveTransf = nil
+    obj.scrap = nil
+    obj.scrapTransf = nil
 
     -- Generic stats of the enemy
     obj.health = 95
@@ -49,7 +51,7 @@ function enemy:new(obj)
     -- Variable for the functions of the enemy
     obj.haveShield = false
     obj.shieldDestroyed = false
-    obj.priority = 0
+    obj.key = 0
     obj.isDead = false
     obj.playerDistance = 0
     obj.playerDetected = false
@@ -59,7 +61,6 @@ function enemy:new(obj)
     obj.currentPathIndex = 1
     obj.currentRotationY = 0
     obj.invulnerable = false
-    obj.explosiveDetected = false
 
     return obj
 
@@ -104,9 +105,13 @@ function enemy:die_state()
         self.animator:set_current_animation(self.currentAnim)
     end
 
+    self.playerScript.enemys_targeting = self.playerScript.enemys_targeting - 1 
+
     self.currentState = self.state.Idle
     self.enemyRb:set_position(Vector3.new(-500, 0, 0))
     self.isDead = true
+
+    self:generate_scrap()
 
 end
 
@@ -231,13 +236,24 @@ function enemy:detect(rayHit, entity)
 end
 
 -- Function to calculate the path of an entity
-function enemy:update_path(entity)
+function enemy:update_path(transform)
 
-    if entity == nil or self.enemyNavmesh == nil then 
+    if transform == nil or self.enemyNavmesh == nil then 
         return 
     end
 
-    self.enemyNavmesh.path = self.enemyNavmesh:find_path(self.enemyTransf.position, entity.position)
+    self.enemyNavmesh.path = self.enemyNavmesh:find_path(self.enemyTransf.position, transform.position)
+    self.currentPathIndex = 1
+
+end
+
+function enemy:update_path_position(position)
+
+    if position == nil or self.enemyNavmesh == nil then 
+        return 
+    end
+
+    self.enemyNavmesh.path = self.enemyNavmesh:find_path(self.enemyTransf.position, position)
     self.currentPathIndex = 1
 
 end
@@ -283,13 +299,15 @@ end
 
 
 -- Functions to calculate things
+function enemy:generate_scrap()
+    self.scrapTransf.position = self.enemyTransf.position
+end
+
 function enemy:check_initial_distance()
 
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
-    print(distance)
     if distance > 40 then
         self.playerDetected = false
-        self.update_path(self.enemyInitialPos)
         self.currentState = self.state.Move
     end
 
@@ -310,17 +328,21 @@ function enemy:make_damage(damage)
 
 end
 
-function enemy:take_damage(damage)
+function enemy:take_damage(damage, shieldMultiplier)
+    if shieldMultiplier == nil then
+        shieldMultiplier = 1
+    end
 
     if self.invulnerable then
         log("Enemy is invulnerable")
         return
     end
     if self.shieldHealth > 0 then
-        self.shieldHealth = self.shieldHealth - damage
+        self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
+        print(self.shieldHealth)
     else
-        log("AAAUUU")
         self.health = self.health - damage
+        print(self.health)
     end
 
     if self.health <= 0 then
