@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 17204007420761280568
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "enemies/E_Kamikaze/E_Kamikaze_bs.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/17204007420761280568.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

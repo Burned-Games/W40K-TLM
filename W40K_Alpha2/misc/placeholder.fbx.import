@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "placeholder_placeholder",
+                        "value": {
+                            "value0": 2617472924063814554
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "standardSurface1_Mat0",
+                        "value": {
+                            "value0": 115185005257425298
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 17884275674361301570
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "misc/placeholder.fbx"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/17884275674361301570.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
