@@ -38,6 +38,9 @@ function on_ready()
     range.enemyRb = range.enemyRbComponent.rb
     range.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
+    range.scrap = current_scene:get_entity_by_name("Scrap")
+    range.scrapTransf = range.scrap:get_component("TransformComponent")
+
     -- Initialize bullet pool
     for i = 1, 5 do
         local bulletEntity = current_scene:get_entity_by_name("EnemyBullet" .. i)
@@ -186,6 +189,11 @@ function on_update(dt)
     end
 
     if range.playerDetected then
+        if range.key == 0 then
+             
+            range.playerScript.enemys_targeting = range.playerScript.enemys_targeting + 1
+            range.key = range.key + 1
+        end
         range:rotate_enemy(range.playerTransf.position)
     end
 

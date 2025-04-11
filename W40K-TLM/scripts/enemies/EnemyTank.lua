@@ -155,6 +155,11 @@ function on_update(dt)
     end
 
     if tank.playerDetected then
+        if tank.key == 0 then
+             
+            tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting + 1
+            tank.key = tank.key + 1
+        end
         tank:rotate_enemy(tank.playerTransf.position)
     end
 

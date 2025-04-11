@@ -23,6 +23,9 @@ function on_ready()
     kamikaze.explosiveBarrel = current_scene:get_entity_by_name("Explosive")
     kamikaze.explosiveBarrelRb = kamikaze.explosiveBarrel:get_component("RigidbodyComponent").rb
 
+    kamikaze.scrap = current_scene:get_entity_by_name("Scrap")
+    kamikaze.scrapTransf = kamikaze.scrap:get_component("TransformComponent")
+
 
 
     local enemy_type = "kamikaze"
@@ -63,7 +66,6 @@ function on_ready()
 end
 
 function on_update(dt) 
-    print("hola")
 
     if kamikaze.isDead then return end
 
@@ -99,6 +101,11 @@ function on_update(dt)
     end
 
     if kamikaze.playerDetected then
+        if kamikaze.key == 0 then
+             
+            kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting + 1
+            kamikaze.key = kamikaze.key + 1
+        end
         kamikaze:rotate_enemy(kamikaze.playerTransf.position)
     end
 

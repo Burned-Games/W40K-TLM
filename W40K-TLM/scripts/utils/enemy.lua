@@ -25,6 +25,8 @@ function enemy:new(obj)
     obj.enemyNavmesh = nil
     obj.explosive = nil
     obj.explosiveTransf = nil
+    obj.scrap = nil
+    obj.scrapTransf = nil
 
     -- Generic stats of the enemy
     obj.health = 95
@@ -49,7 +51,7 @@ function enemy:new(obj)
     -- Variable for the functions of the enemy
     obj.haveShield = false
     obj.shieldDestroyed = false
-    obj.priority = 0
+    obj.key = 0
     obj.isDead = false
     obj.playerDistance = 0
     obj.playerDetected = false
@@ -104,9 +106,13 @@ function enemy:die_state()
         self.animator:set_current_animation(self.currentAnim)
     end
 
+    self.playerScript.enemys_targeting = self.playerScript.enemys_targeting - 1 
+
     self.currentState = self.state.Idle
     self.enemyRb:set_position(Vector3.new(-500, 0, 0))
     self.isDead = true
+
+    self:generate_scrap()
 
 end
 
@@ -283,6 +289,10 @@ end
 
 
 -- Functions to calculate things
+function enemy:generate_scrap()
+    self.scrapTransf.position = self.enemyTransf.position
+end
+
 function enemy:check_initial_distance()
 
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)

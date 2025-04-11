@@ -28,6 +28,9 @@ function on_ready()
 
     support.waypointsParent = current_scene:get_entity_by_name("WaypointsParent")
 
+    support.scrap = current_scene:get_entity_by_name("Scrap")
+    support.scrapTransf = support.scrap:get_component("TransformComponent")
+
     -- This needs to be done by code, to avoid problems with other support entities
     local children = self:get_children()
     for _, child in ipairs(children) do
@@ -102,7 +105,7 @@ function on_ready()
 end
 
 function on_update(dt)
-print("AAAA")
+
     if support.isDead then return end
 
     change_state()
