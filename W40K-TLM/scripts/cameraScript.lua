@@ -107,7 +107,7 @@ function on_update(dt)
 
     end
 
-    if Input.is_key_pressed(Input.keycode.L) then
+    --[[if Input.is_key_pressed(Input.keycode.L) then
         startShake(3,5)
     end
 
@@ -125,7 +125,7 @@ function on_update(dt)
         else
             cameraBoss(true)
         end
-    end
+    end]]
 
 
 
@@ -142,7 +142,7 @@ function on_update(dt)
         shakeAmount = shakeAmount * math.exp(-shakeDecay * dt)
         cameraTransform.position = smoothPos
 
-        print("shaaaaaaaaake")
+        
     end
 end
 
