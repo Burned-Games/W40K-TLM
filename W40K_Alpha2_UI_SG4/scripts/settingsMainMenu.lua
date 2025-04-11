@@ -6,6 +6,8 @@ local cooldownTime = 0.15
 local sceneChanged = false
 local value = nil
 
+local newValue = 1.0
+
 function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
@@ -23,6 +25,9 @@ function on_update(dt)
 
     value = Input.get_button(Input.action.Cancel)
     if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+        -- lógica de la actualización del volumen y de fxs
+        save_progress("musicVolumeGeneral", slider1:get_value())
+        save_progress("fxVolume", slider2:get_value())        
         sceneChanged = true
         SceneManager.change_scene("Default.TeaScene")
         
@@ -52,18 +57,13 @@ function on_update(dt)
         local currentValue = selectedSlider:get_value()
         
        
-        local newValue = currentValue + (horizontalInput * 0.05) 
+        newValue = currentValue + (horizontalInput * 0.05) 
         newValue = math.max(0.0, math.min(1.0, newValue))
         
         selectedSlider:set_value(newValue)
         inputCooldown = cooldownTime / 2 
     end
 
-    -- lógica de la actualización del volumen y de fxs
-
-    --if currentSelectedSlider == 1 then
-        --explorationMusic:set_volume(newValue * 0.05)
-   -- end
     
 end
 
