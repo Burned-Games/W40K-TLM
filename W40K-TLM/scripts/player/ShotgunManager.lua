@@ -167,11 +167,12 @@ function on_update(dt)
         if rightTrigger == Input.state.Repeat then
             if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
                 playerScript.currentUpAnim = playerScript.attack
+                print("siiiiiiiiiiiiiii")
                 playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                 shootAnimation = true
             end
             if ammo > 0 and current_time >= next_fire_time then
-                ammo = ammo - 1  -- use bulle 
+                ammo = ammo - 1  -- use bullet 
                 shoot(dt)
                 next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
                 shootAnimation = false

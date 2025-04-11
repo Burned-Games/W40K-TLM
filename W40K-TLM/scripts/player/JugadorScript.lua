@@ -125,6 +125,8 @@ local runB = 8
 local runL = 9
 local runR = 10
 local run_Shotgun = 11
+local rotationAngle = 0
+local transf = nil
 
 function on_ready()
     -- Add initialization code here
@@ -142,6 +144,11 @@ function on_ready()
     --UpgradeManager END
 
     playerTransf = self:get_component("TransformComponent")
+
+    transf = self:get_component("TransformComponent")
+
+
+    rotationAngle = { value = self:get_component("TransformComponent").position.y }
     
     playerRb = self:get_component("RigidbodyComponent").rb
 
@@ -564,37 +571,331 @@ function playerMovement(dt)
 
     if impulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
+
+        --print(rotationDirection.x,rotationDirection.z,moveDirection.x, moveDirection.z)
+
         isMoving = true
         -- Animacion walk
+        
+        if rotationDirection.x ~= 0 or rotationDirection.y ~= 0 then
+            local moveMargin = 0.3
+            local threshold = 0.3
 
-        if actualweapon == 0 then
-            if currentAnim ~= run and bolterScript.shootAnimation == false then
-                currentAnim = run
-                animator:set_upper_animation(currentAnim)
-                animator:set_lower_animation(currentAnim)
-            end
-        else
-            if currentAnim ~= run  then
-
-                currentAnim = run
-                print("siiiiiiii")
-                animator:set_lower_animation(currentAnim)
-                if currentUpAnim ~= run_Shotgun then
-                    
-                    currentUpAnim = run_Shotgun
-                    animator:set_upper_animation(currentUpAnim)
-                end
-                
-                
-            end
-            if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
-                    
-                currentUpAnim = run_Shotgun
-                animator:set_upper_animation(currentUpAnim)
-            end
+            -- Calculando los rangos para X y Z
+            local minX = moveDirection.x - moveMargin
+            local maxX = moveDirection.x + moveMargin
+            
+            local minZ = moveDirection.z - moveMargin
+            local maxZ = moveDirection.z + moveMargin
 
             
+            local dotProduct = rotationDirection.x * moveDirection.x + rotationDirection.z * moveDirection.z
+            local angleInDegrees = math.deg(math.atan(rotationDirection.z, rotationDirection.x)) 
+            
+            local angle2InDegrees = math.deg(math.atan(moveDirection.z, moveDirection.x)) 
+            
+            local diference = angleInDegrees - angle2InDegrees
+            if rotationDirection.x > minX and rotationDirection.x < maxX and
+            (rotationDirection.z > minZ and rotationDirection.z < maxZ) then        
+                
+                if actualweapon == 0 then
+                    if currentAnim ~= run and bolterScript.shootAnimation == false then
+                        currentAnim = run
+                        animator:set_upper_animation(currentAnim)
+                        animator:set_lower_animation(currentAnim)
+                    end
+                else
+                    if currentAnim ~= run  then
+
+                        currentAnim = run
+
+                        animator:set_lower_animation(currentAnim)
+                        if currentUpAnim ~= run_Shotgun then
+                            
+                            currentUpAnim = run_Shotgun
+                            animator:set_upper_animation(currentUpAnim)
+                        end
+                        
+                        
+                    end
+                    if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                            
+                        currentUpAnim = run_Shotgun
+                        animator:set_upper_animation(currentUpAnim)
+                    end
+
+                    
+                end
+            elseif (rotationDirection.x > minZ and rotationDirection.x < maxZ and
+                (rotationDirection.z > minX and rotationDirection.z < maxX))or ((rotationDirection.x < minZ or rotationDirection.x > maxZ) and
+                (rotationDirection.z < minX or rotationDirection.z > maxX)) then
+                    
+                    if actualweapon == 0 then
+                        if currentAnim ~= runB and bolterScript.shootAnimation == false then
+                            currentAnim = runB
+                            animator:set_upper_animation(currentAnim)
+                            animator:set_lower_animation(currentAnim)
+                        end
+                    else
+                        if currentAnim ~= runB  then
+        
+                            currentAnim = runB
+        
+                            animator:set_lower_animation(currentAnim)
+                            if currentUpAnim ~= run_Shotgun then
+                                
+                                currentUpAnim = run_Shotgun
+                                animator:set_upper_animation(currentUpAnim)
+                            end
+                            
+                            
+                        end
+                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                                
+                            currentUpAnim = run_Shotgun
+                            animator:set_upper_animation(currentUpAnim)
+                        end
+        
+                        
+                    end
+            
+            elseif diference < diference + 10 and diference > diference - 10 then
+                
+                if diference < 0 then
+                    
+                    if(diference < -260 and diference > -280) then
+                        
+                        if actualweapon == 0 then
+                            if currentAnim ~= runR and bolterScript.shootAnimation == false then
+                                currentAnim = runR
+                                animator:set_upper_animation(currentAnim)
+                                animator:set_lower_animation(currentAnim)
+                            end
+                        else
+                            if currentAnim ~= runR  then
+            
+                                currentAnim = runR
+            
+                                animator:set_lower_animation(currentAnim)
+                                if currentUpAnim ~= run_Shotgun then
+                                    
+                                    currentUpAnim = run_Shotgun
+                                    animator:set_upper_animation(currentUpAnim)
+                                end
+                                
+                                
+                            end
+                            if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                                    
+                                currentUpAnim = run_Shotgun
+                                animator:set_upper_animation(currentUpAnim)
+                            end
+            
+                            
+                        end
+                    else
+                        if actualweapon == 0 then
+                            if currentAnim ~= runL and bolterScript.shootAnimation == false then
+                                currentAnim = runL
+                                animator:set_upper_animation(currentAnim)
+                                animator:set_lower_animation(currentAnim)
+                            end
+                        else
+                            if currentAnim ~= runL  then
+            
+                                currentAnim = runL
+            
+                                animator:set_lower_animation(currentAnim)
+                                if currentUpAnim ~= run_Shotgun then
+                                    
+                                    currentUpAnim = run_Shotgun
+                                    animator:set_upper_animation(currentUpAnim)
+                                end
+                                
+                                
+                            end
+                            if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                                    
+                                currentUpAnim = run_Shotgun
+                                animator:set_upper_animation(currentUpAnim)
+                            end
+            
+                            
+                        end
+                       
+                    end
+                    
+                else
+                    if actualweapon == 0 then
+                        if currentAnim ~= runR and bolterScript.shootAnimation == false then
+                            currentAnim = runR
+                            animator:set_upper_animation(currentAnim)
+                            animator:set_lower_animation(currentAnim)
+                        end
+                    else
+                        if currentAnim ~= runR  then
+        
+                            currentAnim = runR
+        
+                            animator:set_lower_animation(currentAnim)
+                            if currentUpAnim ~= run_Shotgun then
+                                
+                                currentUpAnim = run_Shotgun
+                                animator:set_upper_animation(currentUpAnim)
+                            end
+                            
+                            
+                        end
+                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                                
+                            currentUpAnim = run_Shotgun
+                            animator:set_upper_animation(currentUpAnim)
+                        end
+        
+                        
+                    end
+                    
+                end
+
+                
+                
+            end
+        else
+       
+        
+            -- if rotationDirection.x > minX and rotationDirection.x < maxX and
+            -- (rotationDirection.z > minX and rotationDirection.z < maxX) and (rotationDirection.z < minZ or rotationDirection.z > maxZ) then  
+            --     print("izquierda")
+            --     if actualweapon == 0 then
+            --         if currentAnim ~= run and bolterScript.shootAnimation == false then
+            --             currentAnim = run
+            --             animator:set_upper_animation(currentAnim)
+            --             animator:set_lower_animation(currentAnim)
+            --         end
+            --     else
+            --         if currentAnim ~= run  then
+
+            --             currentAnim = run
+
+            --             animator:set_lower_animation(currentAnim)
+            --             if currentUpAnim ~= run_Shotgun then
+                            
+            --                 currentUpAnim = run_Shotgun
+            --                 animator:set_upper_animation(currentUpAnim)
+            --             end
+                        
+                        
+            --         end
+            --         if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                            
+            --             currentUpAnim = run_Shotgun
+            --             animator:set_upper_animation(currentUpAnim)
+            --         end
+
+                    
+            --     end
+            -- end
+            -- moveFinalPlus = Vector2.new(-moveFinalPlus.x, -moveFinalPlus.y)
+            -- moveFinalMinus = Vector2.new(-moveFinalMinus.x, -moveFinalMinus.y)
+            -- if (rotationDirection.x > minZ and rotationDirection.x < maxZ and
+            -- (rotationDirection.z > minX and rotationDirection.z < maxX) and (rotationDirection.x < minX or rotationDirection.x > maxX)) or (rotationDirection.x > rotationDirection.x - moveMargin and rotationDirection.x < rotationDirection.x + moveMargin and
+            -- (minX > minX + moveMargin  and rotationDirection.z < maxX - moveMargin) and (rotationDirection.x < minZ or rotationDirection.x > maxZ)) then  
+            --     print("abajoooooooooooo")
+            --     if actualweapon == 0 then
+            --         if currentAnim ~= runB and bolterScript.shootAnimation == false then
+            --             currentAnim = runB
+            --             animator:set_upper_animation(currentAnim)
+            --             animator:set_lower_animation(currentAnim)
+            --         end
+            --     else
+            --         if currentAnim ~= runB  then
+
+            --             currentAnim = runB
+
+            --             animator:set_lower_animation(currentAnim)
+            --             if currentUpAnim ~= run_Shotgun then
+                            
+            --                 currentUpAnim = run_Shotgun
+            --                 animator:set_upper_animation(currentUpAnim)
+            --             end
+                        
+                        
+            --         end
+            --         if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                            
+            --             currentUpAnim = run_Shotgun
+            --             animator:set_upper_animation(currentUpAnim)
+            --         end
+
+                    
+            --     end
+            -- end
+
+            -- if rotationDirection.x > 0 and rotationDirection.x < 1 and rotationDirection.z > -1 and rotationDirection.z < 0 then
+            --     print("aaaaaaaaaaaaaaaaaaaa")
+            --     if actualweapon == 0 then
+            --         if currentAnim ~= run and bolterScript.shootAnimation == false then
+            --             currentAnim = run
+            --             animator:set_upper_animation(currentAnim)
+            --             animator:set_lower_animation(currentAnim)
+            --         end
+            --     else
+            --         if currentAnim ~= run  then
+
+            --             currentAnim = run
+
+            --             animator:set_lower_animation(currentAnim)
+            --             if currentUpAnim ~= run_Shotgun then
+                            
+            --                 currentUpAnim = run_Shotgun
+            --                 animator:set_upper_animation(currentUpAnim)
+            --             end
+                        
+                        
+            --         end
+            --         if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                            
+            --             currentUpAnim = run_Shotgun
+            --             animator:set_upper_animation(currentUpAnim)
+            --         end
+
+                    
+            --     end
+            -- end
+
+            if rotationDirection.x == 0 and rotationDirection.z == 0 then
+                if actualweapon == 0 then
+                    if currentAnim ~= run and bolterScript.shootAnimation == false then
+                        currentAnim = run
+                        animator:set_upper_animation(currentAnim)
+                        animator:set_lower_animation(currentAnim)
+                    end
+                else
+                    if currentAnim ~= run  then
+
+                        currentAnim = run
+
+                        animator:set_lower_animation(currentAnim)
+                        if currentUpAnim ~= run_Shotgun then
+                            
+                            currentUpAnim = run_Shotgun
+                            animator:set_upper_animation(currentUpAnim)
+                        end
+                        
+                        
+                    end
+                    if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                            
+                        currentUpAnim = run_Shotgun
+                        animator:set_upper_animation(currentUpAnim)
+                    end
+
+                    
+                end
+            end
         end
+
+
         
     
         -- Progressive acceleration until reaching moveSpeed
@@ -625,9 +926,13 @@ function playerMovement(dt)
     
         
             -- Animation idle
-            if currentAnim ~= idle and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false then
+            if currentAnim ~= idle and bolterScript.shootAnimation == false or currentUpAnim ~= idle and shotGunScript.shootAnimation == false then
                 currentAnim = idle
                 animator:set_current_animation(currentAnim)
+                if shotGunScript.shootAnimation == false then
+                    currentUpAnim = idle
+                    animator:set_upper_animation(currentUpAnim)
+                end
             end
 
 
@@ -853,7 +1158,7 @@ function checkPlayerDeath(dt)
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
             sceneChanged = true
-            SceneManager.change_scene("levelLose.TeaScene")
+            --SceneManager.change_scene("levelLose.TeaScene")
         end
     end
     if playerHealth >= 100 then
