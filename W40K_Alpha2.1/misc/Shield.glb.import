@@ -1,0 +1,41 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Shield_Sphere.002",
+                        "value": {
+                            "value0": 18138816216682903366
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Shield.glb_Mat0",
+                        "value": {
+                            "value0": 12845255368725178519
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 16962877577577482250
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "misc/Shield.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/16962877577577482250.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

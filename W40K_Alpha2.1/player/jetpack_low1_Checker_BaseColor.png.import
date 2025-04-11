@@ -1,0 +1,26 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "value0": {
+                    "uuid": {
+                        "value0": 6055745675912557189
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "player/jetpack_low1_Checker_BaseColor.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/6055745675912557189.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

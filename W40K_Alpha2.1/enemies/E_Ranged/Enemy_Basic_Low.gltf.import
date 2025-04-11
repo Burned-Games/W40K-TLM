@@ -1,0 +1,53 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "meshUUIDs": [
+                    {
+                        "key": "Enemy_Basic_Low_BézierCurve",
+                        "value": {
+                            "value0": 16366241058125453152
+                        }
+                    },
+                    {
+                        "key": "Enemy_Basic_Low_Plane.004",
+                        "value": {
+                            "value0": 1597521294959652099
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material_Mat0",
+                        "value": {
+                            "value0": 2782976171341804039
+                        }
+                    },
+                    {
+                        "key": "ork_Mat1",
+                        "value": {
+                            "value0": 11570165094818399742
+                        }
+                    }
+                ],
+                "value0": {
+                    "uuid": {
+                        "value0": 7936257834670408256
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "enemies/E_Ranged/Enemy_Basic_Low.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/7936257834670408256.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
