@@ -1,0 +1,86 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Support_final_Mesh.004",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 6693871871152082220
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.005",
+                        "value": {
+                            "value0": 8933984909991529942
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.001",
+                        "value": {
+                            "value0": 10406349929283892087
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.003",
+                        "value": {
+                            "value0": 11604334151212317731
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.002",
+                        "value": {
+                            "value0": 9197029952320746256
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh",
+                        "value": {
+                            "value0": 2874658715554507342
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.006",
+                        "value": {
+                            "value0": 15561703956429134004
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "E_SupWeapon_Mat0",
+                        "value": {
+                            "value0": 13182919333336445217
+                        }
+                    },
+                    {
+                        "key": "Support_Mat1",
+                        "value": {
+                            "value0": 2238398817965902683
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 6969362044550778321
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "enemies/E_Support/Support_final.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/6969362044550778321.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Bullet_Node-Mesh-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 16998969324231327925
+                        }
+                    },
+                    {
+                        "key": "Bullet_Node-Mesh-1",
+                        "value": {
+                            "value0": 3389279709666124862
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "blinn1SG_Mat0",
+                        "value": {
+                            "value0": 7286341726322262849
+                        }
+                    },
+                    {
+                        "key": "blinn2SG_Mat1",
+                        "value": {
+                            "value0": 4967878820532418834
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 15297539295036554941
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "misc/Bullet.glb"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15297539295036554941.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

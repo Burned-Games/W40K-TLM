@@ -1,0 +1,932 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "AssetsDressingNuria3_Cube.017",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 7593793622669743429
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-10",
+                        "value": {
+                            "value0": 6930015364247066470
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-6",
+                        "value": {
+                            "value0": 4098036888751148154
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Plane.027",
+                        "value": {
+                            "value0": 4161895863585175888
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-3",
+                        "value": {
+                            "value0": 3399193504421153689
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Plane.006",
+                        "value": {
+                            "value0": 6936465318815200048
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-9",
+                        "value": {
+                            "value0": 2312759054282797824
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Plane.028",
+                        "value": {
+                            "value0": 7646189784359528278
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.679",
+                        "value": {
+                            "value0": 2674351675303457048
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-5",
+                        "value": {
+                            "value0": 14596725998116440333
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.716",
+                        "value": {
+                            "value0": 9864755913457647940
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-8",
+                        "value": {
+                            "value0": 5880586757564368406
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Plane.029",
+                        "value": {
+                            "value0": 13148333612020105496
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-8",
+                        "value": {
+                            "value0": 12017832537042623919
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-7",
+                        "value": {
+                            "value0": 4795808745380174737
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.714",
+                        "value": {
+                            "value0": 18225499538207786047
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.637",
+                        "value": {
+                            "value0": 11874584536117953882
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.005",
+                        "value": {
+                            "value0": 10607369555736403683
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.691",
+                        "value": {
+                            "value0": 12699659078958820672
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Plane.030",
+                        "value": {
+                            "value0": 13467677320362018690
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.680",
+                        "value": {
+                            "value0": 14661508265630550939
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-2",
+                        "value": {
+                            "value0": 15808645228902953677
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.711",
+                        "value": {
+                            "value0": 6181931153096651128
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-1",
+                        "value": {
+                            "value0": 14396537661258978831
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.712",
+                        "value": {
+                            "value0": 15042063268729065636
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-0",
+                        "value": {
+                            "value0": 8054291992664739480
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.713",
+                        "value": {
+                            "value0": 18359025968853735053
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-9",
+                        "value": {
+                            "value0": 5540470401401921896
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-6",
+                        "value": {
+                            "value0": 13777719057920490191
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.715",
+                        "value": {
+                            "value0": 8413044463287807294
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.006",
+                        "value": {
+                            "value0": 17510855412052120168
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-4",
+                        "value": {
+                            "value0": 14690846378942821168
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.717",
+                        "value": {
+                            "value0": 16907822472494267575
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-5",
+                        "value": {
+                            "value0": 5220423099895525777
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.719",
+                        "value": {
+                            "value0": 5160601515074988247
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-0",
+                        "value": {
+                            "value0": 10554229811072192124
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.058-2",
+                        "value": {
+                            "value0": 916299919247789347
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-1",
+                        "value": {
+                            "value0": 17874163589624415814
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-2",
+                        "value": {
+                            "value0": 12844640756710230463
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.058-0",
+                        "value": {
+                            "value0": 9168614709578480723
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-3",
+                        "value": {
+                            "value0": 10111072443179314576
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.058-1",
+                        "value": {
+                            "value0": 13232940217815267493
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.654",
+                        "value": {
+                            "value0": 5838803653721283758
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.015",
+                        "value": {
+                            "value0": 458451003846687817
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-12",
+                        "value": {
+                            "value0": 9952567801697451562
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-4",
+                        "value": {
+                            "value0": 6193764675747499039
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-5",
+                        "value": {
+                            "value0": 5172621331679213692
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.652",
+                        "value": {
+                            "value0": 10254592273695336956
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.016",
+                        "value": {
+                            "value0": 3090029132679496966
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-11",
+                        "value": {
+                            "value0": 17326252473637008159
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-7",
+                        "value": {
+                            "value0": 14574667406731120795
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.650",
+                        "value": {
+                            "value0": 1842354026195050164
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-10",
+                        "value": {
+                            "value0": 11311570362753047864
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-16",
+                        "value": {
+                            "value0": 12536177302841216094
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-11",
+                        "value": {
+                            "value0": 726062540171166013
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-12",
+                        "value": {
+                            "value0": 8326704693173820407
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-14",
+                        "value": {
+                            "value0": 10783678645492365270
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-13",
+                        "value": {
+                            "value0": 14941413570214925792
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-15",
+                        "value": {
+                            "value0": 17613529590892923512
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.720-14",
+                        "value": {
+                            "value0": 5626151299455351249
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-12",
+                        "value": {
+                            "value0": 15837839928000899916
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-3",
+                        "value": {
+                            "value0": 10877029491833466926
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-7",
+                        "value": {
+                            "value0": 302945223043404926
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-8",
+                        "value": {
+                            "value0": 5313000551859527850
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-6",
+                        "value": {
+                            "value0": 13445092779420166398
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.721-9",
+                        "value": {
+                            "value0": 714685661867787366
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-0",
+                        "value": {
+                            "value0": 16095475935590079022
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-1",
+                        "value": {
+                            "value0": 15164232465914934814
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-2",
+                        "value": {
+                            "value0": 13089073011347023129
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-4",
+                        "value": {
+                            "value0": 11796536552735416171
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-10",
+                        "value": {
+                            "value0": 3700005765915033261
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-11",
+                        "value": {
+                            "value0": 16567071056492199555
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cylinder.015-13",
+                        "value": {
+                            "value0": 9283836875137005069
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.007",
+                        "value": {
+                            "value0": 16822302851525333827
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.001",
+                        "value": {
+                            "value0": 4427412660374132883
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.005",
+                        "value": {
+                            "value0": 6823261948435595194
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.002",
+                        "value": {
+                            "value0": 7854689124727755035
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.004",
+                        "value": {
+                            "value0": 5431906283639892839
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.011",
+                        "value": {
+                            "value0": 9682065067123178146
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.010",
+                        "value": {
+                            "value0": 16122580719348045492
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.003",
+                        "value": {
+                            "value0": 14796538899292508694
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.012",
+                        "value": {
+                            "value0": 816670290842405492
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.013",
+                        "value": {
+                            "value0": 4760291235273741462
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.636",
+                        "value": {
+                            "value0": 16483818778546281247
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.638",
+                        "value": {
+                            "value0": 11732650549600747203
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.639",
+                        "value": {
+                            "value0": 12898693479475284658
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.640",
+                        "value": {
+                            "value0": 13744909509901208113
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.643",
+                        "value": {
+                            "value0": 7303972530040650408
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.645",
+                        "value": {
+                            "value0": 5718518330992336285
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.646",
+                        "value": {
+                            "value0": 4147882784028078453
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.647",
+                        "value": {
+                            "value0": 15639339664854056769
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.648",
+                        "value": {
+                            "value0": 5610888804941369662
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.649",
+                        "value": {
+                            "value0": 17489322278119900109
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.083-0",
+                        "value": {
+                            "value0": 4563759419767613778
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.083-1",
+                        "value": {
+                            "value0": 4908977862937008650
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.083-2",
+                        "value": {
+                            "value0": 13483969192060825516
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.2117-0",
+                        "value": {
+                            "value0": 2657893678825453848
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.2117-1",
+                        "value": {
+                            "value0": 2387089839360279779
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.2117-2",
+                        "value": {
+                            "value0": 10585312232974166390
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.008",
+                        "value": {
+                            "value0": 10771912597740532197
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.025",
+                        "value": {
+                            "value0": 8588641872125445322
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.027",
+                        "value": {
+                            "value0": 13317627423461223459
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.026",
+                        "value": {
+                            "value0": 8045781052205516147
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.024",
+                        "value": {
+                            "value0": 1032118662287470125
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.085",
+                        "value": {
+                            "value0": 1081310416069444489
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.023",
+                        "value": {
+                            "value0": 14512354620619444938
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.020",
+                        "value": {
+                            "value0": 7751004745128441561
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.021",
+                        "value": {
+                            "value0": 7166228407378811382
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.019",
+                        "value": {
+                            "value0": 1883140993279268041
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.006",
+                        "value": {
+                            "value0": 12684945603026765014
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.022",
+                        "value": {
+                            "value0": 5107822327072056023
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.018",
+                        "value": {
+                            "value0": 8830548852227485397
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.009",
+                        "value": {
+                            "value0": 18190462111525684999
+                        }
+                    },
+                    {
+                        "key": "AssetsDressingNuria3_Cube.014",
+                        "value": {
+                            "value0": 7165364974876371625
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Suelo_MAT.001_Mat0",
+                        "value": {
+                            "value0": 14018608362965192415
+                        }
+                    },
+                    {
+                        "key": "lambert4_Mat7",
+                        "value": {
+                            "value0": 14640166084631017115
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Mat20",
+                        "value": {
+                            "value0": 16118258284436309524
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat4",
+                        "value": {
+                            "value0": 17559349306415768991
+                        }
+                    },
+                    {
+                        "key": "Cube.015_Mat21",
+                        "value": {
+                            "value0": 4274043341321743490
+                        }
+                    },
+                    {
+                        "key": "estructura_MAT_Mat1",
+                        "value": {
+                            "value0": 8810393782345375406
+                        }
+                    },
+                    {
+                        "key": "dead_Jet_pack_MAT_Mat3",
+                        "value": {
+                            "value0": 11893677692324629185
+                        }
+                    },
+                    {
+                        "key": "Dead_Ultramarine_MAT_Mat2",
+                        "value": {
+                            "value0": 4514489949324394846
+                        }
+                    },
+                    {
+                        "key": "barricade2.001_Mat8",
+                        "value": {
+                            "value0": 9404849065640232550
+                        }
+                    },
+                    {
+                        "key": "Cube.008_Mat21",
+                        "value": {
+                            "value0": 2308119411391570071
+                        }
+                    },
+                    {
+                        "key": "TreeTrunk_Mat5",
+                        "value": {
+                            "value0": 14536034783233403116
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat6",
+                        "value": {
+                            "value0": 11662166493466980484
+                        }
+                    },
+                    {
+                        "key": "Cube.005_Mat21",
+                        "value": {
+                            "value0": 7331422445634031050
+                        }
+                    },
+                    {
+                        "key": "barricada_Mat9",
+                        "value": {
+                            "value0": 9615902352337435184
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.001_Mat10",
+                        "value": {
+                            "value0": 6794402343032983091
+                        }
+                    },
+                    {
+                        "key": "Cube.011_Mat21",
+                        "value": {
+                            "value0": 63304872123025669
+                        }
+                    },
+                    {
+                        "key": "Estandarte.001_Mat11",
+                        "value": {
+                            "value0": 8298625723417898440
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat12",
+                        "value": {
+                            "value0": 4178799935505577877
+                        }
+                    },
+                    {
+                        "key": "Cube.009_Mat21",
+                        "value": {
+                            "value0": 12279923666913185366
+                        }
+                    },
+                    {
+                        "key": "Material_Mat13",
+                        "value": {
+                            "value0": 13407683100108160430
+                        }
+                    },
+                    {
+                        "key": "Diana_Mat14",
+                        "value": {
+                            "value0": 16108484640391200810
+                        }
+                    },
+                    {
+                        "key": "Scrap1.002_Mat15",
+                        "value": {
+                            "value0": 3021868097160327836
+                        }
+                    },
+                    {
+                        "key": "Cube.004_Mat21",
+                        "value": {
+                            "value0": 3830772020970517418
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.002_Mat16",
+                        "value": {
+                            "value0": 1443848910615048145
+                        }
+                    },
+                    {
+                        "key": "Cube.010_Mat21",
+                        "value": {
+                            "value0": 8998232714571304972
+                        }
+                    },
+                    {
+                        "key": "standardSurface2.001_Mat17",
+                        "value": {
+                            "value0": 7796098946381482443
+                        }
+                    },
+                    {
+                        "key": "rock_MAT_Mat18",
+                        "value": {
+                            "value0": 4993544519717156826
+                        }
+                    },
+                    {
+                        "key": "rock_MAT.002_Mat19",
+                        "value": {
+                            "value0": 17289022273612142882
+                        }
+                    },
+                    {
+                        "key": "Cube.002_Mat21",
+                        "value": {
+                            "value0": 5703664684274371332
+                        }
+                    },
+                    {
+                        "key": "Cube.003_Mat21",
+                        "value": {
+                            "value0": 13818924376780322693
+                        }
+                    },
+                    {
+                        "key": "Cube.006_Mat21",
+                        "value": {
+                            "value0": 8605780604460684469
+                        }
+                    },
+                    {
+                        "key": "Cube.007_Mat21",
+                        "value": {
+                            "value0": 10964108648322361121
+                        }
+                    },
+                    {
+                        "key": "Cube.012_Mat21",
+                        "value": {
+                            "value0": 7437563723679681926
+                        }
+                    },
+                    {
+                        "key": "Cube.013_Mat21",
+                        "value": {
+                            "value0": 17057920587350201182
+                        }
+                    },
+                    {
+                        "key": "Cube.014_Mat21",
+                        "value": {
+                            "value0": 10298573105054835660
+                        }
+                    },
+                    {
+                        "key": "Cube.016_Mat21",
+                        "value": {
+                            "value0": 1249324086800516343
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 7424943260745800550
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "mapa/AssetsDressingNuria3.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/7424943260745800550.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
