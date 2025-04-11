@@ -452,6 +452,7 @@ function create_new_shield(targetEnemy)
 
     local newShield = current_scene:duplicate_entity(support.prefabShield)
     local shieldTransform = newShield:get_component("TransformComponent")
+    local shieldScript = newShield:get_component("ScriptComponent")
     shieldTransform.scale = Vector3.new(1.3, 1.3, 1.3)
 
     return newShield

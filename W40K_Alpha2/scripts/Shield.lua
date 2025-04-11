@@ -34,8 +34,7 @@ function shieldDestroy()
         targetEnemy.script.haveShield = false
         targetEnemy.script.shieldHealth = 0
     end
-    
-    -- Llama a la función del motor para destrucción segura
+    print("Shield destroyed")
     current_scene:destroy_entity(self)
 end
 
