@@ -625,7 +625,7 @@ function playerMovement(dt)
     
         
             -- Animation idle
-            if currentAnim ~= idle then
+            if currentAnim ~= idle and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false then
                 currentAnim = idle
                 animator:set_current_animation(currentAnim)
             end
