@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 11361058668263913470
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/mapa/assetDressing/AssetDressingTest3/estructura_low_estructura_metal_MAT_Metallic-estructura_low_estructura_metal_MAT_Roughness.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11361058668263913470.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}

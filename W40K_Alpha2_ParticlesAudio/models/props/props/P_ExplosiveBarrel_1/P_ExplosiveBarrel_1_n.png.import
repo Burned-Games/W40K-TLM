@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 142763147968738348
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/props/props/P_ExplosiveBarrel_1/P_ExplosiveBarrel_1_n.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/142763147968738348.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}

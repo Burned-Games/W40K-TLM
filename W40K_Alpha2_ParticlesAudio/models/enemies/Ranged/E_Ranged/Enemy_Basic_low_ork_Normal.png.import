@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 15549944936212671434
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/enemies/Ranged/E_Ranged/Enemy_Basic_low_ork_Normal.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15549944936212671434.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}
