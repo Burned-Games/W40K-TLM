@@ -297,7 +297,7 @@ function on_ready()
 
     granadeEntity = current_scene:get_entity_by_name("Granade")
     transformGranade = granadeEntity:get_component("TransformComponent")
-    granadeParticlesExplosion = granadeEntity:get_component("ParticlesSystemComponent")
+    --granadeParticlesExplosion = granadeEntity:get_component("ParticlesSystemComponent")
     floorEntity = current_scene:get_entity_by_name("FloorCollider")
 
     local rb = granadeEntity:get_component("RigidbodyComponent").rb
