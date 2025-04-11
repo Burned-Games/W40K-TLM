@@ -61,6 +61,7 @@ function enemy:new(obj)
     obj.currentPathIndex = 1
     obj.currentRotationY = 0
     obj.invulnerable = false
+    obj.isReturning = false
 
     return obj
 
@@ -309,6 +310,11 @@ function enemy:check_initial_distance()
     if distance > 40 then
         self.playerDetected = false
         self.currentState = self.state.Move
+        self.isReturning = true
+    elseif self.isReturning and distance < 0.5 then
+        self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        self.currentState = self.state.Idle
+        self.isReturning = false
     end
 
 end

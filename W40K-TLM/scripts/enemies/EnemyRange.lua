@@ -99,6 +99,7 @@ function on_ready()
     range.isChasing = false
     range.hasDealtDamage = false
     range.isfirstChase = true
+    range.hasDealtDamage = false
 
     range.burstCount = 0
 
@@ -349,12 +350,16 @@ function range:stab_state(dt)
             range.animator:set_current_animation(range.currentAnim)
         end
 
-        range:make_damage(range.meleeDamage)
-        bleed_damage()
+        if not range.hasDealtDamage then
+            range:make_damage(range.meleeDamage)
+            bleed_damage()
+            range.hasDealtDamage = true
+        end
 
     elseif timeSinceLastStab >= stabTimer then
         timeSinceLastStab = 0
         stabCooldownTimer = stabCooldown 
+        range.hasDealtDamage = false
     end
 
 end
