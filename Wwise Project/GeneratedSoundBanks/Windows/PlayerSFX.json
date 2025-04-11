@@ -1,0 +1,103 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4283257371",
+    "Type": "User",
+    "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
+    "Language": "SFX",
+    "Hash": "{FD90D316-C618-9464-BEB1-E13919E5D3B7}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
+    "ShortName": "PlayerSFX",
+    "Path": "PlayerSFX.bnk",
+    "Media": [
+     {
+      "Id": "174829407",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep.wav",
+      "CachePath": "D9/{D9DD909B-CE89-9E22-DD36-37384062A494}.wem"
+     },
+     {
+      "Id": "669921209",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ZonaEstandarte.wav",
+      "CachePath": "63/{639E494C-7994-D92D-C7C0-3E9F063DF4D6}.wem"
+     },
+     {
+      "Id": "784979147",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep3.wav",
+      "CachePath": "6D/{6DC6E29E-3FDC-5540-EE44-AA453B181A14}.wem"
+     },
+     {
+      "Id": "813472966",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep4.wav",
+      "CachePath": "8E/{8E925B89-F433-A173-CB2C-165B47EAB303}.wem"
+     },
+     {
+      "Id": "1047720961",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep2.wav",
+      "CachePath": "6C/{6C6CE1BC-A2F9-5C59-0F80-E4A74F30644D}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "581613120",
+      "Name": "Play_StepTest",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_StepTest",
+      "GUID": "{6636D3E5-D787-4382-944B-E88757E016CE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1885625",
+      "DurationMax": "0.34820834",
+      "MediaRefs": [
+       {
+        "Id": "174829407"
+       },
+       {
+        "Id": "784979147"
+       },
+       {
+        "Id": "813472966"
+       },
+       {
+        "Id": "1047720961"
+       }
+      ]
+     },
+     {
+      "Id": "2243996763",
+      "Name": "Play_ZonaEstandarte_01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_ZonaEstandarte_01",
+      "GUID": "{F3629834-1727-4537-96BA-6B16D82F0604}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1039374",
+      "DurationMax": "2.1039374",
+      "MediaRefs": [
+       {
+        "Id": "669921209"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{5FA1571B-C7D5-7F81-609C-E95C7B0A71C4}"
+ }
+}

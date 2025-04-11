@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
     "Language": "SFX",
-    "Hash": "{71C2A4B2-680C-FCCB-0FAC-F8EC2F9AC2BB}",
+    "Hash": "{3E61CDB8-0CDA-20CE-80C4-C043B77BAFD5}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -166,14 +166,6 @@
       "Location": "Memory",
       "ShortName": "MetalicDamage.wav",
       "CachePath": "22/{2284F32B-88B2-A36A-CA2B-A3CCEF6379EA}.wem"
-     },
-     {
-      "Id": "174829407",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep.wav",
-      "CachePath": "D9/{D9DD909B-CE89-9E22-DD36-37384062A494}.wem"
      },
      {
       "Id": "175447611",
@@ -416,14 +408,6 @@
       "CachePath": "4D/{4D760DC4-A63D-C05C-349F-6BABD3B80E29}.wem"
      },
      {
-      "Id": "669921209",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "ZonaEstandarte.wav",
-      "CachePath": "63/{639E494C-7994-D92D-C7C0-3E9F063DF4D6}.wem"
-     },
-     {
       "Id": "695036394",
       "Language": "SFX",
       "Streaming": "false",
@@ -464,14 +448,6 @@
       "CachePath": "B8/{B8530FFC-A4D3-6470-8ED6-00ADA4B30605}.wem"
      },
      {
-      "Id": "784979147",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep3.wav",
-      "CachePath": "6D/{6DC6E29E-3FDC-5540-EE44-AA453B181A14}.wem"
-     },
-     {
       "Id": "792020146",
       "Language": "SFX",
       "Streaming": "false",
@@ -494,14 +470,6 @@
       "Location": "Memory",
       "ShortName": "sand_step_1.wav",
       "CachePath": "70/{705F8C52-3DC6-7D61-0CD2-4DCBC48E4860}.wem"
-     },
-     {
-      "Id": "813472966",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep4.wav",
-      "CachePath": "8E/{8E925B89-F433-A173-CB2C-165B47EAB303}.wem"
      },
      {
       "Id": "828697396",
@@ -654,14 +622,6 @@
       "Location": "Memory",
       "ShortName": "sand_step_3.wav",
       "CachePath": "FE/{FEF8B093-41FD-1D1C-5583-448840D39A2B}.wem"
-     },
-     {
-      "Id": "1047720961",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep2.wav",
-      "CachePath": "6C/{6C6CE1BC-A2F9-5C59-0F80-E4A74F30644D}.wem"
      },
      {
       "Id": "1054847420",
@@ -1288,62 +1248,6 @@
       ]
      },
      {
-      "Id": "1055490779",
-      "Name": "Play_MetalSandStep",
-      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_MetalSandStep",
-      "GUID": "{63BCEB5C-0EA7-4B61-8093-3786BDC345D8}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.1885625",
-      "DurationMax": "0.1885625",
-      "MediaRefs": [
-       {
-        "Id": "174829407"
-       }
-      ]
-     },
-     {
-      "Id": "3835231987",
-      "Name": "Play_MetalSandStep2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_MetalSandStep2",
-      "GUID": "{CD419573-5830-4ADB-BA52-77A64E91A81C}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.34820834",
-      "DurationMax": "0.34820834",
-      "MediaRefs": [
-       {
-        "Id": "1047720961"
-       }
-      ]
-     },
-     {
-      "Id": "3835231986",
-      "Name": "Play_MetalSandStep3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_MetalSandStep3",
-      "GUID": "{8C477539-B58D-4AF6-B08A-6CE9958B86CB}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.32564583",
-      "DurationMax": "0.32564583",
-      "MediaRefs": [
-       {
-        "Id": "784979147"
-       }
-      ]
-     },
-     {
-      "Id": "3835231989",
-      "Name": "Play_MetalSandStep4",
-      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_MetalSandStep4",
-      "GUID": "{DC44BBF0-21F5-4A48-9142-20044C54EEDC}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.22939584",
-      "DurationMax": "0.22939584",
-      "MediaRefs": [
-       {
-        "Id": "813472966"
-       }
-      ]
-     },
-     {
       "Id": "3216105751",
       "Name": "Play_monster_attack_1",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_attack_1",
@@ -1804,20 +1708,6 @@
         "Id": "965164765"
        }
       ]
-     },
-     {
-      "Id": "1361581271",
-      "Name": "Play_ZonaEstandarte",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_ZonaEstandarte",
-      "GUID": "{F80EB2F5-2F36-43A6-9319-389199207D7E}",
-      "DurationType": "OneShot",
-      "DurationMin": "2.1039374",
-      "DurationMax": "2.1039374",
-      "MediaRefs": [
-       {
-        "Id": "669921209"
-       }
-      ]
      }
     ],
     "Busses": [
@@ -1843,6 +1733,16 @@
       }
      }
     ]
+   },
+   {
+    "Id": "1163612179",
+    "Type": "User",
+    "GUID": "{BAB19078-95DC-4C2B-868E-8037B0209A03}",
+    "Language": "SFX",
+    "Hash": "{ACD21E09-0C89-DAAC-3F6E-BB158F68A106}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\BossSFX",
+    "ShortName": "BossSFX",
+    "Path": "BossSFX.bnk"
    },
    {
     "Id": "1355168291",
@@ -2419,6 +2319,76 @@
     ]
    },
    {
+    "Id": "1429309816",
+    "Type": "User",
+    "GUID": "{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}",
+    "Language": "SFX",
+    "Hash": "{49171BD8-1792-F341-D5DE-18C3C866D59F}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\MeleeSFX",
+    "ShortName": "MeleeSFX",
+    "Path": "MeleeSFX.bnk"
+   },
+   {
+    "Id": "1466473993",
+    "Type": "User",
+    "GUID": "{71E0FA9C-9470-49F3-B98A-14CA86EAB718}",
+    "Language": "SFX",
+    "Hash": "{2DA6DB4D-06A3-EDC3-9AE7-A8A4133F1023}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\KamikazeSFX",
+    "ShortName": "KamikazeSFX",
+    "Path": "KamikazeSFX.bnk"
+   },
+   {
+    "Id": "1734211086",
+    "Type": "User",
+    "GUID": "{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}",
+    "Language": "SFX",
+    "Hash": "{88FEA0B7-05FE-DA97-031F-79F88228142C}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\BolterSFX",
+    "ShortName": "BolterSFX",
+    "Path": "BolterSFX.bnk"
+   },
+   {
+    "Id": "1920241515",
+    "Type": "User",
+    "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
+    "Language": "SFX",
+    "Hash": "{120B899C-6850-3A51-A7A7-9B75B6CA6BAD}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\BasicEnemSFX",
+    "ShortName": "BasicEnemSFX",
+    "Path": "BasicEnemSFX.bnk"
+   },
+   {
+    "Id": "2574466874",
+    "Type": "User",
+    "GUID": "{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}",
+    "Language": "SFX",
+    "Hash": "{A9FA7165-53CA-AE0C-19E6-CC9D74AF0AB6}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\TankSFX",
+    "ShortName": "TankSFX",
+    "Path": "TankSFX.bnk"
+   },
+   {
+    "Id": "2654441042",
+    "Type": "User",
+    "GUID": "{447F08BC-7E47-48A7-950A-3E3785307500}",
+    "Language": "SFX",
+    "Hash": "{E9AFE634-16F5-D82F-3615-F47D3A0F8D89}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\ShotgunSFX",
+    "ShortName": "ShotgunSFX",
+    "Path": "ShotgunSFX.bnk"
+   },
+   {
+    "Id": "3562060815",
+    "Type": "User",
+    "GUID": "{EC862FA3-57C9-4C57-B979-540D2679AB59}",
+    "Language": "SFX",
+    "Hash": "{81ABA4FF-C8A4-78C5-25FC-7EA3E4FEBFF8}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\SupportSFX",
+    "ShortName": "SupportSFX",
+    "Path": "SupportSFX.bnk"
+   },
+   {
     "Id": "3991942870",
     "Type": "User",
     "GUID": "{AD3F8103-0D7F-40E4-A74A-E4083404369B}",
@@ -2526,8 +2496,100 @@
       }
      }
     ]
+   },
+   {
+    "Id": "4283257371",
+    "Type": "User",
+    "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
+    "Language": "SFX",
+    "Hash": "{FD90D316-C618-9464-BEB1-E13919E5D3B7}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
+    "ShortName": "PlayerSFX",
+    "Path": "PlayerSFX.bnk",
+    "Media": [
+     {
+      "Id": "174829407",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep.wav",
+      "CachePath": "D9/{D9DD909B-CE89-9E22-DD36-37384062A494}.wem"
+     },
+     {
+      "Id": "669921209",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ZonaEstandarte.wav",
+      "CachePath": "63/{639E494C-7994-D92D-C7C0-3E9F063DF4D6}.wem"
+     },
+     {
+      "Id": "784979147",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep3.wav",
+      "CachePath": "6D/{6DC6E29E-3FDC-5540-EE44-AA453B181A14}.wem"
+     },
+     {
+      "Id": "813472966",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep4.wav",
+      "CachePath": "8E/{8E925B89-F433-A173-CB2C-165B47EAB303}.wem"
+     },
+     {
+      "Id": "1047720961",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep2.wav",
+      "CachePath": "6C/{6C6CE1BC-A2F9-5C59-0F80-E4A74F30644D}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "581613120",
+      "Name": "Play_StepTest",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_StepTest",
+      "GUID": "{6636D3E5-D787-4382-944B-E88757E016CE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1885625",
+      "DurationMax": "0.34820834",
+      "MediaRefs": [
+       {
+        "Id": "174829407"
+       },
+       {
+        "Id": "784979147"
+       },
+       {
+        "Id": "813472966"
+       },
+       {
+        "Id": "1047720961"
+       }
+      ]
+     },
+     {
+      "Id": "2243996763",
+      "Name": "Play_ZonaEstandarte_01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_ZonaEstandarte_01",
+      "GUID": "{F3629834-1727-4537-96BA-6B16D82F0604}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1039374",
+      "DurationMax": "2.1039374",
+      "MediaRefs": [
+       {
+        "Id": "669921209"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{9F41C429-D7FA-892C-5C05-52339EF8067B}"
+  "FileHash": "{6F7332D3-40BF-5F26-8395-96897ECFBACA}"
  }
 }

@@ -947,6 +947,28 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_StepTest" ID="{6636D3E5-D787-4382-944B-E88757E016CE}">
+					<ChildrenList>
+						<Action Name="" ID="{3DD90D15-2820-404C-8DF9-3ED678317729}" ShortID="33932266">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="StepTest" ID="{7A490FF4-A8EC-4AE5-ADC6-7E65A988612A}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ZonaEstandarte_01" ID="{F3629834-1727-4537-96BA-6B16D82F0604}">
+					<ChildrenList>
+						<Action Name="" ID="{3AC33A6B-E70E-4AF3-A458-421FA73F4E91}" ShortID="890538406">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ZonaEstandarte" ID="{AE191F61-E33A-444E-8C90-464A26A39D1D}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

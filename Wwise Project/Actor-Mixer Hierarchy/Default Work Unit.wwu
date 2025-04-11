@@ -1227,7 +1227,7 @@
 								<ActiveSource Name="sand_step_3" ID="{0B63A7C9-B83F-4021-9EAB-9F5CD0DDD348}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="MetalSandStep4" ID="{28CAFA4B-EECD-4AA0-9723-78E803A33F5C}" ShortID="403138087">
+						<RandomSequenceContainer Name="StepTest" ID="{7A490FF4-A8EC-4AE5-ADC6-7E65A988612A}" ShortID="431467276">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1237,84 +1237,96 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="MetalSandStep4" ID="{0DB486AC-C04D-4CB1-B1E0-EDF97093A5E2}">
-									<Language>SFX</Language>
-									<AudioFile>MetalSandStep4.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="813472966"/>
-									</MediaIDList>
-								</AudioFileSource>
+								<Sound Name="MetalSandStep" ID="{9F52C81E-88DE-493E-896C-D54D39D38EF9}" ShortID="477187743">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MetalSandStep" ID="{D469F6BA-4B01-4F00-B61F-1D3307950DBF}">
+											<Language>SFX</Language>
+											<AudioFile>MetalSandStep.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="174829407"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MetalSandStep" ID="{D469F6BA-4B01-4F00-B61F-1D3307950DBF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MetalSandStep2" ID="{D1187A31-75B7-4B66-A894-CF1576DEE345}" ShortID="478152418">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MetalSandStep2" ID="{FC3B1E40-CED7-4334-B26D-FC1F7B9C728A}">
+											<Language>SFX</Language>
+											<AudioFile>MetalSandStep2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1047720961"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MetalSandStep2" ID="{FC3B1E40-CED7-4334-B26D-FC1F7B9C728A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MetalSandStep3" ID="{FBF0A7F4-E39C-49B5-98B3-9E4F4A92775C}" ShortID="606517859">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MetalSandStep3" ID="{752D4D21-0344-4F3A-85BF-D8EA23104842}">
+											<Language>SFX</Language>
+											<AudioFile>MetalSandStep3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="784979147"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MetalSandStep3" ID="{752D4D21-0344-4F3A-85BF-D8EA23104842}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MetalSandStep4" ID="{28CAFA4B-EECD-4AA0-9723-78E803A33F5C}" ShortID="403138087">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MetalSandStep4" ID="{0DB486AC-C04D-4CB1-B1E0-EDF97093A5E2}">
+											<Language>SFX</Language>
+											<AudioFile>MetalSandStep4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="813472966"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MetalSandStep4" ID="{0DB486AC-C04D-4CB1-B1E0-EDF97093A5E2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="MetalSandStep4" ID="{0DB486AC-C04D-4CB1-B1E0-EDF97093A5E2}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="MetalSandStep3" ID="{FBF0A7F4-E39C-49B5-98B3-9E4F4A92775C}" ShortID="606517859">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="MetalSandStep3" ID="{752D4D21-0344-4F3A-85BF-D8EA23104842}">
-									<Language>SFX</Language>
-									<AudioFile>MetalSandStep3.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="784979147"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="MetalSandStep3" ID="{752D4D21-0344-4F3A-85BF-D8EA23104842}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="MetalSandStep" ID="{9F52C81E-88DE-493E-896C-D54D39D38EF9}" ShortID="477187743">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="MetalSandStep" ID="{D469F6BA-4B01-4F00-B61F-1D3307950DBF}">
-									<Language>SFX</Language>
-									<AudioFile>MetalSandStep.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="174829407"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="MetalSandStep" ID="{D469F6BA-4B01-4F00-B61F-1D3307950DBF}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="MetalSandStep2" ID="{D1187A31-75B7-4B66-A894-CF1576DEE345}" ShortID="478152418">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="MetalSandStep2" ID="{FC3B1E40-CED7-4334-B26D-FC1F7B9C728A}">
-									<Language>SFX</Language>
-									<AudioFile>MetalSandStep2.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="1047720961"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="MetalSandStep2" ID="{FC3B1E40-CED7-4334-B26D-FC1F7B9C728A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Sound Name="BossBrokenMask" ID="{9C06CFC9-2874-4173-AA16-28E258BCB6F0}" ShortID="815826626">
@@ -1780,7 +1792,93 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="ZonaEstandarte" ID="{AE191F61-E33A-444E-8C90-464A26A39D1D}" ShortID="63723963">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<Custom>
+								<Attenuation Name="Attenuation (Custom)" ID="{DE63C08F-4172-4855-9192-641113B7CC69}" ShortID="731454137">
+									<CurveUsageInfoList>
+										<VolumeDryUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+												<Curve Name="VolumeDry" ID="{95B57BE2-F082-4312-8B29-3E103759E3FD}">
+													<PropertyList>
+														<Property Name="Flags" Type="int32" Value="3"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0</XPos>
+															<YPos>0</YPos>
+															<Flags>5</Flags>
+														</Point>
+														<Point>
+															<XPos>100</XPos>
+															<YPos>-200</YPos>
+															<Flags>37</Flags>
+														</Point>
+													</PointList>
+												</Curve>
+											</CurveUsageInfo>
+										</VolumeDryUsage>
+										<VolumeWetGameUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetGameUsage>
+										<VolumeWetUserUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetUserUsage>
+										<LowPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</LowPassFilterUsage>
+										<HighPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</HighPassFilterUsage>
+										<SpreadUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</SpreadUsage>
+										<FocusUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</FocusUsage>
+										<ObstructionVolumeUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</ObstructionVolumeUsage>
+										<ObstructionLPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</ObstructionLPFUsage>
+										<ObstructionHPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</ObstructionHPFUsage>
+										<OcclusionVolumeUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</OcclusionVolumeUsage>
+										<OcclusionLPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</OcclusionLPFUsage>
+										<OcclusionHPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</OcclusionHPFUsage>
+										<DiffractionVolumeUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</DiffractionVolumeUsage>
+										<DiffractionLPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</DiffractionLPFUsage>
+										<DiffractionHPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</DiffractionHPFUsage>
+										<TransmissionVolumeUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</TransmissionVolumeUsage>
+										<TransmissionLPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</TransmissionLPFUsage>
+										<TransmissionHPFUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
+										</TransmissionHPFUsage>
+									</CurveUsageInfoList>
+								</Attenuation>
+							</Custom>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
 						</Reference>

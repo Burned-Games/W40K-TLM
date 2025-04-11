@@ -102,6 +102,54 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
+				<SoundBank Name="PlayerSFX" ID="{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_StepTest" ID="{6636D3E5-D787-4382-944B-E88757E016CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ZonaEstandarte_01" ID="{F3629834-1727-4537-96BA-6B16D82F0604}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BolterSFX" ID="{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="ShotgunSFX" ID="{447F08BC-7E47-48A7-950A-3E3785307500}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="MeleeSFX" ID="{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BossSFX" ID="{BAB19078-95DC-4C2B-868E-8037B0209A03}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="SupportSFX" ID="{EC862FA3-57C9-4C57-B979-540D2679AB59}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="TankSFX" ID="{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="KamikazeSFX" ID="{71E0FA9C-9470-49F3-B98A-14CA86EAB718}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="BasicEnemSFX" ID="{A77C30E7-2E40-4F54-B987-0389FB5ECE98}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>
