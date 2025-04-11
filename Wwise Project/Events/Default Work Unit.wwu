@@ -958,17 +958,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_ZonaEstandarte_01" ID="{F3629834-1727-4537-96BA-6B16D82F0604}">
-					<ChildrenList>
-						<Action Name="" ID="{3AC33A6B-E70E-4AF3-A458-421FA73F4E91}" ShortID="890538406">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="ZonaEstandarte" ID="{AE191F61-E33A-444E-8C90-464A26A39D1D}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

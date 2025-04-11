@@ -30,7 +30,6 @@
 						<ObjectRef Name="Play_ar_shot_3" ID="{95FFD487-9E76-430C-A0BC-B0AB9DFBF258}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_KamikazeScream2" ID="{9BC60790-4A25-433E-ACE7-C8E72E5BCC2B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="MediumRoomVerb" ID="{E0A9728C-D1BE-436A-ABBB-E41C5B8C2647}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ZonaEstandarte" ID="{F80EB2F5-2F36-43A6-9319-389199207D7E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_TanqueDamage" ID="{6634FA43-FFF5-4431-9972-3795CF4A04A8}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ar_shot_1" ID="{F9FA25B9-94E6-4446-8846-83572F9D0E73}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_player_die_1" ID="{6DE8AF9D-A8C7-444F-AFA0-13EA2BDDBB41}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -61,17 +60,13 @@
 						<ObjectRef Name="Play_player_damage_3" ID="{0A77D023-A7DD-498A-A14B-00AE9033E109}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_metal_step_1" ID="{8934CF6B-DFD9-49FE-AC0B-696C7B5D4172}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_player_damage_1" ID="{750DA5DE-927F-4A3F-836F-837A6DB0DFA2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_MetalSandStep4" ID="{DC44BBF0-21F5-4A48-9142-20044C54EEDC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MetalicDamage3" ID="{03A110D2-4900-4A85-87EE-2B3CC92A1D81}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_KamikazeDeath" ID="{44742111-50F4-4A87-8211-C1CEC1E5326A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_shotgun_reload" ID="{FD4D20E1-CC93-4AA8-8127-552DC8E0347C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_MetalSandStep2" ID="{CD419573-5830-4ADB-BA52-77A64E91A81C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_TanqueDamage2" ID="{0D8694B2-57C0-4AE6-96AE-CFC36AA917AC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_MetalSandStep3" ID="{8C477539-B58D-4AF6-B08A-6CE9958B86CB}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_monster_damage_3" ID="{E2B3CE7F-C988-4B27-B5DA-BF69C10CC32A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PonerEstandarte" ID="{46D879B8-ED2D-4B31-B989-EEA3B548ACEE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_metal_step_4" ID="{8C80B2DB-E4EF-4B54-9BBA-70A5A1C7CA8A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_MetalSandStep" ID="{63BCEB5C-0EA7-4B61-8093-3786BDC345D8}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_RecogerEstandarte" ID="{05D3D5E7-96EA-4B82-A840-642809A41512}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_EscudoBoss" ID="{CB6EF97D-977C-4B8F-8430-8B06156480F9}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_TanqueRoca" ID="{50A16BE8-79FF-4B95-9C6B-509655B262BE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -105,7 +100,7 @@
 				<SoundBank Name="PlayerSFX" ID="{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_StepTest" ID="{6636D3E5-D787-4382-944B-E88757E016CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ZonaEstandarte_01" ID="{F3629834-1727-4537-96BA-6B16D82F0604}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ZonaEstandarte" ID="{F80EB2F5-2F36-43A6-9319-389199207D7E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

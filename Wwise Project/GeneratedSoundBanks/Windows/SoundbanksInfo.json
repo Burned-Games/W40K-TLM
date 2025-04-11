@@ -2502,7 +2502,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{FD90D316-C618-9464-BEB1-E13919E5D3B7}",
+    "Hash": "{15A50D3D-9CD3-F36A-12C7-F8A34DBF0076}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -2521,7 +2521,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ZonaEstandarte.wav",
-      "CachePath": "63/{639E494C-7994-D92D-C7C0-3E9F063DF4D6}.wem"
+      "CachePath": "43/{432E4785-EB57-26DE-96C6-DBDA02A5D2D5}.wem"
      },
      {
       "Id": "784979147",
@@ -2573,14 +2573,12 @@
       ]
      },
      {
-      "Id": "2243996763",
-      "Name": "Play_ZonaEstandarte_01",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_ZonaEstandarte_01",
-      "GUID": "{F3629834-1727-4537-96BA-6B16D82F0604}",
+      "Id": "1361581271",
+      "Name": "Play_ZonaEstandarte",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_ZonaEstandarte",
+      "GUID": "{F80EB2F5-2F36-43A6-9319-389199207D7E}",
       "MaxAttenuation": "100",
-      "DurationType": "OneShot",
-      "DurationMin": "2.1039374",
-      "DurationMax": "2.1039374",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "669921209"
@@ -2590,6 +2588,6 @@
     ]
    }
   ],
-  "FileHash": "{6F7332D3-40BF-5F26-8395-96897ECFBACA}"
+  "FileHash": "{76521501-8329-2AA4-4CC5-F3A1B2A3B580}"
  }
 }

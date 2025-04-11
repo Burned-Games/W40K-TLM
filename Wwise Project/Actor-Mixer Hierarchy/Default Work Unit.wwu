@@ -1794,6 +1794,7 @@
 				<Sound Name="ZonaEstandarte" ID="{AE191F61-E33A-444E-8C90-464A26A39D1D}" ShortID="63723963">
 					<PropertyList>
 						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
