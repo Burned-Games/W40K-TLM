@@ -62,6 +62,28 @@ function on_ready()
     explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
 
+    -- fx
+    footstep_one = current_scene:get_entity_by_name("PlayerStep1"):get_component("AudioSourceComponent")
+    footstep_two = current_scene:get_entity_by_name("PlayerStep2"):get_component("AudioSourceComponent")
+    footstep_three = current_scene:get_entity_by_name("PlayerStep3"):get_component("AudioSourceComponent")
+    footstep_four = current_scene:get_entity_by_name("PlayerStep4"):get_component("AudioSourceComponent")
+    burst_shot = current_scene:get_entity_by_name("RifleDisparoAudio"):get_component("AudioSourceComponent")
+    rifle_reload = current_scene:get_entity_by_name("RifleRecargaAudio"):get_component("AudioSourceComponent")
+    shotgun_shot = current_scene:get_entity_by_name("EscopetaDisparoAudio"):get_component("AudioSourceComponent")
+    shotgun_reload = current_scene:get_entity_by_name("EscopetaRecargaAudio"):get_component("AudioSourceComponent")
+    grenade_launch = current_scene:get_entity_by_name("GranadeLaunchAudio"):get_component("AudioSourceComponent")
+    grenade_explosion = current_scene:get_entity_by_name("GranadeExplosionAudio"):get_component("AudioSourceComponent")
+
+
+
+    --local savedVolumeGeneral = load_progress("musicVolumeGeneral", 0.05)
+    --xplorationMusic:set_volume(savedVolumeGeneral)
+
+    slider1:set_value(load_progress("musicVolumeGeneral", 1.0))
+    -- slider2:set_value(load_progress("fxVolume", 1.0))
+
+
+
     visibilidad2:set_visible(false)
     VolumeText:set_visible(false)
     FXText:set_visible(false)
@@ -253,7 +275,17 @@ function on_update(dt)
                 combatMusic:set_volume(newValue)
             end
             if currentSelectedSlider == 2 then
-                
+                footstep_one:set_volume(newValue)
+                footstep_two:set_volume(newValue)
+                footstep_three:set_volume(newValue)
+                footstep_four:set_volume(newValue)
+                rifle_reload:set_volume(newValue)
+                burst_shot:set_volume(newValue)
+                shotgun_reload:set_volume(newValue)
+                shotgun_shot:set_volume(newValue)
+                grenade_explosion:set_volume(newValue)
+                grenade_launch:set_volume(newValue)
+
             end
         end
     end 

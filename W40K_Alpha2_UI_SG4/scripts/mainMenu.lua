@@ -37,7 +37,7 @@ function on_update(dt)
                 sceneChanged = true
                 save_progress("zonePlayer", 0)
                 save_progress("level", 1)
-                SceneManager.change_scene("level1.TeaScene")
+                SceneManager.change_scene("CopiaLevel1ConNewPauseMenu.TeaScene")
             end
         end
 
