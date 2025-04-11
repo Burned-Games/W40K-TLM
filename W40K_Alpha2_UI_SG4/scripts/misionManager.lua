@@ -1,15 +1,15 @@
 -- Task list
 tasks = {
-    {id = 1, description = "Mueve el joystick izquierdo para moverte"},
-    {id = 2, description = "Apunta con el joystick derecho y pulsa R2 para disparar"},
-    {id = 3, description = "Termina con todos los orkos"},
-    {id = 4, description = "Llega a la siguiente zona"},
-    {id = 5, description = "Interactua con la mesa"},
-    {id = 6, description = "Llega a la siguiente zona"},
-    {id = 7, description = "Acaba con los orkos del campamento"},
-    {id = 8, description = "Busca la forma de continuar"},
-    {id = 9, description = "Mejora tu equipamiento con la mesa"},
-    {id = 10, description = "Limpia la zona de enemigos"}
+    {id = 1, isRed = false , description = "Mueve el joystick izquierdo para moverte"},
+    {id = 2, isRed = false ,description = "Apunta con el joystick derecho y pulsa R2 para disparar"},
+    {id = 3, isRed = false ,description = "Termina con todos los orkos"},
+    {id = 4, isRed = false ,description = "Llega a la siguiente zona"},
+    {id = 5, isRed = false ,description = "Interactua con la mesa"},
+    {id = 6, isRed = false ,description = "Llega a la siguiente zona"},
+    {id = 7, isRed = false ,description = "Acaba con los orkos del campamento"},
+    {id = 8, isRed = false ,description = "Busca la forma de continuar"},
+    {id = 9, isRed = false ,description = "Mejora tu equipamiento con la mesa"},
+    {id = 10, isRed = false ,description = "Limpia la zona de enemigos"}
 }
 local currentTaskIndex = 1  -- Current task index
 
@@ -55,6 +55,7 @@ local nohecho = false
 
 --UIimage
 imgComponent = nil
+imgRedComponent = nil
 local timeLerp = 0.0
 local testB = false
 local testA = false
@@ -89,43 +90,55 @@ function on_ready()
     textTransform = current_scene:get_entity_by_name("MisionText"):get_component("TransformComponent")
    
 
-    imgComponent =current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
+    imgComponent = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
+    imgRedComponent = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
     
 end
 
 -- Perform task completion check in each frame update
 function on_update(dt)
-
     textComponent:set_text(getCurrentTask())
-    
-    missionBlue_ZoneTutor()   
+    missionBlue_ZoneTutor()
 
     if startAnimation == true then
         if AnimationClose == true then
-            
-            if misionAnimation(true,dt) == true and imgComponent.position.x == 124 then
+            local inClosePosition = false
+            if (tasks[currentTaskIndex].isRed == false and imgComponent.position.x == 124) or
+               (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == 124) then
+                inClosePosition = true
+            end
+
+            local inOpenPosition = false
+            if (tasks[currentTaskIndex].isRed == false and imgComponent.position.x == -123) or
+               (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == -123) then
+                inOpenPosition = true
+            end
+
+            if misionAnimation(true, dt, tasks[currentTaskIndex].isRed) == true and
+               ((tasks[currentTaskIndex].isRed == false and imgComponent.position.x == 124) or
+                (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == 124)) then
                 if lerpReset == true then
                     timeLerp = 0.0
                     lerpReset = false
-                    AnimationClose =false
-                    completeCurrentTask();
+                    AnimationClose = false
+                    completeCurrentTask()
                 end
             end
         else
-            if misionAnimation(false,dt) == true and imgComponent.position.x == -123 then
+            if misionAnimation(false, dt, tasks[currentTaskIndex].isRed) == true and
+               ((tasks[currentTaskIndex].isRed == false and imgComponent.position.x == -123) or
+                (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == -123)) then
                 if lerpReset == true then
                     timeLerp = 0.0
                     lerpReset = false
-                    AnimationClose =true
+                    AnimationClose = true
                     startAnimation = false
                 end
             end
         end
-
-       
     end
-
 end
+
 
 -- Cleanup when the game exits
 function on_exit()
@@ -267,8 +280,9 @@ function lerp(a, b, t)
     return a + (b - a) * t
 end
 
-function misionAnimation(closeMision,dt)
+function misionAnimation(closeMision,dt, redMision)
 
+    local imgEntity = nil
     if closeMision == true then
         imgPosOri = -123
         imgPosDes = 124
@@ -281,7 +295,12 @@ function misionAnimation(closeMision,dt)
         textPosDes = -27
     end
 
-    imgComponent.position.x = lerp(imgPosOri, imgPosDes, timeLerp)
+    if redMision == false then
+        imgComponent.position.x = lerp(imgPosOri, imgPosDes, timeLerp)
+    else
+        imgRedComponent.position.x = lerp(imgPosOri, imgPosDes, timeLerp)
+    end
+
     textTransform .position.x = lerp(textPosOri, textPosDes, timeLerp)
     timeLerp = timeLerp + (dt * 3);
     if timeLerp > 1 then
