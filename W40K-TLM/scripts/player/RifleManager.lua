@@ -105,8 +105,8 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
-            local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+        if nameA == "EnemyRange" or nameB == "EnemyRange" then
+            local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
             makeDamage(enemy)
         end
 
@@ -145,9 +145,8 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-
-        if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
-            local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+        if nameA == "EnemyRange" or nameB == "EnemyRange" then
+            local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
             makeDisruptorDamage(enemy)
         end
 
@@ -388,19 +387,21 @@ function chargedZoneUpdate(dt)
                 --print("closeeeee")
                     local name = entity:get_component("TagComponent").tag
 
-                    if name == "EnemyOrk" then  
+                    if name == "EnemyRange" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then
-                    
-                            if enemyOrkScript.shieldHealth > 0 then
-                                -- bulletDamageParticleComponent:emit(20)
-                                enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
-                                playerScript.makeDamage = true
-                            else
-                                -- bulletDamageParticleComponent:emit(20)
-                                enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
-                                playerScript.makeDamage = true
-                            end
+                            enemyOrkScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+                            playerScript.makeDamage = true
+                            -- if enemyOrkScript.shieldHealth > 0 then
+                            --     -- bulletDamageParticleComponent:emit(20)
+                            --     enemyOrkScript.
+                            --     enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
+                            --     playerScript.makeDamage = true
+                            -- else
+                            --     -- bulletDamageParticleComponent:emit(20)
+                            --     enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
+                            --     playerScript.makeDamage = true
+                            -- end
                             --print("damage dealed")
                         end
                     end
@@ -483,24 +484,39 @@ end
 
 function makeDamage(enemy)
 
+    local enemyTag = nil
     local enemyScript = nil
+    local enemyInstance = nil
 
-    if enemy ~= nil then               
+    if enemy ~= nil then    
+        enemyTag = enemy:get_component("TagComponent").tag           
         enemyScript = enemy:get_component("ScriptComponent")
     end
 
     if enemy ~= nil then
         if enemyScript ~= nil then
-                    
-            if enemyScript.shieldHealth > 0 then
-                -- bulletDamageParticleComponent:emit(20)
-                enemyScript.shieldHealth = enemyScript.shieldHealth - damage
-                playerScript.makeDamage = true
-            else
-            -- bulletDamageParticleComponent:emit(20)
-            enemyScript.enemyHealth = enemyScript.enemyHealth - damage
-            playerScript.makeDamage  =true
+            if enemyTag == "EnemyRange" then
+                enemyInstance = enemyScript.range
+            elseif enemyTag == "EnemySupp" then
+                enemyInstance = enemyScript.support
+            elseif enemyTag == "EnemyTank" then
+                enemyInstance = enemyScript.tank
+            elseif enemyTag == "EnemyKamikaze" then
+                enemyInstance = enemyScript.kamikaze
             end
+
+            enemyInstance:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+            playerScript.makeDamage = true
+                    
+            -- if enemyScript.shieldHealth > 0 then
+            --     -- bulletDamageParticleComponent:emit(20)
+            --     enemyScript.shieldHealth = enemyScript.shieldHealth - damage
+            --     playerScript.makeDamage = true
+            -- else
+            -- -- bulletDamageParticleComponent:emit(20)
+            -- enemyScript.enemyHealth = enemyScript.enemyHealth - damage
+            -- playerScript.makeDamage  =true
+            --end
         end
     end
 
@@ -510,28 +526,47 @@ end
 
 function makeDisruptorDamage(enemy)
 
+    local enemyTag = nil
     local enemyScript = nil
+    local enemyInstance = nil
 
-    if enemy ~= nil then               
+    if enemy ~= nil then  
+        enemyTag = enemy:get_component("TagComponent").tag           
         enemyScript = enemy:get_component("ScriptComponent")
     end
 
     if enemy ~= nil then
         if enemyScript ~= nil then
-                    
-            if enemyScript.shieldHealth > 0 then
-                -- bulletDamageParticleComponent:emit(20)
-                enemyScript.shieldHealth = enemyScript.shieldHealth - (disruptorBulletDamage + disruptorBulletDamage * shieldMultiplier)
-                playerScript.makeDamage = true
-            else
-                -- bulletDamageParticleComponent:emit(20)
-                enemyScript.enemyHealth = enemyScript.enemyHealth - disruptorBulletDamage
-                playerScript.makeDamage = true
-                activateZone = true
-                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
-                disruptorBulletRb:set_position(Vector3.new(0,1000,0))
-                disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+            if enemyTag == "EnemyRange" then
+                enemyInstance = enemyScript.range
+            elseif enemyTag == "EnemySupp" then
+                enemyInstance = enemyScript.support
+            elseif enemyTag == "EnemyTank" then
+                enemyInstance = enemyScript.tank
+            elseif enemyTag == "EnemyKamikaze" then
+                enemyInstance = enemyScript.kamikaze
             end
+
+            enemyInstance:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+            playerScript.makeDamage = true
+            activateZone = true
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            disruptorBulletRb:set_position(Vector3.new(0,1000,0))
+            disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+                    
+            -- if enemyScript.shieldHealth > 0 then
+            --     -- bulletDamageParticleComponent:emit(20)
+            --     enemyScript.shieldHealth = enemyScript.shieldHealth - (disruptorBulletDamage + disruptorBulletDamage * shieldMultiplier)
+            --     playerScript.makeDamage = true
+            -- else
+            --     -- bulletDamageParticleComponent:emit(20)
+            --     enemyScript.enemyHealth = enemyScript.enemyHealth - disruptorBulletDamage
+            --     playerScript.makeDamage = true
+            --     activateZone = true
+            --     chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            --     disruptorBulletRb:set_position(Vector3.new(0,1000,0))
+            --     disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+            -- end
         end
     end
 

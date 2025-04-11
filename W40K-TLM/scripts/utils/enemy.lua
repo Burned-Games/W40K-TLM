@@ -226,10 +226,6 @@ end
 -- Function to detect entities with the raycast
 function enemy:detect(rayHit, entity)
 
-    if rayHit.hasHit then
-        print(rayHit.hitEntity)
-        --print(rayHit.hitEntity:get_component("TagComponent").tag)
-    end
     return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity == entity
 
 end
@@ -314,17 +310,21 @@ function enemy:make_damage(damage)
 
 end
 
-function enemy:take_damage(damage)
+function enemy:take_damage(damage, shieldMultiplier)
+    if shieldMultiplier == nil then
+        shieldMultiplier = 1
+    end
 
     if self.invulnerable then
         log("Enemy is invulnerable")
         return
     end
     if self.shieldHealth > 0 then
-        self.shieldHealth = self.shieldHealth - damage
+        self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
+        print(self.shieldHealth)
     else
-        log("AAAUUU")
         self.health = self.health - damage
+        print(self.health)
     end
 
     if self.health <= 0 then

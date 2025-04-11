@@ -711,9 +711,6 @@ end
 
 function detect_enemy(rayHit)
 
-    if rayHit.hasHit then
-        print(rayHit.hitEntity:get_component("TagComponent").tag)
-    end
     return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity:get_component("TagComponent").tag == "EnemyRange"
 
 end
