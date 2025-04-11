@@ -35,6 +35,22 @@ local m_key_pressed = false
 local n_key_pressed = false
 local player = nil
 
+-- Función para obtener los IDs únicos de enemigos necesarios en las waves
+function getRequiredEnemyIDs()
+    local requiredIDs = {}
+    
+    for _, wave in ipairs(WaveData) do
+        for _, enemyData in ipairs(wave) do
+            local key = enemyData.type .. "_" .. enemyData.id
+            if not requiredIDs[key] then
+                requiredIDs[key] = true
+            end
+        end
+    end
+    
+    return requiredIDs
+end
+
 function on_ready()
     -- Add initialization code here
     
@@ -44,36 +60,46 @@ function on_ready()
     exitDoor = current_scene:get_entity_by_name("ArenaExitDoor")
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     
-    -- Range enemies
-    for i = 1, 6 do -- Serían 5 según el figma (falta poner un SUPP)
-        registerEnemy("range", i, "EnemyRange" .. i)
-    end
+    -- Obtener los IDs de enemigos necesarios de las oleadas
+    local requiredIDs = getRequiredEnemyIDs()
     
-    -- Tank enemies
-    for i = 1, 2 do -- Falat un tank en la escena (peta por alguna razón con 2 tanks?)
-        registerEnemy("tank", i, "EnemyTank" .. i)
-    end
-    
-    -- Support enemies
-    for i = 1, 3 do
-        registerEnemy("supp", i, "EnemySupport" .. i)
-    end
+    -- Registrar solo los enemigos necesarios
+    registerRequiredEnemies("range", "EnemyRange", requiredIDs)
+    registerRequiredEnemies("tank", "EnemyTank", requiredIDs)
+    registerRequiredEnemies("supp", "EnemySupport", requiredIDs)
     
     configureBattleTrigger()
 end
 
-function registerEnemy(type, id, enemyName)
+function registerRequiredEnemies(enemyType, baseName, requiredIDs)
+    -- Encontrar todos los enemigos de cada tipo que necesitamos
+    for id = 1, 10 do -- Límite arbitrario para evitar bucles infinitos
+        local key = enemyType .. "_" .. id
+        
+        -- Si este ID es requerido en alguna wave
+        if requiredIDs[key] then
+            local enemy = current_scene:get_entity_by_name(baseName)
+            
+            if enemy and enemy:is_valid() then
+                registerEnemy(enemyType, id, enemy)
+            else
+                log("WARNING: Required enemy " .. baseName .. " for ID " .. id .. " not found!")
+            end
+        end
+    end
+end
+
+function registerEnemy(type, id, enemy)
     local key = type .. "_" .. id
-    local enemy = current_scene:get_entity_by_name(enemyName)
     if enemy and enemy:is_valid() then
         enemies[key] = enemy
         enemyScripts[key] = enemy:get_component("ScriptComponent")
         enemyTypes[key] = type
-        log("Found enemy: " .. enemyName .. " of type " .. type)
+        log("Registered enemy of type " .. type .. " with ID " .. id)
         
         enemy:set_active(false)
     else
-        log("WARNING: Enemy " .. enemyName .. " not found!")
+        log("WARNING: Enemy of type " .. type .. " with ID " .. id .. " not valid!")
     end
 end
 
@@ -234,9 +260,9 @@ function spawnLogic()
             table.insert(activeEnemies, enemies[key])
             table.insert(activeEnemyScripts, enemyScripts[key])
             table.insert(activeEnemyTypes, enemyData.type)
-            log("Activating enemy " .. enemyData.type .. " " .. enemyData.id)
+            log("Activating enemy " .. enemyData.type .. " with ID " .. enemyData.id)
         else
-            log("WARNING: Enemy " .. enemyData.type .. " " .. enemyData.id .. " not available!")
+            log("WARNING: Enemy " .. enemyData.type .. " with ID " .. enemyData.id .. " not available!")
         end
     end
     
