@@ -523,8 +523,19 @@ function explodeGranade()
                 end
 
                 if distance < explosionRadius then
+
+                    local name = entity:get_component("TagComponent").tag
+
+                    if name == "EnemyRange" then  
+                        enemyOrkScript = entity:get_component("ScriptComponent")
+                        if enemyOrkScript ~= nil then
+                            enemyOrkScript.range.isNeuralInhibitioning = true
+                            playerScript.makeDamage = true
+                        end
+                    end
                     local forceFactor = (explosionRadius - distance) / explosionRadius
                     direction.y = direction.y + explosionUpward
+                    
                     local finalForce = Vector3.new(
                         direction.x * explosionForce * forceFactor,
                         direction.y * explosionForce * forceFactor,

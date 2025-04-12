@@ -1,3 +1,4 @@
+local effect = require("scripts/utils/status_effects")
 local enemy = {}
 
 enemy.state = { Idle = 1, Move = 2, Attack = 3}
@@ -78,7 +79,7 @@ end
 function enemy:check_effects()
 
     if self.isNeuralInhibitioning then
-        
+        effect:apply_neural_inhibition(self)
     end
 
 end

@@ -23,8 +23,8 @@ function effect:apply_bleed(entityScript)
 
 end
 
-function effect:apply_neural_inhibition(entityScript)
-
+function effect:apply_neural_inhibition(entity)
+    
     entityScript.isNeuralInhibitioning = true
     neuralTimer = neuralDuration
 

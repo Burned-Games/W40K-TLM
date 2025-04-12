@@ -153,7 +153,7 @@ function on_update(dt)
     if range.isDead then return end
 
     --check_effects()
-
+    range:check_effects()
     update_bullets(dt)
     change_state()
 
