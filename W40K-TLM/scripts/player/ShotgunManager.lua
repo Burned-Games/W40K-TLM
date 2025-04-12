@@ -281,11 +281,11 @@ function handle_bullet_collision(entityA, entityB)
 
             if enemyEntity ~= nil then
                 if enemyScript ~= nil then
-                    if enemyTag == "EnemyRange" then
+                    if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                         enemyInstance = enemyScript.range
                     elseif enemyTag == "EnemySupp" then
                         enemyInstance = enemyScript.support
-                    elseif enemyTag == "EnemyTank" then
+                    elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                         enemyInstance = enemyScript.tank
                     elseif enemyTag == "EnemyKamikaze" then
                         enemyInstance = enemyScript.kamikaze
@@ -317,8 +317,8 @@ function handle_bullet_collision(entityA, entityB)
         end
     end
     
-    if nameA == "EnemyRange" or nameB == "EnemyRange" then
-        local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
+    if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
+        local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end
@@ -331,13 +331,13 @@ function handle_bullet_collision(entityA, entityB)
     end
 
     if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
-        local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
+        local enemy = (nameA == "EnemyKamikaze" and entityA) or (nameB == "EnemyKamikaze" and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end
 
-    if nameA == "EnemyTank" or nameB == "EnemyTank" then
-        local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
+    if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
+        local enemy = ((nameA == "EnemyTank" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6") and entityA) or ((nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6") and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end

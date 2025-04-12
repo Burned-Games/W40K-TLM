@@ -99,11 +99,11 @@ function Slash()
 
                 if entity ~= nil then
                     if enemyScript ~= nil then
-                        if enemyTag == "EnemyRange" then
+                        if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                             enemyInstance = enemyScript.range
                         elseif enemyTag == "EnemySupp" then
                             enemyInstance = enemyScript.support
-                        elseif enemyTag == "EnemyTank" then
+                        elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                             enemyInstance = enemyScript.tank
                         elseif enemyTag == "EnemyKamikaze" then
                             enemyInstance = enemyScript.kamikaze

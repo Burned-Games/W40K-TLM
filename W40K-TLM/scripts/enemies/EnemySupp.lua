@@ -16,6 +16,8 @@ local checkEnemyInterval = 40.0
 
 function on_ready() 
 
+    support.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
+
     support.player = current_scene:get_entity_by_name("Player")
     support.playerTransf = support.player:get_component("TransformComponent")
     support.playerScript = support.player:get_component("ScriptComponent")
@@ -57,7 +59,7 @@ function on_ready()
 
 
     local enemy_type = "support"
-    support.level = 1
+    support:set_level()
 
     local stats = stats_data[enemy_type] and stats_data[enemy_type][support.level]
     -- Debug in case is not working

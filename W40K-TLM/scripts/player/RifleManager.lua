@@ -105,8 +105,9 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if nameA == "EnemyRange" or nameB == "EnemyRange" then
-            local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
+
+        if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
+            local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
             makeDamage(enemy)
         end
 
@@ -116,12 +117,12 @@ function on_ready()
         end
 
         if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
-            local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+            local enemy = (nameA == "EnemyKamikaze" and entityA) or (nameB == "EnemyKamikaze" and entityB)
             makeDamage(enemy)
         end
 
-        if nameA == "EnemyTank" or nameB == "EnemyTank" then
-            local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+        if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
+            local enemy = ((nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6") and entityA) or ((nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6") and entityB)
             makeDamage(enemy)
         end
 
@@ -145,8 +146,8 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if nameA == "EnemyRange" or nameB == "EnemyRange" then
-            local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
+        if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
+            local enemy = (nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" and entityA) or (nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" and entityB)
             makeDisruptorDamage(enemy)
         end
 
@@ -160,7 +161,7 @@ function on_ready()
             makeDisruptorDamage(enemy)
         end
 
-        if nameA == "EnemyTank" or nameB == "EnemyTank" then
+        if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
             local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
             makeDisruptorDamage(enemy)
         end
@@ -387,7 +388,7 @@ function chargedZoneUpdate(dt)
                 --print("closeeeee")
                     local name = entity:get_component("TagComponent").tag
 
-                    if name == "EnemyRange" then  
+                    if name== "EnemyRange" or name== "EnemyRange1" or name== "EnemyRange2" or name== "EnemyRange3" or name== "EnemyRange4" or name== "EnemyRange5" or name== "EnemyRange6" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then
                             enemyOrkScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
@@ -433,7 +434,7 @@ function chargedZoneUpdate(dt)
                         end
                     end
 
-                    if name == "EnemyTank" then  
+                    if name == "EnemyTank" or name == "EnemyTank1" or name == "EnemyTank2" or name == "EnemyTank3" or name == "EnemyTank4" or name == "EnemyTank5" or name == "EnemyTank6" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then
                     
@@ -495,11 +496,11 @@ function makeDamage(enemy)
 
     if enemy ~= nil then
         if enemyScript ~= nil then
-            if enemyTag == "EnemyRange" then
+            if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                 enemyInstance = enemyScript.range
             elseif enemyTag == "EnemySupp" then
                 enemyInstance = enemyScript.support
-            elseif enemyTag == "EnemyTank" then
+            elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
@@ -537,11 +538,11 @@ function makeDisruptorDamage(enemy)
 
     if enemy ~= nil then
         if enemyScript ~= nil then
-            if enemyTag == "EnemyRange" then
+            if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                 enemyInstance = enemyScript.range
             elseif enemyTag == "EnemySupp" then
                 enemyInstance = enemyScript.support
-            elseif enemyTag == "EnemyTank" then
+            elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze

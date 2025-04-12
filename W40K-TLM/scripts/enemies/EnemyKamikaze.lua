@@ -10,6 +10,8 @@ local attackDelay = 0.75
 
 function on_ready() 
 
+    kamikaze.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
+
     kamikaze.player = current_scene:get_entity_by_name("Player")
     kamikaze.playerTransf = kamikaze.player:get_component("TransformComponent")
     kamikaze.playerScript = kamikaze.player:get_component("ScriptComponent")
@@ -29,7 +31,7 @@ function on_ready()
 
 
     local enemy_type = "kamikaze"
-    kamikaze.level = 1
+    kamikaze:set_level()
 
     local stats = stats_data[enemy_type] and stats_data[enemy_type][kamikaze.level]
     -- Debug in case is not working

@@ -14,7 +14,7 @@ function enemy:new(obj)
     self.__index = self
 
     -- Reference to the components of the entity
-    obj.level = nil
+    obj.LevelGeneratorByPosition = nil
     obj.player = nil
     obj.playerTransf = nil
     obj.playerScript = nil
@@ -51,6 +51,7 @@ function enemy:new(obj)
     -- Variable for the functions of the enemy
     obj.haveShield = false
     obj.shieldDestroyed = false
+    obj.level = 1
     obj.key = 0
     obj.isDead = false
     obj.playerDistance = 0
@@ -330,7 +331,11 @@ end
 
 function enemy:set_level()
 
-    
+    if self.LevelGeneratorByPosition.position.y > 0 then
+        self.level = 2
+    elseif self.LevelGeneratorByPosition.position.z > 0 then
+        self.level = 3
+    end
 
 end
 
