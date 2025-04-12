@@ -10,7 +10,7 @@ local findEnemiesInterval = 1.5
 local pathUpdateTimer = 0.0
 local pathUpdateInterval = 1.0
 local checkEnemyTimer = 0.0
-local checkEnemyInterval = 2.0 
+local checkEnemyInterval = 40.0 
 
 function on_ready() 
 
@@ -301,7 +301,6 @@ function support:shield_state()
     end
 
     support.currentState = support.state.Move
-    find_all_enemies()
 
 end
 
@@ -352,15 +351,134 @@ function support:flee_state(dt)
     end
 
 end
-
-
-
 function find_all_enemies()
-
-    -- Clear existing enemies table to avoid duplicates
+    -- Reset all enemy tables
+    support.EnemyRange = {}
+    support.EnemyTank = {}
+    support.EnemyKamikaze = {}
     support.Enemies = {}
+    
+    -- Find all enemies of each type
+    find_all_entities_of_type("EnemyRange", support.EnemyRange, "range")
+    find_all_entities_of_type("EnemyTank", support.EnemyTank, "tank")
+    find_all_entities_of_type("EnemyKamikaze", support.EnemyKamikaze, "kamikaze")
+    
+    -- Combine all enemy types into the main Enemies table
+    for _, enemy in ipairs(support.EnemyRange) do
+        table.insert(support.Enemies, enemy)
+    end
+    
+    for _, enemy in ipairs(support.EnemyTank) do
+        table.insert(support.Enemies, enemy)
+    end
+    
+    for _, enemy in ipairs(support.EnemyKamikaze) do
+        table.insert(support.Enemies, enemy)
+    end
+
+    if #support.Enemies > 0 then
+        get_priority_enemy()
+    end
+    
+    -- Aumentar el intervalo entre detecciones
+    findEnemiesInterval = 4.0  -- Cambiado de 1.5 a 4.0 segundos
+end
+
+-- Nueva función que busca todas las entidades de un tipo específico
+function find_all_entities_of_type(typeName, resultTable, scriptField)
+    local suppPos = support.enemyTransf.position
+    
+    -- Obtener todas las entidades en la escena
+    local all_entities = current_scene:get_all_entities()
+    
+    if not all_entities then
+        log("No entities found in the scene")
+        return resultTable
+    end
+    
+    local count = 0
+    
+    -- Iterar a través de todas las entidades
+    for _, entity in ipairs(all_entities) do
+        -- Comprobar si esta entidad tiene el nombre o tag correcto
+        local tag = entity:get_component("TagComponent")
+        local name = entity:get_component("TagComponent").tag
         
-    local enemyNames = { "EnemyRange", "EnemyTank", "EnemyKamikaze" }
+        if name == typeName or (tag and tag.tag == typeName) then
+            local script = entity:get_component("ScriptComponent")
+            local entityTransform = entity:get_component("TransformComponent")
+            
+            if entityTransform and script then
+                local distance = support:get_distance(suppPos, entityTransform.position)
+                
+                if distance <= support.detectionRange then
+                    local enemyScriptInstance = nil
+                    
+                    if scriptField == "range" then
+                        enemyScriptInstance = script.range
+                    elseif scriptField == "tank" then
+                        enemyScriptInstance = script.tank
+                    elseif scriptField == "kamikaze" then
+                        enemyScriptInstance = script.kamikaze
+                    end
+                    
+                    if enemyScriptInstance then
+                        local enemyData = {
+                            name = typeName,
+                            transform = entityTransform,
+                            script = enemyScriptInstance,
+                            health = enemyScriptInstance.health or (scriptField == "tank" and 275 or 100),
+                            priority = enemyScriptInstance.priority or (scriptField == "kamikaze" and 3 or (scriptField == "tank" and 2 or 1)),
+                            haveShield = enemyScriptInstance.haveShield or false
+                        }
+                        
+                        table.insert(resultTable, enemyData)
+                        count = count + 1
+                    end
+                end
+            end
+        end
+    end
+
+    return resultTable
+end
+
+function find_all_Range()
+    local enemyNames = {"EnemyRange"}
+    local suppPos = support.enemyTransf.position
+
+    for _, name in ipairs(enemyNames) do
+        local entity = current_scene:get_entity_by_name(name)
+        if entity then 
+            local script = entity:get_component("ScriptComponent")
+            local entityTransform = entity:get_component("TransformComponent")
+
+            if entityTransform then
+                local distance = support:get_distance(suppPos, entityTransform.position)
+
+                if distance <= support.detectionRange then
+                    local enemyScriptInstance = script.range
+                    
+                    local enemyData = {
+                        name = name,
+                        transform = entityTransform,
+                        script = enemyScriptInstance,
+                        health = enemyScriptInstance.health or 100,
+                        priority = enemyScriptInstance.priority or 1,
+                        haveShield = enemyScriptInstance.haveShield or false
+                    }
+                
+                    table.insert(support.EnemyRange, enemyData)
+                end
+            end
+        end
+    end
+
+    return support.EnemyRange
+end
+
+function find_all_Tank()
+    local enemyNames = {"EnemyTank"}
     local suppPos = support.enemyTransf.position
 
     for _, name in ipairs(enemyNames) do
@@ -373,35 +491,58 @@ function find_all_enemies()
                 local distance = support:get_distance(suppPos, entityTransform.position)
 
                 if distance <= support.detectionRange then
-                    local enemyScriptInstance = nil
-
-                    if name == "EnemyRange" then
-                        enemyScriptInstance = script.range
-                    elseif name == "EnemyTank" then
-                        enemyScriptInstance = script.tank
-                    elseif name == "EnemyKamikaze" then
-                        enemyScriptInstance = script.kamikaze
-                    end
+                    local enemyScriptInstance = script.tank
                     
                     local enemyData = {
                         name = name,
                         transform = entityTransform,
                         script = enemyScriptInstance,
-                        health = enemyScriptInstance.health or 100,
-                        priority = enemyScriptInstance.priority or 1,
+                        health = enemyScriptInstance.health or 275,
+                        priority = enemyScriptInstance.priority or 2,
                         haveShield = enemyScriptInstance.haveShield or false
                     }
                 
-                    table.insert(support.Enemies, enemyData)
+                    table.insert(support.EnemyTank, enemyData)
                 end
             end
         end
     end
 
-    if #support.Enemies > 0 then
-        get_priority_enemy()
-    end
+    return support.EnemyTank
+end
 
+function find_all_Kamikaze()
+    local enemyNames = {"EnemyKamikaze"}
+    local suppPos = support.enemyTransf.position
+
+    for _, name in ipairs(enemyNames) do
+        local entity = current_scene:get_entity_by_name(name)
+        if entity then
+            local script = entity:get_component("ScriptComponent")
+            local entityTransform = entity:get_component("TransformComponent")
+
+            if entityTransform then
+                local distance = support:get_distance(suppPos, entityTransform.position)
+
+                if distance <= support.detectionRange then
+                    local enemyScriptInstance = script.kamikaze
+                    
+                    local enemyData = {
+                        name = name,
+                        transform = entityTransform,
+                        script = enemyScriptInstance,
+                        health = enemyScriptInstance.health,
+                        priority = enemyScriptInstance.priority or 3,
+                        haveShield = enemyScriptInstance.haveShield or false
+                    }
+                
+                    table.insert(support.EnemyKamikaze, enemyData)
+                end
+            end
+        end
+    end
+    
+    return support.EnemyKamikaze
 end
 
 function get_priority_enemy()

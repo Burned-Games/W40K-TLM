@@ -58,7 +58,7 @@ local enemy_stats = {
             fleeSpeed = 7,
             enemyShield = 35,
             damage = 0,
-            detectionRange = 20,
+            detectionRange = 10,
             shieldRange = 5,
             attackRange = 0
         },
@@ -69,7 +69,7 @@ local enemy_stats = {
             fleeSpeed = 2,
             enemyShield = 70,
             damage = 30,
-            detectionRange = 20,
+            detectionRange = 10,
             shieldRange = 5,
             attackRange = 10
         }
