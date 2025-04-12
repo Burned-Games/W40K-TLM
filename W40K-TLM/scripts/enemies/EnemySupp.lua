@@ -56,19 +56,10 @@ function on_ready()
 
     support.currentTarget = nil
 
-
-
     local enemy_type = "support"
     support:set_level()
 
     local stats = stats_data[enemy_type] and stats_data[enemy_type][support.level]
-    -- Debug in case is not working
-    if not stats then
-        log("No stats for type: " .. enemy_type .. " level: " .. support.level)
-        return
-    end
-
-
 
     -- Stats of the Support
     support.health = stats.health
@@ -80,8 +71,7 @@ function on_ready()
     support.shieldRange = stats.shieldRange
     support.attackRange = stats.attackRange
 
-
-
+    -- Debug stats
     support.idleAnim = 0
     support.moveAnim = 0
     support.attackAnim = 0
@@ -120,7 +110,7 @@ function on_update(dt)
         shieldTimer = shieldTimer + dt 
         if shieldTimer >= shieldCooldown then
             support.shieldCooldownActive = false
-            support.canUseShield = true        
+            support.canUseShield = true  
         end
     end
 
@@ -144,6 +134,8 @@ function on_update(dt)
 end
 
 function change_state()
+    -- Resetear allShielded al inicio
+    support.allShielded = true
 
     if findEnemiesTimer >= findEnemiesInterval then
         find_all_enemies()
@@ -167,19 +159,23 @@ function change_state()
         return
     end
 
+    -- Obtener distancias una sola vez para eficiencia
+    local enemyDistances = enemies_distance()
+    
+    -- Obtener estados de escudo una sola vez
+    local shieldStates = update_shield_status()
+    
+    -- Crear una tabla para buscar rápidamente el estado del escudo
+    local shieldLookup = {}
+    for _, shield in ipairs(shieldStates) do
+        shieldLookup[shield.enemy.name] = shield.haveShield
+    end
+
     local closestUnshieldedEnemy = nil
     local minDistance = math.huge
 
-    for _, distData in ipairs(enemies_distance()) do
-
-        local hasShield = false
-        for _, shieldData in ipairs(update_shield_status()) do
-            if shieldData.enemy.name == distData.enemy.name then
-                hasShield = shieldData.haveShield
-                break
-            end
-        end
-        
+    for _, distData in ipairs(enemyDistances) do
+        local hasShield = shieldLookup[distData.enemy.name] or false
         if not hasShield and distData.distance < minDistance then
             minDistance = distData.distance
             closestUnshieldedEnemy = distData.enemy
@@ -187,6 +183,8 @@ function change_state()
     end
     
     if closestUnshieldedEnemy then
+        support.currentTarget = closestUnshieldedEnemy
+        
         if minDistance <= support.shieldRange and support.canUseShield then
             support.currentState = support.state.Shield
         else
@@ -195,60 +193,54 @@ function change_state()
     else
         support.currentState = support.state.Flee
     end
-
 end
 
-
-
 function support:move_state(dt)
-
     if support.currentAnim ~= support.moveAnim then
         support.currentAnim = support.moveAnim
         support.animator:set_current_animation(support.currentAnim)
     end 
-    
-    
+        
+    -- 1. Primero obtenemos todos los enemigos sin escudo
     local validTargets = {}
-    for _, distData in ipairs(enemies_distance()) do
-        local hasShield = false
-        for _, shieldData in ipairs(update_shield_status()) do
-            if shieldData.enemy and distData.enemy and shieldData.enemy.name == distData.enemy.name then
-                hasShield = shieldData.haveShield
-                break
-            end
-        end
-        if not hasShield and distData.enemy then
-            table.insert(validTargets, distData.enemy)
+    for _, enemyData in ipairs(support.Enemies) do
+        if not enemyData.haveShield then
+            table.insert(validTargets, enemyData)
         end
     end
-
-
-    -- Reset current target
-    support.currentTarget = nil
+    
+  
+    if #validTargets == 0 then
+        support.currentTarget = nil
+        support.currentState = support.state.Flee
+        return
+    end
 
     if #validTargets > 0 then
-        -- Find max priority
-        local maxPriority = -math.huge
+        -- 2. Ordenamos los enemigos válidos por prioridad (de mayor a menor)
+        table.sort(validTargets, function(a, b)
+            return a.priority > b.priority
+        end)
+        
+        -- 3. Tomamos los enemigos con la prioridad más alta
+        local maxPriority = validTargets[1].priority
+        local highestPriorityTargets = {}
+        
         for _, enemy in ipairs(validTargets) do
-            if enemy.priority and enemy.priority > maxPriority then
-                maxPriority = enemy.priority
+            if enemy.priority == maxPriority then
+                table.insert(highestPriorityTargets, enemy)
             end
         end
-
-        local candidates = {}
-        for _, enemy in ipairs(validTargets) do
-            if enemy.priority and enemy.priority == maxPriority then
-                table.insert(candidates, enemy)
-            end
-        end
-
+        
+        -- 4. Entre los de máxima prioridad, elegimos el más cercano
+        local previousTarget = support.currentTarget
         local closestDist = math.huge
-        for _, candidate in ipairs(candidates) do
+        for _, candidate in ipairs(highestPriorityTargets) do
             if candidate.transform then
                 local dist = support:get_distance(support.enemyTransf.position, candidate.transform.position)
                 if dist < closestDist then
                     closestDist = dist
-                    support.currentTarget = candidate  -- Store the selected target
+                    support.currentTarget = candidate
                 end
             end
         end
@@ -267,27 +259,33 @@ function support:move_state(dt)
 
         support:follow_path() 
         
-        if support:get_distance(support.enemyTransf.position, targetPos.position) <= support.shieldRange and support.canUseShield then
+        local currentDistance = support:get_distance(support.enemyTransf.position, targetPos.position)
+        
+        if currentDistance <= support.shieldRange and support.canUseShield then
             support.currentState = support.state.Shield
         end
     else
         support.currentState = support.state.Flee
     end
-
 end
 
 function support:shield_state(dt)
-
     if support.currentAnim ~= support.shieldAnim then
         support.currentAnim = support.shieldAnim
         support.animator:set_current_animation(support.currentAnim)
-    end     
+    end
+
+    if not support.currentTarget or not support.currentTarget.transform then
+        support.currentState = support.state.Move
+        return
+    end
 
     local targetPos = support.currentTarget.transform.position
     local distance = support:get_distance(support.enemyTransf.position, targetPos)
 
     support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     shieldAnimTimer = shieldAnimTimer + dt 
+    
     if shieldAnimTimer >= shieldAnimDuration then
         if distance <= support.shieldRange and not support.currentTarget.script.haveShield then
             local shieldEntity = create_new_shield(support.currentTarget)
@@ -303,14 +301,18 @@ function support:shield_state(dt)
                 shieldTimer = 0 
                 shieldAnimTimer = 0 
 
-                support.currentTarget = nil
+                -- Actualizamos el estado del enemigo en nuestra lista de enemigos
+                for i, enemyData in ipairs(support.Enemies) do
+                    if enemyData.name == support.currentTarget.name then
+                        enemyData.haveShield = true
+                        break
+                    end
+                end
             end
-
         end
     end
 
     support.currentState = support.state.Move
-
 end
 
 function support:flee_state(dt)
@@ -360,6 +362,7 @@ function support:flee_state(dt)
     end
 
 end
+
 function find_all_enemies()
     -- Reset all enemy tables
     support.EnemyRange = {}
@@ -384,16 +387,14 @@ function find_all_enemies()
     for _, enemy in ipairs(support.EnemyKamikaze) do
         table.insert(support.Enemies, enemy)
     end
-
-    if #support.Enemies > 0 then
-        get_priority_enemy()
-    end
+    
+    -- Asegurar que la información de escudos está actualizada
+    update_shield_status()
     
     -- Aumentar el intervalo entre detecciones
-    findEnemiesInterval = 4.0  -- Cambiado de 1.5 a 4.0 segundos
+    findEnemiesInterval = 4.0
 end
 
--- Nueva función que busca todas las entidades de un tipo específico
 function find_all_entities_of_type(typeName, resultTable, scriptField)
     local suppPos = support.enemyTransf.position
     
@@ -401,7 +402,6 @@ function find_all_entities_of_type(typeName, resultTable, scriptField)
     local all_entities = current_scene:get_all_entities()
     
     if not all_entities then
-        log("No entities found in the scene")
         return resultTable
     end
     
@@ -433,7 +433,7 @@ function find_all_entities_of_type(typeName, resultTable, scriptField)
                     
                     if enemyScriptInstance then
                         local enemyData = {
-                            name = typeName,
+                            name = typeName .. "_" .. count,  -- Añadir un índice para diferenciar
                             transform = entityTransform,
                             script = enemyScriptInstance,
                             health = enemyScriptInstance.health or (scriptField == "tank" and 275 or 100),
@@ -448,7 +448,6 @@ function find_all_entities_of_type(typeName, resultTable, scriptField)
             end
         end
     end
-
     return resultTable
 end
 
@@ -555,22 +554,24 @@ function find_all_Kamikaze()
 end
 
 function get_priority_enemy()
-
-    local priorityEnemy = {}
-
+    local priorityEnemies = {}
+    
+    -- Obtener prioridades y enemigos
     for _, enemyData in ipairs(support.Enemies) do
         if enemyData.priority then
-            local enemyPriority = enemyData.priority
-            table.insert(priorityEnemy,{
-                enemy= enemyData,
-                priority = enemyPriority
+            table.insert(priorityEnemies, {
+                enemy = enemyData,
+                priority = enemyData.priority
             })
         end
     end
-
+    
+    -- Ordenar descendientemente por prioridad (mayor primero)
+    table.sort(priorityEnemies, function(a, b)
+        return a.priority > b.priority
+    end)
     enemies_distance()
-    return priorityEnemy
-
+    return priorityEnemies
 end
 
 function enemies_distance()
@@ -588,23 +589,17 @@ function enemies_distance()
         end
     end
 
-    update_shield_status()  
     return distances
-
 end
 
 function update_shield_status()
-
     local shieldState = {}
-
+    
     for _, enemyData in ipairs(support.Enemies) do
-        if enemyData.haveShield then
-            local enemyHaveShield = enemyData.haveShield
-            table.insert(shieldState,{
-                enemy= enemyData,
-                haveShield = enemyHaveShield
-            })
-        end
+        table.insert(shieldState, {
+            enemy = enemyData,
+            haveShield = enemyData.haveShield or false
+        })
     end
 
     return shieldState
@@ -615,12 +610,12 @@ function create_new_shield(targetEnemy)
         log("Error: No target enemy provided for shield")
         return nil
     end
-
+    
     local newShield = current_scene:duplicate_entity(support.prefabShield)
     local shieldTransform = newShield:get_component("TransformComponent")
     local shieldScript = newShield:get_component("ScriptComponent")
     shieldTransform.scale = Vector3.new(1.3, 1.3, 1.3)
-
+    
     return newShield
 end
 

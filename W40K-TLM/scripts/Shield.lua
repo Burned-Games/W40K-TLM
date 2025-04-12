@@ -34,8 +34,7 @@ function shieldDestroy()
         targetEnemy.script.haveShield = false
         targetEnemy.script.shieldHealth = 0
     end
-    print("Shield destroyed")
-    current_scene:destroy_entity(self)
+    set_position(Vector3.new(-500, 0, 0))
 end
 
 function on_exit() end
