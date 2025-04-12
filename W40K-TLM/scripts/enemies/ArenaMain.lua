@@ -16,8 +16,8 @@ local enemyTypes = {}
 -- Arena data
 local currentRound = 0
 local WaveData = {
-    {{type="range", id=1}},
-    {{type="range", id=2}, {type="range", id=2}, {type="range", id=3}, {type="range", id=4}}, -- TODO CHANGE ONE RANGE FOR ONE SUPP
+    {{type="tank", id=1}},
+    {{type="range", id=1}, {type="range", id=2}, {type="range", id=3}, {type="range", id=4}}, -- TODO CHANGE ONE RANGE FOR ONE SUPP
     {{type="range", id=5}, {type="range", id=6}, {type="tank", id=2}} -- TODO TANK2 NOT WORKING (NO TANK2 IN SCENE)
 }
 local activeEnemies = {}
@@ -72,17 +72,17 @@ function registerEnemy(type, id, enemyName)
         log("Found enemy: " .. enemyName .. " of type " .. type)
         
         
-        local tagComponent = enemy:get_component("TagComponent")
-        if type == "range" then
-            print(tagComponent.tag)
-            tagComponent:set_tag("EnemyRange")
-            print("CAMBIANDO NOMBRE")
-            print(tagComponent.tag)
-        elseif type == "tank" then
-            tagComponent.tag = "EnemyTank" 
-        elseif type == "supp" then
-            tagComponent.tag = "EnemySupport" 
-        end
+        -- local tagComponent = enemy:get_component("TagComponent")
+        -- if type == "range" then
+        --     print(tagComponent.tag)
+        --     --tagComponent:set_tag("EnemyRange")
+        --     print("CAMBIANDO NOMBRE")
+        --     print(tagComponent.tag)
+        -- elseif type == "tank" then
+        --     tagComponent.tag = "EnemyTank" 
+        -- elseif type == "supp" then
+        --     tagComponent.tag = "EnemySupport" 
+        -- end
 
         enemy:set_active(false)
     else
