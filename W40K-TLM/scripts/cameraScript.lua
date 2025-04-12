@@ -93,7 +93,7 @@ function on_update(dt)
    
         cameraTransform.position = smoothPos
 
-        if not cameraBossActivated then
+        if not cameraBossActivated and playerScript.godMode == false then
             if Input.is_button_pressed(Input.controllercode.DpadUp) then
                 if zoom > minZoom then
                     zoom = zoom - zoomStep

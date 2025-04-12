@@ -505,7 +505,7 @@ function makeDamage(enemy)
                 enemyInstance = enemyScript.kamikaze
             end
 
-            enemyInstance:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+            enemyInstance:take_damage(chargeZoneDamagePerSecond)
             playerScript.makeDamage = true
                     
             -- if enemyScript.shieldHealth > 0 then

@@ -272,18 +272,31 @@ function handle_bullet_collision(entityA, entityB)
             local enemyScript = enemyEntity:get_component("ScriptComponent")
             local enemyRigidBody = enemyEntity:get_component("RigidbodyComponent").rb
             local bulletTransform = bulletEntity:get_component("TransformComponent")
-             
-           
-            if enemyScript then
-                --bulletDamageParticleComponent:emit(20)
-                if enemyScript.shieldHealth and enemyScript.shieldHealth > 0 then
-                    enemyScript.shieldHealth = enemyScript.shieldHealth - damage
+            local enemyTag = nil
+            local enemyInstance = nil
+            
+            if enemyEntity ~= nil then    
+                enemyTag = enemyEntity:get_component("TagComponent").tag           
+            end
+
+            if enemyEntity ~= nil then
+                if enemyScript ~= nil then
+                    if enemyTag == "EnemyRange" then
+                        enemyInstance = enemyScript.range
+                    elseif enemyTag == "EnemySupp" then
+                        enemyInstance = enemyScript.support
+                    elseif enemyTag == "EnemyTank" then
+                        enemyInstance = enemyScript.tank
+                    elseif enemyTag == "EnemyKamikaze" then
+                        enemyInstance = enemyScript.kamikaze
+                    end
+        
+                    enemyInstance:take_damage(damage)
                     playerScript.makeDamage = true
-                else
-                    enemyScript.enemyHealth = enemyScript.enemyHealth - damage
-                    playerScript.makeDamage = true
+                            
                 end
             end
+
 
             local enemyPosition = enemyEntity:get_component("TransformComponent").position
             local bulletPosition = bulletTransform.position
@@ -304,8 +317,8 @@ function handle_bullet_collision(entityA, entityB)
         end
     end
     
-    if nameA == "EnemyOrk" or nameB == "EnemyOrk" then
-        local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+    if nameA == "EnemyRange" or nameB == "EnemyRange" then
+        local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end
@@ -318,13 +331,13 @@ function handle_bullet_collision(entityA, entityB)
     end
 
     if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
-        local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+        local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end
 
     if nameA == "EnemyTank" or nameB == "EnemyTank" then
-        local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
+        local enemy = (nameA == "EnemyRange" and entityA) or (nameB == "EnemyRange" and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end

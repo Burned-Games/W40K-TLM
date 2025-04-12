@@ -31,7 +31,7 @@ function on_ready()
     entities = current_scene:get_all_entities()
     enemies = {} 
     for _, entity in ipairs(entities) do 
-        if entity:get_component("TagComponent").tag == "EnemyOrk" or entity:get_component("TagComponent").tag == "EnemySupp" or entity:get_component("TagComponent").tag == "EnemyKamikaze" or entity:get_component("TagComponent").tag == "EnemyTank" or entity:get_component("TagComponent").tag == "MainBoss" then
+        if entity:get_component("TagComponent").tag == "EnemyRange" or entity:get_component("TagComponent").tag == "EnemySupp" or entity:get_component("TagComponent").tag == "EnemyKamikaze" or entity:get_component("TagComponent").tag == "EnemyTank" or entity:get_component("TagComponent").tag == "MainBoss" then
             table.insert(enemies, entity)
         end
     end
@@ -87,125 +87,41 @@ function Slash()
             end
 
             if distance < radiusAttack then
-                local name = entity:get_component("TagComponent").tag
 
-                if name == "EnemyOrk" or name == "EnemySupp" or name == "EnemyKamikaze" or name == "EnemyTank" or name == "MainBoss" then  
-                    local enemyScript = entity:get_component("ScriptComponent")
+                local enemyTag = nil
+                local enemyScript = nil
+                local enemyInstance = nil
+
+                if entity ~= nil then    
+                    enemyTag = entity:get_component("TagComponent").tag           
+                    enemyScript = entity:get_component("ScriptComponent")
+                end
+
+                if entity ~= nil then
                     if enemyScript ~= nil then
-                
-                        if enemyScript.shieldHealth > 0 then
-                            --bulletDamageParticleComponent:emit(20)
-                            enemyScript.shieldHealth = enemyScript.shieldHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        else
-                            ----bulletDamageParticleComponent:emit(20)
-                            enemyScript.enemyHealth = enemyScript.enemyHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
+                        if enemyTag == "EnemyRange" then
+                            enemyInstance = enemyScript.range
+                        elseif enemyTag == "EnemySupp" then
+                            enemyInstance = enemyScript.support
+                        elseif enemyTag == "EnemyTank" then
+                            enemyInstance = enemyScript.tank
+                        elseif enemyTag == "EnemyKamikaze" then
+                            enemyInstance = enemyScript.kamikaze
                         end
+
+                        enemyInstance:take_damage(damage)
+                        playerScript.playerHealth = playerScript.playerHealth + HpStealed
+                        playerScript.makeDamage = true
+
                         enemyScript.pushed = true
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
                         entityPos.y - playerTransf.position.y,
                         entityPos.z - playerTransf.position.z)
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+
                     end
                 end
-
-                --[[if name == "EnemySupp" then
-                    enemySuppScript = entity:get_component("ScriptComponent")
-                    if enemySuppScript ~= nil then
-                
-                        ----bulletDamageParticleComponent:emit(20)
-                        enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - damage
-                        playerScript.makeDamage = true
-                        playerScript.playerHealth = playerScript.playerHealth + HpStealed
-
-                        enemySuppScript.pushed = true
-                        impulseDirection = Vector3.new(
-                        entityPos.x - playerTransf.position.x,
-                        entityPos.y - playerTransf.position.y,
-                        entityPos.z - playerTransf.position.z)
-                        entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
-                    end
-                    
-                end
-                
-                if name == "EnemyKamikaze" then  
-                    enemyOrkScript = entity:get_component("ScriptComponent")
-                    if enemyOrkScript ~= nil then
-                
-                        if enemyOrkScript.shieldHealth > 0 then
-                            --bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        else
-                            ----bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        end
-                        enemyOrkScript.pushed = true
-                        impulseDirection = Vector3.new(
-                        entityPos.x - playerTransf.position.x,
-                        entityPos.y - playerTransf.position.y,
-                        entityPos.z - playerTransf.position.z)
-                        entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
-                    end
-                end
-
-                if name == "EnemyTank" then  
-                    enemyOrkScript = entity:get_component("ScriptComponent")
-                    if enemyOrkScript ~= nil then
-                
-                        if enemyOrkScript.shieldHealth > 0 then
-                            --bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        else
-                            ----bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        end
-                        enemyOrkScript.pushed = true
-                        impulseDirection = Vector3.new(
-                        entityPos.x - playerTransf.position.x,
-                        entityPos.y - playerTransf.position.y,
-                        entityPos.z - playerTransf.position.z)
-                        entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
-                    end
-                end
-
-                if name == "MainBoss" then  
-                    enemyOrkScript = entity:get_component("ScriptComponent")
-                    if enemyOrkScript ~= nil then
-                
-                        if enemyOrkScript.shieldHealth > 0 then
-                            --bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        else
-                            ----bulletDamageParticleComponent:emit(20)
-                            enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - damage
-                            playerScript.makeDamage = true
-                            playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        end
-                        enemyOrkScript.pushed = true
-                        impulseDirection = Vector3.new(
-                        entityPos.x - playerTransf.position.x,
-                        entityPos.y - playerTransf.position.y,
-                        entityPos.z - playerTransf.position.z)
-                        entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
-                    end
-                end]]
-                
-
-                
             end
         end
     end         

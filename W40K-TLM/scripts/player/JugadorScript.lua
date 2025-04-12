@@ -2,15 +2,18 @@
 playerHealth = 100
 playerTransf = nil
 local playerRb = nil
-local moveSpeed = 6
 local lastValidRotation = 0
+--speed
+local normalSpeed = 6
+local moveSpeed = 6
+local godModeSpeed = 12
 local currentSpeed = 0
 local acceleration = 10      
 local deceleration = 8
 moveDirection = nil
 local rotationDirection = nil
 angleRotation = 0
-local godMode = false
+godMode = false
 isMoving = false
 local dashSpeed = 15
 local impulseApplied = false
@@ -272,7 +275,7 @@ function on_update(dt)
     end
     updateMusic(dt)
     updateDash(dt)
-    updateGodMode()
+    updateGodMode(dt)
     
     
     handleBleed(dt)
@@ -371,8 +374,12 @@ function updateDash(dt)
     end
 end
 
-function updateGodMode()
+function updateGodMode(dt)
     if Input.is_key_pressed(Input.keycode.F1) then
+        if godMode == false then
+            local newPos = Vector3.new(playerTransf.position.x,0,playerTransf.position.z)
+            playerRb:set_position(newPos)
+        end
         if pressedButton == false then
             godMode = not godMode
         end
@@ -385,12 +392,21 @@ function updateGodMode()
         playerHealth = 100
         bolterScript.ammo = 0
         shotgunammo = 0
-        moveSpeed = 12
+        moveSpeed = godModeSpeed
         playerRb:set_trigger(true)
-    else
-        if shotGunScript.granadasSpeed then
-            moveSpeed = 6 * granadeVelocity
+  
+        if Input.is_button_pressed(Input.controllercode.DpadUp) or Input.is_key_pressed(Input.keycode.J) then
+
+            local newPos = Vector3.new(playerTransf.position.x,playerTransf.position.y + dt * moveSpeed,playerTransf.position.z)
+            playerRb:set_position(newPos)
+
+        elseif Input.is_button_pressed(Input.controllercode.DpadDown) or Input.is_key_pressed(Input.keycode.K) then
+
+            local newPos = Vector3.new(playerTransf.position.x,playerTransf.position.y - dt * moveSpeed,playerTransf.position.z)
+            playerRb:set_position(newPos)
         end
+    else
+        moveSpeed = normalSpeed
         playerRb:set_trigger(false)
     end
 end
@@ -1068,12 +1084,13 @@ function autoaimUpdate()
     local origin = playerTransf.position
     local maxDistance = 12.0
 
-    Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
-    Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
-    Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
-    Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
-    Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
-
+    if godMode then
+        Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+        Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
+        Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+        Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
+        Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    end
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
     local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
     local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
@@ -1314,7 +1331,7 @@ function handleCover()
     if barricadeScript then
         if barricadeScript.isPlayerInRange == false then
             isCovering = false
-            moveSpeed = 6
+            moveSpeed = normalSpeed
             return
         end
         if Input.get_button(Input.action.Cover) == Input.state.Down then
@@ -1325,7 +1342,7 @@ function handleCover()
         if isCovering then
             moveSpeed = 4
         else
-            moveSpeed = 6
+            moveSpeed = normalSpeed
         end
     end
 end
