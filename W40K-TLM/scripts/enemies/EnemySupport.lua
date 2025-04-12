@@ -104,6 +104,12 @@ function on_update(dt)
 
     change_state()
 
+    support:check_effects()
+    support:check_pushed(dt)
+    if support.isPushed == true then
+        return
+    end
+
     findEnemiesTimer = findEnemiesTimer + dt
 
     if support.shieldCooldownActive then

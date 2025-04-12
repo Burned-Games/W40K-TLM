@@ -70,7 +70,11 @@ end
 function on_update(dt) 
 
     if kamikaze.isDead then return end
-
+    kamikaze:check_effects()
+    kamikaze:check_pushed(dt)
+    if kamikaze.isPushed == true then
+        return
+    end
     change_state()
 
     if kamikaze.currentState == kamikaze.state.Idle then return end

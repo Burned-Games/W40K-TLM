@@ -167,7 +167,6 @@ function on_update(dt)
         if rightTrigger == Input.state.Repeat then
             if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
                 playerScript.currentUpAnim = playerScript.attack
-                print("siiiiiiiiiiiiiii")
                 playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                 shootAnimation = true
             end
@@ -180,6 +179,11 @@ function on_update(dt)
 
         else
             shootAnimation = false
+        end
+
+        if rightTrigger == Input.state.Up and playerScript.currentUpAnim == playerScript.attack then
+            playerScript.currentAnim = playerScript.idle
+            playerScript.animator:set_upper_animation(playerScript.currentAnim)
         end
 
         -- reload

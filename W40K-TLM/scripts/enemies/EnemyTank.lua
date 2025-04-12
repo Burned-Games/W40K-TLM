@@ -122,7 +122,11 @@ function on_update(dt)
     end
 
     if tank.isDead then return end
-
+    tank:check_effects()
+    tank:check_pushed(dt)
+    if tank.isPushed == true then
+        return
+    end
     change_state()
 
     if tank.health <= 0 then

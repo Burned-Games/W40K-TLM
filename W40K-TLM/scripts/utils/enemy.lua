@@ -66,7 +66,9 @@ function enemy:new(obj)
     obj.raycastRotationY = 0
     obj.invulnerable = false
     obj.isReturning = false
-
+    obj.isPushed = false
+    obj.pushedTime = 0.3
+    obj.pushedTimeCounter = 0
     -- effects
     obj.isNeuralInhibitioning = false
 
@@ -80,6 +82,24 @@ function enemy:check_effects()
 
     if self.isNeuralInhibitioning then
         effect:apply_neural_inhibition(self)
+    end
+
+end
+
+function enemy:check_pushed(dt)
+
+    if self.isPushed then
+        self:update_pushed(dt)
+    end
+
+end
+
+function enemy:update_pushed(dt)
+
+    self.pushedTimeCounter = self.pushedTimeCounter + dt
+    if self.pushedTimeCounter >= self.pushedTime then
+        self.pushedTimeCounter = 0
+        self.isPushed = false
     end
 
 end

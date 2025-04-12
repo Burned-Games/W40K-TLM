@@ -154,6 +154,11 @@ function on_update(dt)
 
     --check_effects()
     range:check_effects()
+    range:check_pushed(dt)
+    if range.isPushed == true then
+        return
+    end
+        
     update_bullets(dt)
     change_state()
 

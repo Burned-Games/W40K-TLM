@@ -101,24 +101,36 @@ function Slash()
                     if enemyScript ~= nil then
                         if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                             enemyInstance = enemyScript.range
+                            enemyInstance:take_damage(damage)
+                            playerScript.health = playerScript.health + HpStealed
+                            playerScript.makeDamage = true
+                            enemyInstance.isPushed = true
+                            
                         elseif enemyTag == "EnemySupp" then
                             enemyInstance = enemyScript.support
+                            enemyInstance:take_damage(damage)
+                            playerScript.health = playerScript.health + HpStealed
+                            playerScript.makeDamage = true
+                            enemyInstance.isPushed = true
                         elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                             enemyInstance = enemyScript.tank
+                            enemyInstance:take_damage(damage)
+                            playerScript.health = playerScript.health + HpStealed
+                            playerScript.makeDamage = true
+                            enemyInstance.isPushed = true
                         elseif enemyTag == "EnemyKamikaze" then
                             enemyInstance = enemyScript.kamikaze
+                            enemyInstance:take_damage(damage)
+                            playerScript.health = playerScript.health + HpStealed
+                            playerScript.makeDamage = true
+                            enemyInstance.isPushed = true
                         end
-
-                        enemyInstance:take_damage(damage)
-                        playerScript.playerHealth = playerScript.playerHealth + HpStealed
-                        playerScript.makeDamage = true
-
-                        enemyScript.pushed = true
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
                         entityPos.y - playerTransf.position.y,
                         entityPos.z - playerTransf.position.z)
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                        
 
                     end
                 end
