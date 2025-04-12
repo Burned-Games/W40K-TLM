@@ -60,6 +60,7 @@ function enemy:new(obj)
     obj.raycastAngle = 15
     obj.currentPathIndex = 1
     obj.currentRotationY = 0
+    obj.raycastRotationY = 0
     obj.invulnerable = false
     obj.isReturning = false
 
@@ -133,18 +134,22 @@ end
 function enemy:enemy_raycast()
 
     local direction = Vector3.new(0, 0, 0)
+    local origin = self.enemyTransf.position
+    local maxDistance = self.detectionRange
+
+    self.raycastRotationY = self.enemyTransf.rotation.y
 
     if not self.playerDetected then
         direction = Vector3.new(
-            math.sin(math.rad(self.enemyTransf.rotation.y)), 
+            math.sin(math.rad(self.raycastRotationY)), 
             0, 
-            math.cos(math.rad(self.enemyTransf.rotation.y))
+            math.cos(math.rad(self.raycastRotationY))
         )
     else
         direction = Vector3.new(
-            self.playerTransf.position.x - self.enemyTransf.position.x,
-            self.playerTransf.position.y - self.enemyTransf.position.y,
-            self.playerTransf.position.z - self.enemyTransf.position.z
+            self.playerTransf.position.x - origin.x,
+            0,
+            self.playerTransf.position.z - origin.z
         )
     end
 
@@ -170,15 +175,10 @@ function enemy:enemy_raycast()
         direction.x * math.sin(-angleOffset) + direction.z * math.cos(-angleOffset)
     )
 
-    local origin = self.enemyTransf.position
-    local maxDistance = self.detectionRange
-
     -- Raycast
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
     local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
-
-
 
     -- Raycast hitting the player
     if self:detect(centerHit, self.player) then
