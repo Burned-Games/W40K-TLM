@@ -106,7 +106,7 @@ function on_ready()
 
     range.burstCount = 0
 
-    range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, 0, range.enemyTransf.position.z)
+    range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
     range.playerDistance = range:get_distance(range.enemyTransf.position, range.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
     range.lastTargetPos = range.playerTransf.position
     range.delayedPlayerPos = range.playerTransf.position

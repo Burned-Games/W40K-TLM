@@ -111,8 +111,8 @@ function on_ready()
             makeDamage(enemy)
         end
 
-        if nameA == "EnemySupp" or nameB == "EnemySupp" then
-            local enemy = (nameA == "EnemySupp" and entityA) or (nameB == "EnemySupp" and entityB)
+        if nameA == "EnemySupport" or nameB == "EnemySupport" then
+            local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
             makeDamage(enemy)
         end
 
@@ -151,8 +151,8 @@ function on_ready()
             makeDisruptorDamage(enemy)
         end
 
-        if nameA == "EnemySupp" or nameB == "EnemySupp" then
-            local enemy = (nameA == "EnemySupp" and entityA) or (nameB == "EnemySupp" and entityB)
+        if nameA == "EnemySupport" or nameB == "EnemySupport" then
+            local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
             makeDisruptorDamage(enemy)
         end
 
@@ -407,7 +407,7 @@ function chargedZoneUpdate(dt)
                         end
                     end
 
-                    if name == "EnemySupp" then
+                    if name == "EnemySupport" then
                         enemySuppScript = entity:get_component("ScriptComponent")
                         if enemySuppScript ~= nil then
                     
@@ -498,7 +498,7 @@ function makeDamage(enemy)
         if enemyScript ~= nil then
             if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                 enemyInstance = enemyScript.range
-            elseif enemyTag == "EnemySupp" then
+            elseif enemyTag == "EnemySupport" then
                 enemyInstance = enemyScript.support
             elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                 enemyInstance = enemyScript.tank
@@ -540,7 +540,7 @@ function makeDisruptorDamage(enemy)
         if enemyScript ~= nil then
             if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                 enemyInstance = enemyScript.range
-            elseif enemyTag == "EnemySupp" then
+            elseif enemyTag == "EnemySupport" then
                 enemyInstance = enemyScript.support
             elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                 enemyInstance = enemyScript.tank
