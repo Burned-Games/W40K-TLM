@@ -56,6 +56,7 @@ function enemy:new(obj)
     obj.isDead = false
     obj.playerDistance = 0
     obj.playerDetected = false
+    obj.proximityDetectionRadius = 3
     obj.enemyInitialPos = nil
     obj.lastTargetPos = Vector3.new(0, 0, 0)
     obj.raycastAngle = 15
@@ -390,6 +391,17 @@ function enemy:rotate_enemy(targetPosition)
 
     self.currentRotationY = currentAngle + deltaAngle * 0.1
     self.enemyTransf.rotation.y = self.currentRotationY
+
+end
+
+function enemy:check_player_distance()
+
+    local distance = self:get_distance(self.enemyTransf.position, self.playerTransf.position)
+
+    if distance <= self.proximityDetectionRadius then
+        self.playerDetected = true
+        self.playerDistance = distance
+    end
 
 end
 

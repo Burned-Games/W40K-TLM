@@ -127,6 +127,7 @@ end
 function change_state()
 
     kamikaze:enemy_raycast()
+    kamikaze:check_player_distance()
 
     if kamikaze.playerDetected and kamikaze.playerDistance <= kamikaze.detectionRange then
         kamikaze.currentState = kamikaze.state.Move

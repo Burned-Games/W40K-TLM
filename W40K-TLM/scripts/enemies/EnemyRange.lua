@@ -228,6 +228,7 @@ end
 function change_state()
 
     range:enemy_raycast()
+    range:check_player_distance()
 
     -- If is Chasing don't return to Shoot or Move
     if range.isChasing then
