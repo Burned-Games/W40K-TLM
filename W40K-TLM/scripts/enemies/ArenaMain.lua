@@ -75,7 +75,7 @@ function registerEnemy(type, id, enemyName)
         local tagComponent = enemy:get_component("TagComponent")
         if type == "range" then
             print(tagComponent.tag)
-            tagComponent.tag = "EnemyRange"
+            tagComponent:set_tag("EnemyRange")
             print("CAMBIANDO NOMBRE")
             print(tagComponent.tag)
         elseif type == "tank" then
