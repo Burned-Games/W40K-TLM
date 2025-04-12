@@ -99,7 +99,9 @@ local enemy_stats = {
             tackleDamage = 180,
             detectionRange = 20,
             meleeAttackRange = 3,
-            priority = 2
+            priority = 2, 
+            statsIncrement = 1.5,
+            statsDecrement = 0.33
         }
 
     },

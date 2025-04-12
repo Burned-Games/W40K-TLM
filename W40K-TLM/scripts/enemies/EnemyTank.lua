@@ -338,11 +338,11 @@ function tank:berserka_rage()
     } 
 
     -- Increase stats 50%
-    tank.health = tank.health * 1.5
-    tank.speed = tank.speed * 1.5
-    tank.tackleSpeed = tank.tackleSpeed * 1.5
-    tank.meleeDamage = tank.meleeDamage * 1.5
-    tank.tackleDamage = tank.tackleDamage * 1.5
+    tank.health = tank.health * stats.statsIncrement
+    tank.speed = tank.speed * stats.statsIncrement
+    tank.tackleSpeed = tank.tackleSpeed * stats.statsIncrement
+    tank.meleeDamage = tank.meleeDamage * stats.statsIncrement
+    tank.tackleDamage = tank.tackleDamage * stats.statsIncrement
 
     tank.berserkaTimer = 0
     tank.berserkaDuration = 180 
@@ -352,9 +352,9 @@ function tank:berserka_rage()
 
         if self.berserkaTimer >= self.berserkaDuration then
             -- Reduce stats 33%
-            self.health = self.health * 0.33
-            self.meleeDamage = self.meleeDamage * 0.33
-            self.tackleDamage = self.tackleDamage * 0.33
+            self.health = self.health * stats.statsDecrement
+            self.meleeDamage = self.meleeDamage * stats.statsDecrement
+            self.tackleDamage = self.tackleDamage * stats.statsDecrement
 
             self.speed = self.originalStats.speed
             self.tackleSpeed = self.originalStats.tackleSpeed
