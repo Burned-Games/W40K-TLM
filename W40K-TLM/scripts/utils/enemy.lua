@@ -340,7 +340,10 @@ function enemy:set_level()
 end
 
 function enemy:make_damage(damage)
-
+    
+    if self.playerScript.isCovering == true then
+        return
+    end
     if self.playerScript.health > 0 then
         self.playerScript.health = self.playerScript.health - damage
         print(self.playerScript.health)

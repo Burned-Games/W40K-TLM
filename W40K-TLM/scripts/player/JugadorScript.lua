@@ -179,10 +179,7 @@ function on_ready()
         shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
     end
 
-    if current_scene:get_entity_by_name("Barricade"):has_component("ScriptComponent") then
-
-        barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
-    end
+    barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
 
     if self:has_component("AnimatorComponent") then
 
@@ -405,7 +402,7 @@ function updateGodMode(dt)
             local newPos = Vector3.new(playerTransf.position.x,playerTransf.position.y - dt * moveSpeed,playerTransf.position.z)
             playerRb:set_position(newPos)
         end
-    else
+    elseif isCovering == false then
         moveSpeed = normalSpeed
         playerRb:set_trigger(false)
     end
@@ -1310,22 +1307,20 @@ function attract_scrap(dt)
 end
 
 function handleCover()
-    if barricadeScript then
-        if barricadeScript.isPlayerInRange == false then
-            isCovering = false
-            moveSpeed = normalSpeed
-            return
-        end
-        if Input.get_button(Input.action.Cover) == Input.state.Down then
-            isCovering = not isCovering
-            print("isCovering", isCovering)
-        end
+    if barricadeScript.isPlayerInRange == false then
+        isCovering = false
+        moveSpeed = normalSpeed
+        return
+    end
+    if Input.get_button(Input.action.Cover) == Input.state.Down then
+        isCovering = not isCovering
+        --print("isCovering", isCovering)
+    end
 
-        if isCovering then
-            moveSpeed = 4
-        else
-            moveSpeed = normalSpeed
-        end
+    if isCovering then
+        moveSpeed = 4
+    else
+        moveSpeed = normalSpeed
     end
 end
 
