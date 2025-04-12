@@ -26,6 +26,8 @@ local bulletTimers = {}
 
 function on_ready() 
 
+    range.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
+
     range.player = current_scene:get_entity_by_name("Player")
     range.playerTransf = range.player:get_component("TransformComponent")
     range.playerScript = range.player:get_component("ScriptComponent")
@@ -59,7 +61,7 @@ function on_ready()
     end
 
     local enemy_type = "range"
-    range.level = 1
+    range:set_level()
 
     local stats = stats_data[enemy_type] and stats_data[enemy_type][range.level]
     -- Debug in case is not working

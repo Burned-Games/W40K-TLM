@@ -14,6 +14,8 @@ local idleTimer = 0.0
 
 function on_ready()
 
+    tank.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
+
     tank.player = current_scene:get_entity_by_name("Player")
     tank.playerTransf = tank.player:get_component("TransformComponent")
     tank.playerScript = tank.player:get_component("ScriptComponent")
@@ -27,7 +29,7 @@ function on_ready()
 
 
     local enemy_type = "tank"
-    tank.level = 1
+    tank:set_level()
 
     local stats = stats_data[enemy_type] and stats_data[enemy_type][tank.level]
     -- Debug in case is not working
