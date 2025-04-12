@@ -1,5 +1,6 @@
 local enemy = require("scripts/utils/enemy")
 local stats_data = require("scripts/utils/enemy_stats")
+local effect = require("scripts/utils/status_effects")
 
 range = enemy:new()
 
@@ -352,7 +353,9 @@ function range:stab_state(dt)
 
         if not range.hasDealtDamage then
             range:make_damage(range.meleeDamage)
-            bleed_damage()
+            if range.level2 then
+                effect:apply_bleed(range.playerScript)
+            end
             range.hasDealtDamage = true
         end
 
@@ -409,12 +412,6 @@ function shoot_projectile(targetExplosive)
     if currentBulletIndex > 5 then
         currentBulletIndex = 1
     end
-end
-
-function bleed_damage()
-
-    range.playerScript:applyBleed()
-
 end
 
 function on_exit() end

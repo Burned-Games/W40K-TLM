@@ -327,9 +327,9 @@ end
 
 function enemy:make_damage(damage)
 
-    if self.playerScript.playerHealth > 0 then
-        self.playerScript.playerHealth = self.playerScript.playerHealth - damage
-        print(self.playerScript.playerHealth)
+    if self.playerScript.health > 0 then
+        self.playerScript.health = self.playerScript.health - damage
+        print(self.playerScript.health)
     end
 
 end

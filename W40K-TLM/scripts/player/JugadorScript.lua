@@ -1,5 +1,8 @@
+local effect = require("scripts/utils/status_effects")
+
+
 -- Player
-playerHealth = 100
+health = 100
 playerTransf = nil
 local playerRb = nil
 local lastValidRotation = 0
@@ -73,7 +76,7 @@ local prevBackgroundMusicToPlay = -1
 backgroundMusicToPlay = 0 -- 0 exploration 1 combat
 
 -- sangrado
-local isBleeding = false
+isBleeding = false
 local bleedTimer = 0
 local bleedDuration = 5
 local bleedDamage = 2
@@ -203,7 +206,7 @@ function on_ready()
             save_progress("zonePlayer", newIndex)
             zonePlayer = newIndex
             save_progress("scrap", scrapCounter)
-            save_progress("health", playerHealth)
+            save_progress("health", health)
         end
         if nameA == "Stims" .. tostring(newIndex) or nameB == "Stims" .. tostring(newIndex) then           
             StimsCounter = StimsCounter + 1
@@ -228,9 +231,9 @@ function on_ready()
 
         local newHealth = load_progress("health", 100)
         if newHealth > 80 then
-            playerHealth = newHealth
+            health = newHealth
         else
-            playerHealth = 80
+            health = 80
         end
     end
 
@@ -389,7 +392,7 @@ function updateGodMode(dt)
     end
 
     if godMode then
-        playerHealth = 100
+        health = 100
         bolterScript.ammo = 0
         shotgunammo = 0
         moveSpeed = godModeSpeed
@@ -1163,14 +1166,14 @@ function clampRotation(angle, minAngle, maxAngle)
 end
 
 function checkPlayerDeath(dt)
-    if playerHealth <= 0 then
+    if health <= 0 then
         if currentAnim ~= die and deathAnimationSetted == false then
             currentAnim = die
             animator:set_current_animation(currentAnim)
             deathAnimationSetted = true
             playerRb:set_velocity(Vector3.new(0, 0, 0))
         end
-        playerHealth = 0
+        health = 0
         playerTransf.rotation.y = math.deg(angleRotation)
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
@@ -1178,8 +1181,8 @@ function checkPlayerDeath(dt)
             --SceneManager.change_scene("levelLose.TeaScene")
         end
     end
-    if playerHealth >= 100 then
-        playerHealth = 100
+    if health >= 100 then
+        health = 100
     end
 end
 
@@ -1191,34 +1194,16 @@ function take_damage(amount)
     end
 
     local finalDamage = amount * damageReduction
-    playerHealth = playerHealth - finalDamage
+    health = health - finalDamage
     tookDamage = true    
 end
 
 function handleBleed(dt)
 
     if isBleeding then
-        bleedTimer = bleedTimer - dt
-        timeSinceLastBleed = timeSinceLastBleed + dt
-
-        if timeSinceLastBleed >= bleedInterval then
-            if playerHealth > 0 then
-                playerHealth = playerHealth - bleedDamage
-            end
-            timeSinceLastBleed = 0
-        end
-
-        if bleedTimer <= 0 then
-            isBleeding = false
-        end
+        health = effect:bleed(health, dt)
     end
 
-end
-
-function applyBleed()
-    isBleeding = true
-    bleedTimer = bleedDuration
-    timeSinceLastBleed = 0
 end
 
 function find_scrap()
@@ -1348,9 +1333,9 @@ function handleCover()
 end
 
 function HealPlayer()
-    playerHealth = playerHealth + 40
+    health = health + 40
 
-    if playerHealth > 100 then
-        playerHealth = 100
+    if health > 100 then
+        health = 100
     end
 end
