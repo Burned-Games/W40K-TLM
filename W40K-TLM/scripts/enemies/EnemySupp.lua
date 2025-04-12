@@ -5,6 +5,8 @@ support = enemy:new()
 
 local shieldTimer = 0.0
 local shieldCooldown = 5.0
+local shieldAnimTimer = 0.0
+local shieldAnimDuration = 3.0
 local findEnemiesTimer = 0.0
 local findEnemiesInterval = 1.5
 local pathUpdateTimer = 0.0
@@ -134,7 +136,7 @@ function on_update(dt)
         support:flee_state(dt)
 
     elseif support.currentState == support.state.Shield then
-        support:shield_state()
+        support:shield_state(dt)
     end
 
 end
@@ -272,7 +274,7 @@ function support:move_state(dt)
 
 end
 
-function support:shield_state()
+function support:shield_state(dt)
 
     if support.currentAnim ~= support.shieldAnim then
         support.currentAnim = support.shieldAnim
@@ -282,22 +284,27 @@ function support:shield_state()
     local targetPos = support.currentTarget.transform.position
     local distance = support:get_distance(support.enemyTransf.position, targetPos)
 
-    if distance <= support.shieldRange and not support.currentTarget.script.haveShield then
-        local shieldEntity = create_new_shield(support.currentTarget)
-        if shieldEntity then
-            local shieldScript = shieldEntity:get_component("ScriptComponent")
-            shieldScript.targetEnemy = support.currentTarget
-            shieldScript.isActive = true
+    support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+    shieldAnimTimer = shieldAnimTimer + dt 
+    if shieldAnimTimer >= shieldAnimDuration then
+        if distance <= support.shieldRange and not support.currentTarget.script.haveShield then
+            local shieldEntity = create_new_shield(support.currentTarget)
+            if shieldEntity then
+                local shieldScript = shieldEntity:get_component("ScriptComponent")
+                shieldScript.targetEnemy = support.currentTarget
+                shieldScript.isActive = true
 
-            support.currentTarget.script.shieldHealth = support.enemyShield
-            support.currentTarget.script.haveShield = true
-            support.canUseShield = false
-            support.shieldCooldownActive = true  
-            shieldTimer = 0  
-            
-            support.currentTarget = nil
+                support.currentTarget.script.shieldHealth = support.enemyShield
+                support.currentTarget.script.haveShield = true
+                support.canUseShield = false
+                support.shieldCooldownActive = true  
+                shieldTimer = 0 
+                shieldAnimTimer = 0 
+
+                support.currentTarget = nil
+            end
+
         end
-
     end
 
     support.currentState = support.state.Move
