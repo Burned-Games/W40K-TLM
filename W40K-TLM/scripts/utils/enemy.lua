@@ -63,13 +63,22 @@ function enemy:new(obj)
     obj.invulnerable = false
     obj.isReturning = false
 
+    -- effects
+    obj.isNeuralInhibitioning = false
+
     return obj
 
 end
 
 
 
+function enemy:check_effects()
 
+    if self.isNeuralInhibitioning then
+        
+    end
+
+end
 
 -- State functions
 function enemy:idle_state()

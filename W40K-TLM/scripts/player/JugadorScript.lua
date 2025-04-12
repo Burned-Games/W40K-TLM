@@ -75,13 +75,10 @@ local explorationMusicVolume = 0.05
 local prevBackgroundMusicToPlay = -1
 backgroundMusicToPlay = 0 -- 0 exploration 1 combat
 
--- sangrado
+-- effects
 isBleeding = false
-local bleedTimer = 0
-local bleedDuration = 5
-local bleedDamage = 2
-local timeSinceLastBleed = 0
-local bleedInterval = 1
+isNeuralInhibitioning = false
+
 
 -- Extras
 local pressedButton = false
