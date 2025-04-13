@@ -104,12 +104,6 @@ function on_update(dt)
 
     change_state()
 
-    support:check_effects()
-    support:check_pushed(dt)
-    if support.isPushed == true then
-        return
-    end
-
     findEnemiesTimer = findEnemiesTimer + dt
 
     if support.shieldCooldownActive then
@@ -265,8 +259,17 @@ function support:move_state(dt)
 
         support:follow_path() 
         
+        local stoppingDistance = support.shieldRange * 0.85  -- Ajusta si es necesario
+
         local currentDistance = support:get_distance(support.enemyTransf.position, targetPos.position)
-        
+
+        -- Si ya está suficientemente cerca, deja de moverse
+        if currentDistance <= stoppingDistance then
+            support.enemyRb:set_velocity(Vector3.new(0, 0, 0))  -- Stop movement
+            return
+        end
+
+        -- Si está a distancia para escudo, lanza el escudo
         if currentDistance <= support.shieldRange and support.canUseShield then
             support.currentState = support.state.Shield
         end
