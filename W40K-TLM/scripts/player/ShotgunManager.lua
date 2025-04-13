@@ -536,25 +536,26 @@ function explodeGranade()
                             enemyOrkScript.range.isNeuralInhibitioning = true
                             playerScript.makeDamage = true
                         end
+                    else
+                        local forceFactor = (explosionRadius - distance) / explosionRadius
+                        direction.y = direction.y + explosionUpward
+                        
+                        local finalForce = Vector3.new(
+                            direction.x * explosionForce * forceFactor,
+                            direction.y * explosionForce * forceFactor,
+                            direction.z * explosionForce * forceFactor
+                        )
+                        entityRb:apply_impulse(finalForce)
+
+                        local rotationFactor = explosionForce * forceFactor 
+                        local randomRotation = Vector3.new(
+                            (math.random() - 0.5) * rotationFactor,
+                            (math.random() - 0.5) * rotationFactor,
+                            (math.random() - 0.5) * rotationFactor
+                        )
+
+                        entityRb:set_angular_velocity(randomRotation)
                     end
-                    local forceFactor = (explosionRadius - distance) / explosionRadius
-                    direction.y = direction.y + explosionUpward
-                    
-                    local finalForce = Vector3.new(
-                        direction.x * explosionForce * forceFactor,
-                        direction.y * explosionForce * forceFactor,
-                        direction.z * explosionForce * forceFactor
-                    )
-                    entityRb:apply_impulse(finalForce)
-
-                    local rotationFactor = explosionForce * forceFactor 
-                    local randomRotation = Vector3.new(
-                        (math.random() - 0.5) * rotationFactor,
-                        (math.random() - 0.5) * rotationFactor,
-                        (math.random() - 0.5) * rotationFactor
-                    )
-
-                    entityRb:set_angular_velocity(randomRotation)
                 end
             end
         end

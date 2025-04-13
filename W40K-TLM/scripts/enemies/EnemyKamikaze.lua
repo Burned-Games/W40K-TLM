@@ -70,7 +70,7 @@ end
 function on_update(dt) 
 
     if kamikaze.isDead then return end
-    kamikaze:check_effects()
+    kamikaze:check_effects(dt)
     kamikaze:check_pushed(dt)
     if kamikaze.isPushed == true then
         return

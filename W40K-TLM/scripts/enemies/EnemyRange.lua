@@ -152,8 +152,7 @@ function on_update(dt)
     end
     if range.isDead then return end
 
-    --check_effects()
-    range:check_effects()
+    range:check_effects(dt)
     range:check_pushed(dt)
     if range.isPushed == true then
         return

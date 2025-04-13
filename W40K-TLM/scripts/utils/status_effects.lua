@@ -7,7 +7,7 @@ local timeSinceLastBleed = 0.0
 local bleedInterval = 1.0
 --Neural Inhibition
 local movementSpeedMultiplier = 0.5
-local speedMultiplier = 0.3
+local attackSpeedMultiplier = 0.7
 local neuralTimer = 0.0
 local neuralDuration = 6.0
 
@@ -20,13 +20,6 @@ function effect:apply_bleed(entityScript)
     entityScript.isBleeding = true
     bleedTimer = bleedDuration
     timeSinceLastBleed = 0
-
-end
-
-function effect:apply_neural_inhibition(entity)
-    
-    entityScript.isNeuralInhibitioning = true
-    neuralTimer = neuralDuration
 
 end
 
@@ -49,18 +42,24 @@ function effect:bleed(health, dt)
     return health
 end
 
-function effect:neural(speed, attackSpeed)
+function effect:neural(dt)
 
     neuralTimer = neuralTimer - dt
-    
-    local newSpeed = speed * speedMultiplier
-    local newattackSpeed = attackSpeed * speedMultiplier
-
     if neuralTimer <= 0 then
-        self.isNeuralInhibitioning = false
+        return false
     end
+    return true
+end
 
-    return newSpeed, newattackSpeed
+function effect:ApplyNeuralChanges(speed, attackSpeed)
+    
+    local newSpeed = speed * movementSpeedMultiplier
+    local newattackSpeed = 0
+    if attackSpeed then
+        newattackSpeed = attackSpeed * attackSpeedMultiplier
+    end
+    neuralTimer = neuralDuration
+    return Vector2.new(newSpeed, newattackSpeed)
 end
 
 return effect

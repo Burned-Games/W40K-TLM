@@ -34,6 +34,7 @@ function enemy:new(obj)
     obj.shieldHealth = 0
     obj.enemyShield = 35
     obj.speed = 3
+    obj.defaultSpeed = 3
     obj.damage = 5
     obj.detectionRange = 25
     obj.priority = 0
@@ -71,17 +72,29 @@ function enemy:new(obj)
     obj.pushedTimeCounter = 0
     -- effects
     obj.isNeuralInhibitioning = false
-
+    obj.neuralFirstTime = true
     return obj
 
 end
 
 
 
-function enemy:check_effects()
-
+function enemy:check_effects(dt)
+    
     if self.isNeuralInhibitioning then
-        effect:apply_neural_inhibition(self)
+        if self.neuralFirstTime then
+            local speedVecs = effect:ApplyNeuralChanges(self.speed, 0)
+            self.speed = speedVecs.x       
+            self.neuralFirstTime = false
+        end
+        self.isNeuralInhibitioning = effect:neural(dt)
+        
+    else
+        
+        if not self.neuralFirstTime then
+            self.speed = self.defaultSpeed
+        end
+        self.neuralFirstTime = true
     end
 
 end
