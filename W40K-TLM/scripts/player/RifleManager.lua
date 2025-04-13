@@ -109,6 +109,7 @@ function on_ready()
         if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
             local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
             makeDamage(enemy)
+
         end
 
         if nameA == "EnemySupport" or nameB == "EnemySupport" then
@@ -146,29 +147,48 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
-            local enemy = (nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" and entityA) or (nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" and entityB)
-            makeDisruptorDamage(enemy)
+        if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" then 
+            print("aaaaaaaaaaaaaa")
+            makeDisruptorDamage(entityA)
         end
 
-        if nameA == "EnemySupport" or nameB == "EnemySupport" then
-            local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
-            makeDisruptorDamage(enemy)
+        if nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
+            makeDisruptorDamage(entityB)
+            
         end
 
-        if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
-            local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
-            makeDisruptorDamage(enemy)
+        if nameA == "EnemySupport" then 
+            makeDisruptorDamage(entityA)
         end
 
-        if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
-            local enemy = (nameA == "EnemyOrk" and entityA) or (nameB == "EnemyOrk" and entityB)
-            makeDisruptorDamage(enemy)
+        if nameB == "EnemySupport" then
+            makeDisruptorDamage(entityB)
         end
 
-        if nameA == "MainBoss" or nameB == "MainBoss" then
-            local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
-            makeDisruptorDamage(enemy)
+        if nameA == "EnemyKamikaze" then 
+            makeDisruptorDamage(entityA)
+        end
+
+        if nameB == "EnemyKamikaze" then
+            makeDisruptorDamage(entityB)
+        end
+
+        if nameA == "EnemyTank" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" then 
+            print("aaaaaaaaaaaaaa")
+            makeDisruptorDamage(entityA)
+        end
+
+        if nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
+            makeDisruptorDamage(entityB)
+            
+        end
+
+        if nameA == "MainBoss" then 
+            makeDisruptorDamage(entityA)
+        end
+
+        if nameB == "MainBoss" then
+            makeDisruptorDamage(entityB)
         end
     end)
 
@@ -351,7 +371,7 @@ function chargedZoneUpdate(dt)
         secondCounter = secondCounter + dt
          ----print("secondCounter", secondCounter)
      else
-        --print("chargedZone Finished")
+        chargeZoneRb:set_position(Vector3.new(0,-100,0))
         activateZone = false
      end
 
@@ -393,29 +413,17 @@ function chargedZoneUpdate(dt)
                         if enemyOrkScript ~= nil then
                             enemyOrkScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
-                            -- if enemyOrkScript.shieldHealth > 0 then
-                            --     -- bulletDamageParticleComponent:emit(20)
-                            --     enemyOrkScript.
-                            --     enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
-                            --     playerScript.makeDamage = true
-                            -- else
-                            --     -- bulletDamageParticleComponent:emit(20)
-                            --     enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
-                            --     playerScript.makeDamage = true
-                            -- end
-                            --print("damage dealed")
+
                         end
                     end
 
                     if name == "EnemySupport" then
                         enemySuppScript = entity:get_component("ScriptComponent")
                         if enemySuppScript ~= nil then
-                    
-                            -- bulletDamageParticleComponent:emit(20)
-                            enemySuppScript.enemyHealth = enemySuppScript.enemyHealth - chargeZoneDamagePerSecond
+                            enemySuppScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
+
                         end
-                        --print("damage dealed")
                     end 
                     
                     if name == "EnemyKamikaze" then  
@@ -530,14 +538,20 @@ function makeDisruptorDamage(enemy)
     local enemyTag = nil
     local enemyScript = nil
     local enemyInstance = nil
-
+    print("qqqqqqqqqqqqqqqqq")
     if enemy ~= nil then  
-        enemyTag = enemy:get_component("TagComponent").tag           
+        print("wwwwwwwwwwwwwwwwwwwwwwwwwwwww")
+        enemyTag = enemy:get_component("TagComponent").tag   
+        print(enemyTag)
         enemyScript = enemy:get_component("ScriptComponent")
+        print("iiiiiiiiiiiiiiii")
+        
     end
-
+    print("UUUUUUUUUUUUU")
     if enemy ~= nil then
+        print("LLLLLLLLLLLLLL")
         if enemyScript ~= nil then
+            print("ZZZZZZZZZZZZZZZZ")
             if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                 enemyInstance = enemyScript.range
             elseif enemyTag == "EnemySupport" then
@@ -547,10 +561,11 @@ function makeDisruptorDamage(enemy)
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
             end
-
-            enemyInstance:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+            print("PPPPPPPPPP")
+            enemyInstance:take_damage(disruptorBulletDamage, shieldMultiplier)
             playerScript.makeDamage = true
             activateZone = true
+            print("tppppppppppp")
             chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
             disruptorBulletRb:set_position(Vector3.new(0,1000,0))
             disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
