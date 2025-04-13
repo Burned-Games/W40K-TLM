@@ -50,9 +50,7 @@ function on_ready()
         end
     end
 
-    support.wp1Transf = support.waypoint1:get_component("TransformComponent")
-    support.wp2Transf = support.waypoint2:get_component("TransformComponent")
-    support.wp3Transf = support.waypoint3:get_component("TransformComponent")
+    set_Waypoints()
 
     support.currentTarget = nil
 
@@ -372,6 +370,36 @@ function support:flee_state(dt)
 
 end
 
+function set_Waypoints()
+    -- Obtener componentes Transform de los waypoints
+    support.wp1Transf = support.waypoint1:get_component("TransformComponent")
+    support.wp2Transf = support.waypoint2:get_component("TransformComponent")
+    support.wp3Transf = support.waypoint3:get_component("TransformComponent")
+
+    local suppPos = support.enemyTransf.position
+    local radius = 8.0  -- Radio alrededor del support
+    
+    -- Generar posiciones aleatorias para cada waypoint
+    local waypointTransforms = {
+        support.wp1Transf,
+        support.wp2Transf,
+        support.wp3Transf
+    }
+
+    for _, wpTransf in ipairs(waypointTransforms) do
+        -- Generar ángulo aleatorio en radianes (0 a 2π)
+        local randomAngle = math.random() * 2 * math.pi
+        
+        -- Calcular posición alrededor del support
+        local x = suppPos.x + radius * math.cos(randomAngle)
+        local z = suppPos.z + radius * math.sin(randomAngle)
+        local newPos = Vector3.new(x, 0, z)
+        
+        -- Asignar nueva posición al waypoint (CORRECCIÓN AQUÍ)
+        wpTransf.position = newPos  -- Asignación directa en lugar de método
+    end
+end
+
 function find_all_enemies()
     -- Reset all enemy tables
     support.EnemyRange = {}
@@ -517,11 +545,11 @@ function create_new_shield(targetEnemy)
         log("Error: No target enemy provided for shield")
         return nil
     end
-    
+
     local newShield = current_scene:duplicate_entity(support.prefabShield)
     local shieldTransform = newShield:get_component("TransformComponent")
     local shieldScript = newShield:get_component("ScriptComponent")
-    shieldTransform.scale = Vector3.new(1.3, 1.3, 1.3)
+    shieldTransform.scale = Vector3.new(1.8, 1.8, 1.8)
     
     return newShield
 end

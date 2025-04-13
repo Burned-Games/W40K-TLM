@@ -30,11 +30,10 @@ function on_update(dt)
 end
 
 function shieldDestroy()
-    if targetEnemy and targetEnemy.script then
-        targetEnemy.script.haveShield = false
-        targetEnemy.script.shieldHealth = 0
+    if shieldTransform then
+        local currentPos = shieldTransform.position
+        shieldTransform.position = Vector3.new(5000, currentPos.y, currentPos.z)
     end
-    set_position(Vector3.new(-500, 0, 0))
 end
 
 function on_exit() end
