@@ -38,8 +38,8 @@ function on_ready()
     range.enemyRb = range.enemyRbComponent.rb
     range.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-    range.scrap = current_scene:get_entity_by_name("Scrap")
-    range.scrapTransf = range.scrap:get_component("TransformComponent")
+    --range.scrap = current_scene:get_entity_by_name("Scrap")
+    --range.scrapTransf = range.scrap:get_component("TransformComponent")
 
     -- Initialize bullet pool
     for i = 1, 5 do

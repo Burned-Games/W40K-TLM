@@ -6,11 +6,11 @@ support = enemy:new()
 local shieldTimer = 0.0
 local shieldCooldown = 5.0
 local findEnemiesTimer = 0.0
-local findEnemiesInterval = 1.5
+local findEnemiesInterval = 40.0
 local pathUpdateTimer = 0.0
 local pathUpdateInterval = 1.0
 local checkEnemyTimer = 0.0
-local checkEnemyInterval = 2.0 
+local checkEnemyInterval = 40.0 
 
 function on_ready() 
 
@@ -26,17 +26,59 @@ function on_ready()
 
     support.prefabShield = current_scene:get_entity_by_name("Shield")
 
-    -- This needs to be done by code, to avoid problems with other support entities
-    support.waypoint1 = current_scene:get_entity_by_name("SuppWaypoint1")
-    support.waypoint2 = current_scene:get_entity_by_name("SuppWaypoint2")
-    support.waypoint3 = current_scene:get_entity_by_name("SuppWaypoint3")
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "SuppWaypoint1" then
+            support.waypoint1 = child
+            child:set_parent(support.waypointsParent)
+        elseif child:get_component("TagComponent").tag == "SuppWaypoint2" then
+            support.waypoint2 = child
+            child:set_parent(support.waypointsParent)
+        elseif child:get_component("TagComponent").tag == "SuppWaypoint3" then
+            support.waypoint3 = child
+            child:set_parent(support.waypointsParent)
+        end
+    end
+
     support.wp1Transf = support.waypoint1:get_component("TransformComponent")
     support.wp2Transf = support.waypoint2:get_component("TransformComponent")
     support.wp3Transf = support.waypoint3:get_component("TransformComponent")
 
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "ShearchTrigger" then
+            support.shearchTrigger = child
+            child:set_parent(support.shearchParent)
+        end
+    end
+
+    if support.shearchTrigger then
+        support.shearchCollider = support.shearchTrigger:get_component("RigidbodyComponent")
+        support.shearchTransf = support.shearchTrigger:get_component("TransformComponent")
+        support.shearchCollider.rb:set_trigger(true) 
+        
+        
+        support.enemiesInCollider = {}
+        
+        
+        support.shearchCollider.rb:on_trigger_enter(function(entity)
+            local tag = entity:get_component("TagComponent").tag
+            if tag == "EnemyRange" or tag == "EnemyTank" or tag == "EnemyKamikaze" then
+                table.insert(support.enemiesInCollider, entity)
+            end
+        end)
+        
+        support.shearchCollider.rb:on_trigger_exit(function(entity)
+            for i, e in ipairs(support.enemiesInCollider) do
+                if e == entity then
+                    table.remove(support.enemiesInCollider, i)
+                    break
+                end
+            end
+        end)
+    end
+
     support.currentTarget = nil
-
-
 
     local enemy_type = "support"
     support.level = 1
@@ -48,8 +90,6 @@ function on_ready()
         return
     end
 
-
-
     -- Stats of the Support
     support.health = stats.health
     support.speed = stats.speed
@@ -59,8 +99,6 @@ function on_ready()
     support.detectionRange = stats.detectionRange
     support.shieldRange = stats.shieldRange
     support.attackRange = stats.attackRange
-
-
 
     support.idleAnim = 0
     support.moveAnim = 0
@@ -135,6 +173,7 @@ function change_state()
         return
     end
 
+    support.allShielded = true
     for _, enemyData in ipairs(support.Enemies) do
         if not enemyData.haveShield then
             support.allShielded = false
@@ -337,74 +376,106 @@ function support:flee_state(dt)
 
 end
 
-
-
 function find_all_enemies()
-
-    -- Clear existing enemies table to avoid duplicates
+    -- Limpiar listas anteriores
+    support.EnemyRange = {}
+    support.EnemyTank = {}
+    support.EnemyKamikaze = {}
     support.Enemies = {}
-        
-    local enemyNames = { "EnemyRange", "EnemyTank", "EnemyKamikaze" }
-    local suppPos = support.enemyTransf.position
+    
+    -- Usar find_all_entities_of_type con los enemigos en el collider
+    support.EnemyRange = find_all_entities_of_type("EnemyRange", support.EnemyRange, "range")
+    support.EnemyTank = find_all_entities_of_type("EnemyTank", support.EnemyTank, "tank")
+    support.EnemyKamikaze = find_all_entities_of_type("EnemyKamikaze", support.EnemyKamikaze, "kamikaze")
+    
+    -- Combinar todos los tipos de enemigos en la tabla principal
+    for _, enemy in ipairs(support.EnemyRange) do
+        table.insert(support.Enemies, enemy)
+    end
+    
+    for _, enemy in ipairs(support.EnemyTank) do
+        table.insert(support.Enemies, enemy)
+    end
+    
+    for _, enemy in ipairs(support.EnemyKamikaze) do
+        table.insert(support.Enemies, enemy)
+    end
+    
+    -- Actualizar información de escudos
+    update_shield_status()
+    
+    -- Aumentar el intervalo entre detecciones
+    findEnemiesInterval = 15.0
+end
 
-    for _, name in ipairs(enemyNames) do
-        local entity = current_scene:get_entity_by_name(name)
-        if entity then
+function find_all_entities_of_type(typeName, resultTable, scriptField)
+    local suppPos = support.enemyTransf.position
+    
+    for _, entity in ipairs(support.enemiesInCollider) do
+        -- Comprobar si esta entidad tiene el tag correcto
+        local tag = entity:get_component("TagComponent").tag
+        
+        if tag == typeName then
             local script = entity:get_component("ScriptComponent")
             local entityTransform = entity:get_component("TransformComponent")
-
-            if entityTransform then
+            
+            if entityTransform and script then
                 local distance = support:get_distance(suppPos, entityTransform.position)
-
+                
                 if distance <= support.detectionRange then
                     local enemyScriptInstance = nil
-
-                    if name == "EnemyRange" then
+                    
+                    if scriptField == "range" then
                         enemyScriptInstance = script.range
-                    elseif name == "EnemyTank" then
+                    elseif scriptField == "tank" then
                         enemyScriptInstance = script.tank
-                    elseif name == "EnemyKamikaze" then
+                    elseif scriptField == "kamikaze" then
                         enemyScriptInstance = script.kamikaze
                     end
                     
-                    local enemyData = {
-                        name = name,
-                        transform = entityTransform,
-                        script = enemyScriptInstance,
-                        health = enemyScriptInstance.health or 100,
-                        priority = enemyScriptInstance.priority or 1,
-                        haveShield = enemyScriptInstance.haveShield or false
-                    }
-                
-                    table.insert(support.Enemies, enemyData)
+                    if enemyScriptInstance then
+                        -- Usar un identificador único para el nombre
+                        local entityName = entity:get_component("NameComponent") and 
+                                          entity:get_component("NameComponent").name or 
+                                          (typeName .. "_" .. #resultTable)
+                        
+                        local enemyData = {
+                            name = entityName,
+                            transform = entityTransform,
+                            script = enemyScriptInstance,
+                            health = enemyScriptInstance.health or (scriptField == "tank" and 275 or 100),
+                            priority = enemyScriptInstance.priority or (scriptField == "kamikaze" and 3 or (scriptField == "tank" and 2 or 1)),
+                            haveShield = enemyScriptInstance.haveShield or false
+                        }
+                        
+                        table.insert(resultTable, enemyData)
+                    end
                 end
             end
         end
     end
-
-    if #support.Enemies > 0 then
-        get_priority_enemy()
-    end
-
+    return resultTable
 end
 
 function get_priority_enemy()
-
-    local priorityEnemy = {}
-
+    local priorityEnemies = {}
+    
+    -- Obtener prioridades y enemigos
     for _, enemyData in ipairs(support.Enemies) do
         if enemyData.priority then
-            local enemyPriority = enemyData.priority
-            table.insert(priorityEnemy,{
-                enemy= enemyData,
-                priority = enemyPriority
+            table.insert(priorityEnemies, {
+                enemy = enemyData,
+                priority = enemyData.priority
             })
         end
     end
-
+    
+    -- Ordenar descendientemente por prioridad (mayor primero)
+    table.sort(priorityEnemies, function(a, b)
+        return a.priority > b.priority
+    end)
     enemies_distance()
-    return priorityEnemy
-
+    return priorityEnemies
 end
 
 function enemies_distance()
@@ -422,23 +493,17 @@ function enemies_distance()
         end
     end
 
-    update_shield_status()  
     return distances
-
 end
 
 function update_shield_status()
-
     local shieldState = {}
-
+    
     for _, enemyData in ipairs(support.Enemies) do
-        if enemyData.haveShield then
-            local enemyHaveShield = enemyData.haveShield
-            table.insert(shieldState,{
-                enemy= enemyData,
-                haveShield = enemyHaveShield
-            })
-        end
+        table.insert(shieldState, {
+            enemy = enemyData,
+            haveShield = enemyData.haveShield or false
+        })
     end
 
     return shieldState
@@ -449,12 +514,12 @@ function create_new_shield(targetEnemy)
         log("Error: No target enemy provided for shield")
         return nil
     end
-
+    
     local newShield = current_scene:duplicate_entity(support.prefabShield)
     local shieldTransform = newShield:get_component("TransformComponent")
     local shieldScript = newShield:get_component("ScriptComponent")
     shieldTransform.scale = Vector3.new(1.3, 1.3, 1.3)
-
+    
     return newShield
 end
 
@@ -468,5 +533,6 @@ function update_waypoint_path()
     end
 
 end
+
 
 function on_exit() end
