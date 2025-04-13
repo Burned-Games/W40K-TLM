@@ -100,9 +100,9 @@ function on_update(dt)
 
     if support.isDead then return end
 
-    range:check_effects(dt)
-    range:check_pushed(dt)
-    if range.isPushed == true then
+    support:check_effects(dt)
+    support:check_pushed(dt)
+    if support.isPushed == true then
         return
     end
     change_state()
