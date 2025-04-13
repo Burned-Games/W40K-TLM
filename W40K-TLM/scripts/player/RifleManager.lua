@@ -420,55 +420,38 @@ function chargedZoneUpdate(dt)
                     if name == "EnemySupport" then
                         enemySuppScript = entity:get_component("ScriptComponent")
                         if enemySuppScript ~= nil then
-                            enemySuppScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+                            enemySuppScript.support:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
 
                         end
                     end 
                     
                     if name == "EnemyKamikaze" then  
-                        enemyOrkScript = entity:get_component("ScriptComponent")
-                        if enemyOrkScript ~= nil then
-                    
-                            if enemyOrkScript.shieldHealth > 0 then
-                                -- bulletDamageParticleComponent:emit(20)
-                                enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
-                                playerScript.makeDamage = true
-                            else
-                                -- bulletDamageParticleComponent:emit(20)
-                                enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
-                                playerScript.makeDamage = true
-                            end
+                        enemyKamikazeScript = entity:get_component("ScriptComponent")
+                        if enemyKamikazeScript ~= nil then
+                            enemyKamikazeScript.kamikaze:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+                            playerScript.makeDamage = true
                         end
                     end
 
                     if name == "EnemyTank" or name == "EnemyTank1" or name == "EnemyTank2" or name == "EnemyTank3" or name == "EnemyTank4" or name == "EnemyTank5" or name == "EnemyTank6" then  
-                        enemyOrkScript = entity:get_component("ScriptComponent")
-                        if enemyOrkScript ~= nil then
-                    
-                            if enemyOrkScript.shieldHealth > 0 then
-                                -- bulletDamageParticleComponent:emit(20)
-                                enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
-                                playerScript.makeDamage = true
-                            else
-                                -- bulletDamageParticleComponent:emit(20)
-                                enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
-                                playerScript.makeDamage = true
-                            end
+                        enemyTankScript = entity:get_component("ScriptComponent")
+                        if enemyTankScript ~= nil then
+                            enemyTankScript.kamikaze:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+                            playerScript.makeDamage = true
                         end
                     end
 
-                    if name == "MainBoss" then  
+                    if name == "MainBoss" then 
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then
-                    
                             if enemyOrkScript.shieldHealth > 0 then
                                 -- bulletDamageParticleComponent:emit(20)
                                 enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
                                 playerScript.makeDamage = true
                             else
                                 -- bulletDamageParticleComponent:emit(20)
-                                enemyOrkScript.enemyHealth = enemyOrkScript.enemyHealth - chargeZoneDamagePerSecond
+                                enemyOrkScript.health = enemyOrkScript.health - chargeZoneDamagePerSecond
                                 playerScript.makeDamage = true
                             end
                         end
@@ -512,20 +495,20 @@ function makeDamage(enemy)
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
+            elseif enemyTag == "MainBoss" then
+                if enemyScript.shieldHealth > 0 then
+                    enemyScript.shieldHealth = enemyScript.shieldHealth - (damageRifle)
+                    print(enemyScript.shieldHealth)
+                else
+                    enemyScript.health = enemyScript.health - damageRifle
+                    print(enemyScript.health)
+                end
             end
-
-            enemyInstance:take_damage(chargeZoneDamagePerSecond)
-            playerScript.makeDamage = true
-                    
-            -- if enemyScript.shieldHealth > 0 then
-            --     -- bulletDamageParticleComponent:emit(20)
-            --     enemyScript.shieldHealth = enemyScript.shieldHealth - damage
-            --     playerScript.makeDamage = true
-            -- else
-            -- -- bulletDamageParticleComponent:emit(20)
-            -- enemyScript.enemyHealth = enemyScript.enemyHealth - damage
-            -- playerScript.makeDamage  =true
-            --end
+            
+            if enemyInstance ~= nil then
+                enemyInstance:take_damage(damageRifle)
+                playerScript.makeDamage = true
+            end
         end
     end
 

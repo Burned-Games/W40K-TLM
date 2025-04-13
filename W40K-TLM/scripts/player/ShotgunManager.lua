@@ -181,11 +181,6 @@ function on_update(dt)
             shootAnimation = false
         end
 
-        if rightTrigger == Input.state.Up and playerScript.currentUpAnim == playerScript.attack then
-            playerScript.currentAnim = playerScript.idle
-            playerScript.animator:set_upper_animation(playerScript.currentAnim)
-        end
-
         -- reload
         if ammo == 0 and not is_reloading then
             is_reloading = true
@@ -287,7 +282,7 @@ function handle_bullet_collision(entityA, entityB)
                 if enemyScript ~= nil then
                     if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                         enemyInstance = enemyScript.range
-                    elseif enemyTag == "EnemySupp" then
+                    elseif enemyTag == "EnemySupport" then
                         enemyInstance = enemyScript.support
                     elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                         enemyInstance = enemyScript.tank
@@ -297,7 +292,11 @@ function handle_bullet_collision(entityA, entityB)
         
                     enemyInstance:take_damage(damage)
                     playerScript.makeDamage = true
-                            
+                       
+                    if enemyTag == "MainBoss" then
+                        enemyScript:take_damage(damage)
+                        playerScript.makeDamage = true
+                    end
                 end
             end
 
@@ -328,8 +327,8 @@ function handle_bullet_collision(entityA, entityB)
     end
 
 
-    if nameA == "EnemySupp" or nameB == "EnemySupp" then
-        local enemy = (nameA == "EnemySupp" and entityA) or (nameB == "EnemySupp" and entityB)
+    if nameA == "EnemySupport" or nameB == "EnemySupport" then
+        local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end
@@ -527,35 +526,23 @@ function explodeGranade()
                 end
 
                 if distance < explosionRadius then
+                    local forceFactor = (explosionRadius - distance) / explosionRadius
+                    direction.y = direction.y + explosionUpward
+                    local finalForce = Vector3.new(
+                        direction.x * explosionForce * forceFactor,
+                        direction.y * explosionForce * forceFactor,
+                        direction.z * explosionForce * forceFactor
+                    )
+                    entityRb:apply_impulse(finalForce)
 
-                    local name = entity:get_component("TagComponent").tag
+                    local rotationFactor = explosionForce * forceFactor 
+                    local randomRotation = Vector3.new(
+                        (math.random() - 0.5) * rotationFactor,
+                        (math.random() - 0.5) * rotationFactor,
+                        (math.random() - 0.5) * rotationFactor
+                    )
 
-                    if name == "EnemyRange" then  
-                        enemyOrkScript = entity:get_component("ScriptComponent")
-                        if enemyOrkScript ~= nil then
-                            enemyOrkScript.range.isNeuralInhibitioning = true
-                            playerScript.makeDamage = true
-                        end
-                    else
-                        local forceFactor = (explosionRadius - distance) / explosionRadius
-                        direction.y = direction.y + explosionUpward
-                        
-                        local finalForce = Vector3.new(
-                            direction.x * explosionForce * forceFactor,
-                            direction.y * explosionForce * forceFactor,
-                            direction.z * explosionForce * forceFactor
-                        )
-                        entityRb:apply_impulse(finalForce)
-
-                        local rotationFactor = explosionForce * forceFactor 
-                        local randomRotation = Vector3.new(
-                            (math.random() - 0.5) * rotationFactor,
-                            (math.random() - 0.5) * rotationFactor,
-                            (math.random() - 0.5) * rotationFactor
-                        )
-
-                        entityRb:set_angular_velocity(randomRotation)
-                    end
+                    entityRb:set_angular_velocity(randomRotation)
                 end
             end
         end

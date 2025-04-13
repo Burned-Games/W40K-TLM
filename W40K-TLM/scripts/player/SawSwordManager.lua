@@ -31,7 +31,7 @@ function on_ready()
     entities = current_scene:get_all_entities()
     enemies = {} 
     for _, entity in ipairs(entities) do 
-        if entity:get_component("TagComponent").tag == "EnemyRange" or entity:get_component("TagComponent").tag == "EnemySupp" or entity:get_component("TagComponent").tag == "EnemyKamikaze" or entity:get_component("TagComponent").tag == "EnemyTank" or entity:get_component("TagComponent").tag == "MainBoss" then
+        if entity:get_component("TagComponent").tag == "EnemyRange" or entity:get_component("TagComponent").tag == "EnemySupport" or entity:get_component("TagComponent").tag == "EnemyKamikaze" or entity:get_component("TagComponent").tag == "EnemyTank" or entity:get_component("TagComponent").tag == "MainBoss" then
             table.insert(enemies, entity)
         end
     end
@@ -101,36 +101,24 @@ function Slash()
                     if enemyScript ~= nil then
                         if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                             enemyInstance = enemyScript.range
-                            enemyInstance:take_damage(damage)
-                            playerScript.health = playerScript.health + HpStealed
-                            playerScript.makeDamage = true
-                            enemyInstance.isPushed = true
-                            
-                        elseif enemyTag == "EnemySupp" then
+                        elseif enemyTag == "EnemySupport" then
                             enemyInstance = enemyScript.support
-                            enemyInstance:take_damage(damage)
-                            playerScript.health = playerScript.health + HpStealed
-                            playerScript.makeDamage = true
-                            enemyInstance.isPushed = true
                         elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                             enemyInstance = enemyScript.tank
-                            enemyInstance:take_damage(damage)
-                            playerScript.health = playerScript.health + HpStealed
-                            playerScript.makeDamage = true
-                            enemyInstance.isPushed = true
                         elseif enemyTag == "EnemyKamikaze" then
                             enemyInstance = enemyScript.kamikaze
-                            enemyInstance:take_damage(damage)
-                            playerScript.health = playerScript.health + HpStealed
-                            playerScript.makeDamage = true
-                            enemyInstance.isPushed = true
                         end
+
+                        enemyInstance:take_damage(damage)
+                        playerScript.playerHealth = playerScript.playerHealth + HpStealed
+                        playerScript.makeDamage = true
+
+                        enemyScript.pushed = true
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
                         entityPos.y - playerTransf.position.y,
                         entityPos.z - playerTransf.position.z)
                         entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
-                        
 
                     end
                 end
