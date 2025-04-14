@@ -52,8 +52,29 @@ local mission9Component = nil
 local mission10Complet = false
 
 
-enemyDieCounttest = 3
+--M3
+m3_EnemyCount = 2
+--M4
+m4_lever = false
+--M5
+m5_Upgrade = false
+--M6
+m6_heal  = false
+--M7
+m7_Upgrade = false
+--m8
+m8_lever1 = false
+m8_lever2 = false
+--M9
+m9_EnemyCount = 3
+--M10
+m10_Upgrade = false
+--M11
+m11_NewZone = false
+
+
 -- Trigger variables
+enemyDieCounttest = 2
 enemyDieCount = 0
 enemyDie_M7 = 1
 enemyDie_M10 = 1
@@ -89,6 +110,33 @@ function on_update(dt)
         redTaskIndex = redTaskIndex + 1
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
+
+    if Input.is_key_pressed(Input.keycode.P) then
+        m4_lever = true
+    end
+
+    if Input.is_key_pressed(Input.keycode.O) then
+        m5_Upgrade = true
+    end
+
+    if Input.is_key_pressed(Input.keycode.I) then
+        m6_heal = true
+    end
+
+    if Input.is_key_pressed(Input.keycode.U) then
+        m7_Upgrade = true
+    end
+    if Input.is_key_pressed(Input.keycode.Y) then
+        m8_lever1 = true
+        m8_lever2 = true
+    end
+    if Input.is_key_pressed(Input.keycode.T) then
+        m10_Upgrade = true
+    end
+    if Input.is_key_pressed(Input.keycode.R) then
+        m11_NewZone = true
+    end
+
 end
 
 function updateText()
@@ -102,7 +150,13 @@ function getCurrentTask(tasks, index)
     if index > #tasks then return "" end
     local description = tasks[index].description
 
-    description = description:gsub("x", tostring(enemyDieCounttest))
+    if blueTaskIndex == 3 then
+        description = description:gsub("x", tostring(m3_EnemyCount))
+    end
+
+    if blueTaskIndex == 9 then
+        description = description:gsub("x", tostring(m9_EnemyCount))
+    end
 
     return insert_line_breaks(description, 26)
 end
@@ -113,23 +167,23 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 3 and mission4Component.m4_Clear then
+    elseif blueTaskIndex == 3 and m3_EnemyCount == 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 4 and M5_WorkBrech then
+    elseif blueTaskIndex == 4 and m4_lever then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 5 and mission6Component.m6_Clear then
+    elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)
-    elseif mission6Component.m7_missionOpen and enemyDie_M7 <= 0 then
-        mission7Complet = true
-    elseif blueTaskIndex == 6 and mission7Complet then
+    elseif blueTaskIndex == 6 and m6_heal then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 7 and mission8Component.m8_Clear then
+    elseif blueTaskIndex == 7 and m7_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 8 and M9_WorkBrech then
+    elseif blueTaskIndex == 8 and m8_lever1 and m8_lever2 then
         startAnimation(blueAnimation)
-    elseif mission8Component.m10_missionOpen and enemyDie_M10 <= 0 then
-        mission10Complet = true
-    elseif blueTaskIndex == 9 and mission10Complet then
+    elseif blueTaskIndex == 9 and m9_EnemyCount == 0 then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 10 and m10_Upgrade then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 11 and m11_NewZone then
         startAnimation(blueAnimation)
     end
 end
@@ -198,6 +252,15 @@ function insert_line_breaks(text, max_chars_per_line)
     if current_line ~= "" then table.insert(result, current_line) end
     return table.concat(result, "\n")
 end
+
+function getCurrerTaskIndex(type)
+    if type == true then
+        return blueTaskIndex
+    else
+        return redTaskIndex
+    end
+end 
+
 
 function utf8_char_count(s)
     local _, count = s:gsub("[^\128-\191]", "")

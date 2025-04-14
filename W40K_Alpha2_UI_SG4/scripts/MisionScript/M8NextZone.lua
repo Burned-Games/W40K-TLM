@@ -4,6 +4,9 @@ local mission8RigidBody = nil
 m8_Clear = false
 m10_missionOpen = false
 function on_ready()
+    --Mission
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+
     mission8RigidBodyComponent = self:get_component("RigidbodyComponent")
     mission8RigidBody = mission8RigidBodyComponent.rb
     mission8RigidBody:set_trigger(true)
@@ -12,8 +15,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
       
     if nameA == "Player" or nameB == "Player" then
-        m8_Clear = true
-        m10_missionOpen = true
+        mission_Component.m7_Upgrade = true
     end
     end)
     -- Add initialization code here
