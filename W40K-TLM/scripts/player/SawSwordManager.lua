@@ -63,7 +63,6 @@ end
 
 
 function Slash()
-    print("aaaaaaaaaaaaaaa")
     for _, entity in ipairs(enemies) do 
         if entity ~= player and entity:has_component("RigidbodyComponent") and entity:is_active() then
             local entityRb = entity:get_component("RigidbodyComponent").rb
@@ -114,7 +113,6 @@ function Slash()
                         playerScript.makeDamage = true
                         
                         enemyInstance.isPushed = true
-                        print("ddddddddddddddd")
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
                         entityPos.y - playerTransf.position.y,

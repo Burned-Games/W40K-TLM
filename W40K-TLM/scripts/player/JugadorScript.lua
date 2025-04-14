@@ -475,6 +475,7 @@ function handleWeaponSwitch(dt)
         if swordAnimationTimeCounter <= swordAnimationTime then
             swordAnimationTimeCounter = swordAnimationTimeCounter + dt
         else
+            currentUpAnim = -1
             currentAnim = -1
             swordAnimationTimeCounter = 0
             swordUpper:set_active(false)
@@ -610,7 +611,7 @@ function playerMovement(dt)
             (rotationDirection.z > minZ and rotationDirection.z < maxZ) then        
                 
                 if actualweapon == 0 then
-                    if currentAnim ~= run and bolterScript.shootAnimation == false then
+                    if currentAnim ~= run and bolterScript.shootAnimation == false  and swordScript.slashed == false then
                         currentAnim = run
                         animator:set_upper_animation(currentAnim)
                         animator:set_lower_animation(currentAnim)
@@ -629,7 +630,7 @@ function playerMovement(dt)
                         
                         
                     end
-                    if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                    if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false and swordScript.slashed == false then
                             
                         currentUpAnim = run_Shotgun
                         animator:set_upper_animation(currentUpAnim)
@@ -642,7 +643,7 @@ function playerMovement(dt)
                 (rotationDirection.z < minX or rotationDirection.z > maxX)) then
                     
                     if actualweapon == 0 then
-                        if currentAnim ~= runB and bolterScript.shootAnimation == false then
+                        if currentAnim ~= runB and bolterScript.shootAnimation == false and swordScript.slashed == false then
                             currentAnim = runB
                             animator:set_upper_animation(currentAnim)
                             animator:set_lower_animation(currentAnim)
@@ -661,7 +662,7 @@ function playerMovement(dt)
                             
                             
                         end
-                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false and swordScript.slashed == false then
                                 
                             currentUpAnim = run_Shotgun
                             animator:set_upper_animation(currentUpAnim)
@@ -677,7 +678,7 @@ function playerMovement(dt)
                 if cross > 0 then
                     -- IZQUIERDA
                     if actualweapon == 0 then
-                        if currentAnim ~= runR and bolterScript.shootAnimation == false then
+                        if currentAnim ~= runR and bolterScript.shootAnimation == false and swordScript.slashed == false then
                             currentAnim = runR
                             animator:set_upper_animation(currentAnim)
                             animator:set_lower_animation(currentAnim)
@@ -691,7 +692,7 @@ function playerMovement(dt)
                                 animator:set_upper_animation(currentUpAnim)
                             end
                         end
-                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false and swordScript.slashed == false then
                             currentUpAnim = run_Shotgun
                             animator:set_upper_animation(currentUpAnim)
                         end
@@ -700,7 +701,7 @@ function playerMovement(dt)
                 elseif cross < 0 then
                     -- DERECHA
                     if actualweapon == 0 then
-                        if currentAnim ~= runL and bolterScript.shootAnimation == false then
+                        if currentAnim ~= runL and bolterScript.shootAnimation == false and swordScript.slashed == false then
                             currentAnim = runL
                             animator:set_upper_animation(currentAnim)
                             animator:set_lower_animation(currentAnim)
@@ -714,7 +715,7 @@ function playerMovement(dt)
                                 animator:set_upper_animation(currentUpAnim)
                             end
                         end
-                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                        if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false and swordScript.slashed == false then
                             currentUpAnim = run_Shotgun
                             animator:set_upper_animation(currentUpAnim)
                         end
@@ -729,7 +730,7 @@ function playerMovement(dt)
 
             if rotationDirection.x == 0 and rotationDirection.z == 0 then
                 if actualweapon == 0 then
-                    if currentAnim ~= run and bolterScript.shootAnimation == false then
+                    if currentAnim ~= run and bolterScript.shootAnimation == false and swordScript.slashed == false then
                         currentAnim = run
                         animator:set_upper_animation(currentAnim)
                         animator:set_lower_animation(currentAnim)
@@ -748,9 +749,9 @@ function playerMovement(dt)
                         
                         
                     end
-                    if currentUpAnim ~= run_Shotgun and shotGunScript.shootAnimation == false then
+                    if currentUpAnim ~= idle and shotGunScript.shootAnimation == false and swordScript.slashed == false then
                             
-                        currentUpAnim = run_Shotgun
+                        currentUpAnim = idle
                         animator:set_upper_animation(currentUpAnim)
                     end
 
