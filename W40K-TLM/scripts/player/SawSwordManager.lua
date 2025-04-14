@@ -31,7 +31,8 @@ function on_ready()
     entities = current_scene:get_all_entities()
     enemies = {} 
     for _, entity in ipairs(entities) do 
-        if entity:get_component("TagComponent").tag == "EnemyRange" or entity:get_component("TagComponent").tag == "EnemySupport" or entity:get_component("TagComponent").tag == "EnemyKamikaze" or entity:get_component("TagComponent").tag == "EnemyTank" or entity:get_component("TagComponent").tag == "MainBoss" then
+        enemyTag = entity:get_component("TagComponent").tag
+        if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" or enemyTag == "EnemySupport" or enemyTag == "EnemyKamikaze" or enemyTag == "EnemyTank" or enemyTag == "MainBoss" then
             table.insert(enemies, entity)
         end
     end
@@ -62,7 +63,7 @@ end
 
 
 function Slash()
-    
+    print("aaaaaaaaaaaaaaa")
     for _, entity in ipairs(enemies) do 
         if entity ~= player and entity:has_component("RigidbodyComponent") and entity:is_active() then
             local entityRb = entity:get_component("RigidbodyComponent").rb
@@ -87,7 +88,7 @@ function Slash()
             end
 
             if distance < radiusAttack then
-
+                print("bbbbbbbbbbbbbbb")
                 local enemyTag = nil
                 local enemyScript = nil
                 local enemyInstance = nil
@@ -98,6 +99,7 @@ function Slash()
                 end
 
                 if entity ~= nil then
+                    print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
                     if enemyScript ~= nil then
                         if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                             enemyInstance = enemyScript.range
@@ -110,10 +112,11 @@ function Slash()
                         end
 
                         enemyInstance:take_damage(damage)
-                        playerScript.playerHealth = playerScript.playerHealth + HpStealed
+                        playerScript.health = playerScript.health + HpStealed
                         playerScript.makeDamage = true
-
-                        enemyScript.pushed = true
+                        
+                        enemyInstance.isPushed = true
+                        print("ddddddddddddddd")
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
                         entityPos.y - playerTransf.position.y,

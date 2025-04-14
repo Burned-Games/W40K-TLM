@@ -155,6 +155,7 @@ function on_update(dt)
     range:check_effects(dt)
     range:check_pushed(dt)
     if range.isPushed == true then
+        print("zzzzzzzzzzzzzzzz")
         return
     end
         
