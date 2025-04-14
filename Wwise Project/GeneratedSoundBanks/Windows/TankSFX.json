@@ -10,12 +10,137 @@
     "Type": "User",
     "GUID": "{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}",
     "Language": "SFX",
-    "Hash": "{A9FA7165-53CA-AE0C-19E6-CC9D74AF0AB6}",
+    "Hash": "{26E8CFDF-286D-BB10-711C-900205DFB0C9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\TankSFX",
     "ShortName": "TankSFX",
-    "Path": "TankSFX.bnk"
+    "Path": "TankSFX.bnk",
+    "Media": [
+     {
+      "Id": "82750228",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankImpactPlayer.wav",
+      "CachePath": "24/{24D4E4E9-AB94-2AC8-FB56-6F1D0AFDF64D}.wem"
+     },
+     {
+      "Id": "95396527",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankDetectPlayer.wav",
+      "CachePath": "97/{9765D45F-9285-C32F-7468-B076EBE3AA7B}.wem"
+     },
+     {
+      "Id": "220509043",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankBerserker.wav",
+      "CachePath": "1E/{1E74F148-0D58-4C6F-69C1-E9D895704D0D}.wem"
+     },
+     {
+      "Id": "413552819",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankStep.wav",
+      "CachePath": "97/{97D9EA12-DFD4-BF2E-A46A-3A8B3F14D37D}.wem"
+     },
+     {
+      "Id": "442351485",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankStep4.wav",
+      "CachePath": "88/{88CEA6D9-132B-18FA-4271-7989EF3E3B72}.wem"
+     },
+     {
+      "Id": "805529998",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankStep3.wav",
+      "CachePath": "25/{25926324-0EA9-571B-15B2-13740BE12E53}.wem"
+     },
+     {
+      "Id": "1018211740",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankStep2.wav",
+      "CachePath": "8F/{8F5957E4-69A0-D5E2-8D23-89CA17AD62E3}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2304298641",
+      "Name": "Play_TankBerserker",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankBerserker",
+      "GUID": "{983E7FC7-4B66-4D61-836C-F6660BF2273F}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.57475",
+      "DurationMax": "3.57475",
+      "MediaRefs": [
+       {
+        "Id": "220509043"
+       }
+      ]
+     },
+     {
+      "Id": "2751048284",
+      "Name": "Play_TankDetectPlayer",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankDetectPlayer",
+      "GUID": "{F619465C-9989-4886-86F0-6B13BE20B928}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.0163958",
+      "DurationMax": "3.0163958",
+      "MediaRefs": [
+       {
+        "Id": "95396527"
+       }
+      ]
+     },
+     {
+      "Id": "1221713427",
+      "Name": "Play_TankImpactPlayer",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankImpactPlayer",
+      "GUID": "{FF818698-ACA9-400F-B2D2-04D383885E98}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.49335417",
+      "DurationMax": "0.49335417",
+      "MediaRefs": [
+       {
+        "Id": "82750228"
+       }
+      ]
+     },
+     {
+      "Id": "799608975",
+      "Name": "Play_TankSteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankSteps",
+      "GUID": "{4E6B420D-4274-4372-A03B-1601527A2A04}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1885625",
+      "DurationMax": "0.34820834",
+      "MediaRefs": [
+       {
+        "Id": "413552819"
+       },
+       {
+        "Id": "442351485"
+       },
+       {
+        "Id": "805529998"
+       },
+       {
+        "Id": "1018211740"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{7D450A55-0905-F892-E0FF-6FFC2A2B4F73}"
+  "FileHash": "{72ABF26A-DC1A-E616-A7D7-E124038DD7D1}"
  }
 }

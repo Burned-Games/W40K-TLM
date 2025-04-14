@@ -10,12 +10,170 @@
     "Type": "User",
     "GUID": "{EC862FA3-57C9-4C57-B979-540D2679AB59}",
     "Language": "SFX",
-    "Hash": "{81ABA4FF-C8A4-78C5-25FC-7EA3E4FEBFF8}",
+    "Hash": "{6281932B-BCDA-B34D-3907-D54AAC2C40F5}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SupportSFX",
     "ShortName": "SupportSFX",
-    "Path": "SupportSFX.bnk"
+    "Path": "SupportSFX.bnk",
+    "Media": [
+     {
+      "Id": "94085465",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportShieldZap3.wav",
+      "CachePath": "B5/{B55C7288-BEB3-86B5-851E-84812F5F6FCC}.wem"
+     },
+     {
+      "Id": "103142292",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SuppportDead.wav",
+      "CachePath": "22/{22361BCD-9267-80EA-E5F2-3D81C1204181}.wem"
+     },
+     {
+      "Id": "278550352",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportShieldZap1.wav",
+      "CachePath": "6B/{6B98F366-22C5-A959-D481-9FAD71719B23}.wem"
+     },
+     {
+      "Id": "508964794",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportShildAssign.wav",
+      "CachePath": "42/{4251B5EF-8B7A-04D2-593E-B53033928B89}.wem"
+     },
+     {
+      "Id": "587746096",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportShieldZap2.wav",
+      "CachePath": "61/{618245CC-9FC8-E0B5-5680-0381BF6C2285}.wem"
+     },
+     {
+      "Id": "764622126",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportAtack.wav",
+      "CachePath": "80/{806FC46B-500A-D010-7689-899D9B690CA2}.wem"
+     },
+     {
+      "Id": "919733591",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportShieldExplosion.wav",
+      "CachePath": "68/{6820FFBA-7D60-E705-371C-A517CDF01EFC}.wem"
+     },
+     {
+      "Id": "992701158",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportHurt.wav",
+      "CachePath": "D9/{D91E82AC-3E43-1D76-09F7-667BF711A1DC}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1469716051",
+      "Name": "Play_SupportAtack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportAtack",
+      "GUID": "{DD930685-1E61-4D89-937B-B514104BEC80}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.905146",
+      "DurationMax": "3.905146",
+      "MediaRefs": [
+       {
+        "Id": "764622126"
+       }
+      ]
+     },
+     {
+      "Id": "4177050792",
+      "Name": "Play_SupportHurt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportHurt",
+      "GUID": "{BD4DAC2D-EA4B-4DE4-874A-127ECD1DCAE8}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5438125",
+      "DurationMax": "0.5438125",
+      "MediaRefs": [
+       {
+        "Id": "992701158"
+       }
+      ]
+     },
+     {
+      "Id": "2129509661",
+      "Name": "Play_SupportShieldExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShieldExplosion",
+      "GUID": "{3F9D6DAB-A46A-4D02-98CD-5DBD31732A42}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.74854165",
+      "DurationMax": "0.74854165",
+      "MediaRefs": [
+       {
+        "Id": "919733591"
+       }
+      ]
+     },
+     {
+      "Id": "3173789364",
+      "Name": "Play_SupportShieldZaps",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShieldZaps",
+      "GUID": "{DBDF949C-FC70-4807-A840-47E792F627A7}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.43620834",
+      "DurationMax": "0.7478333",
+      "MediaRefs": [
+       {
+        "Id": "94085465"
+       },
+       {
+        "Id": "278550352"
+       },
+       {
+        "Id": "587746096"
+       }
+      ]
+     },
+     {
+      "Id": "3611443996",
+      "Name": "Play_SupportShildAssign",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShildAssign",
+      "GUID": "{6F6083A4-05D2-47B3-96B8-85D769F21F05}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.75025",
+      "DurationMax": "0.75025",
+      "MediaRefs": [
+       {
+        "Id": "508964794"
+       }
+      ]
+     },
+     {
+      "Id": "3374316177",
+      "Name": "Play_SuppportDead",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SuppportDead",
+      "GUID": "{F44D33BC-FF27-496D-9B66-74AA99ED3DE0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8879375",
+      "DurationMax": "0.8879375",
+      "MediaRefs": [
+       {
+        "Id": "103142292"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{FE5FEAC2-B3A7-843B-EEF9-25F87B499C8D}"
+  "FileHash": "{83389B1D-D24F-5D4D-6355-257E09F98553}"
  }
 }

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
     "Language": "SFX",
-    "Hash": "{3E61CDB8-0CDA-20CE-80C4-C043B77BAFD5}",
+    "Hash": "{25645900-888F-6DE8-0316-C32F7DB89A74}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -246,14 +246,6 @@
       "Location": "Memory",
       "ShortName": "player_damage_1.wav",
       "CachePath": "F6/{F6489AB2-723D-F4D1-1350-96A16F5027C5}.wem"
-     },
-     {
-      "Id": "329079499",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "KamikazeExplosion.wav",
-      "CachePath": "41/{41F19A1E-4B04-0CEE-C02D-035F5B5072AD}.wem"
      },
      {
       "Id": "341174396",
@@ -970,20 +962,6 @@
       "MediaRefs": [
        {
         "Id": "43542722"
-       }
-      ]
-     },
-     {
-      "Id": "3533005344",
-      "Name": "Play_KamikazeExplosion",
-      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_KamikazeExplosion",
-      "GUID": "{4152F0B7-4354-4714-9501-3463592BA1B9}",
-      "DurationType": "OneShot",
-      "DurationMin": "2.8028958",
-      "DurationMax": "2.8028958",
-      "MediaRefs": [
-       {
-        "Id": "329079499"
        }
       ]
      },
@@ -1727,6 +1705,6 @@
     ]
    }
   ],
-  "FileHash": "{BA0C3B29-E021-5E23-2770-9FE334A2BA80}"
+  "FileHash": "{C1C299DE-810F-9B2A-02D6-2FC4A072D043}"
  }
 }

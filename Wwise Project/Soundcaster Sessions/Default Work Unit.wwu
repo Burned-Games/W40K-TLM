@@ -13,6 +13,10 @@
 							<ObjectRef Name="Play_StepTest" ID="{6636D3E5-D787-4382-944B-E88757E016CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}"/>
 							<Position X="1" Y="0"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="Play_KamikazeExplosion" ID="{F201364D-E70E-4E7C-AC6B-FA7250E9EE63}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}"/>
+							<Position X="2" Y="0"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>

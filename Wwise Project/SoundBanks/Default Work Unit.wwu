@@ -44,7 +44,6 @@
 						<ObjectRef Name="Play_smokeGrenade" ID="{C843193F-EB66-4662-93E8-1F894FF9921D}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ar_shot_2" ID="{ECCF3DA6-EA74-46C8-8F88-4B76207EE149}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_monster_attack_2" ID="{EC5FA914-DF10-46E3-B403-86F513933A62}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_KamikazeExplosion" ID="{4152F0B7-4354-4714-9501-3463592BA1B9}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossDamage" ID="{D1DFBB48-6D74-474D-819E-0BF7D1E55BE6}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerInyector" ID="{E2721888-EACC-4784-9952-C530054948DC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_TanqueStep2" ID="{48E1E877-FB66-47B7-8F55-C14EE952306B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -101,17 +100,28 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_StepTest" ID="{6636D3E5-D787-4382-944B-E88757E016CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ZonaEstandarte" ID="{F80EB2F5-2F36-43A6-9319-389199207D7E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PlayerDeath" ID="{2874B037-12F0-4A50-A1AA-E2E2A998D15F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PlayerOverloads" ID="{C45CCF1C-B193-4DA2-BD31-1BC5EDBD19CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="BolterSFX" ID="{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_BolterShot" ID="{511D3FFC-C4E8-49F4-92DB-FAD3398864DC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BolterBulletImpacts" ID="{7B56CB6A-7B8D-4C60-8C63-B232FC377916}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="ShotgunSFX" ID="{447F08BC-7E47-48A7-950A-3E3785307500}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_ShotgunGrenadeShot" ID="{D2C1C73E-6626-406B-9ACC-EB79C9CCBA0B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ShotgunBulletImpacts" ID="{EA8B16AF-4E83-46CF-A389-5087D20883D2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ShotgunGrenadeSmoke" ID="{D03EFB84-96B3-46F9-85C1-B4D72E67008E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ShotgunReload" ID="{1B077963-63FF-4C41-98F2-48ECAA991393}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ShotgunShot" ID="{43A970BB-C4E0-4C43-98DD-AEF3CB194769}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
@@ -126,21 +136,49 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="SupportSFX" ID="{EC862FA3-57C9-4C57-B979-540D2679AB59}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_SupportShildAssign" ID="{6F6083A4-05D2-47B3-96B8-85D769F21F05}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_SupportShieldZaps" ID="{DBDF949C-FC70-4807-A840-47E792F627A7}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_SuppportDead" ID="{F44D33BC-FF27-496D-9B66-74AA99ED3DE0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_SupportShieldExplosion" ID="{3F9D6DAB-A46A-4D02-98CD-5DBD31732A42}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_SupportAtack" ID="{DD930685-1E61-4D89-937B-B514104BEC80}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_SupportHurt" ID="{BD4DAC2D-EA4B-4DE4-874A-127ECD1DCAE8}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="TankSFX" ID="{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_TankImpactPlayer" ID="{FF818698-ACA9-400F-B2D2-04D383885E98}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_TankSteps" ID="{4E6B420D-4274-4372-A03B-1601527A2A04}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_TankDetectPlayer" ID="{F619465C-9989-4886-86F0-6B13BE20B928}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_TankBerserker" ID="{983E7FC7-4B66-4D61-836C-F6660BF2273F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="KamikazeSFX" ID="{71E0FA9C-9470-49F3-B98A-14CA86EAB718}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_KamikazeDetection" ID="{B6B2F285-8908-402D-A7AE-5387361BBA59}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_KamikazeScreamBoom" ID="{5D9748DB-65A7-468B-A62C-0A5406FAE7CD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_KamikazeDie" ID="{7B239EBC-32E5-4A00-B65A-179BE5E21AF1}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_KamikazeExplosion" ID="{F201364D-E70E-4E7C-AC6B-FA7250E9EE63}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
-				<SoundBank Name="BasicEnemSFX" ID="{A77C30E7-2E40-4F54-B987-0389FB5ECE98}">
+				<SoundBank Name="RangedSFX" ID="{A77C30E7-2E40-4F54-B987-0389FB5ECE98}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_RangedDying" ID="{A5948277-BC2C-4286-A07C-10286CCFE06B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_RangedShot" ID="{A9A37324-8A19-42EF-B040-420E7B4ED031}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_RangedImpactoCaCPlayer" ID="{A1E60988-FEDD-4AEE-B3C9-F86FF9F838DB}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_RangedImpactoBalasPlayer" ID="{29AD9E24-EC2D-4D4E-BB5E-E2535AFCAB1C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_RangedHurt" ID="{931BE3FE-D681-4ECF-967C-ECA782005723}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="EnvironmentSFX" ID="{590DE83F-02C9-4D44-A80C-89EB32CFFA44}">
 					<ObjectInclusionList/>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
