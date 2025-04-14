@@ -40,13 +40,14 @@ end
 
 function on_update(dt)
     -- Add update code here
-if Input.is_key_pressed(Input.keycode.M) then
-    show_popup(false, "mewwww")
-end
+--if Input.is_key_pressed(Input.keycode.M) then
+--    show_popup(false, "mewwww")
+--end
 
-if Input.is_key_pressed(Input.keycode.N) then
-    show_popup(true, "waaaan")
-end
+--if Input.is_key_pressed(Input.keycode.N) then
+--    show_popup(true, "waaaan")
+--end
+
 update_popup(dt)
 end
 

@@ -1,278 +1,165 @@
--- Task list
-tasks = {
-    {id = 1, isRed = false , description = "Mueve el joystick izquierdo para moverte"},
-    {id = 2, isRed = false ,description = "Apunta con el joystick derecho y pulsa R2 para disparar"},
-    {id = 3, isRed = false ,description = "Termina con todos los orkos"},
-    {id = 4, isRed = false ,description = "Llega a la siguiente zona"},
-    {id = 5, isRed = false ,description = "Interactua con la mesa"},
-    {id = 6, isRed = false ,description = "Llega a la siguiente zona"},
-    {id = 7, isRed = false ,description = "Acaba con los orkos del campamento"},
-    {id = 8, isRed = false ,description = "Busca la forma de continuar"},
-    {id = 9, isRed = false ,description = "Mejora tu equipamiento con la mesa"},
-    {id = 10, isRed = false ,description = "Limpia la zona de enemigos"}
+-- Task list split by color
+local blueTasks = {
+    {id = 1, description = "Mueve el joystick izquierdo para moverte"},
+    {id = 2, description = "Apunta con el joystick derecho y pulsa R2 para disparar"},
+    {id = 3, description = "Llega a la siguiente zona"},
+    {id = 4, description = "Interactua con la mesa"},
+    {id = 5, description = "Llega a la siguiente zona"},
+    {id = 6, description = "Acaba con los orkos del campamento"},
+    {id = 7, description = "Busca la forma de continuar"},
+    {id = 8, description = "Mejora tu equipamiento con la mesa"},
+    {id = 9, description = "Limpia la zona de enemigos"}
 }
-local currentTaskIndex = 1  -- Current task index
 
---Mission3
-local mission3_Enemy1_Component = nil
-local mission3_Enemy2_Component = nil
+local redTasks = {
+    {id = 1, description = "Termina con todos los orkos"}
+}
 
---Mission4
+local blueTaskIndex = 1
+local redTaskIndex = 1
+
+-- Components
+local textBlueComponent = nil
+local textRedComponent = nil
+local textBlueTransform = nil
+local textRedTransform = nil
+local imgBlue = nil
+local imgRed = nil
+
+-- Animation control
+local blueAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
+local redAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
+
+-- Position control
+local imgPosOri = -123
+local imgPosDes = 124
+local textPosOri = -27
+local textPosDes = 220
+
+-- Other components
 local mission4Component = nil
-
---Mission5
 local mission5Component = nil
-
---Mission6
 local mission6Component = nil
-
---Mission7
 local mission7Complet = false
-enemyDie_M7 = 1
-
---Mission8
 local mission8Component = nil
-
---Mission9
 local mission9Component = nil
-
---Mission10
 local mission10Complet = false
-enemyDie_M10 = 1
 
---Text and Image
-local textComponent = nil
-local textTransform = nil
-
---EnemyDieCount
+-- Trigger variables
 enemyDieCount = 0
-
---WorkBrech
+enemyDie_M7 = 1
+enemyDie_M10 = 1
 M5_WorkBrech = false
 M9_WorkBrech = false
---misionNoheho
-local nohecho = false
 
---UIimage
-imgComponent = nil
-imgRedComponent = nil
-local timeLerp = 0.0
-local testB = false
-local testA = false
-
---Animation
-local startAnimation = false
-local lerpReset = false
-local AnimationClose = true
-local changeText = false
-local imgPosOri = 0
-local imgPosDes = 0
-local textPosOri = 0
-local textPosDes = 0
-
--- Initialize tasks when the engine is ready
 function on_ready()
-    --Mission3
-    mission3_Enemy1_Component = current_scene:get_entity_by_name("Mission3Enemy1"):get_component("ScriptComponent")
-    mission3_Enemy2_Component = current_scene:get_entity_by_name("Mission3Enemy2"):get_component("ScriptComponent")
-    --Mission4
     mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
-    --Mission5
     mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
-    --Mission6
     mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
-    --Mission8
     mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
-    --Mission9
     mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
 
-    textComponent = current_scene:get_entity_by_name("MisionText"):get_component("UITextComponent")
-    textTransform = current_scene:get_entity_by_name("MisionText"):get_component("TransformComponent")
-   
+    textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
+    textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
+    textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
+    textRedTransform = current_scene:get_entity_by_name("MisionTextRed"):get_component("TransformComponent")
 
-    imgComponent = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
-    imgRedComponent = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
-    
+    imgBlue = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
+    imgRed = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
 end
 
--- Perform task completion check in each frame update
 function on_update(dt)
-    textComponent:set_text(getCurrentTask())
-    missionBlue_ZoneTutor()
+    updateText()
+    missionBlue_Tutor()
+    missionRed_Tutor()
 
-    if startAnimation == true then
-        if AnimationClose == true then
-            local inClosePosition = false
-            if (tasks[currentTaskIndex].isRed == false and imgComponent.position.x == 124) or
-               (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == 124) then
-                inClosePosition = true
-            end
+    processAnimation(dt, blueAnimation, imgBlue, textBlueTransform, function()
+        blueTaskIndex = blueTaskIndex + 1
+        if blueTaskIndex > #blueTasks then blueTaskIndex = #blueTasks + 1 end
+    end)
+    processAnimation(dt, redAnimation, imgRed, textRedTransform, function()
+        redTaskIndex = redTaskIndex + 1
+        if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
+    end)
+end
 
-            local inOpenPosition = false
-            if (tasks[currentTaskIndex].isRed == false and imgComponent.position.x == -123) or
-               (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == -123) then
-                inOpenPosition = true
-            end
+function updateText()
+    local blueText = getCurrentTask(blueTasks, blueTaskIndex)
+    local redText = getCurrentTask(redTasks, redTaskIndex)
+    textBlueComponent:set_text(blueText == "" and "All missions done!" or blueText)
+    textRedComponent:set_text(redText == "" and "All missions done!" or redText)
+end
 
-            if misionAnimation(true, dt, tasks[currentTaskIndex].isRed) == true and
-               ((tasks[currentTaskIndex].isRed == false and imgComponent.position.x == 124) or
-                (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == 124)) then
-                if lerpReset == true then
-                    timeLerp = 0.0
-                    lerpReset = false
-                    AnimationClose = false
-                    completeCurrentTask()
-                end
-            end
+function getCurrentTask(tasks, index)
+    if index > #tasks then return "" end
+    return insert_line_breaks(tasks[index].description, 26)
+end
+
+function missionBlue_Tutor()
+    if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
+    if blueTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 3 and mission4Component.m4_Clear then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 4 and M5_WorkBrech then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 5 and mission6Component.m6_Clear then
+        startAnimation(blueAnimation)
+    elseif mission6Component.m7_missionOpen and enemyDie_M7 <= 0 then
+        mission7Complet = true
+    elseif blueTaskIndex == 6 and mission7Complet then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 7 and mission8Component.m8_Clear then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 8 and M9_WorkBrech then
+        startAnimation(blueAnimation)
+    elseif mission8Component.m10_missionOpen and enemyDie_M10 <= 0 then
+        mission10Complet = true
+    elseif blueTaskIndex == 9 and mission10Complet then
+        startAnimation(blueAnimation)
+    end
+end
+
+function missionRed_Tutor()
+    if redAnimation.playing or redTaskIndex > #redTasks then return end
+    if redTaskIndex == 1 and enemyDieCount >= 2 then
+        startAnimation(redAnimation)
+    end
+end
+
+function startAnimation(anim)
+    if not anim.start and not anim.playing then
+        anim.start = true
+        anim.playing = true
+        anim.closing = true
+        anim.lerpTime = 0.0
+    end
+end
+
+function processAnimation(dt, anim, img, text, onComplete)
+    if not anim.start then return end
+
+    local ori = anim.closing and imgPosOri or imgPosDes
+    local des = anim.closing and imgPosDes or imgPosOri
+    local tOri = anim.closing and textPosOri or textPosDes
+    local tDes = anim.closing and textPosDes or textPosOri
+
+    anim.lerpTime = math.min(anim.lerpTime + dt * 3, 1.0)
+    img.position.x = lerp(ori, des, anim.lerpTime)
+    text.position.x = lerp(tOri, tDes, anim.lerpTime)
+
+    if anim.lerpTime >= 1.0 then
+        if anim.closing then
+            anim.closing = false
+            anim.lerpTime = 0.0
+            onComplete()
         else
-            if misionAnimation(false, dt, tasks[currentTaskIndex].isRed) == true and
-               ((tasks[currentTaskIndex].isRed == false and imgComponent.position.x == -123) or
-                (tasks[currentTaskIndex].isRed == true and imgRedComponent.position.x == -123)) then
-                if lerpReset == true then
-                    timeLerp = 0.0
-                    lerpReset = false
-                    AnimationClose = true
-                    startAnimation = false
-                end
-            end
+            anim.start = false
+            anim.playing = false
+            anim.lerpTime = 0.0
         end
-    end
-end
-
-
--- Cleanup when the game exits
-function on_exit()
-    --print("Mission cleared!")
-end
-
-
-function insert_line_breaks(text, max_chars_per_line)
-    local result = {}
-    local current_line = ""
-    local current_length = 0
-
-    for word in text:gmatch("%S+") do  
-        local word_length = utf8_char_count(word) 
-
-        if current_length + word_length > max_chars_per_line then
-            table.insert(result, current_line) 
-            current_line = word  
-            current_length = word_length
-        else
-            if current_line ~= "" then
-                current_line = current_line .. " " .. word
-                current_length = current_length + 1 + word_length 
-            else
-                current_line = word
-                current_length = word_length
-            end
-        end
-    end
-
-    if current_line ~= "" then
-        table.insert(result, current_line)  
-    end
-
-    return table.concat(result, "\n")  
-end
-
-
-function utf8_char_count(s)
-    local _, count = s:gsub("[^\128-\191]", "")
-    return count
-end
-
-
--- Complete the current task
-function completeCurrentTask()
-    if currentTaskIndex > #tasks then
-        --print("All missions done!")
-        return
-    end
-    --print("Mission done: " .. tasks[currentTaskIndex].description)
-    currentTaskIndex = currentTaskIndex + 1  -- Move to the next task
-
-
-end
-
--- Get the current task
-function getCurrentTask()
-    if currentTaskIndex > #tasks then
-        ----print("No mission")
-        return "All missions done!"
-    else
-        local description = tasks[currentTaskIndex].description
-        local formatted_desc = insert_line_breaks(description, 26)
-        return formatted_desc
-
-
-    end
-end
-
-function missionBlue_ZoneTutor()
-    if currentTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
-        startAnimation = true
-
-    end
-
-    if(currentTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0)  then
-        startAnimation = true
-    end
-
-    if(currentTaskIndex == 3 and enemyDieCount >=2)  then
-        startAnimation = true
-    end
-
-    if(currentTaskIndex == 4 and mission4Component.m4_Clear == true)  then
-        startAnimation = true
-    end
-
-
-    if mission6Component.m6_Clear == true then
-        jumpToNextMission(5)
-    end
-    if(currentTaskIndex == 5 and M5_WorkBrech == true)  then
-        startAnimation = true
-    end
- 
-    if(currentTaskIndex == 6 and mission6Component.m6_Clear == true)  then
-        startAnimation = true
-    end
-    
-    if mission6Component.m7_missionOpen == true then
-        if enemyDie_M7 <= 0 then
-            mission7Complet = true
-        end
-    end
-
-    if currentTaskIndex == 7 and mission7Complet == true  then
-        startAnimation = true
-    end
-    if currentTaskIndex == 8 and mission8Component.m8_Clear == true  then
-        startAnimation = true
-    end
-    
-    if mission9Component.m9_Clear == true then
-        jumpToNextMission(9)
-    end
-    if currentTaskIndex == 9 and M9_WorkBrech == true  then
-        startAnimation = true
-    end
-
-    if mission8Component.m10_missionOpen == true then
-        if enemyDie_M10 <= 0 then
-            mission10Complet = true
-        end
-    end
-
-    if currentTaskIndex == 10 and mission10Complet == true then
-        startAnimation = true
-    end
-end
-
-function jumpToNextMission(nowTaks)
-    if currentTaskIndex == nowTaks then
-        startAnimation = true
     end
 end
 
@@ -280,34 +167,27 @@ function lerp(a, b, t)
     return a + (b - a) * t
 end
 
-function misionAnimation(closeMision,dt, redMision)
-
-    local imgEntity = nil
-    if closeMision == true then
-        imgPosOri = -123
-        imgPosDes = 124
-        textPosOri = -27
-        textPosDes = 220
-    else
-        imgPosOri = 124
-        imgPosDes = -123
-        textPosOri = 220
-        textPosDes = -27
+function insert_line_breaks(text, max_chars_per_line)
+    local result, current_line, current_length = {}, "", 0
+    for word in text:gmatch("%S+") do
+        local word_length = utf8_char_count(word)
+        if current_length + word_length > max_chars_per_line then
+            table.insert(result, current_line)
+            current_line, current_length = word, word_length
+        else
+            if current_line ~= "" then
+                current_line = current_line .. " " .. word
+                current_length = current_length + 1 + word_length
+            else
+                current_line, current_length = word, word_length
+            end
+        end
     end
-
-    if redMision == false then
-        imgComponent.position.x = lerp(imgPosOri, imgPosDes, timeLerp)
-    else
-        imgRedComponent.position.x = lerp(imgPosOri, imgPosDes, timeLerp)
-    end
-
-    textTransform .position.x = lerp(textPosOri, textPosDes, timeLerp)
-    timeLerp = timeLerp + (dt * 3);
-    if timeLerp > 1 then
-        timeLerp = 1
-        lerpReset = true
-        return true
-    end
+    if current_line ~= "" then table.insert(result, current_line) end
+    return table.concat(result, "\n")
 end
 
-
+function utf8_char_count(s)
+    local _, count = s:gsub("[^\128-\191]", "")
+    return count
+end

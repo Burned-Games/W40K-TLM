@@ -19,7 +19,7 @@ function on_ready()
         --show_popup if u wanna show new zone use "False"
         --show_popup if u wanna show Boss use "True"
         --And text u wanna show
-        popupScriptComponent.show_popup(false, "mewwww")
+        popupScriptComponent.show_popup(true, "ssssssw")
         
     end
     end)
