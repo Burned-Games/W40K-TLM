@@ -96,6 +96,11 @@ function on_ready()
     local rifle_reload_entity = current_scene:get_entity_by_name("RifleRecargaAudio")
     rifle_reload = rifle_reload_entity:get_component("AudioSourceComponent")
 
+    local fxVolume = load_progress("fxVolume", 1.0)
+    rifle_reload:set_volume(fxVolume)
+    burst_shot:set_volume(fxVolume)
+    
+
     --shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     ---- bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
 

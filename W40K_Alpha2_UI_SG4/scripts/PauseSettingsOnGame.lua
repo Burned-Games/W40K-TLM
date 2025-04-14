@@ -31,6 +31,9 @@ local isOnPauseSettings = false
 
 local workbenchUIManagerScript = nil
 
+musicVolume = 0.0
+fxVolume = 0.0
+
 function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
@@ -74,15 +77,14 @@ function on_ready()
     grenade_launch = current_scene:get_entity_by_name("GranadeLaunchAudio"):get_component("AudioSourceComponent")
     grenade_explosion = current_scene:get_entity_by_name("GranadeExplosionAudio"):get_component("AudioSourceComponent")
 
-
+    local savedFXVolume = load_progress("fxVolume", 1.0)
+    slider2:set_value(savedFXVolume)
 
     --local savedVolumeGeneral = load_progress("musicVolumeGeneral", 0.05)
     --xplorationMusic:set_volume(savedVolumeGeneral)
 
     slider1:set_value(load_progress("musicVolumeGeneral", 1.0))
     -- slider2:set_value(load_progress("fxVolume", 1.0))
-
-
 
     visibilidad2:set_visible(false)
     VolumeText:set_visible(false)
@@ -260,35 +262,47 @@ function on_update(dt)
     if isOnPauseSettings then
         local horizontalInput = Input.get_axis(Input.action.UiMoveHorizontal)
         if math.abs(horizontalInput) > 0.5 then
-            local selectedSlider = (currentSelectedSlider == 1) and slider1 or slider2
-            local currentValue = selectedSlider:get_value()
-            
-        
-            local newValue = currentValue + (horizontalInput * 0.05) 
-            newValue = math.max(0.0, math.min(1.0, newValue))
-            
-            selectedSlider:set_value(newValue)
-            inputCooldown = cooldownTime / 2 
-
+            inputCooldown = cooldownTime / 2
+    
             if currentSelectedSlider == 1 then
-                explorationMusic:set_volume(newValue)
-                combatMusic:set_volume(newValue)
-            end
-            if currentSelectedSlider == 2 then
-                footstep_one:set_volume(newValue)
-                footstep_two:set_volume(newValue)
-                footstep_three:set_volume(newValue)
-                footstep_four:set_volume(newValue)
-                rifle_reload:set_volume(newValue)
-                burst_shot:set_volume(newValue)
-                shotgun_reload:set_volume(newValue)
-                shotgun_shot:set_volume(newValue)
-                grenade_explosion:set_volume(newValue)
-                grenade_launch:set_volume(newValue)
-
+               
+                local currentValue = slider1:get_value()
+                musicVolume = currentValue + (horizontalInput * 0.05)
+                musicVolume = math.max(0.0, math.min(1.0, musicVolume))
+                slider1:set_value(musicVolume)
+    
+                
+                explorationMusic:set_volume(musicVolume)
+                combatMusic:set_volume(musicVolume)
+    
+                
+                save_progress("musicVolumeGeneral", musicVolume)
+    
+            elseif currentSelectedSlider == 2 then
+                
+                local currentValue = slider2:get_value()
+                fxVolume = currentValue + (horizontalInput * 0.05)
+                fxVolume = math.max(0.0, math.min(1.0, fxVolume))
+                slider2:set_value(fxVolume)
+    
+                
+                footstep_one:set_volume(fxVolume)
+                footstep_two:set_volume(fxVolume)
+                footstep_three:set_volume(fxVolume)
+                footstep_four:set_volume(fxVolume)
+                rifle_reload:set_volume(fxVolume)
+                burst_shot:set_volume(fxVolume)
+                shotgun_reload:set_volume(fxVolume)
+                shotgun_shot:set_volume(fxVolume)
+                grenade_explosion:set_volume(fxVolume)
+                grenade_launch:set_volume(fxVolume)
+    
+                
+                save_progress("fxVolume", fxVolume)
             end
         end
-    end 
+    end
+    
     local verticalInput = Input.get_axis(Input.action.UiMoveVertical)
     if math.abs(verticalInput) > 0.5 then
         if verticalInput > 0 then

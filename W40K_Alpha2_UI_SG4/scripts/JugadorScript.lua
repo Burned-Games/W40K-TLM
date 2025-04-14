@@ -111,7 +111,9 @@ function on_ready()
     explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
     
-
+    local musicVolume = load_progress("musicVolumeGeneral", 1.0)
+    explorationMusic:set_volume(musicVolume)
+    combatMusic:set_volume(musicVolume)
 
     --UpgradeManager START
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
@@ -143,6 +145,8 @@ function on_ready()
     shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
 
     pauseScript = current_scene:get_entity_by_name("PauseMenu"):get_component("ScriptComponent")
+
+    
 
 
     animator = self:get_component("AnimatorComponent")
@@ -249,27 +253,27 @@ function updateMusic(dt)
         if explorationMusicVolume >= 0.05 then
             explorationMusicVolume = 0.05
             combatMusicVolume = 0
-            explorationMusic:set_volume(explorationMusicVolume)
+            explorationMusic:set_volume(pauseScript.musicVolume)
             combatMusic:set_volume(combatMusicVolume)
             prevBackgroundMusicToPlay = 0
         else 
             explorationMusicVolume = explorationMusicVolume + dt * 0.05
             combatMusicVolume = combatMusicVolume - dt  * 0.05
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
+            explorationMusic:set_volume(pauseScript.musicVolume)
+            combatMusic:set_volume(pauseScript.musicVolume)
         end
     elseif backgroundMusicToPlay == 1 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
         if combatMusicVolume >= 0.05 then
             combatMusicVolume = 0.05
             explorationMusicVolume = 0
-            combatMusic:set_volume(combatMusicVolume)
+            combatMusic:set_volume(pauseScript.musicVolume)
             explorationMusic:set_volume(explorationMusicVolume)
             prevBackgroundMusicToPlay = 1
         else 
             explorationMusicVolume = explorationMusicVolume - dt * 0.05
             combatMusicVolume = combatMusicVolume + dt * 0.05
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
+            explorationMusic:set_volume(pauseScript.musicVolume)
+            combatMusic:set_volume(pauseScript.musicVolume)
         end
     end
 end

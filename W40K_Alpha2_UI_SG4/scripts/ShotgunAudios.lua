@@ -24,6 +24,12 @@ function on_ready()
     local grenade_explosion_entity = current_scene:get_entity_by_name("GranadeExplosionAudio")
     grenade_explosion = grenade_explosion_entity:get_component("AudioSourceComponent")
 
+    local fxVolume = load_progress("fxVolume", 1.0)
+    shotgun_reload:set_volume(fxVolume)
+    shotgun_shot:set_volume(fxVolume)
+    grenade_explosion:set_volume(fxVolume)
+    grenade_launch:set_volume(fxVolume)
+
 end
 
 function on_update(dt)

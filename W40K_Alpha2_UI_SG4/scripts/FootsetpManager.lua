@@ -29,6 +29,13 @@ function on_ready()
 
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
+    -- carga por defecro los valores qye se le hayan puesto en la pantalla de settinggs inicial
+    local fxVolume = load_progress("fxVolume", 1.0)
+    footstep_one:set_volume(fxVolume)
+    footstep_two:set_volume(fxVolume)
+    footstep_three:set_volume(fxVolume)
+    footstep_four:set_volume(fxVolume)
+
 
 end
 
