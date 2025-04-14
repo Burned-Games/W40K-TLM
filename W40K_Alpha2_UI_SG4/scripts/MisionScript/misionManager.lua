@@ -1,18 +1,24 @@
 -- Task list split by color
 local blueTasks = {
-    {id = 1, description = "Mueve el joystick izquierdo para moverte"},
-    {id = 2, description = "Apunta con el joystick derecho y pulsa R2 para disparar"},
-    {id = 3, description = "Llega a la siguiente zona"},
-    {id = 4, description = "Interactua con la mesa"},
-    {id = 5, description = "Llega a la siguiente zona"},
-    {id = 6, description = "Acaba con los orkos del campamento"},
-    {id = 7, description = "Busca la forma de continuar"},
-    {id = 8, description = "Mejora tu equipamiento con la mesa"},
-    {id = 9, description = "Limpia la zona de enemigos"}
+    {id = 1, description = "Start moving with [L]"},
+    {id = 2, description = "Aim with [R] and shoot with [RT]"},
+    {id = 3, description = "Defeat both Orkz (x/2)"},
+    {id = 4, description = "Finish the Orkz and pull the lever up"},
+    {id = 5, description = "Upgrade your equipment with the drop pod supply"},
+    {id = 6, description = "Find and get the (name) to heal yourself"},
+    {id = 7, description = "Upgrade your equipment for the big fight"},
+    {id = 8, description = "Pull both levers to get to the Orkz base"},
+    {id = 9, description = "Be the last standing on the Orkz Colliseum (x/3)"},
+    {id = 10, description = "Upgrade your equipment before leaving the Orkz base"},
+    {id = 11, description = "Find a way to get to the Hive City"}
 }
 
+
+
 local redTasks = {
-    {id = 1, description = "Termina con todos los orkos"}
+    {id = 1, description = "Find the drop pod supply"},
+    {id = 2, description = "Make your way to the orkz base"},
+    {id = 3, description = "Break out of the orkz base to the Hive City"}
 }
 
 local blueTaskIndex = 1
@@ -45,6 +51,8 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
+
+enemyDieCounttest = 3
 -- Trigger variables
 enemyDieCount = 0
 enemyDie_M7 = 1
@@ -92,7 +100,11 @@ end
 
 function getCurrentTask(tasks, index)
     if index > #tasks then return "" end
-    return insert_line_breaks(tasks[index].description, 26)
+    local description = tasks[index].description
+
+    description = description:gsub("x", tostring(enemyDieCounttest))
+
+    return insert_line_breaks(description, 26)
 end
 
 function missionBlue_Tutor()
