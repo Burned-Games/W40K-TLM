@@ -11,20 +11,40 @@
     local lifeFullTransform
 
     local skill1
+    local skill1VisualCooldown
+    local skill1VisualCooldownTransform
+    local skill1VisualCooldownStartingPosition
     local skill1TextCooldown
     local skill1Cooldown = false
     local skill1Timer = 0
+    
     local skill2
-    local skill2Button
+    local skill2Button    
+    local skill2VisualCooldown
+    local skill2VisualCooldownTransform
+    local skill2VisualCooldownStartingPosition
     local skill2Cooldown = false
     local skill2Timer = 0
+
     local skill3
-    local skill3Button
+    local skill3Button    
+    local skill3VisualCooldown
+    local skill3VisualCooldownTransform
+    local skill3VisualCooldownStartingPosition
     local skill3Cooldown = false
     local skill3Timer = 0
+
     local skillsArmasTextCooldown
+    local skillArma1
+    local skillArma1Cooldown
+    local skillArma2
+    local skillArma2Cooldown
     local skillsArmasCooldown = false
     local skillsArmasTimer = 0
+    local skillArma1VisualCooldownTransform
+    local skillArma1VisualCooldownStartingPosition
+    local skillArma2VisualCooldownTransform
+    local skillArma2VisualCooldownStartingPosition
 
     local arma1
     local arma2
@@ -60,21 +80,40 @@
     function on_ready()
         --Vida
         lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
-        life75Component = current_scene:get_entity_by_name("Vida75"):get_component("UIImageComponent")
         lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
         lifeFullTransform = current_scene:get_entity_by_name("VidaFull"):get_component("TransformComponent")
         lifeFullStartingPosition = Vector3.new(lifeFullTransform.position.x, lifeFullTransform.position.y + 49, lifeFullTransform.position.z)
 
         --Habilidades
         skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
-        skill1TextCooldown = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("UITextComponent")
+        skill1VisualCooldown = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("UIImageComponent")
+        skill1TextCooldown = current_scene:get_entity_by_name("Habilidad1CooldownText"):get_component("UITextComponent")
+        skill1VisualCooldownTransform = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("TransformComponent")
+        skill1VisualCooldownStartingPosition = Vector3.new(skill1VisualCooldownTransform.position.x, skill1VisualCooldownTransform.position.y, skill1VisualCooldownTransform.position.z)
+
         skill2 = current_scene:get_entity_by_name("Habilidad2Activable"):get_component("UIToggleComponent")
         skill2Button = current_scene:get_entity_by_name("Habilidad2Boton"):get_component("UIImageComponent")
-        skill2TextCooldown = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("UITextComponent")
+        skill2VisualCooldown = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("UIImageComponent")
+        skill2TextCooldown = current_scene:get_entity_by_name("Habilidad2CooldownText"):get_component("UITextComponent")
+        skill2VisualCooldownTransform = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("TransformComponent")
+        skill2VisualCooldownStartingPosition = Vector3.new(skill2VisualCooldownTransform.position.x, skill2VisualCooldownTransform.position.y, skill2VisualCooldownTransform.position.z)
+
         skill3 = current_scene:get_entity_by_name("Habilidad3Activable"):get_component("UIToggleComponent")
         skill3Button = current_scene:get_entity_by_name("Habilidad3Boton"):get_component("UIImageComponent")
-        skill3TextCooldown = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("UITextComponent")
+        skill3VisualCooldown = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("UIImageComponent")
+        skill3TextCooldown = current_scene:get_entity_by_name("Habilidad3CooldownText"):get_component("UITextComponent")
+        skill3VisualCooldownTransform = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("TransformComponent")
+        skill3VisualCooldownStartingPosition = Vector3.new(skill3VisualCooldownTransform.position.x, skill3VisualCooldownTransform.position.y, skill3VisualCooldownTransform.position.z)
+
         skillsArmasTextCooldown = current_scene:get_entity_by_name("HabilidadesArmasCooldown"):get_component("UITextComponent")
+        skillArma1 = current_scene:get_entity_by_name("HabilidadArma1"):get_component("UIToggleComponent")
+        skillArma1Cooldown = current_scene:get_entity_by_name("HabilidadArma1Cooldown"):get_component("UIImageComponent")
+        skillArma2 = current_scene:get_entity_by_name("HabilidadArma2"):get_component("UIToggleComponent")
+        skillArma2Cooldown = current_scene:get_entity_by_name("HabilidadArma2Cooldown"):get_component("UIImageComponent")
+        skillArma1VisualCooldownTransform = current_scene:get_entity_by_name("HabilidadArma1Cooldown"):get_component("TransformComponent")
+        skillArma1VisualCooldownStartingPosition = Vector3.new(skillArma1VisualCooldownTransform.position.x, skillArma1VisualCooldownTransform.position.y, skillArma1VisualCooldownTransform.position.z)
+        skillArma2VisualCooldownTransform = current_scene:get_entity_by_name("HabilidadArma2Cooldown"):get_component("TransformComponent")
+        skillArma2VisualCooldownStartingPosition = Vector3.new(skillArma2VisualCooldownTransform.position.x, skillArma2VisualCooldownTransform.position.y, skillArma2VisualCooldownTransform.position.z)
 
         rifleScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
         rifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTimeCounter
@@ -105,16 +144,18 @@
         upgradeManagerScript = upgradeManager:get_component("ScriptComponent")
 
         skill1TextCooldown:set_visible(false)
+        skill1VisualCooldown:set_visible(false)
+
         skill2TextCooldown:set_visible(false)
-        skill3TextCooldown:set_visible(false)
+        skill2VisualCooldown:set_visible(false)
         skill2Button:set_visible(false)
+
         skill3Button:set_visible(false)
-        
+        skill3TextCooldown:set_visible(false)
+        skill3VisualCooldown:set_visible(false)
 
-        life75Component:set_visible(false)
-
-        --updateAmmoText()
-
+        skillArma1Cooldown:set_visible(false)
+        skillArma2Cooldown:set_visible(false)
 
     end
 
@@ -137,9 +178,9 @@
     function abilityManager(dt)
 
         if playerScript.dashAvailable == false then
-            skill1:set_visible(false)
             skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
             skill1TextCooldown:set_visible(true)
+            skill1VisualCooldown:set_visible(true) 
             skill1Timer = 0
             skill1Cooldown = true
         end
@@ -147,11 +188,25 @@
         if skill1Cooldown then 
             skill1Timer = skill1Timer + dt 
             local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter 
+            local totalCooldown = playerScript.dashColdown
+            
+            local porcentaje = remainingTime / totalCooldown
+            if porcentaje > 1 then 
+                porcentaje = 1 
+            end
+            
+            local nuevoAlto = 32.5 * porcentaje
+            skill1VisualCooldown:set_size(Vector2.new(35, nuevoAlto))
+            
+            skill1VisualCooldownTransform.position.y = skill1VisualCooldownStartingPosition.y + ((32.5 - nuevoAlto) / 2)
             
             if playerScript.dashAvailable == true then
-                skill1:set_visible(true)
                 skill1TextCooldown:set_visible(false)
+                skill1VisualCooldown:set_visible(false)
                 skill1Cooldown = false
+                
+                skill1VisualCooldown:set_size(Vector2.new(35, 32.5))
+                skill1VisualCooldownTransform.position.y = skill1VisualCooldownStartingPosition.y
             else
                 if remainingTime <= 1.1 and remainingTime > 0 then
                     skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
@@ -163,9 +218,9 @@
         end
         
         if sawSwordScript.sawSwordAvailable == false then
-            skill2:set_visible(false)
             skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
             skill2TextCooldown:set_visible(true)
+            skill2VisualCooldown:set_visible(true) 
             skill2Timer = 0
             skill2Cooldown = true
         end
@@ -173,11 +228,25 @@
         if skill2Cooldown then
             skill2Timer = skill2Timer + dt
             local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
+            local totalCooldown = sawSwordScript.coolDown
+
+            local porcentaje = remainingTime / totalCooldown
+            if porcentaje > 1 then 
+                porcentaje = 1 
+            end
+
+            local nuevoAlto = 32.5 * porcentaje
+            skill2VisualCooldown:set_size(Vector2.new(35, nuevoAlto))
+            
+            skill2VisualCooldownTransform.position.y = skill1VisualCooldownStartingPosition.y + ((32.5 - nuevoAlto) / 2)
             
             if sawSwordScript.sawSwordAvailable == true then
-                skill2:set_visible(true)
                 skill2TextCooldown:set_visible(false)
+                skill2VisualCooldown:set_visible(false) 
                 skill2Cooldown = false
+
+                skill2VisualCooldown:set_size(Vector2.new(35, 32.5))
+                skill2VisualCooldownTransform.position.y = skill2VisualCooldownStartingPosition.y
             else
                 if remainingTime <= 1.1 and remainingTime > 0 then
                     skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
@@ -189,8 +258,8 @@
         end
 
         if armorUpgradeScript.fervorAstartesAvailable == false then
-            skill3:set_visible(false)
             skill3TextCooldown:set_visible(true)
+            skill3VisualCooldown:set_visible(true) 
             skill3Timer = 0
             skill3Cooldown = true
         end
@@ -198,10 +267,21 @@
         if skill3Cooldown then
             skill3Timer = skill3Timer + dt
             local remainingTime = armorUpgradeScript.fervorAstartesCooldown
+            local totalCooldown = 25
+
+            local porcentaje = remainingTime / totalCooldown
+            if porcentaje > 1 then 
+                porcentaje = 1 
+            end
+
+            local nuevoAlto = 32.5 * porcentaje
+            skill3VisualCooldown:set_size(Vector2.new(35, nuevoAlto))
+            
+            skill3VisualCooldownTransform.position.y = skill3VisualCooldownStartingPosition.y + ((32.5 - nuevoAlto) / 2)
 
             if armorUpgradeScript.fervorAstartesAvailable == true then
-                skill3:set_visible(true)
                 skill3TextCooldown:set_visible(false)
+                skill3VisualCooldown:set_visible(false) 
                 skill3Cooldown = false
             else
                 if remainingTime <= 1.1 and remainingTime > 0 then
@@ -216,19 +296,23 @@
         if(upgradeManagerScript:has_weapon_special()) then
             skill2:set_active(true)
             skill2Button:set_visible(true)
+            skillArma1:set_active(true)
+            skillArma2:set_active(true)
         end
 
         if(upgradeManagerScript:has_armor_special()) then
             skill3:set_active(true)
             skill3Button:set_visible(true)
-        end
+        end    
     end     
 
     function weaponManager(dt)
-
         if playerScript.actualweapon == 0 then
-            arma1:set_visible(false)
-            arma2:set_visible(true)
+            arma1:set_visible(true)
+            arma2:set_visible(false)
+            skillArma1:set_visible(true)
+            skillArma2:set_visible(false)
+            skillArma2Cooldown:set_visible(false)
     
             local remainingTime = rifleScript.cooldownDisruptorBulletTime - rifleScript.cooldownDisruptorBulletTimeCounter
             if remainingTime > 0 then
@@ -237,13 +321,28 @@
                 else
                     skillsArmasTextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
                 end
+                skillArma1Cooldown:set_visible(true)
+                local totalCooldown = rifleScript.cooldownDisruptorBulletTime
+                local porcentaje = remainingTime / totalCooldown
+                if porcentaje > 1 then
+                    porcentaje = 1
+                end
+                local nuevoAlto = 32.5 * porcentaje
+                skillArma1Cooldown:set_size(Vector2.new(35, nuevoAlto))
+                skillArma1VisualCooldownTransform.position.y = skillArma1VisualCooldownStartingPosition.y + ((32.5 - nuevoAlto) / 2)
             else
                 skillsArmasTextCooldown:set_text("")
+                skillArma1Cooldown:set_visible(false)
+                skillArma1Cooldown:set_size(Vector2.new(35, 32.5))
+                skillArma1VisualCooldownTransform.position.y = skillArma1VisualCooldownStartingPosition.y
             end
     
         elseif playerScript.actualweapon == 1 then
-            arma1:set_visible(true)
-            arma2:set_visible(false)
+            arma1:set_visible(false)
+            arma2:set_visible(true)
+            skillArma1:set_visible(false)
+            skillArma2:set_visible(true)
+            skillArma1Cooldown:set_visible(false)
     
             local remainingTime = shotGunScript.timerGranade
             if remainingTime > 0 then
@@ -252,13 +351,24 @@
                 else
                     skillsArmasTextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
                 end
+                skillArma2Cooldown:set_visible(true)
+                local totalCooldown = 12
+                local porcentaje = remainingTime / totalCooldown
+                if porcentaje > 1 then
+                    porcentaje = 1
+                end
+                local nuevoAlto = 32.5 * porcentaje
+                skillArma2Cooldown:set_size(Vector2.new(35, nuevoAlto))
+                skillArma2VisualCooldownTransform.position.y = skillArma2VisualCooldownStartingPosition.y + ((32.5 - nuevoAlto) / 2)
             else
                 skillsArmasTextCooldown:set_text("")
+                skillArma2Cooldown:set_visible(false)
+                skillArma2Cooldown:set_size(Vector2.new(35, 32.5))
+                skillArma2VisualCooldownTransform.position.y = skillArma2VisualCooldownStartingPosition.y
             end
         end
-        
+    
         updateAmmoText()
-
     end
 
     function updateAmmoText()
