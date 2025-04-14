@@ -88,7 +88,6 @@ function Slash()
             end
 
             if distance < radiusAttack then
-                print("bbbbbbbbbbbbbbb")
                 local enemyTag = nil
                 local enemyScript = nil
                 local enemyInstance = nil
@@ -99,7 +98,6 @@ function Slash()
                 end
 
                 if entity ~= nil then
-                    print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
                     if enemyScript ~= nil then
                         if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                             enemyInstance = enemyScript.range

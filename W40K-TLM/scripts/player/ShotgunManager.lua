@@ -526,23 +526,36 @@ function explodeGranade()
                 end
 
                 if distance < explosionRadius then
-                    local forceFactor = (explosionRadius - distance) / explosionRadius
-                    direction.y = direction.y + explosionUpward
-                    local finalForce = Vector3.new(
-                        direction.x * explosionForce * forceFactor,
-                        direction.y * explosionForce * forceFactor,
-                        direction.z * explosionForce * forceFactor
-                    )
-                    entityRb:apply_impulse(finalForce)
 
-                    local rotationFactor = explosionForce * forceFactor 
-                    local randomRotation = Vector3.new(
-                        (math.random() - 0.5) * rotationFactor,
-                        (math.random() - 0.5) * rotationFactor,
-                        (math.random() - 0.5) * rotationFactor
-                    )
+                    local enemyTag = entity:get_component("TagComponent").tag
 
-                    entityRb:set_angular_velocity(randomRotation)
+                    if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then 
+                        enemyOrkScript = entity:get_component("ScriptComponent")
+                        if enemyOrkScript ~= nil then
+                            enemyOrkScript.range.isNeuralInhibitioning = true
+                            playerScript.makeDamage = true
+                        end
+                    else
+                        local forceFactor = (explosionRadius - distance) / explosionRadius
+                        direction.y = direction.y + explosionUpward
+                        
+                        local finalForce = Vector3.new(
+                            direction.x * explosionForce * forceFactor,
+                            direction.y * explosionForce * forceFactor,
+                            direction.z * explosionForce * forceFactor
+                        )
+                        entityRb:apply_impulse(finalForce)
+
+                        local rotationFactor = explosionForce * forceFactor 
+                        local randomRotation = Vector3.new(
+                            (math.random() - 0.5) * rotationFactor,
+                            (math.random() - 0.5) * rotationFactor,
+                            (math.random() - 0.5) * rotationFactor
+                        )
+
+                        entityRb:set_angular_velocity(randomRotation)
+                    end
+                    
                 end
             end
         end
