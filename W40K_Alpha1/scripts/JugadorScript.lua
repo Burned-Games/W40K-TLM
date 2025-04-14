@@ -33,7 +33,13 @@ damageReduction = 1
 tookDamage = false
 makeDamage = false 
 
-local StimsCounter = 0
+local StimsCounter = 3
+local isHealing = false
+local timesHealed = 0
+
+local intervalcheker = 0
+local intervalchekerUp = 0
+local intervalChekerDown = 0
 
 -- Disparo
 
@@ -108,6 +114,8 @@ local partOfList = 0
 zonePlayer = 0
 level = 1
 
+local dtColective = 0
+
 enemyDirection = Vector3.new(0,0,0)
 
 local checkpointsPosition = { Vector3.new(83, 0, 35), Vector3.new(192, 0, -52)}
@@ -158,6 +166,7 @@ function on_ready()
     self:get_component("RigidbodyComponent"):on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
+        
         local newIndex = zonePlayer + 1
 
         if nameA == "Checkpoint" .. tostring(newIndex) or nameB == "Checkpoint" .. tostring(newIndex) then           
@@ -167,7 +176,7 @@ function on_ready()
             save_progress("health", playerHealth)
         end
 
-        if nameA == "Stims" .. tostring(newIndex) or nameB == "Stims" .. tostring(newIndex) then           
+        if nameA == "Inyectores" or nameB == "Inyectores" then           
             StimsCounter = StimsCounter + 1
         end
 
@@ -203,11 +212,27 @@ function on_ready()
 end
 
 function on_update(dt)
+    dtColective = dtColective + dt
 
     if enemys_targeting == 0 then
-        print("mondongo")
+        
         attractionActive = not attractionActive 
         find_scrap()
+    end
+
+    if StimsCounter > 0 and isHealing == false and Input.is_key_pressed(Input.keycode.Y) then
+        intervalcheker = dtColective
+        intervalChekerDown = intervalcheker - 0.5
+        intervalchekerUp = intervalcheker + 0.5
+        isHealing = true
+        damageReduction = 1.15
+    end
+    print ("", dtColective)
+    if isHealing == true and intervalchekerUp > dtColective and intervalChekerDown < dtColective  then
+        print("healing")
+        intervalchekerUp = intervalchekerUp + 1.5
+        intervalChekerDown = intervalChekerDown + 1.5
+        HealPlayer()
     end
 
 
@@ -974,9 +999,18 @@ function handleCover()
 end
 
 function HealPlayer()
-    playerHealth = playerHealth + 40
+    timesHealed = timesHealed + 1
+    playerHealth = playerHealth + 7
+    print ("paso 1")
 
     if playerHealth > 100 then
         playerHealth = 100
+    end
+
+    if timesHealed >= 5 then
+        print ("fin de curacion")
+      isHealing = false
+      timesHealed = 0
+      damageReduction = 1
     end
 end
