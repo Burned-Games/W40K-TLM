@@ -32,6 +32,7 @@ local fist2Rb = nil
 local fist3Rb = nil
 local fistsPositions = {}
 local scalingFists = {}
+local scalingLightning = {} 
 
 local lightning = nil
 local lightningTransf = nil
@@ -71,6 +72,9 @@ local isDead = false
 local stateDelayTimer = 0
 local stateDelayDuration = 1
 local isStateDelaying = false
+local globalTime = 0
+local lightningAttackStartTime = 0
+local isLightningDamaging = false
 
 local invulnerability = 1.0
 local timeSinceLastHit = 0.0
@@ -153,7 +157,9 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            make_damage()
+            if isLightningDamaging then
+                make_damage()
+            end
         end
     end)
 
@@ -188,6 +194,8 @@ end
 -- FSM General
 function on_update(dt)
 
+    globalTime = globalTime + dt
+
     if isDead and winTimer >= 3 then
         --SceneManager.change_scene("levelWin.TeaScene")
     end
@@ -197,13 +205,20 @@ function on_update(dt)
         return
     end
     
-    
+    update_fist_scaling(dt)
+    update_lightning_scaling(dt)
 
     if health <= 0 then
         die()
     end
 
     update_state(dt)
+
+    if globalTime - lightningAttackStartTime >= 2 then
+        isLightningDamaging = true  
+    else
+        isLightningDamaging = false  
+    end
 
     if shieldActive then
         if shieldHealth <= 0 then
@@ -470,7 +485,7 @@ function rage_state(dt)
 end
 
 function lightning_attack()
-    --log("Lightning attack")
+    
     if lightningTransf and bossTransf and playerTransf then
         lightningRb:set_position(Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z))
 
@@ -490,6 +505,43 @@ function lightning_attack()
         end
 
         lightningTransf.rotation.y = angle
+
+        lightningTransf.scale = Vector3.new(1, 1, 1)
+        table.insert(scalingLightning, {
+            transform = lightningTransf,
+            elapsed = 0,
+            duration = 7,
+            startScale = Vector3.new(0.4, 1, 0.2),
+            targetScale = Vector3.new(3, 1, 0.8) 
+        })
+
+        lightningAttackStartTime = globalTime 
+        isLightningDamaging = false
+    end
+end
+
+function update_lightning_scaling(dt)
+    for i = #scalingLightning, 1, -1 do
+        local data = scalingLightning[i]
+        data.elapsed = data.elapsed + dt
+
+        if data.elapsed <= data.duration then
+            local t = data.elapsed / data.duration
+            local newScale = Vector3.new(
+                data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
+                data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
+                data.startScale.z + (data.targetScale.z - data.startScale.z) * t
+            )
+            
+            if data.transform then
+                data.transform.scale = newScale
+            end
+        else
+            if data.transform then
+                data.transform.scale = data.targetScale
+            end
+            table.remove(scalingLightning, i)
+        end
     end
 end
 
@@ -509,7 +561,7 @@ function fists_attack()
     local fistTransforms = {fist1Transform, fist2Transform, fist3Transform}
     local fistRbs = {fist1Rb, fist2Rb, fist3Rb}
     
-    -- Clear previous scaling operations
+    -- Clear previous scaling operations      
     scalingFists = {}
     
     for i = 1, 3 do
