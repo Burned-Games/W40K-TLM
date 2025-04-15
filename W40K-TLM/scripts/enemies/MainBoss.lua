@@ -40,6 +40,11 @@ local scalingLightning = {}
 local ultimate
 local ultiTransf = nil
 local ultiTimer = 0
+local ultimateCollider = nil
+local ultimateRb = nil
+local ultimateAttackStartTime = 0
+local isUltimateDamaging = false
+
 
 local attackEndTime = 0 
 local tpTimer = 0        
@@ -107,6 +112,23 @@ function on_ready()
 
     ultimate = current_scene:get_entity_by_name("Ultimate")
     ultiTransf = ultimate:get_component("TransformComponent")
+    ultimateCollider = ultimate:get_component("RigidbodyComponent")
+    ultimateRb = ultimateCollider.rb
+
+    ultimateRb:set_trigger(true)
+
+    ultimateCollider:on_collision_stay(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            if isUltimateDamaging then
+                make_damage()
+            end
+        end
+    end)
+
+
     fist1 = current_scene:get_entity_by_name("Fist1")
     fist2 = current_scene:get_entity_by_name("Fist2")
     fist3 = current_scene:get_entity_by_name("Fist3")
@@ -242,6 +264,12 @@ function on_update(dt)
         isLightningDamaging = true  
     else
         isLightningDamaging = false  
+    end
+
+    if globalTime - ultimateAttackStartTime >= 6 then
+        isUltimateDamaging = true  
+    else
+        isUltimateDamaging = false  
     end
 
     if shieldActive then
@@ -684,7 +712,6 @@ function update_fist_scaling(dt)
 end
 
 function ulti_attack()
-
     if currentAnim ~= 4 then
         bossAnimator:set_current_animation(4)
         currentAnim = 4
@@ -694,12 +721,15 @@ function ulti_attack()
     bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
 
     local radius = 3.5
-
-    ultiTransf.position = Vector3.new(
+    local ultiPosition = Vector3.new(
         playerPos.x - radius/2, 
         0, 
         playerPos.z + radius * 0.866
     )
+
+    -- Actualizar posición del Transform y Rigidbody de la ultimate
+    ultiTransf.position = ultiPosition
+    ultimateRb:set_position(ultiPosition)  -- Usar set_position() del Rigidbody
 
     -- Configurar el escalado
     table.insert(scalingLightning, {
@@ -710,6 +740,7 @@ function ulti_attack()
         targetScale = Vector3.new(20, 20, 20) 
     })
 
+    -- Registrar para teletransporte después de 3s
     local attackDuration = 15  
     table.insert(attacksToTeleport, {
         entity = ultimate,
@@ -717,7 +748,6 @@ function ulti_attack()
     })
 
     ultiTimer = 40
-
 end
 
 function make_damage()
