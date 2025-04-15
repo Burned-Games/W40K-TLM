@@ -14,6 +14,14 @@ local pathUpdateInterval = 1.0
 local checkEnemyTimer = 0.0
 local checkEnemyInterval = 40.0 
 
+-- Audio
+local supportAttackSFX
+local supportHurtSFX
+local supportShieldExplosionSFX
+local supportShieldZapsSFX
+local supportShieldAssignSFX
+local supportDeadSFX
+
 function on_ready() 
 
     support.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
@@ -93,6 +101,14 @@ function on_ready()
     support.waypointPos[1] = support.wp1Transf.position
     support.waypointPos[2] = support.wp2Transf.position
     support.waypointPos[3] = support.wp3Transf.position
+
+    -- Audio 
+    supportAttackSFX = current_scene:get_entity_by_name("SupportAttackSFX"):get_component("AudioSourceComponent")
+    supportHurtSFX = current_scene:get_entity_by_name("SupportHurtSFX"):get_component("AudioSourceComponent")
+    supportShieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
+    supportShieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
+    supportShieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
+    supportDeadSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
 
 end
 

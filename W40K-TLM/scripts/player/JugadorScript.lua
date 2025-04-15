@@ -65,6 +65,7 @@ swordLower = nil
 local swordScript = nil
 local swordAnimationTime = 1
 local swordAnimationTimeCounter = 0
+
 -- Audio
 local explorationMusic = nil
 local combatMusic = nil
@@ -74,6 +75,8 @@ local explorationMusicVolume = 0.05
 
 local prevBackgroundMusicToPlay = -1
 backgroundMusicToPlay = 0 -- 0 exploration 1 combat
+
+local playerDeathSFX
 
 -- effects
 isBleeding = false
@@ -134,9 +137,10 @@ local transf = nil
 function on_ready()
     -- Add initialization code here
 
+    -- Audio
     --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
-    
+    playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
 
 
     --UpgradeManager START
@@ -1017,6 +1021,7 @@ function checkPlayerDeath(dt)
             animator:set_current_animation(currentAnim)
             deathAnimationSetted = true
             playerRb:set_velocity(Vector3.new(0, 0, 0))
+            playerDeathSFX:play()
         end
         health = 0
         playerTransf.rotation.y = math.deg(angleRotation)

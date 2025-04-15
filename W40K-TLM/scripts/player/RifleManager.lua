@@ -31,7 +31,7 @@ local shooted = true
 damage = 25
 
 --audio
-local burst_shot
+local bolterShotSFX
 local rifle_reload
 local rifle_firerate = 0.8
 
@@ -91,12 +91,8 @@ function on_ready()
     sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
     sphere1RigidBody:set_trigger(true)
 
-
-    --local burst_shot_entity = current_scene:get_entity_by_name("RifleDisparoAudio") // A DESCOMENTAR
-    --burst_shot = burst_shot_entity:get_component("AudioSourceComponent") // A DESCOMENTAR
-
-    --local rifle_reload_entity = current_scene:get_entity_by_name("RifleRecargaAudio") // A DESCOMENTAR
-    --rifle_reload = rifle_reload_entity:get_component("AudioSourceComponent") // A DESCOMENTAR
+    -- Audio 
+    bolterShotSFX = current_scene:get_entity_by_name("BolterShotSFX"):get_component("AudioSourceComponent")
 
     --shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
     ---- bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
@@ -573,8 +569,8 @@ end
 
 function playShoot()
     --rifle_reload:pause() // A DESCOMENTAR
-    --burst_shot:pause() // A DESCOMENTAR
-    --burst_shot:play()   // A DESCOMENTAR
+    bolterShotSFX:pause()
+    bolterShotSFX:play()  
 end
 
 function playReload()

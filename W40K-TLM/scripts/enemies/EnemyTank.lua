@@ -12,6 +12,12 @@ local tackleCooldown = 10.0
 local idleDuration = 1.0
 local idleTimer = 0.0
 
+-- Audio
+local tankBerserkerSFX
+local tankDetectPlayerSFX
+local tankImpactPlayerSFX
+local tankStepsSFX
+
 function on_ready()
 
     tank.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
@@ -26,7 +32,11 @@ function on_ready()
     tank.enemyRb = tank.enemyRbComponent.rb
     tank.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-
+    -- Audio 
+    tankBerserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
+    tankDetectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
+    tankImpactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
+    tankStepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
 
     local enemy_type = "tank"
     tank:set_level()

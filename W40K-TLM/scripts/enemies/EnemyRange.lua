@@ -24,6 +24,13 @@ local currentBulletIndex = 1
 local BULLET_LIFETIME = 5.0
 local bulletTimers = {}
 
+-- Audio
+local rangeDyingSFX
+local rangeHurtSFX
+local rangeBulletImpactSFX
+local rangeCaCImpactSFX
+local rangeShotSFX
+
 function on_ready() 
 
     range.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
@@ -43,6 +50,13 @@ function on_ready()
 
     range.scrap = current_scene:get_entity_by_name("Scrap")
     range.scrapTransf = range.scrap:get_component("TransformComponent")
+
+    -- Audio
+    rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
+    rangeHurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
+    rangeBulletImpactSFX = current_scene:get_entity_by_name("RangeBulletImpactSFX"):get_component("AudioSourceComponent")
+    rangeCaCImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
+    rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
 
     -- Initialize bullet pool
     for i = 1, 5 do
@@ -165,6 +179,7 @@ function on_update(dt)
     if range.currentState == range.state.Idle then return end
 
     if range.health <= 0 then
+        rangeDyingSFX:play()
         range:die_state()
     end
 
@@ -300,6 +315,7 @@ function range:shoot_state(dt)
             shoot_projectile(shouldTargetExplosive)
             range.burstCount = range.burstCount + 1
             timeSinceLastShot = 0
+            rangeShotSFX:play()
 
             if range.burstCount >= range.maxBurstShots then
                 range.isShootingBurst = false

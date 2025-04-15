@@ -74,12 +74,25 @@ local throwing = false
 local finalTargetPos = nil
 shootAnimation = false
 
+-- Audio
+local shotgunBulletImpactsSFX
+local shotgunGrenadeShotSFX
+local shotgunGrenadeSmokeSFX
+local shotgunReloadSFX
+local shotgunShotSFX
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     
-    
+    -- Audio
+    shotgunBulletImpactsSFX = current_scene:get_entity_by_name("ShotgunBulletImpactsSFX"):get_component("AudioSourceComponent")
+    shotgunGrenadeShotSFX = current_scene:get_entity_by_name("ShotgunGrenadeShotSFX"):get_component("AudioSourceComponent")
+    shotgunGrenadeSmokeSFX = current_scene:get_entity_by_name("ShotgunGrenadeSmokeSFX"):get_component("AudioSourceComponent")
+    shotgunReloadSFX = current_scene:get_entity_by_name("ShotgunReloadSFX"):get_component("AudioSourceComponent")
+    shotgunShotSFX = current_scene:get_entity_by_name("ShotgunShotSFX"):get_component("AudioSourceComponent")
+
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
         local bullet = {}
@@ -185,6 +198,7 @@ function on_update(dt)
         if ammo == 0 and not is_reloading then
             is_reloading = true
             reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
+            shotgunReloadSFX:play()
         end
 
         local leftShoulder = Input.get_button(Input.action.Skill2)
@@ -206,6 +220,7 @@ function on_update(dt)
             --update_joystick_position()
         else
             if lbapretado then
+                shotgunGrenadeShotSFX:play()
                 dropGranade = true
             end
             lbapretado = false
@@ -259,6 +274,7 @@ function shoot(dt)
         local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
         bullet.rigidBody:set_velocity(velocity)
     end
+    shotgunShotSFX:play()
 end
 
 function handle_bullet_collision(entityA, entityB)
