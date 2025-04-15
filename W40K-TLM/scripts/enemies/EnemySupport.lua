@@ -204,7 +204,7 @@ function support:move_state(dt)
         support.animator:set_current_animation(support.currentAnim)
     end 
         
-    -- 1. Primero obtenemos todos los enemigos sin escudo
+    
     local validTargets = {}
     for _, enemyData in ipairs(support.Enemies) do
         if not enemyData.haveShield then

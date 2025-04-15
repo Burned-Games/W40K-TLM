@@ -208,6 +208,10 @@ function on_update(dt)
     update_fist_scaling(dt)
     update_lightning_scaling(dt)
 
+    if #scalingFists > 0 or #scalingLightning > 0 then
+        bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
+    end
+
     if health <= 0 then
         die()
     end
@@ -430,6 +434,7 @@ function shield_state(dt)
         currentAnim = 3
     end
 
+    bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
     shieldTransf.position = Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z)
     shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
 
@@ -488,7 +493,7 @@ function lightning_attack()
     
     if lightningTransf and bossTransf and playerTransf then
         lightningRb:set_position(Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z))
-
+        bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
         lightningTransf.position = Vector3.new(
             bossTransf.position.x,
             bossTransf.position.y,
@@ -548,7 +553,7 @@ end
 function fists_attack()
     -- Position fists around the player
     local playerPos = playerTransf.position
-    
+    bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
     -- Calculate positions around the player (equidistant points in a circle)
     local radius = 3.5  -- Distance from player
     local fistPositions = {
