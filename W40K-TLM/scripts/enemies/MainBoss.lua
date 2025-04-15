@@ -18,6 +18,9 @@ local currentWaypoint = 1
 local currentPathIndex = 1
 local waypointPositions = {}
 
+local phase1 = true
+local phase2 = false
+
 local fist1 = nil
 local fist2 = nil
 local fist3 = nil
@@ -33,6 +36,15 @@ local fist3Rb = nil
 local fistsPositions = {}
 local scalingFists = {}
 local scalingLightning = {} 
+
+local ultimate
+local ultiTransf = nil
+local ultiTimer = 0
+
+local attackEndTime = 0 
+local tpTimer = 0        
+local shouldTeleport = false
+local attacksToTeleport = {}
 
 local lightning = nil
 local lightningTransf = nil
@@ -93,6 +105,8 @@ function on_ready()
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
 
+    ultimate = current_scene:get_entity_by_name("Ultimate")
+    ultiTransf = ultimate:get_component("TransformComponent")
     fist1 = current_scene:get_entity_by_name("Fist1")
     fist2 = current_scene:get_entity_by_name("Fist2")
     fist3 = current_scene:get_entity_by_name("Fist3")
@@ -212,11 +226,17 @@ function on_update(dt)
         bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
     end
 
-    if health <= 0 then
+    if health <= 480 then
+        phase1 = false
+        phase2 = true
+    elseif health <= 0 then
         die()
     end
 
     update_state(dt)
+    handle_attack_teleport(dt)
+
+    ultiTimer = math.max(0, ultiTimer - dt)
 
     if globalTime - lightningAttackStartTime >= 2 then
         isLightningDamaging = true  
@@ -257,7 +277,7 @@ function on_update(dt)
         patrol_state(dt)
     elseif currentState == state.Attack then
         attack_state(dt)
-    elseif currentState == state.Rage then
+    elseif currentState == state.Rage and phase2 then
         rage_state(dt)
     elseif currentState == state.Shield then
         shield_state(dt)
@@ -282,16 +302,16 @@ function update_state(dt)
     
     local distance = get_distance(bossTransf.position, playerTransf.position)
 
-    if health <= bossMaxHealth * 0.4 and not isRaging then
-        isRaging = true
-        set_new_state(state.Rage)
-        return
-    end
+    -- if health <= bossMaxHealth * 0.4 and not isRaging then
+    --     isRaging = true
+    --     set_new_state(state.Rage)
+    --     return
+    -- end
     
-    if isRaging then
-        set_new_state(state.Rage)
-        return
-    end
+    -- if isRaging then
+    --     set_new_state(state.Rage)
+    --     return
+    -- end
     --print("updating")
     local attackDistance = 25  
     
@@ -449,6 +469,28 @@ function move_shield()
     end
 end
 
+function handle_attack_teleport(dt)
+    for i = #attacksToTeleport, 1, -1 do
+        local attack = attacksToTeleport[i]
+        
+        -- Si la animación del ataque terminó
+        if globalTime >= attack.endTime then
+            if not attack.teleportTimer then
+                attack.teleportTimer = 0  -- Iniciar temporizador
+            else
+                attack.teleportTimer = attack.teleportTimer + dt
+                
+                -- Pasados 3 segundos, teletransportar
+                if attack.teleportTimer >= 3 then
+                    local rb = attack.entity:get_component("RigidbodyComponent").rb
+                    rb:set_position(Vector3.new(-500, 0, -500))
+                    table.remove(attacksToTeleport, i)
+                end
+            end
+        end
+    end
+end
+
 function move_state(dt) end
 
 function attack_state(dt)
@@ -462,6 +504,8 @@ function attack_state(dt)
     if attackChance < 0.3 then
         lightning_attack()
         fists_attack()
+    elseif phase2 and ultiTimer <= 0 then 
+        ulti_attack()
     else
         if distance <= 10 then
             lightning_attack()
@@ -490,7 +534,9 @@ function rage_state(dt)
 end
 
 function lightning_attack()
-    
+    local attackDuration = 7 
+    attackEndTime = math.max(attackEndTime, globalTime + attackDuration)
+
     if lightningTransf and bossTransf and playerTransf then
         lightningRb:set_position(Vector3.new(bossTransf.position.x, bossTransf.position.y, bossTransf.position.z))
         bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
@@ -518,6 +564,12 @@ function lightning_attack()
             duration = 7,
             startScale = Vector3.new(0.4, 1, 0.2),
             targetScale = Vector3.new(3, 1, 0.8) 
+        })
+
+        local attackDuration = 7  
+        table.insert(attacksToTeleport, {
+            entity = lightning,
+            endTime = globalTime + attackDuration
         })
 
         lightningAttackStartTime = globalTime 
@@ -551,7 +603,7 @@ function update_lightning_scaling(dt)
 end
 
 function fists_attack()
-    -- Position fists around the player
+
     local playerPos = playerTransf.position
     bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
     -- Calculate positions around the player (equidistant points in a circle)
@@ -587,6 +639,20 @@ function fists_attack()
             })
         end
     end
+
+    local attackDuration = 3
+    table.insert(attacksToTeleport, {
+        entity = fist1,
+        endTime = globalTime + attackDuration
+    })
+    table.insert(attacksToTeleport, {
+        entity = fist2,
+        endTime = globalTime + attackDuration
+    })
+    table.insert(attacksToTeleport, {
+        entity = fist3,
+        endTime = globalTime + attackDuration
+    })
 end
 
 function update_fist_scaling(dt)
@@ -615,6 +681,43 @@ function update_fist_scaling(dt)
             table.remove(scalingFists, i)
         end
     end
+end
+
+function ulti_attack()
+
+    if currentAnim ~= 4 then
+        bossAnimator:set_current_animation(4)
+        currentAnim = 4
+    end
+
+    local playerPos = playerTransf.position
+    bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
+
+    local radius = 3.5
+
+    ultiTransf.position = Vector3.new(
+        playerPos.x - radius/2, 
+        0, 
+        playerPos.z + radius * 0.866
+    )
+
+    -- Configurar el escalado
+    table.insert(scalingLightning, {
+        transform = ultiTransf, 
+        elapsed = 0,
+        duration = 15,
+        startScale = Vector3.new(1, 1, 1),
+        targetScale = Vector3.new(20, 20, 20) 
+    })
+
+    local attackDuration = 15  
+    table.insert(attacksToTeleport, {
+        entity = ultimate,
+        endTime = globalTime + attackDuration
+    })
+
+    ultiTimer = 40
+
 end
 
 function make_damage()
