@@ -1,0 +1,15 @@
+Event	ID	Name			Wwise Object Path	Notes
+	799608975	Play_TankSteps			\Default Work Unit\Enemies\Tank\Play_TankSteps	
+	1221713427	Play_TankImpactPlayer			\Default Work Unit\Enemies\Tank\Play_TankImpactPlayer	
+	2304298641	Play_TankBerserker			\Default Work Unit\Enemies\Tank\Play_TankBerserker	
+	2751048284	Play_TankDetectPlayer			\Default Work Unit\Enemies\Tank\Play_TankDetectPlayer	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	82750228	TankImpactPlayer	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\24\{24D4E4E9-AB94-2AC8-FB56-6F1D0AFDF64D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Tank\TankImpactPlayer		94820
+	95396527	TankDetectPlayer	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\97\{9765D45F-9285-C32F-7468-B076EBE3AA7B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Tank\TankDetectPlayer		579244
+	220509043	TankBerserker	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\1E\{1E74F148-0D58-4C6F-69C1-E9D895704D0D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Tank\TankBerserker		686448
+	413552819	TankStep	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\97\{97D9EA12-DFD4-BF2E-A46A-3A8B3F14D37D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Tank\TankSteps\TankStep		18198
+	442351485	TankStep4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\88\{88CEA6D9-132B-18FA-4271-7989EF3E3B72}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Tank\TankSteps\TankStep4		22118
+	805529998	TankStep3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\25\{25926324-0EA9-571B-15B2-13740BE12E53}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Tank\TankSteps\TankStep3		31358
+	1018211740	TankStep2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8F\{8F5957E4-69A0-D5E2-8D23-89CA17AD62E3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Tank\TankSteps\TankStep2		33524
+
