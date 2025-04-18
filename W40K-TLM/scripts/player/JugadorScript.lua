@@ -35,11 +35,20 @@ local deathAnimationSetted = false
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
+--Healing sistem
+local StimsCounter = 3
+local isHealing = false
+local timesHealed = 0
+
+local intervalcheker = 0
+local intervalchekerUp = 0
+local intervalChekerDown = 0
+
 damageReduction = 1
 tookDamage = false
 makeDamage = false 
 
-local StimsCounter = 0
+
 
 enemys_targeting = 0
 
@@ -134,6 +143,8 @@ local run_Shotgun = 12
 local rotationAngle = 0
 local transf = nil
 
+local dtColective = 0
+
 function on_ready()
     -- Add initialization code here
 
@@ -198,6 +209,8 @@ function on_ready()
     self:get_component("RigidbodyComponent"):on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
+        local nameATran = entityA:get_component("TransformComponent")
+        local nameBTran = entityB:get_component("TransformComponent")
         local newIndex = zonePlayer + 1
 
         if nameA == "Checkpoint" .. tostring(newIndex) or nameB == "Checkpoint" .. tostring(newIndex) then           
@@ -206,8 +219,15 @@ function on_ready()
             save_progress("scrap", scrapCounter)
             save_progress("health", health)
         end
-        if nameA == "Stims" .. tostring(newIndex) or nameB == "Stims" .. tostring(newIndex) then           
+        if nameA == "Inyectores" or nameB == "Inyectores" then           
             StimsCounter = StimsCounter + 1
+            if nameA == "Inyectores" then
+                nameATran.position.x = 2000000
+
+            end
+            if nameB == "Inyectores" then
+                nameBTran.position.x = 2000000
+            end
         end
     end)
 
@@ -243,6 +263,25 @@ function on_ready()
 end
 
 function on_update(dt)
+    dtColective = dtColective + dt
+
+    if StimsCounter > 0 and isHealing == false and Input.is_key_pressed(Input.keycode.Y) then
+        
+        StimsCounter = StimsCounter - 1
+
+        intervalcheker = dtColective
+        intervalChekerDown = intervalcheker - 0.5
+        intervalchekerUp = intervalcheker + 0.5
+        isHealing = true
+        damageReduction = 1.15
+    end
+    
+    if isHealing == true and intervalchekerUp > dtColective and intervalChekerDown < dtColective  then
+        
+        intervalchekerUp = intervalchekerUp + 1.5
+        intervalChekerDown = intervalChekerDown + 1.5
+        HealPlayer()
+    end
 
     if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
         attractionActive = not attractionActive 
@@ -1181,9 +1220,19 @@ function handleCover()
 end
 
 function HealPlayer()
-    health = health + 40
+    
+    timesHealed = timesHealed + 1
+    health = health + 7
+    
 
     if health > 100 then
         health = 100
+    end
+
+    if timesHealed >= 5 then
+        
+      isHealing = false
+      timesHealed = 0
+      damageReduction = 1
     end
 end
