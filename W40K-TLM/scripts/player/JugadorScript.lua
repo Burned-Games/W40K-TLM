@@ -211,6 +211,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
         local nameATran = entityA:get_component("TransformComponent")
         local nameBTran = entityB:get_component("TransformComponent")
+        
         local newIndex = zonePlayer + 1
 
         if nameA == "Checkpoint" .. tostring(newIndex) or nameB == "Checkpoint" .. tostring(newIndex) then           
@@ -219,14 +220,22 @@ function on_ready()
             save_progress("scrap", scrapCounter)
             save_progress("health", health)
         end
-        if nameA == "Inyectores" or nameB == "Inyectores" then           
+        if nameA == "Inyectores" or nameB == "Inyectores" then   
+                   
             StimsCounter = StimsCounter + 1
             if nameA == "Inyectores" then
-                nameATran.position.x = 2000000
-
+                local nameEntity = current_scene:get_entity_by_name("Inyectores") 
+                local rigid = nameEntity:get_component("RigidbodyComponent").rb
+                local newPos = Vector3.new(2000000, 0, 0)
+                rigid:set_position(newPos)
             end
             if nameB == "Inyectores" then
-                nameBTran.position.x = 2000000
+                
+                local nameEntity = current_scene:get_entity_by_name("Inyectores") 
+                local rigid = nameEntity:get_component("RigidbodyComponent").rb
+                local newPos = Vector3.new(2000000, 0, 0)
+                rigid:set_position(newPos)
+                
             end
         end
     end)
