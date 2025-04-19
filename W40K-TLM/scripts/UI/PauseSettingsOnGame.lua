@@ -41,8 +41,8 @@ function on_ready()
     button3 = current_scene:get_entity_by_name("SaveGame"):get_component("UIButtonComponent")
     button4 = current_scene:get_entity_by_name("Exit"):get_component("UIButtonComponent")
 
-    visibilidad1 = current_scene:get_entity_by_name("BasePause"):get_component("UIImageComponent")
-    visibilidad2 = current_scene:get_entity_by_name("BaseSettings"):get_component("UIImageComponent")
+    visibilidad1 = current_scene:get_entity_by_name("Pause"):get_component("UIImageComponent")
+    visibilidad2 = current_scene:get_entity_by_name("Settings"):get_component("UIImageComponent")
 
     VolumeText = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
     FXText = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
@@ -50,23 +50,20 @@ function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
 
-    ContinueText = current_scene:get_entity_by_name("ContinueText"):get_component("UITextComponent")
-    SettingsText = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
-    SaveGameText = current_scene:get_entity_by_name("SaveText"):get_component("UITextComponent")
-    ExitText = current_scene:get_entity_by_name("ExitText"):get_component("UITextComponent")
+
     PauseText = current_scene:get_entity_by_name("PauseText"):get_component("UITextComponent")
-    SettingsBaseText = current_scene:get_entity_by_name("SettingsBaseText"):get_component("UITextComponent")
+    SettingsBaseText = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
 
-    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
+    --workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
 
-    BaseTextureBG = current_scene:get_entity_by_name("BaseMenus"):get_component("UIImageComponent")
+    --BaseTextureBG = current_scene:get_entity_by_name("BaseMenus"):get_component("UIImageComponent")
 
     -- audio
-    explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
-    combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
+   -- explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
+    --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
 
     -- fx
-    footstep_one = current_scene:get_entity_by_name("PlayerStep1"):get_component("AudioSourceComponent")
+    --[[footstep_one = current_scene:get_entity_by_name("PlayerStep1"):get_component("AudioSourceComponent")
     footstep_two = current_scene:get_entity_by_name("PlayerStep2"):get_component("AudioSourceComponent")
     footstep_three = current_scene:get_entity_by_name("PlayerStep3"):get_component("AudioSourceComponent")
     footstep_four = current_scene:get_entity_by_name("PlayerStep4"):get_component("AudioSourceComponent")
@@ -75,18 +72,18 @@ function on_ready()
     shotgun_shot = current_scene:get_entity_by_name("EscopetaDisparoAudio"):get_component("AudioSourceComponent")
     shotgun_reload = current_scene:get_entity_by_name("EscopetaRecargaAudio"):get_component("AudioSourceComponent")
     grenade_launch = current_scene:get_entity_by_name("GranadeLaunchAudio"):get_component("AudioSourceComponent")
-    grenade_explosion = current_scene:get_entity_by_name("GranadeExplosionAudio"):get_component("AudioSourceComponent")
+    grenade_explosion = current_scene:get_entity_by_name("GranadeExplosionAudio"):get_component("AudioSourceComponent") --]]
 
     local savedFXVolume = load_progress("fxVolume", 1.0)
-    slider2:set_value(savedFXVolume)
+                             --slider2:set_value(savedFXVolume) este estaba descomentado
 
     --local savedVolumeGeneral = load_progress("musicVolumeGeneral", 0.05)
     --xplorationMusic:set_volume(savedVolumeGeneral)
 
-    slider1:set_value(load_progress("musicVolumeGeneral", 1.0))
+                   --slider1:set_value(load_progress("musicVolumeGeneral", 1.0)) este estaba descomentado
     -- slider2:set_value(load_progress("fxVolume", 1.0))
 
-    visibilidad2:set_visible(false)
+    --[[visibilidad2:set_visible(false)
     VolumeText:set_visible(false)
     FXText:set_visible(false)
     SettingsBaseText:set_visible(false)
@@ -96,14 +93,14 @@ function on_ready()
     button2:set_visible(false)
     button3:set_visible(false)
     button4:set_visible(false)
-    BaseTextureBG:set_visible(false)
+    BaseTextureBG:set_visible(false) --]]
 
 end
 
 function on_update(dt)
     -- Add update code here
 
-    value = Input.get_button(Input.action.Pause)
+    --[[value = Input.get_button(Input.action.Pause)
     if ((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
         if(isPaused) then
             isPaused = false
@@ -144,7 +141,7 @@ function on_update(dt)
                 workbenchUIManagerScript:hide_ui()
             end
         end
-    end
+    end 
 
 
     if index == 0 then
@@ -343,11 +340,11 @@ function on_update(dt)
     end
 
    
-        
+       --]] 
 end
 
 function hide_pause()
-    isPaused = false
+    --[[isPaused = false
     ContinueText:set_visible(false)
     SettingsText:set_visible(false)
     SaveGameText:set_visible(false)
@@ -364,7 +361,7 @@ function hide_pause()
     FXText:set_visible(false)
     SettingsBaseText:set_visible(false)
     visibilidad2:set_visible(false)
-    BaseTextureBG:set_visible(false)
+    BaseTextureBG:set_visible(false) --]]
 end
 
 function on_exit()
