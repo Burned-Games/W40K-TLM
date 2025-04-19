@@ -11,15 +11,19 @@
     local lifeFullTransform
 
     local skill1
+    local skill1VisualCooldownEntity
     local skill1VisualCooldown
     local skill1VisualCooldownTransform
     local skill1VisualCooldownStartingPosition
+    local skill1TextCooldownEntity
     local skill1TextCooldown
     local skill1Cooldown = false
     local skill1Timer = 0
     
     local skill2
-    local skill2Button    
+    local skill2ButtonEntity    
+    local skill2Button
+    local skill2VisualCooldownEntity
     local skill2VisualCooldown
     local skill2VisualCooldownTransform
     local skill2VisualCooldownStartingPosition
@@ -86,30 +90,41 @@
 
         --Habilidades
         skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
-        skill1VisualCooldown = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("UIImageComponent")
-        skill1TextCooldown = current_scene:get_entity_by_name("Habilidad1CooldownText"):get_component("UITextComponent")
-        skill1VisualCooldownTransform = current_scene:get_entity_by_name("Habilidad1Cooldown"):get_component("TransformComponent")
+        skill1VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad1Cooldown")
+        skill1VisualCooldown = skill1VisualCooldownEntity:get_component("UIImageComponent")
+        skill1TextCooldownEntity = current_scene:get_entity_by_name("Habilidad1CooldownText")
+        skill1TextCooldown = skill1TextCooldownEntity:get_component("UITextComponent")
+        skill1VisualCooldownTransform = skill1VisualCooldownEntity:get_component("TransformComponent")
         skill1VisualCooldownStartingPosition = Vector3.new(skill1VisualCooldownTransform.position.x, skill1VisualCooldownTransform.position.y, skill1VisualCooldownTransform.position.z)
 
         skill2 = current_scene:get_entity_by_name("Habilidad2Activable"):get_component("UIToggleComponent")
-        skill2Button = current_scene:get_entity_by_name("Habilidad2Boton"):get_component("UIImageComponent")
-        skill2VisualCooldown = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("UIImageComponent")
-        skill2TextCooldown = current_scene:get_entity_by_name("Habilidad2CooldownText"):get_component("UITextComponent")
-        skill2VisualCooldownTransform = current_scene:get_entity_by_name("Habilidad2Cooldown"):get_component("TransformComponent")
+        skill2ButtonEntity = current_scene:get_entity_by_name("Habilidad2Boton")
+        skill2Button = skill2ButtonEntity:get_component("UIImageComponent")
+        skill2VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad2Cooldown")
+        skill2VisualCooldown = skill2VisualCooldownEntity:get_component("UIImageComponent")
+        skill2TextCooldownEntity = current_scene:get_entity_by_name("Habilidad2CooldownText")
+        skill2TextCooldown = skill2TextCooldownEntity:get_component("UITextComponent")
+        skill2VisualCooldownTransform = skill2VisualCooldownEntity:get_component("TransformComponent")
         skill2VisualCooldownStartingPosition = Vector3.new(skill2VisualCooldownTransform.position.x, skill2VisualCooldownTransform.position.y, skill2VisualCooldownTransform.position.z)
 
         skill3 = current_scene:get_entity_by_name("Habilidad3Activable"):get_component("UIToggleComponent")
-        skill3Button = current_scene:get_entity_by_name("Habilidad3Boton"):get_component("UIImageComponent")
-        skill3VisualCooldown = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("UIImageComponent")
-        skill3TextCooldown = current_scene:get_entity_by_name("Habilidad3CooldownText"):get_component("UITextComponent")
-        skill3VisualCooldownTransform = current_scene:get_entity_by_name("Habilidad3Cooldown"):get_component("TransformComponent")
+        skill3ButtonEntity = current_scene:get_entity_by_name("Habilidad3Boton")
+        skill3Button = skill3ButtonEntity:get_component("UIImageComponent")
+        skill3VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad3Cooldown")
+        skill3VisualCooldown = skill3VisualCooldownEntity:get_component("UIImageComponent")
+        skill3TextCooldownEntity = current_scene:get_entity_by_name("Habilidad3CooldownText")
+        skill3TextCooldown = skill3TextCooldownEntity:get_component("UITextComponent")
+        skill3VisualCooldownTransform = skill3VisualCooldownEntity:get_component("TransformComponent")
         skill3VisualCooldownStartingPosition = Vector3.new(skill3VisualCooldownTransform.position.x, skill3VisualCooldownTransform.position.y, skill3VisualCooldownTransform.position.z)
 
-        skillsArmasTextCooldown = current_scene:get_entity_by_name("HabilidadesArmasCooldown"):get_component("UITextComponent")
+        skillsArmasTextCooldownEntity = current_scene:get_entity_by_name("HabilidadesArmasCooldown")
+        skillsArmasTextCooldown = skillsArmasTextCooldownEntity:get_component("UITextComponent")
         skillArma1 = current_scene:get_entity_by_name("HabilidadArma1"):get_component("UIToggleComponent")
-        skillArma1Cooldown = current_scene:get_entity_by_name("HabilidadArma1Cooldown"):get_component("UIImageComponent")
+        skillArma1CooldownEntity = current_scene:get_entity_by_name("HabilidadArma1Cooldown")
+        skillArma1Cooldown = skillArma1CooldownEntity:get_component("UIImageComponent")
         skillArma2 = current_scene:get_entity_by_name("HabilidadArma2"):get_component("UIToggleComponent")
-        skillArma2Cooldown = current_scene:get_entity_by_name("HabilidadArma2Cooldown"):get_component("UIImageComponent")
+        skillArma2CooldownEntity = current_scene:get_entity_by_name("HabilidadArma2Cooldown")
+        skillArma2Cooldown = skillArma2CooldownEntity:get_component("UIImageComponent")
         skillArma1VisualCooldownTransform = current_scene:get_entity_by_name("HabilidadArma1Cooldown"):get_component("TransformComponent")
         skillArma1VisualCooldownStartingPosition = Vector3.new(skillArma1VisualCooldownTransform.position.x, skillArma1VisualCooldownTransform.position.y, skillArma1VisualCooldownTransform.position.z)
         skillArma2VisualCooldownTransform = current_scene:get_entity_by_name("HabilidadArma2Cooldown"):get_component("TransformComponent")
@@ -130,42 +145,44 @@
         
         --Chatarra
         chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
-        chatarraBarComponent = current_scene:get_entity_by_name("ChatarraCantidad"):get_component("UIImageComponent") 
-        chatarraTransform = current_scene:get_entity_by_name("ChatarraCantidad"):get_component("TransformComponent")
-        chatarraStartingPosition = Vector3.new(chatarraTransform.position.x - 123, chatarraTransform.position.y, chatarraTransform.position.z)
+        chatarraBar = current_scene:get_entity_by_name("ChatarraCantidad")
+        chatarraBarComponent = chatarraBar:get_component("UIImageComponent") 
+        chatarraTransform = chatarraBar:get_component("TransformComponent")
+        chatarraStartingPosition = Vector3.new(chatarraTransform.position.x, chatarraTransform.position.y, chatarraTransform.position.z)
 
         player = current_scene:get_entity_by_name("Player")
         playerScript = player:get_component("ScriptComponent")
 
-        armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
-        armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
+        --armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
+        --armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
 
-        upgradeManager = current_scene:get_entity_by_name("UpgradeManager")
-        upgradeManagerScript = upgradeManager:get_component("ScriptComponent")
+        --upgradeManager = current_scene:get_entity_by_name("UpgradeManager")
+        --upgradeManagerScript = upgradeManager:get_component("ScriptComponent")
 
-        skill1TextCooldown:set_visible(false)
-        skill1VisualCooldown:set_visible(false)
+        skill1TextCooldownEntity:set_active(false)
+        skill1VisualCooldownEntity:set_active(false)
 
-        skill2TextCooldown:set_visible(false)
-        skill2VisualCooldown:set_visible(false)
-        skill2Button:set_visible(false)
+        skill2TextCooldownEntity:set_active(false)
+        skill2VisualCooldownEntity:set_active(false)
+        skill2ButtonEntity:set_active(false)
 
-        skill3Button:set_visible(false)
-        skill3TextCooldown:set_visible(false)
-        skill3VisualCooldown:set_visible(false)
+        skill3ButtonEntity:set_active(false)
+        skill3TextCooldownEntity:set_active(false)
+        skill3VisualCooldownEntity:set_active(false)
 
-        skillArma1Cooldown:set_visible(false)
-        skillArma2Cooldown:set_visible(false)
+        skillArma1CooldownEntity:set_active(false)
+        skillArma2CooldownEntity:set_active(false)
+        skillsArmasTextCooldownEntity:set_active(false)
 
     end
 
     function on_update(dt)
         
-        abilityManager(dt)
+        --abilityManager(dt)
 
-        weaponManager(dt)
+        --weaponManager(dt)
 
-        update_health_display()
+        --update_health_display()
 
         update_scrap_display() 
     end
@@ -400,10 +417,10 @@
                 porcentaje = 1 
             end
             
-            local nuevoAncho = 248 * porcentaje
+            local nuevoAncho = 240 * porcentaje
             
-            chatarraBarComponent:set_size(Vector2.new(nuevoAncho, 30))
-            
+            chatarraTransform.scale = Vector2.new(nuevoAncho, 22)
+                        
             if(chatarra <= 1000) then
                 chatarraTransform.position.x = chatarraStartingPosition.x + (nuevoAncho / 2)
             end
