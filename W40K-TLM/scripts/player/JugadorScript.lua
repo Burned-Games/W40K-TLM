@@ -155,7 +155,9 @@ function on_ready()
     --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
     playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
 
-
+   -- local musicVolume = load_progress("musicVolumeGeneral", 1.0)
+    --explorationMusic:set_volume(musicVolume)
+   -- combatMusic:set_volume(musicVolume)
     --UpgradeManager START
     --UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     if UpgradeManager ~= nil then

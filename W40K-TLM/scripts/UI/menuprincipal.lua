@@ -64,7 +64,7 @@ function on_update(dt)
                 sceneChanged = true
                 save_progress("zonePlayer", 0)
                 save_progress("level", 1)
-                SceneManager.change_scene("level1.TeaScene")
+                SceneManager.change_scene("scenes/level1.TeaScene")
             end
         end
 
@@ -87,11 +87,11 @@ function on_update(dt)
                 --button2:set_state("Pressed")
                 sceneChanged = true
                 if level == 1 then
-                    SceneManager.change_scene("level1.TeaScene")
+                    SceneManager.change_scene("scenes/level1.TeaScene")
                 elseif level == 2 then
-                    SceneManager.change_scene("level2.TeaScene")
+                    SceneManager.change_scene("scenes/level2.TeaScene")
                 elseif level == 3 then
-                    SceneManager.change_scene("level3.TeaScene")
+                    SceneManager.change_scene("scenes/level3.TeaScene")
                 end
             end
         end
@@ -115,7 +115,7 @@ function on_update(dt)
             --button3:set_state("Pressed")
             if(index == 2) then
                 sceneChanged = true
-                SceneManager.change_scene("settings.TeaScene")
+                SceneManager.change_scene("scenes/settings.TeaScene")
             end
         end
 

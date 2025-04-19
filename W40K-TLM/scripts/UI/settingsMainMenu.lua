@@ -48,7 +48,7 @@ function on_update(dt)
         save_progress("musicVolumeGeneral", slider1.value)
         save_progress("fxVolume", slider2.value)
         sceneChanged = true
-        SceneManager.change_scene("Default.TeaScene")
+        SceneManager.change_scene("scenes/Default.TeaScene")
         
     end
    
