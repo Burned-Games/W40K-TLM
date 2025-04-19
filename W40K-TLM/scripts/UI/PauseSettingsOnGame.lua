@@ -2,8 +2,8 @@ local button1
 local button2
 local button3
 local button4
-local visibilidad1
-local visibilidad2
+local visibilidad1Entity
+local visibilidad2Entity
 local slider1
 local slider2
 local VolumeText
@@ -31,18 +31,21 @@ local isOnPauseSettings = false
 
 local workbenchUIManagerScript = nil
 
+local defaultColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
+local selectedColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
+
 musicVolume = 0.0
 fxVolume = 0.0
 
 function on_ready()
     -- Add initialization code here
-    button1 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
-    button2 = current_scene:get_entity_by_name("Settings"):get_component("UIButtonComponent")
-    button3 = current_scene:get_entity_by_name("SaveGame"):get_component("UIButtonComponent")
-    button4 = current_scene:get_entity_by_name("Exit"):get_component("UIButtonComponent")
+    button1 = current_scene:get_entity_by_name("Continue"):get_component("UITextComponent")
+    button2 = current_scene:get_entity_by_name("SettingsButton"):get_component("UITextComponent")
+    button3 = current_scene:get_entity_by_name("SaveGame"):get_component("UITextComponent")
+    button4 = current_scene:get_entity_by_name("Exit"):get_component("UITextComponent")
 
-    visibilidad1 = current_scene:get_entity_by_name("Pause"):get_component("UIImageComponent")
-    visibilidad2 = current_scene:get_entity_by_name("Settings"):get_component("UIImageComponent")
+    visibilidad1Entity = current_scene:get_entity_by_name("Pause")
+    visibilidad2Entity = current_scene:get_entity_by_name("Settings")
 
     VolumeText = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
     FXText = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
@@ -56,7 +59,8 @@ function on_ready()
 
     --workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
 
-    --BaseTextureBG = current_scene:get_entity_by_name("BaseMenus"):get_component("UIImageComponent")
+    --BaseTextureBGEntity = current_scene:get_entity_by_name("PauseBase")
+    --BaseTextureBG = BaseTextureBGEntity:get_component("UIImageComponent")
 
     -- audio
    -- explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
@@ -83,8 +87,10 @@ function on_ready()
                    --slider1:set_value(load_progress("musicVolumeGeneral", 1.0)) este estaba descomentado
     -- slider2:set_value(load_progress("fxVolume", 1.0))
 
-    --[[visibilidad2:set_visible(false)
-    VolumeText:set_visible(false)
+    visibilidad1Entity:set_active(false)
+    visibilidad2Entity:set_active(false)
+    --BaseTextureBGEntity:set_active(false)
+    --[[VolumeText:set_visible(false)
     FXText:set_visible(false)
     SettingsBaseText:set_visible(false)
     slider1:set_visible(false)
@@ -99,115 +105,70 @@ end
 
 function on_update(dt)
     -- Add update code here
-
-    --[[value = Input.get_button(Input.action.Pause)
+    
+    value = Input.get_button(Input.action.Pause)
     if ((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
         if(isPaused) then
             isPaused = false
-            ContinueText:set_visible(false)
-            SettingsText:set_visible(false)
-            SaveGameText:set_visible(false)
-            ExitText:set_visible(false)
-            PauseText:set_visible(false)
-            button1:set_visible(false)
-            button2:set_visible(false)
-            button3:set_visible(false)
-            button4:set_visible(false)
-            visibilidad1:set_visible(false)
-            slider1:set_visible(false)
-            slider2:set_visible(false)
-            VolumeText:set_visible(false)
-            FXText:set_visible(false)
-            SettingsBaseText:set_visible(false)
-            visibilidad2:set_visible(false)
-            BaseTextureBG:set_visible(false)
+            visibilidad1Entity:set_active(false)
+            visibilidad2Entity:set_active(false)
             isOnPauseSettings = false
 
         else
             isPaused = true
-            ContinueText:set_visible(true)
-            SettingsText:set_visible(true)
-            SaveGameText:set_visible(true)
-            ExitText:set_visible(true)
-            PauseText:set_visible(true)
-            button1:set_visible(true)
-            button2:set_visible(true)
-            button3:set_visible(true)
-            button4:set_visible(true)
-            visibilidad1:set_visible(true)
-            BaseTextureBG:set_visible(true)
-
-            if workbenchUIManagerScript.isWorkBenchOpen == true then
-                workbenchUIManagerScript:hide_ui()
-            end
+            visibilidad1Entity:set_active(true)
+            --[[if workbenchUIManagerScript.isWorkBenchOpen == true then
+                workbenchUIManagerScript:hide_ui() 
+            end--]]
         end
     end 
 
 
     if index == 0 then
-        button1:set_state("Selected")
-        button2:set_state("Base")
-        button3:set_state("Base")
-        button4:set_state("Base")
+        --[[button1.state = "Hover"
+        button2.state = "Normal"
+        button3.state = "Normal"
+        button4.state = "Normal"--]]
+
+        button1:set_color(selectedColor)
+        button2:set_color(defaultColor)
+        button3:set_color(defaultColor)
+        button4:set_color(defaultColor)
 
         value = Input.get_button(Input.action.Interact)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
             if(index == 0) then
-                button1:set_state("Pressed")
-                sceneChanged = true
-                ContinueText:set_visible(false)
-                SettingsText:set_visible(false)
-                SaveGameText:set_visible(false)
-                ExitText:set_visible(false)
-                PauseText:set_visible(false)
-                button1:set_visible(false)
-                button2:set_visible(false)
-                button3:set_visible(false)
-                button4:set_visible(false)
-                visibilidad1:set_visible(false)
+                visibilidad1Entity:set_active(false)
                 isPaused = false
             end
         end
 
     elseif index == 1 then
-        button1:set_state("Base")
-        button2:set_state("Selected")
-        button3:set_state("Base")
-        button4:set_state("Base")
+        button1:set_color(defaultColor)
+        button2:set_color(selectedColor)
+        button3:set_color(defaultColor)
+        button4:set_color(defaultColor)
 
         value = Input.get_button(Input.action.Interact)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
             if(index == 1) then
-                button2:set_state("Pressed")
+                --button2:set_state("Pressed")
                 sceneChanged = true
-                visibilidad2:set_visible(true)
-                VolumeText:set_visible(true)
-                FXText:set_visible(true)
-                SettingsBaseText:set_visible(true)
-                slider1:set_visible(true)
-                slider2:set_visible(true)
-                button1:set_visible(false)
-                button2:set_visible(false)
-                button3:set_visible(false)
-                button4:set_visible(false)
-                ContinueText:set_visible(false)
-                SettingsText:set_visible(false)
-                ExitText:set_visible(false)
-                SaveGameText:set_visible(false)
-                PauseText:set_visible(false)
+                visibilidad2Entity:set_active(true)
+                visibilidad1Entity:set_active(false)
                 isOnPauseSettings = true
             end
         end
         
     elseif index == 2 then
-        button1:set_state("Base")
-        button2:set_state("Base")
-        button3:set_state("Selected")
-        button4:set_state("Base")
+        button1:set_color(defaultColor)
+        button2:set_color(defaultColor)
+        button3:set_color(selectedColor)
+        button4:set_color(defaultColor)
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-            button3:set_state("Pressed")
+            --button3:set_state("Pressed")
             if(index == 2) then
                 sceneChanged = true
                 --print("Saving game...")
@@ -215,14 +176,14 @@ function on_update(dt)
         end
 
     else
-        button1:set_state("Base")
-        button2:set_state("Base")
-        button3:set_state("Base")
-        button4:set_state("Selected")
+        button1:set_color(defaultColor)
+        button2:set_color(defaultColor)
+        button3:set_color(defaultColor)
+        button4:set_color(selectedColor)
 
         value = Input.get_button(Input.action.Interact)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-            button4:set_state("Pressed")
+            --button4:set_state("Pressed")
             if(index == 3) then
                 -- preguntar como cerrar el juego 
                SceneManager.change_scene("Default.TeaScene")
@@ -251,22 +212,18 @@ function on_update(dt)
         contadorMovimientoBotones = contadorMovimientoBotones + dt
     end
 
-    if inputCooldown > 0 then
-        inputCooldown = inputCooldown - dt
-        return
-    end
 
     if isOnPauseSettings then
         local horizontalInput = Input.get_axis(Input.action.UiMoveHorizontal)
         if math.abs(horizontalInput) > 0.5 then
             inputCooldown = cooldownTime / 2
-    
+            print("horizontal")
             if currentSelectedSlider == 1 then
                
-                local currentValue = slider1:get_value()
+                local currentValue = slider1.value
                 musicVolume = currentValue + (horizontalInput * 0.05)
                 musicVolume = math.max(0.0, math.min(1.0, musicVolume))
-                slider1:set_value(musicVolume)
+                slider1.value = musicVolume
     
                 
                 explorationMusic:set_volume(musicVolume)
@@ -277,13 +234,13 @@ function on_update(dt)
     
             elseif currentSelectedSlider == 2 then
                 
-                local currentValue = slider2:get_value()
+                local currentValue = slider2.value
                 fxVolume = currentValue + (horizontalInput * 0.05)
                 fxVolume = math.max(0.0, math.min(1.0, fxVolume))
-                slider2:set_value(fxVolume)
+                slider2.value = fxVolume
     
                 
-                footstep_one:set_volume(fxVolume)
+                --[[footstep_one:set_volume(fxVolume)
                 footstep_two:set_volume(fxVolume)
                 footstep_three:set_volume(fxVolume)
                 footstep_four:set_volume(fxVolume)
@@ -292,12 +249,17 @@ function on_update(dt)
                 shotgun_reload:set_volume(fxVolume)
                 shotgun_shot:set_volume(fxVolume)
                 grenade_explosion:set_volume(fxVolume)
-                grenade_launch:set_volume(fxVolume)
+                grenade_launch:set_volume(fxVolume)--]]
     
                 
                 save_progress("fxVolume", fxVolume)
             end
         end
+    end
+    
+    if inputCooldown > 0 then
+        inputCooldown = inputCooldown - dt
+        return
     end
     
     local verticalInput = Input.get_axis(Input.action.UiMoveVertical)
@@ -321,8 +283,8 @@ function on_update(dt)
     value = Input.get_button(Input.action.Cancel)
     if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
         sceneChanged = true
-        visibilidad2:set_visible(false)
-        VolumeText:set_visible(false)
+        --visibilidad2Entity:set_active(false)
+        --[[VolumeText:set_visible(false)
         FXText:set_visible(false)
         SettingsBaseText:set_visible(false)
         slider1:set_visible(false)
@@ -335,13 +297,12 @@ function on_update(dt)
         SettingsText:set_visible(true)
         ExitText:set_visible(true)
         SaveGameText:set_visible(true)
-        PauseText:set_visible(true)
+        PauseText:set_visible(true)--]]
         isOnPauseSettings = false
-    end
+    end 
+    
+end 
 
-   
-       --]] 
-end
 
 function hide_pause()
     --[[isPaused = false

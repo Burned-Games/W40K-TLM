@@ -32,6 +32,8 @@ local deathAnimationTime = 3
 local deathTimeCounter = 0
 local deathAnimationSetted = false
 
+local pauseScript = nil
+
 local animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
@@ -169,6 +171,8 @@ function on_ready()
     rotationAngle = { value = self:get_component("TransformComponent").position.y }
     
     playerRb = self:get_component("RigidbodyComponent").rb
+
+    pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
     bolterUpper = current_scene:get_entity_by_name("Bolter_upper")
     bolterLower = current_scene:get_entity_by_name("Bolter_Lower")
@@ -330,7 +334,9 @@ function on_update(dt)
     handleBleed(dt)
 
     autoaimUpdate()
-    playerMovement(dt)
+    if pauseScript.isPaused == false then
+        playerMovement(dt)
+    end
 
     handleCover()
     
