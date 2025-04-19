@@ -29,6 +29,8 @@ local inputCooldown = 0
 local cooldownTime = 0.15 
 local isOnPauseSettings = false
 
+local visibilidadtotal
+
 local workbenchUIManagerScript = nil
 
 local defaultColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
@@ -56,6 +58,8 @@ function on_ready()
 
     PauseText = current_scene:get_entity_by_name("PauseText"):get_component("UITextComponent")
     SettingsBaseText = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
+
+    visibilidadtotal = current_scene:get_entity_by_name("PauseBase")
 
     --workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
 
@@ -89,6 +93,7 @@ function on_ready()
 
     visibilidad1Entity:set_active(false)
     visibilidad2Entity:set_active(false)
+    visibilidadtotal:set_active(false)
     --BaseTextureBGEntity:set_active(false)
     --[[VolumeText:set_visible(false)
     FXText:set_visible(false)
