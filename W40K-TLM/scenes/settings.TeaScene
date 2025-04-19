@@ -1,0 +1,475 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "value0": 7,
+        "value1": 7,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Tag": "Base"
+        },
+        "value12": 1,
+        "value13": {
+            "Tag": "Settings"
+        },
+        "value14": 2,
+        "value15": {
+            "Tag": "Volume"
+        },
+        "value16": 3,
+        "value17": {
+            "Tag": "VolumeText"
+        },
+        "value18": 4,
+        "value19": {
+            "Tag": "FX"
+        },
+        "value20": 5,
+        "value21": {
+            "Tag": "FXText"
+        },
+        "value22": 6,
+        "value23": {
+            "Tag": "Camera"
+        },
+        "value24": 7,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 620.0,
+                "y": 364.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1920.0,
+                "y": 729.0,
+                "z": 1.0
+            }
+        },
+        "value27": 1,
+        "value28": {
+            "Position": {
+                "x": 164.0,
+                "y": 47.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 2,
+        "value30": {
+            "Position": {
+                "x": 620.0,
+                "y": 364.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 526.0,
+                "y": 22.0,
+                "z": 1.0
+            }
+        },
+        "value31": 3,
+        "value32": {
+            "Position": {
+                "x": 167.0,
+                "y": 373.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value33": 4,
+        "value34": {
+            "Position": {
+                "x": 620.0,
+                "y": 444.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 526.0,
+                "y": 22.0,
+                "z": 1.0
+            }
+        },
+        "value35": 5,
+        "value36": {
+            "Position": {
+                "x": 211.0,
+                "y": 453.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value37": 6,
+        "value38": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 7,
+        "value40": 0,
+        "value41": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value42": 1,
+        "value43": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 2,
+            "Prev": 1
+        },
+        "value44": 2,
+        "value45": {
+            "Parent": 0,
+            "First": 3,
+            "Next": 4,
+            "Prev": 2
+        },
+        "value46": 3,
+        "value47": {
+            "Parent": 2,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value48": 4,
+        "value49": {
+            "Parent": 0,
+            "First": 5,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value50": 5,
+        "value51": {
+            "Parent": 4,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value52": 6,
+        "value53": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value54": 1,
+        "value55": 6,
+        "value56": {
+            "cereal_class_version": 0,
+            "Camera": {
+                "cereal_class_version": 0,
+                "FOV": 45.0,
+                "AspectRatio": 1.7777777910232545,
+                "NearClip": 0.10000000149011612,
+                "FarClip": 1000.0,
+                "ProjectionType": 0,
+                "ViewportWidth": 1280.0,
+                "ViewportHeight": 720.0
+            }
+        },
+        "value57": 0,
+        "value58": 0,
+        "value59": 0,
+        "value60": 0,
+        "value61": 1,
+        "value62": 0,
+        "value63": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/UI/settingsMainMenu.lua",
+            "Language": 0
+        },
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 0,
+        "value68": 0,
+        "value69": 0,
+        "value70": 0,
+        "value71": 7,
+        "value72": 0,
+        "value73": 1,
+        "value74": 2,
+        "value75": 3,
+        "value76": 4,
+        "value77": 5,
+        "value78": 6,
+        "value79": 2,
+        "value80": 4,
+        "value81": 5,
+        "value82": 0,
+        "value83": 1,
+        "value84": 0,
+        "value85": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "cereal_class_version": 0,
+                "value0": 4549735328248801287
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -960.0,
+                    "y": 0.0
+                },
+                "OffsetMax": {
+                    "x": 960.0,
+                    "y": 0.0
+                }
+            },
+            "Layer": 0
+        },
+        "value86": 3,
+        "value87": 1,
+        "value88": {
+            "cereal_class_version": 0,
+            "Text": "Settings",
+            "FontPath": "C:/Users/edgar/Documents/GitHub/CF/Definitivo/Warhammer-40000-The-Last-Marine/W40K-TLM/fonts/CABALETT.TTF",
+            "Color": {
+                "x": 1.0,
+                "y": 0.7782257795333862,
+                "z": 0.11290323734283447,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 45.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -506.0,
+                    "y": -367.0
+                },
+                "OffsetMax": {
+                    "x": -406.0,
+                    "y": -267.0
+                }
+            },
+            "Layer": 0
+        },
+        "value89": 3,
+        "value90": {
+            "Text": "Volume",
+            "FontPath": "C:/Users/edgar/Documents/GitHub/CF/Definitivo/Warhammer-40000-The-Last-Marine/W40K-TLM/fonts/CABALETT.TTF",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 38.20000076293945,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -503.0,
+                    "y": -41.0
+                },
+                "OffsetMax": {
+                    "x": -403.0,
+                    "y": 59.0
+                }
+            },
+            "Layer": 0
+        },
+        "value91": 5,
+        "value92": {
+            "Text": "Fx",
+            "FontPath": "C:/Users/edgar/Documents/GitHub/CF/Definitivo/Warhammer-40000-The-Last-Marine/W40K-TLM/fonts/CABALETT.TTF",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 38.20000076293945,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -459.0,
+                    "y": -41.0
+                },
+                "OffsetMax": {
+                    "x": -359.0,
+                    "y": 59.0
+                }
+            },
+            "Layer": 0
+        },
+        "value93": 0,
+        "value94": 0,
+        "value95": 2,
+        "value96": 2,
+        "value97": {
+            "cereal_class_version": 0,
+            "Value": 0.0,
+            "MinValue": 0.0,
+            "MaxValue": 1.0,
+            "HandleScale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "BackgroundTextureUUID": {
+                "value0": 13554918212805852877
+            },
+            "HandleTextureUUID": {
+                "value0": 15692961168637335866
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -263.0,
+                    "y": -11.0
+                },
+                "OffsetMax": {
+                    "x": 263.0,
+                    "y": 11.0
+                }
+            },
+            "Layer": 0
+        },
+        "value98": 4,
+        "value99": {
+            "Value": 0.0,
+            "MinValue": 0.0,
+            "MaxValue": 1.0,
+            "HandleScale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "BackgroundTextureUUID": {
+                "value0": 13554918212805852877
+            },
+            "HandleTextureUUID": {
+                "value0": 15692961168637335866
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -263.0,
+                    "y": 69.0
+                },
+                "OffsetMax": {
+                    "x": 263.0,
+                    "y": 91.0
+                }
+            },
+            "Layer": 0
+        }
+    }
+}
