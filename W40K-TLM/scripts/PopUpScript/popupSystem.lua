@@ -1,0 +1,112 @@
+-- popupSystem.lua
+
+-- UI components
+local popupNormal = nil
+local popupBoss = nil
+
+-- Animation state for popup image
+local popupIsActive = false
+local popupTimer = 0.0
+local popupState = "idle" -- "enter", "hold", "exit"
+local popupDuration = 2.0 -- seconds hold
+
+local popupYStart = -200
+local popupYTarget = -200
+local popupYExit = -400
+local popupSpeed = 4.0 -- higher = faster
+
+local useBossImage = false
+
+-- Text component and its animation variables
+local popupText = nil
+local popupTextYStart = -400     -- Text initial position (off-screen)
+local popupTextYTarget = -185    -- Text target position when popup is open
+local popupTextYExit = -400      -- Text exit position
+
+-- Initialization
+function on_ready()
+    popupNormal = current_scene:get_entity_by_name("PopupNewZoneIMG"):get_component("TransformComponent")
+    popupBoss = current_scene:get_entity_by_name("PopupBossZoneIMG"):get_component("TransformComponent")
+    popupText = current_scene:get_entity_by_name("PopupText"):get_component("UITextComponent")
+    popupTransform = current_scene:get_entity_by_name("PopupText"):get_component("TransformComponent")
+
+    -- Hide both initially
+    popupNormal.position.y = popupYExit
+    popupBoss.position.y = popupYExit
+    popupTransform.position.y = popupTextYExit
+end
+
+-- Call this to show the popup
+
+function on_update(dt)
+    -- Add update code here
+--if Input.is_key_pressed(Input.keycode.M) then
+--    show_popup(false, "mewwww")
+--end
+
+--if Input.is_key_pressed(Input.keycode.N) then
+--    show_popup(true, "waaaan")
+--end
+
+update_popup(dt)
+end
+
+-- Example: show_popup(false) or show_popup(true)
+function show_popup(isBoss, message)
+    popupIsActive = true
+    popupState = "enter"
+    popupTimer = 0.0
+    useBossImage = isBoss
+
+    -- Start off screen for popup image and text
+    if useBossImage then
+        popupBoss.position.y = popupYExit
+    else
+        popupNormal.position.y = popupYExit
+    end
+    popupTransform.position.y = popupTextYExit
+
+    if popupText then
+        popupText:set_text(message or "")
+    end
+end
+
+-- Call in on_update(dt)
+function update_popup(dt)
+    if not popupIsActive then return end
+
+    local currentPopup = useBossImage and popupBoss or popupNormal
+
+    if popupState == "enter" then
+        currentPopup.position.y = lerp(currentPopup.position.y, popupYTarget, dt * popupSpeed)
+        popupTransform.position.y = lerp(popupTransform.position.y, popupTextYTarget, dt * popupSpeed)
+        
+        if math.abs(currentPopup.position.y - popupYTarget) < 1 then
+            currentPopup.position.y = popupYTarget
+            popupTransform.position.y = popupTextYTarget
+            popupState = "hold"
+            popupTimer = 0.0
+        end
+
+    elseif popupState == "hold" then
+        popupTimer = popupTimer + dt
+        if popupTimer >= popupDuration then
+            popupState = "exit"
+        end
+
+    elseif popupState == "exit" then
+        currentPopup.position.y = lerp(currentPopup.position.y, popupYExit, dt * popupSpeed)
+        popupTransform.position.y = lerp(popupTransform.position.y, popupTextYExit, dt * popupSpeed)
+        if math.abs(currentPopup.position.y - popupYExit) < 1 then
+            currentPopup.position.y = popupYExit
+            popupTransform.position.y = popupTextYExit
+            popupState = "idle"
+            popupIsActive = false
+        end
+    end
+end
+
+-- Lerp function
+function lerp(a, b, t)
+    return a + (b - a) * t
+end

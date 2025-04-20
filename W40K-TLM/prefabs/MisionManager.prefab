@@ -1,0 +1,328 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "MisionManager_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 11561583815138616320
+            }
+        },
+        "RootEntity": 0,
+        "value0": 5,
+        "value1": 5,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 0,
+        "value9": {
+            "cereal_class_version": 0,
+            "Tag": "MisionManager"
+        },
+        "value10": 1,
+        "value11": {
+            "Tag": "MisionTextBlue"
+        },
+        "value12": 2,
+        "value13": {
+            "Tag": "MisionTextRed"
+        },
+        "value14": 3,
+        "value15": {
+            "Tag": "MisionImageRed"
+        },
+        "value16": 4,
+        "value17": {
+            "Tag": "MisionImage"
+        },
+        "value18": 5,
+        "value19": 0,
+        "value20": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value21": 1,
+        "value22": {
+            "Position": {
+                "x": 671.5,
+                "y": 185.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value23": 2,
+        "value24": {
+            "Position": {
+                "x": 671.5,
+                "y": 140.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value25": 3,
+        "value26": {
+            "Position": {
+                "x": 785.5,
+                "y": 150.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 250.0,
+                "y": 75.0,
+                "z": 1.0
+            }
+        },
+        "value27": 4,
+        "value28": {
+            "Position": {
+                "x": 785.5,
+                "y": 195.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 250.0,
+                "y": 75.0,
+                "z": 1.0
+            }
+        },
+        "value29": 5,
+        "value30": 0,
+        "value31": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value32": 1,
+        "value33": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4,
+            "Prev": 2
+        },
+        "value34": 2,
+        "value35": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value36": 3,
+        "value37": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value38": 4,
+        "value39": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 5,
+        "value47": 0,
+        "value48": 1,
+        "value49": 2,
+        "value50": 3,
+        "value51": 4,
+        "value52": 1,
+        "value53": 0,
+        "value54": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/MisionScript/misionManager.lua",
+            "Language": 0
+        },
+        "value55": 0,
+        "value56": 0,
+        "value57": 0,
+        "value58": 0,
+        "value59": 0,
+        "value60": 0,
+        "value61": 0,
+        "value62": 2,
+        "value63": 3,
+        "value64": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "value0": 8983992674018412212
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 205.0,
+                    "y": 112.5
+                },
+                "OffsetMax": {
+                    "x": 455.0,
+                    "y": 187.5
+                }
+            },
+            "Layer": 0
+        },
+        "value65": 4,
+        "value66": {
+            "TextureUUID": {
+                "value0": 15214301479000495684
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 205.0,
+                    "y": 157.5
+                },
+                "OffsetMax": {
+                    "x": 455.0,
+                    "y": 232.5
+                }
+            },
+            "Layer": 0
+        },
+        "value67": 2,
+        "value68": 1,
+        "value69": {
+            "cereal_class_version": 0,
+            "Text": "Start moving with [L]\n",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 166.0,
+                    "y": 135.0
+                },
+                "OffsetMax": {
+                    "x": 266.0,
+                    "y": 235.0
+                }
+            },
+            "Layer": 0
+        },
+        "value70": 2,
+        "value71": {
+            "Text": "Find the drop pod supply",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 166.0,
+                    "y": 90.0
+                },
+                "OffsetMax": {
+                    "x": 266.0,
+                    "y": 190.0
+                }
+            },
+            "Layer": 0
+        },
+        "value72": 0,
+        "value73": 0,
+        "value74": 0
+    }
+}

@@ -1,0 +1,272 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "DialogManager_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 13994043771320481227
+            }
+        },
+        "RootEntity": 0,
+        "value0": 4,
+        "value1": 4,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Tag": "DialogManager"
+        },
+        "value9": 1,
+        "value10": {
+            "Tag": "DialogName"
+        },
+        "value11": 2,
+        "value12": {
+            "Tag": "DialogText"
+        },
+        "value13": 3,
+        "value14": {
+            "Tag": "DialogIMG"
+        },
+        "value15": 4,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value18": 1,
+        "value19": {
+            "Position": {
+                "x": 455.5,
+                "y": 384.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value20": 2,
+        "value21": {
+            "Position": {
+                "x": 455.5,
+                "y": 424.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value22": 3,
+        "value23": {
+            "Position": {
+                "x": 455.5,
+                "y": 419.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 600.0,
+                "y": 100.0,
+                "z": 1.0
+            }
+        },
+        "value24": 4,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value27": 1,
+        "value28": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 3,
+            "Prev": 1
+        },
+        "value29": 2,
+        "value30": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value31": 3,
+        "value32": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value33": 0,
+        "value34": 0,
+        "value35": 0,
+        "value36": 0,
+        "value37": 0,
+        "value38": 0,
+        "value39": 4,
+        "value40": 0,
+        "value41": 1,
+        "value42": 2,
+        "value43": 3,
+        "value44": 1,
+        "value45": 0,
+        "value46": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/DialogScript/dialogManager.lua",
+            "Language": 0
+        },
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 0,
+        "value51": 0,
+        "value52": 0,
+        "value53": 0,
+        "value54": 1,
+        "value55": 3,
+        "value56": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "value0": 18293614392373388477
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -300.0,
+                    "y": 90.0
+                },
+                "OffsetMax": {
+                    "x": 300.0,
+                    "y": 190.0
+                }
+            },
+            "Layer": 0
+        },
+        "value57": 2,
+        "value58": 1,
+        "value59": {
+            "cereal_class_version": 0,
+            "Text": "DialogName",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": 55.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 155.0
+                }
+            },
+            "Layer": 0
+        },
+        "value60": 2,
+        "value61": {
+            "Text": "DialogText",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": 95.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 195.0
+                }
+            },
+            "Layer": 0
+        },
+        "value62": 0,
+        "value63": 0,
+        "value64": 0
+    }
+}
