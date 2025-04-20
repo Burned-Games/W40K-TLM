@@ -332,11 +332,17 @@
     end     
     
     function weaponManager(dt)
+        if weaponSwitchTimer > 0 then
+            weaponSwitchTimer = weaponSwitchTimer - dt
+        end
+    
         if playerScript.actualweapon == 0 then
             arma1:set_active(true)
             arma2:set_active(false)
-            --skillArma1:set_active(true)
-            --skillArma2:set_active(false)
+            
+            skillArma1.value = true
+            skillArma2.value = false
+            
             skillArma2CooldownEntity:set_active(false)
     
             local remainingTime = rifleScript.cooldownDisruptorBulletTime - rifleScript.cooldownDisruptorBulletTimeCounter
@@ -346,7 +352,9 @@
                 else
                     skillsArmasTextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
                 end
+                skillsArmasTextCooldownEntity:set_active(true)
                 skillArma1CooldownEntity:set_active(true)
+                
                 local totalCooldown = rifleScript.cooldownDisruptorBulletTime
                 local porcentaje = remainingTime / totalCooldown
                 if porcentaje > 1 then
@@ -359,6 +367,7 @@
                 skillArma1Cooldown:set_color(Vector4.new(1, 1, 1, alpha))
             else
                 skillsArmasTextCooldown:set_text("")
+                skillsArmasTextCooldownEntity:set_active(false)
                 skillArma1CooldownEntity:set_active(false)
                 skillArma1Cooldown:set_color(Vector4.new(1, 1, 1, 1))
             end
@@ -366,8 +375,10 @@
         elseif playerScript.actualweapon == 1 then
             arma1:set_active(false)
             arma2:set_active(true)
-            --skillArma1:set_active(false)
-            --skillArma2:set_active(true)
+            
+            skillArma1.value = false
+            skillArma2.value = true
+            
             skillArma1CooldownEntity:set_active(false)
     
             local remainingTime = shotGunScript.timerGranade
@@ -377,7 +388,9 @@
                 else
                     skillsArmasTextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
                 end
+                skillsArmasTextCooldownEntity:set_active(true)
                 skillArma2CooldownEntity:set_active(true)
+                
                 local totalCooldown = 12
                 local porcentaje = remainingTime / totalCooldown
                 if porcentaje > 1 then
@@ -390,6 +403,7 @@
                 skillArma2Cooldown:set_color(Vector4.new(1, 1, 1, alpha))
             else
                 skillsArmasTextCooldown:set_text("")
+                skillsArmasTextCooldownEntity:set_active(false)
                 skillArma2CooldownEntity:set_active(false)
                 skillArma2Cooldown:set_color(Vector4.new(1, 1, 1, 1))
             end
