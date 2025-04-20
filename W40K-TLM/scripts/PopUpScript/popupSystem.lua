@@ -1,5 +1,3 @@
--- popupSystem.lua
-
 -- UI components
 local popupNormal = nil
 local popupBoss = nil
@@ -23,67 +21,55 @@ local popupTextYStart = -400     -- Text initial position (off-screen)
 local popupTextYTarget = -185    -- Text target position when popup is open
 local popupTextYExit = -400      -- Text exit position
 
+local actualAlpha = 0
+
 -- Initialization
 function on_ready()
-    popupNormal = current_scene:get_entity_by_name("PopupNewZoneIMG"):get_component("TransformComponent")
-    popupBoss = current_scene:get_entity_by_name("PopupBossZoneIMG"):get_component("TransformComponent")
-    popupText = current_scene:get_entity_by_name("PopupText"):get_component("UITextComponent")
-    popupTransform = current_scene:get_entity_by_name("PopupText"):get_component("TransformComponent")
+    -- 获取 UI 组件
+    popupNormal = current_scene:get_entity_by_name("PopupNewZoneIMG"):get_component("UIImageComponent")
+    popupBoss = current_scene:get_entity_by_name("PopUpBossZoneIMG"):get_component("UIImageComponent") -- 注意拼写！
+    popupText = current_scene:get_entity_by_name("PopUpText"):get_component("UITextComponent")
 
-    -- Hide both initially
-    popupNormal.position.y = popupYExit
-    popupBoss.position.y = popupYExit
-    popupTransform.position.y = popupTextYExit
+    -- 初始化为透明
+    set_popup_alpha_Start(0)
 end
 
--- Call this to show the popup
-
+-- 每帧更新
 function on_update(dt)
-    -- Add update code here
---if Input.is_key_pressed(Input.keycode.M) then
---    show_popup(false, "mewwww")
---end
+    if popupIsActive then
+        update_popup(dt)
+    end
 
---if Input.is_key_pressed(Input.keycode.N) then
---    show_popup(true, "waaaan")
---end
-
-update_popup(dt)
+    if Input.is_key_pressed(Input.keycode.R) then
+        show_popup(false, "ssssssw")
+    end
 end
 
--- Example: show_popup(false) or show_popup(true)
+-- 显示弹窗：isBoss 表示是否是Boss区域，message 是显示的文字
 function show_popup(isBoss, message)
     popupIsActive = true
     popupState = "enter"
     popupTimer = 0.0
     useBossImage = isBoss
 
-    -- Start off screen for popup image and text
-    if useBossImage then
-        popupBoss.position.y = popupYExit
-    else
-        popupNormal.position.y = popupYExit
-    end
-    popupTransform.position.y = popupTextYExit
+    actualAlpha = 0
 
     if popupText then
-        popupText:set_text(message or "")
+        popupText:set_text(message or " ")
     end
 end
 
--- Call in on_update(dt)
+-- 每帧调用：控制动画状态机
 function update_popup(dt)
-    if not popupIsActive then return end
-
     local currentPopup = useBossImage and popupBoss or popupNormal
 
     if popupState == "enter" then
-        currentPopup.position.y = lerp(currentPopup.position.y, popupYTarget, dt * popupSpeed)
-        popupTransform.position.y = lerp(popupTransform.position.y, popupTextYTarget, dt * popupSpeed)
-        
-        if math.abs(currentPopup.position.y - popupYTarget) < 1 then
-            currentPopup.position.y = popupYTarget
-            popupTransform.position.y = popupTextYTarget
+        actualAlpha = lerp(actualAlpha, 1.0, dt * popupSpeed)
+        set_popup_alpha(actualAlpha)
+
+        if math.abs(actualAlpha - 1.0) < 0.01 then
+            actualAlpha = 1.0
+            set_popup_alpha(actualAlpha)
             popupState = "hold"
             popupTimer = 0.0
         end
@@ -95,18 +81,36 @@ function update_popup(dt)
         end
 
     elseif popupState == "exit" then
-        currentPopup.position.y = lerp(currentPopup.position.y, popupYExit, dt * popupSpeed)
-        popupTransform.position.y = lerp(popupTransform.position.y, popupTextYExit, dt * popupSpeed)
-        if math.abs(currentPopup.position.y - popupYExit) < 1 then
-            currentPopup.position.y = popupYExit
-            popupTransform.position.y = popupTextYExit
+        actualAlpha = lerp(actualAlpha, 0.0, dt * popupSpeed)
+        set_popup_alpha(actualAlpha)
+
+        if actualAlpha < 0.01 then
+            actualAlpha = 0.0
+            set_popup_alpha(actualAlpha)
             popupState = "idle"
             popupIsActive = false
         end
     end
 end
 
--- Lerp function
+-- 辅助函数：设置三个组件的透明度
+function set_popup_alpha(alpha)
+    if useBossImage then
+        if popupBoss then popupBoss:set_color(Vector4.new(1, 1, 1, alpha)) end
+    else
+        if popupNormal then popupNormal:set_color(Vector4.new(1, 1, 1, alpha)) end
+    end
+    if popupText then popupText:set_color(Vector4.new(1, 1, 1, alpha)) end
+end
+
+function set_popup_alpha_Start(alpha)
+ 
+    if popupBoss then popupBoss:set_color(Vector4.new(1, 1, 1, alpha)) end
+    if popupNormal then popupNormal:set_color(Vector4.new(1, 1, 1, alpha)) end
+    if popupText then popupText:set_color(Vector4.new(1, 1, 1, alpha)) end
+end
+
+-- 线性插值函数
 function lerp(a, b, t)
     return a + (b - a) * t
 end
