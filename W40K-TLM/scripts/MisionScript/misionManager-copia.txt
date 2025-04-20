@@ -31,8 +31,6 @@ local textBlueTransform = nil
 local textRedTransform = nil
 local imgBlue = nil
 local imgRed = nil
-local imgBlueUI = nil
-local imgRedUI = nil
 
 -- Animation control
 local blueAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
@@ -90,8 +88,6 @@ enemyDie_M10 = 1
 M5_WorkBrech = false
 M9_WorkBrech = false
 
-local actualAlpha = 1
-
 function on_ready()
     --mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
     --mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
@@ -106,9 +102,6 @@ function on_ready()
 
     imgBlue = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
     imgRed = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
-
-    imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
-    imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
 end
 
 function on_update(dt)
@@ -116,11 +109,11 @@ function on_update(dt)
     missionBlue_Tutor()
     missionRed_Tutor()
 
-    processAnimation(dt, blueAnimation, imgBlueUI, textBlueComponent, function()
+    processAnimation(dt, blueAnimation, imgBlue, textBlueTransform, function()
         blueTaskIndex = blueTaskIndex + 1
         if blueTaskIndex > #blueTasks then blueTaskIndex = #blueTasks + 1 end
     end)
-    processAnimation(dt, redAnimation, imgRedUI, textRedComponent, function()
+    processAnimation(dt, redAnimation, imgRed, textRedTransform, function()
         redTaskIndex = redTaskIndex + 1
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
@@ -142,7 +135,7 @@ function on_update(dt)
 
 
    
-    --imgBlue.position.y = imgBlue.position.y-1
+    imgBlue.position.y = imgBlue.position.y-1
    --imgBlue.position.y = 500
    --imgBlue:set_size(Vector2.new(1,1))
    --print(imgBlue.position.y)
@@ -226,31 +219,22 @@ function processAnimation(dt, anim, img, text, onComplete)
     local tOri = anim.closing and textPosOri or textPosDes
     local tDes = anim.closing and textPosDes or textPosOri
 
-    anim.lerpTime = anim.lerpTime + (dt * 0.1)
-    --img.position.x = lerp(ori, des, anim.lerpTime)
-    --text.position.x = lerp(tOri, tDes, anim.lerpTime)
+    anim.lerpTime = math.min(anim.lerpTime + dt * 3, 1.0)
+    img.position.x = lerp(ori, des, anim.lerpTime)
+    text.position.x = lerp(tOri, tDes, anim.lerpTime)
+
     
-    if anim.lerpTime >= 0.1 then
+    if anim.lerpTime >= 1.0 then
         if anim.closing then
-            print("closing false")
             anim.closing = false
             anim.lerpTime = 0.0
             onComplete()
         else
-            print("start false")
             anim.start = false
             anim.playing = false
             anim.lerpTime = 0.0
         end
     end
-    print("proces anim")
-    if anim.closing then
-        actualAlpha = lerp(actualAlpha, 0.0, anim.lerpTime)
-    elseif anim.start then
-        actualAlpha = lerp(actualAlpha, 1.0, anim.lerpTime)
-    end
-    img:set_color(Vector4.new(1, 1, 1, actualAlpha))
-    text:set_color(Vector4.new(1, 1, 1, actualAlpha))
 end
 
 function lerp(a, b, t)
