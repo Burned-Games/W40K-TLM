@@ -1,0 +1,104 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "P_MesaMejoras_1_Cube.008",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 5038407915001207948
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Cube.001",
+                        "value": {
+                            "value0": 3826589655672746278
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Sphere.003",
+                        "value": {
+                            "value0": 18184107519361756894
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Cylinder",
+                        "value": {
+                            "value0": 3674111052289895464
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Cube.004",
+                        "value": {
+                            "value0": 8578605221274048556
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Sphere.004",
+                        "value": {
+                            "value0": 1804319082823100919
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Sphere.005",
+                        "value": {
+                            "value0": 3596015083125910754
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Cube",
+                        "value": {
+                            "value0": 14877850049738121191
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Cube.003",
+                        "value": {
+                            "value0": 14688464417579728451
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Cube.005",
+                        "value": {
+                            "value0": 15876069737809545615
+                        }
+                    },
+                    {
+                        "key": "P_MesaMejoras_1_Cube.006",
+                        "value": {
+                            "value0": 2166093788916669705
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "MesaMejora_Mat0",
+                        "value": {
+                            "value0": 179957645620220041
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 7417283491060779040
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_MesaMejoras_1/P_MesaMejoras_1.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/7417283491060779040.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

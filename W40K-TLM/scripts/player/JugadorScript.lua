@@ -32,6 +32,7 @@ local deathAnimationTime = 3
 local deathTimeCounter = 0
 local deathAnimationSetted = false
 
+local workbenchUIManagerScript = nil
 local pauseScript = nil
 
 local animacionEntradaRealizada = false
@@ -196,6 +197,8 @@ function on_ready()
     playerRb = self:get_component("RigidbodyComponent").rb
 
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
+
 
     bolterUpper = current_scene:get_entity_by_name("Bolter_upper")
     bolterLower = current_scene:get_entity_by_name("Bolter_Lower")
@@ -351,14 +354,18 @@ function on_update(dt)
         return
     end
     updateMusic(dt)
-    updateDash(dt)
+    
+    if workbenchUIManagerScript.isWorkBenchOpen == false then
+        updateDash(dt)
+    end
+
     updateGodMode(dt)
     
     
     handleBleed(dt)
 
     autoaimUpdate()
-    if pauseScript.isPaused == false then
+    if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
         playerMovement(dt)
     end
 

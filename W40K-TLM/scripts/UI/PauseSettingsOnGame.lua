@@ -61,7 +61,7 @@ function on_ready()
 
     visibilidadtotal = current_scene:get_entity_by_name("PauseBase")
 
-    --workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUI"):get_component("ScriptComponent")
+    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
     --BaseTextureBGEntity = current_scene:get_entity_by_name("PauseBase")
     --BaseTextureBG = BaseTextureBGEntity:get_component("UIImageComponent")
@@ -138,9 +138,9 @@ function on_update(dt)
         else
             isPaused = true
             visibilidad1Entity:set_active(true)
-            --[[if workbenchUIManagerScript.isWorkBenchOpen == true then
+            if workbenchUIManagerScript.isWorkBenchOpen == true then
                 workbenchUIManagerScript:hide_ui() 
-            end--]]
+            end
         end
     end 
 
