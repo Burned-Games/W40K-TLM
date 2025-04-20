@@ -402,19 +402,31 @@
     function update_health_display()
         if playerScript ~= nil then
             local vida = playerScript.health
+            local maxHealth = 100  
+            
+            local healthPercentage = vida / maxHealth
+            
             --lifeFullComponent.scale = Vector3.new(-94, -vida, 0)
             --lifeFullTransform.position.y = lifeFullStartingPosition.y - (vida/2)
+            
+            -- Actualiza el texto
             lifeTextComponent:set_text(tostring(math.floor(vida)))
+            
+            local alpha = healthPercentage
+            
+            alpha = math.max(0, math.min(1, alpha))
+            
+            lifeFullComponent:set_color(Vector4.new(0.624, 0.271, 0.227, alpha))
         end
     end
-
+    
     function update_scrap_display()
         if playerScript ~= nil then
             local chatarra = playerScript.scrapCounter
             local max_chatarra = maxChatarraDisplay
             local porcentaje = chatarra / max_chatarra
-
-            if porcentaje > 1 then 
+    
+            --[[if porcentaje > 1 then 
                 porcentaje = 1 
             end
             
@@ -424,8 +436,15 @@
                         
             if(chatarra <= 1000) then
                 chatarraTransform.position.x = chatarraStartingPosition.x + (nuevoAncho / 2)
-            end
+            end]]--
             
             chatarraTextComponent:set_text(tostring(chatarra))
+            
+            local alpha = porcentaje
+            alpha = math.max(0, math.min(1, alpha))
+    
+            chatarraBarComponent:set_color(Vector4.new(0.675, 0.486, 0.329, alpha))
+            chatarraTextComponent:set_color(Vector4.new(1, 1, 1, 1))
         end
     end
+    
