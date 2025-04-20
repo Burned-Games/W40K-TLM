@@ -193,11 +193,11 @@
 
 
     function abilityManager(dt)
-
+        
         if playerScript.dashAvailable == false then
             skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
             skill1TextCooldownEntity:set_active(true)
-            --skill1VisualCooldownEntity:set_active(true)
+            skill1VisualCooldownEntity:set_active(true)
             skill1Timer = 0
             skill1Cooldown = true
         end
@@ -212,18 +212,24 @@
                 porcentaje = 1 
             end
             
-            local nuevoAlto = 32.5 * porcentaje
+            local alpha = porcentaje
+            alpha = math.max(0, math.min(1, alpha))
+            
+            skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, alpha))
+            
             --skill1VisualCooldown:set_size(Vector2.new(35, nuevoAlto))
             
             --skill1VisualCooldownTransform.position.y = skill1VisualCooldownStartingPosition.y + ((32.5 - nuevoAlto) / 2)
             
             if playerScript.dashAvailable == true then
                 skill1TextCooldownEntity:set_active(false)
-                --skill1VisualCooldown:set_visible(false)
+                skill1VisualCooldownEntity:set_active(false)
                 skill1Cooldown = false
                 
                 --skill1VisualCooldown:set_size(Vector2.new(35, 32.5))
                 --skill1VisualCooldownTransform.position.y = skill1VisualCooldownStartingPosition.y
+                
+                skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
             else
                 if remainingTime <= 1.1 and remainingTime > 0 then
                     skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
@@ -233,6 +239,7 @@
                 skill1TextCooldownEntity:set_active(true)
             end
         end
+        
         
         --[[if sawSwordScript.sawSwordAvailable == false then
             skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
