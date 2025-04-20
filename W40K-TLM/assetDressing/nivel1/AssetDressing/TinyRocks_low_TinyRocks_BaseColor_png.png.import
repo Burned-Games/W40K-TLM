@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 3525682889046382393
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel1/AssetDressing/TinyRocks_low_TinyRocks_BaseColor_png.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/3525682889046382393.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
