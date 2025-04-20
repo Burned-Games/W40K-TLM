@@ -14,6 +14,12 @@ local kamikazeDieSFX
 local kamikazeExplosionSFX
 local kamikazeScreamBoomSFX
 
+-- Particle 
+local particle_kamikaze = nil
+local particle_kamikaze_transform = nil
+local particle_spark = nil
+local particle_spark_transform = nil
+
 function on_ready() 
 
     kamikaze.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
@@ -39,6 +45,12 @@ function on_ready()
     kamikazeDieSFX = current_scene:get_entity_by_name("KamikazeDieSFX"):get_component("AudioSourceComponent")
     kamikazeExplosionSFX = current_scene:get_entity_by_name("KamikazeExplosionSFX"):get_component("AudioSourceComponent")
     kamikazeScreamBoomSFX = current_scene:get_entity_by_name("KamikazeScreamBoomSFX"):get_component("AudioSourceComponent")
+
+    -- Particle
+    particle_kamikaze = current_scene:get_entity_by_name("particle_kamikaze"):get_component("ParticlesSystemComponent")
+    particle_kamikaze_transform = current_scene:get_entity_by_name("particle_kamikaze"):get_component("TransformComponent")
+    particle_spark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    particle_spark_transform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     local enemy_type = "kamikaze"
     kamikaze:set_level()
@@ -168,12 +180,16 @@ function kamikaze:attack_state()
     end
 
     if attackTimer >= attackDelay and not kamikaze.hasDealtDamage then
+
         local explosionPos = kamikaze.enemyRb:get_position()
         local playerPos = kamikaze.playerTransf.position
 
         local distance = kamikaze:get_distance(explosionPos, playerPos)
+        particle_kamikaze_transform.position = kamikaze.enemyTransf.position
         
         if distance < kamikaze.explosionRange then
+            particle_kamikaze_transform.position = explosionPos
+            particle_kamikaze:emit(2)
             kamikaze:make_damage(kamikaze.damage)
         end
 

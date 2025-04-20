@@ -37,6 +37,17 @@ local rifle_firerate = 0.8
 
 local rifle_firerate_count = 0
 
+-- Particles
+local particle_cargdisruptor = nil
+local particle_expldisruptor = nil
+local particle_cargdisruptor_transform = nil
+local particle_expldisruptor_transform = nil
+
+local particle_blood_normal = nil
+local particle_blood_spark = nil
+local particle_blood_normal_transform = nil
+local particle_blood_spark_transform = nil
+
 -- Special ability
 
     --Bullet
@@ -94,6 +105,17 @@ function on_ready()
     -- Audio 
     bolterShotSFX = current_scene:get_entity_by_name("BolterShotSFX"):get_component("AudioSourceComponent")
 
+    -- Particles
+    particle_cargdisruptor = current_scene:get_entity_by_name("particle_cargdisruptor"):get_component("ParticlesSystemComponent")
+    particle_expldisruptor = current_scene:get_entity_by_name("particle_expldisruptor"):get_component("ParticlesSystemComponent")
+    particle_cargdisruptor_transform = current_scene:get_entity_by_name("particle_cargdisruptor"):get_component("TransformComponent")
+    particle_expldisruptor_transform = current_scene:get_entity_by_name("particle_expldisruptor"):get_component("TransformComponent")
+    
+    particle_blood_normal = current_scene:get_entity_by_name("particle_blood_normal"):get_component("ParticlesSystemComponent")
+    particle_blood_spark = current_scene:get_entity_by_name("particle_blood_spark"):get_component("ParticlesSystemComponent")
+    particle_blood_normal_transform = current_scene:get_entity_by_name("particle_blood_normal"):get_component("TransformComponent")
+    particle_blood_spark_transform = current_scene:get_entity_by_name("particle_blood_spark"):get_component("TransformComponent")
+    
     --shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
     ---- bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
 
@@ -345,6 +367,10 @@ function disruptiveCharge()
     
     local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
 
+    particle_cargdisruptor_transform.position = newPosition
+    particle_cargdisruptor:emit(1)
+    
+
     disruptorBulletTransf.position = newPosition
     disruptorBulletTransf.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
 
@@ -406,7 +432,7 @@ function chargedZoneUpdate(dt)
 
                     if name== "EnemyRange" or name== "EnemyRange1" or name== "EnemyRange2" or name== "EnemyRange3" or name== "EnemyRange4" or name== "EnemyRange5" or name== "EnemyRange6" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
-                        if enemyOrkScript ~= nil then
+                        if enemyOrkScript ~= nil then                            
                             enemyOrkScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
 
@@ -416,6 +442,10 @@ function chargedZoneUpdate(dt)
                     if name == "EnemySupport" then
                         enemySuppScript = entity:get_component("ScriptComponent")
                         if enemySuppScript ~= nil then
+                            particle_blood_normal_transform.position = enemyOrkScript.support.position
+                            particle_blood_spark_transform.position = enemyOrkScript.support.position
+                            particle_blood_normal:emit(5) 
+                            particle_blood_spark:emit(5) 
                             enemySuppScript.support:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
 
@@ -425,6 +455,10 @@ function chargedZoneUpdate(dt)
                     if name == "EnemyKamikaze" then  
                         enemyKamikazeScript = entity:get_component("ScriptComponent")
                         if enemyKamikazeScript ~= nil then
+                            particle_blood_normal_transform.position = enemyOrkScript.rankamikazege.position
+                            particle_blood_spark_transform.position = enemyOrkScript.kamikaze.position
+                            particle_blood_normal:emit(5) 
+                            particle_blood_spark:emit(5) 
                             enemyKamikazeScript.kamikaze:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
                         end
@@ -433,7 +467,11 @@ function chargedZoneUpdate(dt)
                     if name == "EnemyTank" or name == "EnemyTank1" or name == "EnemyTank2" or name == "EnemyTank3" or name == "EnemyTank4" or name == "EnemyTank5" or name == "EnemyTank6" then  
                         enemyTankScript = entity:get_component("ScriptComponent")
                         if enemyTankScript ~= nil then
-                            enemyTankScript.kamikaze:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+                            particle_blood_normal_transform.position = enemyOrkScript.tank.position
+                            particle_blood_spark_transform.position = enemyOrkScript.tank.position
+                            particle_blood_normal:emit(5) 
+                            particle_blood_spark:emit(5) 
+                            enemyTankScript.tank:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
                         end
                     end
@@ -442,11 +480,17 @@ function chargedZoneUpdate(dt)
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then
                             if enemyOrkScript.shieldHealth > 0 then
-                                -- bulletDamageParticleComponent:emit(20)
+                                --particle_blood_normal_transform.position = enemyOrkScript.range.position
+                                --particle_blood_spark_transform.position = enemyOrkScript.range.position
+                                --particle_blood_normal:emit(5) 
+                                --particle_blood_spark:emit(5) 
                                 enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
                                 playerScript.makeDamage = true
                             else
-                                -- bulletDamageParticleComponent:emit(20)
+                                --particle_blood_normal_transform.position = enemyOrkScript.range.position
+                                --particle_blood_spark_transform.position = enemyOrkScript.range.position
+                                --particle_blood_normal:emit(5) 
+                                --particle_blood_spark:emit(5) 
                                 enemyOrkScript.health = enemyOrkScript.health - chargeZoneDamagePerSecond
                                 playerScript.makeDamage = true
                             end
@@ -483,6 +527,12 @@ function makeDamage(enemy)
 
     if enemy ~= nil then
         if enemyScript ~= nil then
+            local enemyTransform = enemy:get_component("TransformComponent")
+            local enemyPos = enemyTransform.position
+
+            particle_blood_normal_transform.position = enemyPos
+            particle_blood_spark_transform.position = enemyPos
+
             if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                 enemyInstance = enemyScript.range
             elseif enemyTag == "EnemySupport" then
@@ -503,6 +553,8 @@ function makeDamage(enemy)
             
             if enemyInstance ~= nil then
                 enemyInstance:take_damage(damageRifle)
+                particle_blood_normal:emit(5)
+                particle_blood_spark:emit(5)
                 playerScript.makeDamage = true
             end
         end
@@ -517,6 +569,7 @@ function makeDisruptorDamage(enemy)
     local enemyTag = nil
     local enemyScript = nil
     local enemyInstance = nil
+
     print("qqqqqqqqqqqqqqqqq")
     if enemy ~= nil then  
         print("wwwwwwwwwwwwwwwwwwwwwwwwwwwww")

@@ -81,6 +81,12 @@ local shotgunGrenadeSmokeSFX
 local shotgunReloadSFX
 local shotgunShotSFX
 
+--Particles
+local particle_previewG_interior = nil
+local particle_previewG_exterior = nil
+local particle_previewG_interior_transform = nil
+local particle_previewG_exterior_transform = nil
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -92,7 +98,13 @@ function on_ready()
     shotgunGrenadeSmokeSFX = current_scene:get_entity_by_name("ShotgunGrenadeSmokeSFX"):get_component("AudioSourceComponent")
     shotgunReloadSFX = current_scene:get_entity_by_name("ShotgunReloadSFX"):get_component("AudioSourceComponent")
     shotgunShotSFX = current_scene:get_entity_by_name("ShotgunShotSFX"):get_component("AudioSourceComponent")
-
+    
+    --Particles
+    particle_previewG_interior = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("ParticlesSystemComponent")
+    particle_previewG_exterior = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("ParticlesSystemComponent")
+    particle_previewG_exterior_transform = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("TransformComponent")
+    particle_previewG_interior_transform = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("TransformComponent")
+    
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
         local bullet = {}
@@ -204,11 +216,19 @@ function on_update(dt)
         local leftShoulder = Input.get_button(Input.action.Skill2)
 
         if leftShoulder == Input.state.Up and launched then
+            --mover la particula a la posicion final de la granada
+            particle_previewG_exterior_transform.position = finalTargetPos --fix, posicion correcta 
+            particle_previewG_interior_transform.position = finalTargetPos
+
+            particle_previewG_interior:emit(1)
+            particle_previewG_exterior:emit(1)
+
             granadeDistance = 0
             launched = false
             rb:set_use_gravity(true)
             throwing = true
             throwGranade(finalTargetPos)
+
         end
 
         --granade 

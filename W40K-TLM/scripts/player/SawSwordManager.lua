@@ -20,10 +20,22 @@ slashed = false
 
 sawSwordAvailable = true
 
+--Particles
+local particle_blood_normal = nil
+local particle_blood_spark = nil
+local particle_blood_normal_transform = nil
+local particle_blood_spark_transform = nil
+
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+
+    --Particles
+    particle_blood_normal = current_scene:get_entity_by_name("particle_blood_normal"):get_component("ParticlesSystemComponent")
+    particle_blood_spark = current_scene:get_entity_by_name("particle_blood_spark"):get_component("ParticlesSystemComponent")
+    particle_blood_normal_transform = current_scene:get_entity_by_name("particle_blood_normal"):get_component("TransformComponent")
+    particle_blood_spark_transform = current_scene:get_entity_by_name("particle_blood_spark"):get_component("TransformComponent")
 
     --------------shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
     ----bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
@@ -98,6 +110,11 @@ function Slash()
 
                 if entity ~= nil then
                     if enemyScript ~= nil then
+                        local enemyTransform = entity:get_component("TransformComponent")
+                        local enemyPos = enemyTransform.position
+            
+                        particle_blood_normal_transform.position = enemyPos
+                        particle_blood_spark_transform.position = enemyPos
                         if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                             enemyInstance = enemyScript.range
                         elseif enemyTag == "EnemySupport" then
@@ -107,8 +124,9 @@ function Slash()
                         elseif enemyTag == "EnemyKamikaze" then
                             enemyInstance = enemyScript.kamikaze
                         end
-
                         enemyInstance:take_damage(damage)
+                        particle_blood_normal:emit(5)
+                        particle_blood_spark:emit(5)
                         playerScript.health = playerScript.health + HpStealed
                         playerScript.makeDamage = true
                         

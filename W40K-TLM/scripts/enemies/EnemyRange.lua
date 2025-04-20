@@ -31,6 +31,11 @@ local rangeBulletImpactSFX
 local rangeCaCImpactSFX
 local rangeShotSFX
 
+--Particles
+local particle_spark = nil
+local particle_spark_transform = nil
+
+
 function on_ready() 
 
     range.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
@@ -58,6 +63,10 @@ function on_ready()
     rangeCaCImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
     rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
 
+    --Particles
+    particle_spark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    particle_spark_transform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    
     -- Initialize bullet pool
     for i = 1, 5 do
         local bulletEntity = current_scene:get_entity_by_name("EnemyBullet" .. i)
@@ -200,6 +209,7 @@ function on_update(dt)
         end
     end
 
+    
     local currentTargetPos = range.playerTransf.position
     if pathUpdateTimer >= pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
         range.lastTargetPos = currentTargetPos
@@ -378,6 +388,8 @@ function range:stab_state(dt)
         end
 
         if not range.hasDealtDamage then
+            particle_spark_transform.position = range.playerTransf.position
+            particle_spark:emit(5) 
             range:make_damage(range.meleeDamage)
             if range.level2 then
                 effect:apply_bleed(range.playerScript)
@@ -428,7 +440,9 @@ function shoot_projectile(targetExplosive)
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            range:make_damage(range.rangeDamage)
+            particle_spark_transform.position = range.playerTransf.position
+            particle_spark:emit(5) 
+            range:make_damage(range.rangeDamage) 
         end
         deactivate_bullet(currentBulletIndex)
     end)

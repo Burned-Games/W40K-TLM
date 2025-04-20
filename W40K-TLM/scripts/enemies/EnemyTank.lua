@@ -18,6 +18,10 @@ local tankDetectPlayerSFX
 local tankImpactPlayerSFX
 local tankStepsSFX
 
+-- Particulas
+local particle_spark = nil
+local particle_spark_transform = nil
+
 function on_ready()
 
     tank.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
@@ -37,6 +41,10 @@ function on_ready()
     tankDetectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
     tankImpactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
     tankStepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
+
+    --Particles
+    particle_spark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    particle_spark_transform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     local enemy_type = "tank"
     tank:set_level()
@@ -300,6 +308,8 @@ function tank:attack_state(dt)
 
         local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
         if attackDistance <= tank.meleeAttackRange then
+            particle_spark_transform.position = tank.playerTransf.position
+            particle_spark:emit(5)
             tank:make_damage(tank.meleeDamage)
         end
 
@@ -323,6 +333,8 @@ function tank:tackle_state()
     end
 
     if tank.collisionWithPlayer then
+        particle_spark_transform.position = tank.playerTransf.position
+        particle_spark:emit(5)
         tank:make_damage(tank.tackleDamage)
     end
 

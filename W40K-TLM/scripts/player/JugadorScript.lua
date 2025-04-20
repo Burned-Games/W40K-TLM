@@ -145,6 +145,14 @@ local run_Shotgun = 12
 local rotationAngle = 0
 local transf = nil
 
+-- particles
+local particle_lvl1_run = nil
+local particle_blood_normal = nil
+local particle_blood_spark = nil
+local particle_fire = nil
+local particle_smoke = nil
+
+
 local dtColective = 0
 
 function on_ready()
@@ -158,6 +166,19 @@ function on_ready()
    -- local musicVolume = load_progress("musicVolumeGeneral", 1.0)
     --explorationMusic:set_volume(musicVolume)
    -- combatMusic:set_volume(musicVolume)
+
+    -- Particles 
+    -- en la posicion de caida de la granada-> 
+    -- cuando los enemigos reciben daño (en la posicion del enemigo) -> particle_blood_normal:emit(1)  particle_blood_spark:emit(1)
+    -- al recibir daño (en la posicion del jugador) --> particle_spark:emit(1)
+    -- 
+    particle_lvl1_run = current_scene:get_entity_by_name("particle_lvl1_run"):get_component("ParticlesSystemComponent")
+    particle_blood_normal = current_scene:get_entity_by_name("particle_blood_normal"):get_component("ParticlesSystemComponent")
+    particle_blood_spark = current_scene:get_entity_by_name("particle_blood_spark"):get_component("ParticlesSystemComponent")
+    particle_fire = current_scene:get_entity_by_name("particle_fire"):get_component("ParticlesSystemComponent")
+    particle_smoke = current_scene:get_entity_by_name("particle_smoke"):get_component("ParticlesSystemComponent")
+    
+    
     --UpgradeManager START
     --UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     if UpgradeManager ~= nil then
@@ -299,6 +320,7 @@ function on_update(dt)
     end
 
     if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
+
         attractionActive = not attractionActive 
         find_scrap()
 
@@ -647,6 +669,7 @@ function playerMovement(dt)
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
 
         isMoving = true
+        particle_lvl1_run:emit(1)
         -- Animacion walk
         
         if rotationDirection.x ~= 0 or rotationDirection.y ~= 0 then
@@ -1090,18 +1113,6 @@ function checkPlayerDeath(dt)
     if health >= 100 then
         health = 100
     end
-end
-
-
-
-function take_damage(amount)
-    if godMode or intangibleDash then 
-        return 
-    end
-
-    local finalDamage = amount * damageReduction
-    health = health - finalDamage
-    tookDamage = true    
 end
 
 function handleBleed(dt)

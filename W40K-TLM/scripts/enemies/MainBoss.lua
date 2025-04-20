@@ -760,6 +760,8 @@ function make_damage()
             local damage = 10
 
             if playerScript.health > 0 then
+                particle_spark_transform.position = playerScript.playerTransf.position
+                particle_spark:emit(5) 
                 playerScript.health = playerScript.health - damage
                 print(playerScript.health)
                 --log("PlayerHealth " .. playerScript.playerHealth)
