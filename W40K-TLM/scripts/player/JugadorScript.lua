@@ -473,6 +473,10 @@ function updateGodMode(dt)
         shotgunammo = 0
         moveSpeed = godModeSpeed
         playerRb:set_trigger(true)
+        dashColdownCounter = dashTime
+        shotGunScript.timerGranade = shotGunScript.granadeCooldown
+        bolterScript.cooldownDisruptorBulletTimeCounter = bolterScript.cooldownDisruptorBulletTime
+        swordScript.coolDownCounter = swordScript.coolDown
   
         if Input.is_button_pressed(Input.controllercode.DpadUp) or Input.is_key_pressed(Input.keycode.J) then
 

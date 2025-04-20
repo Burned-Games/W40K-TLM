@@ -35,7 +35,7 @@ local knockbackForce = 3000  -- force
 
 --granadas
 
-local granadeCooldown= 12
+granadeCooldown= 12
 timerGranade = 0
 local granadeEntity = nil
 local granadeInitialSpeed = 12
