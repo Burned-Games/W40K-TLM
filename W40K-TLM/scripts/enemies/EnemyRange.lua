@@ -186,10 +186,12 @@ function on_update(dt)
     change_state()
 
     if range.currentState == range.state.Idle then return end
-
+    
     if range.health <= 0 then
+        print("Disssssssssssse")
         rangeDyingSFX:play()
         range:die_state()
+        
     end
 
     if range.haveShield and range.enemyShield <= 0 then

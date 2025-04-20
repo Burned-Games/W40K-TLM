@@ -51,7 +51,7 @@ function on_ready()
     textComponent = current_scene:get_entity_by_name("DialogText"):get_component("UITextComponent")
     dialogImgComponent = current_scene:get_entity_by_name("DialogIMG"):get_component("UIImageComponent")
     -- Clear text at start
-    if nameComponent then nameComponent:set_text("") end
+    --if nameComponent then nameComponent:set_text("") end
     --if textComponent then textComponent:set_text("") end
 end
 

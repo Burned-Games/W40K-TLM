@@ -58,7 +58,9 @@ function on_ready()
     for i = 1, 3 do
         registerEnemy("supp", i, "EnemySupport" .. i)
     end
-    
+
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+
     configureBattleTrigger()
 end
 
@@ -97,9 +99,15 @@ function advanceToNextWave()
         arenaEnded = true
         allWavesCompleted = true
         log("All waves completed! Door opened.")
+       
     else
         log("Starting next wave...")
         spawnLogic()
+    end
+    
+    if mission_Component.getCurrerTaskIndex(true) == 9 then
+        print("AREASADASADasdasdasdfasd")
+        mission_Component.m9_EnemyCount = mission_Component.m9_EnemyCount + 1
     end
 end
 

@@ -51,9 +51,9 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
-
+--MisionBlue
 --M3
-m3_EnemyCount = 2
+m3_EnemyCount = 0
 --M4
 m4_lever = false
 --M5
@@ -66,12 +66,19 @@ m7_Upgrade = false
 m8_lever1 = false
 m8_lever2 = false
 --M9
-m9_EnemyCount = 3
+m9_EnemyCount = 0
 --M10
 m10_Upgrade = false
 --M11
 m11_NewZone = false
 
+--MisionRed
+--MR1
+mr1_supply = false
+--MR2
+mr2_orkzBase = false
+--MR3
+mr3_breakOut = false
 
 -- Trigger variables
 enemyDieCounttest = 2
@@ -112,30 +119,20 @@ function on_update(dt)
     end)
 
     if Input.is_key_pressed(Input.keycode.P) then
-        m4_lever = true
+        m3_EnemyCount = 2
     end
 
     if Input.is_key_pressed(Input.keycode.O) then
-        m5_Upgrade = true
+        m4_lever = true
     end
 
     if Input.is_key_pressed(Input.keycode.I) then
-        m6_heal = true
-    end
-
-    if Input.is_key_pressed(Input.keycode.U) then
-        m7_Upgrade = true
-    end
-    if Input.is_key_pressed(Input.keycode.Y) then
         m8_lever1 = true
         m8_lever2 = true
     end
-    if Input.is_key_pressed(Input.keycode.T) then
-        m10_Upgrade = true
-    end
-    if Input.is_key_pressed(Input.keycode.R) then
-        m11_NewZone = true
-    end
+
+
+
 
    
     imgBlue.position.y = imgBlue.position.y-1
@@ -164,7 +161,7 @@ function getCurrentTask(tasks, index)
         description = description:gsub("x", tostring(m9_EnemyCount))
     end
 
-    return insert_line_breaks(description, 26)
+    return insert_line_breaks(description, 23)
 end
 
 function missionBlue_Tutor()
@@ -173,7 +170,7 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 3 and m3_EnemyCount == 0 then
+    elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 4 and m4_lever then
         startAnimation(blueAnimation)
@@ -185,7 +182,7 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 8 and m8_lever1 and m8_lever2 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 9 and m9_EnemyCount == 0 then
+    elseif blueTaskIndex == 9 and m9_EnemyCount == 3 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 10 and m10_Upgrade then
         startAnimation(blueAnimation)
@@ -196,12 +193,12 @@ end
 
 function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
-    if redTaskIndex == 1 and enemyDieCount >= 2 then
+    if redTaskIndex == 1 and mr1_supply then
         startAnimation(redAnimation)
-    elseif redTaskIndex == 2 and m11_NewZone then
-        startAnimation(blueAnimation)
-    elseif redTaskIndex == 3 and m11_NewZone then
-        startAnimation(blueAnimation)
+    elseif redTaskIndex == 2 and mr2_orkzBase then
+        startAnimation(redAnimation)
+    elseif redTaskIndex == 3 and mr3_breakOut then
+        startAnimation(redAnimation)
     end
 end
 

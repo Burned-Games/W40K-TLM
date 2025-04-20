@@ -270,6 +270,11 @@ function on_ready()
         end
     end)
 
+
+
+    --Mision
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+
     --[[level = load_progress("level", 1)
 
     if level == 1 then
@@ -313,6 +318,9 @@ function on_update(dt)
         intervalchekerUp = intervalcheker + 0.5
         isHealing = true
         damageReduction = 1.15
+        if mission_Component.getCurrerTaskIndex(true) == 6 then
+            mission_Component.m6_heal = true
+        end
     end
     
     if isHealing == true and intervalchekerUp > dtColective and intervalChekerDown < dtColective  then

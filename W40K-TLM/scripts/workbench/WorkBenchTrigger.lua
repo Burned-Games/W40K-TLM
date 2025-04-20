@@ -18,10 +18,7 @@ function on_ready()
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
     initialPosition = Vector3.new(rigidbodyComponent.rb:get_position().x, rigidbodyComponent.rb:get_position().y, rigidbodyComponent.rb:get_position().z)
 
-    -- Mission (commented out)
-    --mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
-    --mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
-    --mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
 end
 
@@ -32,6 +29,13 @@ function on_update(dt)
         if workbenchOpen == false and rigidbodyComponent.rb:get_position() ~= Vector3.new(0, -20, 0) then
             workbenchUIManagerScript:show_ui()
             rigidbodyComponent.rb:set_position(Vector3.new(0, -20, 0))
+            if mission_Component.getCurrerTaskIndex(true) == 5 then
+                mission_Component.m5_Upgrade = true
+            end
+
+            if mission_Component.getCurrerTaskIndex(true) == 7 then
+                mission_Component.m7_Upgrade = true
+            end
         end
 
         -- Mission objectives (commented out)
