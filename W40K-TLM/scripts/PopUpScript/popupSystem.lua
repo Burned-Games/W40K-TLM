@@ -6,7 +6,7 @@ local popupBoss = nil
 local popupIsActive = false
 local popupTimer = 0.0
 local popupState = "idle" -- "enter", "hold", "exit"
-local popupDuration = 2.0 -- seconds hold
+local popupDuration = 2.0 -- seconds to hold
 
 local popupYStart = -200
 local popupYTarget = -200
@@ -17,24 +17,24 @@ local useBossImage = false
 
 -- Text component and its animation variables
 local popupText = nil
-local popupTextYStart = -400     -- Text initial position (off-screen)
-local popupTextYTarget = -185    -- Text target position when popup is open
-local popupTextYExit = -400      -- Text exit position
+local popupTextYStart = -400     -- Initial position (off-screen)
+local popupTextYTarget = -185    -- Target position when popup is open
+local popupTextYExit = -400      -- Exit position
 
 local actualAlpha = 0
 
 -- Initialization
 function on_ready()
-    -- 获取 UI 组件
+    -- Get UI components
     popupNormal = current_scene:get_entity_by_name("PopupNewZoneIMG"):get_component("UIImageComponent")
-    popupBoss = current_scene:get_entity_by_name("PopUpBossZoneIMG"):get_component("UIImageComponent") -- 注意拼写！
+    popupBoss = current_scene:get_entity_by_name("PopUpBossZoneIMG"):get_component("UIImageComponent") -- Pay attention to spelling!
     popupText = current_scene:get_entity_by_name("PopUpText"):get_component("UITextComponent")
 
-    -- 初始化为透明
+    -- Initialize as transparent
     set_popup_alpha_Start(0)
 end
 
--- 每帧更新
+-- Update per frame
 function on_update(dt)
     if popupIsActive then
         update_popup(dt)
@@ -45,7 +45,7 @@ function on_update(dt)
     end
 end
 
--- 显示弹窗：isBoss 表示是否是Boss区域，message 是显示的文字
+-- Show popup: isBoss indicates whether it's a Boss area, message is the displayed text
 function show_popup(isBoss, message)
     popupIsActive = true
     popupState = "enter"
@@ -59,7 +59,7 @@ function show_popup(isBoss, message)
     end
 end
 
--- 每帧调用：控制动画状态机
+-- Called every frame: Controls the animation state machine
 function update_popup(dt)
     local currentPopup = useBossImage and popupBoss or popupNormal
 
@@ -93,7 +93,7 @@ function update_popup(dt)
     end
 end
 
--- 辅助函数：设置三个组件的透明度
+-- Helper function: Sets transparency for three components
 function set_popup_alpha(alpha)
     if useBossImage then
         if popupBoss then popupBoss:set_color(Vector4.new(1, 1, 1, alpha)) end
@@ -104,13 +104,12 @@ function set_popup_alpha(alpha)
 end
 
 function set_popup_alpha_Start(alpha)
- 
     if popupBoss then popupBoss:set_color(Vector4.new(1, 1, 1, alpha)) end
     if popupNormal then popupNormal:set_color(Vector4.new(1, 1, 1, alpha)) end
     if popupText then popupText:set_color(Vector4.new(1, 1, 1, alpha)) end
 end
 
--- 线性插值函数
+-- Linear interpolation function
 function lerp(a, b, t)
     return a + (b - a) * t
 end

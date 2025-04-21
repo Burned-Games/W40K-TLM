@@ -1,13 +1,12 @@
 -- dialogSystem.lua
 
--- Dialog content configuration
 dialogLines = {
     { name = "Carlos", text = "Hola, bienvenido al mundo" },
     { name = "Ana", text = "Espero que estés preparado para la aventura." },
     { name = "Carlos", text = "Vamos allá" }
 }
 
--- UI component references
+-- UI Components
 local nameComponent = nil
 local textComponent = nil
 local dialogImgComponent = nil
@@ -24,7 +23,7 @@ local textIndex = 1
 local typeSpeed = 0.04
 local timer = 0
 
--- Auto-advance control
+-- Auto-next control
 local autoNextEnabled = true
 local autoNextTimer = 0
 local autoNextDelay = 3.0
@@ -32,38 +31,37 @@ local waitingForNext = false
 local isTyping = false
 local spacePressedLastFrame = false
 
--- Fade animation configuration
+-- Animation control
 local dialogAnimationTime = 0.0
-local dialogAnimationDuration = 0.5 -- Animation duration in seconds
-local dialogCurrentAlpha = 0.0      -- Current transparency value
-local dialogAnimating = false       -- Animation in progress flag
-local dialogOpening = true          -- true=opening, false=closing
-local waitingDialogStart = false    -- Waiting for animation completion
-local dialogStartQueued = false     -- Dialog start queued flag
+local dialogAnimationDuration = 0.5
+local dialogCurrentAlpha = 0.0
+local dialogAnimating = false
+local dialogOpening = true
+local waitingDialogStart = false
+local dialogStartQueued = false
 
 -- Initialization
 function on_ready()
     nameComponent = current_scene:get_entity_by_name("DialogName"):get_component("UITextComponent")
     textComponent = current_scene:get_entity_by_name("DialogText"):get_component("UITextComponent")
     dialogImgComponent = current_scene:get_entity_by_name("DialogIMG"):get_component("UIImageComponent")
-    
-    -- Initialize with hidden dialog
+
+    -- Set initial hidden state
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, 0))
-    if nameComponent then nameComponent:set_text(" ") end
-    if textComponent then textComponent:set_text(" ") end
+    nameComponent:set_text(" ")
+    textComponent:set_text(" ")
 end
 
 -- Per-frame update
 function on_update(dt)
-    -- Debug controls
-    if Input.is_key_pressed(Input.keycode.T) then
+    if Input.is_key_pressed(Input.keycode.M) then
         start_dialog(dialogLines)
     end
     if Input.is_key_pressed(Input.keycode.N) then
         start_dialog_close_animation()
     end
 
-    update_dialog_animation(dt) -- Update animation system
+    update_dialog_animation(dt)
 
     if not isDialogPlaying then return end
 
@@ -74,15 +72,12 @@ function on_update(dt)
 
     if spacePressed then
         if isTyping then
-            -- Skip typing animation
-            visibleText = fullText
-            textComponent:set_text(insert_line_breaks(visibleText, 28))
+            textComponent:set_text(insert_line_breaks(fullText, 40))
             textIndex = #fullText + 1
             isTyping = false
             waitingForNext = true
             autoNextTimer = 0
         elseif waitingForNext then
-            -- Force next line
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
@@ -90,7 +85,7 @@ function on_update(dt)
         return
     end
 
-    -- Auto-advance handling
+    -- Auto-advance logic
     if waitingForNext and autoNextEnabled then
         autoNextTimer = autoNextTimer + dt
         if autoNextTimer >= autoNextDelay then
@@ -101,7 +96,7 @@ function on_update(dt)
         return
     end
 
-    -- Typing animation logic
+    -- Typing animation
     if isTyping then
         timer = timer + dt
         if timer >= typeSpeed and textIndex <= #fullText then
@@ -130,16 +125,15 @@ function start_dialog(lines)
     start_dialog_open_animation()
 end
 
--- Start open animation
+-- Open dialog animation (using alpha instead of movement)
 function start_dialog_open_animation()
     dialogAnimationTime = 0.0
     dialogAnimating = true
     dialogOpening = true
     dialogCurrentAlpha = 0.0
-    dialogImgComponent:set_color(Vector4.new(1, 1, 1, 0))
 end
 
--- Start close animation
+-- Close dialog animation (using alpha instead of movement)
 function start_dialog_close_animation()
     dialogAnimationTime = 0.0
     dialogAnimating = true
@@ -154,22 +148,23 @@ function update_dialog_animation(dt)
     dialogAnimationTime = dialogAnimationTime + dt
     local t = dialogAnimationTime / dialogAnimationDuration
 
-    -- Calculate alpha interpolation
+    -- Adjust alpha value
     if dialogOpening then
         dialogCurrentAlpha = lerp(0, 1, t)
     else
         dialogCurrentAlpha = lerp(1, 0, t)
     end
 
-    -- Apply alpha to dialog background
+    -- Apply alpha to components
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, dialogCurrentAlpha))
+    nameComponent:set_color(Vector4.new(1, 1, 1, dialogCurrentAlpha))
+    textComponent:set_color(Vector4.new(1, 1, 1, dialogCurrentAlpha))
 
     -- Handle animation completion
     if t >= 1 then
         dialogAnimating = false
         
         if dialogOpening then
-            -- Start dialog after opening animation
             if waitingDialogStart and dialogStartQueued then
                 waitingDialogStart = false
                 dialogStartQueued = false
@@ -177,10 +172,9 @@ function update_dialog_animation(dt)
                 play_current_line()
             end
         else
-            -- Reset states after closing
             dialogImgComponent:set_color(Vector4.new(1, 1, 1, 0))
-            if nameComponent then nameComponent:set_text(" ") end
-            if textComponent then textComponent:set_text(" ") end
+            nameComponent:set_color(Vector4.new(1, 1, 1, 0))
+            textComponent:set_color(Vector4.new(1, 1, 1, 0))
             isDialogPlaying = false
         end
     end
@@ -202,15 +196,9 @@ function play_current_line()
     autoNextTimer = 0
     isTyping = true
 
-    -- Update speaker name
-    if nameComponent then
-        nameComponent:set_text(line.name or " ")
-    end
-
-    -- Reset text display
-    if textComponent then
-        textComponent:set_text(" ")
-    end
+    -- Update speaker name and text
+    nameComponent:set_text(line.name or " ")
+    textComponent:set_text(" ")
 end
 
 -- Advance to next line
@@ -228,13 +216,17 @@ function end_dialog()
     start_dialog_close_animation()
 end
 
--- Text wrapping implementation
+-- Linear interpolation function
+function lerp(a, b, t)
+    return a + (b - a) * math.min(math.max(t, 0), 1)
+end
+
 function insert_line_breaks(text, max_chars_per_line)
     local result = {}
-    local current_line = " "
+    local current_line = ""
     local current_length = 0
 
-    for word in text:gmatch(" %S+") do
+    for word in text:gmatch("%S+") do
         local word_length = utf8_char_count(word)
 
         if current_length + word_length > max_chars_per_line then
@@ -242,7 +234,7 @@ function insert_line_breaks(text, max_chars_per_line)
             current_line = word
             current_length = word_length
         else
-            if current_line ~= " " then
+            if current_line ~= "" then
                 current_line = current_line .. " " .. word
                 current_length = current_length + 1 + word_length
             else
@@ -252,20 +244,14 @@ function insert_line_breaks(text, max_chars_per_line)
         end
     end
 
-    if current_line ~= " " then
+    if current_line ~= "" then
         table.insert(result, current_line)
     end
 
     return table.concat(result, "\n")
 end
 
--- UTF-8 character counter
 function utf8_char_count(s)
-    local _, count = s:gsub("[^\128-\191]", " ")
+    local _, count = s:gsub("[^\128-\191]", "")
     return count
-end
-
--- Linear interpolation function
-function lerp(a, b, t)
-    return a + (b - a) * math.min(math.max(t, 0), 1)
 end
