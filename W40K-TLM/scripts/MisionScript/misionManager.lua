@@ -232,18 +232,18 @@ function processAnimation(dt, anim, img, text, onComplete)
     
     if anim.lerpTime >= 0.1 then
         if anim.closing then
-            print("closing false")
+     
             anim.closing = false
             anim.lerpTime = 0.0
             onComplete()
         else
-            print("start false")
+           
             anim.start = false
             anim.playing = false
             anim.lerpTime = 0.0
         end
     end
-    print("proces anim")
+    
     if anim.closing then
         actualAlpha = lerp(actualAlpha, 0.0, anim.lerpTime)
     elseif anim.start then
