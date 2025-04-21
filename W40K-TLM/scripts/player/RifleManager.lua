@@ -221,7 +221,7 @@ end
 
 function on_update(dt)
 
-    if playerScript.godMode then
+    if playerScript.health <= 0 then
         return
     end
 
