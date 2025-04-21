@@ -1,0 +1,435 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "Door_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 9142892049940283920
+            }
+        },
+        "RootEntity": 0,
+        "value0": 7,
+        "value1": 7,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Tag": "Door"
+        },
+        "value12": 1,
+        "value13": {
+            "Tag": "offLever2"
+        },
+        "value14": 2,
+        "value15": {
+            "Tag": "base.001"
+        },
+        "value16": 3,
+        "value17": {
+            "Tag": "Root"
+        },
+        "value18": 4,
+        "value19": {
+            "Tag": "Lever1"
+        },
+        "value20": 5,
+        "value21": {
+            "Tag": "base.001"
+        },
+        "value22": 6,
+        "value23": {
+            "Tag": "Root"
+        },
+        "value24": 7,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 4.715000152587891,
+                "y": 0.0,
+                "z": -17.812875747680665
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value27": 1,
+        "value28": {
+            "Position": {
+                "x": -5.383534908294678,
+                "y": 0.0,
+                "z": 3.0630807876586916
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 2,
+        "value30": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value31": 3,
+        "value32": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value33": 4,
+        "value34": {
+            "Position": {
+                "x": 2.2595977783203127,
+                "y": 0.0,
+                "z": -0.23420143127441407
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value35": 5,
+        "value36": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value37": 6,
+        "value38": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 7,
+        "value40": 0,
+        "value41": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value42": 1,
+        "value43": {
+            "Parent": 0,
+            "First": 2,
+            "Next": 4,
+            "Prev": 4294967295
+        },
+        "value44": 2,
+        "value45": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 3,
+            "Prev": 4294967295
+        },
+        "value46": 3,
+        "value47": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value48": 4,
+        "value49": {
+            "Parent": 0,
+            "First": 5,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value50": 5,
+        "value51": {
+            "Parent": 4,
+            "First": 4294967295,
+            "Next": 6,
+            "Prev": 4294967295
+        },
+        "value52": 6,
+        "value53": {
+            "Parent": 4,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value54": 2,
+        "value55": 2,
+        "value56": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 10320846043448104506
+            },
+            "AnimatorUUID": {
+                "value0": 16279823665560737483
+            }
+        },
+        "value57": 5,
+        "value58": {
+            "Mesh": {
+                "value0": 10320846043448104506
+            },
+            "AnimatorUUID": {
+                "value0": 16198809136935690029
+            }
+        },
+        "value59": 2,
+        "value60": 2,
+        "value61": {
+            "cereal_class_version": 0,
+            "Material": {
+                "value0": 14970587727736277956
+            }
+        },
+        "value62": 5,
+        "value63": {
+            "Material": {
+                "value0": 14970587727736277956
+            }
+        },
+        "value64": 0,
+        "value65": 1,
+        "value66": 0,
+        "value67": {
+            "cereal_class_version": 0,
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "m_Properties": {
+                            "cereal_class_version": 0,
+                            "type": 0,
+                            "mass": 1.0,
+                            "useGravity": true,
+                            "freezeX": true,
+                            "freezeY": true,
+                            "freezeZ": true,
+                            "freezeRotX": true,
+                            "freezeRotY": true,
+                            "freezeRotZ": true,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Coffee::BoxCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "cereal_class_version": 0,
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 0.08100000023841858,
+                                            "y": 0.08100000023841858,
+                                            "z": 0.08100000023841858
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value68": 0,
+        "value69": 3,
+        "value70": 1,
+        "value71": 2,
+        "value72": 3,
+        "value73": 4,
+        "value74": 0,
+        "value75": 4,
+        "value76": 5,
+        "value77": 6,
+        "value78": 3,
+        "value79": 0,
+        "value80": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/interactables/Door.lua",
+            "Language": 0
+        },
+        "value81": 1,
+        "value82": {
+            "ScriptPath": "scripts/interactables/Lever.lua",
+            "Language": 0
+        },
+        "value83": 4,
+        "value84": {
+            "ScriptPath": "scripts/interactables/Lever.lua",
+            "Language": 0
+        },
+        "value85": 2,
+        "value86": 1,
+        "value87": {
+            "cereal_class_version": 0,
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": false,
+            "ModelUUID": {
+                "value0": 6999506995957282129
+            },
+            "AnimatorUUID": {
+                "value0": 16279823665560737483
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483652,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value88": 4,
+        "value89": {
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": false,
+            "ModelUUID": {
+                "value0": 6999506995957282129
+            },
+            "AnimatorUUID": {
+                "value0": 16198809136935690029
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483653,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483654,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value90": 0,
+        "value91": 0,
+        "value92": 0,
+        "value93": 0,
+        "value94": 0,
+        "value95": 0,
+        "value96": 0,
+        "value97": 0,
+        "value98": 0,
+        "value99": 0,
+        "value100": 0
+    }
+}
