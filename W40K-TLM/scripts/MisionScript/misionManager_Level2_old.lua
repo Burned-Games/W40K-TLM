@@ -18,9 +18,8 @@ local redTasks = {
     {id = 6, description = "Fight and defeat (name)"}
 }
 
-
-local blueTaskIndex = 1
-local redTaskIndex = 1
+local blueTaskIndex = 12
+local redTaskIndex = 4
 
 -- Components
 local textBlueComponent = nil
@@ -29,8 +28,6 @@ local textBlueTransform = nil
 local textRedTransform = nil
 local imgBlue = nil
 local imgRed = nil
-local imgBlueUI = nil
-local imgRedUI = nil
 
 -- Animation control
 local blueAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
@@ -51,35 +48,26 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
---MisionBlue
---M3
-m3_EnemyCount = 0
---M4
+
+--M12
+m3_EnemyCount = 2
+--M13
 m4_lever = false
-m4_EnemyCount = 0
---M5
+--M14
 m5_Upgrade = false
---M6
+--M15
 m6_heal  = false
---M7
+--M16
 m7_Upgrade = false
---m8
+--m17
 m8_lever1 = false
 m8_lever2 = false
---M9
-m9_EnemyCount = 0
---M10
+--M18
+m9_EnemyCount = 3
+--M19
 m10_Upgrade = false
---M11
-m11_NewZone = false
 
---MisionRed
---MR1
-mr1_supply = false
---MR2
-mr2_orkzBase = false
---MR3
-mr3_breakOut = false
+
 
 -- Trigger variables
 enemyDieCounttest = 2
@@ -89,14 +77,12 @@ enemyDie_M10 = 1
 M5_WorkBrech = false
 M9_WorkBrech = false
 
-local actualAlpha = 1
-
 function on_ready()
-    --mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
-    --mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
-    --mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
-    --mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
-    --mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
+    mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
+    mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
+    mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
+    mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
+    mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
 
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
@@ -105,9 +91,6 @@ function on_ready()
 
     imgBlue = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
     imgRed = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
-
-    imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
-    imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
 end
 
 function on_update(dt)
@@ -115,29 +98,40 @@ function on_update(dt)
     missionBlue_Tutor()
     missionRed_Tutor()
 
-    processAnimation(dt, blueAnimation, imgBlueUI, textBlueComponent, function()
+    processAnimation(dt, blueAnimation, imgBlue, textBlueTransform, function()
         blueTaskIndex = blueTaskIndex + 1
         if blueTaskIndex > #blueTasks then blueTaskIndex = #blueTasks + 1 end
     end)
-    processAnimation(dt, redAnimation, imgRedUI, textRedComponent, function()
+    processAnimation(dt, redAnimation, imgRed, textRedTransform, function()
         redTaskIndex = redTaskIndex + 1
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
 
+    if Input.is_key_pressed(Input.keycode.P) then
+        m4_lever = true
+    end
+
+    if Input.is_key_pressed(Input.keycode.O) then
+        m5_Upgrade = true
+    end
 
     if Input.is_key_pressed(Input.keycode.I) then
+        m6_heal = true
+    end
+
+    if Input.is_key_pressed(Input.keycode.U) then
+        m7_Upgrade = true
+    end
+    if Input.is_key_pressed(Input.keycode.Y) then
         m8_lever1 = true
         m8_lever2 = true
     end
-
-
-
-
-   
-    --imgBlue.position.y = imgBlue.position.y-1
-   --imgBlue.position.y = 500
-   --imgBlue:set_size(Vector2.new(1,1))
-   --print(imgBlue.position.y)
+    if Input.is_key_pressed(Input.keycode.T) then
+        m10_Upgrade = true
+    end
+    if Input.is_key_pressed(Input.keycode.R) then
+        m11_NewZone = true
+    end
 
 end
 
@@ -160,43 +154,33 @@ function getCurrentTask(tasks, index)
         description = description:gsub("x", tostring(m9_EnemyCount))
     end
 
-    return insert_line_breaks(description, 23)
+    return insert_line_breaks(description, 26)
 end
 
 function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
-    if blueTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
+    if blueTaskIndex == 12 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
+    elseif blueTaskIndex == 13 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
+    elseif blueTaskIndex == 14 and m3_EnemyCount == 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 4 and m4_EnemyCount == 2 then
+    elseif blueTaskIndex == 15 and m4_lever then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 5 and m5_Upgrade then
+    elseif blueTaskIndex == 16 and m5_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 6 and m6_heal then
+    elseif blueTaskIndex == 17 and m6_heal then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 7 and m7_Upgrade then
+    elseif blueTaskIndex == 18 and m7_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 8 and m8_lever1 and m8_lever2 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 9 and m9_EnemyCount == 3 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 10 and m10_Upgrade then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 11 and m11_NewZone then
+    elseif blueTaskIndex == 19 and m8_lever1 and m8_lever2 then
         startAnimation(blueAnimation)
     end
 end
 
 function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
-    if redTaskIndex == 1 and mr1_supply then
-        startAnimation(redAnimation)
-    elseif redTaskIndex == 2 and mr2_orkzBase then
-        startAnimation(redAnimation)
-    elseif redTaskIndex == 3 and mr3_breakOut then
+    if redTaskIndex == 1 and enemyDieCount >= 2 then
         startAnimation(redAnimation)
     end
 end
@@ -218,31 +202,21 @@ function processAnimation(dt, anim, img, text, onComplete)
     local tOri = anim.closing and textPosOri or textPosDes
     local tDes = anim.closing and textPosDes or textPosOri
 
-    anim.lerpTime = anim.lerpTime + (dt * 0.1)
-    --img.position.x = lerp(ori, des, anim.lerpTime)
-    --text.position.x = lerp(tOri, tDes, anim.lerpTime)
-    
-    if anim.lerpTime >= 0.1 then
+    anim.lerpTime = math.min(anim.lerpTime + dt * 3, 1.0)
+    img.position.x = lerp(ori, des, anim.lerpTime)
+    text.position.x = lerp(tOri, tDes, anim.lerpTime)
+
+    if anim.lerpTime >= 1.0 then
         if anim.closing then
-     
             anim.closing = false
             anim.lerpTime = 0.0
             onComplete()
         else
-           
             anim.start = false
             anim.playing = false
             anim.lerpTime = 0.0
         end
     end
-    
-    if anim.closing then
-        actualAlpha = lerp(actualAlpha, 0.0, anim.lerpTime)
-    elseif anim.start then
-        actualAlpha = lerp(actualAlpha, 1.0, anim.lerpTime)
-    end
-    img:set_color(Vector4.new(1, 1, 1, actualAlpha))
-    text:set_color(Vector4.new(1, 1, 1, actualAlpha))
 end
 
 function lerp(a, b, t)
