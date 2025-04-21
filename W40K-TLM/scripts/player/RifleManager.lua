@@ -86,6 +86,8 @@ local particle_blood_spark_transform = nil
 
 shootAnimation = false
 
+local charging
+
 
 function on_ready()
 
@@ -282,11 +284,15 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown --[[and upgradeManager.has_weapon_special()]] then
-            
+        if leftShoulder == Input.state.Repeat and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
+            charging = true
+        end
+
+        if leftShoulder == Input.state.Up and charging--[[and upgradeManager.has_weapon_special()]] then
             cooldownDisruptorBulletTimeCounter = 0
             disruptorShooted = true
             disruptorShooted2 = true
+            charging = false
         end
 
         if disruptorShooted and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown then
@@ -296,13 +302,9 @@ function on_update(dt)
         end
 
         if disruptorShooted2 then
-            disruptorChargeTimeCounter = disruptorChargeTimeCounter + dt
-            if disruptorChargeTimeCounter >= disruptorChargeTime then
-            
-                disruptiveCharge()
-                disruptorChargeTimeCounter = 0
-                disruptorShooted2 = false
-            end
+            disruptiveCharge()
+            disruptorChargeTimeCounter = 0
+            disruptorShooted2 = false
         end
 
         
