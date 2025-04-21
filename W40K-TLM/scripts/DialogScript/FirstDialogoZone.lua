@@ -1,10 +1,18 @@
+dialogLines = {
+    { name = "Radio", text = "Soldier? Are you alive? If so, you're on a very important mission." },
+    { name = "Radio", text = "Do you see those orkz? They colonized this planet, go finish this two." }
+}
+
+
 local mission4RigidBodyComponent = nil
 local mission4RigidBody = nil
+dialogScriptComponent = nil
 
 m4_Clear = false
 function on_ready()
      --Mission
-     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+   dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+   popupScriptComponent = current_scene:get_entity_by_name("PopUpManager"):get_component("ScriptComponent")
 
     mission4RigidBodyComponent = self:get_component("RigidbodyComponent")
     mission4RigidBody = mission4RigidBodyComponent.rb
@@ -15,10 +23,9 @@ function on_ready()
     if nameA == "Player" or nameB == "Player" then
         m4_Clear =true
 
-        mission_Component.m7_Upgrade = true
-        mission_Component.m8_lever1 = true
-        mission_Component.m8_lever2 = true
-        --print("player in zone")
+        dialogScriptComponent.start_dialog(dialogLines)
+        popupScriptComponent.show_popup(false, "QUEST STARTING")
+
     end
     end)
     -- Add initialization code here

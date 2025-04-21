@@ -58,6 +58,7 @@ local mission10Complet = false
 m3_EnemyCount = 0
 --M4
 m4_lever = false
+m4_EnemyCount = 0
 --M5
 m5_Upgrade = false
 --M6
@@ -125,13 +126,6 @@ function on_update(dt)
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
 
-    if Input.is_key_pressed(Input.keycode.P) then
-        m3_EnemyCount = 2
-    end
-
-    if Input.is_key_pressed(Input.keycode.O) then
-        m4_lever = true
-    end
 
     if Input.is_key_pressed(Input.keycode.I) then
         m8_lever1 = true
@@ -179,7 +173,7 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 4 and m4_lever then
+    elseif blueTaskIndex == 4 and m4_EnemyCount == 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)

@@ -55,7 +55,9 @@ function on_ready()
 
     range.scrap = current_scene:get_entity_by_name("Scrap")
     range.scrapTransf = range.scrap:get_component("TransformComponent")
-
+    --Mision
+    range.misionManager = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+    range.enemyDie = false
     -- Audio
     rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
     rangeHurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
@@ -188,7 +190,7 @@ function on_update(dt)
     if range.currentState == range.state.Idle then return end
     
     if range.health <= 0 then
-        print("Disssssssssssse")
+        print("tt")
         rangeDyingSFX:play()
         range:die_state()
         

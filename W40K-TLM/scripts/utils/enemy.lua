@@ -6,8 +6,6 @@ enemy.godMode = true
 
 
 
-
-
 function enemy:new(obj)
 
     obj = obj or {}
@@ -28,6 +26,7 @@ function enemy:new(obj)
     obj.explosiveTransf = nil
     obj.scrap = nil
     obj.scrapTransf = nil
+    obj.misionManager = nil
 
     -- Generic stats of the enemy
     obj.health = 95
@@ -73,6 +72,9 @@ function enemy:new(obj)
     -- effects
     obj.isNeuralInhibitioning = false
     obj.neuralFirstTime = true
+
+    -- mision
+    obj.enemyDie = false
     return obj
 
 end
@@ -146,6 +148,7 @@ function enemy:attack_state()
 end
 
 function enemy:die_state()
+    
 
     if self.currentAnim ~= self.dieAnim then
         self.currentAnim = self.dieAnim
@@ -159,7 +162,16 @@ function enemy:die_state()
     self.isDead = true
 
     self:generate_scrap()
+    if self.misionManager and self.enemyDie == false  then
+        if self.misionManager.getCurrerTaskIndex(true) == 3 then
+            self.misionManager.m3_EnemyCount = self.misionManager.m3_EnemyCount + 1
+        end
 
+        if self.misionManager.getCurrerTaskIndex(true) == 4 then
+            self.misionManager.m4_EnemyCount = self.misionManager.m4_EnemyCount + 1
+        end
+        self.enemyDie = true
+    end
 end
 
 
