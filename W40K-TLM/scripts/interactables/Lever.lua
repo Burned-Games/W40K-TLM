@@ -25,7 +25,6 @@ function on_update(dt)
     if distance.x < 1 and distance.z < 1 and Input.get_button(Input.action.Confirm) == Input.state.Down then
         if not hasInteracted then
             hasInteracted = true
-            log("lever")
             leverAnimator:set_current_animation(0)
             doorScript:on_interact()
         end

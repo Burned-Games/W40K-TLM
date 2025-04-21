@@ -10,9 +10,6 @@ function on_ready()
         local childTag = child:get_component("TagComponent").tag
         if childTag:match("^Lever") then
             minimumInteractions = minimumInteractions + 1
-            log("Found lever: " .. childTag)
-        else
-            log("No levers found in door script")
         end
     end
 end
@@ -26,7 +23,6 @@ function on_interact()
     if currentInteractions >= minimumInteractions and isClosed then
         rigidBody:set_trigger(true)
         isClosed = false
-        log("door")
     end
 end
 
