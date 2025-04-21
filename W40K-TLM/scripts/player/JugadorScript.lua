@@ -128,7 +128,7 @@ level = 1
 
 enemyDirection = Vector3.new(0,0,0)
 
-local checkpointsPosition = { Vector3.new(83, 0, 35), Vector3.new(192, 0, -52)}
+local checkpointsPosition = { Vector3.new(-6, 0, -30), Vector3.new(95, 0, -115)}
 
 --animation indexs
 idle = 4
@@ -158,7 +158,6 @@ local dtColective = 0
 
 function on_ready()
     -- Add initialization code here
-
     -- Audio
     --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
@@ -244,13 +243,6 @@ function on_ready()
         
         local newIndex = zonePlayer + 1
 
-        if nameA == "Checkpoint" .. tostring(newIndex) or nameB == "Checkpoint" .. tostring(newIndex) then           
-            save_progress("zonePlayer", newIndex)
-            zonePlayer = newIndex
-            save_progress("scrap", scrapCounter)
-            save_progress("health", health)
-            UpgradeManager:save_progress()
-        end
         if nameA == "Inyectores" or nameB == "Inyectores" then   
                    
             StimsCounter = StimsCounter + 1
@@ -276,14 +268,7 @@ function on_ready()
     --Mision
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
-    --[[level = load_progress("level", 1)
-
-    if level == 1 then
-        if current_scene:get_entity_by_name("Checkpoint1"):has_component("RigidbodyComponent") then
-            current_scene:get_entity_by_name("Checkpoint1"):get_component("RigidbodyComponent").rb:set_trigger(true)
-            current_scene:get_entity_by_name("Checkpoint2"):get_component("RigidbodyComponent").rb:set_trigger(true)
-        end
-    end
+    level = load_progress("level", 1)
 
     zonePlayer = load_progress("zonePlayer", 0)
     if level == 1 and zonePlayer >= 1 then
@@ -303,9 +288,9 @@ function on_ready()
 
     if level > 1 then
         scrapCounter = load_progress("scrap", 0)
+        health = load_progress("health", 100)
         UpgradeManager:load_upgrades()
-    end]] --// A DESCOMENTAR
-
+    end
 
 end
 
@@ -1286,4 +1271,12 @@ function HealPlayer()
       timesHealed = 0
       damageReduction = 1
     end
+end
+
+function saveProgress()
+    UpgradeManager:save_upgrades()
+    save_progress("zonePlayer", zonePlayer)
+    zonePlayer = zonePlayer + 1
+    save_progress("scrap", scrapCounter)
+    save_progress("health", health)
 end

@@ -2,6 +2,8 @@ local playerInRange = false
 local workbenchUIManagerScript = nil
 local rigidbodyComponent = nil
 local initialPosition = nil
+local playerScript = nil
+local playerExit = false
 
 function on_ready()
     -- Ensure the collider is set as a trigger
@@ -19,6 +21,7 @@ function on_ready()
     initialPosition = Vector3.new(rigidbodyComponent.rb:get_position().x, rigidbodyComponent.rb:get_position().y, rigidbodyComponent.rb:get_position().z)
 
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+    playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
 end
 
@@ -60,7 +63,9 @@ function handle_collision_enter(entityA, entityB)
     local nameB = entityB:get_component("TagComponent").tag
 
     if nameA == "Player" or nameB == "Player" then
-        playerInRange = true
+        if not playerExit then
+            playerInRange = true
+        end
     end
 end
 
@@ -70,5 +75,7 @@ function handle_collision_exit(entityA, entityB)
 
     if nameA == "Player" or nameB == "Player" then
         playerInRange = false
+        playerExit = true
+        playerScript:saveProgress()
     end
 end
