@@ -12,9 +12,7 @@ function on_ready()
     colliderComponent:on_collision_enter(function(entityA, entityB)                
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
-       print("BB")
         if nameA == "Player" or nameB == "Player" then
-            print("AAA")
             cameraScript:cameraBoss(true)
         end
     end)
