@@ -365,9 +365,9 @@ end
 
 function patrol_state(dt)
     if bossAnimator then
-        if currentAnim ~= 2 then
+        if currentAnim ~= 1 then
             bossAnimator:set_current_animation(2)
-            currentAnim = 2
+            currentAnim = 1
         end
     end
 
@@ -477,9 +477,9 @@ function idle_state(dt) end
 
 function shield_state(dt)
 
-    if currentAnim ~= 3 then
+    if currentAnim ~= 1 then
         bossAnimator:set_current_animation(3)
-        currentAnim = 3
+        currentAnim = 1
     end
 
     bossRigidbody:set_velocity(Vector3.new(0, 0, 0))
@@ -712,9 +712,9 @@ function update_fist_scaling(dt)
 end
 
 function ulti_attack()
-    if currentAnim ~= 4 then
+    if currentAnim ~= 1 then
         bossAnimator:set_current_animation(4)
-        currentAnim = 4
+        currentAnim = 1
     end
 
     local playerPos = playerTransf.position
