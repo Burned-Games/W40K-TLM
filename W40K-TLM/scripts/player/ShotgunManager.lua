@@ -2,7 +2,7 @@ using = false
 -- Time
 local current_time = 0  
 shotgun_fire_rate = 1.3 
-local next_fire_time = 0 
+next_fire_time = 0 
 
 -- ammo
 maxAmmo = 12  -- maxammo
@@ -165,7 +165,10 @@ function normalizeVector(v)
 end
 
 function on_update(dt)
-
+    
+    if playerScript.godMode then
+        return
+    end
     if initialize then
         granadeOrigin = playerScript.playerTransf.position
         initialize = false

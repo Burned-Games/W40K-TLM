@@ -53,6 +53,10 @@ end
 
 function on_update(dt)
 
+    if playerScript.godMode then
+        return
+    end
+
     local rightShoulder = Input.get_button(Input.action.Melee)
 
     if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true then

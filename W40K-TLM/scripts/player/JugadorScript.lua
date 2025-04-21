@@ -1120,6 +1120,7 @@ function checkPlayerDeath(dt)
             deathAnimationSetted = true
             playerRb:set_velocity(Vector3.new(0, 0, 0))
             playerDeathSFX:play()
+
         end
         health = 0
         playerTransf.rotation.y = math.deg(angleRotation)

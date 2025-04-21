@@ -220,6 +220,11 @@ function on_ready()
 end
 
 function on_update(dt)
+
+    if playerScript.godMode then
+        return
+    end
+
     -- Applying multipliers
     local currentShootCoolDownRifle = shootCoolDownRifle * (1 / attackSpeedMultiplier)
     local currentDisruptorBulletTimeCooldown = cooldownDisruptorBulletTime * (1 / attackSpeedMultiplier)
