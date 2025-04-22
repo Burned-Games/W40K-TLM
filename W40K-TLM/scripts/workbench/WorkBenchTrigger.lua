@@ -26,7 +26,7 @@ function on_ready()
 end
 
 function on_update(dt)
-    if playerInRange and Input.get_button(Input.action.Confirm) == Input.state.Down then
+    if playerInRange and Input.get_button(Input.action.Cancel) == Input.state.Down then
         -- Open the workbench UI
         local workbenchOpen = workbenchUIManagerScript.isWorkBenchOpen
         if workbenchOpen == false and rigidbodyComponent.rb:get_position() ~= Vector3.new(0, -20, 0) then

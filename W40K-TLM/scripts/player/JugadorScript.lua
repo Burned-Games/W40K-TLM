@@ -28,7 +28,7 @@ dashAvailable = true
 intangibleDash = false
 local intangibleDashTimeCounter = 0
 local intangibleDashTime = 0.15
-local deathAnimationTime = 3
+local deathAnimationTime = 2.5
 local deathTimeCounter = 0
 local deathAnimationSetted = false
 
@@ -155,6 +155,12 @@ local particle_smoke = nil
 
 
 local dtColective = 0
+
+local fadeToBlackScript = nil
+
+local changeing = false
+local changed = false
+local changeScene = false
 
 function on_ready()
     -- Add initialization code here
@@ -292,6 +298,8 @@ function on_ready()
         UpgradeManager:load_upgrades()
     end
 
+    fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
+
 end
 
 function on_update(dt)
@@ -346,7 +354,19 @@ function on_update(dt)
     checkPlayerDeath(dt)
     handleWeaponSwitch(dt)
     --updateEntranceAnimation(dt)
-    if deathAnimationSetted--[[ or animacionEntradaRealizada == false]] then
+    if(changeing)then
+        if fadeToBlackScript.fadeToBlackDoned then
+            changeScene = true
+        end
+    end
+
+
+    if changeScene == true and not changed then
+        SceneManager.change_scene("scenes/lose.TeaScene")
+        changed = true
+    end
+
+    if deathAnimationSetted then
         return
     end
     updateMusic(dt)
@@ -368,6 +388,8 @@ function on_update(dt)
     handleCover()
     
     backgroundMusicToPlay = 0
+
+    
 end
 
 function on_exit()
@@ -493,6 +515,7 @@ function updateGodMode(dt)
         end
     elseif isCovering == false then
         moveSpeed = normalSpeed
+        print("nnnnnnnnnn")
         playerRb:set_trigger(false)
     end
 end
@@ -1108,14 +1131,16 @@ function checkPlayerDeath(dt)
             deathAnimationSetted = true
             playerRb:set_velocity(Vector3.new(0, 0, 0))
             playerDeathSFX:play()
-
+            changeing = true
+            fadeToBlackScript:DoFade()
         end
         health = 0
         playerTransf.rotation.y = math.deg(angleRotation)
         deathTimeCounter = deathTimeCounter + dt
         if deathTimeCounter >= deathAnimationTime and sceneChanged == false then
             sceneChanged = true
-            --SceneManager.change_scene("levelLose.TeaScene")
+            
+            
         end
     end
     if health >= 100 then

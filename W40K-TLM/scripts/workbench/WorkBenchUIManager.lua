@@ -333,7 +333,7 @@ function on_update(dt)
         handle_character_controls(dt)
     end
 
-    local cancelState = Input.get_button(Input.action.Cancel)
+    local cancelState = Input.get_button(Input.action.Confirm)
     if cancelState == Input.state.Down and isWorkBenchOpen then
         hide_ui()
     end
@@ -344,7 +344,7 @@ function handle_gun_controls(dt)
         gunBuyButton.state = "Hover"
         gunExitButton.state = "Normal"
 
-        local confirmState = Input.get_button(Input.action.Confirm)
+        local confirmState = Input.get_button(Input.action.Cancel)
         if(confirmState == Input.state.Down and not confirmPressed) then
             confirmPressed = true
             gunBuyButton.state = "Pressed"
@@ -366,7 +366,7 @@ function handle_gun_controls(dt)
         gunBuyButton.state = "Normal"
         gunExitButton.state = "Hover"
 
-        local confirmState = Input.get_button(Input.action.Confirm)
+        local confirmState = Input.get_button(Input.action.Cancel)
         if(confirmState == Input.state.Down and not confirmPressed) then
             confirmPressed = true
             gunExitButton.state = "Pressed"
@@ -404,7 +404,7 @@ function handle_character_controls(dt)
         charBuyButton.state = "Hover"
         charExitButton.state = "Normal"
 
-        local confirmState = Input.get_button(Input.action.Confirm)
+        local confirmState = Input.get_button(Input.action.Cancel)
         if(confirmState == Input.state.Down and not confirmPressed) then
             confirmPressed = true
             charBuyButton.state = "Pressed"
@@ -426,7 +426,7 @@ function handle_character_controls(dt)
         charBuyButton.state = "Normal"
         charExitButton.state = "Hover"
 
-        local confirmState = Input.get_button(Input.action.Confirm)
+        local confirmState = Input.get_button(Input.action.Cancel)
         if(confirmState == Input.state.Down and not confirmPressed) then
             confirmPressed = true
             charExitButton.state = "Pressed"

@@ -22,7 +22,7 @@ function on_update(dt)
         math.abs(playerTransform.position.z - (transform.position.z + doorTransform.position.z))
     )
 
-    if distance.x < 1 and distance.z < 1 and Input.get_button(Input.action.Confirm) == Input.state.Down then
+    if distance.x < 1 and distance.z < 1 and Input.get_button(Input.action.Cancel) == Input.state.Down then
         if not hasInteracted then
             hasInteracted = true
             leverAnimator:set_current_animation(0)
