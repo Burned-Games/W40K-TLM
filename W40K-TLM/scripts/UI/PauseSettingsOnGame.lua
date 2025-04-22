@@ -150,12 +150,13 @@ function on_update(dt)
         button2:set_color(defaultColor)
         button3:set_color(defaultColor)
         button4:set_color(defaultColor)
-
-        value = Input.get_button(Input.action.Interact)
-        if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-            if(index == 0) then
-                visibilidad1Entity:set_active(false)
-                isPaused = false
+        if isPaused then
+            value = Input.get_button(Input.action.Interact)
+            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+                if(index == 0) then
+                    visibilidad1Entity:set_active(false)
+                    isPaused = false
+                end
             end
         end
 
@@ -164,15 +165,16 @@ function on_update(dt)
         button2:set_color(selectedColor)
         button3:set_color(defaultColor)
         button4:set_color(defaultColor)
-
-        value = Input.get_button(Input.action.Interact)
-        if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-            if(index == 1) then
-                --button2:set_state("Pressed")
-                sceneChanged = true
-                visibilidad2Entity:set_active(true)
-                visibilidad1Entity:set_active(false)
-                isOnPauseSettings = true
+        if isPaused then
+            value = Input.get_button(Input.action.Interact)
+            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+                if(index == 1) then
+                    --button2:set_state("Pressed")
+                    sceneChanged = true
+                    visibilidad2Entity:set_active(true)
+                    visibilidad1Entity:set_active(false)
+                    isOnPauseSettings = true
+                end
             end
         end
         
@@ -181,13 +183,14 @@ function on_update(dt)
         button2:set_color(defaultColor)
         button3:set_color(selectedColor)
         button4:set_color(defaultColor)
-
-        value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-            --button3:set_state("Pressed")
-            if(index == 2) then
-                sceneChanged = true
-                --print("Saving game...")
+        if isPaused then
+            value = Input.get_button(Input.action.Confirm)
+            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+                --button3:set_state("Pressed")
+                if(index == 2) then
+                    sceneChanged = true
+                    --print("Saving game...")
+                end
             end
         end
 
@@ -196,35 +199,38 @@ function on_update(dt)
         button2:set_color(defaultColor)
         button3:set_color(defaultColor)
         button4:set_color(selectedColor)
-
-        value = Input.get_button(Input.action.Interact)
-        if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-            --button4:set_state("Pressed")
-            if(index == 3) then
-               SceneManager.change_scene("scenes/Default.TeaScene")
+        if isPaused then
+            value = Input.get_button(Input.action.Interact)
+            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+                --button4:set_state("Pressed")
+                if(index == 3) then
+                SceneManager.change_scene("scenes/Default.TeaScene")
+                end
             end
         end
     end
 
-    local value = Input.get_axis(Input.action.UiMoveVertical)
-    if (value ~= 0 and contadorMovimientoBotones > 0.2) then
-        contadorMovimientoBotones = 0
-        
-        if value < 0 then
-            index = index - 1;
-            if index < 0 then
-                index = 3
+    if isPaused then
+        local value = Input.get_axis(Input.action.UiMoveVertical)
+        if (value ~= 0 and contadorMovimientoBotones > 0.2) then
+            contadorMovimientoBotones = 0
+            
+            if value < 0 then
+                index = index - 1;
+                if index < 0 then
+                    index = 3
+                end
             end
-        end
-        
-        if value > 0 then
-            index = index + 1
-            if index > 3 then
-                index = 0
+            
+            if value > 0 then
+                index = index + 1
+                if index > 3 then
+                    index = 0
+                end
             end
+        else
+            contadorMovimientoBotones = contadorMovimientoBotones + dt
         end
-    else
-        contadorMovimientoBotones = contadorMovimientoBotones + dt
     end
 
     if isOnPauseSettings then
