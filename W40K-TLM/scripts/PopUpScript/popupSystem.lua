@@ -26,7 +26,7 @@ local actualAlpha = 0
 -- Initialization
 function on_ready()
     -- Get UI components
-    popupNormal = current_scene:get_entity_by_name("PopupNewZoneIMG"):get_component("UIImageComponent")
+    popupNormal = current_scene:get_entity_by_name("PopUpNewZoneIMG"):get_component("UIImageComponent")
     popupBoss = current_scene:get_entity_by_name("PopUpBossZoneIMG"):get_component("UIImageComponent") -- Pay attention to spelling!
     popupText = current_scene:get_entity_by_name("PopUpText"):get_component("UITextComponent")
 

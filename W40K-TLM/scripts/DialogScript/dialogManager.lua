@@ -102,7 +102,7 @@ function on_update(dt)
         if timer >= typeSpeed and textIndex <= #fullText then
             local char = fullText:sub(textIndex, textIndex)
             visibleText = visibleText .. char
-            textComponent:set_text(insert_line_breaks(visibleText, 28))
+            textComponent:set_text(insert_line_breaks(visibleText, 40))
             textIndex = textIndex + 1
             timer = 0
 
