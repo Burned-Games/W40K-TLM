@@ -131,7 +131,7 @@ function on_update(dt)
     end
 
     if kamikaze.playerDetected then
-        kamikazeDetectionSFX:play()
+        --kamikazeDetectionSFX:play()
         if kamikaze.key == 0 then
              
             kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting + 1
