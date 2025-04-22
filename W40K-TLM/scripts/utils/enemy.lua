@@ -389,6 +389,10 @@ function enemy:check_spawn()
             self.enemyRb:set_position(Vector3.new(-500, 0, 0))
             self.isDead = true
         end
+    elseif self.level == 2 then
+        self.zoneNumber = 10
+    elseif self.level == 3 then
+        self.zoneNumber = 10
     end
 
 end
