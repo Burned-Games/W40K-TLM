@@ -372,6 +372,7 @@ function enemy:check_spawn()
             { id = 1, min = { x = 15, z = -37 }, max = { x = 40, z = -11 } },
             { id = 2, min = { x = -40,  z = -125 }, max = { x = 65, z = -49 } },
             { id = 3, min = { x = 82,  z = -182 }, max = { x = 151, z = -110 } },
+            { id = 4, min = { x = 200, z = -255 }, max = { x = 247, z = -213 } }
         }
     
         for _, zone in ipairs(zones) do
