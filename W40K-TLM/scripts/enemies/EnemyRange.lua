@@ -55,6 +55,7 @@ function on_ready()
 
     range.scrap = current_scene:get_entity_by_name("Scrap")
     range.scrapTransf = range.scrap:get_component("TransformComponent")
+
     --Mision
     range.misionManager = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
     range.enemyDie = false
@@ -160,6 +161,11 @@ function deactivate_bullet(index)
 end
 
 function on_update(dt) 
+
+    if range.zoneSet ~= true then
+        range:check_spawn()
+        range.zoneSet = true
+    end
 
     if Input.is_key_pressed(Input.keycode.L) then
         range.level2 = true
