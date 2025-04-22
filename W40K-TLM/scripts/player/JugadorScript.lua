@@ -515,7 +515,6 @@ function updateGodMode(dt)
         end
     elseif isCovering == false then
         moveSpeed = normalSpeed
-        print("nnnnnnnnnn")
         playerRb:set_trigger(false)
     end
 end
