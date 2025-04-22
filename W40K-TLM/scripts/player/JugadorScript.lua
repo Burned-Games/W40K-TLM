@@ -477,7 +477,7 @@ function updateGodMode(dt)
         moveSpeed = godModeSpeed
         playerRb:set_trigger(true)
         dashColdownCounter = dashTime
-        shotGunScript.timerGranade = shotGunScript.granadeCooldown
+        shotGunScript.timerGranade = 0
         bolterScript.cooldownDisruptorBulletTimeCounter = bolterScript.cooldownDisruptorBulletTime
         swordScript.coolDownCounter = swordScript.coolDown
   

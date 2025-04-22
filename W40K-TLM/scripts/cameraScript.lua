@@ -20,7 +20,7 @@ local smoothPos = Vector3.new(0, 0, 0)
 
 local offsetPlayer = 5
 
-local radiusSpawn = 20
+local radiusSpawn = 25
 
 local entities = nil
 
