@@ -27,6 +27,15 @@ function enemy:new(obj)
     obj.scrap = nil
     obj.scrapTransf = nil
     obj.misionManager = nil
+    obj.zone1 = nil
+    obj.zone2 = nil
+    obj.zone3 = nil
+    obj.zone1RbComponent = nil
+    obj.zone2RbComponent = nil
+    obj.zone3RbComponent = nil
+    obj.zone1Rb = nil
+    obj.zone2Rb = nil
+    obj.zone3Rb = nil
 
     -- Generic stats of the enemy
     obj.health = 95
@@ -69,6 +78,8 @@ function enemy:new(obj)
     obj.isPushed = false
     obj.pushedTime = 0.3
     obj.pushedTimeCounter = 0
+    obj.zoneNumber = 0
+    obj.zoneSet = false
     -- effects
     obj.isNeuralInhibitioning = false
     obj.neuralFirstTime = true
@@ -347,6 +358,36 @@ function enemy:follow_path()
     else
         if self.currentPathIndex < #self.enemyNavmesh.path then
             self.currentPathIndex = self.currentPathIndex + 1
+        end
+    end
+
+end
+
+function enemy:check_spawn()
+
+    if self.level == 1 then
+        local pos = self.enemyTransf.position
+
+        local zones = {
+            { id = 1, min = { x = 15, z = -37 }, max = { x = 40, z = -11 } },
+            { id = 2, min = { x = -40,  z = -125 }, max = { x = 65, z = -49 } },
+            { id = 3, min = { x = 82,  z = -182 }, max = { x = 151, z = -110 } },
+            { id = 4, min = { x = 200, z = -255 }, max = { x = 247, z = -213 } }
+        }
+    
+        for _, zone in ipairs(zones) do
+            if pos.x >= zone.min.x and pos.x <= zone.max.x and
+               pos.z >= zone.min.z and pos.z <= zone.max.z then
+                self.zoneNumber = zone.id
+                break
+            end
+        end
+    
+        if self.zoneNumber < self.playerScript.zonePlayer + 1  then
+            
+            self.currentState = self.state.Idle
+            self.enemyRb:set_position(Vector3.new(-500, 0, 0))
+            self.isDead = true
         end
     end
 

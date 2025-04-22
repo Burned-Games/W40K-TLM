@@ -114,6 +114,11 @@ end
 
 function on_update(dt)
 
+    if support.zoneSet ~= true then
+        support:check_spawn()
+        support.zoneSet = true
+    end
+
     if support.isDead then return end
 
     support:check_effects(dt)
