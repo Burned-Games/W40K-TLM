@@ -109,8 +109,14 @@ function on_ready()
     tankImpactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
     tankStepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
 
+
+    local savedVolumeGeneral = load_progress("musicVolumeGeneral", 1.0)
+    savedVolumeGeneral = savedVolumeGeneral / 100
+    slider1.value = savedVolumeGeneral
+    
     local savedFXVolume = load_progress("fxVolume", 1.0)
-    slider2.value= savedFXVolume 
+    savedFXVolume = savedFXVolume / 100
+    slider2.value = savedFXVolume
 
     --local savedVolumeGeneral = load_progress("musicVolumeGeneral", 0.05)
     --xplorationMusic:set_volume(savedVolumeGeneral)

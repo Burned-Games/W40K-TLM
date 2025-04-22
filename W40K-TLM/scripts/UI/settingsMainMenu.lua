@@ -45,8 +45,9 @@ function on_update(dt)
     value = Input.get_button(Input.action.Cancel)
     if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
         -- lógica de la actualización del volumen y de fxs
-        save_progress("musicVolumeGeneral", slider1.value)
-        save_progress("fxVolume", slider2.value)
+        save_progress("musicVolumeGeneral", slider1.value * 100)
+        save_progress("fxVolume", slider2.value * 100)
+
         sceneChanged = true
         SceneManager.change_scene("scenes/Default.TeaScene")
         
