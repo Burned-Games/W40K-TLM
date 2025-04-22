@@ -1,0 +1,260 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "value0": 4,
+        "value1": 4,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Tag": "UI Image"
+        },
+        "value9": 1,
+        "value10": {
+            "Tag": "Camera"
+        },
+        "value11": 2,
+        "value12": {
+            "Tag": "FadeToBlack"
+        },
+        "value13": 3,
+        "value14": {
+            "Tag": "LoseManager"
+        },
+        "value15": 4,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 455.5,
+                "y": 263.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 911.0,
+                "y": 526.0,
+                "z": 1.0
+            }
+        },
+        "value18": 1,
+        "value19": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value20": 2,
+        "value21": {
+            "Position": {
+                "x": 455.5,
+                "y": 263.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 911.0,
+                "y": 526.0,
+                "z": 1.0
+            }
+        },
+        "value22": 3,
+        "value23": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value24": 4,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value27": 1,
+        "value28": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value29": 2,
+        "value30": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value31": 3,
+        "value32": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value33": 1,
+        "value34": 1,
+        "value35": {
+            "cereal_class_version": 0,
+            "Camera": {
+                "cereal_class_version": 0,
+                "FOV": 45.0,
+                "AspectRatio": 1.7777777910232545,
+                "NearClip": 0.10000000149011612,
+                "FarClip": 1000.0,
+                "ProjectionType": 0,
+                "ViewportWidth": 1280.0,
+                "ViewportHeight": 720.0
+            }
+        },
+        "value36": 0,
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 2,
+        "value41": 2,
+        "value42": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/misc/FadeToBlack.lua",
+            "Language": 0
+        },
+        "value43": 3,
+        "value44": {
+            "ScriptPath": "scripts/misc/LoseManager.lua",
+            "Language": 0
+        },
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 0,
+        "value51": 0,
+        "value52": 4,
+        "value53": 0,
+        "value54": 1,
+        "value55": 2,
+        "value56": 3,
+        "value57": 0,
+        "value58": 0,
+        "value59": 2,
+        "value60": 0,
+        "value61": {
+            "cereal_class_version": 1,
+            "TextureUUID": {
+                "cereal_class_version": 0,
+                "value0": 6115474951265507512
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "Layer": 0
+        },
+        "value62": 2,
+        "value63": {
+            "TextureUUID": {
+                "value0": 6711820436760903955
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "Layer": 25
+        },
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 0
+    }
+}
