@@ -222,11 +222,12 @@ function on_update(dt)
 
         if leftShoulder == Input.state.Up and launched then
             --mover la particula a la posicion final de la granada
-            particle_previewG_exterior_transform.position = finalTargetPos --fix, posicion correcta 
-            particle_previewG_interior_transform.position = finalTargetPos
 
-            particle_previewG_interior:emit(1)
-            particle_previewG_exterior:emit(1)
+            --particle_previewG_exterior_transform.position = finalTargetPos --fix, posicion correcta --PETA 
+            --particle_previewG_interior_transform.position = finalTargetPos --PETA 
+
+            --particle_previewG_interior:emit(1) --PETA 
+            --particle_previewG_exterior:emit(1) --PETA 
 
             granadeDistance = 0
             launched = false
@@ -453,11 +454,14 @@ function update_joystick_position()
 end
 
 function handleGranade(dt)
-    granadeDistance = granadeDistance + granadeSpeed
+    
     granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
     if granadeDistance < granadeMaxDistance then
-        granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0, granadeOrigin.z + granadeDirection.z * granadeDistance)
+        granadeDistance = granadeDistance + granadeSpeed
     end
+
+    granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0, granadeOrigin.z + granadeDirection.z * granadeDistance)
+    finalTargetPos = granadeNewPos
     rb:set_position(granadeNewPos)
     launched = true
 end
