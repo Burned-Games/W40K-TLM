@@ -232,10 +232,8 @@ function on_ready()
     barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
 
     if self:has_component("AnimatorComponent") then
-
         animator = self:get_component("AnimatorComponent")
     end
-    
   
     --combatMusic:play() // A DESCOMENTAR
     --explorationMusic:play() // A DESCOMENTAR
