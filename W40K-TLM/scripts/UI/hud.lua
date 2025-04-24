@@ -317,17 +317,6 @@
         end
         ]]--
     
-        if(upgradeManagerScript:has_weapon_special()) then
-            skill2.value = true
-            skill2ButtonEntity:set_active(true)
-            skillArma1Entity:set_active(true)
-            skillArma2Entity:set_active(true)
-        end
-    
-        if(upgradeManagerScript:has_armor_special()) then
-            skill3.value = true
-            skill3ButtonEntity:set_active(true)
-        end
     end     
     
     function weaponManager(dt)
@@ -390,7 +379,7 @@
                 skillsArmasTextCooldownEntity:set_active(true)
                 skillArma2CooldownEntity:set_active(true)
                 
-                local totalCooldown = 12
+                local totalCooldown = shotGunScript.granadeCooldown
                 local porcentaje = remainingTime / totalCooldown
                 if porcentaje > 1 then
                     porcentaje = 1
