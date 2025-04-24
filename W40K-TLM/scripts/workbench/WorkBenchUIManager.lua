@@ -505,7 +505,7 @@ function show_ui()
     update_ui()
     
     isWorkBenchOpen = true
-    openCooldownTimer = 0 -- Reiniciar el temporizador cuando se abre el workbench
+    openCooldownTimer = 0
 end
 
 function show_gun_ui()
