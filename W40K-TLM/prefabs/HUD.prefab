@@ -1,0 +1,2951 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "HUD_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 2114149001590341316
+            }
+        },
+        "RootEntity": 0,
+        "value0": 45,
+        "value1": 45,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 8,
+        "value11": 9,
+        "value12": 10,
+        "value13": 11,
+        "value14": 12,
+        "value15": 13,
+        "value16": 14,
+        "value17": 15,
+        "value18": 16,
+        "value19": 17,
+        "value20": 18,
+        "value21": 19,
+        "value22": 20,
+        "value23": 21,
+        "value24": 22,
+        "value25": 23,
+        "value26": 24,
+        "value27": 25,
+        "value28": 26,
+        "value29": 27,
+        "value30": 28,
+        "value31": 29,
+        "value32": 30,
+        "value33": 31,
+        "value34": 32,
+        "value35": 33,
+        "value36": 34,
+        "value37": 35,
+        "value38": 36,
+        "value39": 37,
+        "value40": 38,
+        "value41": 39,
+        "value42": 40,
+        "value43": 41,
+        "value44": 42,
+        "value45": 43,
+        "value46": 44,
+        "value47": 45,
+        "value48": 0,
+        "value49": {
+            "cereal_class_version": 0,
+            "Tag": "HUD"
+        },
+        "value50": 1,
+        "value51": {
+            "Tag": "PopUpManager"
+        },
+        "value52": 2,
+        "value53": {
+            "Tag": "PopUpNewZoneIMG"
+        },
+        "value54": 3,
+        "value55": {
+            "Tag": "PopUpBossZoneIMG"
+        },
+        "value56": 4,
+        "value57": {
+            "Tag": "PopUpText"
+        },
+        "value58": 5,
+        "value59": {
+            "Tag": "DialogManager"
+        },
+        "value60": 6,
+        "value61": {
+            "Tag": "DialogName"
+        },
+        "value62": 7,
+        "value63": {
+            "Tag": "DialogText"
+        },
+        "value64": 8,
+        "value65": {
+            "Tag": "DialogIMG"
+        },
+        "value66": 9,
+        "value67": {
+            "Tag": "MisionManager"
+        },
+        "value68": 10,
+        "value69": {
+            "Tag": "MisionTextBlue"
+        },
+        "value70": 11,
+        "value71": {
+            "Tag": "MisionTextRed"
+        },
+        "value72": 12,
+        "value73": {
+            "Tag": "MisionImageRed"
+        },
+        "value74": 13,
+        "value75": {
+            "Tag": "MisionImage"
+        },
+        "value76": 14,
+        "value77": {
+            "Tag": "Chatarra"
+        },
+        "value78": 15,
+        "value79": {
+            "Tag": "ChatarraTexto"
+        },
+        "value80": 16,
+        "value81": {
+            "Tag": "ChatarraCantidad"
+        },
+        "value82": 17,
+        "value83": {
+            "Tag": "BalasMax"
+        },
+        "value84": 18,
+        "value85": {
+            "Tag": "BalasRestantes"
+        },
+        "value86": 19,
+        "value87": {
+            "Tag": "Arma2"
+        },
+        "value88": 20,
+        "value89": {
+            "Tag": "Arma1"
+        },
+        "value90": 21,
+        "value91": {
+            "Tag": "Habilidades"
+        },
+        "value92": 22,
+        "value93": {
+            "Tag": "NoHabilidad"
+        },
+        "value94": 23,
+        "value95": {
+            "Tag": "NoHabilidad"
+        },
+        "value96": 24,
+        "value97": {
+            "Tag": "HabilidadesArmasCooldown"
+        },
+        "value98": 25,
+        "value99": {
+            "Tag": "HabilidadArma2"
+        },
+        "value100": 26,
+        "value101": {
+            "Tag": "HabilidadArmasBoton"
+        },
+        "value102": 27,
+        "value103": {
+            "Tag": "HabilidadArma2Cooldown"
+        },
+        "value104": 28,
+        "value105": {
+            "Tag": "HabilidadArma1"
+        },
+        "value106": 29,
+        "value107": {
+            "Tag": "HabilidadArmasBoton"
+        },
+        "value108": 30,
+        "value109": {
+            "Tag": "HabilidadArma1Cooldown"
+        },
+        "value110": 31,
+        "value111": {
+            "Tag": "Habilidad3Activable"
+        },
+        "value112": 32,
+        "value113": {
+            "Tag": "Habilidad3Boton"
+        },
+        "value114": 33,
+        "value115": {
+            "Tag": "Habilidad3CooldownText"
+        },
+        "value116": 34,
+        "value117": {
+            "Tag": "Habilidad3Cooldown"
+        },
+        "value118": 35,
+        "value119": {
+            "Tag": "Habilidad2Activable"
+        },
+        "value120": 36,
+        "value121": {
+            "Tag": "Habilidad2Boton"
+        },
+        "value122": 37,
+        "value123": {
+            "Tag": "Habilidad2CooldownText"
+        },
+        "value124": 38,
+        "value125": {
+            "Tag": "Habilidad2Cooldown"
+        },
+        "value126": 39,
+        "value127": {
+            "Tag": "Habilidad1"
+        },
+        "value128": 40,
+        "value129": {
+            "Tag": "Habilidad1Boton"
+        },
+        "value130": 41,
+        "value131": {
+            "Tag": "Habilidad1CooldownText"
+        },
+        "value132": 42,
+        "value133": {
+            "Tag": "Habilidad1Cooldown"
+        },
+        "value134": 43,
+        "value135": {
+            "Tag": "VidaFull"
+        },
+        "value136": 44,
+        "value137": {
+            "Tag": "VidaValor"
+        },
+        "value138": 45,
+        "value139": 0,
+        "value140": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 443.5,
+                "y": 725.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 470.0,
+                "y": 100.0,
+                "z": 1.0
+            }
+        },
+        "value141": 1,
+        "value142": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value143": 2,
+        "value144": {
+            "Position": {
+                "x": 443.5,
+                "y": -87.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 420.0,
+                "y": 100.0,
+                "z": 1.0
+            }
+        },
+        "value145": 3,
+        "value146": {
+            "Position": {
+                "x": 443.5,
+                "y": -87.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 420.0,
+                "y": 100.0,
+                "z": 1.0
+            }
+        },
+        "value147": 4,
+        "value148": {
+            "Position": {
+                "x": 443.5,
+                "y": -77.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value149": 5,
+        "value150": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value151": 6,
+        "value152": {
+            "Position": {
+                "x": 443.5,
+                "y": 516.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value153": 7,
+        "value154": {
+            "Position": {
+                "x": 443.5,
+                "y": 552.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value155": 8,
+        "value156": {
+            "Position": {
+                "x": 443.5,
+                "y": 547.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 600.0,
+                "y": 100.0,
+                "z": 1.0
+            }
+        },
+        "value157": 9,
+        "value158": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value159": 10,
+        "value160": {
+            "Position": {
+                "x": 659.5,
+                "y": 185.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value161": 11,
+        "value162": {
+            "Position": {
+                "x": 659.5,
+                "y": 130.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value163": 12,
+        "value164": {
+            "Position": {
+                "x": 773.5,
+                "y": 140.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 250.0,
+                "y": 75.0,
+                "z": 1.0
+            }
+        },
+        "value165": 13,
+        "value166": {
+            "Position": {
+                "x": 773.5,
+                "y": 195.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 250.0,
+                "y": 75.0,
+                "z": 1.0
+            }
+        },
+        "value167": 14,
+        "value168": {
+            "Position": {
+                "x": 423.5,
+                "y": 707.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 237.0,
+                "y": 23.0,
+                "z": 1.0
+            }
+        },
+        "value169": 15,
+        "value170": {
+            "Position": {
+                "x": 423.5,
+                "y": 711.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value171": 16,
+        "value172": {
+            "Position": {
+                "x": 423.5,
+                "y": 706.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 240.0,
+                "y": 22.0,
+                "z": 1.0
+            }
+        },
+        "value173": 17,
+        "value174": {
+            "Position": {
+                "x": 583.5,
+                "y": 752.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value175": 18,
+        "value176": {
+            "Position": {
+                "x": 555.5,
+                "y": 752.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value177": 19,
+        "value178": {
+            "Position": {
+                "x": 581.5,
+                "y": 717.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 50.0,
+                "y": 25.0,
+                "z": 1.0
+            }
+        },
+        "value179": 20,
+        "value180": {
+            "Position": {
+                "x": 581.5,
+                "y": 717.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 50.0,
+                "y": 25.0,
+                "z": 1.0
+            }
+        },
+        "value181": 21,
+        "value182": {
+            "Position": {
+                "x": 423.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 237.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value183": 22,
+        "value184": {
+            "Position": {
+                "x": 519.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 45.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value185": 23,
+        "value186": {
+            "Position": {
+                "x": 480.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 45.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value187": 24,
+        "value188": {
+            "Position": {
+                "x": 441.5,
+                "y": 742.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value189": 25,
+        "value190": {
+            "Position": {
+                "x": 441.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 45.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value191": 26,
+        "value192": {
+            "Position": {
+                "x": 441.5,
+                "y": 780.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 25.0,
+                "z": 1.0
+            }
+        },
+        "value193": 27,
+        "value194": {
+            "Position": {
+                "x": 441.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 35.0,
+                "z": 1.0
+            }
+        },
+        "value195": 28,
+        "value196": {
+            "Position": {
+                "x": 441.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 45.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value197": 29,
+        "value198": {
+            "Position": {
+                "x": 441.5,
+                "y": 780.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 25.0,
+                "z": 1.0
+            }
+        },
+        "value199": 30,
+        "value200": {
+            "Position": {
+                "x": 441.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 35.0,
+                "z": 1.0
+            }
+        },
+        "value201": 31,
+        "value202": {
+            "Position": {
+                "x": 405.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 45.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value203": 32,
+        "value204": {
+            "Position": {
+                "x": 405.5,
+                "y": 780.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 35.0,
+                "z": 1.0
+            }
+        },
+        "value205": 33,
+        "value206": {
+            "Position": {
+                "x": 405.5,
+                "y": 742.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value207": 34,
+        "value208": {
+            "Position": {
+                "x": 405.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 35.0,
+                "z": 1.0
+            }
+        },
+        "value209": 35,
+        "value210": {
+            "Position": {
+                "x": 365.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 45.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value211": 36,
+        "value212": {
+            "Position": {
+                "x": 365.5,
+                "y": 780.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 25.0,
+                "z": 1.0
+            }
+        },
+        "value213": 37,
+        "value214": {
+            "Position": {
+                "x": 365.5,
+                "y": 742.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value215": 38,
+        "value216": {
+            "Position": {
+                "x": 365.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 35.0,
+                "z": 1.0
+            }
+        },
+        "value217": 39,
+        "value218": {
+            "Position": {
+                "x": 326.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 45.0,
+                "y": 45.0,
+                "z": 1.0
+            }
+        },
+        "value219": 40,
+        "value220": {
+            "Position": {
+                "x": 326.5,
+                "y": 780.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 35.0,
+                "z": 1.0
+            }
+        },
+        "value221": 41,
+        "value222": {
+            "Position": {
+                "x": 326.5,
+                "y": 742.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value223": 42,
+        "value224": {
+            "Position": {
+                "x": 326.5,
+                "y": 735.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 35.0,
+                "y": 35.0,
+                "z": 1.0
+            }
+        },
+        "value225": 43,
+        "value226": {
+            "Position": {
+                "x": 258.5,
+                "y": 725.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 89.0,
+                "y": 90.0,
+                "z": 1.0
+            }
+        },
+        "value227": 44,
+        "value228": {
+            "Position": {
+                "x": 258.5,
+                "y": 737.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value229": 45,
+        "value230": 0,
+        "value231": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value232": 1,
+        "value233": {
+            "Parent": 0,
+            "First": 22,
+            "Next": 43,
+            "Prev": 20
+        },
+        "value234": 2,
+        "value235": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4,
+            "Prev": 2
+        },
+        "value236": 3,
+        "value237": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value238": 4,
+        "value239": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value240": 5,
+        "value241": {
+            "Parent": 0,
+            "First": 6,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value242": 6,
+        "value243": {
+            "Parent": 5,
+            "First": 4294967295,
+            "Next": 8,
+            "Prev": 6
+        },
+        "value244": 7,
+        "value245": {
+            "Parent": 5,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
+        "value246": 8,
+        "value247": {
+            "Parent": 5,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 7
+        },
+        "value248": 9,
+        "value249": {
+            "Parent": 0,
+            "First": 10,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value250": 10,
+        "value251": {
+            "Parent": 9,
+            "First": 4294967295,
+            "Next": 13,
+            "Prev": 11
+        },
+        "value252": 11,
+        "value253": {
+            "Parent": 9,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 10
+        },
+        "value254": 12,
+        "value255": {
+            "Parent": 9,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 11
+        },
+        "value256": 13,
+        "value257": {
+            "Parent": 9,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 12
+        },
+        "value258": 14,
+        "value259": {
+            "Parent": 0,
+            "First": 15,
+            "Next": 4294967295,
+            "Prev": 9
+        },
+        "value260": 15,
+        "value261": {
+            "Parent": 14,
+            "First": 4294967295,
+            "Next": 16,
+            "Prev": 4294967295
+        },
+        "value262": 16,
+        "value263": {
+            "Parent": 14,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 15
+        },
+        "value264": 17,
+        "value265": {
+            "Parent": 0,
+            "First": 18,
+            "Next": 4294967295,
+            "Prev": 14
+        },
+        "value266": 18,
+        "value267": {
+            "Parent": 17,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value268": 19,
+        "value269": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 17
+        },
+        "value270": 20,
+        "value271": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 19
+        },
+        "value272": 21,
+        "value273": {
+            "Parent": 0,
+            "First": 22,
+            "Next": 4294967295,
+            "Prev": 20
+        },
+        "value274": 22,
+        "value275": {
+            "Parent": 21,
+            "First": 36,
+            "Next": 39,
+            "Prev": 31
+        },
+        "value276": 23,
+        "value277": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 22
+        },
+        "value278": 24,
+        "value279": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 23
+        },
+        "value280": 25,
+        "value281": {
+            "Parent": 21,
+            "First": 26,
+            "Next": 4294967295,
+            "Prev": 24
+        },
+        "value282": 26,
+        "value283": {
+            "Parent": 25,
+            "First": 4294967295,
+            "Next": 27,
+            "Prev": 4294967295
+        },
+        "value284": 27,
+        "value285": {
+            "Parent": 25,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 26
+        },
+        "value286": 28,
+        "value287": {
+            "Parent": 21,
+            "First": 29,
+            "Next": 4294967295,
+            "Prev": 25
+        },
+        "value288": 29,
+        "value289": {
+            "Parent": 28,
+            "First": 4294967295,
+            "Next": 30,
+            "Prev": 4294967295
+        },
+        "value290": 30,
+        "value291": {
+            "Parent": 28,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 29
+        },
+        "value292": 31,
+        "value293": {
+            "Parent": 21,
+            "First": 32,
+            "Next": 4294967295,
+            "Prev": 28
+        },
+        "value294": 32,
+        "value295": {
+            "Parent": 31,
+            "First": 4294967295,
+            "Next": 34,
+            "Prev": 32
+        },
+        "value296": 33,
+        "value297": {
+            "Parent": 31,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 32
+        },
+        "value298": 34,
+        "value299": {
+            "Parent": 31,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 33
+        },
+        "value300": 35,
+        "value301": {
+            "Parent": 21,
+            "First": 36,
+            "Next": 4294967295,
+            "Prev": 31
+        },
+        "value302": 36,
+        "value303": {
+            "Parent": 35,
+            "First": 4294967295,
+            "Next": 38,
+            "Prev": 36
+        },
+        "value304": 37,
+        "value305": {
+            "Parent": 35,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 36
+        },
+        "value306": 38,
+        "value307": {
+            "Parent": 35,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 37
+        },
+        "value308": 39,
+        "value309": {
+            "Parent": 21,
+            "First": 40,
+            "Next": 4294967295,
+            "Prev": 35
+        },
+        "value310": 40,
+        "value311": {
+            "Parent": 39,
+            "First": 4294967295,
+            "Next": 42,
+            "Prev": 40
+        },
+        "value312": 41,
+        "value313": {
+            "Parent": 39,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 40
+        },
+        "value314": 42,
+        "value315": {
+            "Parent": 39,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 41
+        },
+        "value316": 43,
+        "value317": {
+            "Parent": 0,
+            "First": 44,
+            "Next": 4294967295,
+            "Prev": 21
+        },
+        "value318": 44,
+        "value319": {
+            "Parent": 43,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value320": 0,
+        "value321": 0,
+        "value322": 0,
+        "value323": 0,
+        "value324": 0,
+        "value325": 2,
+        "value326": 22,
+        "value327": 26,
+        "value328": 45,
+        "value329": 0,
+        "value330": 1,
+        "value331": 2,
+        "value332": 3,
+        "value333": 4,
+        "value334": 5,
+        "value335": 6,
+        "value336": 7,
+        "value337": 8,
+        "value338": 9,
+        "value339": 10,
+        "value340": 11,
+        "value341": 12,
+        "value342": 13,
+        "value343": 14,
+        "value344": 15,
+        "value345": 16,
+        "value346": 17,
+        "value347": 18,
+        "value348": 19,
+        "value349": 20,
+        "value350": 21,
+        "value351": 22,
+        "value352": 23,
+        "value353": 24,
+        "value354": 25,
+        "value355": 26,
+        "value356": 27,
+        "value357": 28,
+        "value358": 29,
+        "value359": 30,
+        "value360": 31,
+        "value361": 32,
+        "value362": 33,
+        "value363": 34,
+        "value364": 35,
+        "value365": 36,
+        "value366": 37,
+        "value367": 38,
+        "value368": 39,
+        "value369": 40,
+        "value370": 41,
+        "value371": 42,
+        "value372": 43,
+        "value373": 44,
+        "value374": 4,
+        "value375": 0,
+        "value376": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/UI/hud.lua",
+            "Language": 0
+        },
+        "value377": 1,
+        "value378": {
+            "ScriptPath": "scripts/PopUpScript/popupSystem.lua",
+            "Language": 0
+        },
+        "value379": 5,
+        "value380": {
+            "ScriptPath": "scripts/DialogScript/dialogManager.lua",
+            "Language": 0
+        },
+        "value381": 9,
+        "value382": {
+            "ScriptPath": "scripts/MisionScript/misionManager.lua",
+            "Language": 0
+        },
+        "value383": 0,
+        "value384": 0,
+        "value385": 0,
+        "value386": 0,
+        "value387": 0,
+        "value388": 0,
+        "value389": 0,
+        "value390": 25,
+        "value391": 0,
+        "value392": {
+            "cereal_class_version": 1,
+            "TextureUUID": {
+                "value0": 1429586504576770239
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -235.0,
+                    "y": -140.0
+                },
+                "OffsetMax": {
+                    "x": 235.0,
+                    "y": -40.0
+                }
+            },
+            "Layer": 0
+        },
+        "value393": 2,
+        "value394": {
+            "TextureUUID": {
+                "value0": 16609560832358601222
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -210.0,
+                    "y": 270.0
+                },
+                "OffsetMax": {
+                    "x": 210.0,
+                    "y": 370.0
+                }
+            },
+            "Layer": 0
+        },
+        "value395": 3,
+        "value396": {
+            "TextureUUID": {
+                "value0": 807586784681185070
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -210.0,
+                    "y": 270.0
+                },
+                "OffsetMax": {
+                    "x": 210.0,
+                    "y": 370.0
+                }
+            },
+            "Layer": 0
+        },
+        "value397": 8,
+        "value398": {
+            "TextureUUID": {
+                "value0": 18293614392373388477
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -300.0,
+                    "y": 90.0
+                },
+                "OffsetMax": {
+                    "x": 300.0,
+                    "y": 190.0
+                }
+            },
+            "Layer": 0
+        },
+        "value399": 12,
+        "value400": {
+            "TextureUUID": {
+                "value0": 8983992674018412212
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 205.0,
+                    "y": 102.5
+                },
+                "OffsetMax": {
+                    "x": 455.0,
+                    "y": 177.5
+                }
+            },
+            "Layer": 0
+        },
+        "value401": 13,
+        "value402": {
+            "TextureUUID": {
+                "value0": 15214301479000495684
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 205.0,
+                    "y": 157.5
+                },
+                "OffsetMax": {
+                    "x": 455.0,
+                    "y": 232.5
+                }
+            },
+            "Layer": 0
+        },
+        "value403": 14,
+        "value404": {
+            "TextureUUID": {
+                "value0": 7682739421871189510
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -138.5,
+                    "y": -29.5
+                },
+                "OffsetMax": {
+                    "x": 98.5,
+                    "y": -6.5
+                }
+            },
+            "Layer": 0
+        },
+        "value405": 16,
+        "value406": {
+            "TextureUUID": {
+                "value0": 11021486708310458588
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -120.0,
+                    "y": -12.0
+                },
+                "OffsetMax": {
+                    "x": 120.0,
+                    "y": 10.0
+                }
+            },
+            "Layer": 1
+        },
+        "value407": 19,
+        "value408": {
+            "TextureUUID": {
+                "value0": 613308014796657769
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -122.0,
+                    "y": 29.5
+                },
+                "OffsetMax": {
+                    "x": -72.0,
+                    "y": 54.5
+                }
+            },
+            "Layer": 0
+        },
+        "value409": 20,
+        "value410": {
+            "TextureUUID": {
+                "value0": 74717494554718900
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -122.0,
+                    "y": 29.5
+                },
+                "OffsetMax": {
+                    "x": -72.0,
+                    "y": 54.5
+                }
+            },
+            "Layer": 0
+        },
+        "value411": 21,
+        "value412": {
+            "TextureUUID": {
+                "value0": 6076705648691959870
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -138.5,
+                    "y": -12.5
+                },
+                "OffsetMax": {
+                    "x": 98.5,
+                    "y": 32.5
+                }
+            },
+            "Layer": 0
+        },
+        "value413": 22,
+        "value414": {
+            "TextureUUID": {
+                "value0": 10795697499018615726
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 73.5,
+                    "y": -22.5
+                },
+                "OffsetMax": {
+                    "x": 118.5,
+                    "y": 22.5
+                }
+            },
+            "Layer": 1
+        },
+        "value415": 23,
+        "value416": {
+            "TextureUUID": {
+                "value0": 10795697499018615726
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 34.5,
+                    "y": -22.5
+                },
+                "OffsetMax": {
+                    "x": 79.5,
+                    "y": 22.5
+                }
+            },
+            "Layer": 1
+        },
+        "value417": 26,
+        "value418": {
+            "TextureUUID": {
+                "value0": 17648863979136602162
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": 32.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 57.5
+                }
+            },
+            "Layer": 0
+        },
+        "value419": 27,
+        "value420": {
+            "TextureUUID": {
+                "value0": 3351135232612799137
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": -17.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 17.5
+                }
+            },
+            "Layer": 1
+        },
+        "value421": 29,
+        "value422": {
+            "TextureUUID": {
+                "value0": 17648863979136602162
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": 32.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 57.5
+                }
+            },
+            "Layer": 0
+        },
+        "value423": 30,
+        "value424": {
+            "TextureUUID": {
+                "value0": 3351135232612799137
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": -17.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 17.5
+                }
+            },
+            "Layer": 1
+        },
+        "value425": 32,
+        "value426": {
+            "TextureUUID": {
+                "value0": 10680555787456026633
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": 27.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 62.5
+                }
+            },
+            "Layer": 0
+        },
+        "value427": 34,
+        "value428": {
+            "TextureUUID": {
+                "value0": 3351135232612799137
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": -17.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 17.5
+                }
+            },
+            "Layer": 1
+        },
+        "value429": 36,
+        "value430": {
+            "TextureUUID": {
+                "value0": 13684549667641264878
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": 32.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 57.5
+                }
+            },
+            "Layer": 0
+        },
+        "value431": 38,
+        "value432": {
+            "TextureUUID": {
+                "value0": 3351135232612799137
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": -17.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 17.5
+                }
+            },
+            "Layer": 1
+        },
+        "value433": 39,
+        "value434": {
+            "TextureUUID": {
+                "value0": 13076595502451019330
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -119.5,
+                    "y": -22.5
+                },
+                "OffsetMax": {
+                    "x": -74.5,
+                    "y": 22.5
+                }
+            },
+            "Layer": 1
+        },
+        "value435": 40,
+        "value436": {
+            "TextureUUID": {
+                "value0": 1204678540825599921
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": 27.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 62.5
+                }
+            },
+            "Layer": 0
+        },
+        "value437": 42,
+        "value438": {
+            "TextureUUID": {
+                "value0": 3351135232612799137
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -17.5,
+                    "y": -17.5
+                },
+                "OffsetMax": {
+                    "x": 17.5,
+                    "y": 17.5
+                }
+            },
+            "Layer": 1
+        },
+        "value439": 43,
+        "value440": {
+            "TextureUUID": {
+                "value0": 14189283268684215945
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 5.5,
+                    "y": -45.0
+                },
+                "OffsetMax": {
+                    "x": 94.5,
+                    "y": 45.0
+                }
+            },
+            "Layer": 0
+        },
+        "value441": 13,
+        "value442": 4,
+        "value443": {
+            "cereal_class_version": 0,
+            "Text": "Popup",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": 280.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 380.0
+                }
+            },
+            "Layer": 0
+        },
+        "value444": 6,
+        "value445": {
+            "Text": "DialogName",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": 59.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 159.0
+                }
+            },
+            "Layer": 0
+        },
+        "value446": 7,
+        "value447": {
+            "Text": "DialogText",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": 95.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 195.0
+                }
+            },
+            "Layer": 0
+        },
+        "value448": 10,
+        "value449": {
+            "Text": "Start moving with [L]\n",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 166.0,
+                    "y": 135.0
+                },
+                "OffsetMax": {
+                    "x": 266.0,
+                    "y": 235.0
+                }
+            },
+            "Layer": 0
+        },
+        "value450": 11,
+        "value451": {
+            "Text": "Find the drop pod supply",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 166.0,
+                    "y": 80.0
+                },
+                "OffsetMax": {
+                    "x": 266.0,
+                    "y": 180.0
+                }
+            },
+            "Layer": 0
+        },
+        "value452": 15,
+        "value453": {
+            "Text": "0",
+            "FontPath": "",
+            "Color": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 20.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -46.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 54.0
+                }
+            },
+            "Layer": 0
+        },
+        "value454": 17,
+        "value455": {
+            "Text": "24",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 20.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -145.0,
+                    "y": -73.0
+                },
+                "OffsetMax": {
+                    "x": -45.0,
+                    "y": 27.0
+                }
+            },
+            "Layer": 0
+        },
+        "value456": 18,
+        "value457": {
+            "Text": "24",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -78.0,
+                    "y": -50.0
+                },
+                "OffsetMax": {
+                    "x": 22.0,
+                    "y": 50.0
+                }
+            },
+            "Layer": 0
+        },
+        "value458": 24,
+        "value459": {
+            "Text": "5",
+            "FontPath": "",
+            "Color": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -32.0,
+                    "y": -43.0
+                },
+                "OffsetMax": {
+                    "x": 68.0,
+                    "y": 57.0
+                }
+            },
+            "Layer": 0
+        },
+        "value460": 33,
+        "value461": {
+            "Text": "5",
+            "FontPath": "",
+            "Color": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -43.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 57.0
+                }
+            },
+            "Layer": 0
+        },
+        "value462": 37,
+        "value463": {
+            "Text": "5",
+            "FontPath": "",
+            "Color": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -43.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 57.0
+                }
+            },
+            "Layer": 0
+        },
+        "value464": 41,
+        "value465": {
+            "Text": "5",
+            "FontPath": "",
+            "Color": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -43.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 57.0
+                }
+            },
+            "Layer": 0
+        },
+        "value466": 44,
+        "value467": {
+            "Text": "100",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 48.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -38.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 62.0
+                }
+            },
+            "Layer": 0
+        },
+        "value468": 4,
+        "value469": 25,
+        "value470": {
+            "cereal_class_version": 0,
+            "Value": false,
+            "OnTextureUUID": {
+                "value0": 2088940703403742330
+            },
+            "OffTextureUUID": {
+                "value0": 10795697499018615726
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -4.5,
+                    "y": -22.5
+                },
+                "OffsetMax": {
+                    "x": 40.5,
+                    "y": 22.5
+                }
+            },
+            "Layer": 0
+        },
+        "value471": 28,
+        "value472": {
+            "Value": false,
+            "OnTextureUUID": {
+                "value0": 17486110348030860254
+            },
+            "OffTextureUUID": {
+                "value0": 10795697499018615726
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -4.5,
+                    "y": -22.5
+                },
+                "OffsetMax": {
+                    "x": 40.5,
+                    "y": 22.5
+                }
+            },
+            "Layer": 0
+        },
+        "value473": 31,
+        "value474": {
+            "Value": false,
+            "OnTextureUUID": {
+                "value0": 3956965330914071782
+            },
+            "OffTextureUUID": {
+                "value0": 10795697499018615726
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -40.5,
+                    "y": -22.5
+                },
+                "OffsetMax": {
+                    "x": 4.5,
+                    "y": 22.5
+                }
+            },
+            "Layer": 0
+        },
+        "value475": 35,
+        "value476": {
+            "Value": false,
+            "OnTextureUUID": {
+                "value0": 12224186061541645822
+            },
+            "OffTextureUUID": {
+                "value0": 10795697499018615726
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -80.5,
+                    "y": -22.5
+                },
+                "OffsetMax": {
+                    "x": -35.5,
+                    "y": 22.5
+                }
+            },
+            "Layer": 0
+        },
+        "value477": 0,
+        "value478": 0
+    }
+}
