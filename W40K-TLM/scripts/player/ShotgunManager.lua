@@ -48,6 +48,8 @@ local granadeParticlesExplosion = nil
 local lbapretado = false
 dropGranade = false
 granadasSpeed = false
+local granadeNewPos = nil
+local granadeMaxDistance = 9.0
 
 --Workbench
 local upgradeManager = nil
@@ -235,7 +237,7 @@ function on_update(dt)
         end
 
         --granade 
-        if leftShoulder == Input.state.Repeat and timerGranade <= 0 then
+        if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and timerGranade <= 0 then
             lbapretado = true
             granadasSpeed = true
             throwing = false
@@ -453,28 +455,11 @@ end
 function handleGranade(dt)
     granadeDistance = granadeDistance + granadeSpeed
     granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
-    local newPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0 * granadeDistance, granadeOrigin.z + granadeDirection.z * granadeDistance)
-    finalTargetPos = newPos
-    rb:set_position(newPos)
-    
-    
-
-
-    --[[if timerGranade > 0 then
-        timerGranade = timerGranade - dt
+    if granadeDistance < granadeMaxDistance then
+        granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0, granadeOrigin.z + granadeDirection.z * granadeDistance)
     end
-
-    if  dropGranade and timerGranade <= 0 then
-        throwGranade()
-        dropGranade = false
-        --escopetaAudioManagerScript:playLaunchGranade()
-        timerGranade = granadeCooldown
-    end]]
-
+    rb:set_position(granadeNewPos)
     launched = true
-        --granade 
-    
-
 end
 
 function throwGranade(targetPosition)
@@ -568,7 +553,7 @@ function explodeGranade()
 
                     local enemyTag = entity:get_component("TagComponent").tag
 
-                    if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then 
+                    if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" or enemyTag == "EnemySupport" or enemyTag == "EnemyKamikaze" or enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" or enemyTag == "MainBoss" then 
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then
                             enemyOrkScript.range.isNeuralInhibitioning = true
