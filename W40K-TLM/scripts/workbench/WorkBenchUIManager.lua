@@ -1,4 +1,5 @@
 local upgradeManager = nil
+local hud = nil
 
 local gunBuyButtonEntity, gunBuyButton
 local charBuyButtonEntity, charBuyButton
@@ -77,6 +78,7 @@ local BUTTON_STATES = {
 function on_ready()
     -- Initialize upgrade manager
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+    hud = current_scene:get_entity_by_name("HUD")
 
     -- Initialize buttons from the scene
     gunBuyButtonEntity = current_scene:get_entity_by_name("GunBuyButton")
@@ -317,6 +319,13 @@ function on_update(dt)
     -- if Input.is_key_pressed(Input.keycode.I) then
     --     hide_ui()
     -- end
+
+    if isWorkBenchOpen then
+        hud:set_active(false)
+    else
+        hud:set_active(true)
+    end
+
     if not isWorkBenchOpen then
         return
     end
