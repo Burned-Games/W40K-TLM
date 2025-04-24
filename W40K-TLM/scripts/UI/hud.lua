@@ -177,6 +177,9 @@
         skill2.value = true
         skill3.value = true
 
+        skillArm1.value = true
+        skillArm2.value = true
+
     end
 
     function on_update(dt)
@@ -331,13 +334,16 @@
         if weaponSwitchTimer > 0 then
             weaponSwitchTimer = weaponSwitchTimer - dt
         end
+
+        skillArma1.value = true
+        skillArma2.value = true
     
         if playerScript.actualweapon == 0 then
             arma1:set_active(true)
             arma2:set_active(false)
             
-            skillArma1.value = true
-            skillArma2.value = false
+            skillArma1Entity:set_active(true)
+            skillArma2Entity:set_active(false)
             
             skillArma2CooldownEntity:set_active(false)
     
@@ -357,23 +363,20 @@
                     porcentaje = 1
                 end
                 
-                local alpha = porcentaje
-                alpha = math.max(0, math.min(1, alpha))
-                
-                skillArma1Cooldown:set_color(Vector4.new(1, 1, 1, alpha))
+                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+                skillArma1Cooldown:set_rect(cooldownRect)
             else
                 skillsArmasTextCooldown:set_text("")
                 skillsArmasTextCooldownEntity:set_active(false)
                 skillArma1CooldownEntity:set_active(false)
-                skillArma1Cooldown:set_color(Vector4.new(1, 1, 1, 1))
             end
     
         elseif playerScript.actualweapon == 1 then
             arma1:set_active(false)
             arma2:set_active(true)
             
-            skillArma1.value = false
-            skillArma2.value = true
+            skillArma1Entity:set_active(false)
+            skillArma2Entity:set_active(true)
             
             skillArma1CooldownEntity:set_active(false)
     
@@ -393,15 +396,12 @@
                     porcentaje = 1
                 end
                 
-                local alpha = porcentaje
-                alpha = math.max(0, math.min(1, alpha))
-                
-                skillArma2Cooldown:set_color(Vector4.new(1, 1, 1, alpha))
+                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+                skillArma2Cooldown:set_rect(cooldownRect)
             else
                 skillsArmasTextCooldown:set_text("")
                 skillsArmasTextCooldownEntity:set_active(false)
                 skillArma2CooldownEntity:set_active(false)
-                skillArma2Cooldown:set_color(Vector4.new(1, 1, 1, 1))
             end
         end
     

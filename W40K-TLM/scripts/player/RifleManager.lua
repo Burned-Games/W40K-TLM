@@ -168,7 +168,6 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" then 
-            print("aaaaaaaaaaaaaa")
             makeDisruptorDamage(entityA)
         end
 
@@ -284,8 +283,13 @@ function on_update(dt)
             tripleShootTimer = tripleShootInterval
         end
 
-        if leftShoulder == Input.state.Repeat and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
+        if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
             charging = true
+            local aimVector = Vector3.new(0,0,0)
+            
+            aimVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+            
+            Physics.DebugDrawRaycast(player:get_component("TransformComponent").position, aimVector, 10, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
         end
 
         if leftShoulder == Input.state.Up and charging--[[and upgradeManager.has_weapon_special()]] then
