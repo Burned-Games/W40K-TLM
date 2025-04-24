@@ -53,6 +53,10 @@ local rightShoulderPressed = false
 isWorkBenchOpen = false
 local currentScreen = "gun" -- "gun" or "character"
 
+-- Cooldown timer for opening the workbench :p
+local openCooldownTimer = 0
+local openCooldownDuration = 0.2
+
 -- Current category and upgrade
 local selectedCategory = "weapons"
 local upgradeTypes = {
@@ -62,6 +66,12 @@ local upgradeTypes = {
 local currentUpgradeIndex = {
     weapons = 0,
     armor = 0
+}
+
+local BUTTON_STATES = {
+    NORMAL = 0,
+    HOVER = 1,
+    PRESSED = 2
 }
 
 function on_ready()
@@ -189,6 +199,7 @@ function update_gun_ui()
         local canBuy = not upgradeManager.upgrades.weapons[currentUpgrade] and 
                        upgradeManager.scrap >= cost
                        
+
         -- Set button state 
         if upgradeManager.upgrades.weapons[currentUpgrade] then
             gunBuyText:set_text("PURCHASED")
@@ -218,6 +229,7 @@ function update_char_ui()
         local canBuy = not upgradeManager.upgrades.armor[currentUpgrade] and 
                        upgradeManager.scrap >= cost
                        
+
         -- Set button state 
         if upgradeManager.upgrades.armor[currentUpgrade] then
             charBuyText:set_text("PURCHASED")
@@ -231,27 +243,27 @@ end
 function update_gun_perk_buttons()
     if upgradeManager then
         if upgradeManager.upgrades.weapons.reloadReduction then
-            gunPerk1Button.state = "Hover"
+            gunPerk1Button.state = 1
         else
-            gunPerk1Button.state = "Normal"
+            gunPerk1Button.state = 0
         end
         
         if upgradeManager.upgrades.weapons.damageBoost then
-            gunPerk2Button.state = "Hover"
+            gunPerk2Button.state = 1
         else
-            gunPerk2Button.state = "Normal"
+            gunPerk2Button.state = 0
         end
         
         if upgradeManager.upgrades.weapons.fireRateBoost then
-            gunPerk3Button.state = "Hover"
+            gunPerk3Button.state = 1
         else
-            gunPerk3Button.state = "Normal"
+            gunPerk3Button.state = 0
         end
         
         if upgradeManager.upgrades.weapons.specialAbility then
-            gunPerk4Button.state = "Hover"
+            gunPerk4Button.state = 1
         else
-            gunPerk4Button.state = "Normal"
+            gunPerk4Button.state = 0
         end
     end
 end
@@ -259,21 +271,21 @@ end
 function update_char_perk_buttons()
     if upgradeManager then
         if upgradeManager.upgrades.armor.healthBoost then
-            charPerk1Button.state = "Hover"
+            charPerk1Button.state = 1
         else
-            charPerk1Button.state = "Normal"
+            charPerk1Button.state = 0
         end
         
         if upgradeManager.upgrades.armor.protection then
-            charPerk2Button.state = "Hover"
+            charPerk2Button.state = 1
         else
-            charPerk2Button.state = "Normal"
+            charPerk2Button.state = 0
         end
         
         if upgradeManager.upgrades.armor.specialAbility then
-            charPerk3Button.state = "Hover"
+            charPerk3Button.state = 1
         else
-            charPerk3Button.state = "Normal"
+            charPerk3Button.state = 0
         end
     end
 end
@@ -309,6 +321,12 @@ function on_update(dt)
         return
     end
     
+    -- Timer for opening the workbench (fix for input bug)
+    if openCooldownTimer < openCooldownDuration then
+        openCooldownTimer = openCooldownTimer + dt
+        return
+    end
+    
     local leftShoulderState = Input.get_button(Input.action.Skill2)
     local rightShoulderState = Input.get_button(Input.action.Melee)
     
@@ -336,6 +354,7 @@ function on_update(dt)
         handle_character_controls(dt)
     end
 
+
     local cancelState = Input.get_button(Input.action.Confirm)
     if cancelState == Input.state.Down and isWorkBenchOpen then
         hide_ui()
@@ -344,14 +363,14 @@ end
 
 function handle_gun_controls(dt)
     if gunIndex == 0 then
-        gunBuyButton.state = "Hover"
-        gunExitButton.state = "Normal"
+        gunBuyButton.state = 1
+        gunExitButton.state = 0
 
         local confirmState = Input.get_button(Input.action.Cancel)
 
         if confirmState == Input.state.Repeat and not confirmPressed then
             confirmPressed = true
-            gunBuyButton.state = "Pressed"
+            gunBuyButton.state = 2
             
             -- Buy the currently selected upgrade
             local currentUpgrade = upgradeTypes.weapons[currentUpgradeIndex.weapons + 1]
@@ -367,13 +386,13 @@ function handle_gun_controls(dt)
             confirmPressed = false
         end
     else
-        gunBuyButton.state = "Normal"
-        gunExitButton.state = "Hover"
+        gunBuyButton.state = 0
+        gunExitButton.state = 1
 
         local confirmState = Input.get_button(Input.action.Cancel)
         if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
-            gunExitButton.state = "Pressed"
+            gunExitButton.state = 2
             hide_ui()
         elseif confirmState ~= Input.state.Repeat then
             confirmPressed = false
@@ -405,13 +424,13 @@ end
 
 function handle_character_controls(dt)
     if charIndex == 0 then
-        charBuyButton.state = "Hover"
-        charExitButton.state = "Normal"
+        charBuyButton.state = 1
+        charExitButton.state = 0
 
         local confirmState = Input.get_button(Input.action.Cancel)
         if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
-            charBuyButton.state = "Pressed"
+            charBuyButton.state = 2
             
             -- Buy the currently selected upgrade
             local currentUpgrade = upgradeTypes.armor[currentUpgradeIndex.armor + 1]
@@ -427,13 +446,13 @@ function handle_character_controls(dt)
             confirmPressed = false
         end
     else
-        charBuyButton.state = "Normal"
-        charExitButton.state = "Hover"
+        charBuyButton.state = 0
+        charExitButton.state = 1
 
         local confirmState = Input.get_button(Input.action.Cancel)
         if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
-            charExitButton.state = "Pressed"
+            charExitButton.state = 2
             hide_ui()
         elseif confirmState ~= Input.state.Repeat then
             confirmPressed = false
@@ -477,6 +496,7 @@ function show_ui()
     update_ui()
     
     isWorkBenchOpen = true
+    openCooldownTimer = 0 -- Reiniciar el temporizador cuando se abre el workbench
 end
 
 function show_gun_ui()
