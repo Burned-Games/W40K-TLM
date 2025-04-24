@@ -8,6 +8,7 @@ local text2
 local text3
 local text4
 local text5
+local musicaFondoDefault
 
 local index = 0
 local currentSelectedIndex = 1
@@ -44,7 +45,15 @@ function on_ready()
     level = load_progress("level", 1)
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
+
+    musicaFondoDefault = current_scene:get_entity_by_name("BackgroundMusic"):get_component("AudioSourceComponent")
+
+    -- guardar el nivel de volumen actual
+    --local valor_volumen_ppal = musicaFondoDefault:save_progress()
+    --save_volumen_ppal("volumen_ppal",valor_volumen_ppal)
+    --print("Valor del volumen principal: ", valor_volumen_ppal)
 end
+
 function on_update(dt)
     -- Add update code here
 
@@ -193,14 +202,14 @@ function on_update(dt)
         contadorMovimientoBotones = 0
         
         if value < 0 then
-            index = index - 1;
+            index = index + 1;
             if index < 0 then
                 index = 4
             end
         end
         
         if value > 0 then
-            index = index + 1
+            index = index - 1
             if index > 4 then
                 index = 0
             end
