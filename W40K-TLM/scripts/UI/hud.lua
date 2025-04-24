@@ -78,9 +78,6 @@
     local armorUpgrade = nil
     local armorUpgradeScript = nil
 
-    local upgradeManager = nil
-    local upgradeManagerScript = nil
-
     function on_ready()
         --Vida
         lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
@@ -158,9 +155,6 @@
         --armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
         --armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
 
-        upgradeManager = current_scene:get_entity_by_name("UpgradeManager")
-        upgradeManagerScript = upgradeManager:get_component("ScriptComponent")
-
         skill1TextCooldownEntity:set_active(false)
         skill1VisualCooldownEntity:set_active(false)
 
@@ -177,8 +171,8 @@
         skill2.value = true
         skill3.value = true
 
-        skillArm1.value = true
-        skillArm2.value = true
+        skillArma1.value = true
+        skillArma2.value = true
 
     end
 
