@@ -10,8 +10,8 @@ function on_ready()
     rigidbodyComponent = self:get_component("RigidbodyComponent")
     if rigidbodyComponent then
         rigidbodyComponent.rb:set_trigger(true)
-        rigidbodyComponent:on_collision_enter(function(entityA, entityB)
-            handle_collision_enter(entityA, entityB)
+        rigidbodyComponent:on_collision_stay(function(entityA, entityB)
+            handle_collision_stay(entityA, entityB)
         end)
         rigidbodyComponent:on_collision_exit(function(entityA, entityB)
             handle_collision_exit(entityA, entityB)
@@ -22,16 +22,16 @@ function on_ready()
 
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
-
 end
 
 function on_update(dt)
     if playerInRange and Input.get_button(Input.action.Cancel) == Input.state.Down then
         -- Open the workbench UI
         local workbenchOpen = workbenchUIManagerScript.isWorkBenchOpen
-        if workbenchOpen == false and rigidbodyComponent.rb:get_position() ~= Vector3.new(0, -20, 0) then
+        if workbenchOpen == false then
             workbenchUIManagerScript:show_ui()
-            rigidbodyComponent.rb:set_position(Vector3.new(0, -20, 0))
+            
+            -- Track mission objectives
             if mission_Component.getCurrerTaskIndex(true) == 5 then
                 mission_Component.m5_Upgrade = true
             end
@@ -49,23 +49,16 @@ function on_update(dt)
         --if mission8Component.m8_Clear == true then
         --    mission_Component.M9_WorkBrech = true
         --end
-    else         
-        -- Close the workbench UI
-        local workbenchOpen = workbenchUIManagerScript.isWorkBenchOpen
-        if workbenchOpen == false and rigidbodyComponent.rb:get_position() ~= initialPosition then
-            rigidbodyComponent.rb:set_position(initialPosition)
-        end
     end
 end
 
-function handle_collision_enter(entityA, entityB)
+function handle_collision_stay(entityA, entityB)
     local nameA = entityA:get_component("TagComponent").tag
     local nameB = entityB:get_component("TagComponent").tag
 
     if nameA == "Player" or nameB == "Player" then
-        if not playerExit then
-            playerInRange = true
-        end
+        playerInRange = true
+        playerExit = false
     end
 end
 

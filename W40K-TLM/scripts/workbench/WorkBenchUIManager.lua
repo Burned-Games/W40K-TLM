@@ -295,15 +295,18 @@ function toggle_screen()
 end
 
 function on_update(dt)
-    if not isWorkBenchOpen then
-        if Input.is_key_pressed(Input.keycode.U) then
-            show_ui()
-        end
-        return
-    end
+    -- if not isWorkBenchOpen then
+    --     if Input.is_key_pressed(Input.keycode.U) then
+    --         show_ui()
+    --     end
+    --     return
+    -- end
     
-    if Input.is_key_pressed(Input.keycode.I) then
-        hide_ui()
+    -- if Input.is_key_pressed(Input.keycode.I) then
+    --     hide_ui()
+    -- end
+    if not isWorkBenchOpen then
+        return
     end
     
     local leftShoulderState = Input.get_button(Input.action.Skill2)
@@ -345,7 +348,8 @@ function handle_gun_controls(dt)
         gunExitButton.state = "Normal"
 
         local confirmState = Input.get_button(Input.action.Cancel)
-        if(confirmState == Input.state.Down and not confirmPressed) then
+
+        if confirmState == Input.state.Repeat and not confirmPressed then
             confirmPressed = true
             gunBuyButton.state = "Pressed"
             
@@ -359,7 +363,7 @@ function handle_gun_controls(dt)
                     update_ui()
                 end
             end
-        elseif confirmState ~= Input.state.Down then
+        elseif confirmState ~= Input.state.Repeat then
             confirmPressed = false
         end
     else
@@ -367,11 +371,11 @@ function handle_gun_controls(dt)
         gunExitButton.state = "Hover"
 
         local confirmState = Input.get_button(Input.action.Cancel)
-        if(confirmState == Input.state.Down and not confirmPressed) then
+        if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
             gunExitButton.state = "Pressed"
             hide_ui()
-        elseif confirmState ~= Input.state.Down then
+        elseif confirmState ~= Input.state.Repeat then
             confirmPressed = false
         end
     end
@@ -405,7 +409,7 @@ function handle_character_controls(dt)
         charExitButton.state = "Normal"
 
         local confirmState = Input.get_button(Input.action.Cancel)
-        if(confirmState == Input.state.Down and not confirmPressed) then
+        if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
             charBuyButton.state = "Pressed"
             
@@ -419,7 +423,7 @@ function handle_character_controls(dt)
                     update_ui()
                 end
             end
-        elseif confirmState ~= Input.state.Down then
+        elseif confirmState ~= Input.state.Repeat then
             confirmPressed = false
         end
     else
@@ -427,11 +431,11 @@ function handle_character_controls(dt)
         charExitButton.state = "Hover"
 
         local confirmState = Input.get_button(Input.action.Cancel)
-        if(confirmState == Input.state.Down and not confirmPressed) then
+        if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
             charExitButton.state = "Pressed"
             hide_ui()
-        elseif confirmState ~= Input.state.Down then
+        elseif confirmState ~= Input.state.Repeat then
             confirmPressed = false
         end
     end

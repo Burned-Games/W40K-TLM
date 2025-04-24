@@ -381,6 +381,8 @@ function on_update(dt)
     autoaimUpdate()
     if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
         playerMovement(dt)
+    else 
+        playerRb:set_velocity(Vector3.new(0, 0, 0))
     end
 
     handleCover()
