@@ -166,9 +166,7 @@
 
         skill2TextCooldownEntity:set_active(false)
         skill2VisualCooldownEntity:set_active(false)
-        skill2ButtonEntity:set_active(false)
 
-        skill3ButtonEntity:set_active(false)
         skill3TextCooldownEntity:set_active(false)
         skill3VisualCooldownEntity:set_active(false)
 
@@ -176,9 +174,8 @@
         skillArma2CooldownEntity:set_active(false)
         skillsArmasTextCooldownEntity:set_active(false)
 
-        lifeFullComponent:set_color(Vector4.new(0.624, 0.271, 0.227, 1))
-        skill2.value = false
-        skill3.value = false
+        skill2.value = true
+        skill3.value = true
 
     end
 
@@ -198,86 +195,85 @@
     end
 
 
-    function abilityManager(dt)
-    
-        if playerScript.dashAvailable == false then
-            skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
-            skill1TextCooldownEntity:set_active(true)
-            skill1VisualCooldownEntity:set_active(true)
-            skill1Timer = 0
-            skill1Cooldown = true
-        end
+        function abilityManager(dt)
         
-        if skill1Cooldown then 
-            skill1Timer = skill1Timer + dt 
-            local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter 
-            local totalCooldown = playerScript.dashColdown
-            
-            local porcentaje = remainingTime / totalCooldown
-            if porcentaje > 1 then 
-                porcentaje = 1 
-            end
-            
-            local alpha = porcentaje
-            alpha = math.max(0, math.min(1, alpha))
-            
-            skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, alpha))
-            
-            if playerScript.dashAvailable == true then
-                skill1TextCooldownEntity:set_active(false)
-                skill1VisualCooldownEntity:set_active(false)
-                skill1Cooldown = false
-                
-                skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
-            else
-                if remainingTime <= 1.1 and remainingTime > 0 then
-                    skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
-                else
-                    skill1TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
-                end
+            if playerScript.dashAvailable == false then
+                skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
                 skill1TextCooldownEntity:set_active(true)
+                skill1VisualCooldownEntity:set_active(true)
+                skill1Timer = 0
+                skill1Cooldown = true
             end
-        end
-        
-        
-        if sawSwordScript.sawSwordAvailable == false then
-            skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
-            skill2TextCooldownEntity:set_active(true)
-            skill2VisualCooldownEntity:set_active(true) 
-            skill2Timer = 0
-            skill2Cooldown = true
-        end
-        
-        if skill2Cooldown then
-            skill2Timer = skill2Timer + dt
-            local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
-            local totalCooldown = sawSwordScript.coolDown
-    
-            local porcentaje = remainingTime / totalCooldown
-            if porcentaje > 1 then 
-                porcentaje = 1 
-            end
-    
-            local alpha = porcentaje
-            alpha = math.max(0, math.min(1, alpha))
             
-            skill2VisualCooldown:set_color(Vector4.new(1, 1, 1, alpha))
-            
-            if sawSwordScript.sawSwordAvailable == true then
-                skill2TextCooldownEntity:set_active(false)
-                skill2VisualCooldownEntity:set_active(false) 
-                skill2Cooldown = false
-    
-                skill2VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
-            else
-                if remainingTime <= 1.1 and remainingTime > 0 then
-                    skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
-                else
-                    skill2TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+            if skill1Cooldown then 
+                skill1Timer = skill1Timer + dt 
+                local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter 
+                local totalCooldown = playerScript.dashColdown
+                
+                local porcentaje = remainingTime / totalCooldown
+                if porcentaje > 1 then 
+                    porcentaje = 1 
                 end
-                skill2TextCooldownEntity:set_active(true)        
+            
+                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+                skill1VisualCooldown:set_rect(cooldownRect)
+                
+                if playerScript.dashAvailable == true then
+                    skill1TextCooldownEntity:set_active(false)
+                    skill1VisualCooldownEntity:set_active(false)
+                    skill1Cooldown = false
+                    
+                    -- Reset the rect and color when cooldown is complete
+                    skill1VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
+                    skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
+                else
+                    if remainingTime <= 1.1 and remainingTime > 0 then
+                        skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
+                    else
+                        skill1TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                    end
+                    skill1TextCooldownEntity:set_active(true)
+                end
             end
-        end
+            
+            
+            if sawSwordScript.sawSwordAvailable == false then
+                skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
+                skill2TextCooldownEntity:set_active(true)
+                skill2VisualCooldownEntity:set_active(true) 
+                skill2Timer = 0
+                skill2Cooldown = true
+            end
+            
+            if skill2Cooldown then
+                skill2Timer = skill2Timer + dt
+                local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
+                local totalCooldown = sawSwordScript.coolDown
+        
+                local porcentaje = remainingTime / totalCooldown
+                if porcentaje > 1 then 
+                    porcentaje = 1 
+                end
+        
+                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+                skill2VisualCooldown:set_rect(cooldownRect)
+
+                if sawSwordScript.sawSwordAvailable == true then
+                    skill2TextCooldownEntity:set_active(false)
+                    skill2VisualCooldownEntity:set_active(false) 
+                    skill2Cooldown = false
+        
+                    skill2VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
+                else
+                    if remainingTime <= 1.1 and remainingTime > 0 then
+                        skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
+                    else
+                        skill2TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                    end
+                    skill2TextCooldownEntity:set_active(true)        
+                end
+            end
+        
     
         --[[if armorUpgradeScript.fervorAstartesAvailable == false then
             skill3TextCooldownEntity:set_active(true)
@@ -431,11 +427,16 @@
             
             lifeTextComponent:set_text(tostring(math.floor(vida)))
             
-            local alpha = healthPercentage
+            local cropPercentage = 1 - healthPercentage
             
-            alpha = math.max(0, math.min(1, alpha))
+            local x = 0
+            local y = 0
+            local width = 1
+            local height = 1
             
-            lifeFullComponent:set_color(Vector4.new(0.624, 0.271, 0.227, alpha))
+            local newRect = Vector4.new(x, y, width, height * healthPercentage)
+            lifeFullComponent:set_rect(newRect)
+            
         end
     end
     
@@ -443,15 +444,13 @@
         if playerScript ~= nil then
             local chatarra = playerScript.scrapCounter
             local max_chatarra = maxChatarraDisplay
-            local porcentaje = chatarra / max_chatarra
+            local percentage = chatarra / max_chatarra
+            percentage = math.max(0, math.min(1, percentage))
             
             chatarraTextComponent:set_text(tostring(chatarra))
             
-            local alpha = porcentaje
-            alpha = math.max(0, math.min(1, alpha))
-    
-            chatarraBarComponent:set_color(Vector4.new(0.675, 0.486, 0.329, alpha))
+            local newRect = Vector4.new(0, 0, percentage, 1)
+            chatarraBarComponent:set_rect(newRect)
             chatarraTextComponent:set_color(Vector4.new(1, 1, 1, 1))
         end
     end
-    
