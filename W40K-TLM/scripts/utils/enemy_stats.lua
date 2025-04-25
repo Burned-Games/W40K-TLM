@@ -1,6 +1,6 @@
 local enemy_stats = {
 
-    
+    -- **IMPORTANT** The engine needs to be restarted on any change in this script :)
 
     range = {
 
@@ -128,6 +128,38 @@ local enemy_stats = {
             attackRange = 1,
             explosionRange = 7,
             priority = 3
+        }
+
+    },
+
+
+
+    main_boss = {
+
+        [1] = {
+            health = 1000,
+            rageHealth = 400,
+            bossShieldHealth = 50,
+            speed = 2,
+            meleeDamage = 120,
+            rangeDamage = 80,
+            detectionRange = 20,
+            meleeAttackRange = 10,
+            rangeAttackRange = 15,
+        },
+
+        [2] = {
+            bossShieldHealth = 70,
+            totemHealth = 60,
+            speed = 4,
+            meleeDamage = 130,
+            rangeDamage = 100,
+            ultimateDamage = 350,
+            detectionRange = 20,
+            meleeAttackRange = 10,
+            rangeAttackRange = 15,
+            ultimateRange = 15,
+            totemRange = 2
         }
 
     }

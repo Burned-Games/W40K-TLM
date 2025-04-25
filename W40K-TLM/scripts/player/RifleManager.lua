@@ -488,23 +488,10 @@ function chargedZoneUpdate(dt)
                     end
 
                     if name == "MainBoss" then 
-                        enemyOrkScript = entity:get_component("ScriptComponent")
-                        if enemyOrkScript ~= nil then
-                            if enemyOrkScript.shieldHealth > 0 then
-                                --particle_blood_normal_transform.position = enemyOrkScript.range.position
-                                --particle_blood_spark_transform.position = enemyOrkScript.range.position
-                                --particle_blood_normal:emit(5) 
-                                --particle_blood_spark:emit(5) 
-                                enemyOrkScript.shieldHealth = enemyOrkScript.shieldHealth - (chargeZoneDamagePerSecond + chargeZoneDamagePerSecond * shieldMultiplier)
-                                playerScript.makeDamage = true
-                            else
-                                --particle_blood_normal_transform.position = enemyOrkScript.range.position
-                                --particle_blood_spark_transform.position = enemyOrkScript.range.position
-                                --particle_blood_normal:emit(5) 
-                                --particle_blood_spark:emit(5) 
-                                enemyOrkScript.health = enemyOrkScript.health - chargeZoneDamagePerSecond
-                                playerScript.makeDamage = true
-                            end
+                        enemyBossScript = entity:get_component("ScriptComponent")
+                        if enemyBossScript ~= nil then
+                            enemyBossScript.main_boss:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
+                            playerScript.makeDamage = true
                         end
                     end
                 end
@@ -553,13 +540,7 @@ function makeDamage(enemy)
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
             elseif enemyTag == "MainBoss" then
-                if enemyScript.shieldHealth > 0 then
-                    enemyScript.shieldHealth = enemyScript.shieldHealth - (damageRifle)
-                    print(enemyScript.shieldHealth)
-                else
-                    enemyScript.health = enemyScript.health - damageRifle
-                    print(enemyScript.health)
-                end
+                enemyInstance = enemyScript.main_boss
             end
             
             if enemyInstance ~= nil then
@@ -603,6 +584,8 @@ function makeDisruptorDamage(enemy)
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
+            elseif enemyTag == "MainBoss" then
+                enemyInstance = enemyScript.main_boss
             end
             print("PPPPPPPPPP")
             enemyInstance:take_damage(disruptorBulletDamage, shieldMultiplier)
