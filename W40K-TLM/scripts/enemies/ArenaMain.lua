@@ -25,7 +25,7 @@ local activeEnemyScripts = {}
 local activeEnemyTypes = {}
 
 local arenaEnded = true
-local waitingForKeyPress = false
+waitingForKeyPress = false
 local allWavesCompleted = false
 
 local bBattleTrigger = false
@@ -140,11 +140,10 @@ function checkWaveCompletion(enemyCount, enemiesDead)
     -- All enemies in current wave are defeated
     if enemyCount > 0 and enemiesDead == enemyCount then
         if not waitingForKeyPress then
-            log("Wave " .. currentRound .. " completed! Press N for next wave.")
+            log("Wave " .. currentRound .. " completed! Use lever for next wave.")
             waitingForKeyPress = true
         end
-        
-        -- Control de tecla N (siguiente oleada) - Anti-spam
+
         local current_n_state = Input.is_key_pressed(Input.keycode.N)
         if current_n_state and not n_key_pressed and waitingForKeyPress then
             advanceToNextWave()
@@ -209,8 +208,8 @@ function spawnEnemies()
         
         if enemyEntity then
             enemyEntity.isArenaEnemy = true
-            enemyEntity.zoneNumber = 3 -- Setting this to a high value to ensure it's always above player zone
-            enemyEntity.zoneSet = true  -- Prevent check_spawn from running again
+            enemyEntity.zoneNumber = 3 
+            enemyEntity.zoneSet = true  
 
             enemyEntity.currentState = 1 -- state.Idle
 
