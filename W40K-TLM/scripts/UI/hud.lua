@@ -152,8 +152,8 @@
         player = current_scene:get_entity_by_name("Player")
         playerScript = player:get_component("ScriptComponent")
 
-        --armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
-        --armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
+        armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
+        armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
 
         skill1TextCooldownEntity:set_active(false)
         skill1VisualCooldownEntity:set_active(false)
@@ -192,87 +192,87 @@
     end
 
 
-        function abilityManager(dt)
-        
-            if playerScript.dashAvailable == false then
-                skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
-                skill1TextCooldownEntity:set_active(true)
-                skill1VisualCooldownEntity:set_active(true)
-                skill1Timer = 0
-                skill1Cooldown = true
-            end
-            
-            if skill1Cooldown then 
-                skill1Timer = skill1Timer + dt 
-                local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter 
-                local totalCooldown = playerScript.dashColdown
-                
-                local porcentaje = remainingTime / totalCooldown
-                if porcentaje > 1 then 
-                    porcentaje = 1 
-                end
-            
-                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
-                skill1VisualCooldown:set_rect(cooldownRect)
-                
-                if playerScript.dashAvailable == true then
-                    skill1TextCooldownEntity:set_active(false)
-                    skill1VisualCooldownEntity:set_active(false)
-                    skill1Cooldown = false
-                    
-                    -- Reset the rect and color when cooldown is complete
-                    skill1VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
-                    skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
-                else
-                    if remainingTime <= 1.1 and remainingTime > 0 then
-                        skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
-                    else
-                        skill1TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
-                    end
-                    skill1TextCooldownEntity:set_active(true)
-                end
-            end
-            
-            
-            if sawSwordScript.sawSwordAvailable == false then
-                skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
-                skill2TextCooldownEntity:set_active(true)
-                skill2VisualCooldownEntity:set_active(true) 
-                skill2Timer = 0
-                skill2Cooldown = true
-            end
-            
-            if skill2Cooldown then
-                skill2Timer = skill2Timer + dt
-                local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
-                local totalCooldown = sawSwordScript.coolDown
-        
-                local porcentaje = remainingTime / totalCooldown
-                if porcentaje > 1 then 
-                    porcentaje = 1 
-                end
-        
-                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
-                skill2VisualCooldown:set_rect(cooldownRect)
-
-                if sawSwordScript.sawSwordAvailable == true then
-                    skill2TextCooldownEntity:set_active(false)
-                    skill2VisualCooldownEntity:set_active(false) 
-                    skill2Cooldown = false
-        
-                    skill2VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
-                else
-                    if remainingTime <= 1.1 and remainingTime > 0 then
-                        skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
-                    else
-                        skill2TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
-                    end
-                    skill2TextCooldownEntity:set_active(true)        
-                end
-            end
-        
+    function abilityManager(dt)
     
-        --[[if armorUpgradeScript.fervorAstartesAvailable == false then
+        if playerScript.dashAvailable == false then
+            skill1TextCooldown:set_text(tostring(playerScript.dashColdownCounter))
+            skill1TextCooldownEntity:set_active(true)
+            skill1VisualCooldownEntity:set_active(true)
+            skill1Timer = 0
+            skill1Cooldown = true
+        end
+        
+        if skill1Cooldown then 
+            skill1Timer = skill1Timer + dt 
+            local remainingTime = playerScript.dashColdown - playerScript.dashColdownCounter 
+            local totalCooldown = playerScript.dashColdown
+            
+            local porcentaje = remainingTime / totalCooldown
+            if porcentaje > 1 then 
+                porcentaje = 1 
+            end
+        
+            local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+            skill1VisualCooldown:set_rect(cooldownRect)
+            
+            if playerScript.dashAvailable == true then
+                skill1TextCooldownEntity:set_active(false)
+                skill1VisualCooldownEntity:set_active(false)
+                skill1Cooldown = false
+                
+                -- Reset the rect and color when cooldown is complete
+                skill1VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
+                skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
+            else
+                if remainingTime <= 1.1 and remainingTime > 0 then
+                    skill1TextCooldown:set_text(string.format("%.1f", remainingTime))
+                else
+                    skill1TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                end
+                skill1TextCooldownEntity:set_active(true)
+            end
+        end
+        
+        
+        if sawSwordScript.sawSwordAvailable == false then
+            skill2TextCooldown:set_text(tostring(sawSwordScript.coolDownCounter))
+            skill2TextCooldownEntity:set_active(true)
+            skill2VisualCooldownEntity:set_active(true) 
+            skill2Timer = 0
+            skill2Cooldown = true
+        end
+        
+        if skill2Cooldown then
+            skill2Timer = skill2Timer + dt
+            local remainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
+            local totalCooldown = sawSwordScript.coolDown
+    
+            local porcentaje = remainingTime / totalCooldown
+            if porcentaje > 1 then 
+                porcentaje = 1 
+            end
+    
+            local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+            skill2VisualCooldown:set_rect(cooldownRect)
+
+            if sawSwordScript.sawSwordAvailable == true then
+                skill2TextCooldownEntity:set_active(false)
+                skill2VisualCooldownEntity:set_active(false) 
+                skill2Cooldown = false
+    
+                skill2VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
+            else
+                if remainingTime <= 1.1 and remainingTime > 0 then
+                    skill2TextCooldown:set_text(string.format("%.1f", remainingTime))
+                else
+                    skill2TextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+                end
+                skill2TextCooldownEntity:set_active(true)        
+            end
+        end
+        
+        if armorUpgradeScript.fervorAstartesAvailable == false then
+            skill3TextCooldown:set_text(tostring(armorUpgradeScript.fervorAstartesCooldown))
             skill3TextCooldownEntity:set_active(true)
             skill3VisualCooldownEntity:set_active(true) 
             skill3Timer = 0
@@ -289,17 +289,16 @@
                 porcentaje = 1 
             end
     
-            local alpha = porcentaje
-            alpha = math.max(0, math.min(1, alpha))
-            
-            skill3VisualCooldown:set_color(Vector4.new(1, 1, 1, alpha))
+            -- Usar set_rect como las otras habilidades en lugar de set_color
+            local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+            skill3VisualCooldown:set_rect(cooldownRect)
     
             if armorUpgradeScript.fervorAstartesAvailable == true then
                 skill3TextCooldownEntity:set_active(false)
                 skill3VisualCooldownEntity:set_active(false) 
                 skill3Cooldown = false
                 
-                skill3VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
+                skill3VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
             else
                 if remainingTime <= 1.1 and remainingTime > 0 then
                     skill3TextCooldown:set_text(string.format("%.1f", remainingTime))
@@ -309,8 +308,6 @@
                 skill3TextCooldownEntity:set_active(true)      
             end
         end
-        ]]--
-    
     end     
     
     function weaponManager(dt)
