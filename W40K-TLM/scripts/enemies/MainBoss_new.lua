@@ -10,6 +10,8 @@ local pathUpdateTimer = 0.0
 local pathUpdateInterval = 0.5
 local shieldTimer = 0
 local shieldCooldown = 5
+local attackTimer = 0
+local attackCooldown = 10
 
 function on_ready()
 
@@ -25,6 +27,12 @@ function on_ready()
 
     main_boss.shield = current_scene:get_entity_by_name("Shield")
     main_boss.shieldTransf = main_boss.shield:get_component("TransformComponent")
+
+    main_boss.wrath = current_scene:get_entity_by_name("Wrath")
+    main_boss.wrathTransf = main_boss.wrath:get_component("TransformComponent")
+    main_boss.wrathRbComponent = main_boss.wrath:get_component("RigidbodyComponent")
+    main_boss.wrathRb = main_boss.wrathRbComponent.rb
+    main_boss.wrathRb:set_trigger(true)
 
 
     local enemy_type = "main_boss"
@@ -59,9 +67,19 @@ function on_ready()
     main_boss.ultiAnim = 4
 
     main_boss.isRaging = false
+    main_boss.isAttacking = false
     main_boss.shieldActive = false
 
     main_boss.lastTargetPos = main_boss.playerTransf.position
+
+    main_boss.wrathRbComponent:on_collision_stay(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            main_boss:make_damage()
+        end
+   end)
 
 end
 
@@ -79,6 +97,7 @@ function on_update(dt)
         main_boss:die_state()
     end
 
+    attackTimer = attackTimer + dt
     shieldTimer = shieldTimer + dt
     pathUpdateTimer = pathUpdateTimer + dt
 
@@ -116,6 +135,12 @@ function change_state()
         return
     end
 
+    if not main_boss.isAttacking then
+        if attackTimer >= attackCooldown then
+            main_boss.isAttacking = true
+        end
+    end
+
     if main_boss.shieldActive then
         if main_boss.shieldHealth <= 0 then
             main_boss.shieldActive = false
@@ -131,7 +156,7 @@ function change_state()
     end
 
     if distance <= main_boss.rangeAttackRange then
-        --main_boss.currentState = main_boss.state.Attack
+        main_boss.currentState = main_boss.state.Attack
     elseif distance <= main_boss.detectionRange then
         main_boss.playerDetected = true
         main_boss.currentState = main_boss.state.Move
@@ -165,19 +190,61 @@ function main_boss:shield_state()
     end
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
     main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
     main_boss.shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
 
+    main_boss.wrathTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
+    main_boss.wrathTransf.scale = Vector3.new(10, 10, 10)
+
     main_boss.currentState = main_boss.state.Move
+
+end
+
+function main_boss:attack_state()
+
+    if not main_boss.isAttacking then return end
+
+    local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
+    local attackChance = math.random()
+
+    if attackChance < 0.3 then
+        lightning_attack()
+        fists_attack()
+    else
+        if distance <= main_boss.meleeAttackRange then
+            lightning_attack()
+        else
+            fists_attack()
+        end
+    end
+
+    main_boss.isAttacking = false
+    attackTimer = 0
+
 end
 
 function move_shield()
+
     if main_boss.shieldActive then
         main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
+        main_boss.wrathTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
     else
         main_boss.shieldTransf.position = Vector3.new(-500, 10, -200)
     end
-    log("move shield")
+
+end
+
+function lightning_attack()
+
+    log("Lightning Attack")
+
+end
+
+function fists_attack()
+
+    log("Fists Attack")
+
 end
 
 function on_exit()
