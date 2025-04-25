@@ -4,6 +4,7 @@ local button3
 local button4
 local visibilidad1Entity
 local visibilidad2Entity
+local hudVisibility
 local slider1
 local slider2
 local VolumeText
@@ -48,6 +49,7 @@ function on_ready()
 
     visibilidad1Entity = current_scene:get_entity_by_name("Pause")
     visibilidad2Entity = current_scene:get_entity_by_name("Settings")
+    hudVisibility = current_scene:get_entity_by_name("HUD")
 
     VolumeText = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
     FXText = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
@@ -139,11 +141,13 @@ function on_update(dt)
             isPaused = false
             visibilidad1Entity:set_active(false)
             visibilidad2Entity:set_active(false)
+            hudVisibility:set_active(true)
             isOnPauseSettings = false
 
         else
             isPaused = true
             visibilidad1Entity:set_active(true)
+            hudVisibility:set_active(false)
             if workbenchUIManagerScript.isWorkBenchOpen == true then
                 workbenchUIManagerScript:hide_ui() 
             end

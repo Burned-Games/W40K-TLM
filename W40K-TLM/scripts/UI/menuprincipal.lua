@@ -184,13 +184,13 @@ function on_update(dt)
             if value < 0 then
                 index = index - 1;
                 if index < 0 then
-                    index = 3
+                    index = 4
                 end
             end
             
             if value > 0 then
                 index = index + 1
-                if index > 3 then
+                if index > 4 then
                     index = 0
                 end
             end
