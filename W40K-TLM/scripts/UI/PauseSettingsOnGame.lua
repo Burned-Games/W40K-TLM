@@ -7,6 +7,8 @@ local visibilidad2Entity
 local hudVisibility
 local slider1
 local slider2
+local text1
+local text2
 local VolumeText
 local FXText
 local ContinueText
@@ -34,8 +36,8 @@ local visibilidadtotal
 
 local workbenchUIManagerScript = nil
 
-local defaultColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
-local selectedColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
+local selectedColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
+local defaultColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
 musicVolume = 0.0
 fxVolume = 0.0
@@ -46,6 +48,9 @@ function on_ready()
     button2 = current_scene:get_entity_by_name("SettingsButton"):get_component("UITextComponent")
     button3 = current_scene:get_entity_by_name("SaveGame"):get_component("UITextComponent")
     button4 = current_scene:get_entity_by_name("Exit"):get_component("UITextComponent")
+
+    text1 = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
+    text2 = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
 
     visibilidad1Entity = current_scene:get_entity_by_name("Pause")
     visibilidad2Entity = current_scene:get_entity_by_name("Settings")
@@ -249,6 +254,7 @@ function on_update(dt)
                 slider1.value = math.max(0.0, math.min(1.0, slider1.value + (horizontalInput * 0.05)))
                 musicVolume = slider1.value
                 
+                
                 if explorationMusic then explorationMusic:set_volume(musicVolume) end
                 if combatMusic then combatMusic:set_volume(musicVolume) end
                 save_progress("musicVolumeGeneral", musicVolume)
@@ -256,6 +262,7 @@ function on_update(dt)
             elseif currentSelectedSlider == 2 then
                 slider2.value = math.max(0.0, math.min(1.0, slider2.value + (horizontalInput * 0.05)))
                 fxVolume = slider2.value
+                
                 
                 -- Update all FX volumes with null checks
                 playerDeathSFX:set_volume(fxVolume)
@@ -308,6 +315,15 @@ function on_update(dt)
                 currentSelectedSlider = 1
             end
         end
+
+        if currentSelectedSlider == 1 then
+            text1:set_color(selectedColor)
+            text2:set_color(defaultColor)
+        elseif currentSelectedSlider == 2 then
+            text1:set_color(defaultColor)
+            text2:set_color(selectedColor)
+        end
+        
         inputCooldown = cooldownTime
         return
     end

@@ -12,8 +12,8 @@ local value = nil
 
 local newValue = 1.0
 
-local defaultColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
-local selectedColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
+local selectedColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
+local defaultColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
 
 function on_ready()

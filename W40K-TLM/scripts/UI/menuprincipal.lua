@@ -61,10 +61,10 @@ function on_update(dt)
     if index == 0 then
         
             button1.state = State.Hover
-            button2.state = "Normal"
-            button3.state = "Normal"
-            button4.state = "Normal"
-            button5.state = "Normal"
+            button2.state = State.Normal
+            button3.state = State.Normal
+            button4.state = State.Normal
+            button5.state = State.Normal
 
             text1:set_color(selectedColor)
             text2:set_color(defaultColor)
@@ -88,11 +88,11 @@ function on_update(dt)
         
 
     elseif index == 1 then
-        button1.state = "Normal"
-        button2.state = "Hover"
-        button3.state = "Normal"
-        button4.state = "Normal"
-        button5.state = "Normal"
+        button1.state = State.Normal
+        button2.state = State.Hover
+        button3.state = State.Normal
+        button4.state = State.Normal
+        button5.state = State.Normal
 
         text1:set_color(defaultColor)
        text2:set_color(selectedColor)
@@ -111,11 +111,11 @@ function on_update(dt)
         end
         
     elseif index == 2 then
-        button1.state = "Normal"
-        button2.state = "Normal"
-        button3.state = "Hover"
-        button4.state = "Normal"
-        button5.state = "Normal"
+        button1.state = State.Normal
+        button2.state = State.Normal
+        button3.state = State.Hover
+        button4.state = State.Normal
+        button5.state = State.Normal
 
         text1:set_color(defaultColor)
         text2:set_color(defaultColor)
@@ -134,11 +134,11 @@ function on_update(dt)
         end
 
     elseif index == 3 then
-        button1.state = "Normal"
-        button2.state = "Normal"
-        button3.state = "Normal"
-        button4.state = "Hover"
-        button5.state = "Normal"
+        button1.state = State.Normal
+        button2.state = State.Normal
+        button3.state = State.Normal
+        button4.state = State.Hover
+        button5.state = State.Normal
 
         text1:set_color(defaultColor)
        text2:set_color(defaultColor)
@@ -155,11 +155,11 @@ function on_update(dt)
         end
 
     else
-        button1.state = "Normal"
-        button2.state = "Normal"
-        button3.state = "Normal"
-        button4.state = "Normal"
-        button5.state = "Hover"
+        button1.state = State.Normal
+        button2.state = State.Normal
+        button3.state = State.Normal
+        button4.state = State.Normal
+        button5.state = State.Hover
 
         text1:set_color(defaultColor)
         text2:set_color(defaultColor)
@@ -177,10 +177,10 @@ function on_update(dt)
         end
     end
 
-    local value = Input.get_axis(Input.action.UiMoveVertical)
+    local value = Input.get_direction("UiY")
         if (value ~= 0 and contadorMovimientoBotones > 0.2) then
             contadorMovimientoBotones = 0
-            
+            log("Valor que estoy encontrando" .. value)
             if value < 0 then
                 index = index - 1;
                 if index < 0 then
@@ -194,6 +194,7 @@ function on_update(dt)
                     index = 0
                 end
             end
+            log("Valor del indice" .. index)
         else
             contadorMovimientoBotones = contadorMovimientoBotones + dt
         end
