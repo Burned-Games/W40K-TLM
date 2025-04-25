@@ -78,6 +78,8 @@
     local armorUpgrade = nil
     local armorUpgradeScript = nil
 
+    local upgradeManager = nil
+
     function on_ready()
         --Vida
         lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
@@ -155,6 +157,9 @@
         armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
         armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
 
+        upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+
+
         skill1TextCooldownEntity:set_active(false)
         skill1VisualCooldownEntity:set_active(false)
 
@@ -169,11 +174,10 @@
         skillsArmasTextCooldownEntity:set_active(false)
 
         skill2.value = true
-        skill3.value = true
+        skill3.value = upgradeManager:has_armor_special()
 
-        skillArma1.value = true
-        skillArma2.value = true
-
+        skillArma1.value = upgradeManager:has_weapon_special()
+        skillArma2.value = upgradeManager:has_weapon_special() 
     end
 
     function on_update(dt)
@@ -257,33 +261,40 @@
         end
         
         -- Skill 3 (Fervor Astartes)
-        local fervorRemainingTime = armorUpgradeScript.fervorAstartesCooldown
-        if fervorRemainingTime > 0 and not armorUpgradeScript.fervorAstartesAvailable then
-            -- Mostrar cooldown
-            skill3Timer = skill3Timer + dt
-            
-            local totalCooldown = 25
-            local porcentaje = fervorRemainingTime / totalCooldown
-            if porcentaje > 1 then 
-                porcentaje = 1 
-            end
-    
-            local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
-            skill3VisualCooldown:set_rect(cooldownRect)
-            
-            if fervorRemainingTime <= 1.1 and fervorRemainingTime > 0 then
-                skill3TextCooldown:set_text(string.format("%.1f", fervorRemainingTime))
+        if upgradeManager:has_armor_special() then 
+            skill3.value = true 
+            local fervorRemainingTime = armorUpgradeScript.fervorAstartesCooldown
+            if fervorRemainingTime > 0 and not armorUpgradeScript.fervorAstartesAvailable then
+                -- Mostrar cooldown
+                skill3Timer = skill3Timer + dt
+                
+                local totalCooldown = 25
+                local porcentaje = fervorRemainingTime / totalCooldown
+                if porcentaje > 1 then 
+                    porcentaje = 1 
+                end
+        
+                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+                skill3VisualCooldown:set_rect(cooldownRect)
+                
+                if fervorRemainingTime <= 1.1 and fervorRemainingTime > 0 then
+                    skill3TextCooldown:set_text(string.format("%.1f", fervorRemainingTime))
+                else
+                    skill3TextCooldown:set_text(string.format("%d", math.ceil(fervorRemainingTime)))
+                end
+                
+                skill3TextCooldownEntity:set_active(true)
+                skill3VisualCooldownEntity:set_active(true)
             else
-                skill3TextCooldown:set_text(string.format("%d", math.ceil(fervorRemainingTime)))
+                -- Ocultar cooldown
+                skill3TextCooldownEntity:set_active(false)
+                skill3VisualCooldownEntity:set_active(false)
+                skill3VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
             end
-            
-            skill3TextCooldownEntity:set_active(true)
-            skill3VisualCooldownEntity:set_active(true)
         else
-            -- Ocultar cooldown
+            skill3.value = false  
             skill3TextCooldownEntity:set_active(false)
             skill3VisualCooldownEntity:set_active(false)
-            skill3VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
         end
     end
     
@@ -291,21 +302,22 @@
         if weaponSwitchTimer > 0 then
             weaponSwitchTimer = weaponSwitchTimer - dt
         end
-
-        skillArma1.value = true
-        skillArma2.value = true
+    
+        -- Set weapon skill availability based on upgrades
+        skillArma1.value = upgradeManager:has_weapon_special()
+        skillArma2.value = upgradeManager:has_weapon_special()
     
         if playerScript.actualweapon == 0 then
             arma1:set_active(true)
             arma2:set_active(false)
             
-            skillArma1Entity:set_active(true)
+            skillArma1Entity:set_active(upgradeManager:has_weapon_special())
             skillArma2Entity:set_active(false)
             
             skillArma2CooldownEntity:set_active(false)
-    
+        
             local remainingTime = rifleScript.cooldownDisruptorBulletTime - rifleScript.cooldownDisruptorBulletTimeCounter
-            if remainingTime > 0 then
+            if remainingTime > 0 and upgradeManager:has_weapon_special() then 
                 if remainingTime <= 1.1 then
                     skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
                 else
@@ -327,18 +339,18 @@
                 skillsArmasTextCooldownEntity:set_active(false)
                 skillArma1CooldownEntity:set_active(false)
             end
-    
+        
         elseif playerScript.actualweapon == 1 then
             arma1:set_active(false)
             arma2:set_active(true)
             
             skillArma1Entity:set_active(false)
-            skillArma2Entity:set_active(true)
+            skillArma2Entity:set_active(upgradeManager:has_weapon_special())
             
             skillArma1CooldownEntity:set_active(false)
-    
+        
             local remainingTime = shotGunScript.timerGranade
-            if remainingTime > 0 then
+            if remainingTime > 0 and upgradeManager:has_weapon_special() then
                 if remainingTime <= 1.1 then
                     skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
                 else
@@ -361,7 +373,7 @@
                 skillArma2CooldownEntity:set_active(false)
             end
         end
-    
+        
         updateAmmoText()
     end
 
