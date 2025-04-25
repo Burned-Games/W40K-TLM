@@ -9,6 +9,8 @@ local text3
 local text4
 local text5
 local musicaFondoDefault
+--local changeScene = false
+
 
 local index = 0
 local currentSelectedIndex = 1
@@ -56,57 +58,34 @@ end
 
 function on_update(dt)
     -- Add update code here
+    if index == 0 then
+        
+            button1.state = State.Hover
+            button2.state = "Normal"
+            button3.state = "Normal"
+            button4.state = "Normal"
+            button5.state = "Normal"
 
+            text1:set_color(selectedColor)
+            text2:set_color(defaultColor)
+            text3:set_color(defaultColor)
+            text4:set_color(defaultColor)
+            text5:set_color(defaultColor)
 
-    if changingScene ~= 0 then
-        if fadeToBlackScript.fadeToBlackDoned and not changeScene then
-
-            if changingScene == 1 then
-                save_progress("zonePlayer", 0)
-                save_progress("level", 1)
-                SceneManager.change_scene("scenes/level1.TeaScene")
-            end
-            if changingScene == 2 then
-                if level == 1 then
-                    SceneManager.change_scene("scenes/level1.TeaScene")
-                elseif level == 2 then
-                    SceneManager.change_scene("scenes/level2.TeaScene")
-                elseif level == 3 then
-                    SceneManager.change_scene("scenes/level3.TeaScene")
+            value = Input.get_button(Input.action.Confirm)
+            if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+                if(index == 0) then
+                    --button1:set_state("Pressed")
+                    --sceneChanged = true
+                    --save_progress("zonePlayer", 0)
+                    --save_progress("level", 1)
+                    --SceneManager.change_scene("scenes/level1.TeaScene")
+                    fadeToBlackScript:DoFade()
+                    changingScene = 1
+                    sceneChanged = true
                 end
             end
-
-            changeScene = true
-        end
-    end
-
-
-
-    if index == 0 then
-        button1.state = "Hover"
-        button2.state = "Normal"
-        button3.state = "Normal"
-        button4.state = "Normal"
-        button5.state = "Normal"
-
-        text1:set_color(selectedColor)
-        text2:set_color(defaultColor)
-        text3:set_color(defaultColor)
-        text4:set_color(defaultColor)
-        text5:set_color(defaultColor)
-
-        value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
-            if(index == 0) then
-                --button1:set_state("Pressed")
-                --sceneChanged = true
-                --save_progress("zonePlayer", 0)
-                --save_progress("level", 1)
-                --SceneManager.change_scene("scenes/level1.TeaScene")
-                fadeToBlackScript:DoFade()
-                changingScene = 1
-            end
-        end
+        
 
     elseif index == 1 then
         button1.state = "Normal"
@@ -127,6 +106,7 @@ function on_update(dt)
                 --button2:set_state("Pressed")
                 fadeToBlackScript:DoFade()
                 changingScene = 2
+                sceneChanged = true
             end
         end
         
@@ -198,25 +178,47 @@ function on_update(dt)
     end
 
     local value = Input.get_axis(Input.action.UiMoveVertical)
-    if (value ~= 0 and contadorMovimientoBotones > 0.2) then
-        contadorMovimientoBotones = 0
-        
-        if value < 0 then
-            index = index + 1;
-            if index < 0 then
-                index = 4
+        if (value ~= 0 and contadorMovimientoBotones > 0.2) then
+            contadorMovimientoBotones = 0
+            
+            if value < 0 then
+                index = index - 1;
+                if index < 0 then
+                    index = 3
+                end
+            end
+            
+            if value > 0 then
+                index = index + 1
+                if index > 3 then
+                    index = 0
+                end
+            end
+        else
+            contadorMovimientoBotones = contadorMovimientoBotones + dt
+        end
+
+        if changingScene ~= 0 then
+            if fadeToBlackScript.fadeToBlackDoned and not changeScene then
+    
+                if changingScene == 1 then
+                    save_progress("zonePlayer", 0)
+                    save_progress("level", 1)
+                    SceneManager.change_scene("scenes/level1.TeaScene")
+                end
+                if changingScene == 2 then
+                    if level == 1 then
+                        SceneManager.change_scene("scenes/level1.TeaScene")
+                    elseif level == 2 then
+                        SceneManager.change_scene("scenes/level2.TeaScene")
+                    elseif level == 3 then
+                        SceneManager.change_scene("scenes/level3.TeaScene")
+                    end
+                end
+    
+                changeScene = true
             end
         end
-        
-        if value > 0 then
-            index = index - 1
-            if index > 4 then
-                index = 0
-            end
-        end
-    else
-        contadorMovimientoBotones = contadorMovimientoBotones + dt
-    end
 
 end
 
