@@ -99,8 +99,14 @@ function on_ready()
                 tank.canTackle = false
                 tackleTimer = 0
 
-                if tank.currentState == tank.state.Tackle and tank.level2 and not tank.isBerserkaActive then
-                    tank:berserka_rage()
+                if tank.currentState == tank.state.Tackle then
+                    particle_spark_transform.position = tank.playerTransf.position
+                    particle_spark:emit(5)
+                    tank:make_damage(tank.tackleDamage)
+                    
+                    if tank.level2 and not tank.isBerserkaActive then
+                        tank:berserka_rage()
+                    end
                 end
                 tank.currentState = tank.state.Attack
             end
