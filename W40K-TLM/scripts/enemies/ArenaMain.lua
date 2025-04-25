@@ -73,18 +73,14 @@ function registerEnemy(type, id, enemyName)
         enemyTypes[key] = type
         log("Found enemy: " .. enemyName .. " of type " .. type)
         
-        
-        -- local tagComponent = enemy:get_component("TagComponent")
-        -- if type == "range" then
-        --     print(tagComponent.tag)
-        --     --tagComponent:set_tag("EnemyRange")
-        --     print("CAMBIANDO NOMBRE")
-        --     print(tagComponent.tag)
-        -- elseif type == "tank" then
-        --     tagComponent.tag = "EnemyTank" 
-        -- elseif type == "supp" then
-        --     tagComponent.tag = "EnemySupport" 
-        -- end
+        -- Set the arena enemy flag
+        if type == "range" and enemyScripts[key].range then
+            enemyScripts[key].range.isArenaEnemy = true
+        elseif type == "tank" and enemyScripts[key].tank then
+            enemyScripts[key].tank.isArenaEnemy = true
+        elseif type == "supp" and enemyScripts[key].supp then
+            enemyScripts[key].supp.isArenaEnemy = true
+        end
 
         enemy:set_active(false)
     else
@@ -119,13 +115,17 @@ function checkEnemyStatus()
         enemyCount = enemyCount + 1
         local enemyType = activeEnemyTypes[i]
         local isDead = false
+        local enemyInstance = nil
         
         if enemyType == "range" then
-            isDead = enemy.range.health <= 0 or enemy.range.isDead
+            enemyInstance = enemy.range
+            isDead = enemyInstance.health <= 0 or enemyInstance.isDead
         elseif enemyType == "tank" then
-            isDead = enemy.tank.health <= 0 or enemy.tank.isDead
+            enemyInstance = enemy.tank
+            isDead = enemyInstance.health <= 0 or enemyInstance.isDead
         elseif enemyType == "supp" then
-            isDead = enemy.supp.health <= 0 or enemy.supp.isDead
+            enemyInstance = enemy.supp
+            isDead = enemyInstance.health <= 0 or enemyInstance.isDead
         end
         
         if isDead then
@@ -208,6 +208,9 @@ function spawnEnemies()
         end
         
         if enemyEntity then
+            enemyEntity.isArenaEnemy = true
+            enemyEntity.zoneNumber = 3 -- Setting this to a high value to ensure it's always above player zone
+            enemyEntity.zoneSet = true  -- Prevent check_spawn from running again
 
             enemyEntity.currentState = 1 -- state.Idle
 
@@ -217,15 +220,18 @@ function spawnEnemies()
                 0,
                 math.sin(math.random() * 2 * math.pi) * spawnRadius
             )
-            rigidbodyComponent.rb:set_position(Vector3.new(arenaCenter.x + spawnOffset.x, 0, arenaCenter.z + spawnOffset.z))
+            
+            local spawnPos = Vector3.new(arenaCenter.x + spawnOffset.x, 0, arenaCenter.z + spawnOffset.z)
+            rigidbodyComponent.rb:set_position(spawnPos)
+            
+            -- Log the spawn for debugging
+            log("Enemy " .. enemyType .. " spawned at position: " .. spawnPos.x .. ", " .. spawnPos.y .. ", " .. spawnPos.z)
 
             if navComponent then
                 log("Enemy path updated")
                 enemyEntity:update_path(playerTransf)
                 enemyEntity.currentState = enemyEntity.state.Move
             end
-            
-            log("Enemy spawned at (" .. (arenaCenter.x + spawnOffset.x) .. "," .. (arenaCenter.z + spawnOffset.z) .. ")")
         end
     end
 end

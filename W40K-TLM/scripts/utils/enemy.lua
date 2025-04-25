@@ -80,6 +80,7 @@ function enemy:new(obj)
     obj.pushedTimeCounter = 0
     obj.zoneNumber = 0
     obj.zoneSet = false
+    obj.isArenaEnemy = false
     -- effects
     obj.isNeuralInhibitioning = false
     obj.neuralFirstTime = true
@@ -169,7 +170,11 @@ function enemy:die_state()
     self.playerScript.enemys_targeting = self.playerScript.enemys_targeting - 1 
 
     self.currentState = self.state.Idle
-    self.enemyRb:set_position(Vector3.new(-500, 0, 0))
+    
+    if not self.isArenaEnemy then
+        self.enemyRb:set_position(Vector3.new(-500, 0, 0))
+    end
+
     self.isDead = true
 
     self:generate_scrap()
@@ -383,7 +388,7 @@ function enemy:check_spawn()
             end
         end
     
-        if self.zoneNumber < self.playerScript.zonePlayer + 1  then
+        if self.zoneNumber < self.playerScript.zonePlayer + 1 and not self.isArenaEnemy then
             
             self.currentState = self.state.Idle
             self.enemyRb:set_position(Vector3.new(-500, 0, 0))
