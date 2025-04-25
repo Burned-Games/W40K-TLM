@@ -114,7 +114,7 @@ local granadeVelocity = 0.65
 scrapCounter = 0
 local scrapObjects = {}
 --local tuplaScrap = { {}, {} }
----local tuplaP1 = {}
+--local tuplaP1 = {}
 --local tuplaP2 = {}
 local distanceToPlayerToDestroy = 2, 2, 2
 local attractionActive = false 
@@ -493,6 +493,18 @@ function updateGodMode(dt)
     end
 
     if godMode then
+        if Input.is_key_pressed(Input.keycode.F2) then
+            SceneManager.change_scene("scenes/level1.TeaScene")
+            log ("cambio 1")
+        end
+        if Input.is_key_pressed(Input.keycode.F3) then
+            SceneManager.change_scene("scenes/level2.TeaScene")
+            log ("cambio 2")
+        end
+        if Input.is_key_pressed(Input.keycode.F4) then
+            log ("cambio 3")
+            SceneManager.change_scene("scenes/level3.TeaScene")
+        end
         health = 100
         bolterScript.ammo = 0
         shotgunammo = 0
