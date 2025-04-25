@@ -6,7 +6,7 @@ tank = enemy:new()
 local pathUpdateTimer = 0.0
 local pathUpdateInterval = 0.5
 local attackTimer = 0.0
-local attackCooldown = 3.0
+local attackCooldown = 0.75
 local tackleTimer = 0.0
 local tackleCooldown = 10.0
 local idleDuration = 1.0
@@ -184,7 +184,7 @@ function on_update(dt)
         tank:update_berserka(dt)
     end
 
-    if tank.playerDetected then
+    if tank.playerDetected and tank.currentState ~= tank.state.Tackle then
         tank:rotate_enemy(tank.playerTransf.position)
     end
 
@@ -338,12 +338,6 @@ function tank:tackle_state()
         tank.animator:set_current_animation(tank.currentAnim)
     end
 
-    if tank.collisionWithPlayer then
-        particle_spark_transform.position = tank.playerTransf.position
-        particle_spark:emit(5)
-        tank:make_damage(tank.tackleDamage)
-    end
-
     if tank.isCharging and tank.targetDirection then
         local velocity = Vector3.new(
             tank.targetDirection.x * tank.tackleSpeed,
@@ -352,8 +346,7 @@ function tank:tackle_state()
         )
 
         tank.enemyRb:set_velocity(velocity)
-
-        tank:rotate_enemy(Vector3.new(
+            tank:rotate_enemy(Vector3.new(
             tank.enemyTransf.position.x + tank.targetDirection.x,
             tank.enemyTransf.position.y,
             tank.enemyTransf.position.z + tank.targetDirection.z
