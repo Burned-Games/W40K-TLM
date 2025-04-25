@@ -6,6 +6,7 @@ local protectionTimer = 0
 local protectionActive = false
 
 fervorAstartesCooldown = 0
+fervorAstartesAvailable = true
 local fervorAstartesDuration = 10
 local fervorAstartesTimer = 0
 local fervorAstartesActive = false
@@ -23,7 +24,6 @@ function on_ready()
 end
 
 function on_update(dt)
-
     update_combat_state(dt)
     update_protection(dt)
     handle_fervor_astartes(dt)
@@ -75,24 +75,27 @@ function handle_fervor_astartes(dt)
     local playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     local standardTransform = current_scene:get_entity_by_name("FervorAstartesStandard"):get_component("TransformComponent")
 
-    if not fervorAstartesActive and fervorAstartesCooldown > 0 then
+    -- Reducir el cooldown siempre que sea mayor que 0, independientemente del estado de la habilidad
+    if fervorAstartesCooldown > 0 then
         fervorAstartesCooldown = fervorAstartesCooldown - dt
+        fervorAstartesAvailable = false
+    end
+    
+    if fervorAstartesCooldown <= 0 and not fervorAstartesAvailable then
+        fervorAstartesAvailable = true
     end
 
-    if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesCooldown <= 0 and not fervorAstartesStandardPlaced then
-        --print("Colocando estandarte")
+    if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesAvailable and not fervorAstartesStandardPlaced then
         place_fervor_astartes_standard(playerPosition, standardTransform)
-
     end
-    -- If the Fervor Astartes ability is active
+    
+    -- El resto del código permanece igual
     if fervorAstartesActive then
         fervorAstartesTimer = fervorAstartesTimer + dt
 
         if fervorAstartesTimer >= fervorAstartesDuration then
-            --print("[Fervor Astartes] Tiempo agotado - Finalizando efecto")
             end_fervor_astartes(standardTransform)
         else
-
             local playerPos = playerPosition.position
             local standardPos = standardTransform.position
 
@@ -101,7 +104,7 @@ function handle_fervor_astartes(dt)
                 (playerPos.y - standardPos.y) ^ 2 +
                 (playerPos.z - standardPos.z) ^ 2
             )
-            -- If the player is inside the radius of the Fervor Astartes standard
+            
             if distance <= fervorAstartesRadius and fervorAstartesActive then
                 if Player.bolterScript then
                     Player.bolterScript:set_attack_speed_multiplier(attackSpeedBonus)
@@ -112,7 +115,6 @@ function handle_fervor_astartes(dt)
                     Player.shotgunScript:set_attack_speed_multiplier(attackSpeedBonus)
                     Player.shotgunScript:set_reload_speed_multiplier(reloadSpeedBonus)
                 end
-            -- If the player is outside the radius of the Fervor Astartes standard
             else
                 if Player.bolterScript then
                     Player.bolterScript:set_attack_speed_multiplier(1.0)
@@ -131,13 +133,15 @@ end
 -- Function to place the Fervor Astartes standard
 function place_fervor_astartes_standard(playerPosition, standardTransform)
     if fervorAstartesStandardEntity then
-
         local posicion = Vector3.new(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z)
         standardTransform.position = posicion
 
         fervorAstartesStandardPlaced = true
         fervorAstartesActive = true
         fervorAstartesTimer = 0
+        
+        fervorAstartesCooldown = 25
+        fervorAstartesAvailable = false
     end
 end 
 
@@ -145,7 +149,6 @@ end
 function end_fervor_astartes(standardTransform)
     fervorAstartesActive = false
     fervorAstartesStandardPlaced = false
-    fervorAstartesCooldown = 25  
     fervorAstartesTimer = 0
 
     local endingPosition = Vector3.new(0, -100, 0)

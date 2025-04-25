@@ -1,5 +1,6 @@
 local upgradeManager = nil
 local hud = nil
+local pauseMenu = nil
 
 local gunBuyButtonEntity, gunBuyButton
 local charBuyButtonEntity, charBuyButton
@@ -78,7 +79,12 @@ local BUTTON_STATES = {
 function on_ready()
     -- Initialize upgrade manager
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+    
+    -- Initialize HUD
     hud = current_scene:get_entity_by_name("HUD")
+    
+    -- Initialize pause menu
+    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
     -- Initialize buttons from the scene
     gunBuyButtonEntity = current_scene:get_entity_by_name("GunBuyButton")
@@ -320,7 +326,7 @@ function on_update(dt)
     --     hide_ui()
     -- end
 
-    if isWorkBenchOpen then
+    if isWorkBenchOpen or pauseMenu.isPaused then
         hud:set_active(false)
     else
         hud:set_active(true)
