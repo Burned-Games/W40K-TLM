@@ -102,6 +102,10 @@ function on_ready()
 
     main_boss.lastTargetPos = main_boss.playerTransf.position
 
+    main_boss.fistTransforms = {main_boss.fist1Transform, main_boss.fist2Transform, main_boss.fist3Transform}
+    main_boss.fistRbs = {main_boss.fist1Rb, main_boss.fist2Rb, main_boss.fist3Rb}
+    main_boss.scalingFists = {}
+
     main_boss.wrathRbComponent:on_collision_stay(function(entityA, entityB)
 
         local nameA = entityA:get_component("TagComponent").tag
@@ -134,6 +138,8 @@ function on_update(dt)
     main_boss:check_effects(dt)
 
     change_state()
+    
+    update_fist_scaling(dt)
 
     if main_boss.currentState == main_boss.state.Idle then return end
 
@@ -331,7 +337,66 @@ end
 function fists_attack()
 
     log("Fists Attack")
+    local playerPos = main_boss.playerTransf.position
+    main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+    -- Calculate positions around the player (equidistant points in a circle)
+    local radius = 3.5
+    local fistPositions = {
+        Vector3.new(playerPos.x + radius, 0, playerPos.z),  -- Right
+        Vector3.new(playerPos.x - radius/2, 0, playerPos.z + radius * 0.866),  -- Bottom left
+        Vector3.new(playerPos.x - radius/2, 0, playerPos.z - radius * 0.866)   -- Top left
+    }
 
+    -- Clear previous scaling operations
+    main_boss.scalingFists = {}
+
+    for i = 1, 3 do
+        if main_boss.fistRbs[i] and main_boss.fistTransforms[i] then
+            -- Set initial position
+            main_boss.fistRbs[i]:set_position(fistPositions[i])
+            
+            -- Reset scale
+            main_boss.fistTransforms[i].scale = Vector3.new(1, 1, 1)
+            
+            -- Add to scaling list with reference to the specific fist transform
+            table.insert(main_boss.scalingFists, {
+                transform = main_boss.fistTransforms[i],
+                elapsed = 0,
+                duration = 3,
+                startScale = Vector3.new(1, 1, 1),
+                targetScale = Vector3.new(1.7, 1.7, 1.7)
+            })
+        end
+    end
+
+end
+
+function update_fist_scaling(dt)
+    for i = #main_boss.scalingFists, 1, -1 do
+        local data = main_boss.scalingFists[i]
+        data.elapsed = data.elapsed + dt
+
+        if data.elapsed <= data.duration then
+            -- Calculate scale based on elapsed time (linear interpolation)
+            local t = data.elapsed / data.duration
+            local newScale = Vector3.new(
+                data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
+                data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
+                data.startScale.z + (data.targetScale.z - data.startScale.z) * t
+            )
+            
+            -- Apply scale to the specific fist transform
+            if data.transform then
+                data.transform.scale = newScale
+            end
+        else
+            -- Scaling complete, set to final scale
+            if data.transform then
+                data.transform.scale = data.targetScale
+            end
+            table.remove(main_boss.scalingFists, i)
+        end
+    end
 end
 
 function on_exit()
