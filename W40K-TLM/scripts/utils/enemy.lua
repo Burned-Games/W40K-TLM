@@ -444,6 +444,7 @@ function enemy:make_damage(damage)
     if self.playerScript.health > 0 then
         self.playerScript.health = self.playerScript.health - damage
         print(self.playerScript.health)
+        self.playerScript.takeHit()
     end
 
 end

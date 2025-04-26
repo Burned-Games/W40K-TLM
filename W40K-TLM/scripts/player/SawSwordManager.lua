@@ -15,6 +15,10 @@ local playerScript = nil
 local entities = nil
 local enemies = nil
 slashed = false
+
+local slashCounter = 0
+local slashTime = 0.8
+slasheeed = false
 --local ----------shootParticlesComponent = nil
 --local --bulletDamageParticleComponent = nil
 
@@ -60,11 +64,26 @@ function on_update(dt)
     local rightShoulder = Input.get_button(Input.action.Melee)
 
     if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true then
-        slashed = true
-        Slash()
+        
+        slasheeed = true
+        
             
         sawSwordAvailable = false
         
+    end
+
+    if slasheeed == true then
+        slashCounter = slashCounter + dt
+
+        if slashCounter >= slashTime and slashed == false then
+            Slash()
+            slashed = true
+
+            
+        end
+        
+    else
+        slashCounter = 0
     end
     
     if sawSwordAvailable == false then
