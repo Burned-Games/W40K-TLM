@@ -85,6 +85,7 @@ local particle_blood_spark_transform = nil
     local upgradeManager = nil
 
 shootAnimation = false
+reloadAnimation = false
 
 local charging
 
@@ -242,14 +243,19 @@ function on_update(dt)
             local leftShoulder = Input.get_button(Input.action.Skill2)
 
             if ammo >= maxAmmo then
+                playReload()
+                if playerScript.currentUpAnim ~= playerScript.reload_Bolter and reloadAnimation == false then
+                    playerScript.currentUpAnim = playerScript.reload_Bolter
+                    playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                    reloadAnimation = true
+                end
                 if reloadTime == 0 then
-                    playReload()
                 end
                 reloadTime = reloadTime + dt
                 if reloadTime >= currentMaxReloadTime then
-                    
                     ammo = 0
                     reloadTime = 0
+                    reloadAnimation = false
                 end
             end
             if shooted == true then

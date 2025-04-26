@@ -5,7 +5,7 @@ shotgun_fire_rate = 1.3
 next_fire_time = 0 
 
 -- ammo
-maxAmmo = 1  -- maxammo
+maxAmmo = 12 -- maxammo
 ammo = maxAmmo  -- curreamoo
 reload_time = 2.8  -- reloadtime
 is_reloading = false  -- inReloading?
