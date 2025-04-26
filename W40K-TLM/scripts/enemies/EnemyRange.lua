@@ -405,7 +405,7 @@ function range:stab_state(dt)
             particle_spark_transform.position = range.playerTransf.position
             particle_spark:emit(5) 
             range:make_damage(range.meleeDamage)
-            if range.level2 then
+            if range.level2 or range.leve3 then
                 effect:apply_bleed(range.playerScript)
             end
             range.hasDealtDamage = true
@@ -431,7 +431,7 @@ function shoot_projectile(targetExplosive)
     
     -- Target position
     local targetPos = range.delayedPlayerPos -- Default to player
-    if targetExplosive and range.explosiveDetected and range.leve3 then -- Switch to explosive if detected
+    if targetExplosive and range.explosiveDetected and range.level3 then -- Switch to explosive if detected
         targetPos = range.explosiveTransf.position 
     end
 
