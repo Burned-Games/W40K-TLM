@@ -88,12 +88,16 @@ function on_update(dt)
             workbenchUIManagerScript:show_ui()
             
             -- Track mission objectives
-            if mission_Component.getCurrerTaskIndex(true) == 5 then
+            if mission_Component.getCurrerTaskIndex(true) == 5 and mission_Component.getCurrerLevel() == 1  then
                 mission_Component.m5_Upgrade = true
             end
 
-            if mission_Component.getCurrerTaskIndex(true) == 7 then
+            if mission_Component.getCurrerTaskIndex(true) == 7 and mission_Component.getCurrerLevel() == 1 then
                 mission_Component.m7_Upgrade = true
+            end
+
+            if mission_Component.getCurrerTaskIndex(true) == 1 and mission_Component.getCurrerLevel() == 2 then
+                mission_Component.m1_Upgrade = true
             end
         end
     end

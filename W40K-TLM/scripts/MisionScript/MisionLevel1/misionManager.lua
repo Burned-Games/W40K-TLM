@@ -53,6 +53,7 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
+local current_Level = 1
 --MisionBlue
 --M3
 m3_EnemyCount = 0
@@ -173,7 +174,7 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 4 and m4_EnemyCount == 2 then
+    elseif blueTaskIndex == 4 and m4_lever then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)
@@ -284,3 +285,8 @@ function utf8_char_count(s)
     local _, count = s:gsub("[^\128-\191]", "")
     return count
 end
+
+function getCurrerLevel()
+   
+    return current_Level
+end 

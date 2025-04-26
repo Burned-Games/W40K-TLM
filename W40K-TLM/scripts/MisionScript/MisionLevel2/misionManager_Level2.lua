@@ -51,27 +51,12 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
+local current_Level = 2
+
 --MisionBlue
---M3
-m3_EnemyCount = 0
---M4
-m4_lever = false
-m4_EnemyCount = 0
---M5
-m5_Upgrade = false
---M6
-m6_heal  = false
---M7
-m7_Upgrade = false
---m8
-m8_lever1 = false
-m8_lever2 = false
---M9
-m9_EnemyCount = 0
---M10
-m10_Upgrade = false
---M11
-m11_NewZone = false
+--M1
+m1_Upgrade = false
+
 
 --MisionRed
 --MR1
@@ -165,25 +150,9 @@ end
 
 function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
-    if blueTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
+    if blueTaskIndex == 1 and m1_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 4 and m4_EnemyCount == 2 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 5 and m5_Upgrade then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 6 and m6_heal then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 7 and m7_Upgrade then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 8 and m8_lever1 and m8_lever2 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 9 and m9_EnemyCount == 3 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 10 and m10_Upgrade then
+    elseif blueTaskIndex == 2 and mission10Complet then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 11 and m11_NewZone then
         startAnimation(blueAnimation)
