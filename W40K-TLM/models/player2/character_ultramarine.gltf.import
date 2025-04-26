@@ -1,0 +1,134 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "character_ultramarine_Cylinder.002",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 14552892606947797475
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cube.003",
+                        "value": {
+                            "value0": 5674061294540251582
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Plane.002",
+                        "value": {
+                            "value0": 17739076514109381404
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cube.007",
+                        "value": {
+                            "value0": 7403613918652999275
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cylinder.004",
+                        "value": {
+                            "value0": 7003381074818043961
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cube.004",
+                        "value": {
+                            "value0": 13595472175554258303
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Plane.001",
+                        "value": {
+                            "value0": 8030035962701609192
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cylinder.003",
+                        "value": {
+                            "value0": 4457649159033977452
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cube.001",
+                        "value": {
+                            "value0": 4658299164240418721
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cube.002",
+                        "value": {
+                            "value0": 2385763138473303772
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cylinder.038",
+                        "value": {
+                            "value0": 17308631552408303085
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Bolter_Mat0",
+                        "value": {
+                            "value0": 11372316082866776952
+                        }
+                    },
+                    {
+                        "key": "Checker.001_Mat4",
+                        "value": {
+                            "value0": 12155827881145589550
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_MAT_Mat1",
+                        "value": {
+                            "value0": 8348193485042813902
+                        }
+                    },
+                    {
+                        "key": "Checker.002_Mat2",
+                        "value": {
+                            "value0": 7927663519988027713
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat3",
+                        "value": {
+                            "value0": 15158911836875380333
+                        }
+                    },
+                    {
+                        "key": "Escpoeta_MAT_Mat5",
+                        "value": {
+                            "value0": 6815303935430544860
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 11258260400458436252
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/player2/character_ultramarine.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11258260400458436252.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

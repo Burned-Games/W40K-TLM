@@ -131,20 +131,29 @@ enemyDirection = Vector3.new(0,0,0)
 local checkpointsPosition = { Vector3.new(-6, 0, -30), Vector3.new(95, 0, -115)}
 
 --animation indexs
-idle = 4
-attack = 0
-local dash = 1
-local die = 2
-local drop = 3
-local mainMenu = 5
-local melee = 6
-local run = 7
-local runB = 9
-local runL = 10
-local runR = 11
+idle = 14 --14
+attack = 1
+local dash = 3
+local die = 5
+local drop = 6
+local mainMenu = 15
+local melee = 16
+local run = 21
+local runB = 23
+local runL = 24
+local runR = 25
 local run_Shotgun = 12
 local rotationAngle = 0
 local transf = nil
+local h1_Bolter = 9
+local h1_Shotgun_Aim = 10
+local h1_Bolter = 11
+local heal = 12
+local hit = 13
+local reload_Bolter = 17
+local reload_Shotgun = 17
+local stun
+
 
 -- particles
 local particle_lvl1_run = nil
