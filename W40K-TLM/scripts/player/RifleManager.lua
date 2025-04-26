@@ -60,11 +60,11 @@ local particle_blood_spark_transform = nil
 
     local shieldMultiplier = 0.3
 
-    cooldownDisruptorBulletTime = 18
-    cooldownDisruptorBulletTimeCounter = 18
+    cooldownDisruptorBulletTime = 1
+    cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTime
     disruptorShooted = true
     local disruptorShooted2 = false
-    local disruptorChargeTime = 0.8
+    local disruptorChargeTime = 1
     local disruptorChargeTimeCounter = 0
 
     --Zone
@@ -87,7 +87,7 @@ local particle_blood_spark_transform = nil
 shootAnimation = false
 reloadAnimation = false
 
-local charging
+charging = false
 
 local pauseMenu = nil
 
@@ -304,11 +304,21 @@ function on_update(dt)
                 Physics.DebugDrawRaycast(player:get_component("TransformComponent").position, aimVector, 10, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
             end
 
-            if leftShoulder == Input.state.Up and charging--[[and upgradeManager.has_weapon_special()]] then
-                cooldownDisruptorBulletTimeCounter = 0
-                disruptorShooted = true
-                disruptorShooted2 = true
-                charging = false
+            if leftShoulder == Input.state.Up and charging then
+                disruptorChargeTimeCounter = disruptorChargeTimeCounter + dt
+                if disruptorChargeTimeCounter >= disruptorChargeTime then
+                    cooldownDisruptorBulletTimeCounter = 0
+                    disruptorShooted = true
+                    disruptorShooted2 = true
+                    charging = false
+                else
+                    if playerScript.currentAnim ~= playerScript.h1_Bolter then
+                        print("eeeeeeeeeeeeee")
+                        playerScript.currentAnim = playerScript.h1_Bolter
+                        playerScript.animator:set_current_animation(playerScript.currentAnim)
+                    end
+                end
+                
             end
 
             if disruptorShooted and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown then
