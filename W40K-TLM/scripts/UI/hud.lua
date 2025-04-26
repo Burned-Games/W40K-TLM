@@ -45,6 +45,7 @@
     local skillArma2Cooldown
     local skillsArmasCooldown = false
     local skillsArmasTimer = 0
+    local skillsArmasBoton
     local skillArma1VisualCooldownTransform
     local skillArma1VisualCooldownStartingPosition
     local skillArma2VisualCooldownTransform
@@ -130,6 +131,7 @@
         skillArma1VisualCooldownStartingPosition = Vector3.new(skillArma1VisualCooldownTransform.position.x, skillArma1VisualCooldownTransform.position.y, skillArma1VisualCooldownTransform.position.z)
         skillArma2VisualCooldownTransform = current_scene:get_entity_by_name("HabilidadArma2Cooldown"):get_component("TransformComponent")
         skillArma2VisualCooldownStartingPosition = Vector3.new(skillArma2VisualCooldownTransform.position.x, skillArma2VisualCooldownTransform.position.y, skillArma2VisualCooldownTransform.position.z)
+        skillsArmasBoton = current_scene:get_entity_by_name("HabilidadesArmasBoton")
 
         rifleScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
         rifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTimeCounter
@@ -306,12 +308,12 @@
         -- Set weapon skill availability based on upgrades
         skillArma1.value = upgradeManager:has_weapon_special()
         skillArma2.value = upgradeManager:has_weapon_special()
-    
+
         if playerScript.actualweapon == 0 then
             arma1:set_active(true)
             arma2:set_active(false)
             
-            skillArma1Entity:set_active(upgradeManager:has_weapon_special())
+            skillArma1Entity:set_active(true)
             skillArma2Entity:set_active(false)
             
             skillArma2CooldownEntity:set_active(false)
@@ -345,7 +347,7 @@
             arma2:set_active(true)
             
             skillArma1Entity:set_active(false)
-            skillArma2Entity:set_active(upgradeManager:has_weapon_special())
+            skillArma2Entity:set_active(true)
             
             skillArma1CooldownEntity:set_active(false)
         
