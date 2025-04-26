@@ -423,7 +423,7 @@ function shoot_projectile(targetExplosive)
     local bullet = bulletPool[currentBulletIndex]
     
     local startPos = Vector3.new(
-        range.enemyTransf.position.x,
+        range.enemyTransf.position.x -0.2,
         range.enemyTransf.position.y + 0.65,
         range.enemyTransf.position.z
     )
