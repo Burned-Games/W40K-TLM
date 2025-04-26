@@ -3,14 +3,14 @@
         "cereal_class_version": 0,
         "Base": {
             "cereal_class_version": 0,
-            "value0": "lever.gltf_Prefab",
+            "value0": "lever_Prefab",
             "value1": {
                 "value0": ""
             },
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 10155294467123450884
+                "value0": 3493915235551843382
             }
         },
         "RootEntity": 0,
@@ -23,15 +23,15 @@
         "value6": 0,
         "value7": {
             "cereal_class_version": 0,
-            "Tag": "lever.gltf"
+            "Tag": "lever"
         },
         "value8": 1,
         "value9": {
-            "Tag": "Root"
+            "Tag": "base.001"
         },
         "value10": 2,
         "value11": {
-            "Tag": "base.001"
+            "Tag": "Root"
         },
         "value12": 3,
         "value13": 0,
@@ -113,18 +113,18 @@
             "Prev": 1
         },
         "value26": 1,
-        "value27": 2,
+        "value27": 1,
         "value28": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 10320846043448104506
             },
             "AnimatorUUID": {
-                "value0": 11538023081776323011
+                "value0": 17057403700874565888
             }
         },
         "value29": 1,
-        "value30": 2,
+        "value30": 1,
         "value31": {
             "cereal_class_version": 0,
             "Material": {
@@ -132,81 +132,23 @@
             }
         },
         "value32": 0,
-        "value33": 1,
+        "value33": 0,
         "value34": 0,
-        "value35": {
-            "cereal_class_version": 0,
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483649,
-                    "data": {
-                        "cereal_class_version": 0,
-                        "m_Properties": {
-                            "cereal_class_version": 0,
-                            "type": 0,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": true,
-                            "freezeY": true,
-                            "freezeZ": true,
-                            "freezeRotX": true,
-                            "freezeRotY": true,
-                            "freezeRotZ": true,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 2147483649,
-                            "polymorphic_name": "Coffee::BoxCollider",
-                            "ptr_wrapper": {
-                                "id": 2147483650,
-                                "data": {
-                                    "cereal_class_version": 0,
-                                    "value0": {
-                                        "cereal_class_version": 0,
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.5,
-                                            "y": 0.5,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 1.9199999570846558,
-                                            "y": 0.9200000166893005,
-                                            "z": 2.9200000762939455
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value36": 0,
+        "value35": 0,
+        "value36": 3,
         "value37": 0,
-        "value38": 3,
-        "value39": 0,
+        "value38": 1,
+        "value39": 2,
         "value40": 1,
-        "value41": 2,
-        "value42": 1,
-        "value43": 0,
-        "value44": {
+        "value41": 0,
+        "value42": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/interactables/Lever.lua",
             "Language": 0
         },
-        "value45": 1,
-        "value46": 0,
-        "value47": {
+        "value43": 1,
+        "value44": 0,
+        "value45": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -215,11 +157,11 @@
                 "value0": 6999506995957282129
             },
             "AnimatorUUID": {
-                "value0": 11538023081776323011
+                "value0": 17057403700874565888
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483651,
+                    "id": 2147483649,
                     "data": {
                         "cereal_class_version": 0,
                         "CurrentAnimation": 0
@@ -228,7 +170,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483652,
+                    "id": 2147483650,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -239,6 +181,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
+        "value46": 0,
+        "value47": 0,
         "value48": 0,
         "value49": 0,
         "value50": 0,
@@ -247,8 +191,6 @@
         "value53": 0,
         "value54": 0,
         "value55": 0,
-        "value56": 0,
-        "value57": 0,
-        "value58": 0
+        "value56": 0
     }
 }
