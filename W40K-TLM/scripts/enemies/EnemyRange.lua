@@ -113,6 +113,7 @@ function on_ready()
     range.level2 = false
     range.level3 = false
     range.enemyInDanger = false
+    range.key = 0
 
     range.idleAnim = 3
     range.moveAnim = 4
@@ -197,6 +198,9 @@ function on_update(dt)
     
     if range.health <= 0 then
         print("tt")
+        if range.key ~= 0 then
+            range.playerScript.enemys_targeting = range.playerScript.enemys_targeting - 1
+        end
         rangeDyingSFX:play()
         range:die_state()
         

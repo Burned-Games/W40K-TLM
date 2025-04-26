@@ -83,6 +83,7 @@ function on_ready()
     support.attackAnim = 0
     support.shieldAnim = 1
     support.dieAnim = 2
+    support.key = 0
 
     support.state.Flee = 5
     support.state.Shield = 6
@@ -143,6 +144,12 @@ function on_update(dt)
         return
 
     elseif support.currentState == support.state.Move then
+       --[[ if support.key == 0 then
+             
+            support.playerScript.enemys_targeting = support.playerScript.enemys_targeting + 1
+            support.key = support.key + 1
+        end
+        ]]--
         support:move_state(dt)
 
     elseif support.currentState == support.state.Attack then

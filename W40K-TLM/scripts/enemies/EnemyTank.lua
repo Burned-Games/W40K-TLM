@@ -74,6 +74,8 @@ function on_ready()
 
     tank.state.Tackle = 4
 
+    tank.key = 0
+
     tank.idleAnim = 3
     tank.moveAnim = 4
     tank.attackAnim = 0
@@ -154,6 +156,9 @@ function on_update(dt)
     change_state()
 
     if tank.health <= 0 then
+        if tank.key ~= 0 then
+            tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting - 1
+        end
         tank:die_state()
     end
 
@@ -193,6 +198,11 @@ function on_update(dt)
         return
 
     elseif tank.currentState == tank.state.Move then 
+        if tank.key == 0 then
+             
+            tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting + 1
+            tank.key = tank.key + 1
+        end
         tank:move_state()
 
     elseif tank.currentState == tank.state.Attack then

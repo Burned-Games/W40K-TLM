@@ -303,6 +303,7 @@ end
 function on_update(dt)
     dtColective = dtColective + dt
 
+
     if StimsCounter > 0 and isHealing == false and Input.get_button(Input.action.Injector) == Input.state.Down then
         
         StimsCounter = StimsCounter - 1
