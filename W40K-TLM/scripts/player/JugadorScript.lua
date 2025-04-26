@@ -505,6 +505,13 @@ function updateGodMode(dt)
             log ("cambio 3")
             SceneManager.change_scene("scenes/level3.TeaScene")
         end
+        if Input.is_key_pressed(Input.keycode.F5) then
+            log ("cambio 4")
+            SceneManager.change_scene("scenes/Default.TeaScene")
+        end
+        if Input.is_key_pressed(Input.keycode.F6) then
+            scrapCounter = scrapCounter + 1000
+        end
         health = 100
         bolterScript.ammo = 0
         shotgunammo = 0
