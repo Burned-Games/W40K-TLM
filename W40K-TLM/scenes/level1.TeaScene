@@ -114824,12 +114824,12 @@
             "ScriptPath": "scripts/player/ArmorUpgradeSystem.lua",
             "Language": 0
         },
-        "value26211": 1469,
+        "value26211": 1433,
         "value26212": {
-            "ScriptPath": "scripts/DialogScript/Dialogo1/dialogManager.lua",
+            "ScriptPath": "scripts/DialogScript/Dialogo1/FirstDialogoZone.lua",
             "Language": 0
         },
-        "value26213": 1427,
+        "value26213": 1050004,
         "value26214": {
             "ScriptPath": "scripts/MisionScript/MisionLevel1/M7NextZone.lua",
             "Language": 0
@@ -114839,34 +114839,34 @@
             "ScriptPath": "scripts/workbench/WorkBenchTrigger.lua",
             "Language": 0
         },
-        "value26217": 1429,
+        "value26217": 1050006,
         "value26218": {
-            "ScriptPath": "scripts/MisionScript/MisionLevel1/M10NextZone.lua",
-            "Language": 0
-        },
-        "value26219": 1050004,
-        "value26220": {
-            "ScriptPath": "scripts/MisionScript/MisionLevel1/M7NextZone.lua",
-            "Language": 0
-        },
-        "value26221": 1050006,
-        "value26222": {
             "ScriptPath": "scripts/MisionScript/MisionLevel1/M11NextZone.lua",
             "Language": 0
         },
-        "value26223": 1431,
-        "value26224": {
+        "value26219": 1429,
+        "value26220": {
+            "ScriptPath": "scripts/MisionScript/MisionLevel1/M10NextZone.lua",
+            "Language": 0
+        },
+        "value26221": 1431,
+        "value26222": {
             "ScriptPath": "scripts/MisionScript/MisionLevel1/MR1NextZone.lua",
             "Language": 0
         },
-        "value26225": 1432,
-        "value26226": {
+        "value26223": 1432,
+        "value26224": {
             "ScriptPath": "scripts/MisionScript/MisionLevel1/MR2NextZone.lua",
             "Language": 0
         },
-        "value26227": 1414,
+        "value26225": 1469,
+        "value26226": {
+            "ScriptPath": "scripts/MisionScript/MisionLevel1/misionManager.lua",
+            "Language": 0
+        },
+        "value26227": 1427,
         "value26228": {
-            "ScriptPath": "scripts/MisionScript/MisionLevel1/M56NextZone.lua",
+            "ScriptPath": "scripts/MisionScript/MisionLevel1/M7NextZone.lua",
             "Language": 0
         },
         "value26229": 2606,
@@ -114994,9 +114994,9 @@
             "ScriptPath": "scripts/misc/BreakObject.lua",
             "Language": 0
         },
-        "value26279": 1590,
+        "value26279": 1414,
         "value26280": {
-            "ScriptPath": "scripts/PopUpScript/popupSystem.lua",
+            "ScriptPath": "scripts/MisionScript/MisionLevel1/M56NextZone.lua",
             "Language": 0
         },
         "value26281": 1050171,
@@ -115314,9 +115314,9 @@
             "ScriptPath": "scripts/misc/BreakObject.lua",
             "Language": 0
         },
-        "value26407": 1433,
+        "value26407": 1590,
         "value26408": {
-            "ScriptPath": "scripts/DialogScript/Dialogo1/FirstDialogoZone.lua",
+            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popupSystem.lua",
             "Language": 0
         },
         "value26409": 1,
@@ -119043,7 +119043,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 60007.98046875,
+                        "ElapsedTime": 60245.76953125,
                         "TextureUUID": {
                             "value0": 8760388149134123358
                         }
@@ -119311,7 +119311,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 58088.44921875,
+                        "ElapsedTime": 58326.23828125,
                         "TextureUUID": {
                             "value0": 11433126781885437404
                         }
@@ -119575,7 +119575,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 57666.26171875,
+                        "ElapsedTime": 57904.05078125,
                         "TextureUUID": {
                             "value0": 11433126781885437404
                         }
@@ -119843,7 +119843,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 79286.453125,
+                        "ElapsedTime": 79795.578125,
                         "TextureUUID": {
                             "value0": 5108660922888521590
                         }
@@ -120111,7 +120111,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 55129.85546875,
+                        "ElapsedTime": 55367.64453125,
                         "TextureUUID": {
                             "value0": 13417452427494671773
                         }
@@ -120375,7 +120375,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 54930.37109375,
+                        "ElapsedTime": 55168.16015625,
                         "TextureUUID": {
                             "value0": 10465071026567610325
                         }
@@ -120643,7 +120643,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 78535.015625,
+                        "ElapsedTime": 79044.140625,
                         "TextureUUID": {
                             "value0": 3119739597825529390
                         }
@@ -120907,7 +120907,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 53512.48828125,
+                        "ElapsedTime": 53750.27734375,
                         "TextureUUID": {
                             "value0": 15522101500032490281
                         }
@@ -121175,7 +121175,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 53148.03515625,
+                        "ElapsedTime": 53385.82421875,
                         "TextureUUID": {
                             "value0": 2330904700658026574
                         }
@@ -121439,7 +121439,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 52996.65234375,
+                        "ElapsedTime": 53234.44140625,
                         "TextureUUID": {
                             "value0": 4745046098025428021
                         }
@@ -121707,7 +121707,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 48917.17578125,
+                        "ElapsedTime": 49154.96484375,
                         "TextureUUID": {
                             "value0": 9499907433208848660
                         }
