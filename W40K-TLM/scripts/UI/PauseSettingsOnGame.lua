@@ -46,7 +46,6 @@ function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("Continue"):get_component("UITextComponent")
     button2 = current_scene:get_entity_by_name("SettingsButton"):get_component("UITextComponent")
-    button3 = current_scene:get_entity_by_name("SaveGame"):get_component("UITextComponent")
     button4 = current_scene:get_entity_by_name("Exit"):get_component("UITextComponent")
 
     text1 = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
@@ -106,7 +105,6 @@ function on_update(dt)
     if index == 0 then
         button1:set_color(selectedColor)
         button2:set_color(defaultColor)
-        button3:set_color(defaultColor)
         button4:set_color(defaultColor)
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
@@ -121,7 +119,6 @@ function on_update(dt)
     elseif index == 1 then
         button1:set_color(defaultColor)
         button2:set_color(selectedColor)
-        button3:set_color(defaultColor)
         button4:set_color(defaultColor)
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
@@ -136,32 +133,15 @@ function on_update(dt)
             end
         end
         
-    elseif index == 2 then
-        button1:set_color(defaultColor)
-        button2:set_color(defaultColor)
-        button3:set_color(selectedColor)
-        button4:set_color(defaultColor)
-        if isPaused then
-            value = Input.get_button(Input.action.Confirm)
-            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-                --button3:set_state("Pressed")
-                if(index == 2) then
-                    sceneChanged = true
-                    --print("Saving game...")
-                end
-            end
-        end
-
     else
         button1:set_color(defaultColor)
         button2:set_color(defaultColor)
-        button3:set_color(defaultColor)
         button4:set_color(selectedColor)
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
                 --button4:set_state("Pressed")
-                if(index == 3) then
+                if(index == 2) then
                 SceneManager.change_scene("scenes/Default.TeaScene")
                 end
             end
@@ -176,13 +156,13 @@ function on_update(dt)
             if value < 0 then
                 index = index - 1;
                 if index < 0 then
-                    index = 3
+                    index = 2
                 end
             end
             
             if value > 0 then
                 index = index + 1
-                if index > 3 then
+                if index > 2 then
                     index = 0
                 end
             end
