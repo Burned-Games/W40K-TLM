@@ -1,19 +1,19 @@
 -- Task list split by color
 local blueTasks = {
-    {id = 1, description = "Upgrade your equipment before entering the Hive City"},
-    {id = 2, description = "Find and use the lever to open the East Door"},
-    {id = 3, description = "Make your way through the city"},
-    {id = 4, description = "Explore and exit the Hive City Central Square"},
-    {id = 5, description = "Upgrade your equipment before fighting in the Great Bridge"},
-    {id = 6, description = "Pull the lever to open the Great Bridge door"},
-    {id = 7, description = "Pull all the levers on the Great Bridge to open the Elevator Door. (x/2)"},
-    {id = 8, description = "Enter the Great Bridge Elevator"}
+    {id = 12, description = "Aqui es nivel 3 Blue"},
+    {id = 13, description = "Find and use the lever to open the East Door"},
+    {id = 14, description = "Make your way through the city"},
+    {id = 15, description = "Explore and exit the Hive City Central Square"},
+    {id = 16, description = "Upgrade your equipment before fighting in the Great Bridge"},
+    {id = 17, description = "Pull the lever to open the Great Bridge door"},
+    {id = 18, description = "Pull all the levers on the Great Bridge to open the Elevator Door. (x/2)"},
+    {id = 19, description = "Enter the Great Bridge Elevator"}
 }
 
 
 
 local redTasks = {
-    {id = 4, description = "Get to the Great Bridge of the Hive City"},
+    {id = 4, description = "Aqui es nivel 3 Red"},
     {id = 5, description = "Fight your way to the elevator of the Hive City"},
     {id = 6, description = "Fight and defeat (name)"}
 }
