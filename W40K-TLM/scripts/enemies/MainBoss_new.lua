@@ -5,6 +5,7 @@ local effect = require("scripts/utils/status_effects")
 main_boss = enemy:new()
 
 local stats = nil
+local enemy_type = "main_boss"
 
 local pathUpdateTimer = 0.0
 local pathUpdateInterval = 0.5
@@ -29,6 +30,8 @@ local ultiTimer = 0.0
 local ultiAttackTimer = 0.0
 local ultiAttackDuration = 15.0
 local ultiCooldown = 15.0
+local ultiHittingTimer = 0.0
+local ultiHittingDuration = 4.0
 
 local totemTimer = 0.0
 local totemCooldown = 20.0
@@ -80,7 +83,6 @@ function on_ready()
     main_boss.ultimateTransf = main_boss.ultimate:get_component("TransformComponent")
 
 
-    local enemy_type = "main_boss"
 
     stats = stats_data[enemy_type] and stats_data[enemy_type][main_boss.level]
     -- Debug in case is not working
@@ -120,6 +122,8 @@ function on_ready()
     main_boss.fistsThrown = false
     main_boss.isFistsDamaging = true
     main_boss.ultimateThrown = false
+    main_boss.ultimateCasting = false
+    main_boss.isUltimateDamaging = false
     main_boss.shieldActive = false
 
     main_boss.lastTargetPos = main_boss.playerTransf.position
@@ -145,7 +149,7 @@ function on_ready()
 
         if nameA == "Player" or nameB == "Player" and main_boss.isLightningDamaging then
             if not main_boss.hasDealtLightningDamage then
-                main_boss:make_damage(1)
+                main_boss:make_damage(main_boss.meleeDamage)
                 main_boss.hasDealtLightningDamage = true
             end
         end
@@ -156,7 +160,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
-            main_boss:make_damage(10)
+            main_boss:make_damage(main_boss.rangeDamage)
             main_boss.isFistsDamaging = false
         end
     end)
@@ -166,7 +170,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
-            main_boss:make_damage(10)
+            main_boss:make_damage(main_boss.rangeDamage)
             main_boss.isFistsDamaging = false
         end
     end)
@@ -176,7 +180,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
-            main_boss:make_damage(10)
+            main_boss:make_damage(main_boss.rangeDamage)
             main_boss.isFistsDamaging = false
         end
     end)
@@ -210,10 +214,29 @@ function on_update(dt)
         ultiAttackTimer = ultiAttackTimer + dt
 
         if ultiAttackTimer >= ultiAttackDuration then
-            check_ulti_collision()
-            main_boss.ultimateTransf.position = Vector3.new(-500, 0, -150)
+            main_boss.ultimateCasting = true
+        end
 
-            main_boss.ultimateThrown = false
+        if main_boss.ultimateCasting then
+            if not main_boss.isUltimateDamaging then
+                main_boss.isUltimateDamaging = true
+            end
+
+            ultiHittingTimer = ultiHittingTimer + dt
+
+            check_ulti_collision()
+            if ultiHittingTimer >= ultiHittingDuration then
+                main_boss.ultimateTransf.position = Vector3.new(-500, 0, -150)
+
+                main_boss.ultimateThrown = false
+                main_boss.ultimateCasting = false
+                main_boss.isUltimateDamaging = false
+                ultiAttackTimer = 0.0
+                ultiHittingTimer = 0.0
+                ultiTimer = 0.0
+
+                check_ulti_collision()
+            end
         end
     end
 
@@ -265,6 +288,11 @@ function on_update(dt)
             main_boss:update_path(main_boss.playerTransf)
         end
         pathUpdateTimer = 0
+    end
+
+    if main_boss.ultimateThrown or main_boss.ultimateCasting then
+        main_boss.currentState = main_boss.state.Idle
+        main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     end
 
 
@@ -322,6 +350,15 @@ end
 
 function main_boss:rage_state()
 
+    main_boss.level = 2
+
+    stats = stats_data[enemy_type] and stats_data[enemy_type][main_boss.level]
+    -- Debug in case is not working
+    if not stats then
+        log("No stats for type: " .. enemy_type .. " level: " .. main_boss.level)
+        return
+    end
+
     main_boss.bossShieldHealth = stats.bossShieldHealth
     main_boss.totemHealth = stats.totemHealth
     main_boss.speed = stats.speed
@@ -357,6 +394,12 @@ end
 function main_boss:attack_state()
 
     if not main_boss.isAttacking then return end
+
+    if main_boss.ultimateThrown or main_boss.ultimateCasting then
+        main_boss.isAttacking = false
+        attackTimer = 0.0
+        return
+    end
 
     if main_boss.currentAnim ~= main_boss.attackAnim then
         main_boss.currentAnim = main_boss.attackAnim
@@ -478,6 +521,34 @@ function ultimate_attack()
     main_boss.ultimateThrown = true
     ultiTimer = 0.0
     ultiAttackTimer = 0.0
+
+end
+
+function check_ulti_collision()
+
+    local center = main_boss.ultimateTransf.position
+    local numberOfRays = 128
+    local angleStep = 360 / numberOfRays
+    local rayLength = 20
+
+    for i = 0, numberOfRays - 1 do
+        local angle = math.rad(i * angleStep)
+        local direction = Vector3.new(math.sin(angle), 0, math.cos(angle))
+
+        local rayHit = Physics.Raycast(center, direction, rayLength)
+
+        if main_boss:detect(rayHit, main_boss.player) then
+            if main_boss.isUltimateDamaging then
+                print(main_boss.ultimateDamage)
+                main_boss:make_damage(main_boss.ultimateDamage)
+                main_boss.isUltimateDamaging = false
+            end
+        end
+
+        if main_boss.playerScript.godMode then
+            Physics.DebugDrawRaycast(center, direction, rayLength, Vector4.new(1, 0, 0, 1), Vector4.new(1, 1, 0, 1))
+        end
+    end
 
 end
 
