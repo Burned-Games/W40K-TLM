@@ -162,6 +162,8 @@ local changeing = false
 local changed = false
 local changeScene = false
 
+local pauseMenu = nil
+
 function on_ready()
     -- Add initialization code here
     -- Audio
@@ -298,99 +300,102 @@ function on_ready()
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
+
 end
 
 function on_update(dt)
-    dtColective = dtColective + dt
+
+    if not pauseScript.isPaused then
+        dtColective = dtColective + dt
 
 
-    if StimsCounter > 0 and isHealing == false and Input.get_button(Input.action.Injector) == Input.state.Down then
-        
-        StimsCounter = StimsCounter - 1
+        if StimsCounter > 0 and isHealing == false and Input.get_button(Input.action.Injector) == Input.state.Down then
+            
+            StimsCounter = StimsCounter - 1
 
-        intervalcheker = dtColective
-        intervalChekerDown = intervalcheker - 0.5
-        intervalchekerUp = intervalcheker + 0.5
-        isHealing = true
-        damageReduction = 1.15
-        if mission_Component.getCurrerTaskIndex(true) == 6 then
-            mission_Component.m6_heal = true
+            intervalcheker = dtColective
+            intervalChekerDown = intervalcheker - 0.5
+            intervalchekerUp = intervalcheker + 0.5
+            isHealing = true
+            damageReduction = 1.15
+            if mission_Component.getCurrerTaskIndex(true) == 6 then
+                mission_Component.m6_heal = true
+            end
         end
-    end
-    
-    if isHealing == true and intervalchekerUp > dtColective and intervalChekerDown < dtColective  then
         
-        intervalchekerUp = intervalchekerUp + 1.5
-        intervalChekerDown = intervalChekerDown + 1.5
-        HealPlayer()
-    end
-
-    if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
-
-        attractionActive = not attractionActive 
-        find_scrap()
-
-    end
-
-    if attractionActive == true then 
-        attract_scrap(dt)
-    
-    end
-
-    if enemys_targeting == 0 then
-        
-        attractionActive = not attractionActive 
-        find_scrap()
-    end
-
-
-    if Input.is_key_pressed(Input.keycode.L)  then
-        
-        print("", enemys_targeting)
-
-    end
-
-    checkPlayerDeath(dt)
-    handleWeaponSwitch(dt)
-    --updateEntranceAnimation(dt)
-    if(changeing)then
-        if fadeToBlackScript.fadeToBlackDoned then
-            changeScene = true
+        if isHealing == true and intervalchekerUp > dtColective and intervalChekerDown < dtColective  then
+            
+            intervalchekerUp = intervalchekerUp + 1.5
+            intervalChekerDown = intervalChekerDown + 1.5
+            HealPlayer()
         end
+
+        if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
+
+            attractionActive = not attractionActive 
+            find_scrap()
+
+        end
+
+        if attractionActive == true then 
+            attract_scrap(dt)
+        
+        end
+
+        if enemys_targeting == 0 then
+            
+            attractionActive = not attractionActive 
+            find_scrap()
+        end
+
+
+        if Input.is_key_pressed(Input.keycode.L)  then
+            
+            print("", enemys_targeting)
+
+        end
+
+        checkPlayerDeath(dt)
+        handleWeaponSwitch(dt)
+        --updateEntranceAnimation(dt)
+        if(changeing)then
+            if fadeToBlackScript.fadeToBlackDoned then
+                changeScene = true
+            end
+        end
+
+
+        if changeScene == true and not changed then
+            SceneManager.change_scene("scenes/lose.TeaScene")
+            changed = true
+        end
+
+        if deathAnimationSetted then
+            return
+        end
+        updateMusic(dt)
+        
+        if workbenchUIManagerScript.isWorkBenchOpen == false then
+            updateDash(dt)
+        end
+
+        updateGodMode(dt)
+        
+        
+        handleBleed(dt)
+
+        autoaimUpdate()
+        if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
+            playerMovement(dt)
+        else 
+            playerRb:set_velocity(Vector3.new(0, 0, 0))
+        end
+
+        handleCover()
+        
+        backgroundMusicToPlay = 0
+
     end
-
-
-    if changeScene == true and not changed then
-        SceneManager.change_scene("scenes/lose.TeaScene")
-        changed = true
-    end
-
-    if deathAnimationSetted then
-        return
-    end
-    updateMusic(dt)
-    
-    if workbenchUIManagerScript.isWorkBenchOpen == false then
-        updateDash(dt)
-    end
-
-    updateGodMode(dt)
-    
-    
-    handleBleed(dt)
-
-    autoaimUpdate()
-    if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
-        playerMovement(dt)
-    else 
-        playerRb:set_velocity(Vector3.new(0, 0, 0))
-    end
-
-    handleCover()
-    
-    backgroundMusicToPlay = 0
-
-    
 end
 
 function on_exit()

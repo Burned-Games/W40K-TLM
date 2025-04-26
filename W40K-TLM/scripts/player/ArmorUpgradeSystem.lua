@@ -17,16 +17,21 @@ local fervorAstartesRadius = 6.0
 local attackSpeedBonus = 1.2 
 local reloadSpeedBonus = 1.15
 
+local pauseMenu = nil
+
 function on_ready()
     Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     fervorAstartesStandardEntity = current_scene:get_entity_by_name("FervorAstartesStandard")
+    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 end
 
 function on_update(dt)
-    update_combat_state(dt)
-    update_protection(dt)
-    handle_fervor_astartes(dt)
+    if not pauseMenu.isPaused then
+        update_combat_state(dt)
+        update_protection(dt)
+        handle_fervor_astartes(dt)
+    end
 end
 
 -- Function to update the combat state of the player

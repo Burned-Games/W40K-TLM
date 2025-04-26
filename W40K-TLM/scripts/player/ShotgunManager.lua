@@ -89,6 +89,8 @@ local particle_previewG_exterior = nil
 local particle_previewG_interior_transform = nil
 local particle_previewG_exterior_transform = nil
 
+local pauseMenu = nil
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -151,6 +153,8 @@ function on_ready()
 
     --upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent") // A DESCOMENTAR
 
+    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+
 end
 
 function normalizeVector(v)
@@ -171,93 +175,97 @@ function on_update(dt)
     if playerScript.health <= 0 then
         return
     end
-    if initialize then
-        granadeOrigin = playerScript.playerTransf.position
-        initialize = false
-    end
-    
-    -- Applying multipliers
-    local currentShootCoolDownRifle = shotgun_fire_rate * (1 / attackSpeedMultiplier)
-    local currentMaxReloadTime = reload_time * (1 / reloadSpeedMultiplier)
-    if using == true then
-        -- updateTime
-        current_time = current_time + dt  
-        -- if in reload, check is fishing
-        if is_reloading then
-            if current_time >= reload_end_time then
-                ammo = maxAmmo  -- reload bullet
-                is_reloading = false
-            else
-                return  -- in reload cant shoot
-            end
-        end
-        local rightTrigger = Input.get_button(Input.action.Shoot)
 
-        -- shoot
-        if rightTrigger == Input.state.Repeat then
-            if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
-                playerScript.currentUpAnim = playerScript.attack
-                playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
-                shootAnimation = true
+    if not pauseMenu.isPaused then
+
+        if initialize then
+            granadeOrigin = playerScript.playerTransf.position
+            initialize = false
+        end
+        
+        -- Applying multipliers
+        local currentShootCoolDownRifle = shotgun_fire_rate * (1 / attackSpeedMultiplier)
+        local currentMaxReloadTime = reload_time * (1 / reloadSpeedMultiplier)
+        if using == true then
+            -- updateTime
+            current_time = current_time + dt  
+            -- if in reload, check is fishing
+            if is_reloading then
+                if current_time >= reload_end_time then
+                    ammo = maxAmmo  -- reload bullet
+                    is_reloading = false
+                else
+                    return  -- in reload cant shoot
+                end
             end
-            if ammo > 0 and current_time >= next_fire_time then
-                ammo = ammo - 1  -- use bullet 
-                shoot(dt)
-                next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
+            local rightTrigger = Input.get_button(Input.action.Shoot)
+
+            -- shoot
+            if rightTrigger == Input.state.Repeat then
+                if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
+                    playerScript.currentUpAnim = playerScript.attack
+                    playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                    shootAnimation = true
+                end
+                if ammo > 0 and current_time >= next_fire_time then
+                    ammo = ammo - 1  -- use bullet 
+                    shoot(dt)
+                    next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
+                    shootAnimation = false
+                end
+
+            else
                 shootAnimation = false
             end
 
-        else
-            shootAnimation = false
-        end
-
-        -- reload
-        if ammo == 0 and not is_reloading then
-            is_reloading = true
-            reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
-            shotgunReloadSFX:play()
-        end
-
-        local leftShoulder = Input.get_button(Input.action.Skill2)
-
-        if leftShoulder == Input.state.Up and launched then
-            --mover la particula a la posicion final de la granada
-
-            --particle_previewG_exterior_transform.position = finalTargetPos --fix, posicion correcta --PETA 
-            --particle_previewG_interior_transform.position = finalTargetPos --PETA 
-
-            --particle_previewG_interior:emit(1) --PETA 
-            --particle_previewG_exterior:emit(1) --PETA 
-
-            granadeDistance = 0
-            launched = false
-            rb:set_use_gravity(true)
-            throwing = true
-            throwGranade(finalTargetPos)
-
-        end
-
-        --granade 
-        if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and timerGranade <= 0 then
-            lbapretado = true
-            granadasSpeed = true
-            throwing = false
-            handleGranade(0)
-            --update_joystick_position()
-        else
-            if lbapretado then
-                shotgunGrenadeShotSFX:play()
-                dropGranade = true
+            -- reload
+            if ammo == 0 and not is_reloading then
+                is_reloading = true
+                reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
+                shotgunReloadSFX:play()
             end
-            lbapretado = false
-            granadasSpeed = false
-        end
 
-        
+            local leftShoulder = Input.get_button(Input.action.Skill2)
 
-        if self--[[upgradeManager.has_weapon_special()]] then
+            if leftShoulder == Input.state.Up and launched then
+                --mover la particula a la posicion final de la granada
+
+                --particle_previewG_exterior_transform.position = finalTargetPos --fix, posicion correcta --PETA 
+                --particle_previewG_interior_transform.position = finalTargetPos --PETA 
+
+                --particle_previewG_interior:emit(1) --PETA 
+                --particle_previewG_exterior:emit(1) --PETA 
+
+                granadeDistance = 0
+                launched = false
+                rb:set_use_gravity(true)
+                throwing = true
+                throwGranade(finalTargetPos)
+
+            end
+
+            --granade 
+            if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and timerGranade <= 0 then
+                lbapretado = true
+                granadasSpeed = true
+                throwing = false
+                handleGranade(0)
+                --update_joystick_position()
+            else
+                if lbapretado then
+                    shotgunGrenadeShotSFX:play()
+                    dropGranade = true
+                end
+                lbapretado = false
+                granadasSpeed = false
+            end
 
             
+
+            if self--[[upgradeManager.has_weapon_special()]] then
+
+                
+            end
         end
     end
 end

@@ -88,6 +88,8 @@ shootAnimation = false
 
 local charging
 
+local pauseMenu = nil
+
 
 function on_ready()
 
@@ -217,105 +219,110 @@ function on_ready()
     chargeZoneRb = chargeZoneRbComponent.rb
     chargeZoneRb:set_trigger(true)
 
-    
+    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+
 end
 
 function on_update(dt)
+
 
     if playerScript.health <= 0 then
         return
     end
 
-    -- Applying multipliers
-    local currentShootCoolDownRifle = shootCoolDownRifle * (1 / attackSpeedMultiplier)
-    local currentDisruptorBulletTimeCooldown = cooldownDisruptorBulletTime * (1 / attackSpeedMultiplier)
-    local currentMaxReloadTime = maxReloadTime * (1 / reloadSpeedMultiplier)
+    if not pauseMenu.isPaused then
 
-    if using then
-        local rightTrigger = Input.get_button(Input.action.Shoot)
-        local leftShoulder = Input.get_button(Input.action.Skill2)
+        -- Applying multipliers
+        local currentShootCoolDownRifle = shootCoolDownRifle * (1 / attackSpeedMultiplier)
+        local currentDisruptorBulletTimeCooldown = cooldownDisruptorBulletTime * (1 / attackSpeedMultiplier)
+        local currentMaxReloadTime = maxReloadTime * (1 / reloadSpeedMultiplier)
 
-        if ammo >= maxAmmo then
-            if reloadTime == 0 then
-                playReload()
+        if using then
+            local rightTrigger = Input.get_button(Input.action.Shoot)
+            local leftShoulder = Input.get_button(Input.action.Skill2)
+
+            if ammo >= maxAmmo then
+                if reloadTime == 0 then
+                    playReload()
+                end
+                reloadTime = reloadTime + dt
+                if reloadTime >= currentMaxReloadTime then
+                    
+                    ammo = 0
+                    reloadTime = 0
+                end
             end
-            reloadTime = reloadTime + dt
-            if reloadTime >= currentMaxReloadTime then
+            if shooted == true then
+                shootCoolDown = shootCoolDown + dt
+            end
+
+            if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) then
                 
-                ammo = 0
-                reloadTime = 0
-            end
-        end
-        if shooted == true then
-            shootCoolDown = shootCoolDown + dt
-        end
+                if playerScript.currentAnim ~= playerScript.attack and shootAnimation == false then
+                    playerScript.currentAnim = playerScript.attack
+                    playerScript.animator:set_upper_animation(playerScript.currentAnim)
+                    shootAnimation = true
+                end
+                
+                if shootCoolDown >= currentShootCoolDownRifle then
+                    tripleShoot()
 
-        if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) then
-            
-            if playerScript.currentAnim ~= playerScript.attack and shootAnimation == false then
-                playerScript.currentAnim = playerScript.attack
-                playerScript.animator:set_upper_animation(playerScript.currentAnim)
-                shootAnimation = true
-            end
-            
-            if shootCoolDown >= currentShootCoolDownRifle then
-                tripleShoot()
+                    --shootParticlesComponent:emit(6)
+                    ammo = ammo + 3
+                    shooted = true
+                    shootCoolDown = 0
+                    shootAnimation = false
+                end
 
-                --shootParticlesComponent:emit(6)
-                ammo = ammo + 3
-                shooted = true
-                shootCoolDown = 0
+            else
                 shootAnimation = false
             end
 
-        else
-            shootAnimation = false
-        end
 
 
 
+            tripleShootTimer = tripleShootTimer - dt
 
-        tripleShootTimer = tripleShootTimer - dt
+            if tripleShootCount > 0 and tripleShootTimer <= 0 then
+                shoot(dt)
+                tripleShootCount = tripleShootCount - 1
+                tripleShootTimer = tripleShootInterval
+            end
 
-        if tripleShootCount > 0 and tripleShootTimer <= 0 then
-            shoot(dt)
-            tripleShootCount = tripleShootCount - 1
-            tripleShootTimer = tripleShootInterval
-        end
+            if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
+                charging = true
+                local aimVector = Vector3.new(0,0,0)
+                
+                aimVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+                
+                Physics.DebugDrawRaycast(player:get_component("TransformComponent").position, aimVector, 10, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+            end
 
-        if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
-            charging = true
-            local aimVector = Vector3.new(0,0,0)
+            if leftShoulder == Input.state.Up and charging--[[and upgradeManager.has_weapon_special()]] then
+                cooldownDisruptorBulletTimeCounter = 0
+                disruptorShooted = true
+                disruptorShooted2 = true
+                charging = false
+            end
+
+            if disruptorShooted and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown then
+                cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTimeCounter + dt
+                
+
+            end
+
+            if disruptorShooted2 then
+                disruptiveCharge()
+                disruptorChargeTimeCounter = 0
+                disruptorShooted2 = false
+            end
+
             
-            aimVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
-            
-            Physics.DebugDrawRaycast(player:get_component("TransformComponent").position, aimVector, 10, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
         end
 
-        if leftShoulder == Input.state.Up and charging--[[and upgradeManager.has_weapon_special()]] then
-            cooldownDisruptorBulletTimeCounter = 0
-            disruptorShooted = true
-            disruptorShooted2 = true
-            charging = false
+        if activateZone == true then
+            chargedZoneUpdate(dt)
         end
-
-        if disruptorShooted and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown then
-            cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTimeCounter + dt
-            
-
-        end
-
-        if disruptorShooted2 then
-            disruptiveCharge()
-            disruptorChargeTimeCounter = 0
-            disruptorShooted2 = false
-        end
-
-        
-    end
-
-    if activateZone == true then
-        chargedZoneUpdate(dt)
     end
 end
 
