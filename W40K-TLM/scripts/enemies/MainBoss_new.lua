@@ -10,7 +10,7 @@ local pathUpdateTimer = 0.0
 local pathUpdateInterval = 0.5
 
 local shieldTimer = 0.0
-local shieldCooldown = 5.0
+local shieldCooldown = 15.0
 
 local attackTimer = 0.0
 local attackCooldown = 10.0
@@ -20,9 +20,18 @@ local meleeAttackDuration = 2.0
 local lightningTimer = 0.0
 local lightningDuration = 0.5
 
+local rangeAttackTimer = 0.0
 local rangeAttackDuration = 10.0
-local fistsDamageCooldown = 1.0
 local timeSinceLastFistHit = 0.0
+local fistsDamageCooldown = 1.0
+
+local ultiTimer = 0.0
+local ultiAttackTimer = 0.0
+local ultiAttackDuration = 15.0
+local ultiCooldown = 15.0
+
+local totemTimer = 0.0
+local totemCooldown = 20.0
 
 function on_ready()
 
@@ -67,6 +76,9 @@ function on_ready()
     main_boss.lightningRb = main_boss.lightningRbComponent.rb
     main_boss.lightningRb:set_trigger(true)
 
+    main_boss.ultimate = current_scene:get_entity_by_name("Ultimate")
+    main_boss.ultimateTransf = main_boss.ultimate:get_component("TransformComponent")
+
 
     local enemy_type = "main_boss"
 
@@ -102,16 +114,20 @@ function on_ready()
 
     main_boss.isRaging = false
     main_boss.isAttacking = false
+    main_boss.lightningThrown = false
     main_boss.isLightningDamaging = false
     main_boss.hasDealtLightningDamage = false
+    main_boss.fistsThrown = false
     main_boss.isFistsDamaging = true
+    main_boss.ultimateThrown = false
     main_boss.shieldActive = false
 
     main_boss.lastTargetPos = main_boss.playerTransf.position
 
     main_boss.fistTransforms = {main_boss.fist1Transform, main_boss.fist2Transform, main_boss.fist3Transform}
     main_boss.fistRbs = {main_boss.fist1Rb, main_boss.fist2Rb, main_boss.fist3Rb}
-    main_boss.scalingFists = {}
+    main_boss.scalingAttacks = {}
+    main_boss.attacksToTeleport = {}
 
     main_boss.wrathRbComponent:on_collision_stay(function(entityA, entityB)
 
@@ -175,8 +191,6 @@ function on_update(dt)
 
     change_state()
 
-    update_fist_scaling(dt)
-
     if main_boss.currentState == main_boss.state.Idle then return end
 
     if main_boss.health <= 0 then
@@ -187,11 +201,37 @@ function on_update(dt)
     shieldTimer = shieldTimer + dt
     pathUpdateTimer = pathUpdateTimer + dt
 
-    if not main_boss.isFistsDamaging then
-        timeSinceLastFistHit = timeSinceLastFistHit + dt
-        if timeSinceLastFistHit > fistsDamageCooldown then
-            main_boss.isFistsDamaging = true
-            timeSinceLastFistHit = 0.0
+    if main_boss.isRaging then
+        ultiTimer = ultiTimer + dt
+        totemTimer = totemTimer + dt
+    end
+
+    if main_boss.ultimateThrown then
+        ultiAttackTimer = ultiAttackTimer + dt
+
+        if ultiAttackTimer >= ultiAttackDuration then
+            check_ulti_collision()
+
+            main_boss.ultimateThrown = false
+        end
+    end
+
+    if main_boss.fistsThrown then
+        rangeAttackTimer = rangeAttackTimer + dt
+
+        if not main_boss.isFistsDamaging then
+            timeSinceLastFistHit = timeSinceLastFistHit + dt
+            if timeSinceLastFistHit > fistsDamageCooldown then
+                main_boss.isFistsDamaging = true
+                timeSinceLastFistHit = 0.0
+            end
+        elseif rangeAttackTimer >= rangeAttackDuration then
+            -- Send them back
+            main_boss.fistRbs[1]:set_position(Vector3.new(-500, 0, -150))
+            main_boss.fistRbs[2]:set_position(Vector3.new(-500, 0, -150))
+            main_boss.fistRbs[3]:set_position(Vector3.new(-500, 0, -150))
+
+            main_boss.fistsThrown = false
         end
     end
 
@@ -206,12 +246,15 @@ function on_update(dt)
             lightningTimer = lightningTimer + dt
             if lightningTimer >= lightningDuration then
                 main_boss.isLightningDamaging = false
-                main_boss.lightningThrown = false
                 main_boss.hasDealtLightningDamage = false
                 main_boss.lightningRb:set_position(Vector3.new(-500, 0, -500))
+
+                main_boss.lightningThrown = false
             end
         end
     end
+
+    update_scaling_attacks(dt)
 
 
     local currentTargetPos = main_boss.playerTransf.position
@@ -324,6 +367,8 @@ function main_boss:attack_state()
     if attackChance < 0.3 then
         lightning_attack()
         fists_attack()
+    elseif ultiTimer >= ultiCooldown then
+        ultimate_attack()
     else
         if distance <= main_boss.meleeAttackRange then
             lightning_attack()
@@ -333,7 +378,7 @@ function main_boss:attack_state()
     end
 
     main_boss.isAttacking = false
-    attackTimer = 0
+    attackTimer = 0.0
 
 end
 
@@ -387,7 +432,7 @@ function fists_attack()
     }
 
     -- Clear previous scaling operations
-    main_boss.scalingFists = {}
+    main_boss.scalingAttacks = {}
 
     for i = 1, 3 do
         if main_boss.fistRbs[i] and main_boss.fistTransforms[i] then
@@ -398,7 +443,7 @@ function fists_attack()
             main_boss.fistTransforms[i].scale = Vector3.new(1, 1, 1)
             
             -- Add to scaling list with reference to the specific fist transform
-            table.insert(main_boss.scalingFists, {
+            table.insert(main_boss.scalingAttacks, {
                 transform = main_boss.fistTransforms[i],
                 elapsed = 0,
                 duration = rangeAttackDuration,
@@ -408,11 +453,36 @@ function fists_attack()
         end
     end
 
+    main_boss.fistsThrown = true
+    rangeAttackTimer = 0.0
+
 end
 
-function update_fist_scaling(dt)
-    for i = #main_boss.scalingFists, 1, -1 do
-        local data = main_boss.scalingFists[i]
+function ultimate_attack()
+
+    log("Ultimate Attack")
+    main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+    main_boss.ultimateTransf.scale = Vector3.new(1, 1, 1)
+
+    -- Configurar el escalado
+    table.insert(main_boss.scalingAttacks, {
+        transform = main_boss.ultimateTransf, 
+        elapsed = 0,
+        duration = ultiAttackDuration,
+        startScale = Vector3.new(1, 1, 1),
+        targetScale = Vector3.new(20, 20, 20) 
+    })
+
+    main_boss.ultimateThrown = true
+    ultiTimer = 0.0
+    ultiAttackTimer = 0.0
+
+end
+
+function update_scaling_attacks(dt)
+    for i = #main_boss.scalingAttacks, 1, -1 do
+        local data = main_boss.scalingAttacks[i]
         data.elapsed = data.elapsed + dt
 
         if data.elapsed <= data.duration then
@@ -433,11 +503,7 @@ function update_fist_scaling(dt)
             if data.transform then
                 data.transform.scale = data.targetScale
             end
-
-            -- Send them back
-            main_boss.fistRbs[i]:set_position(Vector3.new(-500, 0, -150))
-
-            table.remove(main_boss.scalingFists, i)
+            table.remove(main_boss.scalingAttacks, i)
         end
     end
 end
