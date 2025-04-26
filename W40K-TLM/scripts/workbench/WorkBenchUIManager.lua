@@ -343,14 +343,20 @@ function on_update(dt)
     --     hide_ui()
     -- end
 
-    if isWorkBenchOpen or pauseMenu.isPaused then
-        hud:set_active(false)
-    else
-        hud:set_active(true)
-        missionManager:set_active(false)
-        dialogManager:set_active(false)
-        popUpManager:set_active(false)
-    end
+    -- if isWorkBenchOpen or pauseMenu.isPaused then
+    --     hud:set_active(false)
+    -- else
+    --     hud:set_active(true)
+        -- if missionManager then
+        --     missionManager:set_active(false)
+        -- end
+        -- if dialogManager then
+        --     dialogManager:set_active(false)
+        -- end
+        -- if popUpManager then
+        --     popUpManager:set_active(false)
+        -- end
+    -- end
 
     if not isWorkBenchOpen then
         return
@@ -532,6 +538,9 @@ function show_ui()
     
     isWorkBenchOpen = true
     openCooldownTimer = 0
+
+    hud:set_active(false)
+
 end
 
 function show_gun_ui()
@@ -576,6 +585,17 @@ function hide_ui()
     hide_gun_ui(true) 
     hide_character_ui(true)
     isWorkBenchOpen = false
+
+    hud:set_active(true)
+    -- if missionManager then
+    --     missionManager:set_active(false)
+    -- end
+    -- if dialogManager then
+    --     dialogManager:set_active(false)
+    -- end
+    -- if popUpManager then
+    --     popUpManager:set_active(false)
+    -- end
 end
 
 function hide_gun_ui(hideShared)
