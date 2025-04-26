@@ -211,6 +211,7 @@ function on_update(dt)
 
         if ultiAttackTimer >= ultiAttackDuration then
             check_ulti_collision()
+            main_boss.ultimateTransf.position = Vector3.new(-500, 0, -150)
 
             main_boss.ultimateThrown = false
         end
@@ -462,7 +463,7 @@ function ultimate_attack()
 
     log("Ultimate Attack")
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-
+    main_boss.ultimateTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
     main_boss.ultimateTransf.scale = Vector3.new(1, 1, 1)
 
     -- Configurar el escalado
