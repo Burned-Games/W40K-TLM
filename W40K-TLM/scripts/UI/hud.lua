@@ -199,7 +199,6 @@
 
 
     function abilityManager(dt)
-        
         -- Skill 1 (Dash)
         local dashRemainingTime = playerScript.dashColdown - playerScript.dashColdownCounter
         if dashRemainingTime > 0 and not playerScript.dashAvailable then
@@ -263,40 +262,36 @@
         end
         
         -- Skill 3 (Fervor Astartes)
-        if upgradeManager:has_armor_special() then 
-            skill3.value = true 
-            local fervorRemainingTime = armorUpgradeScript.fervorAstartesCooldown
-            if fervorRemainingTime > 0 and not armorUpgradeScript.fervorAstartesAvailable then
-                -- Mostrar cooldown
-                skill3Timer = skill3Timer + dt
-                
-                local totalCooldown = 25
-                local porcentaje = fervorRemainingTime / totalCooldown
-                if porcentaje > 1 then 
-                    porcentaje = 1 
-                end
+        skill3.value = upgradeManager:has_armor_special() 
+        skill3ButtonEntity:set_active(skill3.value)
         
-                local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
-                skill3VisualCooldown:set_rect(cooldownRect)
-                
-                if fervorRemainingTime <= 1.1 and fervorRemainingTime > 0 then
-                    skill3TextCooldown:set_text(string.format("%.1f", fervorRemainingTime))
-                else
-                    skill3TextCooldown:set_text(string.format("%d", math.ceil(fervorRemainingTime)))
-                end
-                
-                skill3TextCooldownEntity:set_active(true)
-                skill3VisualCooldownEntity:set_active(true)
-            else
-                -- Ocultar cooldown
-                skill3TextCooldownEntity:set_active(false)
-                skill3VisualCooldownEntity:set_active(false)
-                skill3VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
+        local fervorRemainingTime = armorUpgradeScript.fervorAstartesCooldown
+        if fervorRemainingTime > 0 and not armorUpgradeScript.fervorAstartesAvailable then
+            -- Mostrar cooldown
+            skill3Timer = skill3Timer + dt
+            
+            local totalCooldown = 25
+            local porcentaje = fervorRemainingTime / totalCooldown
+            if porcentaje > 1 then 
+                porcentaje = 1 
             end
+    
+            local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+            skill3VisualCooldown:set_rect(cooldownRect)
+            
+            if fervorRemainingTime <= 1.1 and fervorRemainingTime > 0 then
+                skill3TextCooldown:set_text(string.format("%.1f", fervorRemainingTime))
+            else
+                skill3TextCooldown:set_text(string.format("%d", math.ceil(fervorRemainingTime)))
+            end
+            
+            skill3TextCooldownEntity:set_active(true)
+            skill3VisualCooldownEntity:set_active(true)
         else
-            skill3.value = false  
+            -- Ocultar cooldown
             skill3TextCooldownEntity:set_active(false)
             skill3VisualCooldownEntity:set_active(false)
+            skill3VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
         end
     end
     
@@ -305,10 +300,12 @@
             weaponSwitchTimer = weaponSwitchTimer - dt
         end
     
-        -- Set weapon skill availability based on upgrades
-        skillArma1.value = upgradeManager:has_weapon_special()
-        skillArma2.value = upgradeManager:has_weapon_special()
-
+        local hasWeaponSpecial = upgradeManager:has_weapon_special()
+        skillArma1.value = hasWeaponSpecial
+        skillArma2.value = hasWeaponSpecial
+        
+        skillsArmasBoton:set_active(hasWeaponSpecial)
+    
         if playerScript.actualweapon == 0 then
             arma1:set_active(true)
             arma2:set_active(false)
@@ -319,7 +316,7 @@
             skillArma2CooldownEntity:set_active(false)
         
             local remainingTime = rifleScript.cooldownDisruptorBulletTime - rifleScript.cooldownDisruptorBulletTimeCounter
-            if remainingTime > 0 and upgradeManager:has_weapon_special() then 
+            if remainingTime > 0 then 
                 if remainingTime <= 1.1 then
                     skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
                 else
@@ -352,7 +349,7 @@
             skillArma1CooldownEntity:set_active(false)
         
             local remainingTime = shotGunScript.timerGranade
-            if remainingTime > 0 and upgradeManager:has_weapon_special() then
+            if remainingTime > 0 then
                 if remainingTime <= 1.1 then
                     skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
                 else
