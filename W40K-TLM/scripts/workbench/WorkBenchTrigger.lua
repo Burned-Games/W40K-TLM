@@ -38,7 +38,7 @@ function on_ready()
         workbenchAreaTrigger = current_scene:get_entity_by_name(areaTriggerName)
         
         if workbenchAreaTrigger then
-            print("Found area trigger: " .. areaTriggerName)
+            -- print("Found area trigger: " .. areaTriggerName)
             areaTriggerRB = workbenchAreaTrigger:get_component("RigidbodyComponent")
             
             if areaTriggerRB then

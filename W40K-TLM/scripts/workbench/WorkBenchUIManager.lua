@@ -1,5 +1,8 @@
 local upgradeManager = nil
 local hud = nil
+local missionManager = nil
+local dialogManager = nil
+local popUpManager = nil
 local pauseMenu = nil
 
 local gunBuyButtonEntity, gunBuyButton
@@ -82,6 +85,20 @@ function on_ready()
     
     -- Initialize HUD
     hud = current_scene:get_entity_by_name("HUD")
+
+    local children = hud:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "MisionManager" then
+            missionManager = child
+            -- print("Found MissionManager")
+        elseif child:get_component("TagComponent").tag == "DialogManager" then
+            dialogManager = child
+            -- print("Found DialogManager")
+        elseif child:get_component("TagComponent").tag == "PopUpManager" then
+            popUpManager = child
+            -- print("Found PopUpManager")
+        end
+    end
     
     -- Initialize pause menu
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
@@ -330,6 +347,9 @@ function on_update(dt)
         hud:set_active(false)
     else
         hud:set_active(true)
+        missionManager:set_active(false)
+        dialogManager:set_active(false)
+        popUpManager:set_active(false)
     end
 
     if not isWorkBenchOpen then
