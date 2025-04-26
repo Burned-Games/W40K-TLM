@@ -87,22 +87,6 @@ function on_update(dt)
         if workbenchOpen == false then
             workbenchUIManagerScript:show_ui()
             
-            -- Track mission objectives
-            if mission_Component.getCurrerTaskIndex(true) == 5 and mission_Component.getCurrerLevel() == 1  then
-                mission_Component.m5_Upgrade = true
-            end
-
-            if mission_Component.getCurrerTaskIndex(true) == 7 and mission_Component.getCurrerLevel() == 1 then
-                mission_Component.m7_Upgrade = true
-            end
-
-            if mission_Component.getCurrerTaskIndex(true) == 1 and mission_Component.getCurrerLevel() == 2 then
-                mission_Component.m1_Upgrade = true
-            end
-
-            if mission_Component.getCurrerTaskIndex(true) == 5 and mission_Component.getCurrerLevel() == 2 then
-                mission_Component.m5_Upgrade = true
-            end
         end
     end
 end
@@ -159,8 +143,29 @@ function workbenchFall()
 end
 
 function workbenchRise()
+    print("cuurrrelevel")
     if workbenchRB then
         workbenchRB.rb:set_freeze_y(false)
         workbenchRB.rb:set_velocity(Vector3.new(0, 20, 0))
     end
+ 
+    -- Track mission objectives
+    if mission_Component.getCurrerTaskIndex(true) == 5 and mission_Component.getCurrerLevel() == 1  then
+        mission_Component.m5_Upgrade = true
+    end
+
+    if mission_Component.getCurrerTaskIndex(true) == 7 and mission_Component.getCurrerLevel() == 1 then
+        mission_Component.m7_Upgrade = true
+    end
+
+   
+    if mission_Component.getCurrerTaskIndex(true) == 1 and mission_Component.getCurrerLevel() == 2 then
+        mission_Component.m1_Upgrade = true
+    end
+    
+    if mission_Component.getCurrerTaskIndex(true) == 5 and mission_Component.getCurrerLevel() == 2 then
+        mission_Component.m5_Upgrade = true
+    end
+
+    mission_Component.m1_Upgrade = true
 end
