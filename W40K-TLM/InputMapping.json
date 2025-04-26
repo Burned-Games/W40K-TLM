@@ -3,12 +3,13 @@
         {
             "key": "UiX",
             "value": {
-                "cereal_class_version": 2,
+                "cereal_class_version": 3,
                 "KeyPos": 7,
                 "KeyNeg": 4,
                 "ButtonPos": 14,
                 "ButtonNeg": 13,
-                "Axis": 0
+                "Axis": 0,
+                "invertedAxis": false
             }
         },
         {
@@ -16,9 +17,10 @@
             "value": {
                 "KeyPos": 26,
                 "KeyNeg": 22,
-                "ButtonPos": 11,
-                "ButtonNeg": 12,
-                "Axis": 1
+                "ButtonPos": 12,
+                "ButtonNeg": 11,
+                "Axis": 1,
+                "invertedAxis": false
             }
         },
         {
@@ -28,7 +30,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 10,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -38,17 +41,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 1,
                 "ButtonNeg": -1,
-                "Axis": -1
-            }
-        },
-        {
-            "key": "MoveY",
-            "value": {
-                "KeyPos": 26,
-                "KeyNeg": 22,
-                "ButtonPos": -1,
-                "ButtonNeg": -1,
-                "Axis": 1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -58,7 +52,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 0,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -68,7 +63,19 @@
                 "KeyNeg": 0,
                 "ButtonPos": 0,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
+            }
+        },
+        {
+            "key": "MoveY",
+            "value": {
+                "KeyPos": 26,
+                "KeyNeg": 22,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 1,
+                "invertedAxis": false
             }
         },
         {
@@ -78,7 +85,8 @@
                 "KeyNeg": 4,
                 "ButtonPos": -1,
                 "ButtonNeg": -1,
-                "Axis": 0
+                "Axis": 0,
+                "invertedAxis": false
             }
         },
         {
@@ -88,7 +96,8 @@
                 "KeyNeg": 92,
                 "ButtonPos": -1,
                 "ButtonNeg": -1,
-                "Axis": 2
+                "Axis": 2,
+                "invertedAxis": false
             }
         },
         {
@@ -98,7 +107,8 @@
                 "KeyNeg": 90,
                 "ButtonPos": -1,
                 "ButtonNeg": -1,
-                "Axis": 3
+                "Axis": 3,
+                "invertedAxis": false
             }
         },
         {
@@ -108,7 +118,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": -1,
                 "ButtonNeg": -1,
-                "Axis": 5
+                "Axis": 5,
+                "invertedAxis": false
             }
         },
         {
@@ -118,7 +129,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 1,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -128,7 +140,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 2,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -138,7 +151,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 3,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -148,7 +162,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 9,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -158,7 +173,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": -1,
                 "ButtonNeg": -1,
-                "Axis": 4
+                "Axis": 4,
+                "invertedAxis": false
             }
         },
         {
@@ -168,7 +184,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 11,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -178,7 +195,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 14,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -188,7 +206,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 4,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         },
         {
@@ -198,7 +217,8 @@
                 "KeyNeg": 0,
                 "ButtonPos": 6,
                 "ButtonNeg": -1,
-                "Axis": -1
+                "Axis": -1,
+                "invertedAxis": false
             }
         }
     ]
