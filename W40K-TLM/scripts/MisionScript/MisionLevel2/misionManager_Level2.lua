@@ -56,15 +56,29 @@ local current_Level = 2
 --MisionBlue
 --M1
 m1_Upgrade = false
+--M2
+m2_lever = false
+--M3
+m3_throughCity = false
+--M4
+m4_exitCity = false
+--M5
+m5_Upgrade = false
+--M6
+m6_lever = false
+--M7
+m7_lever = 0
+--M8
+m8_Elevator = false
 
 
 --MisionRed
 --MR1
-mr1_supply = false
+mr1_Check = false
 --MR2
-mr2_orkzBase = false
+mr2_Check = false
 --MR3
-mr3_breakOut = false
+mr3_Check = false
 
 -- Trigger variables
 enemyDieCounttest = 2
@@ -109,21 +123,6 @@ function on_update(dt)
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
 
-
-    if Input.is_key_pressed(Input.keycode.I) then
-        m8_lever1 = true
-        m8_lever2 = true
-    end
-
-
-
-
-   
-    --imgBlue.position.y = imgBlue.position.y-1
-   --imgBlue.position.y = 500
-   --imgBlue:set_size(Vector2.new(1,1))
-   --print(imgBlue.position.y)
-
 end
 
 function updateText()
@@ -148,24 +147,38 @@ function getCurrentTask(tasks, index)
     return insert_line_breaks(description, 23)
 end
 
+
+
+
+
 function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
     if blueTaskIndex == 1 and m1_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 2 and mission10Complet then
+    elseif blueTaskIndex == 2 and m2_lever then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 11 and m11_NewZone then
+    elseif blueTaskIndex == 3 and m3_throughCity then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 4 and m4_exitCity then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 5 and m5_Upgrade then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 6 and m6_lever then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 7 and m7_lever == 2 then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 8 and m8_Elevator then
         startAnimation(blueAnimation)
     end
 end
 
 function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
-    if redTaskIndex == 1 and mr1_supply then
+    if redTaskIndex == 1 and mr1_Check then
         startAnimation(redAnimation)
-    elseif redTaskIndex == 2 and mr2_orkzBase then
+    elseif redTaskIndex == 2 and mr2_Check then
         startAnimation(redAnimation)
-    elseif redTaskIndex == 3 and mr3_breakOut then
+    elseif redTaskIndex == 3 and mr3_Check then
         startAnimation(redAnimation)
     end
 end

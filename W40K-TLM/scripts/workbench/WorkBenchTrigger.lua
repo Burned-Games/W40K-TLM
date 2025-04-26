@@ -99,6 +99,10 @@ function on_update(dt)
             if mission_Component.getCurrerTaskIndex(true) == 1 and mission_Component.getCurrerLevel() == 2 then
                 mission_Component.m1_Upgrade = true
             end
+
+            if mission_Component.getCurrerTaskIndex(true) == 5 and mission_Component.getCurrerLevel() == 2 then
+                mission_Component.m5_Upgrade = true
+            end
         end
     end
 end

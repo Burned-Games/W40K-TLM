@@ -23,6 +23,10 @@ function on_ready()
     if isArenaLever and parentScript then
         maxInteractions = 3
     end
+
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")        
+
+
 end
 
 function on_update(dt)
@@ -43,6 +47,22 @@ function on_update(dt)
     )
 
     if distance.x < 1 and distance.z < 1 and Input.get_button(Input.action.Cancel) == Input.state.Down then
+        if mission_Component.getCurrerTaskIndex(true) == 4 and mission_Component.getCurrerLevel() == 1 then
+            mission_Component.m4_lever = true
+        end
+
+        if mission_Component.getCurrerTaskIndex(true) == 2 and mission_Component.getCurrerLevel() == 2 then
+            mission_Component.m2_lever = true
+        end
+
+        if mission_Component.getCurrerTaskIndex(true) == 6 and mission_Component.getCurrerLevel() == 2 then
+            mission_Component.m6_lever = true
+        end
+
+        if mission_Component.getCurrerTaskIndex(true) == 7 and mission_Component.getCurrerLevel() == 2 then
+            mission_Component.m7_lever = mission_Component.m7_lever + 1
+        end
+        
         if canInteract and not hasInteracted then
             interact()
         end
