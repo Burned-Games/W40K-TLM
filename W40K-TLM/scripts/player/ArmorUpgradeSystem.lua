@@ -13,6 +13,7 @@ local fervorAstartesActive = false
 local fervorAstartesStandardPlaced = false
 local fervorAstartesStandardEntity = nil
 local fervorAstartesRadius = 6.0
+local fervorAniamtor = nil
 
 local attackSpeedBonus = 1.2 
 local reloadSpeedBonus = 1.15
@@ -24,6 +25,8 @@ function on_ready()
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     fervorAstartesStandardEntity = current_scene:get_entity_by_name("FervorAstartesStandard")
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+    fervorAniamtor = fervorAstartesStandardEntity:get_component("AnimatorComponent")
+
 end
 
 function on_update(dt)
@@ -138,8 +141,11 @@ end
 -- Function to place the Fervor Astartes standard
 function place_fervor_astartes_standard(playerPosition, standardTransform)
     if fervorAstartesStandardEntity then
+        fervorAniamtor:set_current_animation(0)
+
         local posicion = Vector3.new(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z)
         standardTransform.position = posicion
+
 
         fervorAstartesStandardPlaced = true
         fervorAstartesActive = true
@@ -158,4 +164,6 @@ function end_fervor_astartes(standardTransform)
 
     local endingPosition = Vector3.new(0, -100, 0)
     standardTransform.position = endingPosition
+
+    fervorAniamtor:set_current_animation(1)
 end
