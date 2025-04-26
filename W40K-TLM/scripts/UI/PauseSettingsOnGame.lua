@@ -168,7 +168,7 @@ function on_update(dt)
         end
     end
 
-    if isPaused then
+    if isPaused and isOnPauseSettings == false then
         local value = Input.get_axis(Input.action.UiMoveVertical)
         if (value ~= 0 and contadorMovimientoBotones > 0.2) then
             contadorMovimientoBotones = 0
