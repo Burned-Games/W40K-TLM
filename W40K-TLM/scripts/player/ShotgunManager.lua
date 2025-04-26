@@ -5,10 +5,10 @@ shotgun_fire_rate = 1.3
 next_fire_time = 0 
 
 -- ammo
-maxAmmo = 12  -- maxammo
+maxAmmo = 1  -- maxammo
 ammo = maxAmmo  -- curreamoo
 reload_time = 2.8  -- reloadtime
-local is_reloading = false  -- inReloading?
+is_reloading = false  -- inReloading?
 local reload_end_time = 0  -- record_reload_time
 
 --PlayerTransform
@@ -195,7 +195,12 @@ function on_update(dt)
                     ammo = maxAmmo  -- reload bullet
                     is_reloading = false
                 else
-                    return  -- in reload cant shoot
+                    if playerScript.currentUpAnim ~= playerScript.reload_Shotgun then
+                        playerScript.currentUpAnim = playerScript.reload_Shotgun
+                        playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                        
+                    end
+                    return 
                 end
             end
             local rightTrigger = Input.get_button(Input.action.Shoot)
