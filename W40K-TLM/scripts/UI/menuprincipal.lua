@@ -48,31 +48,6 @@ end
 function on_update(dt)
     -- Add update code here
 
-
-    if changingScene ~= 0 then
-        if fadeToBlackScript.fadeToBlackDoned and not changeScene then
-
-            if changingScene == 1 then
-                save_progress("zonePlayer", 0)
-                save_progress("level", 1)
-                SceneManager.change_scene("scenes/level1.TeaScene")
-            end
-            if changingScene == 2 then
-                if level == 1 then
-                    SceneManager.change_scene("scenes/level1.TeaScene")
-                elseif level == 2 then
-                    SceneManager.change_scene("scenes/level2.TeaScene")
-                elseif level == 3 then
-                    SceneManager.change_scene("scenes/level3.TeaScene")
-                end
-            end
-
-            changeScene = true
-        end
-    end
-
-
-
     if index == 0 then
         button1.state = "Hover"
         button2.state = "Normal"
@@ -207,6 +182,28 @@ function on_update(dt)
         end
     else
         contadorMovimientoBotones = contadorMovimientoBotones + dt
+    end
+
+    if changingScene ~= 0 then
+        if fadeToBlackScript.fadeToBlackDoned and not changeScene then
+
+            if changingScene == 1 then
+                save_progress("zonePlayer", 0)
+                save_progress("level", 1)
+                SceneManager.change_scene("scenes/level1.TeaScene")
+            end
+            if changingScene == 2 then
+                if level == 1 then
+                    SceneManager.change_scene("scenes/level1.TeaScene")
+                elseif level == 2 then
+                    SceneManager.change_scene("scenes/level2.TeaScene")
+                elseif level == 3 then
+                    SceneManager.change_scene("scenes/level3.TeaScene")
+                end
+            end
+
+            changeScene = true
+        end
     end
 
 end
