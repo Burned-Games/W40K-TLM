@@ -4,7 +4,7 @@ local mission4RigidBody = nil
 m4_Clear = false
 function on_ready()
      --Mission
-     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
     mission4RigidBodyComponent = self:get_component("RigidbodyComponent")
     mission4RigidBody = mission4RigidBodyComponent.rb
@@ -16,6 +16,7 @@ function on_ready()
         m4_Clear =true
 
         mission_Component.m4_exitCity = true
+        mission_Component.mr1_Check = true
         --print("player in zone")
     end
     end)

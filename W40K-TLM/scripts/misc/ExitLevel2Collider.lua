@@ -9,7 +9,7 @@ local changed = false
 function on_ready()
 
 
-
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
     colliderComponent = self:get_component("RigidbodyComponent")
@@ -24,6 +24,7 @@ function on_ready()
             save_progress("level", 3)
             fadeToBlackScript:DoFade()
             changeing = true
+            mission_Component.mr2_Check = true
         end
     end)
     
