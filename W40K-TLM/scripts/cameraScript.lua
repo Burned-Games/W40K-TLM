@@ -26,6 +26,8 @@ local entities = nil
 
 local orkEntities = nil
 
+local pauseScript = nil
+
 --Shake
 local shakeAmount = 0
 local shakeDuration = 0
@@ -40,6 +42,8 @@ function on_ready()
     playerTransf = player:get_component("TransformComponent")
 
     playerScript = player:get_component("ScriptComponent")
+
+    pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
     
 
@@ -93,7 +97,7 @@ function on_update(dt)
    
         cameraTransform.position = smoothPos
 
-        if not cameraBossActivated and playerScript.godMode == false then
+        if not cameraBossActivated and playerScript.godMode == false and pauseScript.isPaused == false then
             if Input.is_button_pressed(Input.controllercode.DpadUp) then
                 if zoom > minZoom then
                     zoom = zoom - zoomStep

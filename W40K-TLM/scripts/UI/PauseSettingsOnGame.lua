@@ -69,53 +69,6 @@ function on_ready()
 
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
-    --BaseTextureBGEntity = current_scene:get_entity_by_name("PauseBase")
-    --BaseTextureBG = BaseTextureBGEntity:get_component("UIImageComponent")
-
-    -- audio
-   -- explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
-    --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
-
-    -- fx
-    --[[footstep_one = current_scene:get_entity_by_name("PlayerStep1"):get_component("AudioSourceComponent")
-    footstep_two = current_scene:get_entity_by_name("PlayerStep2"):get_component("AudioSourceComponent")
-    footstep_three = current_scene:get_entity_by_name("PlayerStep3"):get_component("AudioSourceComponent")
-    footstep_four = current_scene:get_entity_by_name("PlayerStep4"):get_component("AudioSourceComponent")
-    burst_shot = current_scene:get_entity_by_name("RifleDisparoAudio"):get_component("AudioSourceComponent")
-    rifle_reload = current_scene:get_entity_by_name("RifleRecargaAudio"):get_component("AudioSourceComponent")
-    shotgun_shot = current_scene:get_entity_by_name("EscopetaDisparoAudio"):get_component("AudioSourceComponent")
-    shotgun_reload = current_scene:get_entity_by_name("EscopetaRecargaAudio"):get_component("AudioSourceComponent")
-    grenade_launch = current_scene:get_entity_by_name("GranadeLaunchAudio"):get_component("AudioSourceComponent")
-    grenade_explosion = current_scene:get_entity_by_name("GranadeExplosionAudio"):get_component("AudioSourceComponent") --]]
-
-    playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
-    shotgunBulletImpactsSFX = current_scene:get_entity_by_name("ShotgunBulletImpactsSFX"):get_component("AudioSourceComponent")
-    shotgunGrenadeShotSFX = current_scene:get_entity_by_name("ShotgunGrenadeShotSFX"):get_component("AudioSourceComponent")
-    shotgunGrenadeSmokeSFX = current_scene:get_entity_by_name("ShotgunGrenadeSmokeSFX"):get_component("AudioSourceComponent")
-    shotgunReloadSFX = current_scene:get_entity_by_name("ShotgunReloadSFX"):get_component("AudioSourceComponent")
-    shotgunShotSFX = current_scene:get_entity_by_name("ShotgunShotSFX"):get_component("AudioSourceComponent")
-    bolterShotSFX = current_scene:get_entity_by_name("BolterShotSFX"):get_component("AudioSourceComponent")
-    kamikazeDetectionSFX = current_scene:get_entity_by_name("KamikazeDetectionSFX"):get_component("AudioSourceComponent")
-    kamikazeDieSFX = current_scene:get_entity_by_name("KamikazeDieSFX"):get_component("AudioSourceComponent")
-    kamikazeExplosionSFX = current_scene:get_entity_by_name("KamikazeExplosionSFX"):get_component("AudioSourceComponent")
-    kamikazeScreamBoomSFX = current_scene:get_entity_by_name("KamikazeScreamBoomSFX"):get_component("AudioSourceComponent")
-    rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
-    rangeHurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
-    rangeBulletImpactSFX = current_scene:get_entity_by_name("RangeBulletImpactSFX"):get_component("AudioSourceComponent")
-    rangeCaCImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
-    rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
-    supportAttackSFX = current_scene:get_entity_by_name("SupportAttackSFX"):get_component("AudioSourceComponent")
-    supportHurtSFX = current_scene:get_entity_by_name("SupportHurtSFX"):get_component("AudioSourceComponent")
-    supportShieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
-    supportShieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
-    supportShieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
-    supportDeadSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
-    tankBerserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
-    tankDetectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
-    tankImpactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
-    tankStepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
-
-
     local savedVolumeGeneral = load_progress("musicVolumeGeneral", 1.0)
     savedVolumeGeneral = savedVolumeGeneral / 100
     slider1.value = savedVolumeGeneral
@@ -124,15 +77,8 @@ function on_ready()
     savedFXVolume = savedFXVolume / 100
     slider2.value = savedFXVolume
 
-    --local savedVolumeGeneral = load_progress("musicVolumeGeneral", 0.05)
-    --xplorationMusic:set_volume(savedVolumeGeneral)
-
-                   --slider1:set_value(load_progress("musicVolumeGeneral", 1.0)) este estaba descomentado
-    -- slider2:set_value(load_progress("fxVolume", 1.0))
-
     visibilidad1Entity:set_active(false)
     visibilidad2Entity:set_active(false)
-    --visibilidadtotal:set_active(false)
 
 end
 
@@ -163,7 +109,7 @@ function on_update(dt)
         button3:set_color(defaultColor)
         button4:set_color(defaultColor)
         if isPaused then
-            value = Input.get_button(Input.action.Interact)
+            value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
                 if(index == 0) then
                     visibilidad1Entity:set_active(false)
@@ -178,7 +124,7 @@ function on_update(dt)
         button3:set_color(defaultColor)
         button4:set_color(defaultColor)
         if isPaused then
-            value = Input.get_button(Input.action.Interact)
+            value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
                 if(index == 1) then
                     --button2:set_state("Pressed")
@@ -212,7 +158,7 @@ function on_update(dt)
         button3:set_color(defaultColor)
         button4:set_color(selectedColor)
         if isPaused then
-            value = Input.get_button(Input.action.Interact)
+            value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
                 --button4:set_state("Pressed")
                 if(index == 3) then
@@ -254,44 +200,19 @@ function on_update(dt)
                 slider1.value = math.max(0.0, math.min(1.0, slider1.value + (horizontalInput * 0.05)))
                 musicVolume = slider1.value
                 
-                
-                if explorationMusic then explorationMusic:set_volume(musicVolume) end
-                if combatMusic then combatMusic:set_volume(musicVolume) end
+                set_music_volume(musicVolume)
+                musicVolume = musicVolume * 100
                 save_progress("musicVolumeGeneral", musicVolume)
 
             elseif currentSelectedSlider == 2 then
                 slider2.value = math.max(0.0, math.min(1.0, slider2.value + (horizontalInput * 0.05)))
                 fxVolume = slider2.value
                 
+                log("Este es el valor del slider ahora: " .. fxVolume)
+               
+                set_sfx_volume(fxVolume)
                 
-                -- Update all FX volumes with null checks
-                playerDeathSFX:set_volume(fxVolume)
-                shotgunBulletImpactsSFX:set_volume(fxVolume)
-                shotgunGrenadeShotSFX:set_volume(fxVolume)
-                shotgunGrenadeSmokeSFX:set_volume(fxVolume)
-                shotgunReloadSFX:set_volume(fxVolume)
-                shotgunShotSFX:set_volume(fxVolume)
-                bolterShotSFX:set_volume(fxVolume)
-                kamikazeDetectionSFX:set_volume(fxVolume)
-                kamikazeDieSFX:set_volume(fxVolume)
-                kamikazeExplosionSFX:set_volume(fxVolume)
-                kamikazeScreamBoomSFX:set_volume(fxVolume)
-                rangeBulletImpactSFX:set_volume(fxVolume)
-                rangeCaCImpactSFX:set_volume(fxVolume)
-                rangeDyingSFX:set_volume(fxVolume)
-                rangeHurtSFX:set_volume(fxVolume)
-                rangeShotSFX:set_volume(fxVolume)
-                supportAttackSFX:set_volume(fxVolume)
-                supportDeadSFX:set_volume(fxVolume)
-                supportHurtSFX:set_volume(fxVolume)
-                supportShieldAssignSFX:set_volume(fxVolume)
-                supportShieldExplosionSFX:set_volume(fxVolume)
-                supportShieldZapsSFX:set_volume(fxVolume)
-                tankBerserkerSFX:set_volume(fxVolume)
-                tankDetectPlayerSFX:set_volume(fxVolume)
-                tankImpactPlayerSFX:set_volume(fxVolume)
-                tankStepsSFX:set_volume(fxVolume)
-                
+                fxVolume = fxVolume * 100
                 save_progress("fxVolume", fxVolume)
             end
         end
@@ -332,22 +253,10 @@ function on_update(dt)
     value = Input.get_button(Input.action.Cancel)
     if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
         sceneChanged = true
-        --visibilidad2Entity:set_active(false)
-        --[[VolumeText:set_visible(false)
-        FXText:set_visible(false)
-        SettingsBaseText:set_visible(false)
-        slider1:set_visible(false)
-        slider2:set_visible(false)
-        button1:set_visible(true)
-        button2:set_visible(true)
-        button3:set_visible(true)
-        button4:set_visible(true)
-        ContinueText:set_visible(true)
-        SettingsText:set_visible(true)
-        ExitText:set_visible(true)
-        SaveGameText:set_visible(true)
-        PauseText:set_visible(true)--]]
-        --isOnPauseSettings = false
+        visibilidad1Entity:set_active(false)
+        visibilidad2Entity:set_active(false)
+        isOnPauseSettings = false
+        isPaused = false
     end 
     
 end 

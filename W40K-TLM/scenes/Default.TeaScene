@@ -1,8 +1,8 @@
 {
     "value0": {
         "cereal_class_version": 1,
-        "value0": 39,
-        "value1": 39,
+        "value0": 47,
+        "value1": 47,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -43,170 +43,210 @@
         "value39": 37,
         "value40": 38,
         "value41": 39,
-        "value42": 0,
-        "value43": {
+        "value42": 40,
+        "value43": 41,
+        "value44": 42,
+        "value45": 43,
+        "value46": 44,
+        "value47": 45,
+        "value48": 46,
+        "value49": 47,
+        "value50": 0,
+        "value51": {
             "cereal_class_version": 0,
             "Tag": "Base"
         },
-        "value44": 1,
-        "value45": {
+        "value52": 1,
+        "value53": {
             "Tag": "Texto1"
         },
-        "value46": 2,
-        "value47": {
+        "value54": 2,
+        "value55": {
             "Tag": "NewGame"
         },
-        "value48": 3,
-        "value49": {
+        "value56": 3,
+        "value57": {
             "Tag": "Camera"
         },
-        "value50": 4,
-        "value51": {
+        "value58": 4,
+        "value59": {
             "Tag": "NewGameText"
         },
-        "value52": 5,
-        "value53": {
+        "value60": 5,
+        "value61": {
             "Tag": "Continue"
         },
-        "value54": 6,
-        "value55": {
+        "value62": 6,
+        "value63": {
             "Tag": "ContinueText"
         },
-        "value56": 7,
-        "value57": {
-            "Tag": "Settings"
+        "value64": 7,
+        "value65": {
+            "Tag": "SettingsButton"
         },
-        "value58": 8,
-        "value59": {
+        "value66": 8,
+        "value67": {
             "Tag": "SettingsText"
         },
-        "value60": 9,
-        "value61": {
+        "value68": 9,
+        "value69": {
             "Tag": "Credits"
         },
-        "value62": 10,
-        "value63": {
+        "value70": 10,
+        "value71": {
             "Tag": "CreditsText"
         },
-        "value64": 11,
-        "value65": {
+        "value72": 11,
+        "value73": {
             "Tag": "Exit"
         },
-        "value66": 12,
-        "value67": {
+        "value74": 12,
+        "value75": {
             "Tag": "ExitText"
         },
-        "value68": 13,
-        "value69": {
+        "value76": 13,
+        "value77": {
             "Tag": "Ultramarine_final_anim.gltf"
         },
-        "value70": 14,
-        "value71": {
+        "value78": 14,
+        "value79": {
             "Tag": "Bolter_Lower"
         },
-        "value72": 15,
-        "value73": {
+        "value80": 15,
+        "value81": {
             "Tag": "Bolter_upper"
         },
-        "value74": 16,
-        "value75": {
+        "value82": 16,
+        "value83": {
             "Tag": "Casco_lv1"
         },
-        "value76": 17,
-        "value77": {
+        "value84": 17,
+        "value85": {
             "Tag": "Casco_lvl_2"
         },
-        "value78": 18,
-        "value79": {
+        "value86": 18,
+        "value87": {
             "Tag": "ChainSword_Lower"
         },
-        "value80": 19,
-        "value81": {
+        "value88": 19,
+        "value89": {
             "Tag": "ChainSword_Upper"
         },
-        "value82": 20,
-        "value83": {
+        "value90": 20,
+        "value91": {
             "Tag": "Jetpack_lv1"
         },
-        "value84": 21,
-        "value85": {
+        "value92": 21,
+        "value93": {
             "Tag": "Jetpack_lv2"
         },
-        "value86": 22,
-        "value87": {
+        "value94": 22,
+        "value95": {
             "Tag": "Shotgun_lower"
         },
-        "value88": 23,
-        "value89": {
+        "value96": 23,
+        "value97": {
             "Tag": "Shotgun_upper"
         },
-        "value90": 24,
-        "value91": {
+        "value98": 24,
+        "value99": {
             "Tag": "Ultramarine_low"
         },
-        "value92": 25,
-        "value93": {
+        "value100": 25,
+        "value101": {
             "Tag": "Root"
         },
-        "value94": 26,
-        "value95": {
+        "value102": 26,
+        "value103": {
             "Tag": "IK_foot_L"
         },
-        "value96": 27,
-        "value97": {
+        "value104": 27,
+        "value105": {
             "Tag": "IK_knee-L"
         },
-        "value98": 28,
-        "value99": {
+        "value106": 28,
+        "value107": {
             "Tag": "IK_arm_R"
         },
-        "value100": 29,
-        "value101": {
+        "value108": 29,
+        "value109": {
             "Tag": "IK_foot_R"
         },
-        "value102": 30,
-        "value103": {
+        "value110": 30,
+        "value111": {
             "Tag": "IK_knee_R"
         },
-        "value104": 31,
-        "value105": {
+        "value112": 31,
+        "value113": {
             "Tag": "IK_forearm_R"
         },
-        "value106": 32,
-        "value107": {
+        "value114": 32,
+        "value115": {
             "Tag": "IK_arm_L"
         },
-        "value108": 33,
-        "value109": {
+        "value116": 33,
+        "value117": {
             "Tag": "IK_forearm_L"
         },
-        "value110": 34,
-        "value111": {
+        "value118": 34,
+        "value119": {
             "Tag": "AbdomenCTRL"
         },
-        "value112": 35,
-        "value113": {
+        "value120": 35,
+        "value121": {
             "Tag": "ParticleSystem"
         },
-        "value114": 36,
-        "value115": {
+        "value122": 36,
+        "value123": {
             "Tag": "BackgroundMusic"
         },
-        "value116": 37,
-        "value117": {
+        "value124": 37,
+        "value125": {
             "Tag": "FadeToBlack"
         },
-        "value118": 38,
-        "value119": {
+        "value126": 38,
+        "value127": {
             "Tag": "Light"
         },
-        "value120": 39,
-        "value121": 0,
-        "value122": {
+        "value128": 39,
+        "value129": {
+            "Tag": "Settings"
+        },
+        "value130": 40,
+        "value131": {
+            "Tag": "SettingsTextScreen"
+        },
+        "value132": 41,
+        "value133": {
+            "Tag": "Volume"
+        },
+        "value134": 42,
+        "value135": {
+            "Tag": "FX"
+        },
+        "value136": 43,
+        "value137": {
+            "Tag": "VolumeText"
+        },
+        "value138": 44,
+        "value139": {
+            "Tag": "FXText"
+        },
+        "value140": 45,
+        "value141": {
+            "Tag": "SettingsManager"
+        },
+        "value142": 46,
+        "value143": {
+            "Tag": "BaseManager"
+        },
+        "value144": 47,
+        "value145": 0,
+        "value146": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 601.5,
-                "y": 288.5,
+                "x": 615.5,
+                "y": 279.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -215,16 +255,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1203.0,
-                "y": 577.0,
+                "x": 1231.0,
+                "y": 559.0,
                 "z": 1.0
             }
         },
-        "value123": 1,
-        "value124": {
+        "value147": 1,
+        "value148": {
             "Position": {
-                "x": 53.5,
-                "y": 178.5,
+                "x": 67.5,
+                "y": 169.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -238,11 +278,11 @@
                 "z": 1.0
             }
         },
-        "value125": 2,
-        "value126": {
+        "value149": 2,
+        "value150": {
             "Position": {
                 "x": 583.0,
-                "y": 288.5,
+                "y": 279.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -256,8 +296,8 @@
                 "z": 1.0
             }
         },
-        "value127": 3,
-        "value128": {
+        "value151": 3,
+        "value152": {
             "Position": {
                 "x": 0.746999979019165,
                 "y": 0.3959999978542328,
@@ -274,11 +314,11 @@
                 "z": 1.0
             }
         },
-        "value129": 4,
-        "value130": {
+        "value153": 4,
+        "value154": {
             "Position": {
                 "x": 558.0,
-                "y": 295.5,
+                "y": 286.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -292,11 +332,11 @@
                 "z": 1.0
             }
         },
-        "value131": 5,
-        "value132": {
+        "value155": 5,
+        "value156": {
             "Position": {
                 "x": 583.0,
-                "y": 388.5,
+                "y": 379.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -310,11 +350,11 @@
                 "z": 1.0
             }
         },
-        "value133": 6,
-        "value134": {
+        "value157": 6,
+        "value158": {
             "Position": {
                 "x": 558.0,
-                "y": 395.5,
+                "y": 386.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -328,11 +368,11 @@
                 "z": 1.0
             }
         },
-        "value135": 7,
-        "value136": {
+        "value159": 7,
+        "value160": {
             "Position": {
                 "x": 583.0,
-                "y": 488.5,
+                "y": 479.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -346,11 +386,11 @@
                 "z": 1.0
             }
         },
-        "value137": 8,
-        "value138": {
+        "value161": 8,
+        "value162": {
             "Position": {
                 "x": 558.0,
-                "y": 495.5,
+                "y": 486.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -364,11 +404,11 @@
                 "z": 1.0
             }
         },
-        "value139": 9,
-        "value140": {
+        "value163": 9,
+        "value164": {
             "Position": {
                 "x": 583.0,
-                "y": 588.5,
+                "y": 579.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -382,11 +422,11 @@
                 "z": 1.0
             }
         },
-        "value141": 10,
-        "value142": {
+        "value165": 10,
+        "value166": {
             "Position": {
                 "x": 558.0,
-                "y": 595.5,
+                "y": 586.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -400,11 +440,11 @@
                 "z": 1.0
             }
         },
-        "value143": 11,
-        "value144": {
+        "value167": 11,
+        "value168": {
             "Position": {
                 "x": 583.0,
-                "y": 688.5,
+                "y": 679.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -418,11 +458,11 @@
                 "z": 1.0
             }
         },
-        "value145": 12,
-        "value146": {
+        "value169": 12,
+        "value170": {
             "Position": {
                 "x": 558.0,
-                "y": 695.5,
+                "y": 686.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -436,8 +476,8 @@
                 "z": 1.0
             }
         },
-        "value147": 13,
-        "value148": {
+        "value171": 13,
+        "value172": {
             "Position": {
                 "x": 2.202108383178711,
                 "y": 0.0,
@@ -454,8 +494,8 @@
                 "z": 1.0
             }
         },
-        "value149": 14,
-        "value150": {
+        "value173": 14,
+        "value174": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -472,8 +512,8 @@
                 "z": 1.0
             }
         },
-        "value151": 15,
-        "value152": {
+        "value175": 15,
+        "value176": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -490,8 +530,8 @@
                 "z": 1.0
             }
         },
-        "value153": 16,
-        "value154": {
+        "value177": 16,
+        "value178": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -508,8 +548,8 @@
                 "z": 1.0
             }
         },
-        "value155": 17,
-        "value156": {
+        "value179": 17,
+        "value180": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -526,8 +566,8 @@
                 "z": 1.0
             }
         },
-        "value157": 18,
-        "value158": {
+        "value181": 18,
+        "value182": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -544,8 +584,8 @@
                 "z": 1.0
             }
         },
-        "value159": 19,
-        "value160": {
+        "value183": 19,
+        "value184": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -562,8 +602,8 @@
                 "z": 1.0
             }
         },
-        "value161": 20,
-        "value162": {
+        "value185": 20,
+        "value186": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -580,8 +620,8 @@
                 "z": 1.0
             }
         },
-        "value163": 21,
-        "value164": {
+        "value187": 21,
+        "value188": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -598,8 +638,8 @@
                 "z": 1.0
             }
         },
-        "value165": 22,
-        "value166": {
+        "value189": 22,
+        "value190": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -616,8 +656,8 @@
                 "z": 1.0
             }
         },
-        "value167": 23,
-        "value168": {
+        "value191": 23,
+        "value192": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -634,8 +674,8 @@
                 "z": 1.0
             }
         },
-        "value169": 24,
-        "value170": {
+        "value193": 24,
+        "value194": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -652,8 +692,8 @@
                 "z": 1.0
             }
         },
-        "value171": 25,
-        "value172": {
+        "value195": 25,
+        "value196": {
             "Position": {
                 "x": 0.0,
                 "y": 1.077844262123108,
@@ -670,8 +710,8 @@
                 "z": 1.0
             }
         },
-        "value173": 26,
-        "value174": {
+        "value197": 26,
+        "value198": {
             "Position": {
                 "x": 0.23504434525966645,
                 "y": 0.12776918709278108,
@@ -688,8 +728,8 @@
                 "z": 1.0
             }
         },
-        "value175": 27,
-        "value176": {
+        "value199": 27,
+        "value200": {
             "Position": {
                 "x": 0.3725998103618622,
                 "y": 0.6552196741104126,
@@ -706,8 +746,8 @@
                 "z": 1.0
             }
         },
-        "value177": 28,
-        "value178": {
+        "value201": 28,
+        "value202": {
             "Position": {
                 "x": -0.8439140319824219,
                 "y": 1.3868303298950196,
@@ -724,8 +764,8 @@
                 "z": 1.0
             }
         },
-        "value179": 29,
-        "value180": {
+        "value203": 29,
+        "value204": {
             "Position": {
                 "x": -0.23504436016082765,
                 "y": 0.1277691274881363,
@@ -742,8 +782,8 @@
                 "z": 1.0
             }
         },
-        "value181": 30,
-        "value182": {
+        "value205": 30,
+        "value206": {
             "Position": {
                 "x": -0.3725998103618622,
                 "y": 0.6552196741104126,
@@ -760,8 +800,8 @@
                 "z": 1.0
             }
         },
-        "value183": 31,
-        "value184": {
+        "value207": 31,
+        "value208": {
             "Position": {
                 "x": -0.5537787675857544,
                 "y": 1.571897268295288,
@@ -778,8 +818,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value185": 32,
-        "value186": {
+        "value209": 32,
+        "value210": {
             "Position": {
                 "x": 0.8439140319824219,
                 "y": 1.3868303298950196,
@@ -796,8 +836,8 @@
                 "z": 1.0
             }
         },
-        "value187": 33,
-        "value188": {
+        "value211": 33,
+        "value212": {
             "Position": {
                 "x": 0.5537787675857544,
                 "y": 1.571897268295288,
@@ -814,8 +854,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value189": 34,
-        "value190": {
+        "value213": 34,
+        "value214": {
             "Position": {
                 "x": 0.0,
                 "y": 1.4951900243759156,
@@ -832,8 +872,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value191": 35,
-        "value192": {
+        "value215": 35,
+        "value216": {
             "Position": {
                 "x": -1.7712575197219849,
                 "y": -1.5950182676315308,
@@ -850,8 +890,8 @@
                 "z": 1.0
             }
         },
-        "value193": 36,
-        "value194": {
+        "value217": 36,
+        "value218": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -868,11 +908,11 @@
                 "z": 1.0
             }
         },
-        "value195": 37,
-        "value196": {
+        "value219": 37,
+        "value220": {
             "Position": {
-                "x": 601.5,
-                "y": 288.5,
+                "x": 615.5,
+                "y": 279.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -881,13 +921,13 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1203.0,
-                "y": 577.0,
+                "x": 1231.0,
+                "y": 559.0,
                 "z": 1.0
             }
         },
-        "value197": 38,
-        "value198": {
+        "value221": 38,
+        "value222": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -904,284 +944,484 @@
                 "z": 0.9999997615814209
             }
         },
-        "value199": 39,
-        "value200": 0,
-        "value201": {
+        "value223": 39,
+        "value224": {
+            "Position": {
+                "x": 615.5,
+                "y": 279.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1231.0,
+                "y": 559.0,
+                "z": 1.0
+            }
+        },
+        "value225": 40,
+        "value226": {
+            "Position": {
+                "x": 615.5,
+                "y": 42.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value227": 41,
+        "value228": {
+            "Position": {
+                "x": 615.5,
+                "y": 279.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 526.0,
+                "y": 22.0,
+                "z": 1.0
+            }
+        },
+        "value229": 42,
+        "value230": {
+            "Position": {
+                "x": 615.5,
+                "y": 385.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 526.0,
+                "y": 22.0,
+                "z": 1.0
+            }
+        },
+        "value231": 43,
+        "value232": {
+            "Position": {
+                "x": 181.5,
+                "y": 288.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value233": 44,
+        "value234": {
+            "Position": {
+                "x": 181.5,
+                "y": 385.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value235": 45,
+        "value236": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value237": 46,
+        "value238": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value239": 47,
+        "value240": 0,
+        "value241": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value202": 1,
-        "value203": {
+        "value242": 1,
+        "value243": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 2,
             "Prev": 1
         },
-        "value204": 2,
-        "value205": {
+        "value244": 2,
+        "value245": {
             "Parent": 0,
             "First": 4,
             "Next": 5,
             "Prev": 2
         },
-        "value206": 3,
-        "value207": {
+        "value246": 3,
+        "value247": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value208": 4,
-        "value209": {
+        "value248": 4,
+        "value249": {
             "Parent": 2,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value210": 5,
-        "value211": {
+        "value250": 5,
+        "value251": {
             "Parent": 0,
             "First": 6,
             "Next": 7,
             "Prev": 5
         },
-        "value212": 6,
-        "value213": {
+        "value252": 6,
+        "value253": {
             "Parent": 5,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value214": 7,
-        "value215": {
+        "value254": 7,
+        "value255": {
             "Parent": 0,
             "First": 8,
             "Next": 9,
             "Prev": 7
         },
-        "value216": 8,
-        "value217": {
+        "value256": 8,
+        "value257": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value218": 9,
-        "value219": {
+        "value258": 9,
+        "value259": {
             "Parent": 0,
             "First": 10,
             "Next": 11,
             "Prev": 9
         },
-        "value220": 10,
-        "value221": {
+        "value260": 10,
+        "value261": {
             "Parent": 9,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value222": 11,
-        "value223": {
+        "value262": 11,
+        "value263": {
             "Parent": 0,
             "First": 12,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value224": 12,
-        "value225": {
+        "value264": 12,
+        "value265": {
             "Parent": 11,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value226": 13,
-        "value227": {
+        "value266": 13,
+        "value267": {
             "Parent": 4294967295,
             "First": 14,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value228": 14,
-        "value229": {
+        "value268": 14,
+        "value269": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 15,
             "Prev": 14
         },
-        "value230": 15,
-        "value231": {
+        "value270": 15,
+        "value271": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 16,
             "Prev": 15
         },
-        "value232": 16,
-        "value233": {
+        "value272": 16,
+        "value273": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 17,
             "Prev": 16
         },
-        "value234": 17,
-        "value235": {
+        "value274": 17,
+        "value275": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 18,
             "Prev": 17
         },
-        "value236": 18,
-        "value237": {
+        "value276": 18,
+        "value277": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 19,
             "Prev": 18
         },
-        "value238": 19,
-        "value239": {
+        "value278": 19,
+        "value279": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 20,
             "Prev": 19
         },
-        "value240": 20,
-        "value241": {
+        "value280": 20,
+        "value281": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 21,
             "Prev": 20
         },
-        "value242": 21,
-        "value243": {
+        "value282": 21,
+        "value283": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 22,
             "Prev": 21
         },
-        "value244": 22,
-        "value245": {
+        "value284": 22,
+        "value285": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 23,
             "Prev": 22
         },
-        "value246": 23,
-        "value247": {
+        "value286": 23,
+        "value287": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 24,
             "Prev": 23
         },
-        "value248": 24,
-        "value249": {
+        "value288": 24,
+        "value289": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 25,
             "Prev": 24
         },
-        "value250": 25,
-        "value251": {
+        "value290": 25,
+        "value291": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 26,
             "Prev": 25
         },
-        "value252": 26,
-        "value253": {
+        "value292": 26,
+        "value293": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 27,
             "Prev": 26
         },
-        "value254": 27,
-        "value255": {
+        "value294": 27,
+        "value295": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 28,
             "Prev": 27
         },
-        "value256": 28,
-        "value257": {
+        "value296": 28,
+        "value297": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 29,
             "Prev": 28
         },
-        "value258": 29,
-        "value259": {
+        "value298": 29,
+        "value299": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 30,
             "Prev": 29
         },
-        "value260": 30,
-        "value261": {
+        "value300": 30,
+        "value301": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 31,
             "Prev": 30
         },
-        "value262": 31,
-        "value263": {
+        "value302": 31,
+        "value303": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 32,
             "Prev": 31
         },
-        "value264": 32,
-        "value265": {
+        "value304": 32,
+        "value305": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 33,
             "Prev": 32
         },
-        "value266": 33,
-        "value267": {
+        "value306": 33,
+        "value307": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 34,
             "Prev": 33
         },
-        "value268": 34,
-        "value269": {
+        "value308": 34,
+        "value309": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value270": 35,
-        "value271": {
+        "value310": 35,
+        "value311": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value272": 36,
-        "value273": {
+        "value312": 36,
+        "value313": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value274": 37,
-        "value275": {
+        "value314": 37,
+        "value315": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value276": 38,
-        "value277": {
+        "value316": 38,
+        "value317": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value278": 1,
-        "value279": 3,
-        "value280": {
+        "value318": 39,
+        "value319": {
+            "Parent": 4294967295,
+            "First": 40,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value320": 40,
+        "value321": {
+            "Parent": 39,
+            "First": 4294967295,
+            "Next": 41,
+            "Prev": 40
+        },
+        "value322": 41,
+        "value323": {
+            "Parent": 39,
+            "First": 43,
+            "Next": 42,
+            "Prev": 41
+        },
+        "value324": 42,
+        "value325": {
+            "Parent": 39,
+            "First": 44,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value326": 43,
+        "value327": {
+            "Parent": 41,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value328": 44,
+        "value329": {
+            "Parent": 42,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value330": 45,
+        "value331": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value332": 46,
+        "value333": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value334": 1,
+        "value335": 3,
+        "value336": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -1194,9 +1434,9 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value281": 11,
-        "value282": 14,
-        "value283": {
+        "value337": 11,
+        "value338": 14,
+        "value339": {
             "cereal_class_version": 0,
             "Mesh": {
                 "cereal_class_version": 0,
@@ -1206,8 +1446,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value284": 15,
-        "value285": {
+        "value340": 15,
+        "value341": {
             "Mesh": {
                 "value0": 13082464210510407219
             },
@@ -1215,8 +1455,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value286": 16,
-        "value287": {
+        "value342": 16,
+        "value343": {
             "Mesh": {
                 "value0": 4955119707226699092
             },
@@ -1224,8 +1464,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value288": 17,
-        "value289": {
+        "value344": 17,
+        "value345": {
             "Mesh": {
                 "value0": 11856470198495388744
             },
@@ -1233,8 +1473,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value290": 18,
-        "value291": {
+        "value346": 18,
+        "value347": {
             "Mesh": {
                 "value0": 8815818718795489162
             },
@@ -1242,8 +1482,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value292": 19,
-        "value293": {
+        "value348": 19,
+        "value349": {
             "Mesh": {
                 "value0": 15457716149166778021
             },
@@ -1251,8 +1491,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value294": 20,
-        "value295": {
+        "value350": 20,
+        "value351": {
             "Mesh": {
                 "value0": 1557280033600584433
             },
@@ -1260,8 +1500,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value296": 21,
-        "value297": {
+        "value352": 21,
+        "value353": {
             "Mesh": {
                 "value0": 10886367400771679502
             },
@@ -1269,8 +1509,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value298": 22,
-        "value299": {
+        "value354": 22,
+        "value355": {
             "Mesh": {
                 "value0": 13009068913973531097
             },
@@ -1278,8 +1518,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value300": 23,
-        "value301": {
+        "value356": 23,
+        "value357": {
             "Mesh": {
                 "value0": 10564065579326327482
             },
@@ -1287,8 +1527,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value302": 24,
-        "value303": {
+        "value358": 24,
+        "value359": {
             "Mesh": {
                 "value0": 1597865029049805125
             },
@@ -1296,78 +1536,78 @@
                 "value0": 12166033386293056678
             }
         },
-        "value304": 11,
-        "value305": 14,
-        "value306": {
+        "value360": 11,
+        "value361": 14,
+        "value362": {
             "cereal_class_version": 0,
             "Material": {
                 "value0": 5013373291479302372
             }
         },
-        "value307": 15,
-        "value308": {
+        "value363": 15,
+        "value364": {
             "Material": {
                 "value0": 5013373291479302372
             }
         },
-        "value309": 16,
-        "value310": {
+        "value365": 16,
+        "value366": {
             "Material": {
                 "value0": 16574589554561446541
             }
         },
-        "value311": 17,
-        "value312": {
+        "value367": 17,
+        "value368": {
             "Material": {
                 "value0": 11986006820189164847
             }
         },
-        "value313": 18,
-        "value314": {
+        "value369": 18,
+        "value370": {
             "Material": {
                 "value0": 16508454056983102542
             }
         },
-        "value315": 19,
-        "value316": {
+        "value371": 19,
+        "value372": {
             "Material": {
                 "value0": 16508454056983102542
             }
         },
-        "value317": 20,
-        "value318": {
+        "value373": 20,
+        "value374": {
             "Material": {
                 "value0": 15419052778490210292
             }
         },
-        "value319": 21,
-        "value320": {
+        "value375": 21,
+        "value376": {
             "Material": {
                 "value0": 15419052778490210292
             }
         },
-        "value321": 22,
-        "value322": {
+        "value377": 22,
+        "value378": {
             "Material": {
                 "value0": 13192220213484133887
             }
         },
-        "value323": 23,
-        "value324": {
+        "value379": 23,
+        "value380": {
             "Material": {
                 "value0": 13192220213484133887
             }
         },
-        "value325": 24,
-        "value326": {
+        "value381": 24,
+        "value382": {
             "Material": {
                 "value0": 16574589554561446541
             }
         },
-        "value327": 1,
-        "value328": 38,
-        "value329": {
-            "cereal_class_version": 0,
+        "value383": 1,
+        "value384": 38,
+        "value385": {
+            "cereal_class_version": 1,
             "Color": {
                 "x": 0.975806474685669,
                 "y": 0.25969040393829348,
@@ -1387,26 +1627,34 @@
             "Attenuation": 1.0,
             "Intensity": 3.299999952316284,
             "Angle": 45.0,
-            "Type": 0
+            "Type": 0,
+            "Shadow": false,
+            "ShadowBias": 0.004999999888241291,
+            "ShadowMaxDistance": 100.0
         },
-        "value330": 0,
-        "value331": 2,
-        "value332": 0,
-        "value333": {
+        "value386": 0,
+        "value387": 3,
+        "value388": 37,
+        "value389": {
             "cereal_class_version": 0,
-            "ScriptPath": "scripts/UI/menuprincipal.lua",
-            "Language": 0
-        },
-        "value334": 37,
-        "value335": {
             "ScriptPath": "scripts/misc/FadeToBlack.lua",
             "Language": 0
         },
-        "value336": 0,
-        "value337": 0,
-        "value338": 1,
-        "value339": 13,
-        "value340": {
+        "value390": 45,
+        "value391": {
+            "ScriptPath": "scripts/UI/settingsMainMenu.lua",
+            "Language": 0
+        },
+        "value392": 46,
+        "value393": {
+            "ScriptPath": "scripts/UI/menuprincipal.lua",
+            "Language": 0
+        },
+        "value394": 0,
+        "value395": 0,
+        "value396": 1,
+        "value397": 13,
+        "value398": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -1439,9 +1687,9 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 39
         },
-        "value341": 1,
-        "value342": 36,
-        "value343": {
+        "value399": 1,
+        "value400": 36,
+        "value401": {
             "cereal_class_version": 0,
             "GameObjectID": 9119566246223530669,
             "AudioBank": {
@@ -1482,9 +1730,9 @@
                 "m33": 1.0
             }
         },
-        "value344": 1,
-        "value345": 3,
-        "value346": {
+        "value402": 1,
+        "value403": 3,
+        "value404": {
             "cereal_class_version": 0,
             "GameObjectID": 6959882703440946210,
             "Transform": {
@@ -1506,10 +1754,10 @@
                 "m33": 1.0
             }
         },
-        "value347": 0,
-        "value348": 1,
-        "value349": 35,
-        "value350": {
+        "value405": 0,
+        "value406": 1,
+        "value407": 35,
+        "value408": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -1772,7 +2020,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 3280.723388671875,
+                        "ElapsedTime": 5930.646484375,
                         "TextureUUID": {
                             "value0": 3119739597825529390
                         }
@@ -1780,50 +2028,52 @@
                 }
             }
         },
-        "value351": 38,
-        "value352": 38,
-        "value353": 37,
-        "value354": 33,
-        "value355": 3,
-        "value356": 22,
-        "value357": 35,
-        "value358": 36,
-        "value359": 32,
-        "value360": 30,
-        "value361": 29,
-        "value362": 28,
-        "value363": 27,
-        "value364": 26,
-        "value365": 13,
-        "value366": 21,
-        "value367": 14,
-        "value368": 15,
-        "value369": 25,
-        "value370": 34,
-        "value371": 18,
-        "value372": 16,
-        "value373": 20,
-        "value374": 17,
-        "value375": 23,
-        "value376": 24,
-        "value377": 31,
-        "value378": 0,
-        "value379": 1,
-        "value380": 2,
-        "value381": 4,
-        "value382": 5,
-        "value383": 6,
-        "value384": 7,
-        "value385": 8,
-        "value386": 9,
-        "value387": 10,
-        "value388": 11,
-        "value389": 12,
-        "value390": 0,
-        "value391": 0,
-        "value392": 2,
-        "value393": 0,
-        "value394": {
+        "value409": 40,
+        "value410": 38,
+        "value411": 37,
+        "value412": 33,
+        "value413": 3,
+        "value414": 22,
+        "value415": 35,
+        "value416": 36,
+        "value417": 32,
+        "value418": 30,
+        "value419": 29,
+        "value420": 28,
+        "value421": 27,
+        "value422": 26,
+        "value423": 13,
+        "value424": 21,
+        "value425": 14,
+        "value426": 15,
+        "value427": 25,
+        "value428": 34,
+        "value429": 18,
+        "value430": 16,
+        "value431": 20,
+        "value432": 17,
+        "value433": 23,
+        "value434": 24,
+        "value435": 31,
+        "value436": 45,
+        "value437": 12,
+        "value438": 0,
+        "value439": 1,
+        "value440": 2,
+        "value441": 4,
+        "value442": 5,
+        "value443": 6,
+        "value444": 7,
+        "value445": 8,
+        "value446": 9,
+        "value447": 10,
+        "value448": 11,
+        "value449": 46,
+        "value450": 0,
+        "value451": 0,
+        "value452": 3,
+        "value453": 0,
+        "value454": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 13140529579183903235
@@ -1861,8 +2111,8 @@
             },
             "Layer": 0
         },
-        "value395": 37,
-        "value396": {
+        "value455": 37,
+        "value456": {
             "TextureUUID": {
                 "value0": 6711820436760903955
             },
@@ -1898,9 +2148,46 @@
             },
             "Layer": 25
         },
-        "value397": 6,
-        "value398": 1,
-        "value399": {
+        "value457": 39,
+        "value458": {
+            "TextureUUID": {
+                "value0": 4549735328248801287
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 1.0,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "Layer": 0
+        },
+        "value459": 9,
+        "value460": 1,
+        "value461": {
             "cereal_class_version": 0,
             "Text": "While faithless traitors still live, \nthere can be no forgiveness!",
             "FontPath": "",
@@ -1934,8 +2221,8 @@
             },
             "Layer": 0
         },
-        "value400": 4,
-        "value401": {
+        "value462": 4,
+        "value463": {
             "Text": "New Game",
             "FontPath": "",
             "Color": {
@@ -1968,8 +2255,8 @@
             },
             "Layer": 0
         },
-        "value402": 6,
-        "value403": {
+        "value464": 6,
+        "value465": {
             "Text": "Continue",
             "FontPath": "",
             "Color": {
@@ -2002,8 +2289,8 @@
             },
             "Layer": 0
         },
-        "value404": 8,
-        "value405": {
+        "value466": 8,
+        "value467": {
             "Text": "Settings",
             "FontPath": "",
             "Color": {
@@ -2036,8 +2323,8 @@
             },
             "Layer": 0
         },
-        "value406": 10,
-        "value407": {
+        "value468": 10,
+        "value469": {
             "Text": "Credits\n",
             "FontPath": "",
             "Color": {
@@ -2070,8 +2357,8 @@
             },
             "Layer": 0
         },
-        "value408": 12,
-        "value409": {
+        "value470": 12,
+        "value471": {
             "Text": "Exit",
             "FontPath": "",
             "Color": {
@@ -2104,10 +2391,112 @@
             },
             "Layer": 0
         },
-        "value410": 0,
-        "value411": 5,
-        "value412": 2,
-        "value413": {
+        "value472": 40,
+        "value473": {
+            "Text": "Settings",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 0.8604968786239624,
+                "z": 0.21370965242385865,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 50.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -8.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 92.0
+                }
+            },
+            "Layer": 0
+        },
+        "value474": 43,
+        "value475": {
+            "Text": "Volume",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 35.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -484.0,
+                    "y": -41.0
+                },
+                "OffsetMax": {
+                    "x": -384.0,
+                    "y": 59.0
+                }
+            },
+            "Layer": 0
+        },
+        "value476": 44,
+        "value477": {
+            "Text": "FX",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 35.0,
+            "Alignment": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -484.0,
+                    "y": -50.0
+                },
+                "OffsetMax": {
+                    "x": -384.0,
+                    "y": 50.0
+                }
+            },
+            "Layer": 0
+        },
+        "value478": 0,
+        "value479": 5,
+        "value480": 2,
+        "value481": {
             "cereal_class_version": 0,
             "Interactable": true,
             "NormalTextureUUID": {
@@ -2166,8 +2555,8 @@
             },
             "Layer": 0
         },
-        "value414": 5,
-        "value415": {
+        "value482": 5,
+        "value483": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -2225,8 +2614,8 @@
             },
             "Layer": 0
         },
-        "value416": 7,
-        "value417": {
+        "value484": 7,
+        "value485": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -2284,8 +2673,8 @@
             },
             "Layer": 0
         },
-        "value418": 9,
-        "value419": {
+        "value486": 9,
+        "value487": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -2343,8 +2732,8 @@
             },
             "Layer": 0
         },
-        "value420": 11,
-        "value421": {
+        "value488": 11,
+        "value489": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -2402,6 +2791,77 @@
             },
             "Layer": 0
         },
-        "value422": 0
+        "value490": 2,
+        "value491": 41,
+        "value492": {
+            "cereal_class_version": 0,
+            "Value": 0.0,
+            "MinValue": 0.0,
+            "MaxValue": 1.0,
+            "HandleScale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "BackgroundTextureUUID": {
+                "value0": 13554918212805852877
+            },
+            "HandleTextureUUID": {
+                "value0": 15692961168637335866
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -263.0,
+                    "y": -11.0
+                },
+                "OffsetMax": {
+                    "x": 263.0,
+                    "y": 11.0
+                }
+            },
+            "Layer": 0
+        },
+        "value493": 42,
+        "value494": {
+            "Value": 0.0,
+            "MinValue": 0.0,
+            "MaxValue": 1.0,
+            "HandleScale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "BackgroundTextureUUID": {
+                "value0": 13554918212805852877
+            },
+            "HandleTextureUUID": {
+                "value0": 15692961168637335866
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -263.0,
+                    "y": 95.0
+                },
+                "OffsetMax": {
+                    "x": 263.0,
+                    "y": 117.0
+                }
+            },
+            "Layer": 0
+        }
     }
 }

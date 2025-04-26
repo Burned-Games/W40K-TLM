@@ -10,6 +10,10 @@ local text4
 local text5
 local musicaFondoDefault
 --local changeScene = false
+local SettingsManager
+local Ajustes
+ajustesOpened = false
+
 
 
 local index = 0
@@ -35,7 +39,7 @@ function on_ready()
     button2 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
     text2 = current_scene:get_entity_by_name("ContinueText"):get_component("UITextComponent")
 
-    button3 = current_scene:get_entity_by_name("Settings"):get_component("UIButtonComponent")
+    button3 = current_scene:get_entity_by_name("SettingsButton"):get_component("UIButtonComponent")
     text3 = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
 
     button4 = current_scene:get_entity_by_name("Credits"):get_component("UIButtonComponent")
@@ -44,16 +48,14 @@ function on_ready()
     button5 = current_scene:get_entity_by_name("Exit"):get_component("UIButtonComponent")
     text5 = current_scene:get_entity_by_name("ExitText"):get_component("UITextComponent")
 
+    SettingsManager = current_scene:get_entity_by_name("SettingsManager"):get_component("ScriptComponent")
+
+    Ajustes = current_scene:get_entity_by_name("Settings")
+
     level = load_progress("level", 1)
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
-
-    musicaFondoDefault = current_scene:get_entity_by_name("BackgroundMusic"):get_component("AudioSourceComponent")
-
-    -- guardar el nivel de volumen actual
-    --local valor_volumen_ppal = musicaFondoDefault:save_progress()
-    --save_volumen_ppal("volumen_ppal",valor_volumen_ppal)
-    --print("Valor del volumen principal: ", valor_volumen_ppal)
+    
 end
 
 function on_update(dt)
@@ -125,11 +127,10 @@ function on_update(dt)
 
 
         value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+        if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
             --button3:set_state("Pressed")
             if(index == 2) then
-                sceneChanged = true
-                SceneManager.change_scene("scenes/settings.TeaScene")
+                ajustesOpened = true
             end
         end
 
@@ -177,28 +178,29 @@ function on_update(dt)
         end
     end
 
-    local value = Input.get_direction("UiY")
-        if (value ~= 0 and contadorMovimientoBotones > 0.2) then
-            contadorMovimientoBotones = 0
-            log("Valor que estoy encontrando" .. value)
-            if value < 0 then
-                index = index - 1;
-                if index < 0 then
-                    index = 4
+    if ajustesOpened == false then
+        local value = Input.get_direction("UiY")
+            if (value ~= 0 and contadorMovimientoBotones > 0.2) then
+                contadorMovimientoBotones = 0
+                log("Valor que estoy encontrando" .. value)
+                if value < 0 then
+                    index = index - 1;
+                    if index < 0 then
+                        index = 4
+                    end
                 end
-            end
-            
-            if value > 0 then
-                index = index + 1
-                if index > 4 then
-                    index = 0
+                
+                if value > 0 then
+                    index = index + 1
+                    if index > 4 then
+                        index = 0
+                    end
                 end
+                log("Valor del indice" .. index)
+            else
+                contadorMovimientoBotones = contadorMovimientoBotones + dt
             end
-            log("Valor del indice" .. index)
-        else
-            contadorMovimientoBotones = contadorMovimientoBotones + dt
         end
-
         if changingScene ~= 0 then
             if fadeToBlackScript.fadeToBlackDoned and not changeScene then
     
