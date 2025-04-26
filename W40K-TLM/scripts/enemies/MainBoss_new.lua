@@ -8,15 +8,21 @@ local stats = nil
 
 local pathUpdateTimer = 0.0
 local pathUpdateInterval = 0.5
+
 local shieldTimer = 0.0
 local shieldCooldown = 5.0
+
 local attackTimer = 0.0
 local attackCooldown = 10.0
 
-local rangeAttackTimer = 0.0
-local rangeAttackDuration = 2.0
+local meleeAttackTimer = 0.0
+local meleeAttackDuration = 2.0
 local lightningTimer = 0.0
 local lightningDuration = 0.5
+
+local rangeAttackDuration = 10.0
+local fistsDamageCooldown = 1.0
+local timeSinceLastFistHit = 0.0
 
 function on_ready()
 
@@ -98,6 +104,7 @@ function on_ready()
     main_boss.isAttacking = false
     main_boss.isLightningDamaging = false
     main_boss.hasDealtLightningDamage = false
+    main_boss.isFistsDamaging = true
     main_boss.shieldActive = false
 
     main_boss.lastTargetPos = main_boss.playerTransf.position
@@ -112,8 +119,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            log("Wrath hit the player")
-            main_boss:make_damage()
+            --log("Wrath hit the player")
         end
     end)
 
@@ -129,6 +135,36 @@ function on_ready()
         end
     end)
 
+    main_boss.fist1RbComponent:on_collision_stay(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
+            main_boss:make_damage(10)
+            main_boss.isFistsDamaging = false
+        end
+    end)
+
+    main_boss.fist2RbComponent:on_collision_stay(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
+            main_boss:make_damage(10)
+            main_boss.isFistsDamaging = false
+        end
+    end)
+
+    main_boss.fist3RbComponent:on_collision_stay(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
+            main_boss:make_damage(10)
+            main_boss.isFistsDamaging = false
+        end
+    end)
+
 end
 
 function on_update(dt)
@@ -138,7 +174,7 @@ function on_update(dt)
     main_boss:check_effects(dt)
 
     change_state()
-    
+
     update_fist_scaling(dt)
 
     if main_boss.currentState == main_boss.state.Idle then return end
@@ -151,10 +187,18 @@ function on_update(dt)
     shieldTimer = shieldTimer + dt
     pathUpdateTimer = pathUpdateTimer + dt
 
-    if main_boss.lightningTrown then
+    if not main_boss.isFistsDamaging then
+        timeSinceLastFistHit = timeSinceLastFistHit + dt
+        if timeSinceLastFistHit > fistsDamageCooldown then
+            main_boss.isFistsDamaging = true
+            timeSinceLastFistHit = 0.0
+        end
+    end
+
+    if main_boss.lightningThrown then
         if not main_boss.isLightningDamaging then
-            rangeAttackTimer = rangeAttackTimer + dt
-            if rangeAttackTimer >= rangeAttackDuration then
+            meleeAttackTimer = meleeAttackTimer + dt
+            if meleeAttackTimer >= meleeAttackDuration then
                 main_boss.isLightningDamaging = true
                 lightningTimer = 0.0
             end
@@ -162,7 +206,7 @@ function on_update(dt)
             lightningTimer = lightningTimer + dt
             if lightningTimer >= lightningDuration then
                 main_boss.isLightningDamaging = false
-                main_boss.lightningTrown = false
+                main_boss.lightningThrown = false
                 main_boss.hasDealtLightningDamage = false
                 main_boss.lightningRb:set_position(Vector3.new(-500, 0, -500))
             end
@@ -260,7 +304,7 @@ function main_boss:shield_state()
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
     main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
-    main_boss.wrathTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
+    main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
 
     main_boss.currentState = main_boss.state.Move
 
@@ -297,9 +341,10 @@ function move_shield()
 
     if main_boss.shieldActive then
         main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
-        main_boss.wrathTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
+        main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
     else
         main_boss.shieldTransf.position = Vector3.new(-500, 10, -200)
+        main_boss.wrathRb:set_position(Vector3.new(-500, 10, -200))
     end
 
 end
@@ -316,18 +361,12 @@ function lightning_attack()
     local angle = math.deg(math.atan(dx, dz))
     if dz < 0 then
         angle = angle + 180
-    elseif dx < 0 and dz > 0 then
-        angle = angle + 360
     end
-    main_boss.lightningTransf.rotation = Vector3.new(
-        main_boss.lightningTransf.rotation.x,
-        angle,
-        main_boss.lightningTransf.rotation.z
-    )
+    main_boss.lightningRb:set_rotation(Vector3.new(main_boss.lightningTransf.rotation.x, -90 + angle, main_boss.lightningTransf.rotation.z))
 
-    main_boss.lightningTrown = true
+    main_boss.lightningThrown = true
     main_boss.isLightningDamaging = false
-    rangeAttackTimer = 0.0
+    meleeAttackTimer = 0.0
     lightningTimer = 0.0
 
     main_boss.currentState = main_boss.state.Move
@@ -362,9 +401,9 @@ function fists_attack()
             table.insert(main_boss.scalingFists, {
                 transform = main_boss.fistTransforms[i],
                 elapsed = 0,
-                duration = 3,
+                duration = rangeAttackDuration,
                 startScale = Vector3.new(1, 1, 1),
-                targetScale = Vector3.new(1.7, 1.7, 1.7)
+                targetScale = Vector3.new(10, 10, 10)
             })
         end
     end
@@ -394,6 +433,10 @@ function update_fist_scaling(dt)
             if data.transform then
                 data.transform.scale = data.targetScale
             end
+
+            -- Send them back
+            main_boss.fistRbs[i]:set_position(Vector3.new(-500, 0, -150))
+
             table.remove(main_boss.scalingFists, i)
         end
     end
