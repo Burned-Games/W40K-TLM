@@ -3,8 +3,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	1280960182	Play_exploring_music_container			\Default Work Unit\Music\Play_exploring_music_container	
 	2625126948	Play_mainMenu_music_container			\Default Work Unit\Music\Play_mainMenu_music_container	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1675023289	MusicBus_Volume			\Default Work Unit\MusicBus_Volume	
+	3405162881	SFXBus_Volume			\Default Work Unit\SFXBus_Volume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	2886307548	MusicBus			\Default Work Unit\Master Audio Bus\MusicBus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3803850708	SFXBus			\Default Work Unit\Master Audio Bus\SFXBus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	4091100022	MediumRoomVerb			\Default Work Unit\Master Audio Bus\MediumRoomVerb	
@@ -13,7 +19,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	1059792370	RoomVerb (Custom)	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	190831399	fighting_music	D:\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\5B\{5B92F68A-5C28-0A3E-13C0-02FB3A95A685}.wem		\Interactive Music Hierarchy\Music\fighting_music_container\fighting_music\fighting_music		27360684
-	606711652	exploring_music	D:\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\77\{771AC8EF-6AF5-4841-FBA3-FC995C52A96B}.wem		\Interactive Music Hierarchy\Music\exploring_music_container\exploring_music\exploring_music		51725644
-	764091017	mainMenu_music	D:\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\79\{79A2B0EF-C32F-7676-0371-CC5C4F475272}.wem		\Interactive Music Hierarchy\Music\mainMenu_music_container\mainMenu_music\mainMenu_music		23847492
+	190831399	fighting_music	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\5B\{5B92F68A-5C28-0A3E-13C0-02FB3A95A685}.wem		\Interactive Music Hierarchy\Music\fighting_music_container\fighting_music\fighting_music		27360684
+	606711652	exploring_music	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\77\{771AC8EF-6AF5-4841-FBA3-FC995C52A96B}.wem		\Interactive Music Hierarchy\Music\exploring_music_container\exploring_music\exploring_music		51725644
+	764091017	mainMenu_music	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\79\{79A2B0EF-C32F-7676-0371-CC5C4F475272}.wem		\Interactive Music Hierarchy\Music\mainMenu_music_container\mainMenu_music\mainMenu_music		23847492
 

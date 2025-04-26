@@ -75,8 +75,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	4207882818	Play_BossDamage			\Default Work Unit\Enemies\Play_BossDamage	
 	4258909638	Play_BossLaser			\Default Work Unit\Enemies\Play_BossLaser	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1675023289	MusicBus_Volume			\Default Work Unit\MusicBus_Volume	
+	3405162881	SFXBus_Volume			\Default Work Unit\SFXBus_Volume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	2886307548	MusicBus			\Default Work Unit\Master Audio Bus\MusicBus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3803850708	SFXBus			\Default Work Unit\Master Audio Bus\SFXBus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	4091100022	MediumRoomVerb			\Default Work Unit\Master Audio Bus\MediumRoomVerb	

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{7B55066F-3601-69A3-628F-AB2BBA867211}",
+    "Hash": "{9A2E1238-8DB2-19C6-F53A-3DD542E93C55}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -46,10 +46,22 @@
     },
     "Busses": [
      {
+      "Id": "2886307548",
+      "Name": "MusicBus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MusicBus",
+      "GUID": "{4B8BF592-A668-49BA-AD98-9AB43626CBDC}"
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "3803850708",
+      "Name": "SFXBus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFXBus",
+      "GUID": "{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}"
      }
     ],
     "AuxBusses": [
@@ -65,6 +77,20 @@
         }
        ]
       }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1675023289",
+      "Name": "MusicBus_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\MusicBus_Volume",
+      "GUID": "{4BD37A12-F1F9-48F4-B247-2BBCB5ADC3FB}"
+     },
+     {
+      "Id": "3405162881",
+      "Name": "SFXBus_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SFXBus_Volume",
+      "GUID": "{5F4F4D52-E91E-4B31-B512-F02B92DA0CFE}"
      }
     ],
     "SwitchGroups": [
@@ -580,6 +606,6 @@
     ]
    }
   ],
-  "FileHash": "{4AA9FE56-495F-6ACB-72B0-0DFC3980DC45}"
+  "FileHash": "{85ACDBCE-50EF-B0FA-17AA-C038E2D9919F}"
  }
 }
