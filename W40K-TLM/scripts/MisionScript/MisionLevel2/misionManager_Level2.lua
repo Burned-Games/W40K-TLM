@@ -123,6 +123,20 @@ function on_update(dt)
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
 
+
+    if Input.is_key_pressed(Input.keycode.I) then
+       if getCurrerTaskIndex(true) == 2 then
+        m2_lever = true
+        elseif getCurrerTaskIndex(true) == 6 then
+            m6_lever = true
+        elseif getCurrerTaskIndex(true) == 7 then
+            m7_lever = m7_lever + 1
+       end
+    end
+
+
+
+
 end
 
 function updateText()
@@ -136,12 +150,8 @@ function getCurrentTask(tasks, index)
     if index > #tasks then return "" end
     local description = tasks[index].description
 
-    if blueTaskIndex == 3 then
-        description = description:gsub("x", tostring(m3_EnemyCount))
-    end
-
-    if blueTaskIndex == 9 then
-        description = description:gsub("x", tostring(m9_EnemyCount))
+    if blueTaskIndex == 7 then
+        description = description:gsub("x", tostring(m7_lever))
     end
 
     return insert_line_breaks(description, 23)
@@ -264,3 +274,8 @@ function utf8_char_count(s)
     local _, count = s:gsub("[^\128-\191]", "")
     return count
 end
+
+function getCurrerLevel()
+   
+    return current_Level
+end 
