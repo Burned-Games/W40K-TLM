@@ -92,6 +92,9 @@ chaaarging = false
 
 local pauseMenu = nil
 
+local vibrationNormalSettings = Vector3.new(1, 0, 20)
+local vibrationDisrruptorShootSettings = Vector3.new(1, 1, 200)
+local vibrationDisrruptorChargeSettings = Vector3.new(0.2, 0.2, 100)
 
 function on_ready()
 
@@ -305,6 +308,10 @@ function on_update(dt)
                 Physics.DebugDrawRaycast(player:get_component("TransformComponent").position, aimVector, 10, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
             end
 
+            if charging then
+                Input.send_rumble(vibrationDisrruptorChargeSettings.x, vibrationDisrruptorChargeSettings.y, vibrationDisrruptorChargeSettings.z)
+            end
+
             if leftShoulder == Input.state.Up and charging then
                 disruptorChargeTimeCounter = disruptorChargeTimeCounter + dt
                 if disruptorChargeTimeCounter >= disruptorChargeTime then
@@ -363,7 +370,7 @@ end
 function shoot(dt)
     
     shootCoolDownTimer = shootCoolDown
-
+    Input.send_rumble(vibrationNormalSettings.x, vibrationNormalSettings.y, vibrationNormalSettings.z)
 
 
     local playerPosition = playerTransf.position
@@ -399,6 +406,8 @@ function disruptiveCharge()
 
     local playerPosition = playerTransf.position
     local playerRotation = playerTransf.rotation
+
+    Input.send_rumble(vibrationDisrruptorShootSettings.x, vibrationDisrruptorShootSettings.y, vibrationDisrruptorShootSettings.z)
 
      local forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
     
