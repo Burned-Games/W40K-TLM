@@ -15,6 +15,7 @@ function on_ready()
     if nameA == "Player" or nameB == "Player" then
 
             mission_Component.mr2_orkzBase = true
+            
     end
     end)
     -- Add initialization code here

@@ -179,13 +179,14 @@ function enemy:die_state()
 
     self:generate_scrap()
     if self.misionManager and self.enemyDie == false  then
-        if self.misionManager.getCurrerTaskIndex(true) == 3 then
+        if self.misionManager.getCurrerTaskIndex(true) <= 3 then
             self.misionManager.m3_EnemyCount = self.misionManager.m3_EnemyCount + 1
         end
 
         --if self.misionManager.getCurrerTaskIndex(true) == 4 then
-        --    self.misionManager.m4_EnemyCount = self.misionManager.m4_EnemyCount + 1
+            --self.misionManager.m4_EnemyCount = self.misionManager.m4_EnemyCount + 1
         --end
+        
         self.enemyDie = true
     end
 end

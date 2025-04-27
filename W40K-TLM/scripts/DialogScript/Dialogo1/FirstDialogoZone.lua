@@ -23,7 +23,7 @@ function on_ready()
     if nameA == "Player" or nameB == "Player" then
         m4_Clear =true
 
-        dialogScriptComponent.start_dialog(dialogLines)
+        --dialogScriptComponent.start_dialog(dialogLines)
         popupScriptComponent.show_popup(false, "QUEST STARTING")
 
     end

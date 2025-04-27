@@ -6,6 +6,8 @@ dialogLines = {
     { name = "Carlos", text = "Vamos allá" }
 }
 
+
+
 -- UI Components
 local nameComponent = nil
 local textComponent = nil
@@ -54,25 +56,25 @@ end
 
 -- Per-frame update
 function on_update(dt)
-    if Input.is_key_pressed(Input.keycode.M) then
-        start_dialog(dialogLines)
-    end
-    if Input.is_key_pressed(Input.keycode.N) then
-        start_dialog_close_animation()
-    end
+    --if Input.is_key_pressed(Input.keycode.M) then
+      --  start_dialog(dialogLines)
+    --end
+    --if Input.is_key_pressed(Input.keycode.N) then
+      --  start_dialog_close_animation()
+    --end
 
     update_dialog_animation(dt)
 
     if not isDialogPlaying then return end
 
     -- Space key handling
-    local spacePressedNow = Input.get_button(Input.action.Confirm) == Input.state.Down
+    local spacePressedNow = Input.get_button(Input.action.Cancel) == Input.state.Down
     local spacePressed = spacePressedNow and not spacePressedLastFrame
     spacePressedLastFrame = spacePressedNow
 
     if spacePressed then
         if isTyping then
-            textComponent:set_text(insert_line_breaks(fullText, 40))
+            textComponent:set_text(insert_line_breaks(fullText, 45))
             textIndex = #fullText + 1
             isTyping = false
             waitingForNext = true
@@ -102,7 +104,7 @@ function on_update(dt)
         if timer >= typeSpeed and textIndex <= #fullText then
             local char = fullText:sub(textIndex, textIndex)
             visibleText = visibleText .. char
-            textComponent:set_text(insert_line_breaks(visibleText, 40))
+            textComponent:set_text(insert_line_breaks(visibleText, 45))
             textIndex = textIndex + 1
             timer = 0
 

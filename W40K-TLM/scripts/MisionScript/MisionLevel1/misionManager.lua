@@ -7,7 +7,7 @@ local blueTasks = {
     {id = 5, description = "Upgrade your equipment with the drop pod supply"},
     {id = 6, description = "Find and get the (name) to heal yourself"},
     {id = 7, description = "Upgrade your equipment for the big fight"},
-    {id = 8, description = "Pull both levers to get to the Orkz base"},
+    {id = 8, description = "Pull both levers to get to the Orkz base (x/2)"},
     {id = 9, description = "Be the last standing on the Orkz Colliseum (x/3)"},
     {id = 10, description = "Upgrade your equipment before leaving the Orkz base"},
     {id = 11, description = "Find a way to get to the Hive City"}
@@ -19,6 +19,24 @@ local redTasks = {
     {id = 1, description = "Find the drop pod supply"},
     {id = 2, description = "Make your way to the orkz base"},
     {id = 3, description = "Break out of the orkz base to the Hive City"}
+}
+
+
+dialogLines = {
+    { name = "Decius Marcellus", text = "This is Decius Marcellus, commander of Guilliman's Fist..." },
+    { name = "Decius Marcellus", text = "Has anyone successfully made planetfall? I repeat: are there any survivors?" },
+    { name = "Decius Marcellus", text = "I think you're the only survivor, Brother Quintus Maxillian. Maintain course toward Martyria Eterna." },
+    { name = "Decius Marcellus", text = "We detect enemies along your path. May the Emperor be with you." }
+}
+
+dialogLines2 = {
+    { name = "Decius Marcellus", text = "Brother Quintus, that is an upgrade station. With it, you can enhance your equipment to continue the xenos purge." },
+    { name = "Decius Marcellus", text = "Search for them in the field-they could make a huge difference in how the battle unfolds." }
+}
+
+dialogLines3 = {
+    { name = "Decius Marcellus", text = "Brother Quintus, it's an ambush! Hold out until the enemies are eliminated." },
+    { name = "Decius Marcellus", text = "May the Emperor's light guide you, for Ultramar!" }
 }
 
 local blueTaskIndex = 1
@@ -67,8 +85,7 @@ m6_heal  = false
 --M7
 m7_Upgrade = false
 --m8
-m8_lever1 = false
-m8_lever2 = false
+m8_lever = 0
 --M9
 m9_EnemyCount = 0
 --M10
@@ -111,6 +128,9 @@ function on_ready()
 
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
+
+    dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+    dialogScriptComponent.start_dialog(dialogLines)
 end
 
 function on_update(dt)
@@ -127,20 +147,6 @@ function on_update(dt)
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
 
-
-    if Input.is_key_pressed(Input.keycode.I) then
-        m8_lever1 = true
-        m8_lever2 = true
-    end
-
-
-
-
-   
-    --imgBlue.position.y = imgBlue.position.y-1
-   --imgBlue.position.y = 500
-   --imgBlue:set_size(Vector2.new(1,1))
-   --print(imgBlue.position.y)
 
 end
 
@@ -159,6 +165,10 @@ function getCurrentTask(tasks, index)
         description = description:gsub("x", tostring(m3_EnemyCount))
     end
 
+    if blueTaskIndex == 8 then
+        description = description:gsub("x", tostring(m8_lever))
+    end
+
     if blueTaskIndex == 9 then
         description = description:gsub("x", tostring(m9_EnemyCount))
     end
@@ -170,7 +180,7 @@ function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
     if blueTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
+    elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
         startAnimation(blueAnimation)
@@ -182,7 +192,7 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 7 and m7_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 8 and m8_lever1 and m8_lever2 then
+    elseif blueTaskIndex == 8 and m8_lever == 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 9 and m9_EnemyCount == 3 then
         startAnimation(blueAnimation)
@@ -197,8 +207,10 @@ function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
     if redTaskIndex == 1 and mr1_supply then
         startAnimation(redAnimation)
+        dialogScriptComponent.start_dialog(dialogLines2)
     elseif redTaskIndex == 2 and mr2_orkzBase then
         startAnimation(redAnimation)
+        dialogScriptComponent.start_dialog(dialogLines3)
     elseif redTaskIndex == 3 and mr3_breakOut then
         startAnimation(redAnimation)
     end
