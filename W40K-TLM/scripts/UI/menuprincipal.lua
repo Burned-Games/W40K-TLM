@@ -19,6 +19,8 @@ local LogoSalidaEntity
 local Ajustes
 ajustesOpened = false
 local salidaImagen
+local botonSalida1
+local botonSalida2
 
 saliendoDeMenu = false
 
@@ -61,6 +63,8 @@ function on_ready()
     OrderEntity = current_scene:get_entity_by_name("Order")
     LogoEntity = current_scene:get_entity_by_name("Logo")
     LogoSalidaEntity = current_scene:get_entity_by_name("LogoSalida")
+    botonSalida1 = current_scene:get_entity_by_name("BotonSalidaNewGame")
+    botonSalida2 = current_scene:get_entity_by_name("BotonSalidaContinue")
 
 
     SettingsManager = current_scene:get_entity_by_name("SettingsManager"):get_component("ScriptComponent")
@@ -109,6 +113,7 @@ function on_update(dt)
                     save_progress("armorSpecialAbility", false)
                     
                     saliendoDeMenu = true
+                    botonSalida1:set_active(true)
                     salidaImagen:set_active(true)
                     SettingsEntity:set_active(false)
                     BaseEntity:set_active(false)
@@ -140,6 +145,7 @@ function on_update(dt)
             if(index == 1) then
                 --button2:set_state("Pressed")
                 --fadeToBlackScript:DoFade()
+                botonSalida2:set_active(true)
                 salidaImagen:set_active(true)
                 SettingsEntity:set_active(false)
                 BaseEntity:set_active(false)
