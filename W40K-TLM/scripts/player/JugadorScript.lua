@@ -157,6 +157,8 @@ local stun = 27
 local rotationAngle = 0
 local transf = nil
 
+local entities
+
 -- particles
 local particle_lvl1_run = nil
 local particle_blood_normal = nil
@@ -194,6 +196,8 @@ function on_ready()
    -- local musicVolume = load_progress("musicVolumeGeneral", 1.0)
     --explorationMusic:set_volume(musicVolume)
    -- combatMusic:set_volume(musicVolume)
+
+   entities = current_scene:get_all_entities()
 
     -- Particles 
     -- en la posicion de caida de la granada-> 
@@ -330,6 +334,7 @@ function on_update(dt)
 
     if not pauseScript.isPaused then
         dtColective = dtColective + dt
+        
 
 
         if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
@@ -1249,7 +1254,7 @@ function handleBleed(dt)
 end
 
 function find_scrap()
-    local entities = current_scene:get_all_entities()
+    --local entities = current_scene:get_all_entities()
     --tuplaScrap = { {}, {} }
     amountOfScrap = 0
 
