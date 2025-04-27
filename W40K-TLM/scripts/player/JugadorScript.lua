@@ -9,6 +9,7 @@ local lastValidRotation = 0
 --speed
 local normalSpeed = 6
 moveSpeed = 6
+local speedDebuf = 1
 local godModeSpeed = 12
 local currentSpeed = 0
 local acceleration = 10      
@@ -93,6 +94,7 @@ local playerDeathSFX
 -- effects
 isBleeding = false
 isNeuralInhibitioning = false
+neuralFirstTime = true
 
 
 -- Extras
@@ -391,6 +393,7 @@ function on_update(dt)
 
         end
 
+        check_effects(dt)
         checkPlayerDeath(dt)
         handleWeaponSwitch(dt)
         updateAnims(dt)
@@ -524,7 +527,7 @@ end
 function updateGodMode(dt)
     if Input.is_key_pressed(Input.keycode.F1) then
         if godMode == false then
-            moveSpeed = normalSpeed
+            moveSpeed = normalSpeed * speedDebuf
             playerRb:set_trigger(false)
             local newPos = Vector3.new(playerTransf.position.x,0,playerTransf.position.z)
             playerRb:set_position(newPos)
@@ -785,7 +788,7 @@ function playerMovement(dt)
             local diference = angleInDegrees - angle2InDegrees
             if rotationDirection.x > minX and rotationDirection.x < maxX and
             (rotationDirection.z > minZ and rotationDirection.z < maxZ) then        
-                
+                moveSpeed = noramlSpeed * speedDebuf
                 if actualweapon == 0 then
                     if currentAnim ~= run and bolterScript.shootAnimation == false  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false and shotGunScript.granadeAnimation == false then
                         currentAnim = run
@@ -822,7 +825,7 @@ function playerMovement(dt)
             elseif (rotationDirection.x > minZ and rotationDirection.x < maxZ and
                 (rotationDirection.z > minX and rotationDirection.z < maxX))or ((rotationDirection.x < minZ or rotationDirection.x > maxZ) and
                 (rotationDirection.z < minX or rotationDirection.z > maxX)) then
-                    moveSpeed = 4
+                    moveSpeed = 4 * speedDebuf
                     if actualweapon == 0 then
                         if currentAnim ~= runB and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and bolterScript.chaaarging== false  then
                             currentAnim = runB
@@ -863,7 +866,7 @@ function playerMovement(dt)
 
                 if cross > 0 then
                     -- IZQUIERDA
-                    moveSpeed = 4
+                    moveSpeed = 4 * speedDebuf
                     if actualweapon == 0 then
                         if currentAnim ~= runR and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging== false then
                             currentAnim = runR
@@ -893,7 +896,7 @@ function playerMovement(dt)
 
                 elseif cross < 0 then
                     -- DERECHA
-                    moveSpeed = 4
+                    moveSpeed = 4 * speedDebuf
                     if actualweapon == 0 then
                         if currentAnim ~= runL and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging== false then
                             currentAnim = runL
@@ -1354,7 +1357,7 @@ end
 function handleCover()
     if barricadeScript.isPlayerInRange == false then
         isCovering = false
-        moveSpeed = normalSpeed
+        moveSpeed = normalSpeed * speedDebuf
         return
     end
     if Input.get_button(Input.action.Cover) == Input.state.Down then
@@ -1363,9 +1366,9 @@ function handleCover()
     end
 
     if isCovering then
-        moveSpeed = 4
+        moveSpeed = 4 * speedDebuf
     else
-        moveSpeed = normalSpeed
+        moveSpeed = normalSpeed * speedDebuf
     end
 end
 
@@ -1422,5 +1425,25 @@ function updateAnims(dt)
         hitAnimationCounter = 0
     end
 
+
+end
+
+function check_effects(dt)
+    
+    if isNeuralInhibitioning then
+        if neuralFirstTime then
+            local speedVecs = effect:ApplyNeuralChanges(speedDebuf, 0)
+            speedDebuf = speedVecs.x       
+            neuralFirstTime = false
+        end
+        isNeuralInhibitioning = effect:neural(dt)
+        
+    else
+        
+        if not neuralFirstTime then
+            speedDebuf = 1
+        end
+        neuralFirstTime = true
+    end
 
 end

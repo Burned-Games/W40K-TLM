@@ -71,7 +71,6 @@ function registerEnemy(type, id, enemyName)
         enemies[key] = enemy
         enemyScripts[key] = enemy:get_component("ScriptComponent")
         enemyTypes[key] = type
-        log("Found enemy: " .. enemyName .. " of type " .. type)
         
         -- Set the arena enemy flag
         if type == "range" and enemyScripts[key].range then
@@ -83,8 +82,7 @@ function registerEnemy(type, id, enemyName)
         end
 
         enemy:set_active(false)
-    else
-        log("WARNING: Enemy " .. enemyName .. " not found!")
+    
     end
 end
 
@@ -291,7 +289,7 @@ function configureBattleTrigger()
     rb:set_use_gravity(false)
     
     rbComponent:on_collision_enter(function(entityA, entityB)
-        if entityB:get_component("TagComponent").tag == "Player" then
+        if entityA:get_component("TagComponent").tag == "Player" or entityB:get_component("TagComponent").tag == "Player" then
 
             if bBattleTrigger then return end
             log("Player entered arena - Battle starting!")

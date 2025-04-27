@@ -170,10 +170,8 @@ function enemy:die_state()
     self.playerScript.enemys_targeting = self.playerScript.enemys_targeting - 1 
 
     self.currentState = self.state.Idle
-    
-    if not self.isArenaEnemy then
-        self.enemyRb:set_position(Vector3.new(-500, 0, 0))
-    end
+
+    self.enemyRb:set_position(Vector3.new(-500, 0, 0))
 
     self.isDead = true
 
@@ -395,7 +393,7 @@ function enemy:check_spawn()
             end
         end
     
-        if self.zoneNumber < self.playerScript.zonePlayer + 1 and not self.isArenaEnemy then
+        if self.zoneNumber < self.playerScript.zonePlayer + 1 then
             
             self.currentState = self.state.Idle
             self.enemyRb:set_position(Vector3.new(-500, 0, 0))
