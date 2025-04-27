@@ -348,7 +348,7 @@
             
             skillArma1CooldownEntity:set_active(false)
         
-            local remainingTime = shotGunScript.timerGranade
+            local remainingTime = shotGunScript.granadeCooldown - shotGunScript.timerGranade
             if remainingTime > 0 then
                 if remainingTime <= 1.1 then
                     skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))

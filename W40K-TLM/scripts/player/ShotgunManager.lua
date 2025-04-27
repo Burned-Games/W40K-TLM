@@ -36,7 +36,7 @@ local knockbackForce = 3000  -- force
 --granadas
 
 granadeCooldown= 12
-timerGranade = 0
+timerGranade = granadeCooldown
 local granadeEntity = nil
 local granadeInitialSpeed = 12
 
@@ -161,7 +161,7 @@ function on_ready()
         end
     end)
 
-    --upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent") // A DESCOMENTAR
+    upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
 
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
@@ -252,17 +252,16 @@ function on_update(dt)
 
                 --particle_previewG_interior:emit(1) --PETA 
                 --particle_previewG_exterior:emit(1) --PETA 
-
                 granadeDistance = 0
                 launched = false
                 rb:set_use_gravity(true)
                 throwing = true
                 throwGranade(finalTargetPos)
-
+                timerGranade = 0
             end
 
             --granade 
-            if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and timerGranade <= 0 then
+            if ((leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L))) and upgradeManager.has_weapon_special() and timerGranade >= granadeCooldown then
                 lbapretado = true
                 granadasSpeed = true
                 throwing = false
@@ -277,12 +276,10 @@ function on_update(dt)
                 granadasSpeed = false
             end
 
-            
-
-            if self--[[upgradeManager.has_weapon_special()]] then
-
-                
+            if timerGranade < granadeCooldown then
+                timerGranade = timerGranade + dt
             end
+            
         end
     end
 end
@@ -480,12 +477,12 @@ function update_joystick_position()
 end
 
 function handleGranade(dt)
-        granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+        granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 1, math.cos(playerScript.angleRotation)))
     if granadeDistance < granadeMaxDistance then
         granadeDistance = granadeDistance + granadeSpeed
     end
 
-    granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0, granadeOrigin.z + granadeDirection.z * granadeDistance)
+    granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 1, granadeOrigin.z + granadeDirection.z * granadeDistance)
     finalTargetPos = granadeNewPos
     rb:set_position(granadeNewPos)
     launched = true
@@ -619,8 +616,10 @@ function explodeGranade()
             end
         end
         
+        rb:set_position(Vector3.new(0, -1000, 0))
         rb:set_velocity(Vector3.new(0, 0, 0))
         rb:set_angular_velocity(Vector3.new(0, 0, 0))
+        rb:set_use_gravity(false)
         --escopetaAudioManagerScript:playExplodeGranade()
         --granadeParticlesExplosion:emit(10)
         throwingGranade = false

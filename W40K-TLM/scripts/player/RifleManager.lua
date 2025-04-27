@@ -60,7 +60,7 @@ local particle_blood_spark_transform = nil
 
     local shieldMultiplier = 0.3
 
-    cooldownDisruptorBulletTime = 1
+    cooldownDisruptorBulletTime = 18
     cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTime
     disruptorShooted = true
     local disruptorShooted2 = false
@@ -102,7 +102,7 @@ function on_ready()
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
 
-    --upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent") // A DESCOMENTAR
+    upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
 
     sphere1 = current_scene:get_entity_by_name("Sphere1")
     transformSphere1 = sphere1:get_component("TransformComponent")
@@ -173,7 +173,7 @@ function on_ready()
     disruptorBulletRbComponent:on_collision_enter(function(entityA, entityB)               
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
-
+        
         if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" then 
             makeDisruptorDamage(entityA)
         end
@@ -299,7 +299,7 @@ function on_update(dt)
                 tripleShootTimer = tripleShootInterval
             end
 
-            if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown then
+            if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown and upgradeManager.has_weapon_special() then
                 charging = true
                 local aimVector = Vector3.new(0,0,0)
                 
