@@ -99,6 +99,14 @@ function on_update(dt)
                     --save_progress("zonePlayer", 0)
                     save_progress("level", 1)
                     --SceneManager.change_scene("scenes/level1.TeaScene")
+
+                    save_progress("weaponsReloadReduction", false)
+                    save_progress("weaponsDamageBoost", false)
+                    save_progress("weaponsFireRateBoost", false)
+                    save_progress("weaponsSpecialAbility", false)
+                    save_progress("armorHealthBoost", false)
+                    save_progress("armorProtection", false)
+                    save_progress("armorSpecialAbility", false)
                     
                     saliendoDeMenu = true
                     salidaImagen:set_active(true)
