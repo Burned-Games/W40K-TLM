@@ -82,6 +82,8 @@ function on_ready()
     main_boss.ultimate = current_scene:get_entity_by_name("Ultimate")
     main_boss.ultimateTransf = main_boss.ultimate:get_component("TransformComponent")
 
+    main_boss.pillarToDestroy = nil
+
 
 
     stats = stats_data[enemy_type] and stats_data[enemy_type][main_boss.level]
@@ -236,6 +238,10 @@ function on_update(dt)
                 ultiTimer = 0.0
 
                 check_ulti_collision()
+
+                if main_boss.pillarToDestroy ~= nil then
+                    manage_destroyed_pillar()
+                end
             end
         end
     end
@@ -526,28 +532,30 @@ end
 
 function check_ulti_collision()
 
-    local center = main_boss.ultimateTransf.position
-    local numberOfRays = 128
-    local angleStep = 360 / numberOfRays
-    local rayLength = 20
+    local origin = main_boss.ultimateTransf.position
+    local direction = Vector3.new(
+        main_boss.playerTransf.position.x - origin.x,
+        0,
+        main_boss.playerTransf.position.z - origin.z
+    )
+    local rayLength = 40
+    local tag = "Pilar"
 
-    for i = 0, numberOfRays - 1 do
-        local angle = math.rad(i * angleStep)
-        local direction = Vector3.new(math.sin(angle), 0, math.cos(angle))
+    local rayHit = Physics.Raycast(origin, direction, rayLength)
 
-        local rayHit = Physics.Raycast(center, direction, rayLength)
-
-        if main_boss:detect(rayHit, main_boss.player) then
-            if main_boss.isUltimateDamaging then
-                print(main_boss.ultimateDamage)
-                main_boss:make_damage(main_boss.ultimateDamage)
-                main_boss.isUltimateDamaging = false
-            end
+    if main_boss:detect(rayHit, main_boss.player) then
+        if main_boss.isUltimateDamaging then
+            log("Player hit with ultimate")
+            main_boss:make_damage(main_boss.ultimateDamage)
+            main_boss.isUltimateDamaging = false
         end
+    elseif main_boss:detect_by_tag(rayHit, tag) then
+        log("Pillar hit with ultimate")
+        main_boss.pillarToDestroy = rayHit.hitEntity
+    end
 
-        if main_boss.playerScript.godMode then
-            Physics.DebugDrawRaycast(center, direction, rayLength, Vector4.new(1, 0, 0, 1), Vector4.new(1, 1, 0, 1))
-        end
+    if main_boss.playerScript.godMode then
+        Physics.DebugDrawRaycast(origin, direction, rayLength, Vector4.new(1, 0, 0, 1), Vector4.new(1, 1, 0, 1))
     end
 
 end
@@ -578,6 +586,13 @@ function update_scaling_attacks(dt)
             table.remove(main_boss.scalingAttacks, i)
         end
     end
+end
+
+function manage_destroyed_pillar()
+    local pillarRb = main_boss.pillarToDestroy:get_component("RigidbodyComponent").rb
+    pillarRb:set_position(Vector3.new(-800, 0, -800))
+
+    main_boss.pillarToDestroy = nil
 end
 
 function on_exit()

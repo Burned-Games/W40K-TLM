@@ -310,6 +310,12 @@ function enemy:detect(rayHit, entity)
 
 end
 
+function enemy:detect_by_tag(rayHit, tag)
+
+    return rayHit and rayHit.hasHit and rayHit.hitEntity and rayHit.hitEntity:is_valid() and rayHit.hitEntity:get_component("TagComponent").tag == tag
+
+end
+
 -- Function to calculate the path of an entity
 function enemy:update_path(transform)
 
@@ -439,9 +445,9 @@ end
 
 function enemy:make_damage(damage)
     
-    if self.playerScript.isCovering == true then
-        return
-    end
+    if self.playerScript.godMode then return end
+    if self.playerScript.isCovering then return end
+
     if self.playerScript.health > 0 then
         self.playerScript.health = self.playerScript.health - damage
         print(self.playerScript.health)
