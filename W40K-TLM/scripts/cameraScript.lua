@@ -192,11 +192,20 @@ function startShake(amount, duration)
 end
 
 function cameraBoss(activate)
-    if activate then
-        zoom = 5
-    else
+
+    if zoom == 5 then
         zoom = baseZoom
+    else
+        zoom = 5
     end
+    -- if activate == true then
+    --     zoom = 5
+
+    -- else
+    --     zoom = baseZoom
+    -- end
+
+    
     cameraBossActivated = activate
 
 end

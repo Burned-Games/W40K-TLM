@@ -8,13 +8,11 @@ function on_ready()
     colliderComponent = self:get_component("RigidbodyComponent")
     collider = colliderComponent.rb
     collider:set_trigger(true)
-
     colliderComponent:on_collision_enter(function(entityA, entityB)                
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
         if nameA == "Player" or nameB == "Player" then
-            cameraScript:cameraBoss(True)
-            print("rrrrrrrrrrrrrrrr")
+            cameraScript:cameraBoss(False)
         end
     end)
     
