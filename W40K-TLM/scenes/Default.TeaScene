@@ -1,8 +1,8 @@
 {
     "value0": {
         "cereal_class_version": 1,
-        "value0": 69,
-        "value1": 69,
+        "value0": 80,
+        "value1": 80,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -73,290 +73,345 @@
         "value69": 67,
         "value70": 68,
         "value71": 69,
-        "value72": 0,
-        "value73": {
+        "value72": 70,
+        "value73": 71,
+        "value74": 72,
+        "value75": 73,
+        "value76": 74,
+        "value77": 75,
+        "value78": 76,
+        "value79": 77,
+        "value80": 78,
+        "value81": 79,
+        "value82": 80,
+        "value83": 0,
+        "value84": {
             "cereal_class_version": 0,
             "Tag": "Base"
         },
-        "value74": 1,
-        "value75": {
+        "value85": 1,
+        "value86": {
             "Tag": "Texto1"
         },
-        "value76": 2,
-        "value77": {
+        "value87": 2,
+        "value88": {
             "Tag": "NewGame"
         },
-        "value78": 3,
-        "value79": {
+        "value89": 3,
+        "value90": {
             "Tag": "Camera"
         },
-        "value80": 4,
-        "value81": {
+        "value91": 4,
+        "value92": {
             "Tag": "NewGameText"
         },
-        "value82": 5,
-        "value83": {
+        "value93": 5,
+        "value94": {
             "Tag": "Continue"
         },
-        "value84": 6,
-        "value85": {
+        "value95": 6,
+        "value96": {
             "Tag": "ContinueText"
         },
-        "value86": 7,
-        "value87": {
+        "value97": 7,
+        "value98": {
             "Tag": "SettingsButton"
         },
-        "value88": 8,
-        "value89": {
+        "value99": 8,
+        "value100": {
             "Tag": "SettingsText"
         },
-        "value90": 9,
-        "value91": {
+        "value101": 9,
+        "value102": {
             "Tag": "Credits"
         },
-        "value92": 10,
-        "value93": {
+        "value103": 10,
+        "value104": {
             "Tag": "CreditsText"
         },
-        "value94": 11,
-        "value95": {
+        "value105": 11,
+        "value106": {
             "Tag": "Exit"
         },
-        "value96": 12,
-        "value97": {
+        "value107": 12,
+        "value108": {
             "Tag": "ExitText"
         },
-        "value98": 13,
-        "value99": {
+        "value109": 13,
+        "value110": {
             "Tag": "Ultramarine_final_anim.gltf"
         },
-        "value100": 14,
-        "value101": {
+        "value111": 14,
+        "value112": {
             "Tag": "Bolter_Lower"
         },
-        "value102": 15,
-        "value103": {
+        "value113": 15,
+        "value114": {
             "Tag": "Bolter_upper"
         },
-        "value104": 16,
-        "value105": {
+        "value115": 16,
+        "value116": {
             "Tag": "Casco_lv1"
         },
-        "value106": 17,
-        "value107": {
+        "value117": 17,
+        "value118": {
             "Tag": "Casco_lvl_2"
         },
-        "value108": 18,
-        "value109": {
+        "value119": 18,
+        "value120": {
             "Tag": "ChainSword_Lower"
         },
-        "value110": 19,
-        "value111": {
+        "value121": 19,
+        "value122": {
             "Tag": "ChainSword_Upper"
         },
-        "value112": 20,
-        "value113": {
+        "value123": 20,
+        "value124": {
             "Tag": "Jetpack_lv1"
         },
-        "value114": 21,
-        "value115": {
+        "value125": 21,
+        "value126": {
             "Tag": "Jetpack_lv2"
         },
-        "value116": 22,
-        "value117": {
+        "value127": 22,
+        "value128": {
             "Tag": "Shotgun_lower"
         },
-        "value118": 23,
-        "value119": {
+        "value129": 23,
+        "value130": {
             "Tag": "Shotgun_upper"
         },
-        "value120": 24,
-        "value121": {
+        "value131": 24,
+        "value132": {
             "Tag": "Ultramarine_low"
         },
-        "value122": 25,
-        "value123": {
+        "value133": 25,
+        "value134": {
             "Tag": "Root"
         },
-        "value124": 26,
-        "value125": {
+        "value135": 26,
+        "value136": {
             "Tag": "IK_foot_L"
         },
-        "value126": 27,
-        "value127": {
+        "value137": 27,
+        "value138": {
             "Tag": "IK_knee-L"
         },
-        "value128": 28,
-        "value129": {
+        "value139": 28,
+        "value140": {
             "Tag": "IK_arm_R"
         },
-        "value130": 29,
-        "value131": {
+        "value141": 29,
+        "value142": {
             "Tag": "IK_foot_R"
         },
-        "value132": 30,
-        "value133": {
+        "value143": 30,
+        "value144": {
             "Tag": "IK_knee_R"
         },
-        "value134": 31,
-        "value135": {
+        "value145": 31,
+        "value146": {
             "Tag": "IK_forearm_R"
         },
-        "value136": 32,
-        "value137": {
+        "value147": 32,
+        "value148": {
             "Tag": "IK_arm_L"
         },
-        "value138": 33,
-        "value139": {
+        "value149": 33,
+        "value150": {
             "Tag": "IK_forearm_L"
         },
-        "value140": 34,
-        "value141": {
+        "value151": 34,
+        "value152": {
             "Tag": "AbdomenCTRL"
         },
-        "value142": 35,
-        "value143": {
+        "value153": 35,
+        "value154": {
             "Tag": "ParticleSystem"
         },
-        "value144": 36,
-        "value145": {
+        "value155": 36,
+        "value156": {
             "Tag": "BackgroundMusic"
         },
-        "value146": 37,
-        "value147": {
+        "value157": 37,
+        "value158": {
             "Tag": "FadeToBlack"
         },
-        "value148": 38,
-        "value149": {
+        "value159": 38,
+        "value160": {
             "Tag": "Light"
         },
-        "value150": 39,
-        "value151": {
+        "value161": 39,
+        "value162": {
             "Tag": "Settings"
         },
-        "value152": 40,
-        "value153": {
+        "value163": 40,
+        "value164": {
             "Tag": "SettingsTextScreen"
         },
-        "value154": 41,
-        "value155": {
+        "value165": 41,
+        "value166": {
             "Tag": "Volume"
         },
-        "value156": 42,
-        "value157": {
+        "value167": 42,
+        "value168": {
             "Tag": "FX"
         },
-        "value158": 43,
-        "value159": {
+        "value169": 43,
+        "value170": {
             "Tag": "VolumeText"
         },
-        "value160": 44,
-        "value161": {
+        "value171": 44,
+        "value172": {
             "Tag": "FXText"
         },
-        "value162": 45,
-        "value163": {
+        "value173": 45,
+        "value174": {
             "Tag": "SettingsManager"
         },
-        "value164": 46,
-        "value165": {
+        "value175": 46,
+        "value176": {
             "Tag": "BaseManager"
         },
-        "value166": 47,
-        "value167": {
+        "value177": 47,
+        "value178": {
             "Tag": "character_ultramarine.gltf"
         },
-        "value168": 48,
-        "value169": {
+        "value179": 48,
+        "value180": {
             "Tag": "Bolter_Lower"
         },
-        "value170": 49,
-        "value171": {
+        "value181": 49,
+        "value182": {
             "Tag": "Bolter_upper"
         },
-        "value172": 50,
-        "value173": {
+        "value183": 50,
+        "value184": {
             "Tag": "Casco_lv1"
         },
-        "value174": 51,
-        "value175": {
+        "value185": 51,
+        "value186": {
             "Tag": "Casco_lvl_2"
         },
-        "value176": 52,
-        "value177": {
+        "value187": 52,
+        "value188": {
             "Tag": "ChainSword_Lower"
         },
-        "value178": 53,
-        "value179": {
+        "value189": 53,
+        "value190": {
             "Tag": "ChainSword_Upper"
         },
-        "value180": 54,
-        "value181": {
+        "value191": 54,
+        "value192": {
             "Tag": "Jetpack_lv1"
         },
-        "value182": 55,
-        "value183": {
+        "value193": 55,
+        "value194": {
             "Tag": "Jetpack_lv2"
         },
-        "value184": 56,
-        "value185": {
+        "value195": 56,
+        "value196": {
             "Tag": "Shotgun_lower"
         },
-        "value186": 57,
-        "value187": {
+        "value197": 57,
+        "value198": {
             "Tag": "Shotgun_upper"
         },
-        "value188": 58,
-        "value189": {
+        "value199": 58,
+        "value200": {
             "Tag": "Ultramarine_low"
         },
-        "value190": 59,
-        "value191": {
+        "value201": 59,
+        "value202": {
             "Tag": "Root"
         },
-        "value192": 60,
-        "value193": {
+        "value203": 60,
+        "value204": {
             "Tag": "IK_foot_L"
         },
-        "value194": 61,
-        "value195": {
+        "value205": 61,
+        "value206": {
             "Tag": "IK_knee-L"
         },
-        "value196": 62,
-        "value197": {
+        "value207": 62,
+        "value208": {
             "Tag": "IK_arm_R"
         },
-        "value198": 63,
-        "value199": {
+        "value209": 63,
+        "value210": {
             "Tag": "IK_foot_R"
         },
-        "value200": 64,
-        "value201": {
+        "value211": 64,
+        "value212": {
             "Tag": "IK_knee_R"
         },
-        "value202": 65,
-        "value203": {
+        "value213": 65,
+        "value214": {
             "Tag": "IK_forearm_R"
         },
-        "value204": 66,
-        "value205": {
+        "value215": 66,
+        "value216": {
             "Tag": "IK_arm_L"
         },
-        "value206": 67,
-        "value207": {
+        "value217": 67,
+        "value218": {
             "Tag": "IK_forearm_L"
         },
-        "value208": 68,
-        "value209": {
+        "value219": 68,
+        "value220": {
             "Tag": "AbdomenCTRL"
         },
-        "value210": 69,
-        "value211": 0,
-        "value212": {
+        "value221": 69,
+        "value222": {
+            "Tag": "Logo"
+        },
+        "value223": 70,
+        "value224": {
+            "Tag": "Botones"
+        },
+        "value225": 71,
+        "value226": {
+            "Tag": "OldTest"
+        },
+        "value227": 72,
+        "value228": {
+            "Tag": "Order"
+        },
+        "value229": 73,
+        "value230": {
+            "Tag": "NuevoJuego"
+        },
+        "value231": 74,
+        "value232": {
+            "Tag": "Continuar"
+        },
+        "value233": 75,
+        "value234": {
+            "Tag": "Ajuste"
+        },
+        "value235": 76,
+        "value236": {
+            "Tag": "Crdts"
+        },
+        "value237": 77,
+        "value238": {
+            "Tag": "Salir"
+        },
+        "value239": 78,
+        "value240": {
+            "Tag": "Salida"
+        },
+        "value241": 79,
+        "value242": {
+            "Tag": "LogoSalida"
+        },
+        "value243": 80,
+        "value244": 0,
+        "value245": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 577.0,
-                "y": 311.0,
+                "x": 3083.0,
+                "y": -2161.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -365,16 +420,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1154.0,
-                "y": 622.0,
+                "x": 5790.0,
+                "y": 6480.0,
                 "z": 1.0
             }
         },
-        "value213": 1,
-        "value214": {
+        "value246": 1,
+        "value247": {
             "Position": {
-                "x": 29.0,
-                "y": 201.0,
+                "x": 2535.0,
+                "y": -2271.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -388,11 +443,65 @@
                 "z": 1.0
             }
         },
-        "value215": 2,
-        "value216": {
+        "value248": 2,
+        "value249": {
             "Position": {
-                "x": 583.0,
-                "y": 311.0,
+                "x": 3215.0,
+                "y": -4321.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 100.0,
+                "y": 100.0,
+                "z": 1.0
+            }
+        },
+        "value250": 3,
+        "value251": {
+            "Position": {
+                "x": 2.188727378845215,
+                "y": 0.470623254776001,
+                "z": 1.0080815553665162
+            },
+            "Rotation": {
+                "x": 23.12201690673828,
+                "y": -31.699979782104493,
+                "z": -0.000004515668024396291
+            },
+            "Scale": {
+                "x": 0.9999996423721314,
+                "y": 1.0,
+                "z": 0.9999995231628418
+            }
+        },
+        "value252": 4,
+        "value253": {
+            "Position": {
+                "x": 3190.0,
+                "y": -4314.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value254": 5,
+        "value255": {
+            "Position": {
+                "x": 771.0,
+                "y": -2061.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -406,29 +515,11 @@
                 "z": 1.0
             }
         },
-        "value217": 3,
-        "value218": {
+        "value256": 6,
+        "value257": {
             "Position": {
-                "x": 0.746999979019165,
-                "y": 0.3959999978542328,
-                "z": 1.371000051498413
-            },
-            "Rotation": {
-                "x": 23.121999740600587,
-                "y": -31.700000762939454,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value219": 4,
-        "value220": {
-            "Position": {
-                "x": 558.0,
-                "y": 318.0,
+                "x": 746.0,
+                "y": -2054.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -442,11 +533,47 @@
                 "z": 1.0
             }
         },
-        "value221": 5,
-        "value222": {
+        "value258": 7,
+        "value259": {
             "Position": {
-                "x": 583.0,
-                "y": 411.0,
+                "x": 606.0,
+                "y": -1695.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 579.0,
+                "y": 368.0,
+                "z": 1.0
+            }
+        },
+        "value260": 8,
+        "value261": {
+            "Position": {
+                "x": 581.0,
+                "y": -1688.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value262": 9,
+        "value263": {
+            "Position": {
+                "x": 771.0,
+                "y": -1861.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -460,11 +587,11 @@
                 "z": 1.0
             }
         },
-        "value223": 6,
-        "value224": {
+        "value264": 10,
+        "value265": {
             "Position": {
-                "x": 558.0,
-                "y": 418.0,
+                "x": 746.0,
+                "y": -1854.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -478,11 +605,11 @@
                 "z": 1.0
             }
         },
-        "value225": 7,
-        "value226": {
+        "value266": 11,
+        "value267": {
             "Position": {
-                "x": 583.0,
-                "y": 511.0,
+                "x": 771.0,
+                "y": -1761.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -496,11 +623,11 @@
                 "z": 1.0
             }
         },
-        "value227": 8,
-        "value228": {
+        "value268": 12,
+        "value269": {
             "Position": {
-                "x": 558.0,
-                "y": 518.0,
+                "x": 746.0,
+                "y": -1754.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -514,34 +641,16 @@
                 "z": 1.0
             }
         },
-        "value229": 9,
-        "value230": {
+        "value270": 13,
+        "value271": {
             "Position": {
-                "x": 583.0,
-                "y": 611.0,
-                "z": 0.0
+                "x": 2.1209609508514406,
+                "y": 0.0,
+                "z": 0.0298563651740551
             },
             "Rotation": {
                 "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 200.0,
-                "y": 47.0,
-                "z": 1.0
-            }
-        },
-        "value231": 10,
-        "value232": {
-            "Position": {
-                "x": 558.0,
-                "y": 618.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
+                "y": 20.19999885559082,
                 "z": 0.0
             },
             "Scale": {
@@ -550,62 +659,8 @@
                 "z": 1.0
             }
         },
-        "value233": 11,
-        "value234": {
-            "Position": {
-                "x": 583.0,
-                "y": 711.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 200.0,
-                "y": 47.0,
-                "z": 1.0
-            }
-        },
-        "value235": 12,
-        "value236": {
-            "Position": {
-                "x": 558.0,
-                "y": 718.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value237": 13,
-        "value238": {
-            "Position": {
-                "x": 2.202108383178711,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 20.200000762939454,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value239": 14,
-        "value240": {
+        "value272": 14,
+        "value273": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -622,8 +677,8 @@
                 "z": 1.0
             }
         },
-        "value241": 15,
-        "value242": {
+        "value274": 15,
+        "value275": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -640,8 +695,8 @@
                 "z": 1.0
             }
         },
-        "value243": 16,
-        "value244": {
+        "value276": 16,
+        "value277": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -658,8 +713,8 @@
                 "z": 1.0
             }
         },
-        "value245": 17,
-        "value246": {
+        "value278": 17,
+        "value279": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -676,8 +731,8 @@
                 "z": 1.0
             }
         },
-        "value247": 18,
-        "value248": {
+        "value280": 18,
+        "value281": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -694,8 +749,8 @@
                 "z": 1.0
             }
         },
-        "value249": 19,
-        "value250": {
+        "value282": 19,
+        "value283": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -712,8 +767,8 @@
                 "z": 1.0
             }
         },
-        "value251": 20,
-        "value252": {
+        "value284": 20,
+        "value285": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -730,8 +785,8 @@
                 "z": 1.0
             }
         },
-        "value253": 21,
-        "value254": {
+        "value286": 21,
+        "value287": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -748,8 +803,8 @@
                 "z": 1.0
             }
         },
-        "value255": 22,
-        "value256": {
+        "value288": 22,
+        "value289": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -766,8 +821,8 @@
                 "z": 1.0
             }
         },
-        "value257": 23,
-        "value258": {
+        "value290": 23,
+        "value291": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -784,8 +839,8 @@
                 "z": 1.0
             }
         },
-        "value259": 24,
-        "value260": {
+        "value292": 24,
+        "value293": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -802,8 +857,8 @@
                 "z": 1.0
             }
         },
-        "value261": 25,
-        "value262": {
+        "value294": 25,
+        "value295": {
             "Position": {
                 "x": 0.0,
                 "y": 1.077844262123108,
@@ -820,8 +875,8 @@
                 "z": 1.0
             }
         },
-        "value263": 26,
-        "value264": {
+        "value296": 26,
+        "value297": {
             "Position": {
                 "x": 0.23504434525966645,
                 "y": 0.12776918709278108,
@@ -838,8 +893,8 @@
                 "z": 1.0
             }
         },
-        "value265": 27,
-        "value266": {
+        "value298": 27,
+        "value299": {
             "Position": {
                 "x": 0.3725998103618622,
                 "y": 0.6552196741104126,
@@ -856,8 +911,8 @@
                 "z": 1.0
             }
         },
-        "value267": 28,
-        "value268": {
+        "value300": 28,
+        "value301": {
             "Position": {
                 "x": -0.8439140319824219,
                 "y": 1.3868303298950196,
@@ -874,8 +929,8 @@
                 "z": 1.0
             }
         },
-        "value269": 29,
-        "value270": {
+        "value302": 29,
+        "value303": {
             "Position": {
                 "x": -0.23504436016082765,
                 "y": 0.1277691274881363,
@@ -892,8 +947,8 @@
                 "z": 1.0
             }
         },
-        "value271": 30,
-        "value272": {
+        "value304": 30,
+        "value305": {
             "Position": {
                 "x": -0.3725998103618622,
                 "y": 0.6552196741104126,
@@ -910,8 +965,8 @@
                 "z": 1.0
             }
         },
-        "value273": 31,
-        "value274": {
+        "value306": 31,
+        "value307": {
             "Position": {
                 "x": -0.5537787675857544,
                 "y": 1.571897268295288,
@@ -928,8 +983,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value275": 32,
-        "value276": {
+        "value308": 32,
+        "value309": {
             "Position": {
                 "x": 0.8439140319824219,
                 "y": 1.3868303298950196,
@@ -946,8 +1001,8 @@
                 "z": 1.0
             }
         },
-        "value277": 33,
-        "value278": {
+        "value310": 33,
+        "value311": {
             "Position": {
                 "x": 0.5537787675857544,
                 "y": 1.571897268295288,
@@ -964,8 +1019,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value279": 34,
-        "value280": {
+        "value312": 34,
+        "value313": {
             "Position": {
                 "x": 0.0,
                 "y": 1.4951900243759156,
@@ -982,8 +1037,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value281": 35,
-        "value282": {
+        "value314": 35,
+        "value315": {
             "Position": {
                 "x": -1.7712575197219849,
                 "y": -1.5950182676315308,
@@ -1000,8 +1055,8 @@
                 "z": 1.0
             }
         },
-        "value283": 36,
-        "value284": {
+        "value316": 36,
+        "value317": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1018,11 +1073,11 @@
                 "z": 1.0
             }
         },
-        "value285": 37,
-        "value286": {
+        "value318": 37,
+        "value319": {
             "Position": {
-                "x": 577.0,
-                "y": 311.0,
+                "x": 616.5,
+                "y": 426.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -1031,13 +1086,13 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1154.0,
-                "y": 622.0,
+                "x": 1233.0,
+                "y": 853.0,
                 "z": 1.0
             }
         },
-        "value287": 38,
-        "value288": {
+        "value320": 38,
+        "value321": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1054,8 +1109,8 @@
                 "z": 0.9999997615814209
             }
         },
-        "value289": 39,
-        "value290": {
+        "value322": 39,
+        "value323": {
             "Position": {
                 "x": 615.5,
                 "y": 279.5,
@@ -1072,8 +1127,8 @@
                 "z": 1.0
             }
         },
-        "value291": 40,
-        "value292": {
+        "value324": 40,
+        "value325": {
             "Position": {
                 "x": 615.5,
                 "y": 42.0,
@@ -1090,8 +1145,8 @@
                 "z": 1.0
             }
         },
-        "value293": 41,
-        "value294": {
+        "value326": 41,
+        "value327": {
             "Position": {
                 "x": 615.5,
                 "y": 279.5,
@@ -1108,8 +1163,8 @@
                 "z": 1.0
             }
         },
-        "value295": 42,
-        "value296": {
+        "value328": 42,
+        "value329": {
             "Position": {
                 "x": 615.5,
                 "y": 385.5,
@@ -1126,8 +1181,8 @@
                 "z": 1.0
             }
         },
-        "value297": 43,
-        "value298": {
+        "value330": 43,
+        "value331": {
             "Position": {
                 "x": 181.5,
                 "y": 288.5,
@@ -1144,8 +1199,8 @@
                 "z": 1.0
             }
         },
-        "value299": 44,
-        "value300": {
+        "value332": 44,
+        "value333": {
             "Position": {
                 "x": 181.5,
                 "y": 385.5,
@@ -1162,8 +1217,8 @@
                 "z": 1.0
             }
         },
-        "value301": 45,
-        "value302": {
+        "value334": 45,
+        "value335": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1180,8 +1235,8 @@
                 "z": 1.0
             }
         },
-        "value303": 46,
-        "value304": {
+        "value336": 46,
+        "value337": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1198,16 +1253,16 @@
                 "z": 1.0
             }
         },
-        "value305": 47,
-        "value306": {
+        "value338": 47,
+        "value339": {
             "Position": {
-                "x": 2.2019999027252199,
+                "x": 4.445312976837158,
                 "y": 0.0,
-                "z": 0.0
+                "z": -0.8253782391548157
             },
             "Rotation": {
                 "x": 0.0,
-                "y": 20.200000762939454,
+                "y": 20.19999885559082,
                 "z": 0.0
             },
             "Scale": {
@@ -1216,26 +1271,8 @@
                 "z": 1.0
             }
         },
-        "value307": 48,
-        "value308": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value309": 49,
-        "value310": {
+        "value340": 48,
+        "value341": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1252,8 +1289,8 @@
                 "z": 1.0
             }
         },
-        "value311": 50,
-        "value312": {
+        "value342": 49,
+        "value343": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1270,8 +1307,8 @@
                 "z": 1.0
             }
         },
-        "value313": 51,
-        "value314": {
+        "value344": 50,
+        "value345": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1288,8 +1325,8 @@
                 "z": 1.0
             }
         },
-        "value315": 52,
-        "value316": {
+        "value346": 51,
+        "value347": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1306,8 +1343,8 @@
                 "z": 1.0
             }
         },
-        "value317": 53,
-        "value318": {
+        "value348": 52,
+        "value349": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1324,8 +1361,8 @@
                 "z": 1.0
             }
         },
-        "value319": 54,
-        "value320": {
+        "value350": 53,
+        "value351": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1342,8 +1379,8 @@
                 "z": 1.0
             }
         },
-        "value321": 55,
-        "value322": {
+        "value352": 54,
+        "value353": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1360,8 +1397,8 @@
                 "z": 1.0
             }
         },
-        "value323": 56,
-        "value324": {
+        "value354": 55,
+        "value355": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1378,8 +1415,8 @@
                 "z": 1.0
             }
         },
-        "value325": 57,
-        "value326": {
+        "value356": 56,
+        "value357": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1396,8 +1433,8 @@
                 "z": 1.0
             }
         },
-        "value327": 58,
-        "value328": {
+        "value358": 57,
+        "value359": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -1414,8 +1451,26 @@
                 "z": 1.0
             }
         },
-        "value329": 59,
-        "value330": {
+        "value360": 58,
+        "value361": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value362": 59,
+        "value363": {
             "Position": {
                 "x": 0.0,
                 "y": 1.077844262123108,
@@ -1432,8 +1487,8 @@
                 "z": 1.0
             }
         },
-        "value331": 60,
-        "value332": {
+        "value364": 60,
+        "value365": {
             "Position": {
                 "x": 0.23504434525966645,
                 "y": 0.12776918709278108,
@@ -1450,8 +1505,8 @@
                 "z": 1.0
             }
         },
-        "value333": 61,
-        "value334": {
+        "value366": 61,
+        "value367": {
             "Position": {
                 "x": 0.3725998103618622,
                 "y": 0.6552196741104126,
@@ -1468,8 +1523,8 @@
                 "z": 1.0
             }
         },
-        "value335": 62,
-        "value336": {
+        "value368": 62,
+        "value369": {
             "Position": {
                 "x": -0.8439140319824219,
                 "y": 1.3868303298950196,
@@ -1486,8 +1541,8 @@
                 "z": 1.0
             }
         },
-        "value337": 63,
-        "value338": {
+        "value370": 63,
+        "value371": {
             "Position": {
                 "x": -0.23504436016082765,
                 "y": 0.1277691274881363,
@@ -1504,8 +1559,8 @@
                 "z": 1.0
             }
         },
-        "value339": 64,
-        "value340": {
+        "value372": 64,
+        "value373": {
             "Position": {
                 "x": -0.3725998103618622,
                 "y": 0.6552196741104126,
@@ -1522,8 +1577,8 @@
                 "z": 1.0
             }
         },
-        "value341": 65,
-        "value342": {
+        "value374": 65,
+        "value375": {
             "Position": {
                 "x": -0.5537787675857544,
                 "y": 1.571897268295288,
@@ -1540,8 +1595,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value343": 66,
-        "value344": {
+        "value376": 66,
+        "value377": {
             "Position": {
                 "x": 0.8439140319824219,
                 "y": 1.3868303298950196,
@@ -1558,8 +1613,8 @@
                 "z": 1.0
             }
         },
-        "value345": 67,
-        "value346": {
+        "value378": 67,
+        "value379": {
             "Position": {
                 "x": 0.5537787675857544,
                 "y": 1.571897268295288,
@@ -1576,8 +1631,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value347": 68,
-        "value348": {
+        "value380": 68,
+        "value381": {
             "Position": {
                 "x": 0.0,
                 "y": 1.4951900243759156,
@@ -1594,494 +1649,769 @@
                 "z": 0.9999999403953552
             }
         },
-        "value349": 69,
-        "value350": 0,
-        "value351": {
+        "value382": 69,
+        "value383": {
+            "Position": {
+                "x": 4496.0,
+                "y": -1082.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 9232.0,
+                "y": 3048.0,
+                "z": 1.0
+            }
+        },
+        "value384": 70,
+        "value385": {
+            "Position": {
+                "x": 1921.0,
+                "y": 283.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 3474.0,
+                "y": 736.0,
+                "z": 1.0
+            }
+        },
+        "value386": 71,
+        "value387": {
+            "Position": {
+                "x": 413.5,
+                "y": 562.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 579.0,
+                "y": 368.0,
+                "z": 1.0
+            }
+        },
+        "value388": 72,
+        "value389": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value390": 73,
+        "value391": {
+            "Position": {
+                "x": 473.0,
+                "y": 467.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 579.0,
+                "y": 368.0,
+                "z": 1.0
+            }
+        },
+        "value392": 74,
+        "value393": {
+            "Position": {
+                "x": 473.0,
+                "y": 561.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 579.0,
+                "y": 368.0,
+                "z": 1.0
+            }
+        },
+        "value394": 75,
+        "value395": {
+            "Position": {
+                "x": 473.0,
+                "y": 665.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 579.0,
+                "y": 368.0,
+                "z": 1.0
+            }
+        },
+        "value396": 76,
+        "value397": {
+            "Position": {
+                "x": 473.0,
+                "y": 757.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 579.0,
+                "y": 368.0,
+                "z": 1.0
+            }
+        },
+        "value398": 77,
+        "value399": {
+            "Position": {
+                "x": 473.0,
+                "y": 856.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 579.0,
+                "y": 368.0,
+                "z": 1.0
+            }
+        },
+        "value400": 78,
+        "value401": {
+            "Position": {
+                "x": 3663.0,
+                "y": -1623.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 6948.0,
+                "y": 5400.0,
+                "z": 1.0
+            }
+        },
+        "value402": 79,
+        "value403": {
+            "Position": {
+                "x": 4495.5,
+                "y": -1081.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 9232.0,
+                "y": 3048.0,
+                "z": 1.0
+            }
+        },
+        "value404": 80,
+        "value405": 0,
+        "value406": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value352": 1,
-        "value353": {
+        "value407": 1,
+        "value408": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 2,
             "Prev": 1
         },
-        "value354": 2,
-        "value355": {
+        "value409": 2,
+        "value410": {
             "Parent": 0,
             "First": 4,
             "Next": 5,
             "Prev": 2
         },
-        "value356": 3,
-        "value357": {
+        "value411": 3,
+        "value412": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value358": 4,
-        "value359": {
+        "value413": 4,
+        "value414": {
             "Parent": 2,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value360": 5,
-        "value361": {
+        "value415": 5,
+        "value416": {
             "Parent": 0,
             "First": 6,
             "Next": 7,
             "Prev": 5
         },
-        "value362": 6,
-        "value363": {
+        "value417": 6,
+        "value418": {
             "Parent": 5,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value364": 7,
-        "value365": {
+        "value419": 7,
+        "value420": {
             "Parent": 0,
             "First": 8,
             "Next": 9,
             "Prev": 7
         },
-        "value366": 8,
-        "value367": {
+        "value421": 8,
+        "value422": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value368": 9,
-        "value369": {
+        "value423": 9,
+        "value424": {
             "Parent": 0,
             "First": 10,
             "Next": 11,
             "Prev": 9
         },
-        "value370": 10,
-        "value371": {
+        "value425": 10,
+        "value426": {
             "Parent": 9,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value372": 11,
-        "value373": {
+        "value427": 11,
+        "value428": {
             "Parent": 0,
             "First": 12,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value374": 12,
-        "value375": {
+        "value429": 12,
+        "value430": {
             "Parent": 11,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value376": 13,
-        "value377": {
+        "value431": 13,
+        "value432": {
             "Parent": 4294967295,
             "First": 14,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value378": 14,
-        "value379": {
+        "value433": 14,
+        "value434": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 15,
             "Prev": 14
         },
-        "value380": 15,
-        "value381": {
+        "value435": 15,
+        "value436": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 16,
             "Prev": 15
         },
-        "value382": 16,
-        "value383": {
+        "value437": 16,
+        "value438": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 17,
             "Prev": 16
         },
-        "value384": 17,
-        "value385": {
+        "value439": 17,
+        "value440": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 18,
             "Prev": 17
         },
-        "value386": 18,
-        "value387": {
+        "value441": 18,
+        "value442": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 19,
             "Prev": 18
         },
-        "value388": 19,
-        "value389": {
+        "value443": 19,
+        "value444": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 20,
             "Prev": 19
         },
-        "value390": 20,
-        "value391": {
+        "value445": 20,
+        "value446": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 21,
             "Prev": 20
         },
-        "value392": 21,
-        "value393": {
+        "value447": 21,
+        "value448": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 22,
             "Prev": 21
         },
-        "value394": 22,
-        "value395": {
+        "value449": 22,
+        "value450": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 23,
             "Prev": 22
         },
-        "value396": 23,
-        "value397": {
+        "value451": 23,
+        "value452": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 24,
             "Prev": 23
         },
-        "value398": 24,
-        "value399": {
+        "value453": 24,
+        "value454": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 25,
             "Prev": 24
         },
-        "value400": 25,
-        "value401": {
+        "value455": 25,
+        "value456": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 26,
             "Prev": 25
         },
-        "value402": 26,
-        "value403": {
+        "value457": 26,
+        "value458": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 27,
             "Prev": 26
         },
-        "value404": 27,
-        "value405": {
+        "value459": 27,
+        "value460": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 28,
             "Prev": 27
         },
-        "value406": 28,
-        "value407": {
+        "value461": 28,
+        "value462": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 29,
             "Prev": 28
         },
-        "value408": 29,
-        "value409": {
+        "value463": 29,
+        "value464": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 30,
             "Prev": 29
         },
-        "value410": 30,
-        "value411": {
+        "value465": 30,
+        "value466": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 31,
             "Prev": 30
         },
-        "value412": 31,
-        "value413": {
+        "value467": 31,
+        "value468": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 32,
             "Prev": 31
         },
-        "value414": 32,
-        "value415": {
+        "value469": 32,
+        "value470": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 33,
             "Prev": 32
         },
-        "value416": 33,
-        "value417": {
+        "value471": 33,
+        "value472": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 34,
             "Prev": 33
         },
-        "value418": 34,
-        "value419": {
+        "value473": 34,
+        "value474": {
             "Parent": 13,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value420": 35,
-        "value421": {
+        "value475": 35,
+        "value476": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value422": 36,
-        "value423": {
+        "value477": 36,
+        "value478": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value424": 37,
-        "value425": {
+        "value479": 37,
+        "value480": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value426": 38,
-        "value427": {
+        "value481": 38,
+        "value482": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value428": 39,
-        "value429": {
+        "value483": 39,
+        "value484": {
             "Parent": 4294967295,
             "First": 40,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value430": 40,
-        "value431": {
+        "value485": 40,
+        "value486": {
             "Parent": 39,
             "First": 4294967295,
             "Next": 41,
             "Prev": 40
         },
-        "value432": 41,
-        "value433": {
+        "value487": 41,
+        "value488": {
             "Parent": 39,
             "First": 43,
             "Next": 42,
             "Prev": 41
         },
-        "value434": 42,
-        "value435": {
+        "value489": 42,
+        "value490": {
             "Parent": 39,
             "First": 44,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value436": 43,
-        "value437": {
+        "value491": 43,
+        "value492": {
             "Parent": 41,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value438": 44,
-        "value439": {
+        "value493": 44,
+        "value494": {
             "Parent": 42,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value440": 45,
-        "value441": {
+        "value495": 45,
+        "value496": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value442": 46,
-        "value443": {
+        "value497": 46,
+        "value498": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value444": 47,
-        "value445": {
+        "value499": 47,
+        "value500": {
             "Parent": 4294967295,
             "First": 48,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value446": 48,
-        "value447": {
+        "value501": 48,
+        "value502": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 49,
             "Prev": 48
         },
-        "value448": 49,
-        "value449": {
+        "value503": 49,
+        "value504": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 50,
             "Prev": 49
         },
-        "value450": 50,
-        "value451": {
+        "value505": 50,
+        "value506": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 51,
             "Prev": 50
         },
-        "value452": 51,
-        "value453": {
+        "value507": 51,
+        "value508": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 52,
             "Prev": 51
         },
-        "value454": 52,
-        "value455": {
+        "value509": 52,
+        "value510": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 53,
             "Prev": 52
         },
-        "value456": 53,
-        "value457": {
+        "value511": 53,
+        "value512": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 54,
             "Prev": 53
         },
-        "value458": 54,
-        "value459": {
+        "value513": 54,
+        "value514": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 55,
             "Prev": 54
         },
-        "value460": 55,
-        "value461": {
+        "value515": 55,
+        "value516": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 56,
             "Prev": 55
         },
-        "value462": 56,
-        "value463": {
+        "value517": 56,
+        "value518": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 57,
             "Prev": 56
         },
-        "value464": 57,
-        "value465": {
+        "value519": 57,
+        "value520": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 58,
             "Prev": 57
         },
-        "value466": 58,
-        "value467": {
+        "value521": 58,
+        "value522": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 59,
             "Prev": 58
         },
-        "value468": 59,
-        "value469": {
+        "value523": 59,
+        "value524": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 60,
             "Prev": 59
         },
-        "value470": 60,
-        "value471": {
+        "value525": 60,
+        "value526": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 61,
             "Prev": 60
         },
-        "value472": 61,
-        "value473": {
+        "value527": 61,
+        "value528": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 62,
             "Prev": 61
         },
-        "value474": 62,
-        "value475": {
+        "value529": 62,
+        "value530": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 63,
             "Prev": 62
         },
-        "value476": 63,
-        "value477": {
+        "value531": 63,
+        "value532": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 64,
             "Prev": 63
         },
-        "value478": 64,
-        "value479": {
+        "value533": 64,
+        "value534": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 65,
             "Prev": 64
         },
-        "value480": 65,
-        "value481": {
+        "value535": 65,
+        "value536": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 66,
             "Prev": 65
         },
-        "value482": 66,
-        "value483": {
+        "value537": 66,
+        "value538": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 67,
             "Prev": 66
         },
-        "value484": 67,
-        "value485": {
+        "value539": 67,
+        "value540": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 68,
             "Prev": 67
         },
-        "value486": 68,
-        "value487": {
+        "value541": 68,
+        "value542": {
             "Parent": 47,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value488": 1,
-        "value489": 3,
-        "value490": {
+        "value543": 69,
+        "value544": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value545": 70,
+        "value546": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value547": 71,
+        "value548": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value549": 72,
+        "value550": {
+            "Parent": 4294967295,
+            "First": 73,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value551": 73,
+        "value552": {
+            "Parent": 72,
+            "First": 4294967295,
+            "Next": 74,
+            "Prev": 73
+        },
+        "value553": 74,
+        "value554": {
+            "Parent": 72,
+            "First": 4294967295,
+            "Next": 75,
+            "Prev": 74
+        },
+        "value555": 75,
+        "value556": {
+            "Parent": 72,
+            "First": 4294967295,
+            "Next": 76,
+            "Prev": 75
+        },
+        "value557": 76,
+        "value558": {
+            "Parent": 72,
+            "First": 4294967295,
+            "Next": 77,
+            "Prev": 76
+        },
+        "value559": 77,
+        "value560": {
+            "Parent": 72,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value561": 78,
+        "value562": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value563": 79,
+        "value564": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value565": 1,
+        "value566": 3,
+        "value567": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -2094,9 +2424,9 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value491": 22,
-        "value492": 14,
-        "value493": {
+        "value568": 22,
+        "value569": 14,
+        "value570": {
             "cereal_class_version": 0,
             "Mesh": {
                 "cereal_class_version": 0,
@@ -2106,8 +2436,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value494": 15,
-        "value495": {
+        "value571": 15,
+        "value572": {
             "Mesh": {
                 "value0": 13082464210510407219
             },
@@ -2115,8 +2445,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value496": 16,
-        "value497": {
+        "value573": 16,
+        "value574": {
             "Mesh": {
                 "value0": 4955119707226699092
             },
@@ -2124,8 +2454,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value498": 17,
-        "value499": {
+        "value575": 17,
+        "value576": {
             "Mesh": {
                 "value0": 11856470198495388744
             },
@@ -2133,8 +2463,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value500": 18,
-        "value501": {
+        "value577": 18,
+        "value578": {
             "Mesh": {
                 "value0": 8815818718795489162
             },
@@ -2142,8 +2472,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value502": 19,
-        "value503": {
+        "value579": 19,
+        "value580": {
             "Mesh": {
                 "value0": 15457716149166778021
             },
@@ -2151,8 +2481,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value504": 20,
-        "value505": {
+        "value581": 20,
+        "value582": {
             "Mesh": {
                 "value0": 1557280033600584433
             },
@@ -2160,8 +2490,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value506": 21,
-        "value507": {
+        "value583": 21,
+        "value584": {
             "Mesh": {
                 "value0": 10886367400771679502
             },
@@ -2169,8 +2499,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value508": 22,
-        "value509": {
+        "value585": 22,
+        "value586": {
             "Mesh": {
                 "value0": 13009068913973531097
             },
@@ -2178,8 +2508,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value510": 23,
-        "value511": {
+        "value587": 23,
+        "value588": {
             "Mesh": {
                 "value0": 10564065579326327482
             },
@@ -2187,8 +2517,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value512": 24,
-        "value513": {
+        "value589": 24,
+        "value590": {
             "Mesh": {
                 "value0": 1597865029049805125
             },
@@ -2196,8 +2526,8 @@
                 "value0": 12166033386293056678
             }
         },
-        "value514": 48,
-        "value515": {
+        "value591": 48,
+        "value592": {
             "Mesh": {
                 "value0": 5674061294540251582
             },
@@ -2205,8 +2535,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value516": 49,
-        "value517": {
+        "value593": 49,
+        "value594": {
             "Mesh": {
                 "value0": 7403613918652999275
             },
@@ -2214,8 +2544,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value518": 50,
-        "value519": {
+        "value595": 50,
+        "value596": {
             "Mesh": {
                 "value0": 14552892606947797475
             },
@@ -2223,8 +2553,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value520": 51,
-        "value521": {
+        "value597": 51,
+        "value598": {
             "Mesh": {
                 "value0": 7003381074818043961
             },
@@ -2232,8 +2562,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value522": 52,
-        "value523": {
+        "value599": 52,
+        "value600": {
             "Mesh": {
                 "value0": 17739076514109381404
             },
@@ -2241,8 +2571,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value524": 53,
-        "value525": {
+        "value601": 53,
+        "value602": {
             "Mesh": {
                 "value0": 8030035962701609192
             },
@@ -2250,8 +2580,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value526": 54,
-        "value527": {
+        "value603": 54,
+        "value604": {
             "Mesh": {
                 "value0": 4457649159033977452
             },
@@ -2259,8 +2589,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value528": 55,
-        "value529": {
+        "value605": 55,
+        "value606": {
             "Mesh": {
                 "value0": 13595472175554258303
             },
@@ -2268,8 +2598,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value530": 56,
-        "value531": {
+        "value607": 56,
+        "value608": {
             "Mesh": {
                 "value0": 4658299164240418721
             },
@@ -2277,8 +2607,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value532": 57,
-        "value533": {
+        "value609": 57,
+        "value610": {
             "Mesh": {
                 "value0": 2385763138473303772
             },
@@ -2286,8 +2616,8 @@
                 "value0": 16350564211513237932
             }
         },
-        "value534": 58,
-        "value535": {
+        "value611": 58,
+        "value612": {
             "Mesh": {
                 "value0": 17308631552408303085
             },
@@ -2295,143 +2625,143 @@
                 "value0": 16350564211513237932
             }
         },
-        "value536": 22,
-        "value537": 14,
-        "value538": {
+        "value613": 22,
+        "value614": 14,
+        "value615": {
             "cereal_class_version": 0,
             "Material": {
                 "value0": 5013373291479302372
             }
         },
-        "value539": 15,
-        "value540": {
+        "value616": 15,
+        "value617": {
             "Material": {
                 "value0": 5013373291479302372
             }
         },
-        "value541": 16,
-        "value542": {
+        "value618": 16,
+        "value619": {
             "Material": {
                 "value0": 16574589554561446541
             }
         },
-        "value543": 17,
-        "value544": {
+        "value620": 17,
+        "value621": {
             "Material": {
                 "value0": 11986006820189164847
             }
         },
-        "value545": 18,
-        "value546": {
+        "value622": 18,
+        "value623": {
             "Material": {
                 "value0": 16508454056983102542
             }
         },
-        "value547": 19,
-        "value548": {
+        "value624": 19,
+        "value625": {
             "Material": {
                 "value0": 16508454056983102542
             }
         },
-        "value549": 20,
-        "value550": {
+        "value626": 20,
+        "value627": {
             "Material": {
                 "value0": 15419052778490210292
             }
         },
-        "value551": 21,
-        "value552": {
+        "value628": 21,
+        "value629": {
             "Material": {
                 "value0": 15419052778490210292
             }
         },
-        "value553": 22,
-        "value554": {
+        "value630": 22,
+        "value631": {
             "Material": {
                 "value0": 13192220213484133887
             }
         },
-        "value555": 23,
-        "value556": {
+        "value632": 23,
+        "value633": {
             "Material": {
                 "value0": 13192220213484133887
             }
         },
-        "value557": 24,
-        "value558": {
+        "value634": 24,
+        "value635": {
             "Material": {
                 "value0": 16574589554561446541
             }
         },
-        "value559": 48,
-        "value560": {
+        "value636": 48,
+        "value637": {
             "Material": {
                 "value0": 11372316082866776952
             }
         },
-        "value561": 49,
-        "value562": {
+        "value638": 49,
+        "value639": {
             "Material": {
                 "value0": 11372316082866776952
             }
         },
-        "value563": 50,
-        "value564": {
+        "value640": 50,
+        "value641": {
             "Material": {
                 "value0": 8348193485042813902
             }
         },
-        "value565": 51,
-        "value566": {
+        "value642": 51,
+        "value643": {
             "Material": {
                 "value0": 7927663519988027713
             }
         },
-        "value567": 52,
-        "value568": {
+        "value644": 52,
+        "value645": {
             "Material": {
                 "value0": 15158911836875380333
             }
         },
-        "value569": 53,
-        "value570": {
+        "value646": 53,
+        "value647": {
             "Material": {
                 "value0": 15158911836875380333
             }
         },
-        "value571": 54,
-        "value572": {
+        "value648": 54,
+        "value649": {
             "Material": {
                 "value0": 12155827881145589550
             }
         },
-        "value573": 55,
-        "value574": {
+        "value650": 55,
+        "value651": {
             "Material": {
                 "value0": 12155827881145589550
             }
         },
-        "value575": 56,
-        "value576": {
+        "value652": 56,
+        "value653": {
             "Material": {
                 "value0": 6815303935430544860
             }
         },
-        "value577": 57,
-        "value578": {
+        "value654": 57,
+        "value655": {
             "Material": {
                 "value0": 6815303935430544860
             }
         },
-        "value579": 58,
-        "value580": {
+        "value656": 58,
+        "value657": {
             "Material": {
                 "value0": 8348193485042813902
             }
         },
-        "value581": 1,
-        "value582": 38,
-        "value583": {
+        "value658": 1,
+        "value659": 38,
+        "value660": {
             "cereal_class_version": 1,
             "Color": {
                 "x": 0.975806474685669,
@@ -2457,29 +2787,49 @@
             "ShadowBias": 0.004999999888241291,
             "ShadowMaxDistance": 100.0
         },
-        "value584": 0,
-        "value585": 3,
-        "value586": 37,
-        "value587": {
+        "value661": 0,
+        "value662": 7,
+        "value663": 37,
+        "value664": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/FadeToBlack.lua",
             "Language": 0
         },
-        "value588": 45,
-        "value589": {
+        "value665": 45,
+        "value666": {
             "ScriptPath": "scripts/UI/settingsMainMenu.lua",
             "Language": 0
         },
-        "value590": 46,
-        "value591": {
+        "value667": 46,
+        "value668": {
             "ScriptPath": "scripts/UI/menuprincipal.lua",
             "Language": 0
         },
-        "value592": 0,
-        "value593": 0,
-        "value594": 2,
-        "value595": 13,
-        "value596": {
+        "value669": 0,
+        "value670": {
+            "ScriptPath": "scripts/UI/animacionEntrada.lua",
+            "Language": 0
+        },
+        "value671": 69,
+        "value672": {
+            "ScriptPath": "scripts/UI/animacionLogo.lua",
+            "Language": 0
+        },
+        "value673": 78,
+        "value674": {
+            "ScriptPath": "scripts/UI/animacionSalida.lua",
+            "Language": 0
+        },
+        "value675": 79,
+        "value676": {
+            "ScriptPath": "scripts/UI/animacionLogoSalida.lua",
+            "Language": 0
+        },
+        "value677": 0,
+        "value678": 0,
+        "value679": 2,
+        "value680": 13,
+        "value681": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -2512,8 +2862,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 39
         },
-        "value597": 47,
-        "value598": {
+        "value682": 47,
+        "value683": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -2544,9 +2894,9 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 39
         },
-        "value599": 1,
-        "value600": 36,
-        "value601": {
+        "value684": 1,
+        "value685": 36,
+        "value686": {
             "cereal_class_version": 0,
             "GameObjectID": 9119566246223530669,
             "AudioBank": {
@@ -2587,34 +2937,34 @@
                 "m33": 1.0
             }
         },
-        "value602": 1,
-        "value603": 3,
-        "value604": {
+        "value687": 1,
+        "value688": 3,
+        "value689": {
             "cereal_class_version": 0,
             "GameObjectID": 6959882703440946210,
             "Transform": {
-                "m00": 0.8508111238479614,
-                "m01": -7.450580596923828e-9,
-                "m02": 0.5254716277122498,
+                "m00": 0.8508110046386719,
+                "m01": -6.705520405603238e-8,
+                "m02": 0.5254711508750916,
                 "m03": 0.0,
-                "m10": -0.20634761452674867,
-                "m11": 0.9196707606315613,
-                "m12": 0.3341052532196045,
+                "m10": -0.20634755492210389,
+                "m11": 0.9196707010269165,
+                "m12": 0.33410555124282839,
                 "m13": 0.0,
-                "m20": -0.4832609295845032,
+                "m20": -0.4832603633403778,
                 "m21": -0.3926903009414673,
-                "m22": 0.7824661135673523,
+                "m22": 0.7824658155441284,
                 "m23": 0.0,
-                "m30": 0.746999979019165,
-                "m31": 0.3959999978542328,
-                "m32": 1.371000051498413,
+                "m30": 2.188727378845215,
+                "m31": 0.470623254776001,
+                "m32": 1.0080815553665162,
                 "m33": 1.0
             }
         },
-        "value605": 0,
-        "value606": 1,
-        "value607": 35,
-        "value608": {
+        "value690": 0,
+        "value691": 1,
+        "value692": 35,
+        "value693": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -2877,7 +3227,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 6036.388671875,
+                        "ElapsedTime": 20961.46875,
                         "TextureUUID": {
                             "value0": 3119739597825529390
                         }
@@ -2885,53 +3235,61 @@
                 }
             }
         },
-        "value609": 38,
-        "value610": 38,
-        "value611": 37,
-        "value612": 47,
-        "value613": 3,
-        "value614": 60,
-        "value615": 35,
-        "value616": 36,
-        "value617": 50,
-        "value618": 46,
-        "value619": 52,
-        "value620": 54,
-        "value621": 55,
-        "value622": 11,
-        "value623": 68,
-        "value624": 61,
-        "value625": 67,
-        "value626": 66,
-        "value627": 57,
-        "value628": 48,
-        "value629": 63,
-        "value630": 65,
-        "value631": 62,
-        "value632": 64,
-        "value633": 59,
-        "value634": 58,
-        "value635": 51,
-        "value636": 45,
-        "value637": 12,
-        "value638": 0,
-        "value639": 1,
-        "value640": 2,
-        "value641": 4,
-        "value642": 5,
-        "value643": 6,
-        "value644": 7,
-        "value645": 8,
-        "value646": 9,
-        "value647": 10,
-        "value648": 0,
-        "value649": 0,
-        "value650": 3,
-        "value651": 0,
-        "value652": {
+        "value694": 46,
+        "value695": 38,
+        "value696": 73,
+        "value697": 47,
+        "value698": 3,
+        "value699": 60,
+        "value700": 35,
+        "value701": 36,
+        "value702": 50,
+        "value703": 12,
+        "value704": 52,
+        "value705": 54,
+        "value706": 55,
+        "value707": 74,
+        "value708": 68,
+        "value709": 61,
+        "value710": 67,
+        "value711": 66,
+        "value712": 57,
+        "value713": 48,
+        "value714": 63,
+        "value715": 65,
+        "value716": 62,
+        "value717": 64,
+        "value718": 59,
+        "value719": 58,
+        "value720": 51,
+        "value721": 72,
+        "value722": 77,
+        "value723": 76,
+        "value724": 75,
+        "value725": 46,
+        "value726": 69,
+        "value727": 70,
+        "value728": 0,
+        "value729": 1,
+        "value730": 2,
+        "value731": 4,
+        "value732": 5,
+        "value733": 6,
+        "value734": 7,
+        "value735": 8,
+        "value736": 9,
+        "value737": 10,
+        "value738": 11,
+        "value739": 45,
+        "value740": 37,
+        "value741": 0,
+        "value742": 0,
+        "value743": 7,
+        "value744": 0,
+        "value745": {
             "cereal_class_version": 1,
             "TextureUUID": {
-                "value0": 13140529579183903235
+                "value0": 4469959336063580015
             },
             "Color": {
                 "x": 1.0,
@@ -2952,22 +3310,22 @@
                     "y": 0.0
                 },
                 "AnchorMax": {
-                    "x": 1.0,
-                    "y": 1.0
+                    "x": 0.0,
+                    "y": 0.0
                 },
                 "OffsetMin": {
-                    "x": 0.0,
-                    "y": 0.0
+                    "x": 188.0,
+                    "y": -5401.0
                 },
                 "OffsetMax": {
-                    "x": 0.0,
-                    "y": 0.0
+                    "x": 5978.0,
+                    "y": 1079.0
                 }
             },
             "Layer": 0
         },
-        "value653": 37,
-        "value654": {
+        "value746": 37,
+        "value747": {
             "TextureUUID": {
                 "value0": 6711820436760903955
             },
@@ -3003,8 +3361,8 @@
             },
             "Layer": 25
         },
-        "value655": 39,
-        "value656": {
+        "value748": 39,
+        "value749": {
             "TextureUUID": {
                 "value0": 4549735328248801287
             },
@@ -3038,11 +3396,159 @@
                     "y": 0.0
                 }
             },
+            "Layer": 5
+        },
+        "value750": 69,
+        "value751": {
+            "TextureUUID": {
+                "value0": 13497759060308766086
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -120.0,
+                    "y": -2606.0
+                },
+                "OffsetMax": {
+                    "x": 9112.0,
+                    "y": 442.0
+                }
+            },
+            "Layer": 1
+        },
+        "value752": 70,
+        "value753": {
+            "TextureUUID": {
+                "value0": 16729074033814122264
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": 184.0,
+                    "y": -85.0
+                },
+                "OffsetMax": {
+                    "x": 3658.0,
+                    "y": 651.0
+                }
+            },
+            "Layer": 2
+        },
+        "value754": 78,
+        "value755": {
+            "TextureUUID": {
+                "value0": 10299412717692332123
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": 189.0,
+                    "y": -4323.0
+                },
+                "OffsetMax": {
+                    "x": 7137.0,
+                    "y": 1077.0
+                }
+            },
             "Layer": 0
         },
-        "value657": 9,
-        "value658": 1,
-        "value659": {
+        "value756": 79,
+        "value757": {
+            "TextureUUID": {
+                "value0": 13497759060308766086
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -737.0,
+                    "y": -3032.0
+                },
+                "OffsetMax": {
+                    "x": 8495.0,
+                    "y": 16.0
+                }
+            },
+            "Layer": 15
+        },
+        "value758": 9,
+        "value759": 1,
+        "value760": {
             "cereal_class_version": 0,
             "Text": "While faithless traitors still live, \nthere can be no forgiveness!",
             "FontPath": "",
@@ -3076,8 +3582,8 @@
             },
             "Layer": 0
         },
-        "value660": 4,
-        "value661": {
+        "value761": 4,
+        "value762": {
             "Text": "New Game",
             "FontPath": "",
             "Color": {
@@ -3110,8 +3616,8 @@
             },
             "Layer": 0
         },
-        "value662": 6,
-        "value663": {
+        "value763": 6,
+        "value764": {
             "Text": "Continue",
             "FontPath": "",
             "Color": {
@@ -3144,8 +3650,8 @@
             },
             "Layer": 0
         },
-        "value664": 8,
-        "value665": {
+        "value765": 8,
+        "value766": {
             "Text": "Settings",
             "FontPath": "",
             "Color": {
@@ -3178,8 +3684,8 @@
             },
             "Layer": 0
         },
-        "value666": 10,
-        "value667": {
+        "value767": 10,
+        "value768": {
             "Text": "Credits\n",
             "FontPath": "",
             "Color": {
@@ -3212,8 +3718,8 @@
             },
             "Layer": 0
         },
-        "value668": 12,
-        "value669": {
+        "value769": 12,
+        "value770": {
             "Text": "Exit",
             "FontPath": "",
             "Color": {
@@ -3246,8 +3752,8 @@
             },
             "Layer": 0
         },
-        "value670": 40,
-        "value671": {
+        "value771": 40,
+        "value772": {
             "Text": "Settings",
             "FontPath": "",
             "Color": {
@@ -3280,8 +3786,8 @@
             },
             "Layer": 0
         },
-        "value672": 43,
-        "value673": {
+        "value773": 43,
+        "value774": {
             "Text": "Volume",
             "FontPath": "",
             "Color": {
@@ -3314,8 +3820,8 @@
             },
             "Layer": 0
         },
-        "value674": 44,
-        "value675": {
+        "value775": 44,
+        "value776": {
             "Text": "FX",
             "FontPath": "",
             "Color": {
@@ -3348,14 +3854,14 @@
             },
             "Layer": 0
         },
-        "value676": 0,
-        "value677": 5,
-        "value678": 2,
-        "value679": {
+        "value777": 0,
+        "value778": 11,
+        "value779": 2,
+        "value780": {
             "cereal_class_version": 0,
             "Interactable": true,
             "NormalTextureUUID": {
-                "value0": 497748904080029038
+                "value0": 1093479493542519087
             },
             "HoverTextureUUID": {
                 "value0": 497748904080029038
@@ -3370,7 +3876,7 @@
                 "x": 1.0,
                 "y": 1.0,
                 "z": 1.0,
-                "w": 0.0
+                "w": 1.0
             },
             "HoverColor": {
                 "x": 1.0,
@@ -3400,18 +3906,18 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": 483.0,
-                    "y": -23.5
+                    "x": 2977.0,
+                    "y": -2210.0
                 },
                 "OffsetMax": {
-                    "x": 683.0,
-                    "y": 23.5
+                    "x": 3077.0,
+                    "y": -2110.0
                 }
             },
-            "Layer": 0
+            "Layer": 10
         },
-        "value680": 5,
-        "value681": {
+        "value781": 5,
+        "value782": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -3469,11 +3975,11 @@
             },
             "Layer": 0
         },
-        "value682": 7,
-        "value683": {
+        "value783": 7,
+        "value784": {
             "Interactable": true,
             "NormalTextureUUID": {
-                "value0": 497748904080029038
+                "value0": 1093479493542519087
             },
             "HoverTextureUUID": {
                 "value0": 497748904080029038
@@ -3518,18 +4024,18 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": 483.0,
-                    "y": 176.5
+                    "x": 128.5,
+                    "y": 282.0
                 },
                 "OffsetMax": {
-                    "x": 683.0,
-                    "y": 223.5
+                    "x": 707.5,
+                    "y": 650.0
                 }
             },
             "Layer": 0
         },
-        "value684": 9,
-        "value685": {
+        "value785": 9,
+        "value786": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -3587,8 +4093,8 @@
             },
             "Layer": 0
         },
-        "value686": 11,
-        "value687": {
+        "value787": 11,
+        "value788": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -3646,9 +4152,363 @@
             },
             "Layer": 0
         },
-        "value688": 2,
-        "value689": 41,
-        "value690": {
+        "value789": 71,
+        "value790": {
+            "Interactable": true,
+            "NormalTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "HoverTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "PressedTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "DisabledTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "NormalColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "HoverColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "PressedColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "DisabledColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -492.5,
+                    "y": -48.0
+                },
+                "OffsetMax": {
+                    "x": 86.5,
+                    "y": 320.0
+                }
+            },
+            "Layer": 0
+        },
+        "value791": 73,
+        "value792": {
+            "Interactable": true,
+            "NormalTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "HoverTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "PressedTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "DisabledTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "NormalColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "HoverColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "PressedColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "DisabledColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 183.5,
+                    "y": 283.0
+                },
+                "OffsetMax": {
+                    "x": 762.5,
+                    "y": 651.0
+                }
+            },
+            "Layer": 3
+        },
+        "value793": 74,
+        "value794": {
+            "Interactable": true,
+            "NormalTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "HoverTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "PressedTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "DisabledTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "NormalColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "HoverColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "PressedColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "DisabledColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 183.5,
+                    "y": 377.0
+                },
+                "OffsetMax": {
+                    "x": 762.5,
+                    "y": 745.0
+                }
+            },
+            "Layer": 0
+        },
+        "value795": 75,
+        "value796": {
+            "Interactable": true,
+            "NormalTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "HoverTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "PressedTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "DisabledTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "NormalColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "HoverColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "PressedColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "DisabledColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 183.5,
+                    "y": 481.0
+                },
+                "OffsetMax": {
+                    "x": 762.5,
+                    "y": 849.0
+                }
+            },
+            "Layer": 0
+        },
+        "value797": 76,
+        "value798": {
+            "Interactable": true,
+            "NormalTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "HoverTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "PressedTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "DisabledTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "NormalColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "HoverColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "PressedColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "DisabledColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 183.5,
+                    "y": 573.0
+                },
+                "OffsetMax": {
+                    "x": 762.5,
+                    "y": 941.0
+                }
+            },
+            "Layer": 0
+        },
+        "value799": 77,
+        "value800": {
+            "Interactable": true,
+            "NormalTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "HoverTextureUUID": {
+                "value0": 1093479493542519087
+            },
+            "PressedTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "DisabledTextureUUID": {
+                "value0": 497748904080029038
+            },
+            "NormalColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "HoverColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "PressedColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "DisabledColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 183.5,
+                    "y": 672.0
+                },
+                "OffsetMax": {
+                    "x": 762.5,
+                    "y": 1040.0
+                }
+            },
+            "Layer": 0
+        },
+        "value801": 2,
+        "value802": 41,
+        "value803": {
             "cereal_class_version": 0,
             "Value": 0.0,
             "MinValue": 0.0,
@@ -3681,10 +4541,10 @@
                     "y": 11.0
                 }
             },
-            "Layer": 0
+            "Layer": 5
         },
-        "value691": 42,
-        "value692": {
+        "value804": 42,
+        "value805": {
             "Value": 0.0,
             "MinValue": 0.0,
             "MaxValue": 1.0,
@@ -3716,7 +4576,7 @@
                     "y": 117.0
                 }
             },
-            "Layer": 0
+            "Layer": 5
         }
     }
 }
