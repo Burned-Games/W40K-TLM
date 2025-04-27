@@ -11,9 +11,16 @@ local text5
 local musicaFondoDefault
 --local changeScene = false
 local SettingsManager
+local SettingsEntity
+local BaseEntity
+local OrderEntity
+local LogoEntity
+local LogoSalidaEntity
 local Ajustes
 ajustesOpened = false
+local salidaImagen
 
+saliendoDeMenu = false
 
 
 local index = 0
@@ -33,22 +40,31 @@ local fadeToBlackScript = nil
 
 function on_ready()
     -- Add initialization code here
-    button1 = current_scene:get_entity_by_name("NewGame"):get_component("UIButtonComponent")
-    text1 = current_scene:get_entity_by_name("NewGameText"):get_component("UITextComponent")
+    button1 = current_scene:get_entity_by_name("NuevoJuego"):get_component("UIButtonComponent")
+    --text1 = current_scene:get_entity_by_name("NewGameText"):get_component("UITextComponent")
 
-    button2 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
-    text2 = current_scene:get_entity_by_name("ContinueText"):get_component("UITextComponent")
+    button2 = current_scene:get_entity_by_name("Continuar"):get_component("UIButtonComponent")
+    --text2 = current_scene:get_entity_by_name("ContinueText"):get_component("UITextComponent")
 
-    button3 = current_scene:get_entity_by_name("SettingsButton"):get_component("UIButtonComponent")
-    text3 = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
+    button3 = current_scene:get_entity_by_name("Ajuste"):get_component("UIButtonComponent")
+    --text3 = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
 
-    button4 = current_scene:get_entity_by_name("Credits"):get_component("UIButtonComponent")
-    text4 = current_scene:get_entity_by_name("CreditsText"):get_component("UITextComponent")
+    button4 = current_scene:get_entity_by_name("Crdts"):get_component("UIButtonComponent")
+    --text4 = current_scene:get_entity_by_name("CreditsText"):get_component("UITextComponent")
 
-    button5 = current_scene:get_entity_by_name("Exit"):get_component("UIButtonComponent")
-    text5 = current_scene:get_entity_by_name("ExitText"):get_component("UITextComponent")
+    button5 = current_scene:get_entity_by_name("Salir"):get_component("UIButtonComponent")
+    --text5 = current_scene:get_entity_by_name("ExitText"):get_component("UITextComponent")
+
+    salidaImagen = current_scene:get_entity_by_name("Salida")
+
+    BaseEntity = current_scene:get_entity_by_name("Base")
+    OrderEntity = current_scene:get_entity_by_name("Order")
+    LogoEntity = current_scene:get_entity_by_name("Logo")
+    LogoSalidaEntity = current_scene:get_entity_by_name("LogoSalida")
+
 
     SettingsManager = current_scene:get_entity_by_name("SettingsManager"):get_component("ScriptComponent")
+    SettingsEntity = current_scene:get_entity_by_name("SettingsManager")
 
     Ajustes = current_scene:get_entity_by_name("Settings")
 
@@ -68,11 +84,12 @@ function on_update(dt)
             button4.state = State.Normal
             button5.state = State.Normal
 
+            --[[
             text1:set_color(selectedColor)
             text2:set_color(defaultColor)
             text3:set_color(defaultColor)
             text4:set_color(defaultColor)
-            text5:set_color(defaultColor)
+            text5:set_color(defaultColor) --]]
 
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
@@ -80,9 +97,16 @@ function on_update(dt)
                     --button1:set_state("Pressed")
                     --sceneChanged = true
                     --save_progress("zonePlayer", 0)
-                    --save_progress("level", 1)
+                    save_progress("level", 1)
                     --SceneManager.change_scene("scenes/level1.TeaScene")
-                    fadeToBlackScript:DoFade()
+                    
+                    saliendoDeMenu = true
+                    salidaImagen:set_active(true)
+                    SettingsEntity:set_active(false)
+                    BaseEntity:set_active(false)
+                    OrderEntity:set_active(false)
+                    LogoEntity:set_active(false)
+                    LogoSalidaEntity:set_active(true)
                     changingScene = 1
                     sceneChanged = true
                 end
@@ -96,17 +120,24 @@ function on_update(dt)
         button4.state = State.Normal
         button5.state = State.Normal
 
+        --[[
         text1:set_color(defaultColor)
        text2:set_color(selectedColor)
         text3:set_color(defaultColor)
         text4:set_color(defaultColor)
-        text5:set_color(defaultColor)
+        text5:set_color(defaultColor) --]]
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
             if(index == 1) then
                 --button2:set_state("Pressed")
-                fadeToBlackScript:DoFade()
+                --fadeToBlackScript:DoFade()
+                salidaImagen:set_active(true)
+                SettingsEntity:set_active(false)
+                BaseEntity:set_active(false)
+                OrderEntity:set_active(false)
+                LogoEntity:set_active(false)
+                LogoSalidaEntity:set_active(true)
                 changingScene = 2
                 sceneChanged = true
             end
@@ -118,12 +149,12 @@ function on_update(dt)
         button3.state = State.Hover
         button4.state = State.Normal
         button5.state = State.Normal
-
+        --[[
         text1:set_color(defaultColor)
         text2:set_color(defaultColor)
         text3:set_color(selectedColor)
         text4:set_color(defaultColor)
-        text5:set_color(defaultColor)
+        text5:set_color(defaultColor) --]]
 
 
         value = Input.get_button(Input.action.Confirm)
@@ -141,11 +172,11 @@ function on_update(dt)
         button4.state = State.Hover
         button5.state = State.Normal
 
-        text1:set_color(defaultColor)
+       --[[ text1:set_color(defaultColor)
        text2:set_color(defaultColor)
         text3:set_color(defaultColor)
         text4:set_color(selectedColor)
-        text5:set_color(defaultColor)
+        text5:set_color(defaultColor) --]]
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
@@ -162,11 +193,11 @@ function on_update(dt)
         button4.state = State.Normal
         button5.state = State.Hover
 
-        text1:set_color(defaultColor)
+       --[[ text1:set_color(defaultColor)
         text2:set_color(defaultColor)
         text3:set_color(defaultColor)
         text4:set_color(defaultColor)
-        text5:set_color(selectedColor)
+        text5:set_color(selectedColor) --]]
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
@@ -182,7 +213,7 @@ function on_update(dt)
         local value = Input.get_direction("UiY")
             if (value ~= 0 and contadorMovimientoBotones > 0.2) then
                 contadorMovimientoBotones = 0
-                log("Valor que estoy encontrando" .. value)
+                
                 if value < 0 then
                     index = index - 1;
                     if index < 0 then
@@ -196,7 +227,7 @@ function on_update(dt)
                         index = 0
                     end
                 end
-                log("Valor del indice" .. index)
+                
             else
                 contadorMovimientoBotones = contadorMovimientoBotones + dt
             end
