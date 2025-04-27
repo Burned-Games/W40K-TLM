@@ -1,4 +1,5 @@
 local imageComponent
+local imageEntity
 local rect
 local spriteWidth = 579
 local spriteHeight = 368
@@ -16,6 +17,7 @@ local startedAnimation = false
 
 function on_ready()
     imageComponent = self:get_component("UIImageComponent")
+    imageEntity = current_scene:get_entity_by_name("BotonSalidaContinue")
     rect = Vector4.new(0, 0, spriteWidth / sheetWidth, spriteHeight / sheetHeight)
     imageComponent:set_rect(rect)
 end
@@ -40,6 +42,7 @@ function on_update(dt)
 
     if spriteIndex >= totalSprites then
         animationFinished = true
+        imageEntity:set_active(false)
         return
     end
 
