@@ -82,6 +82,9 @@ function on_ready()
     main_boss.ultimate = current_scene:get_entity_by_name("Ultimate")
     main_boss.ultimateTransf = main_boss.ultimate:get_component("TransformComponent")
 
+    main_boss.arena = current_scene:get_entity_by_name("ArenaCenter")
+    main_boss.arenaTrasnf = main_boss.arena:get_component("TransformComponent")
+
     main_boss.pillarToDestroy = nil
 
 
@@ -127,6 +130,8 @@ function on_ready()
     main_boss.ultimateCasting = false
     main_boss.isUltimateDamaging = false
     main_boss.shieldActive = false
+    main_boss.hasMovedToCenter = false
+    main_boss.isReturning = false
 
     main_boss.lastTargetPos = main_boss.playerTransf.position
 
@@ -134,6 +139,7 @@ function on_ready()
     main_boss.fistRbs = {main_boss.fist1Rb, main_boss.fist2Rb, main_boss.fist3Rb}
     main_boss.scalingAttacks = {}
     main_boss.attacksToTeleport = {}
+    main_boss.arenaCenter = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
 
     main_boss.wrathRbComponent:on_collision_stay(function(entityA, entityB)
 
@@ -212,6 +218,13 @@ function on_update(dt)
         totemTimer = totemTimer + dt
     end
 
+    if main_boss.isReturning and not main_boss.hasMovedToCenter then
+        if main_boss:get_distance(main_boss.enemyTransf.position, main_boss.arenaTrasnf.position) < 0.5 then
+            main_boss.hasMovedToCenter = true
+            main_boss.currentState = main_boss.state.Rage
+        end
+    end
+
     if main_boss.ultimateThrown then
         ultiAttackTimer = ultiAttackTimer + dt
 
@@ -286,14 +299,15 @@ function on_update(dt)
 
     update_scaling_attacks(dt)
 
-
-    local currentTargetPos = main_boss.playerTransf.position
-    if pathUpdateTimer >= pathUpdateInterval or main_boss:get_distance(main_boss.lastTargetPos, currentTargetPos) > 1.0 then
-        main_boss.lastTargetPos = currentTargetPos
-        if main_boss.playerDetected then
-            main_boss:update_path(main_boss.playerTransf)
+    if not main_boss.isRaging then
+        local currentTargetPos = main_boss.playerTransf.position
+        if pathUpdateTimer >= pathUpdateInterval or main_boss:get_distance(main_boss.lastTargetPos, currentTargetPos) > 1.0 then
+            main_boss.lastTargetPos = currentTargetPos
+            if main_boss.playerDetected then
+                main_boss:update_path(main_boss.playerTransf)
+            end
+            pathUpdateTimer = 0
         end
-        pathUpdateTimer = 0
     end
 
     if main_boss.ultimateThrown or main_boss.ultimateCasting then
@@ -320,7 +334,6 @@ function change_state()
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
 
     if not main_boss.isRaging and main_boss.health <= main_boss.rageHealth then
-        main_boss.isRaging = true
         main_boss.currentState = main_boss.state.Rage
         return
     end
@@ -356,28 +369,43 @@ end
 
 function main_boss:rage_state()
 
-    main_boss.level = 2
-
-    stats = stats_data[enemy_type] and stats_data[enemy_type][main_boss.level]
-    -- Debug in case is not working
-    if not stats then
-        log("No stats for type: " .. enemy_type .. " level: " .. main_boss.level)
-        return
+    if not main_boss.hasMovedToCenter and not main_boss.isReturning then
+        log("Boss entering Rage and moving to center of arena")
+        main_boss:update_path(main_boss.arenaTrasnf)
+        main_boss:follow_path()
+        main_boss.isReturning = true
     end
 
-    main_boss.bossShieldHealth = stats.bossShieldHealth
-    main_boss.totemHealth = stats.totemHealth
-    main_boss.speed = stats.speed
-    main_boss.meleeDamage = stats.meleeDamage
-    main_boss.rangeDamage = stats.rangeDamage
-    main_boss.ultimateDamage = stats.ultimateDamage
-    main_boss.detectionRange = stats.detectionRange
-    main_boss.meleeAttackRange = stats.meleeAttackRange
-    main_boss.rangeAttackRange = stats.rangeAttackRange
-    main_boss.ultimateRange = stats.ultimateRange
-    main_boss.totemRange = stats.totemRange
+    if not main_boss.isRaging then
+        main_boss.level = 2
 
-    log("New stats setted")
+        stats = stats_data[enemy_type] and stats_data[enemy_type][main_boss.level]
+        -- Debug in case is not working
+        if not stats then
+            log("No stats for type: " .. enemy_type .. " level: " .. main_boss.level)
+            return
+        end
+
+        main_boss.bossShieldHealth = stats.bossShieldHealth
+        main_boss.totemHealth = stats.totemHealth
+        main_boss.speed = stats.speed
+        main_boss.meleeDamage = stats.meleeDamage
+        main_boss.rangeDamage = stats.rangeDamage
+        main_boss.ultimateDamage = stats.ultimateDamage
+        main_boss.detectionRange = stats.detectionRange
+        main_boss.meleeAttackRange = stats.meleeAttackRange
+        main_boss.rangeAttackRange = stats.rangeAttackRange
+        main_boss.ultimateRange = stats.ultimateRange
+        main_boss.totemRange = stats.totemRange
+
+        log("New stats setted")
+        main_boss.isRaging = true
+    end
+
+    if main_boss.currentAnim ~= main_boss.idleAnim then
+        main_boss.currentAnim = main_boss.idleAnim
+        main_boss.animator:set_current_animation(main_boss.currentAnim)
+    end
 
 end
 
