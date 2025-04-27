@@ -147,7 +147,9 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            --log("Wrath hit the player")
+            if not main_boss.playerScript.isNeuralInhibitioning then
+                main_boss.playerScript.isNeuralInhibitioning = true
+            end
         end
     end)
 
@@ -157,7 +159,7 @@ function on_ready()
 
         if nameA == "Player" or nameB == "Player" and main_boss.isLightningDamaging then
             if not main_boss.hasDealtLightningDamage then
-                main_boss:make_damage(main_boss.meleeDamage)
+                --main_boss:make_damage(main_boss.meleeDamage)
                 main_boss.hasDealtLightningDamage = true
             end
         end
@@ -168,7 +170,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
-            main_boss:make_damage(main_boss.rangeDamage)
+            --main_boss:make_damage(main_boss.rangeDamage)
             main_boss.isFistsDamaging = false
         end
     end)
@@ -178,7 +180,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
-            main_boss:make_damage(main_boss.rangeDamage)
+            --main_boss:make_damage(main_boss.rangeDamage)
             main_boss.isFistsDamaging = false
         end
     end)
@@ -188,7 +190,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
-            main_boss:make_damage(main_boss.rangeDamage)
+            --main_boss:make_damage(main_boss.rangeDamage)
             main_boss.isFistsDamaging = false
         end
     end)
