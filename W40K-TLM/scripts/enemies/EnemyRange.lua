@@ -81,7 +81,7 @@ function on_ready()
         }
         bullet.rb = bullet.rbComponent.rb
         bullet.rb:set_trigger(true)
-        bullet.rb:set_position(Vector3.new(0, 0, 0))
+        bullet.rb:set_position(Vector3.new(0, -5, 0))
         bulletPool[i] = bullet
         bulletTimers[i] = 0
     end

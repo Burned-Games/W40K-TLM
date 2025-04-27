@@ -186,6 +186,9 @@ local healAnimationSecondBool = false
 local healAnimCounter = 0
 local healAnimationTime = 1
 
+
+local enemyOrkScript = nil
+
 function on_ready()
     -- Add initialization code here
     -- Audio
@@ -230,7 +233,7 @@ function on_ready()
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
-
+    enemyOrkScript = current_scene:get_entity_by_name("EnemyRange"):get_component("ScriptComponent")
     bolterUpper = current_scene:get_entity_by_name("Bolter_upper")
     bolterLower = current_scene:get_entity_by_name("Bolter_Lower")
 
@@ -303,7 +306,7 @@ function on_ready()
     zonePlayer = load_progress("zonePlayer", 0)
     if level == 1 and zonePlayer >= 1 then
         playerRb:set_position(checkpointsPosition[zonePlayer])
-        animacionEntradaRealizada = true
+        --animacionEntradaRealizada = true
 
         UpgradeManager:load_upgrades()
         scrapCounter = load_progress("scrap", 0)
@@ -331,11 +334,10 @@ function on_ready()
 end
 
 function on_update(dt)
-
+    
     if not pauseScript.isPaused then
         dtColective = dtColective + dt
         
-
 
         if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
             StimsCounter = StimsCounter - 1
@@ -356,7 +358,11 @@ function on_update(dt)
                   animator:set_upper_animation(currentUpAnim)
             end
         end
-        
+        updateEntranceAnimation(dt)
+
+        if animacionEntradaRealizada == false and level == 1 then
+            return
+        end
         if healAnimationSecondBool then
             healAnimCounter = healAnimCounter + dt
             if healAnimCounter >= healAnimationTime then
@@ -402,7 +408,7 @@ function on_update(dt)
         checkPlayerDeath(dt)
         handleWeaponSwitch(dt)
         updateAnims(dt)
-        --updateEntranceAnimation(dt)
+        
         if(changeing)then
             if fadeToBlackScript.fadeToBlackDoned then
                 changeScene = true
@@ -591,21 +597,25 @@ function updateGodMode(dt)
 end
 
 function updateEntranceAnimation(dt)
-    if animacionEntradaRealizada == false then
-        if(currentAnim ~= drop) then
-            currentAnim = drop
-            animator:set_current_animation(currentAnim)
+    if level == 1 then
+            
+        print("aaaaaaaaaaaaaaaa")
+        if animacionEntradaRealizada == false then
+            if(currentAnim ~= drop) then
+                currentAnim = drop
+                animator:set_current_animation(currentAnim)
+            end
+            timerAnimacionEntrada = timerAnimacionEntrada + dt
+            if(timerAnimacionEntrada > 6.2 )then
+                playerTransf.rotation.y = 0
+                animacionEntradaRealizada = true
+                currentAnim = idle
+                animator:set_current_animation(currentAnim)
+            end
+            return
         end
-        timerAnimacionEntrada = timerAnimacionEntrada + dt
 
-        if(timerAnimacionEntrada > 6.2 )then
-            playerTransf.rotation.y = 0
-            animacionEntradaRealizada = true
-            currentAnim = idle
-            animator:set_current_animation(currentAnim)
-        end
-        return
-    end
+end
 end
 
 function handleWeaponSwitch(dt)
