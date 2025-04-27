@@ -1,4 +1,3 @@
-scrap = 9999
 jetpacklvl1 = nil
 jetpacklvl2 = nil
 helmetlvl1 = nil
@@ -104,33 +103,33 @@ upgradeDescriptions = {
 }
 
 function add_scrap(amount)
-    scrap = scrap + amount
-    --print("Scrap added: " .. amount .. " - Total: " .. scrap)
+    player.scrapCounter = player.scrapCounter + amount
+    --print("Scrap added: " .. amount .. " - Total: " .. player.scrapCounter)
 end
 
 function get_scrap()
-    return scrap
+    return player.scrapCounter
 end
 
 -- Checker for buying an upgrade
 function can_buy(category, upgrade)
     return not upgrades[category][upgrade] and 
-           scrap >= costs[category][upgrade]
+           player.scrapCounter >= costs[category][upgrade]
 end
 
 -- Buy upgrade
 function buy_upgrade(category, upgrade)
     if can_buy(category, upgrade) then
-        scrap = scrap - costs[category][upgrade]
+        player.scrapCounter = player.scrapCounter - costs[category][upgrade]
         upgrades[category][upgrade] = true
-        --print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. scrap)
+        --print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. player.scrapCounter)
         apply_to_player(player)
         return true
     else
         if upgrades[category][upgrade] then
             --print("ERROR: This upgrade has already been purchased")
         else
-            --print("ERROR: Not enough scrap. You need: " .. costs[category][upgrade] .. ", You have: " .. scrap)
+            --print("ERROR: Not enough scrap. You need: " .. costs[category][upgrade] .. ", You have: " .. player.scrapCounter)
         end
         return false
     end
@@ -242,7 +241,7 @@ function on_ready()
     rifle = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
     shotgun = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
     helmetlvl1 = current_scene:get_entity_by_name("Casco_lv1")
-    helmetlvl2 = current_scene:get_entity_by_name("Casco_lvl_2")
+    helmetlvl2 = current_scene:get_entity_by_name("Casco_lv_2")
     jetpacklvl1 = current_scene:get_entity_by_name("Jetpack_lv1")
     jetpacklvl2 = current_scene:get_entity_by_name("Jetpack_lv2")
 

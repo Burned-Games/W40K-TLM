@@ -121,9 +121,9 @@ function on_ready()
     range.rangeAttackAnim = 1
     range.dieAnim = 2
 
-    range.state.Shoot = 4
-    range.state.Chase = 5
-    range.state.Stab = 6
+    range.state.Shoot = 5
+    range.state.Chase = 6
+    range.state.Stab = 7
 
     range.isShootingBurst = false
     range.isChasing = false
@@ -132,6 +132,8 @@ function on_ready()
     range.hasDealtDamage = false
 
     range.burstCount = 0
+    range.dieTimer = 0.0
+    range.dieAnimDuration = 1.0
 
     range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
     range.playerDistance = range:get_distance(range.enemyTransf.position, range.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
@@ -182,7 +184,12 @@ function on_update(dt)
         range.level3 = false
         print("Nivel 3 desactivado")
     end
+
     if range.isDead then return end
+    if range.playingDieAnim then
+        range.dieTimer = range.dieTimer + dt
+        print(range.dieTimer)
+    end
 
     range:check_effects(dt)
     range:check_pushed(dt)
@@ -203,6 +210,7 @@ function on_update(dt)
         end
         rangeDyingSFX:play()
         range:die_state()
+        range.currentState = range.state.Dead
         
     end
 
@@ -250,9 +258,11 @@ function on_update(dt)
         range:rotate_enemy(range.playerTransf.position)
     end
 
-    if range.currentState == range.state.Idle then
-        range:idle_state()
+    if range.currentState == range.state.Dead then
+        range:die_state(dt)
         return
+    elseif range.currentState == range.state.Idle then
+        range:idle_state()
 
     elseif range.currentState == range.state.Move then
         range:move_state()
