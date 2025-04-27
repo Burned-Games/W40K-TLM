@@ -819,7 +819,7 @@ function playerMovement(dt)
             elseif (rotationDirection.x > minZ and rotationDirection.x < maxZ and
                 (rotationDirection.z > minX and rotationDirection.z < maxX))or ((rotationDirection.x < minZ or rotationDirection.x > maxZ) and
                 (rotationDirection.z < minX or rotationDirection.z > maxX)) then
-                    
+                    moveSpeed = 4
                     if actualweapon == 0 then
                         if currentAnim ~= runB and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and bolterScript.chaaarging== false  then
                             currentAnim = runB
@@ -860,6 +860,7 @@ function playerMovement(dt)
 
                 if cross > 0 then
                     -- IZQUIERDA
+                    moveSpeed = 4
                     if actualweapon == 0 then
                         if currentAnim ~= runR and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging== false then
                             currentAnim = runR
@@ -889,6 +890,7 @@ function playerMovement(dt)
 
                 elseif cross < 0 then
                     -- DERECHA
+                    moveSpeed = 4
                     if actualweapon == 0 then
                         if currentAnim ~= runL and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging== false then
                             currentAnim = runL
