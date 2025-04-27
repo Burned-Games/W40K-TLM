@@ -51,39 +51,113 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section)); // Observe all sections
 
 // Narrative carousel (previous and next buttons)
-const slides = document.querySelectorAll(".slide");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-let index = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.item');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots-container');
+    const carouselContainer = document.querySelector('.carousel-container');
 
-function showSlide(n) {
-    index = (n + slides.length) % slides.length; // Ensure the index stays within bounds
-    slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(${-index * 100}%)`; // Slide to the correct position
+    let currentIndex = 0;
+    let autoPlayTimer;
+    const totalItems = items.length;
+
+    // Create indicator dots
+    items.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if(index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
     });
-}
 
-// Attach event listeners to previous and next buttons
-prevBtn.addEventListener("click", () => showSlide(index - 1));
-nextBtn.addEventListener("click", () => showSlide(index + 1));
+    // Carousel transition logic
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
 
-showSlide(index); // Initialize carousel
+    function goToSlide(index) {
+        currentIndex = (index + totalItems) % totalItems;
+        updateCarousel();
+        resetAutoPlay();
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+        resetAutoPlay();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+        resetAutoPlay();
+    }
+
+    // Auto-play control
+    function startAutoPlay() {
+        autoPlayTimer = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayTimer);
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    // Event listeners
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+    
+    carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+    carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+    // Initialize auto-play
+    startAutoPlay();
+});
 
 // Narrative content switcher (tabs and images)
-const buttons = document.querySelectorAll('.tab-button');
-const contents = document.querySelectorAll('.content');
-const images = document.querySelectorAll('.main-image');
+document.addEventListener('DOMContentLoaded', () => {
+    // Retrieve all interactive elements
+    const navButtons = document.querySelectorAll('.wh-nav-btn');
+    const textContents = document.querySelectorAll('.wh-text');
+    const previewImages = document.querySelectorAll('.wh-preview-img');
+    const featuredImages = document.querySelectorAll('.wh-featured-img');
 
-buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        // Remove 'active' class from all buttons, contents, and images
-        buttons.forEach(btn => btn.classList.remove('active'));
-        contents.forEach(content => content.classList.remove('active'));
-        images.forEach(img => img.classList.remove('active'));
+    // Initialize first content
+    activateContent(1);
 
-        // Add 'active' class to the clicked button and corresponding content/image
-        button.classList.add('active');
-        document.getElementById(`content-${index + 1}`).classList.add('active');
-        images[index].classList.add('active'); // Show the corresponding image
+    // Bind click events to navigation buttons
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const target = button.dataset.target;
+            activateContent(target);
+        });
     });
+
+    function activateContent(targetId) {
+        // Remove all active states
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        textContents.forEach(content => content.classList.remove('active'));
+        previewImages.forEach(img => img.classList.remove('active'));
+        featuredImages.forEach(img => img.classList.remove('active'));
+
+        // Set new active state
+        const activeButton = document.querySelector(`.wh-nav-btn[data-target="${targetId}"]`);
+        const activeContent = document.querySelector(`.wh-text[data-content="${targetId}"]`);
+        const activePreview = document.querySelector(`.wh-preview-img[data-preview="${targetId}"]`);
+        const activeFeatured = document.querySelector(`.wh-featured-img[data-featured="${targetId}"]`);
+
+        if(activeButton) activeButton.classList.add('active');
+        if(activeContent) activeContent.classList.add('active');
+        if(activePreview) activePreview.classList.add('active');
+        if(activeFeatured) activeFeatured.classList.add('active');
+    }
 });

@@ -45,6 +45,8 @@
             <div class="text-container">
                 <h2>¿Qué es Warhammer 40K?</h2>
                 <p>Warhammer 40K es un universo de ciencia ficción lleno de batallas épicas, estrategias y una historia fascinante. En el lejano futuro, la humanidad lucha por su supervivencia mientras enfrenta a numerosas razas alienígenas y fuerzas del caos. Cada facción tiene su propia cultura, tecnología y objetivos, creando un mundo increíblemente rico y emocionante.</p>
+                <p>Warhammer 40K es un universo de ciencia ficción lleno de batallas épicas, estrategias y una historia fascinante. En el lejano futuro, la humanidad lucha por su supervivencia mientras enfrenta a numerosas razas alienígenas y fuerzas del caos. Cada facción tiene su propia cultura, tecnología y objetivos, creando un mundo increíblemente rico y emocionante.</p>
+                <p>Warhammer 40K es un universo de ciencia ficción lleno de batallas épicas, estrategias y una historia fascinante. En el lejano futuro, la humanidad lucha por su supervivencia mientras enfrenta a numerosas razas alienígenas y fuerzas del caos. Cada facción tiene su propia cultura, tecnología y objetivos, creando un mundo increíblemente rico y emocionante.</p>
             </div>
             <div class="media-container">
                 <img src="assets/warhammer40k.jpg" alt="Warhammer 40K battle scene">
@@ -61,89 +63,150 @@
     </section>
 
     <!-- Narrative Gallery Section -->
-    <section id="narrativa" class="page-section narrativa-section">
-        <h2 class="section-title">Narrative Gallery</h2>
-        <div class="carousel">
-            <div class="slide"><img src="assets/image1.jpg" alt="Image 1"></div>
-            <div class="slide"><img src="assets/image2.jpg" alt="Image 2"></div>
-            <div class="slide"><img src="assets/image3.jpg" alt="Image 3"></div>
+    <section id="narrativa" class="gallery-section">
+        
+        <div class="carousel-container">
+            <button class="carousel-button prev">❮</button>
+            <button class="carousel-button next">❯</button>
+            
+            <div class="carousel">
+                <div class="item" style="background-image: url('assets/warhammer40k.jpg');"></div>
+                <div class="item" style="background-image: url('assets/warhammer40k2.jpg');"></div>
+                <div class="item" style="background-image: url('assets/warhammer40k3.jpg');"></div>
+                <div class="item" style="background-image: url('assets/warhammer40k.jpg');"></div>
+                <div class="item" style="background-image: url('assets/warhammer40k2.jpg');"></div>
+            </div>
+            
+            <div class="dots-container"></div>
         </div>
-        <button class="prev">&lt;</button>
-        <button class="next">&gt;</button>
     </section>
+    
+    
 
-    <!-- Detailed Narrative Section -->
-    <section id="detalle-narrativa" class="page-section detalle-narrativa">
-        <div class="detalle-container">
-            <div class="left-content">
-                <!-- Tab buttons to switch narrative content -->
-                <div class="button-container">
-                    <button class="tab-button" data-content="1">Historia</button>
-                    <button class="tab-button" data-content="2">Personajes</button>
-                    <button class="tab-button" data-content="3">Batallas</button>
-                    <button class="tab-button" data-content="4">Tecnología</button>
-                    <button class="tab-button" data-content="5">Facciones</button>
+
+  <!-- Improvements Section -->
+<section id="mejoras" class="warhammer-section">
+    <!-- Main Container -->
+    <div class="wh-container">
+        <!-- Left Panel -->
+        <div class="wh-left-panel">
+            <!-- Top Navigation Buttons -->
+            <div class="wh-nav-group">
+                <button class="wh-nav-btn active" data-target="1">History</button>
+                <button class="wh-nav-btn" data-target="2">Characters</button>
+                <button class="wh-nav-btn" data-target="3">Battles</button>
+                <button class="wh-nav-btn" data-target="4">Technology</button>
+                <button class="wh-nav-btn" data-target="5">Factions</button>
+            </div>
+
+            <!-- Middle Content -->
+            <div class="wh-content-box">
+                <!-- Content 1: History -->
+                <div class="wh-text active" data-content="1">
+                    <h3>History</h3>
+                    <p>In the dark 41st millennium, humanity struggles for survival in a universe plagued by endless wars. The Imperium of Man, ruled from Terra by the God-Emperor, constantly battles against xenos races, heretics, and the forces of Chaos.</p>
                 </div>
-                
-                <!-- Text content for each tab -->
-                <div class="text-container">
-                    <div class="content active" id="content-1">
-                        <h3>Historia</h3>
-                        <p>Warhammer 40K es un universo de guerra sin fin...</p>
-                    </div>
-                    <div class="content" id="content-2">
-                        <h3>Personajes</h3>
-                        <p>The heroes and villains of this world...</p>
-                    </div>
-                    <div class="content" id="content-3">
-                        <h3>Batallas Épicas</h3>
-                        <p>The most legendary conflicts in history...</p>
-                    </div>
-                    <div class="content" id="content-4">
-                        <h3>Tecnología</h3>
-                        <p>The weapons and strategies used...</p>
-                    </div>
-                    <div class="content" id="content-5">
-                        <h3>Facciones</h3>
-                        <p>The races and groups fighting in the universe...</p>
-                    </div>
+
+                <!-- Content 2: Characters -->
+                <div class="wh-text" data-content="2">
+                    <h3>Characters</h3>
+                    <p>From genetically enhanced Space Marines to mystical Eldars, each faction boasts legendary heroes. Notable figures include Roboute Guilliman, Primarch of the Ultramarines, and Abaddon the Despoiler, Chaos Warlord.</p>
+                </div>
+
+                <!-- Content 3: Epic Battles -->
+                <div class="wh-text" data-content="3">
+                    <h3>Epic Battles</h3>
+                    <p>The Fall of Cadia marked a turning point in the Galaxy, as Chaos forces breached the Cicatrix Maledictum. The Defense of Helsreach showcases humanity’s resilience against relentless Ork hordes.</p>
+                </div>
+
+                <!-- Content 4: Technology -->
+                <div class="wh-text" data-content="4">
+                    <h3>Technology</h3>
+                    <p>From the towering 30-meter Titans of the Legio Titanica to overheating plasma weapons. The arcane technology of the Necrons and the living machines of the T'au present fascinating contrasts on the battlefield.</p>
+                </div>
+
+                <!-- Content 5: Factions -->
+                <div class="wh-text" data-content="5">
+                    <h3>Factions</h3>
+                    <p>The universe is divided into multiple factions: The Imperium of Man, the war-hungry Orks, the expansionist T'au, the planet-consuming Tyranids, and the corrupting forces of Chaos.</p>
                 </div>
             </div>
-    
-            <!-- Right side: Large images that switch with tabs -->
-            <div class="right-content">
-                <img class="main-image active" src="assets/historia.jpg" alt="Historia">
-                <img class="main-image" src="assets/personajes.jpg" alt="Personajes">
-                <img class="main-image" src="assets/batallas.jpg" alt="Batallas">
-                <img class="main-image" src="assets/tecnologia.jpg" alt="Tecnología">
-                <img class="main-image" src="assets/facciones.jpg" alt="Facciones">
-            </div>            
-        </div>
-    </section>
 
-    <!-- Key Features Section -->
-    <section id="mejoras" class="page-section">
-        <h2 class="section-title">Key Features</h2>
-    </section>
-
-    <!-- Image Gallery Section -->
-    <section id="galeria" class="page-section galeria-section">
-        <h2 class="section-title">Warhammer 40K Gallery</h2>
-        <div class="galeria-flex">
-            <img src="assets/image1.jpg">
-            <img src="assets/image2.jpg">
-            <img src="assets/image3.jpg">
-            <img src="assets/image4.jpg">
+            <!-- Bottom Preview Images -->
+            <div class="wh-preview-box">
+                <img class="wh-preview-img active" src="assets/warhammer40k.jpg" data-preview="1" alt="History">
+                <img class="wh-preview-img" src="assets/warhammer40k2.jpg" data-preview="2" alt="Characters">
+                <img class="wh-preview-img" src="assets/warhammer40k3.jpg" data-preview="3" alt="Battles">
+                <img class="wh-preview-img" src="assets/warhammer40k2.jpg" data-preview="4" alt="Technology">
+                <img class="wh-preview-img" src="assets/warhammer40k.jpg" data-preview="5" alt="Factions">
+            </div>
         </div>
-    </section>
+
+        <!-- Right Featured Image -->
+        <div class="wh-right-panel">
+            <img class="wh-featured-img active" src="assets/warhammer40k2.jpg" data-featured="1" alt="History">
+            <img class="wh-featured-img" src="assets/warhammer40k.jpg" data-featured="2" alt="Characters">
+            <img class="wh-featured-img" src="assets/warhammer40k2.jpg" data-featured="3" alt="Battles">
+            <img class="wh-featured-img" src="assets/warhammer40k3.jpg" data-featured="4" alt="Technology">
+            <img class="wh-featured-img" src="assets/warhammer40k.jpg" data-featured="5" alt="Factions">
+        </div>
+    </div>
+</section>
+
+
 
     <!-- Download Section -->
-    <section id="descargar" class="page-section">
-        <div class="download-wrapper">
-            <h2 class="section-title">Get the App</h2>
-            <button class="download-button">Download Now</button>
+<section id="descargar" class="page-section">
+    <h2 class="section-title">Get the App</h2>
+
+    <div class="download-button-wrapper">
+        <button class="download-button">Download Now</button>
+    </div>
+
+
+    <div class="download-wrapper">
+        <div class="requirements-box">
+            <h3>Requerimientos mínimos</h3>
+            <ul>
+                <li>🖥️ Sistema Operativo: Windows 10 / macOS 10.15 / Linux</li>
+                <li>🚀 Procesador: Intel Core i3 / AMD Ryzen 3</li>
+                <li>🔧 Memoria RAM: 4GB</li>
+                <li>💾 Almacenamiento: 10GB de espacio libre</li>
+                <li>🎮 Gráficos: Integrados (Intel UHD / AMD Vega)</li>
+            </ul>
         </div>
-    </section>
+        <div class="requirements-box">
+            <h3>Requerimientos recomendados</h3>
+            <ul>
+                <li>🖥️ Sistema Operativo: Windows 11 / macOS 12 / Linux (última versión)</li>
+                <li>🚀 Procesador: Intel Core i7 / AMD Ryzen 7</li>
+                <li>🔧 Memoria RAM: 16GB</li>
+                <li>💾 Almacenamiento: 50GB de espacio libre (SSD recomendado)</li>
+                <li>🎮 Gráficos: NVIDIA GTX 1660 / AMD RX 5600XT</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="footer-left">
+        <a href="#">SUPPORT</a>
+        <a href="#">PRESS</a>
+        <a href="#">LICENSING</a>
+    </div>
+
+    <div class="footer-center">
+        <p>ENLACES / CREDITOS</p>
+    </div>
+
+    <div class="footer-right">
+        <img src="assets/twitter.png" alt="Twitter">
+        <img src="assets/instagram.png" alt="Instagram">
+        <img src="assets/youtube.png" alt="YouTube">
+        <img src="assets/facebook.png" alt="Facebook">
+    </div>
+</footer>
 
     <!-- JavaScript file for interaction functionality -->
     <script src="js/main.js"></script>
