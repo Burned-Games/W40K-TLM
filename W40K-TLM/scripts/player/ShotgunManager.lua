@@ -51,6 +51,12 @@ granadasSpeed = false
 local granadeNewPos = nil
 local granadeMaxDistance = 9.0
 
+-- Animation states
+shootAnimation = false
+granadeAnimation = false
+local granadeAnimationTimer = 0
+local granadeAnimationDuration = 0.4
+
 --Workbench
 local upgradeManager = nil
 
@@ -74,7 +80,6 @@ local initialize = true
 local rb = nil
 local throwing = false
 local finalTargetPos = nil
-shootAnimation = false
 
 -- Audio
 local shotgunBulletImpactsSFX
@@ -177,6 +182,8 @@ function on_update(dt)
     end
 
     if not pauseMenu.isPaused then
+        
+        resetGranadeAnimation(dt)
 
         if initialize then
             granadeOrigin = playerScript.playerTransf.position
@@ -467,8 +474,7 @@ function update_joystick_position()
 end
 
 function handleGranade(dt)
-    
-    granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+        granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
     if granadeDistance < granadeMaxDistance then
         granadeDistance = granadeDistance + granadeSpeed
     end
@@ -481,6 +487,14 @@ end
 
 function throwGranade(targetPosition)
     if not granadeEntity or not targetPosition then return end
+
+    if not granadeAnimation then
+        playerScript.currentUpAnim = playerScript.h1_Shotgun_Throw
+        playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+        granadeAnimation = true
+        granadeAnimationTimer = 0
+
+    end
 
     local rb = granadeEntity:get_component("RigidbodyComponent").rb
     local playerPos = playerTransf.position
@@ -531,8 +545,6 @@ function throwGranade(targetPosition)
     rb:set_velocity(finalVelocity)
 
 end
-
-
 
 
 
@@ -607,6 +619,16 @@ function explodeGranade()
         --granadeParticlesExplosion:emit(10)
         throwingGranade = false
         cameraScript.startShake(0.2,5)
+    end
+end
+
+function resetGranadeAnimation(dt)
+    if granadeAnimation then
+        granadeAnimationTimer = granadeAnimationTimer + dt
+        if granadeAnimationTimer >= granadeAnimationDuration then
+            granadeAnimation = false
+            granadeAnimationTimer = 0
+        end
     end
 end
 
