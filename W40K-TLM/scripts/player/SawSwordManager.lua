@@ -80,6 +80,8 @@ function on_update(dt)
             slashed = true
 
             
+        else
+            playerScript.moveSpeed = 1
         end
         
     else

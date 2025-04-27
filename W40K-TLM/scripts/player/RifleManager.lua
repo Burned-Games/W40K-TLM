@@ -88,6 +88,7 @@ shootAnimation = false
 reloadAnimation = false
 
 charging = false
+chaaarging = false
 
 local pauseMenu = nil
 
@@ -311,9 +312,11 @@ function on_update(dt)
                     disruptorShooted = true
                     disruptorShooted2 = true
                     charging = false
+                    chaaarging = false
                 else
+                    playerScript.moveSpeed = 1
+                    chaaarging = true
                     if playerScript.currentAnim ~= playerScript.h1_Bolter then
-                        print("eeeeeeeeeeeeee")
                         playerScript.currentAnim = playerScript.h1_Bolter
                         playerScript.animator:set_current_animation(playerScript.currentAnim)
                     end
