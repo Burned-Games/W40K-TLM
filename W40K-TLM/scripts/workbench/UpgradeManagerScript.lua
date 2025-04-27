@@ -241,7 +241,7 @@ function on_ready()
     rifle = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
     shotgun = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
     helmetlvl1 = current_scene:get_entity_by_name("Casco_lv1")
-    helmetlvl2 = current_scene:get_entity_by_name("Casco_lv_2")
+    helmetlvl2 = current_scene:get_entity_by_name("Casco_lvl_2")
     jetpacklvl1 = current_scene:get_entity_by_name("Jetpack_lv1")
     jetpacklvl2 = current_scene:get_entity_by_name("Jetpack_lv2")
 
