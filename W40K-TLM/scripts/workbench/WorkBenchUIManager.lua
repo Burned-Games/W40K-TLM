@@ -79,6 +79,8 @@ local BUTTON_STATES = {
     PRESSED = 2
 }
 
+local playerScript = nil
+
 function on_ready()
     -- Initialize upgrade manager
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
@@ -185,6 +187,8 @@ function on_ready()
     charBackgroundEntity = current_scene:get_entity_by_name("CharBackground")
     charBackground = charBackgroundEntity:get_component("UIImageComponent")
     
+    playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+
     hide_ui()
 end
 
@@ -206,7 +210,7 @@ function update_ui()
     end
     
     if upgradeManager then
-        currentScrapText:set_text(tostring(upgradeManager.scrap))
+        currentScrapText:set_text(tostring(playerScript.scrapCounter))
     end
 end
 
@@ -226,7 +230,7 @@ function update_gun_ui()
         
         -- Check player enough scrap to purchase
         local canBuy = not upgradeManager.upgrades.weapons[currentUpgrade] and 
-                       upgradeManager.scrap >= cost
+                       playerScript.scrapCounter >= cost
                        
 
         -- Set button state 
@@ -256,7 +260,7 @@ function update_char_ui()
         
         -- Check player enough scrap to purchase
         local canBuy = not upgradeManager.upgrades.armor[currentUpgrade] and 
-                       upgradeManager.scrap >= cost
+                       playerScript.scrapCounter >= cost
                        
 
         -- Set button state 
