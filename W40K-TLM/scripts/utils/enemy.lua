@@ -1,7 +1,7 @@
 local effect = require("scripts/utils/status_effects")
 local enemy = {}
 
-enemy.state = { Idle = 1, Move = 2, Attack = 3}
+enemy.state = { Dead = 1, Idle = 2, Move = 3, Attack = 4}
 enemy.godMode = true
 
 
@@ -81,6 +81,9 @@ function enemy:new(obj)
     obj.zoneNumber = 0
     obj.zoneSet = false
     obj.isArenaEnemy = false
+    obj.playingDieAnim = false
+    obj.dieTimer = 0.0
+    obj.dieAnimDuration = 0.0
     -- effects
     obj.isNeuralInhibitioning = false
     obj.neuralFirstTime = true
@@ -159,33 +162,41 @@ function enemy:attack_state()
 
 end
 
-function enemy:die_state()
+function enemy:die_state(dt)
     
-
-    if self.currentAnim ~= self.dieAnim then
-        self.currentAnim = self.dieAnim
-        self.animator:set_current_animation(self.currentAnim)
+    if not self.playingDieAnim then
+        if self.currentAnim ~= self.dieAnim then
+            self.currentAnim = self.dieAnim
+            self.animator:set_current_animation(self.currentAnim)
+        end
+        self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        self.currentState = self.state.Dead
+        print("PLAYING DIE ANIMATION")
+        self.playingDieAnim = true
+        self.dieTimer = 0
+        return
     end
 
-    self.playerScript.enemys_targeting = self.playerScript.enemys_targeting - 1 
+    if self.dieTimer >= self.dieAnimDuration then
 
-    self.currentState = self.state.Idle
+        self.playerScript.enemys_targeting = self.playerScript.enemys_targeting - 1 
+        self.currentState = self.state.Idle
+        self.enemyRb:set_position(Vector3.new(-500, 0, 0))
+        self.isDead = true
 
-    self.enemyRb:set_position(Vector3.new(-500, 0, 0))
+        self:generate_scrap()
 
-    self.isDead = true
+        if self.misionManager and self.enemyDie == false  then
+            if self.misionManager.getCurrerTaskIndex(true) <= 3 then
+                self.misionManager.m3_EnemyCount = self.misionManager.m3_EnemyCount + 1
+            end
 
-    self:generate_scrap()
-    if self.misionManager and self.enemyDie == false  then
-        if self.misionManager.getCurrerTaskIndex(true) <= 3 then
-            self.misionManager.m3_EnemyCount = self.misionManager.m3_EnemyCount + 1
+            --if self.misionManager.getCurrerTaskIndex(true) == 4 then
+                --self.misionManager.m4_EnemyCount = self.misionManager.m4_EnemyCount + 1
+            --end
+            
+            self.enemyDie = true
         end
-
-        --if self.misionManager.getCurrerTaskIndex(true) == 4 then
-            --self.misionManager.m4_EnemyCount = self.misionManager.m4_EnemyCount + 1
-        --end
-        
-        self.enemyDie = true
     end
 end
 

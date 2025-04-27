@@ -109,8 +109,8 @@ function on_ready()
     main_boss.meleeAttackRange = stats.meleeAttackRange
     main_boss.rangeAttackRange = stats.rangeAttackRange
 
-    main_boss.state.Shield = 4
-    main_boss.state.Rage = 5
+    main_boss.state.Shield = 5
+    main_boss.state.Rage = 6
 
     main_boss.idleAnim = 0
     main_boss.moveAnim = 2
