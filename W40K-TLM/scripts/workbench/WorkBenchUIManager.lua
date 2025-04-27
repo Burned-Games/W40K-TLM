@@ -539,7 +539,7 @@ function show_ui()
     isWorkBenchOpen = true
     openCooldownTimer = 0
 
-    hud:set_active(false)
+    -- hud:set_active(false)
 
 end
 
@@ -586,7 +586,7 @@ function hide_ui()
     hide_character_ui(true)
     isWorkBenchOpen = false
 
-    hud:set_active(true)
+    -- hud:set_active(true)
     -- if missionManager then
     --     missionManager:set_active(false)
     -- end
