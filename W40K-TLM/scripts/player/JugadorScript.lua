@@ -318,6 +318,9 @@ function on_ready()
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
+    local newPos = Vector3.new(playerTransf.position.x,0,playerTransf.position.z)
+    playerRb:set_position(newPos)
+
 
 end
 
@@ -327,7 +330,7 @@ function on_update(dt)
         dtColective = dtColective + dt
 
 
-        if StimsCounter > 0 and isHealing == false and Input.get_button(Input.action.Injector) == Input.state.Down then
+        if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
             StimsCounter = StimsCounter - 1
             intervalcheker = dtColective
             intervalChekerDown = intervalcheker - 0.5
@@ -928,10 +931,8 @@ function playerMovement(dt)
                 if actualweapon == 0 then
                     if currentAnim ~= run and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false  then
                         currentAnim = run
-                        print("yyyyyyyyyy")
                         animator:set_lower_animation(currentAnim)
                         if currentUpAnim ~= run and bolterScript.reloadAnimation == false and healAnimationBool == false then
-                            print("yyyyyyyyyy")
                             currentUpAnim = run
                             animator:set_upper_animation(currentUpAnim)
                         end
@@ -940,7 +941,7 @@ function playerMovement(dt)
                     if currentAnim ~= run and bolterScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and shotGunScript.granadeAnimation == false then
                         currentAnim = run
                         animator:set_lower_animation(currentAnim)
-                        if currentUpAnim ~= run and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false and healAnimationBool == false then
+                        if currentUpAnim ~= run and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false and healAnimationBool == false and swordScript.slasheeed == false then
                             
                             currentUpAnim = run
                             animator:set_upper_animation(currentUpAnim)
@@ -993,7 +994,7 @@ function playerMovement(dt)
             if currentAnim ~= idle and bolterScript.shootAnimation == false and bolterScript.charging == false or currentUpAnim ~= idle and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and shotGunScript.is_reloading == false and bolterScript.charging == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false then
                 currentAnim = idle
                 animator:set_current_animation(currentAnim)
-                if shotGunScript.shootAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false then
+                if shotGunScript.shootAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and swordScript.slasheeed == false then
                     currentUpAnim = idle
                     animator:set_upper_animation(currentUpAnim)
                 end
