@@ -325,6 +325,7 @@ function on_update(dt)
                     chaaarging = true
                     if playerScript.currentAnim ~= playerScript.h1_Bolter then
                         playerScript.currentAnim = playerScript.h1_Bolter
+                        playerScript.currentUpAnim = playerScript.h1_Bolter
                         playerScript.animator:set_current_animation(playerScript.currentAnim)
                     end
                 end

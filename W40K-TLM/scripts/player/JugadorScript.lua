@@ -788,7 +788,7 @@ function playerMovement(dt)
             local diference = angleInDegrees - angle2InDegrees
             if rotationDirection.x > minX and rotationDirection.x < maxX and
             (rotationDirection.z > minZ and rotationDirection.z < maxZ) then        
-                moveSpeed = noramlSpeed * speedDebuf
+                moveSpeed = normalSpeed * speedDebuf
                 if actualweapon == 0 then
                     if currentAnim ~= run and bolterScript.shootAnimation == false  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false and shotGunScript.granadeAnimation == false then
                         currentAnim = run
