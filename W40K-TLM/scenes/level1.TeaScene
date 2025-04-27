@@ -38798,7 +38798,7 @@
         "value10948": 1401,
         "value10949": {
             "Position": {
-                "x": 10000.0,
+                "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -38888,7 +38888,7 @@
         "value10958": 1406,
         "value10959": {
             "Position": {
-                "x": 10000.0,
+                "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -38960,7 +38960,7 @@
         "value10966": 1410,
         "value10967": {
             "Position": {
-                "x": 10000.0,
+                "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -123763,7 +123763,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 73826.1484375,
+                        "ElapsedTime": 74907.1640625,
                         "TextureUUID": {
                             "value0": 11433126781885437404
                         }
@@ -124027,7 +124027,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 73411.1484375,
+                        "ElapsedTime": 74492.1640625,
                         "TextureUUID": {
                             "value0": 11433126781885437404
                         }
@@ -124295,7 +124295,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 110952.25,
+                        "ElapsedTime": 113114.28125,
                         "TextureUUID": {
                             "value0": 5108660922888521590
                         }
@@ -124563,7 +124563,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 70904.734375,
+                        "ElapsedTime": 71985.75,
                         "TextureUUID": {
                             "value0": 13417452427494671773
                         }
@@ -124827,7 +124827,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 70705.953125,
+                        "ElapsedTime": 71786.96875,
                         "TextureUUID": {
                             "value0": 10465071026567610325
                         }
@@ -125095,7 +125095,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 110200.8125,
+                        "ElapsedTime": 112362.84375,
                         "TextureUUID": {
                             "value0": 3119739597825529390
                         }
@@ -125359,7 +125359,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 69274.2890625,
+                        "ElapsedTime": 70355.3046875,
                         "TextureUUID": {
                             "value0": 15522101500032490281
                         }
@@ -125627,7 +125627,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 68957.4921875,
+                        "ElapsedTime": 70038.5078125,
                         "TextureUUID": {
                             "value0": 2330904700658026574
                         }
@@ -125891,7 +125891,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 68832.984375,
+                        "ElapsedTime": 69914.0,
                         "TextureUUID": {
                             "value0": 4745046098025428021
                         }
@@ -126159,7 +126159,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 64892.0234375,
+                        "ElapsedTime": 65805.2265625,
                         "TextureUUID": {
                             "value0": 9499907433208848660
                         }
@@ -129674,7 +129674,7 @@
         "value31096": 2679,
         "value31097": 2680,
         "value31098": 0,
-        "value31099": 41,
+        "value31099": 36,
         "value31100": 919,
         "value31101": {
             "cereal_class_version": 1,
@@ -130565,16 +130565,16 @@
             },
             "Layer": 6
         },
-        "value31148": 1402,
+        "value31148": 1590,
         "value31149": {
             "TextureUUID": {
-                "value0": 15214301479000495684
+                "value0": 497748904080029038
             },
             "Color": {
                 "x": 1.0,
                 "y": 1.0,
                 "z": 1.0,
-                "w": 1.0
+                "w": 0.0
             },
             "UVRect": {
                 "x": 0.0,
@@ -130584,137 +130584,26 @@
             },
             "Anchor": {
                 "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.5
+                    "x": 0.0,
+                    "y": 0.0
                 },
                 "AnchorMax": {
                     "x": 1.0,
-                    "y": 0.5
+                    "y": 1.0
                 },
                 "OffsetMin": {
-                    "x": 205.0,
-                    "y": 157.5
+                    "x": 0.0,
+                    "y": 0.0
                 },
                 "OffsetMax": {
-                    "x": 455.0,
-                    "y": 232.5
+                    "x": 0.0,
+                    "y": 0.0
                 }
             },
-            "Layer": 0
+            "Layer": 100
         },
-        "value31150": 1403,
+        "value31150": 1593,
         "value31151": {
-            "TextureUUID": {
-                "value0": 8983992674018412212
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": 205.0,
-                    "y": 102.5
-                },
-                "OffsetMax": {
-                    "x": 455.0,
-                    "y": 177.5
-                }
-            },
-            "Layer": 0
-        },
-        "value31152": 1407,
-        "value31153": {
-            "TextureUUID": {
-                "value0": 18293614392373388477
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 1.0
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 1.0
-                },
-                "OffsetMin": {
-                    "x": -300.0,
-                    "y": 90.0
-                },
-                "OffsetMax": {
-                    "x": 300.0,
-                    "y": 190.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31154": 1412,
-        "value31155": {
-            "TextureUUID": {
-                "value0": 807586784681185070
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.0
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 0.0
-                },
-                "OffsetMin": {
-                    "x": -210.0,
-                    "y": 270.0
-                },
-                "OffsetMax": {
-                    "x": 210.0,
-                    "y": 370.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31156": 1413,
-        "value31157": {
             "TextureUUID": {
                 "value0": 16609560832358601222
             },
@@ -130732,20 +130621,131 @@
             },
             "Anchor": {
                 "AnchorMin": {
-                    "x": 1.0,
+                    "x": 0.5,
                     "y": 0.0
                 },
                 "AnchorMax": {
-                    "x": 1.0,
+                    "x": 0.5,
                     "y": 0.0
                 },
                 "OffsetMin": {
                     "x": -210.0,
-                    "y": 270.0
+                    "y": -0.0
                 },
                 "OffsetMax": {
                     "x": 210.0,
-                    "y": 370.0
+                    "y": 100.0
+                }
+            },
+            "Layer": 100
+        },
+        "value31152": 949,
+        "value31153": {
+            "TextureUUID": {
+                "value0": 497748904080029038
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -0.5,
+                    "y": -50.0
+                },
+                "OffsetMax": {
+                    "x": 0.5,
+                    "y": 50.0
+                }
+            },
+            "Layer": 0
+        },
+        "value31154": 2621,
+        "value31155": {
+            "TextureUUID": {
+                "value0": 17648863979136602162
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 2.5,
+                    "y": 32.5
+                },
+                "OffsetMax": {
+                    "x": 37.5,
+                    "y": 57.5
+                }
+            },
+            "Layer": 0
+        },
+        "value31156": 1006,
+        "value31157": {
+            "TextureUUID": {
+                "value0": 497748904080029038
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -1187.0,
+                    "y": -396.5
+                },
+                "OffsetMax": {
+                    "x": 1187.0,
+                    "y": 396.5
                 }
             },
             "Layer": 0
@@ -131009,194 +131009,9 @@
             },
             "Layer": 100
         },
-        "value31172": 1593,
-        "value31173": {
-            "TextureUUID": {
-                "value0": 16609560832358601222
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.0
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.0
-                },
-                "OffsetMin": {
-                    "x": -210.0,
-                    "y": -0.0
-                },
-                "OffsetMax": {
-                    "x": 210.0,
-                    "y": 100.0
-                }
-            },
-            "Layer": 100
-        },
-        "value31174": 1590,
-        "value31175": {
-            "TextureUUID": {
-                "value0": 497748904080029038
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 0.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 1.0
-                },
-                "OffsetMin": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "OffsetMax": {
-                    "x": 0.0,
-                    "y": 0.0
-                }
-            },
-            "Layer": 100
-        },
-        "value31176": 949,
-        "value31177": {
-            "TextureUUID": {
-                "value0": 497748904080029038
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 0.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": -0.5,
-                    "y": -50.0
-                },
-                "OffsetMax": {
-                    "x": 0.5,
-                    "y": 50.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31178": 1006,
-        "value31179": {
-            "TextureUUID": {
-                "value0": 497748904080029038
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 0.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": -1187.0,
-                    "y": -396.5
-                },
-                "OffsetMax": {
-                    "x": 1187.0,
-                    "y": 396.5
-                }
-            },
-            "Layer": 0
-        },
-        "value31180": 2621,
-        "value31181": {
-            "TextureUUID": {
-                "value0": 17648863979136602162
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": 2.5,
-                    "y": 32.5
-                },
-                "OffsetMax": {
-                    "x": 37.5,
-                    "y": 57.5
-                }
-            },
-            "Layer": 0
-        },
-        "value31182": 42,
-        "value31183": 921,
-        "value31184": {
+        "value31172": 37,
+        "value31173": 921,
+        "value31174": {
             "cereal_class_version": 0,
             "Text": "100",
             "FontPath": "",
@@ -131230,8 +131045,8 @@
             },
             "Layer": 0
         },
-        "value31185": 925,
-        "value31186": {
+        "value31175": 925,
+        "value31176": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -131264,8 +131079,8 @@
             },
             "Layer": 0
         },
-        "value31187": 928,
-        "value31188": {
+        "value31177": 928,
+        "value31178": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -131298,8 +131113,8 @@
             },
             "Layer": 0
         },
-        "value31189": 933,
-        "value31190": {
+        "value31179": 933,
+        "value31180": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -131332,8 +131147,8 @@
             },
             "Layer": 0
         },
-        "value31191": 939,
-        "value31192": {
+        "value31181": 939,
+        "value31182": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -131366,8 +131181,8 @@
             },
             "Layer": 0
         },
-        "value31193": 944,
-        "value31194": {
+        "value31183": 944,
+        "value31184": {
             "Text": "24",
             "FontPath": "",
             "Color": {
@@ -131400,8 +131215,8 @@
             },
             "Layer": 0
         },
-        "value31195": 945,
-        "value31196": {
+        "value31185": 945,
+        "value31186": {
             "Text": "24",
             "FontPath": "",
             "Color": {
@@ -131434,8 +131249,8 @@
             },
             "Layer": 0
         },
-        "value31197": 948,
-        "value31198": {
+        "value31187": 948,
+        "value31188": {
             "Text": "0",
             "FontPath": "",
             "Color": {
@@ -131468,8 +131283,8 @@
             },
             "Layer": 0
         },
-        "value31199": 951,
-        "value31200": {
+        "value31189": 951,
+        "value31190": {
             "Text": "Pause",
             "FontPath": "",
             "Color": {
@@ -131502,8 +131317,8 @@
             },
             "Layer": 0
         },
-        "value31201": 957,
-        "value31202": {
+        "value31191": 957,
+        "value31192": {
             "Text": "Settings",
             "FontPath": "",
             "Color": {
@@ -131536,8 +131351,8 @@
             },
             "Layer": 0
         },
-        "value31203": 959,
-        "value31204": {
+        "value31193": 959,
+        "value31194": {
             "Text": "Volume",
             "FontPath": "",
             "Color": {
@@ -131570,8 +131385,8 @@
             },
             "Layer": 0
         },
-        "value31205": 961,
-        "value31206": {
+        "value31195": 961,
+        "value31196": {
             "Text": "FX",
             "FontPath": "",
             "Color": {
@@ -131604,8 +131419,8 @@
             },
             "Layer": 0
         },
-        "value31207": 952,
-        "value31208": {
+        "value31197": 952,
+        "value31198": {
             "Text": "Continue",
             "FontPath": "",
             "Color": {
@@ -131638,8 +131453,8 @@
             },
             "Layer": 0
         },
-        "value31209": 953,
-        "value31210": {
+        "value31199": 953,
+        "value31200": {
             "Text": "Settings",
             "FontPath": "",
             "Color": {
@@ -131672,8 +131487,8 @@
             },
             "Layer": 0
         },
-        "value31211": 954,
-        "value31212": {
+        "value31201": 954,
+        "value31202": {
             "Text": "Save Game",
             "FontPath": "",
             "Color": {
@@ -131706,8 +131521,8 @@
             },
             "Layer": 0
         },
-        "value31213": 955,
-        "value31214": {
+        "value31203": 955,
+        "value31204": {
             "Text": "Exit",
             "FontPath": "",
             "Color": {
@@ -131740,8 +131555,8 @@
             },
             "Layer": 0
         },
-        "value31215": 982,
-        "value31216": {
+        "value31205": 982,
+        "value31206": {
             "Text": "NAME\n",
             "FontPath": "",
             "Color": {
@@ -131774,8 +131589,8 @@
             },
             "Layer": 5
         },
-        "value31217": 983,
-        "value31218": {
+        "value31207": 983,
+        "value31208": {
             "Text": "DESCRIPTION",
             "FontPath": "",
             "Color": {
@@ -131808,8 +131623,8 @@
             },
             "Layer": 5
         },
-        "value31219": 984,
-        "value31220": {
+        "value31209": 984,
+        "value31210": {
             "Text": "9999",
             "FontPath": "",
             "Color": {
@@ -131842,8 +131657,8 @@
             },
             "Layer": 5
         },
-        "value31221": 985,
-        "value31222": {
+        "value31211": 985,
+        "value31212": {
             "Text": "1\n",
             "FontPath": "",
             "Color": {
@@ -131876,8 +131691,8 @@
             },
             "Layer": 6
         },
-        "value31223": 986,
-        "value31224": {
+        "value31213": 986,
+        "value31214": {
             "Text": "2\n\n",
             "FontPath": "",
             "Color": {
@@ -131910,8 +131725,8 @@
             },
             "Layer": 6
         },
-        "value31225": 987,
-        "value31226": {
+        "value31215": 987,
+        "value31216": {
             "Text": "3\n\n",
             "FontPath": "",
             "Color": {
@@ -131944,8 +131759,8 @@
             },
             "Layer": 6
         },
-        "value31227": 988,
-        "value31228": {
+        "value31217": 988,
+        "value31218": {
             "Text": "4\n",
             "FontPath": "",
             "Color": {
@@ -131978,8 +131793,8 @@
             },
             "Layer": 6
         },
-        "value31229": 995,
-        "value31230": {
+        "value31219": 995,
+        "value31220": {
             "Text": "1\n",
             "FontPath": "",
             "Color": {
@@ -132012,8 +131827,8 @@
             },
             "Layer": 0
         },
-        "value31231": 996,
-        "value31232": {
+        "value31221": 996,
+        "value31222": {
             "Text": "2\n\n",
             "FontPath": "",
             "Color": {
@@ -132046,8 +131861,8 @@
             },
             "Layer": 0
         },
-        "value31233": 997,
-        "value31234": {
+        "value31223": 997,
+        "value31224": {
             "Text": "3\n\n",
             "FontPath": "",
             "Color": {
@@ -132080,8 +131895,8 @@
             },
             "Layer": 0
         },
-        "value31235": 998,
-        "value31236": {
+        "value31225": 998,
+        "value31226": {
             "Text": "NAME\n",
             "FontPath": "",
             "Color": {
@@ -132114,8 +131929,8 @@
             },
             "Layer": 5
         },
-        "value31237": 999,
-        "value31238": {
+        "value31227": 999,
+        "value31228": {
             "Text": "DESCRIPTION",
             "FontPath": "",
             "Color": {
@@ -132148,8 +131963,8 @@
             },
             "Layer": 5
         },
-        "value31239": 1001,
-        "value31240": {
+        "value31229": 1001,
+        "value31230": {
             "Text": "9999",
             "FontPath": "",
             "Color": {
@@ -132182,8 +131997,8 @@
             },
             "Layer": 5
         },
-        "value31241": 1004,
-        "value31242": {
+        "value31231": 1004,
+        "value31232": {
             "Text": "9999",
             "FontPath": "",
             "Color": {
@@ -132216,8 +132031,8 @@
             },
             "Layer": 7
         },
-        "value31243": 1003,
-        "value31244": {
+        "value31233": 1003,
+        "value31234": {
             "Text": "EXIT",
             "FontPath": "",
             "Color": {
@@ -132250,8 +132065,8 @@
             },
             "Layer": 6
         },
-        "value31245": 1049578,
-        "value31246": {
+        "value31235": 1049578,
+        "value31236": {
             "Text": "EXIT",
             "FontPath": "",
             "Color": {
@@ -132284,212 +132099,8 @@
             },
             "Layer": 6
         },
-        "value31247": 1404,
-        "value31248": {
-            "Text": "Find the drop pod supply",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 0,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": 166.0,
-                    "y": 80.0
-                },
-                "OffsetMax": {
-                    "x": 266.0,
-                    "y": 180.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31249": 1405,
-        "value31250": {
-            "Text": "Start moving with [L]\n",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 0,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": 166.0,
-                    "y": 135.0
-                },
-                "OffsetMax": {
-                    "x": 266.0,
-                    "y": 235.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31251": 1408,
-        "value31252": {
-            "Text": "DialogText",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 1,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 1.0
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 1.0
-                },
-                "OffsetMin": {
-                    "x": -50.0,
-                    "y": 95.0
-                },
-                "OffsetMax": {
-                    "x": 50.0,
-                    "y": 195.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31253": 1409,
-        "value31254": {
-            "Text": "DialogName",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 1,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 1.0
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 1.0
-                },
-                "OffsetMin": {
-                    "x": -50.0,
-                    "y": 59.0
-                },
-                "OffsetMax": {
-                    "x": 50.0,
-                    "y": 159.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31255": 1411,
-        "value31256": {
-            "Text": "Popup",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 1,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.0
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 0.0
-                },
-                "OffsetMin": {
-                    "x": -50.0,
-                    "y": 280.0
-                },
-                "OffsetMax": {
-                    "x": 50.0,
-                    "y": 380.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31257": 1472,
-        "value31258": {
-            "Text": "Find the drop pod supply",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 0,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": -330.0,
-                    "y": -115.0
-                },
-                "OffsetMax": {
-                    "x": -230.0,
-                    "y": -15.0
-                }
-            },
-            "Layer": 0
-        },
-        "value31259": 1473,
-        "value31260": {
+        "value31237": 1473,
+        "value31238": {
             "Text": "Start moving with [L]\n",
             "FontPath": "",
             "Color": {
@@ -132522,9 +132133,9 @@
             },
             "Layer": 0
         },
-        "value31261": 1476,
-        "value31262": {
-            "Text": "DialogText",
+        "value31239": 1472,
+        "value31240": {
+            "Text": "Find the drop pod supply",
             "FontPath": "",
             "Color": {
                 "x": 1.0,
@@ -132535,29 +132146,29 @@
             "Kerning": 0.0,
             "LineSpacing": 0.0,
             "FontSize": 24.0,
-            "Alignment": 1,
+            "Alignment": 0,
             "Anchor": {
                 "AnchorMin": {
-                    "x": 0.5,
-                    "y": 1.0
+                    "x": 1.0,
+                    "y": 0.5
                 },
                 "AnchorMax": {
-                    "x": 0.5,
-                    "y": 1.0
+                    "x": 1.0,
+                    "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -50.0,
-                    "y": -210.0
+                    "x": -330.0,
+                    "y": -115.0
                 },
                 "OffsetMax": {
-                    "x": 50.0,
-                    "y": -110.0
+                    "x": -230.0,
+                    "y": -15.0
                 }
             },
             "Layer": 0
         },
-        "value31263": 1477,
-        "value31264": {
+        "value31241": 1477,
+        "value31242": {
             "Text": "DialogName",
             "FontPath": "",
             "Color": {
@@ -132590,8 +132201,42 @@
             },
             "Layer": 0
         },
-        "value31265": 1591,
-        "value31266": {
+        "value31243": 1476,
+        "value31244": {
+            "Text": "DialogText",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -210.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": -110.0
+                }
+            },
+            "Layer": 0
+        },
+        "value31245": 1591,
+        "value31246": {
             "Text": "Popup",
             "FontPath": "",
             "Color": {
@@ -132624,9 +132269,9 @@
             },
             "Layer": 0
         },
-        "value31267": 4,
-        "value31268": 926,
-        "value31269": {
+        "value31247": 4,
+        "value31248": 926,
+        "value31249": {
             "cereal_class_version": 0,
             "Value": false,
             "OnTextureUUID": {
@@ -132655,8 +132300,8 @@
             },
             "Layer": 0
         },
-        "value31270": 931,
-        "value31271": {
+        "value31250": 931,
+        "value31251": {
             "Value": false,
             "OnTextureUUID": {
                 "value0": 3956965330914071782
@@ -132684,8 +132329,8 @@
             },
             "Layer": 0
         },
-        "value31272": 935,
-        "value31273": {
+        "value31252": 935,
+        "value31253": {
             "Value": false,
             "OnTextureUUID": {
                 "value0": 17486110348030860254
@@ -132713,8 +132358,8 @@
             },
             "Layer": 0
         },
-        "value31274": 937,
-        "value31275": {
+        "value31254": 937,
+        "value31255": {
             "Value": false,
             "OnTextureUUID": {
                 "value0": 2088940703403742330
@@ -132742,9 +132387,9 @@
             },
             "Layer": 0
         },
-        "value31276": 11,
-        "value31277": 977,
-        "value31278": {
+        "value31256": 11,
+        "value31257": 977,
+        "value31258": {
             "cereal_class_version": 0,
             "Interactable": true,
             "NormalTextureUUID": {
@@ -132803,8 +132448,8 @@
             },
             "Layer": 5
         },
-        "value31279": 1049552,
-        "value31280": {
+        "value31259": 1049552,
+        "value31260": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10763259541690620995
@@ -132862,8 +132507,8 @@
             },
             "Layer": 5
         },
-        "value31281": 978,
-        "value31282": {
+        "value31261": 978,
+        "value31262": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10763259541690620995
@@ -132921,8 +132566,8 @@
             },
             "Layer": 5
         },
-        "value31283": 979,
-        "value31284": {
+        "value31263": 979,
+        "value31264": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10763259541690620995
@@ -132980,8 +132625,8 @@
             },
             "Layer": 5
         },
-        "value31285": 980,
-        "value31286": {
+        "value31265": 980,
+        "value31266": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1779358274141937713
@@ -133039,8 +132684,8 @@
             },
             "Layer": 5
         },
-        "value31287": 981,
-        "value31288": {
+        "value31267": 981,
+        "value31268": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1779358274141937713
@@ -133098,8 +132743,8 @@
             },
             "Layer": 5
         },
-        "value31289": 990,
-        "value31290": {
+        "value31269": 990,
+        "value31270": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1779358274141937713
@@ -133157,8 +132802,8 @@
             },
             "Layer": 5
         },
-        "value31291": 1049567,
-        "value31292": {
+        "value31271": 1049567,
+        "value31272": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1779358274141937713
@@ -133216,8 +132861,8 @@
             },
             "Layer": 5
         },
-        "value31293": 1049568,
-        "value31294": {
+        "value31273": 1049568,
+        "value31274": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10763259541690620995
@@ -133275,8 +132920,8 @@
             },
             "Layer": 5
         },
-        "value31295": 993,
-        "value31296": {
+        "value31275": 993,
+        "value31276": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10763259541690620995
@@ -133334,8 +132979,8 @@
             },
             "Layer": 5
         },
-        "value31297": 994,
-        "value31298": {
+        "value31277": 994,
+        "value31278": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10763259541690620995
@@ -133393,9 +133038,9 @@
             },
             "Layer": 5
         },
-        "value31299": 2,
-        "value31300": 958,
-        "value31301": {
+        "value31279": 2,
+        "value31280": 958,
+        "value31281": {
             "cereal_class_version": 0,
             "Value": 0.0,
             "MinValue": 0.0,
@@ -133430,8 +133075,8 @@
             },
             "Layer": 0
         },
-        "value31302": 960,
-        "value31303": {
+        "value31282": 960,
+        "value31283": {
             "Value": 0.0,
             "MinValue": 0.0,
             "MaxValue": 1.0,
