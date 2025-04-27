@@ -191,6 +191,9 @@ function on_ready()
     disruptorBulletRbComponent:on_collision_enter(function(entityA, entityB)               
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
+
+        local entityARB = entityA:get_component("RigidbodyComponent").rb
+        local entityBRB = entityB:get_component("RigidbodyComponent").rb
         
         if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" then 
             makeDisruptorDamage(entityA)
@@ -234,6 +237,22 @@ function on_ready()
         if nameB == "MainBoss" then
             makeDisruptorDamage(entityB)
         end
+
+        if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
+            if entityARB:get_is_trigger() == false then
+                -- print("collisionA")
+                disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
+                -- print(nameA)
+            end 
+        end
+
+        if entityBRB and nameB ~= "Player" and nameB ~= "FloorCollider" then
+            if entityBRB:get_is_trigger() == false then
+                -- print("collisionB")
+                disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
+            end
+        end
+
     end)
 
     chargeZone = current_scene:get_entity_by_name("ChargeZone")
