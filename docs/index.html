@@ -1,1 +1,151 @@
-<h1>hula</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Creativa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Scroll to top button -->
+    <a href="#inicio" class="to-top" aria-label="Back to top">
+        <img src="assets/icon-arrow-up.svg" alt="Arrow up">
+    </a>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav" data-nav>
+        <div class="nav-brand">
+            <a href="#inicio">
+                <img src="assets/logo.svg" alt="Logo" class="nav-logo">
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="#inicio" class="nav-link">INICIO</a></li>
+            <li><a href="#descripcion" class="nav-link">DESCRIPCIÓN</a></li>
+            <li><a href="#narrativa" class="nav-link">NARRATIVA</a></li>
+            <li><a href="#mejoras" class="nav-link">MEJORAS</a></li>
+            <li><a href="#galeria" class="nav-link">GALERÍA</a></li>
+            <li><a href="#descargar" class="nav-button">DESCARGAR</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Background Video -->
+    <section id="inicio" class="page-section hero-section">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="assets/warhammer.mp4" type="video/mp4">
+        </video>
+        <h1 class="game-title">Warhammer 40K</h1>
+    </section>
+
+    <!-- Description Section -->
+    <section id="descripcion" class="page-section descripcion-section">
+        <div class="descripcion-content">
+            <div class="text-container">
+                <h2>¿Qué es Warhammer 40K?</h2>
+                <p>Warhammer 40K es un universo de ciencia ficción lleno de batallas épicas, estrategias y una historia fascinante. En el lejano futuro, la humanidad lucha por su supervivencia mientras enfrenta a numerosas razas alienígenas y fuerzas del caos. Cada facción tiene su propia cultura, tecnología y objetivos, creando un mundo increíblemente rico y emocionante.</p>
+            </div>
+            <div class="media-container">
+                <img src="assets/warhammer40k.jpg" alt="Warhammer 40K battle scene">
+            </div>
+
+            <!-- Optional video - currently commented out -->
+            <!-- 
+            <video autoplay loop muted playsinline class="descripcion-video">
+                <source src="assets/warhammer40k.mp4" type="video/mp4">
+                Your browser does not support HTML5 videos.
+            </video>
+            -->
+        </div>
+    </section>
+
+    <!-- Narrative Gallery Section -->
+    <section id="narrativa" class="page-section narrativa-section">
+        <h2 class="section-title">Narrative Gallery</h2>
+        <div class="carousel">
+            <div class="slide"><img src="assets/image1.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="assets/image2.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="assets/image3.jpg" alt="Image 3"></div>
+        </div>
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+    </section>
+
+    <!-- Detailed Narrative Section -->
+    <section id="detalle-narrativa" class="page-section detalle-narrativa">
+        <div class="detalle-container">
+            <div class="left-content">
+                <!-- Tab buttons to switch narrative content -->
+                <div class="button-container">
+                    <button class="tab-button" data-content="1">Historia</button>
+                    <button class="tab-button" data-content="2">Personajes</button>
+                    <button class="tab-button" data-content="3">Batallas</button>
+                    <button class="tab-button" data-content="4">Tecnología</button>
+                    <button class="tab-button" data-content="5">Facciones</button>
+                </div>
+                
+                <!-- Text content for each tab -->
+                <div class="text-container">
+                    <div class="content active" id="content-1">
+                        <h3>Historia</h3>
+                        <p>Warhammer 40K es un universo de guerra sin fin...</p>
+                    </div>
+                    <div class="content" id="content-2">
+                        <h3>Personajes</h3>
+                        <p>The heroes and villains of this world...</p>
+                    </div>
+                    <div class="content" id="content-3">
+                        <h3>Batallas Épicas</h3>
+                        <p>The most legendary conflicts in history...</p>
+                    </div>
+                    <div class="content" id="content-4">
+                        <h3>Tecnología</h3>
+                        <p>The weapons and strategies used...</p>
+                    </div>
+                    <div class="content" id="content-5">
+                        <h3>Facciones</h3>
+                        <p>The races and groups fighting in the universe...</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Right side: Large images that switch with tabs -->
+            <div class="right-content">
+                <img class="main-image active" src="assets/historia.jpg" alt="Historia">
+                <img class="main-image" src="assets/personajes.jpg" alt="Personajes">
+                <img class="main-image" src="assets/batallas.jpg" alt="Batallas">
+                <img class="main-image" src="assets/tecnologia.jpg" alt="Tecnología">
+                <img class="main-image" src="assets/facciones.jpg" alt="Facciones">
+            </div>            
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="mejoras" class="page-section">
+        <h2 class="section-title">Key Features</h2>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section id="galeria" class="page-section galeria-section">
+        <h2 class="section-title">Warhammer 40K Gallery</h2>
+        <div class="galeria-flex">
+            <img src="assets/image1.jpg">
+            <img src="assets/image2.jpg">
+            <img src="assets/image3.jpg">
+            <img src="assets/image4.jpg">
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="descargar" class="page-section">
+        <div class="download-wrapper">
+            <h2 class="section-title">Get the App</h2>
+            <button class="download-button">Download Now</button>
+        </div>
+    </section>
+
+    <!-- JavaScript file for interaction functionality -->
+    <script src="js/main.js"></script>
+</body>
+</html>
