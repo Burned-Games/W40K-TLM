@@ -96,6 +96,11 @@ local particle_previewG_exterior_transform = nil
 
 local pauseMenu = nil
 
+
+local vibrationNormalSettings = Vector3.new(1, 1, 140)
+local vibrationGranadeExplosionSettings = Vector3.new(1, 1, 500)
+
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -321,6 +326,7 @@ function shoot(dt)
         bullet.rigidBody:set_velocity(velocity)
     end
     shotgunShotSFX:play()
+    Input.send_rumble(vibrationNormalSettings.x, vibrationNormalSettings.y, vibrationNormalSettings.z)
 end
 
 function handle_bullet_collision(entityA, entityB)
@@ -619,6 +625,7 @@ function explodeGranade()
         --granadeParticlesExplosion:emit(10)
         throwingGranade = false
         cameraScript.startShake(0.2,5)
+        Input.send_rumble(vibrationGranadeExplosionSettings.x, vibrationGranadeExplosionSettings.y, vibrationGranadeExplosionSettings.z)
     end
 end
 
