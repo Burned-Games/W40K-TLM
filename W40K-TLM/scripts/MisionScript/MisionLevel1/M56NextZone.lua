@@ -15,8 +15,8 @@ function on_ready()
     if nameA == "Player" or nameB == "Player" then
         m4_Clear =true
 
-        mission_Component.m5_Upgrade = true
         mission_Component.m6_heal = true
+        mission_Component.m7_Defeate = true
         --print("player in zone")
     end
     end)

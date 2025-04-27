@@ -101,8 +101,7 @@ function advanceToNextWave()
         spawnLogic()
     end
     
-    if mission_Component.getCurrerTaskIndex(true) == 9 then
-        print("AREASADASADasdasdasdfasd")
+    if mission_Component.getCurrerTaskIndex(true) == 10 then
         mission_Component.m9_EnemyCount = mission_Component.m9_EnemyCount + 1
     end
 end

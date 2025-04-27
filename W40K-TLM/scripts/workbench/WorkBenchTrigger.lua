@@ -140,6 +140,9 @@ function workbenchFall()
         workbenchRB.rb:set_freeze_y(false)
         workbenchRB.rb:set_velocity(Vector3.new(0, -20, 0))
     end
+    if mission_Component.getCurrerTaskIndex(false) == 1 and mission_Component.getCurrerLevel() == 1 then
+        mission_Component.mr1_supply = true
+    end
 end
 
 function workbenchRise()
@@ -154,7 +157,11 @@ function workbenchRise()
         mission_Component.m5_Upgrade = true
     end
 
-    if mission_Component.getCurrerTaskIndex(true) == 7 and mission_Component.getCurrerLevel() == 1 then
+    if mission_Component.getCurrerTaskIndex(true) == 8 and mission_Component.getCurrerLevel() == 1 then
+        mission_Component.m7_Upgrade = true
+    end
+
+    if mission_Component.getCurrerTaskIndex(true) == 11 and mission_Component.getCurrerLevel() == 1 then
         mission_Component.m7_Upgrade = true
     end
 

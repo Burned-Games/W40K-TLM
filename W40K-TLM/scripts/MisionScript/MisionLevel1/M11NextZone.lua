@@ -13,7 +13,6 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag   
     if nameA == "Player" or nameB == "Player" then
-        m4_Clear =true
 
         mission_Component.m11_NewZone = true
         --print("player in zone")

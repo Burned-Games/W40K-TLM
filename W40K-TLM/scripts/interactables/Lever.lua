@@ -51,7 +51,7 @@ function on_update(dt)
             mission_Component.m4_lever = true
         end
 
-        if mission_Component.getCurrerTaskIndex(true) == 8 and mission_Component.getCurrerLevel() == 1 then
+        if mission_Component.getCurrerTaskIndex(true) == 9 and mission_Component.getCurrerLevel() == 1 then
             mission_Component.m8_lever = mission_Component.m8_lever + 1
         end
 

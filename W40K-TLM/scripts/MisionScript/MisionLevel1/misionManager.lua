@@ -5,12 +5,13 @@ local blueTasks = {
     {id = 3, description = "Defeat both Orkz (x/2)"},
     {id = 4, description = "Finish the Orkz and pull the lever up"},
     {id = 5, description = "Upgrade your equipment with the drop pod supply"},
-    {id = 6, description = "Find and get the (name) to heal yourself"},
-    {id = 7, description = "Upgrade your equipment for the big fight"},
-    {id = 8, description = "Pull both levers to get to the Orkz base (x/2)"},
-    {id = 9, description = "Be the last standing on the Orkz Colliseum (x/3)"},
-    {id = 10, description = "Upgrade your equipment before leaving the Orkz base"},
-    {id = 11, description = "Find a way to get to the Hive City"}
+    {id = 6, description = "Find and get the Bio-Recovery Shot to heal yourself"},
+    {id = 7, description = "Continue going East while defeating enemy orkz"},
+    {id = 8, description = "Upgrade your equipment for the big fight"},
+    {id = 9, description = "Pull both levers to get to the Orkz base (x/2)"},
+    {id = 10, description = "Be the last standing on the Orkz Colliseum (x/3)"},
+    {id = 11, description = "Upgrade your equipment before leaving the Orkz base"},
+    {id = 12, description = "Find a way to get to the Hive City"}
 }
 
 
@@ -82,6 +83,10 @@ m4_EnemyCount = 0
 m5_Upgrade = false
 --M6
 m6_heal  = false
+
+--M7Espercial
+m7_Defeate = false
+
 --M7
 m7_Upgrade = false
 --m8
@@ -165,11 +170,11 @@ function getCurrentTask(tasks, index)
         description = description:gsub("x", tostring(m3_EnemyCount))
     end
 
-    if blueTaskIndex == 8 then
+    if blueTaskIndex == 9 then
         description = description:gsub("x", tostring(m8_lever))
     end
 
-    if blueTaskIndex == 9 then
+    if blueTaskIndex == 10 then
         description = description:gsub("x", tostring(m9_EnemyCount))
     end
 
@@ -190,15 +195,17 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 6 and m6_heal then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 7 and m7_Upgrade then
+    elseif blueTaskIndex == 7 and m7_Defeate then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 8 and m8_lever == 2 then
+    elseif blueTaskIndex == 8 and m7_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 9 and m9_EnemyCount == 3 then
+    elseif blueTaskIndex == 9 and m8_lever == 2 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 10 and m10_Upgrade then
+    elseif blueTaskIndex == 10 and m9_EnemyCount == 3 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 11 and m11_NewZone then
+    elseif blueTaskIndex == 11 and m10_Upgrade then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 12 and m11_NewZone then
         startAnimation(blueAnimation)
     end
 end

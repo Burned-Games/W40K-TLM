@@ -15,7 +15,7 @@ function on_ready()
     if nameA == "Player" or nameB == "Player" then
 
         if mission_Component.getCurrerTaskIndex(false) == 1 then
-            mission_Component.mr1_supply = true
+            --mission_Component.mr1_supply = true
         end
 
     end
