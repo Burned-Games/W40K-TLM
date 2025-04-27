@@ -14,7 +14,7 @@ local shieldTimer = 0.0
 local shieldCooldown = 15.0
 
 local attackTimer = 0.0
-local attackCooldown = 10.0
+local attackCooldown = 0.5
 
 local meleeAttackTimer = 0.0
 local meleeAttackDuration = 2.0
@@ -442,11 +442,12 @@ function main_boss:attack_state()
 
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
     local attackChance = math.random()
-    if attackChance < 0.3 then
+
+    if ultiTimer >= ultiCooldown then
+        ultimate_attack()
+    elseif attackChance < 0.3 then
         lightning_attack()
         fists_attack()
-    elseif ultiTimer >= ultiCooldown then
-        ultimate_attack()
     else
         if distance <= main_boss.meleeAttackRange then
             lightning_attack()
@@ -474,6 +475,8 @@ end
 
 function lightning_attack()
 
+    if main_boss.lightningThrown then return end
+
     log("Lightning Attack")
     main_boss.lightningRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -497,6 +500,8 @@ function lightning_attack()
 end
 
 function fists_attack()
+
+    if main_boss.fistsThrown then return end
 
     log("Fists Attack")
     local playerPos = main_boss.playerTransf.position
