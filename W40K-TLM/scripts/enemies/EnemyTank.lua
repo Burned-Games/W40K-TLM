@@ -72,7 +72,7 @@ function on_ready()
     tank.level2 = false -- Toggle levels for testing
     tank.isBerserkaActive = false 
 
-    tank.state.Tackle = 5
+    tank.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Tackle = 5}
 
     tank.key = 0
 

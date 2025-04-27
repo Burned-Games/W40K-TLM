@@ -121,9 +121,7 @@ function on_ready()
     range.rangeAttackAnim = 1
     range.dieAnim = 2
 
-    range.state.Shoot = 5
-    range.state.Chase = 6
-    range.state.Stab = 7
+    range.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Chase = 6, Stab = 7}
 
     range.isShootingBurst = false
     range.isChasing = false

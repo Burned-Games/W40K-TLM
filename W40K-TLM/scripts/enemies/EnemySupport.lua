@@ -85,8 +85,7 @@ function on_ready()
     support.dieAnim = 2
     support.key = 0
 
-    support.state.Flee = 5
-    support.state.Shield = 6
+    support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Flee = 5, Shield = 6}
 
     support.currentWaypoint = 1
 
