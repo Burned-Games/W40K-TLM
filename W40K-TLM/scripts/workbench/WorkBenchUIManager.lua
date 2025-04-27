@@ -86,20 +86,24 @@ function on_ready()
     -- Initialize HUD
     hud = current_scene:get_entity_by_name("HUD")
 
-    local children = hud:get_children()
-    for _, child in ipairs(children) do
-        if child:get_component("TagComponent").tag == "MisionManager" then
-            missionManager = child
-            -- print("Found MissionManager")
-        elseif child:get_component("TagComponent").tag == "DialogManager" then
-            dialogManager = child
-            -- print("Found DialogManager")
-        elseif child:get_component("TagComponent").tag == "PopUpManager" then
-            popUpManager = child
-            -- print("Found PopUpManager")
-        end
-    end
+    -- local children = hud:get_children()
+    -- for _, child in ipairs(children) do
+    --     if child:get_component("TagComponent").tag == "MisionManager" then
+    --         missionManager = child
+    --         -- print("Found MissionManager")
+    --     elseif child:get_component("TagComponent").tag == "DialogManager" then
+    --         dialogManager = child
+    --         -- print("Found DialogManager")
+    --     elseif child:get_component("TagComponent").tag == "PopUpManager" then
+    --         popUpManager = child
+    --         -- print("Found PopUpManager")
+    --     end
+    -- end
     
+    missionManager = current_scene:get_entity_by_name("MisionManager")
+    dialogManager = current_scene:get_entity_by_name("DialogManager")
+    popUpManager = current_scene:get_entity_by_name("PopUpManager")
+
     -- Initialize pause menu
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
@@ -539,7 +543,16 @@ function show_ui()
     isWorkBenchOpen = true
     openCooldownTimer = 0
 
-    -- hud:set_active(false)
+    hud:set_active(false)
+    if missionManager then
+        missionManager:set_active(false)
+    end
+    if dialogManager then
+        dialogManager:set_active(false)
+    end
+    if popUpManager then
+        popUpManager:set_active(false)
+    end
 
 end
 
@@ -586,16 +599,16 @@ function hide_ui()
     hide_character_ui(true)
     isWorkBenchOpen = false
 
-    -- hud:set_active(true)
-    -- if missionManager then
-    --     missionManager:set_active(false)
-    -- end
-    -- if dialogManager then
-    --     dialogManager:set_active(false)
-    -- end
-    -- if popUpManager then
-    --     popUpManager:set_active(false)
-    -- end
+    hud:set_active(true)
+    if missionManager then
+        missionManager:set_active(true)
+    end
+    if dialogManager then
+        dialogManager:set_active(true)
+    end
+    if popUpManager then
+        popUpManager:set_active(true)
+    end
 end
 
 function hide_gun_ui(hideShared)
