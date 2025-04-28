@@ -112,7 +112,6 @@ function on_ready()
     range.priority = stats.priority
     range.level2 = false
     range.level3 = false
-    range.enemyInDanger = false
     range.key = 0
 
     range.idleAnim = 3
@@ -287,10 +286,12 @@ function change_state()
         if range.playerDistance <= range.meleeAttackRange then
             if range.currentState ~= range.state.Stab then
                 range.currentState = range.state.Stab
+                log("Stab state")
             end
                 
         elseif range.playerDistance > range.meleeAttackRange and range.currentState == range.state.Stab then
             range.currentState = range.state.Chase
+            log("Chase state")
         end
                 
         return
@@ -301,22 +302,26 @@ function change_state()
         if range.currentState ~= range.state.Stab then
             range.currentState = range.state.Stab
             range.isChasing = true
+            log("Stab state")
         end
                 
     elseif range.playerDistance <= range.chaseRange then
         if range.currentState ~= range.state.Chase then
             range.currentState = range.state.Chase
             range.isChasing = true
+            log("Chase state")
         end
                 
-    elseif range.playerDetected and range.playerDistance <= range.rangeAttackRange and not range.enemyInDanger then
+    elseif range.playerDetected and range.playerDistance <= range.rangeAttackRange then
         if range.currentState ~= range.state.Shoot then
             range.currentState = range.state.Shoot
+            log("Shoot state")
         end
                 
     elseif range.playerDetected and range.playerDistance > range.rangeAttackRange then
         if range.currentState ~= range.state.Move then
             range.currentState = range.state.Move
+            log("Move state")
         end
     end
 

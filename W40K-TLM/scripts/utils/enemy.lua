@@ -430,7 +430,7 @@ end
 function enemy:check_initial_distance()
 
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
-    if distance > 40 then
+    if distance > 30 then
         self.playerDetected = false
         self.currentState = self.state.Move
         self.isReturning = true

@@ -4,7 +4,7 @@ local stats_data = require("scripts/utils/enemy_stats")
 kamikaze = enemy:new()
 
 local pathUpdateTimer = 0.0
-local pathUpdateInterval = 0.5
+local pathUpdateInterval = 0.1
 local attackTimer = 0.0
 local attackDelay = 0.75
 
