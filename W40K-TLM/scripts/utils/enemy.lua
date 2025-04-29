@@ -36,6 +36,7 @@ function enemy:new(obj)
     obj.zone1Rb = nil
     obj.zone2Rb = nil
     obj.zone3Rb = nil
+    obj.playerObjectsTagList = {"Sphere1", "Sphere2", "Sphere3", "Sphere4", "Sphere5", "Sphere6", "Sphere7", "Sphere8", "DisruptorBullet", "Granade", "ChargeZone"} 
 
     -- Generic stats of the enemy
     obj.health = 95
@@ -269,6 +270,26 @@ function enemy:enemy_raycast()
         self.playerDetected = true
         self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
 
+    end
+
+    -- Raycast hitting the player objects
+    for i = 1, 11 do
+        if self:detect_by_tag(centerHit, self.playerObjectsTagList[i]) then
+
+            self.playerDetected = true
+            self.playerDistance = self:get_distance(origin, centerHit.hitPoint)
+    
+        elseif self:detect_by_tag(leftHit, self.playerObjectsTagList[i]) then
+    
+            self.playerDetected = true
+            self.playerDistance = self:get_distance(origin, leftHit.hitPoint)
+    
+        elseif self:detect_by_tag(rightHit, self.playerObjectsTagList[i]) then
+    
+            self.playerDetected = true
+            self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
+    
+        end
     end
 
     -- Raycast hitting the explosive
