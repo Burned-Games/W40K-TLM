@@ -72,8 +72,11 @@ function give_phisycs()
             local pivotObjectPosition = self:get_component("TransformComponent").position
             local pivotChildPosition = child:get_component("TransformComponent").position
 
-            local impulseForce = Vector3.new(pivotObjectPosition.x - pivotChildPosition.x, pivotObjectPosition.y - pivotChildPosition.y, pivotObjectPosition.z - pivotChildPosition.z )
-            impulseForce = Vector3.new(impulseForce.x + impulseStrength, impulseForce.y  + impulseStrength, impulseForce.z  + impulseStrength)
+            local pivotChildPositionOffset = Vector3.new(pivotObjectPosition.x + pivotChildPosition.x, pivotObjectPosition.y + pivotChildPosition.y, pivotObjectPosition.z + pivotChildPosition.z)
+
+            local impulseForce = Vector3.new(pivotObjectPosition.x - pivotChildPositionOffset.x, pivotObjectPosition.y - pivotChildPositionOffset.y, pivotObjectPosition.z - pivotChildPositionOffset.z )
+
+            impulseForce = Vector3.new((impulseForce.x + impulseStrength) * math.random(-1,1), (impulseForce.y  + 0) + math.random(-1,1), (impulseForce.z  + impulseStrength) * math.random(-1,1))
 
             rb:apply_impulse(impulseForce)
             rb:apply_torque_impulse(impulseForce)
