@@ -1,0 +1,1736 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "393239870",
+    "Type": "User",
+    "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
+    "Language": "SFX",
+    "Hash": "{2E8F3300-4BAC-08FA-8F96-479AA81D3D83}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
+    "ShortName": "SFX",
+    "Path": "SFX.bnk",
+    "Media": [
+     {
+      "Id": "908001",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_2.wav",
+      "CachePath": "AF/{AF01CF72-A051-7932-3285-5094B4E561E5}.wem"
+     },
+     {
+      "Id": "8851557",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_1.wav",
+      "CachePath": "33/{33451F25-4FC2-2410-4BD6-4D11C29427E4}.wem"
+     },
+     {
+      "Id": "30027997",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueDamage2.wav",
+      "CachePath": "D1/{D1AEFE8B-9EE1-AD13-6DB4-7663A2CCE8BF}.wem"
+     },
+     {
+      "Id": "32762271",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossDamage.wav",
+      "CachePath": "C8/{C88D453B-495C-B641-F38E-2C98B9FC6280}.wem"
+     },
+     {
+      "Id": "35598177",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_3.wav",
+      "CachePath": "B0/{B094FC28-F337-A6DD-89D5-C15204C66E4C}.wem"
+     },
+     {
+      "Id": "43542722",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "KamikazeDeath.wav",
+      "CachePath": "46/{463E68FE-5223-03A8-93E9-B144A80DD0B5}.wem"
+     },
+     {
+      "Id": "63830455",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "enemy_die.wav",
+      "CachePath": "E9/{E91D8E4D-1E8E-6538-C2F2-F86856D0A364}.wem"
+     },
+     {
+      "Id": "73308504",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EscudoBoss.wav",
+      "CachePath": "9B/{9B877574-9EF6-3502-AEAC-C2304A722E0D}.wem"
+     },
+     {
+      "Id": "74667837",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BolterHabilityCharge.wav",
+      "CachePath": "A1/{A1CAD19E-AB0B-19E1-7E30-F1138E0F6B4D}.wem"
+     },
+     {
+      "Id": "86108419",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueImpactoMetal.wav",
+      "CachePath": "24/{24D4E4E9-AB94-2AC8-FB56-6F1D0AFDF64D}.wem"
+     },
+     {
+      "Id": "99736871",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_damage_1.wav",
+      "CachePath": "A6/{A64613C2-450A-6D8E-EA8E-A2BAA7AF03B6}.wem"
+     },
+     {
+      "Id": "106007111",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_shot_1.wav",
+      "CachePath": "55/{55B72CDB-93CC-3DF4-C8E8-7BD1F74DF04C}.wem"
+     },
+     {
+      "Id": "109561412",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_damage_3.wav",
+      "CachePath": "E0/{E0ACC4D3-710F-1182-4F8D-44F7926AEFC3}.wem"
+     },
+     {
+      "Id": "114443847",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep3.wav",
+      "CachePath": "25/{25926324-0EA9-571B-15B2-13740BE12E53}.wem"
+     },
+     {
+      "Id": "125923430",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "KamikazeScream2.wav",
+      "CachePath": "79/{792EBB4A-0C35-521F-6EFD-D0E6B11B605B}.wem"
+     },
+     {
+      "Id": "144115171",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "smokeGrenade.wav",
+      "CachePath": "8C/{8CDCA6A5-C885-DABC-E1AA-E9AF0FA44152}.wem"
+     },
+     {
+      "Id": "164099644",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossDeath.wav",
+      "CachePath": "35/{352508DD-AA6D-70CA-55A3-DB91F6BAD18B}.wem"
+     },
+     {
+      "Id": "169224025",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalicDamage.wav",
+      "CachePath": "22/{2284F32B-88B2-A36A-CA2B-A3CCEF6379EA}.wem"
+     },
+     {
+      "Id": "175447611",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_2.wav",
+      "CachePath": "F7/{F77749BC-8E5D-B776-CBE7-C1F09FC819AF}.wem"
+     },
+     {
+      "Id": "192602485",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerDash.wav",
+      "CachePath": "38/{38310215-51F8-81EB-D0ED-1AF970C710BA}.wem"
+     },
+     {
+      "Id": "214263635",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_damage_2.wav",
+      "CachePath": "EA/{EAD3560F-AE51-EDAF-E4AB-14BEFDF4EC3B}.wem"
+     },
+     {
+      "Id": "234402737",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_attack_2.wav",
+      "CachePath": "2A/{2AA6A8FD-E989-605C-B071-5886DE3ED142}.wem"
+     },
+     {
+      "Id": "250587593",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalicDead.wav",
+      "CachePath": "78/{78E83917-7CD5-2607-69F2-883F50A97E13}.wem"
+     },
+     {
+      "Id": "262613032",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "burst_shot.wav",
+      "CachePath": "B2/{B2D82CA9-538A-EEBB-B5A3-DFB0773BBC7A}.wem"
+     },
+     {
+      "Id": "264018379",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RecogerEstandarte.wav",
+      "CachePath": "64/{64033A88-5002-F7AE-BBB3-1806BC4D2EA9}.wem"
+     },
+     {
+      "Id": "264762800",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_die_1.wav",
+      "CachePath": "6E/{6E574CF3-6906-4A18-CA7B-2E0ACE4D7D5C}.wem"
+     },
+     {
+      "Id": "325425347",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_attack_1.wav",
+      "CachePath": "D3/{D3CB9606-E2D5-3B1D-6AC5-47FE6A659977}.wem"
+     },
+     {
+      "Id": "326305142",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_attack_3.wav",
+      "CachePath": "CF/{CF8F3271-6764-495E-C673-583DDA1CCB4A}.wem"
+     },
+     {
+      "Id": "328169470",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_damage_1.wav",
+      "CachePath": "F6/{F6489AB2-723D-F4D1-1350-96A16F5027C5}.wem"
+     },
+     {
+      "Id": "341174396",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalicDamage2.wav",
+      "CachePath": "3F/{3FE6BD61-D69F-69C6-1D65-04968E738F0F}.wem"
+     },
+     {
+      "Id": "375156615",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep.wav",
+      "CachePath": "97/{97D9EA12-DFD4-BF2E-A46A-3A8B3F14D37D}.wem"
+     },
+     {
+      "Id": "384772397",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossBrokenShield.wav",
+      "CachePath": "30/{3037DCAD-07BC-4409-D5B4-AAC7C3BF02C6}.wem"
+     },
+     {
+      "Id": "392571893",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossThunder.wav",
+      "CachePath": "53/{53F70797-3AD9-F659-BA18-8717F1FDC5DC}.wem"
+     },
+     {
+      "Id": "415581673",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_reload.wav",
+      "CachePath": "1C/{1CAFA0C0-E25B-E284-3718-645B70D8A357}.wem"
+     },
+     {
+      "Id": "423447629",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "shotgun_reload.wav",
+      "CachePath": "94/{94B32A4F-DAB6-5B0D-0EB8-A96FD05819EB}.wem"
+     },
+     {
+      "Id": "457730650",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueDeath.wav",
+      "CachePath": "C8/{C8864AF9-1889-BBE2-7AA4-CF84C6FB070D}.wem"
+     },
+     {
+      "Id": "477122320",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_idle.wav",
+      "CachePath": "DD/{DD80291D-456E-D873-D952-DA0D516D933B}.wem"
+     },
+     {
+      "Id": "493812160",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossBrokenMask.wav",
+      "CachePath": "1E/{1EFD27D9-BD3A-BDA4-A524-643648603D62}.wem"
+     },
+     {
+      "Id": "502480266",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_attack_2.wav",
+      "CachePath": "41/{41BFAF43-2323-D46A-5E13-4F25C8FEB816}.wem"
+     },
+     {
+      "Id": "521620224",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalicDead2.wav",
+      "CachePath": "65/{655260EF-F46C-259B-7FCC-FCFADE89D5F4}.wem"
+     },
+     {
+      "Id": "534913639",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BolterHabilityElectric.wav",
+      "CachePath": "39/{398EA627-5F76-430B-E9EC-562E23427081}.wem"
+     },
+     {
+      "Id": "547456275",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "grenade_explosion.wav",
+      "CachePath": "E2/{E2DF08CB-1F6B-9C27-C37D-0887F7C34A0D}.wem"
+     },
+     {
+      "Id": "593561193",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerInyector.wav",
+      "CachePath": "58/{58183C13-BDFC-9DF1-7EE1-6F6D47C17B11}.wem"
+     },
+     {
+      "Id": "634227420",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "KamikazeScream.wav",
+      "CachePath": "F9/{F949A58F-D72E-7F9A-5847-992BC6E03684}.wem"
+     },
+     {
+      "Id": "645657738",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossLaser.wav",
+      "CachePath": "34/{34FF9A31-5EAE-E96E-3DCF-36ED73C9A50D}.wem"
+     },
+     {
+      "Id": "652609025",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "grenade_launch.wav",
+      "CachePath": "4C/{4CE80ECB-C88D-E2FF-83D3-C1DC975116A3}.wem"
+     },
+     {
+      "Id": "662366300",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_damage_3.wav",
+      "CachePath": "4D/{4D760DC4-A63D-C05C-349F-6BABD3B80E29}.wem"
+     },
+     {
+      "Id": "695036394",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueDamage.wav",
+      "CachePath": "CE/{CE56A8FA-C63E-0FCB-22B3-C6D5B59450BB}.wem"
+     },
+     {
+      "Id": "731088056",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_chainsaw_attack_3.wav",
+      "CachePath": "52/{52E65DE0-519D-77B2-7044-2C5E85084D4C}.wem"
+     },
+     {
+      "Id": "735085480",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_attack_2.wav",
+      "CachePath": "CB/{CB0982C1-24A9-343D-B28D-7E72E1FDBAA0}.wem"
+     },
+     {
+      "Id": "764159685",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BasicoImpactoMetal.wav",
+      "CachePath": "86/{86C49876-8223-D0E1-73B8-D89407A3B52D}.wem"
+     },
+     {
+      "Id": "768779297",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "player_die_2.wav",
+      "CachePath": "B8/{B8530FFC-A4D3-6470-8ED6-00ADA4B30605}.wem"
+     },
+     {
+      "Id": "792020146",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_attack_1.wav",
+      "CachePath": "CD/{CD64A128-A800-BFFD-70CD-D743FC8A1BD3}.wem"
+     },
+     {
+      "Id": "792750110",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_shot_2.wav",
+      "CachePath": "FE/{FEA2E505-9C81-BF1F-AB06-09E0AF2B492E}.wem"
+     },
+     {
+      "Id": "795771959",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_1.wav",
+      "CachePath": "70/{705F8C52-3DC6-7D61-0CD2-4DCBC48E4860}.wem"
+     },
+     {
+      "Id": "828697396",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueRoca.wav",
+      "CachePath": "A1/{A180E613-3DDD-07A1-6977-5682B266AC9C}.wem"
+     },
+     {
+      "Id": "834315411",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BolterHabilityShot.wav",
+      "CachePath": "CC/{CC0F7228-0AC2-8A9B-CC2F-42264E9A808A}.wem"
+     },
+     {
+      "Id": "835309600",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ar_shot_3.wav",
+      "CachePath": "8A/{8A0B1B71-A7F5-CF76-1793-F13FC43DCC88}.wem"
+     },
+     {
+      "Id": "848474775",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SupportShield.wav",
+      "CachePath": "04/{0433969C-3480-23AE-7EC6-0CAF12AE07DA}.wem"
+     },
+     {
+      "Id": "884633856",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueGrito.wav",
+      "CachePath": "8F/{8F1A4C38-F8C1-ED10-D278-FC6D424F2D21}.wem"
+     },
+     {
+      "Id": "905580413",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_4.wav",
+      "CachePath": "F1/{F140A2B0-81D4-EF1F-5506-29CFB6824B27}.wem"
+     },
+     {
+      "Id": "911923091",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossMissile.wav",
+      "CachePath": "8B/{8B48663F-AD54-5C13-40CA-2051F9DC3A1B}.wem"
+     },
+     {
+      "Id": "912672974",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "metal_step_4.wav",
+      "CachePath": "C0/{C02C1348-7E54-6737-43FF-0D944A8EBBC8}.wem"
+     },
+     {
+      "Id": "925735143",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BasicoShot.wav",
+      "CachePath": "ED/{EDF8DAB3-381A-0893-2CE1-522A6E48CF25}.wem"
+     },
+     {
+      "Id": "928549664",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_attack_3.wav",
+      "CachePath": "23/{2318BA40-AC7E-035C-87DE-9779C059F966}.wem"
+     },
+     {
+      "Id": "929908216",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "monster_damage_2.wav",
+      "CachePath": "6A/{6AC7B17E-2335-E08B-9564-298C820FB325}.wem"
+     },
+     {
+      "Id": "962002990",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "melee_attack_1.wav",
+      "CachePath": "47/{478B4FFA-091A-8F3B-E8CD-2344CB971878}.wem"
+     },
+     {
+      "Id": "965164765",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep4.wav",
+      "CachePath": "88/{88CEA6D9-132B-18FA-4271-7989EF3E3B72}.wem"
+     },
+     {
+      "Id": "969097679",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PonerEstandarte.wav",
+      "CachePath": "09/{09A1EB3F-D7F5-B093-0367-C04E218A6A5F}.wem"
+     },
+     {
+      "Id": "981630785",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossDamage2.wav",
+      "CachePath": "11/{1157787F-A097-B3EF-0607-E4DBAB69E180}.wem"
+     },
+     {
+      "Id": "993318002",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossExplosion.wav",
+      "CachePath": "D7/{D7ABB6E7-24B5-BB4E-31E0-8477A75F837A}.wem"
+     },
+     {
+      "Id": "1005007747",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalicDamage3.wav",
+      "CachePath": "1E/{1E46E3D9-8B21-D812-43F5-9F1135C93230}.wem"
+     },
+     {
+      "Id": "1020788773",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TanqueStep2.wav",
+      "CachePath": "8F/{8F5957E4-69A0-D5E2-8D23-89CA17AD62E3}.wem"
+     },
+     {
+      "Id": "1037416568",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sand_step_3.wav",
+      "CachePath": "FE/{FEF8B093-41FD-1D1C-5583-448840D39A2B}.wem"
+     },
+     {
+      "Id": "1054847420",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "shotgun_shot.wav",
+      "CachePath": "75/{75450B1F-616A-339F-CB5A-CF186C35AA51}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "1059792370",
+       "Name": "RoomVerb (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb\\[Effect Slot [0]: (RoomVerb)]\\RoomVerb (Custom)",
+       "GUID": "{3B71926A-77CD-4268-AB04-046D5691BAA6}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3661419601",
+      "Name": "Play_ar_reload",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_reload",
+      "GUID": "{1AF06793-257B-4039-BB79-9AD7E0CC7FA7}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.578957",
+      "DurationMax": "1.578957",
+      "MediaRefs": [
+       {
+        "Id": "415581673"
+       }
+      ]
+     },
+     {
+      "Id": "4126747402",
+      "Name": "Play_ar_shot_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_shot_1",
+      "GUID": "{F9FA25B9-94E6-4446-8846-83572F9D0E73}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6839375",
+      "DurationMax": "0.6839375",
+      "MediaRefs": [
+       {
+        "Id": "106007111"
+       }
+      ]
+     },
+     {
+      "Id": "4126747401",
+      "Name": "Play_ar_shot_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_shot_2",
+      "GUID": "{ECCF3DA6-EA74-46C8-8F88-4B76207EE149}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.34170833",
+      "DurationMax": "0.34170833",
+      "MediaRefs": [
+       {
+        "Id": "792750110"
+       }
+      ]
+     },
+     {
+      "Id": "4126747400",
+      "Name": "Play_ar_shot_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_ar_shot_3",
+      "GUID": "{95FFD487-9E76-430C-A0BC-B0AB9DFBF258}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.470125",
+      "DurationMax": "0.470125",
+      "MediaRefs": [
+       {
+        "Id": "835309600"
+       }
+      ]
+     },
+     {
+      "Id": "289316669",
+      "Name": "Play_BasicoImpactoMetal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BasicoImpactoMetal",
+      "GUID": "{1D272A98-194B-4FB2-AF96-1A9647813B5C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0931667",
+      "DurationMax": "1.0931667",
+      "MediaRefs": [
+       {
+        "Id": "764159685"
+       }
+      ]
+     },
+     {
+      "Id": "1921800587",
+      "Name": "Play_BasicoShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BasicoShot",
+      "GUID": "{B4CADE1D-D83F-48D9-981B-64738AFB3A02}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5776871",
+      "DurationMax": "0.5776871",
+      "MediaRefs": [
+       {
+        "Id": "925735143"
+       }
+      ]
+     },
+     {
+      "Id": "2099886864",
+      "Name": "Play_BolterHabilityCharge",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_BolterHabilityCharge",
+      "GUID": "{E03D3520-A007-4C79-95F6-5AB92E79C35B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.90129167",
+      "DurationMax": "0.90129167",
+      "MediaRefs": [
+       {
+        "Id": "74667837"
+       }
+      ]
+     },
+     {
+      "Id": "1801603881",
+      "Name": "Play_BolterHabilityElectric",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_BolterHabilityElectric",
+      "GUID": "{1F8CA803-FFAC-4BCB-9AB3-B60BF8090FBC}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.0500417",
+      "DurationMax": "4.0500417",
+      "MediaRefs": [
+       {
+        "Id": "534913639"
+       }
+      ]
+     },
+     {
+      "Id": "1337601612",
+      "Name": "Play_BolterHabilityShot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_BolterHabilityShot",
+      "GUID": "{2D48573B-6EAF-4806-B3B1-0043FCEE5A26}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.67364585",
+      "DurationMax": "0.67364585",
+      "MediaRefs": [
+       {
+        "Id": "834315411"
+       }
+      ]
+     },
+     {
+      "Id": "3622820970",
+      "Name": "Play_BossBrokenMask",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossBrokenMask",
+      "GUID": "{E15F0313-6F08-45C3-97B1-2A7B05FCD9BE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6782917",
+      "DurationMax": "0.6782917",
+      "MediaRefs": [
+       {
+        "Id": "493812160"
+       }
+      ]
+     },
+     {
+      "Id": "4180520881",
+      "Name": "Play_BossBrokenShield",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossBrokenShield",
+      "GUID": "{7041C376-76F3-4C6B-B314-216F874E99D4}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.7540208",
+      "DurationMax": "0.7540208",
+      "MediaRefs": [
+       {
+        "Id": "384772397"
+       }
+      ]
+     },
+     {
+      "Id": "4207882818",
+      "Name": "Play_BossDamage",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossDamage",
+      "GUID": "{D1DFBB48-6D74-474D-819E-0BF7D1E55BE6}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6592517",
+      "DurationMax": "0.6592517",
+      "MediaRefs": [
+       {
+        "Id": "32762271"
+       }
+      ]
+     },
+     {
+      "Id": "371989972",
+      "Name": "Play_BossDamage2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossDamage2",
+      "GUID": "{49266AB8-053A-4290-A392-9EBA804E8661}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6592517",
+      "DurationMax": "0.6592517",
+      "MediaRefs": [
+       {
+        "Id": "981630785"
+       }
+      ]
+     },
+     {
+      "Id": "694925737",
+      "Name": "Play_BossDeath",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossDeath",
+      "GUID": "{48A87C1B-D3E8-41D5-9543-324E11554C45}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0448072",
+      "DurationMax": "2.0448072",
+      "MediaRefs": [
+       {
+        "Id": "164099644"
+       }
+      ]
+     },
+     {
+      "Id": "511087946",
+      "Name": "Play_BossExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossExplosion",
+      "GUID": "{F9706C27-20EE-4514-97F4-579106503473}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3949791",
+      "DurationMax": "1.3949791",
+      "MediaRefs": [
+       {
+        "Id": "993318002"
+       }
+      ]
+     },
+     {
+      "Id": "4258909638",
+      "Name": "Play_BossLaser",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossLaser",
+      "GUID": "{F596B00C-DAB8-4D65-959D-0138154CC285}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0240817",
+      "DurationMax": "2.0240817",
+      "MediaRefs": [
+       {
+        "Id": "645657738"
+       }
+      ]
+     },
+     {
+      "Id": "2161370723",
+      "Name": "Play_BossMissile",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossMissile",
+      "GUID": "{7D1BBA67-99A4-4C18-9C6A-963A5089D32A}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.3808126",
+      "DurationMax": "4.3808126",
+      "MediaRefs": [
+       {
+        "Id": "911923091"
+       }
+      ]
+     },
+     {
+      "Id": "420325949",
+      "Name": "Play_BossThunder",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_BossThunder",
+      "GUID": "{5B8DE902-01FC-44A9-9FE9-9D5ED2A6CF0C}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.2372084",
+      "DurationMax": "3.2372084",
+      "MediaRefs": [
+       {
+        "Id": "392571893"
+       }
+      ]
+     },
+     {
+      "Id": "3166312347",
+      "Name": "Play_burst_shot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_burst_shot",
+      "GUID": "{7C56A148-726E-44C6-97FF-634290C2C8B0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.77141666",
+      "DurationMax": "0.77141666",
+      "MediaRefs": [
+       {
+        "Id": "262613032"
+       }
+      ]
+     },
+     {
+      "Id": "2448258477",
+      "Name": "Play_enemy_die",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_enemy_die",
+      "GUID": "{2AFF4A42-223F-4DE6-A635-DC89DE213A77}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.479161",
+      "DurationMax": "0.479161",
+      "MediaRefs": [
+       {
+        "Id": "63830455"
+       }
+      ]
+     },
+     {
+      "Id": "3477839710",
+      "Name": "Play_EscudoBoss",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_EscudoBoss",
+      "GUID": "{CB6EF97D-977C-4B8F-8430-8B06156480F9}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.090625",
+      "DurationMax": "1.090625",
+      "MediaRefs": [
+       {
+        "Id": "73308504"
+       }
+      ]
+     },
+     {
+      "Id": "3906147804",
+      "Name": "Play_grenade_explosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_grenade_explosion",
+      "GUID": "{CBD86858-31A3-4E34-B30B-F9A91F0E305B}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.7495832",
+      "DurationMax": "2.7495832",
+      "MediaRefs": [
+       {
+        "Id": "547456275"
+       }
+      ]
+     },
+     {
+      "Id": "3950543718",
+      "Name": "Play_grenade_launch",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_grenade_launch",
+      "GUID": "{CBA3C8DC-982A-4014-9992-DEB8003E97F1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.744",
+      "DurationMax": "0.744",
+      "MediaRefs": [
+       {
+        "Id": "652609025"
+       }
+      ]
+     },
+     {
+      "Id": "2723827487",
+      "Name": "Play_KamikazeDeath",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_KamikazeDeath",
+      "GUID": "{44742111-50F4-4A87-8211-C1CEC1E5326A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.73473924",
+      "DurationMax": "0.73473924",
+      "MediaRefs": [
+       {
+        "Id": "43542722"
+       }
+      ]
+     },
+     {
+      "Id": "671570996",
+      "Name": "Play_KamikazeScream",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_KamikazeScream",
+      "GUID": "{A5E27D89-980D-4E4E-BE6B-D29524F06854}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.8996458",
+      "DurationMax": "2.8996458",
+      "MediaRefs": [
+       {
+        "Id": "634227420"
+       }
+      ]
+     },
+     {
+      "Id": "932586990",
+      "Name": "Play_KamikazeScream2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_KamikazeScream2",
+      "GUID": "{9BC60790-4A25-433E-ACE7-C8E72E5BCC2B}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.511979",
+      "DurationMax": "4.511979",
+      "MediaRefs": [
+       {
+        "Id": "125923430"
+       }
+      ]
+     },
+     {
+      "Id": "2547373757",
+      "Name": "Play_melee_attack_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_attack_1",
+      "GUID": "{E31C7F90-E841-4307-AAAC-AA0FB1EA34F7}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.86675",
+      "DurationMax": "0.86675",
+      "MediaRefs": [
+       {
+        "Id": "962002990"
+       }
+      ]
+     },
+     {
+      "Id": "2547373758",
+      "Name": "Play_melee_attack_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_attack_2",
+      "GUID": "{438829CC-6D8B-4DDE-8F05-58A7E8934A61}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1643333",
+      "DurationMax": "1.1643333",
+      "MediaRefs": [
+       {
+        "Id": "735085480"
+       }
+      ]
+     },
+     {
+      "Id": "2547373759",
+      "Name": "Play_melee_attack_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_attack_3",
+      "GUID": "{AE078D85-4C88-4D59-9A93-7DB521665ADA}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0608333",
+      "DurationMax": "1.0608333",
+      "MediaRefs": [
+       {
+        "Id": "928549664"
+       }
+      ]
+     },
+     {
+      "Id": "3033670542",
+      "Name": "Play_melee_chainsaw_attack_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_attack_1",
+      "GUID": "{22135767-EB12-48F1-B515-443973586D6F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.86675",
+      "DurationMax": "0.86675",
+      "MediaRefs": [
+       {
+        "Id": "325425347"
+       }
+      ]
+     },
+     {
+      "Id": "3033670541",
+      "Name": "Play_melee_chainsaw_attack_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_attack_2",
+      "GUID": "{FFC08DFD-B229-4F14-A9F4-30C1AD3EF36B}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1643333",
+      "DurationMax": "1.1643333",
+      "MediaRefs": [
+       {
+        "Id": "234402737"
+       }
+      ]
+     },
+     {
+      "Id": "3033670540",
+      "Name": "Play_melee_chainsaw_attack_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_attack_3",
+      "GUID": "{4BF17D14-BA47-4D92-8197-980F6474C16E}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0608333",
+      "DurationMax": "1.0608333",
+      "MediaRefs": [
+       {
+        "Id": "731088056"
+       }
+      ]
+     },
+     {
+      "Id": "1009433944",
+      "Name": "Play_melee_chainsaw_idle",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_melee_chainsaw_idle",
+      "GUID": "{B373A757-25DD-41C9-9DA8-2042FE81F8F3}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.1500626",
+      "DurationMax": "5.1500626",
+      "MediaRefs": [
+       {
+        "Id": "477122320"
+       }
+      ]
+     },
+     {
+      "Id": "173797128",
+      "Name": "Play_metal_step_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_1",
+      "GUID": "{8934CF6B-DFD9-49FE-AC0B-696C7B5D4172}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2979375",
+      "DurationMax": "0.2979375",
+      "MediaRefs": [
+       {
+        "Id": "8851557"
+       }
+      ]
+     },
+     {
+      "Id": "173797131",
+      "Name": "Play_metal_step_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_2",
+      "GUID": "{709C4D34-05C1-4CFF-B488-6A0546164C82}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.34554166",
+      "DurationMax": "0.34554166",
+      "MediaRefs": [
+       {
+        "Id": "908001"
+       }
+      ]
+     },
+     {
+      "Id": "173797130",
+      "Name": "Play_metal_step_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_3",
+      "GUID": "{AD4DE67A-B158-4CD7-ABAF-0EE0969CC40A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.33466667",
+      "DurationMax": "0.33466667",
+      "MediaRefs": [
+       {
+        "Id": "35598177"
+       }
+      ]
+     },
+     {
+      "Id": "173797133",
+      "Name": "Play_metal_step_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_metal_step_4",
+      "GUID": "{8C80B2DB-E4EF-4B54-9BBA-70A5A1C7CA8A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.188",
+      "DurationMax": "0.188",
+      "MediaRefs": [
+       {
+        "Id": "912672974"
+       }
+      ]
+     },
+     {
+      "Id": "61546944",
+      "Name": "Play_MetalicDamage",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_MetalicDamage",
+      "GUID": "{E32A43FF-50E8-47C7-BAA8-4D414518A3BD}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.65741664",
+      "DurationMax": "0.65741664",
+      "MediaRefs": [
+       {
+        "Id": "169224025"
+       }
+      ]
+     },
+     {
+      "Id": "2254840178",
+      "Name": "Play_MetalicDamage2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_MetalicDamage2",
+      "GUID": "{A2855844-9E0A-4833-BC6E-AD2DA2511726}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.7459375",
+      "DurationMax": "0.7459375",
+      "MediaRefs": [
+       {
+        "Id": "341174396"
+       }
+      ]
+     },
+     {
+      "Id": "2254840179",
+      "Name": "Play_MetalicDamage3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_MetalicDamage3",
+      "GUID": "{03A110D2-4900-4A85-87EE-2B3CC92A1D81}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8780417",
+      "DurationMax": "0.8780417",
+      "MediaRefs": [
+       {
+        "Id": "1005007747"
+       }
+      ]
+     },
+     {
+      "Id": "2276842397",
+      "Name": "Play_MetalicDead",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_MetalicDead",
+      "GUID": "{840E3342-E379-4205-BBE9-500BC61EF717}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9120833",
+      "DurationMax": "0.9120833",
+      "MediaRefs": [
+       {
+        "Id": "250587593"
+       }
+      ]
+     },
+     {
+      "Id": "1078507541",
+      "Name": "Play_MetalicDead2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_MetalicDead2",
+      "GUID": "{6E1913E3-B2BB-419F-984E-73C0AF936AD2}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9549583",
+      "DurationMax": "0.9549583",
+      "MediaRefs": [
+       {
+        "Id": "521620224"
+       }
+      ]
+     },
+     {
+      "Id": "3216105751",
+      "Name": "Play_monster_attack_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_attack_1",
+      "GUID": "{518AF875-9ECC-4848-8958-E5284EB60D02}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.75",
+      "DurationMax": "0.75",
+      "MediaRefs": [
+       {
+        "Id": "792020146"
+       }
+      ]
+     },
+     {
+      "Id": "3216105748",
+      "Name": "Play_monster_attack_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_attack_2",
+      "GUID": "{EC5FA914-DF10-46E3-B403-86F513933A62}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.687483",
+      "DurationMax": "0.687483",
+      "MediaRefs": [
+       {
+        "Id": "502480266"
+       }
+      ]
+     },
+     {
+      "Id": "3216105749",
+      "Name": "Play_monster_attack_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_attack_3",
+      "GUID": "{236C7FB6-9011-4C31-914A-C692C1B7962D}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.479161",
+      "DurationMax": "0.479161",
+      "MediaRefs": [
+       {
+        "Id": "326305142"
+       }
+      ]
+     },
+     {
+      "Id": "2094551132",
+      "Name": "Play_monster_damage_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_damage_1",
+      "GUID": "{C8DF752C-0970-45B4-BF6F-9595C8D73318}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.31249434",
+      "DurationMax": "0.31249434",
+      "MediaRefs": [
+       {
+        "Id": "99736871"
+       }
+      ]
+     },
+     {
+      "Id": "2094551135",
+      "Name": "Play_monster_damage_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_damage_2",
+      "GUID": "{8EC81612-1EBC-4214-8AD3-7368CD607A70}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.56249434",
+      "DurationMax": "0.56249434",
+      "MediaRefs": [
+       {
+        "Id": "929908216"
+       }
+      ]
+     },
+     {
+      "Id": "2094551134",
+      "Name": "Play_monster_damage_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_monster_damage_3",
+      "GUID": "{E2B3CE7F-C988-4B27-B5DA-BF69C10CC32A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5",
+      "DurationMax": "0.5",
+      "MediaRefs": [
+       {
+        "Id": "109561412"
+       }
+      ]
+     },
+     {
+      "Id": "3980927387",
+      "Name": "Play_player_damage_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_damage_1",
+      "GUID": "{750DA5DE-927F-4A3F-836F-837A6DB0DFA2}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5422222",
+      "DurationMax": "0.5422222",
+      "MediaRefs": [
+       {
+        "Id": "328169470"
+       }
+      ]
+     },
+     {
+      "Id": "3980927384",
+      "Name": "Play_player_damage_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_damage_2",
+      "GUID": "{5AA45ED7-4F49-4F63-9452-65E4E3B0F3AD}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.48573697",
+      "DurationMax": "0.48573697",
+      "MediaRefs": [
+       {
+        "Id": "214263635"
+       }
+      ]
+     },
+     {
+      "Id": "3980927385",
+      "Name": "Play_player_damage_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_damage_3",
+      "GUID": "{0A77D023-A7DD-498A-A14B-00AE9033E109}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.47920635",
+      "DurationMax": "0.47920635",
+      "MediaRefs": [
+       {
+        "Id": "662366300"
+       }
+      ]
+     },
+     {
+      "Id": "2459475890",
+      "Name": "Play_player_die_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_die_1",
+      "GUID": "{6DE8AF9D-A8C7-444F-AFA0-13EA2BDDBB41}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.972517",
+      "DurationMax": "0.972517",
+      "MediaRefs": [
+       {
+        "Id": "264762800"
+       }
+      ]
+     },
+     {
+      "Id": "2459475889",
+      "Name": "Play_player_die_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_player_die_2",
+      "GUID": "{070EE147-0FA5-4EBF-86DE-77DB3F1E2087}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1378912",
+      "DurationMax": "1.1378912",
+      "MediaRefs": [
+       {
+        "Id": "768779297"
+       }
+      ]
+     },
+     {
+      "Id": "1927031969",
+      "Name": "Play_PlayerDash",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerDash",
+      "GUID": "{B85F94B2-F0B7-4525-B584-F1A0736E7B21}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9813333",
+      "DurationMax": "0.9813333",
+      "MediaRefs": [
+       {
+        "Id": "192602485"
+       }
+      ]
+     },
+     {
+      "Id": "1338027560",
+      "Name": "Play_PlayerInyector",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerInyector",
+      "GUID": "{E2721888-EACC-4784-9952-C530054948DC}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.6206459",
+      "DurationMax": "1.6206459",
+      "MediaRefs": [
+       {
+        "Id": "593561193"
+       }
+      ]
+     },
+     {
+      "Id": "3708622915",
+      "Name": "Play_PonerEstandarte",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PonerEstandarte",
+      "GUID": "{46D879B8-ED2D-4B31-B989-EEA3B548ACEE}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1504166",
+      "DurationMax": "1.1504166",
+      "MediaRefs": [
+       {
+        "Id": "969097679"
+       }
+      ]
+     },
+     {
+      "Id": "2700298292",
+      "Name": "Play_RecogerEstandarte",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_RecogerEstandarte",
+      "GUID": "{05D3D5E7-96EA-4B82-A840-642809A41512}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.3075964",
+      "DurationMax": "0.3075964",
+      "MediaRefs": [
+       {
+        "Id": "264018379"
+       }
+      ]
+     },
+     {
+      "Id": "2888830865",
+      "Name": "Play_sand_step_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_1",
+      "GUID": "{B2D8E91A-C77C-4645-8FCE-9D0FAEFD0F13}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.20752834",
+      "DurationMax": "0.20752834",
+      "MediaRefs": [
+       {
+        "Id": "795771959"
+       }
+      ]
+     },
+     {
+      "Id": "2888830866",
+      "Name": "Play_sand_step_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_2",
+      "GUID": "{0131B1B7-A5F1-4102-A1DF-788153F2FE59}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.11174603",
+      "DurationMax": "0.11174603",
+      "MediaRefs": [
+       {
+        "Id": "175447611"
+       }
+      ]
+     },
+     {
+      "Id": "2888830867",
+      "Name": "Play_sand_step_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_3",
+      "GUID": "{0A6B0EEB-AEAE-4855-8CA5-A080DB5FD43F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.15818594",
+      "DurationMax": "0.15818594",
+      "MediaRefs": [
+       {
+        "Id": "1037416568"
+       }
+      ]
+     },
+     {
+      "Id": "2888830868",
+      "Name": "Play_sand_step_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_sand_step_4",
+      "GUID": "{EDDD5787-5989-4E77-85F4-9247527EF6D2}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2307483",
+      "DurationMax": "0.2307483",
+      "MediaRefs": [
+       {
+        "Id": "905580413"
+       }
+      ]
+     },
+     {
+      "Id": "1248355840",
+      "Name": "Play_shotgun_reload",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_shotgun_reload",
+      "GUID": "{FD4D20E1-CC93-4AA8-8127-552DC8E0347C}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.99229",
+      "DurationMax": "4.99229",
+      "MediaRefs": [
+       {
+        "Id": "423447629"
+       }
+      ]
+     },
+     {
+      "Id": "2526929027",
+      "Name": "Play_shotgun_shot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_shotgun_shot",
+      "GUID": "{77E994EA-0DD8-48E5-9383-30EFED7E1C7C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.2791874",
+      "DurationMax": "1.2791874",
+      "MediaRefs": [
+       {
+        "Id": "1054847420"
+       }
+      ]
+     },
+     {
+      "Id": "3350351765",
+      "Name": "Play_smokeGrenade",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Play_smokeGrenade",
+      "GUID": "{C843193F-EB66-4662-93E8-1F894FF9921D}",
+      "DurationType": "OneShot",
+      "DurationMin": "15.40875",
+      "DurationMax": "15.40875",
+      "MediaRefs": [
+       {
+        "Id": "144115171"
+       }
+      ]
+     },
+     {
+      "Id": "2090162640",
+      "Name": "Play_SupportShield",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_SupportShield",
+      "GUID": "{66C8AAE2-EECF-4F95-8583-255EB28D8618}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.460839",
+      "DurationMax": "4.460839",
+      "MediaRefs": [
+       {
+        "Id": "848474775"
+       }
+      ]
+     },
+     {
+      "Id": "551224745",
+      "Name": "Play_TanqueDamage",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueDamage",
+      "GUID": "{6634FA43-FFF5-4431-9972-3795CF4A04A8}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.55201817",
+      "DurationMax": "0.55201817",
+      "MediaRefs": [
+       {
+        "Id": "695036394"
+       }
+      ]
+     },
+     {
+      "Id": "1640622393",
+      "Name": "Play_TanqueDamage2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueDamage2",
+      "GUID": "{0D8694B2-57C0-4AE6-96AE-CFC36AA917AC}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.79494333",
+      "DurationMax": "0.79494333",
+      "MediaRefs": [
+       {
+        "Id": "30027997"
+       }
+      ]
+     },
+     {
+      "Id": "389413188",
+      "Name": "Play_TanqueDeath",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueDeath",
+      "GUID": "{998EC812-3E67-44AE-8C9C-A60018EA45E6}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.2420862",
+      "DurationMax": "1.2420862",
+      "MediaRefs": [
+       {
+        "Id": "457730650"
+       }
+      ]
+     },
+     {
+      "Id": "937554585",
+      "Name": "Play_TanqueGrito",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueGrito",
+      "GUID": "{3123066B-1A06-4922-8F22-2E050885423A}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.3116875",
+      "DurationMax": "2.3116875",
+      "MediaRefs": [
+       {
+        "Id": "884633856"
+       }
+      ]
+     },
+     {
+      "Id": "2750399184",
+      "Name": "Play_TanqueImpactoMetal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueImpactoMetal",
+      "GUID": "{3C3E41AB-0606-406B-919B-587016A2FCEF}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.49335417",
+      "DurationMax": "0.49335417",
+      "MediaRefs": [
+       {
+        "Id": "86108419"
+       }
+      ]
+     },
+     {
+      "Id": "1680378519",
+      "Name": "Play_TanqueRoca",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueRoca",
+      "GUID": "{50A16BE8-79FF-4B95-9C6B-509655B262BE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6453958",
+      "DurationMax": "0.6453958",
+      "MediaRefs": [
+       {
+        "Id": "828697396"
+       }
+      ]
+     },
+     {
+      "Id": "3804965476",
+      "Name": "Play_TanqueStep",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep",
+      "GUID": "{C0496F85-3EA0-4DEF-BD83-B94A7CE9FF8F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1885625",
+      "DurationMax": "0.1885625",
+      "MediaRefs": [
+       {
+        "Id": "375156615"
+       }
+      ]
+     },
+     {
+      "Id": "1775483742",
+      "Name": "Play_TanqueStep2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep2",
+      "GUID": "{48E1E877-FB66-47B7-8F55-C14EE952306B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.34820834",
+      "DurationMax": "0.34820834",
+      "MediaRefs": [
+       {
+        "Id": "1020788773"
+       }
+      ]
+     },
+     {
+      "Id": "1775483743",
+      "Name": "Play_TanqueStep3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep3",
+      "GUID": "{D58A6C8D-D260-4F55-A398-BA8EAE20F705}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.32564583",
+      "DurationMax": "0.32564583",
+      "MediaRefs": [
+       {
+        "Id": "114443847"
+       }
+      ]
+     },
+     {
+      "Id": "1775483736",
+      "Name": "Play_TanqueStep4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Play_TanqueStep4",
+      "GUID": "{6550D9E1-C1F5-4C69-8CC4-31ACDCA4CC36}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.22939584",
+      "DurationMax": "0.22939584",
+      "MediaRefs": [
+       {
+        "Id": "965164765"
+       }
+      ]
+     }
+    ],
+    "Busses": [
+     {
+      "Id": "2886307548",
+      "Name": "MusicBus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MusicBus",
+      "GUID": "{4B8BF592-A668-49BA-AD98-9AB43626CBDC}"
+     },
+     {
+      "Id": "3803692087",
+      "Name": "Master Audio Bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "3803850708",
+      "Name": "SFXBus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFXBus",
+      "GUID": "{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}"
+     }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "4091100022",
+      "Name": "MediumRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb",
+      "GUID": "{E0A9728C-D1BE-436A-ABBB-E41C5B8C2647}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1059792370"
+        }
+       ]
+      }
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1675023289",
+      "Name": "MusicBus_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\MusicBus_Volume",
+      "GUID": "{4BD37A12-F1F9-48F4-B247-2BBCB5ADC3FB}"
+     },
+     {
+      "Id": "3405162881",
+      "Name": "SFXBus_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SFXBus_Volume",
+      "GUID": "{5F4F4D52-E91E-4B31-B512-F02B92DA0CFE}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{7E8B1F50-48B7-668D-8A5B-CD55039588AA}"
+ }
+}

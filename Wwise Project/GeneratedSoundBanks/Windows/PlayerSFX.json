@@ -1,0 +1,156 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "4283257371",
+    "Type": "User",
+    "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
+    "Language": "SFX",
+    "Hash": "{1AD51DF6-A306-467C-22DE-E41CB958BF7B}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
+    "ShortName": "PlayerSFX",
+    "Path": "PlayerSFX.bnk",
+    "Media": [
+     {
+      "Id": "136860020",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Overload2.wav",
+      "CachePath": "A6/{A60F3294-6C68-883E-7D8B-447D511A4D3D}.wem"
+     },
+     {
+      "Id": "174829407",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep.wav",
+      "CachePath": "D9/{D9DD909B-CE89-9E22-DD36-37384062A494}.wem"
+     },
+     {
+      "Id": "393389286",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerDeath.wav",
+      "CachePath": "DE/{DEB088A3-0310-3FE6-4576-E1FF4401EEE8}.wem"
+     },
+     {
+      "Id": "619122296",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Overload1.wav",
+      "CachePath": "72/{72F6092C-34EB-AC57-55A5-9D0181497173}.wem"
+     },
+     {
+      "Id": "669921209",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ZonaEstandarte.wav",
+      "CachePath": "43/{432E4785-EB57-26DE-96C6-DBDA02A5D2D5}.wem"
+     },
+     {
+      "Id": "784979147",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep3.wav",
+      "CachePath": "6D/{6DC6E29E-3FDC-5540-EE44-AA453B181A14}.wem"
+     },
+     {
+      "Id": "813472966",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep4.wav",
+      "CachePath": "8E/{8E925B89-F433-A173-CB2C-165B47EAB303}.wem"
+     },
+     {
+      "Id": "1047720961",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MetalSandStep2.wav",
+      "CachePath": "6C/{6C6CE1BC-A2F9-5C59-0F80-E4A74F30644D}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "910581297",
+      "Name": "Play_PlayerDeath",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\New\\Play_PlayerDeath",
+      "GUID": "{2874B037-12F0-4A50-A1AA-E2E2A998D15F}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.2414376",
+      "DurationMax": "1.2414376",
+      "MediaRefs": [
+       {
+        "Id": "393389286"
+       }
+      ]
+     },
+     {
+      "Id": "3652542138",
+      "Name": "Play_PlayerOverloads",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\New\\Play_PlayerOverloads",
+      "GUID": "{C45CCF1C-B193-4DA2-BD31-1BC5EDBD19CE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.7478333",
+      "DurationMax": "1.13425",
+      "MediaRefs": [
+       {
+        "Id": "136860020"
+       },
+       {
+        "Id": "619122296"
+       }
+      ]
+     },
+     {
+      "Id": "581613120",
+      "Name": "Play_StepTest",
+      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_StepTest",
+      "GUID": "{6636D3E5-D787-4382-944B-E88757E016CE}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1885625",
+      "DurationMax": "0.34820834",
+      "MediaRefs": [
+       {
+        "Id": "174829407"
+       },
+       {
+        "Id": "784979147"
+       },
+       {
+        "Id": "813472966"
+       },
+       {
+        "Id": "1047720961"
+       }
+      ]
+     },
+     {
+      "Id": "1361581271",
+      "Name": "Play_ZonaEstandarte",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_ZonaEstandarte",
+      "GUID": "{F80EB2F5-2F36-43A6-9319-389199207D7E}",
+      "MaxAttenuation": "100",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "669921209"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{614601C7-A5A7-5929-6166-FA87D0911DA5}"
+ }
+}

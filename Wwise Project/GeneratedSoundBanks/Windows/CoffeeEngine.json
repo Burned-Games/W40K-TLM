@@ -1,0 +1,102 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "7401711",
+    "Type": "User",
+    "GUID": "{6088230F-1954-4D42-9B00-889897951AA0}",
+    "Language": "SFX",
+    "Hash": "{580C3AAB-2663-A8E6-8203-A317F311A323}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\CoffeeEngine",
+    "ShortName": "CoffeeEngine",
+    "Path": "CoffeeEngine.bnk",
+    "Media": [
+     {
+      "Id": "626622315",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "music.wav",
+      "CachePath": "DC/{DC83115A-D3DE-AA92-A5D4-CAE31BDE13C9}.wem"
+     },
+     {
+      "Id": "773483819",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "shot.wav",
+      "CachePath": "34/{3469334C-AB6D-DC26-529A-55703BB4BFB8}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "1059792370",
+       "Name": "RoomVerb (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb\\[Effect Slot [0]: (RoomVerb)]\\RoomVerb (Custom)",
+       "GUID": "{3B71926A-77CD-4268-AB04-046D5691BAA6}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "137867063",
+      "Name": "Play_Music_Container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Music_Container",
+      "GUID": "{E516ACCB-9EC9-4E8C-BD30-BA0EA6F5698D}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "626622315"
+       }
+      ]
+     },
+     {
+      "Id": "268953978",
+      "Name": "Play_shot",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_shot",
+      "GUID": "{FCD00402-5714-4A2E-941E-F4905C076A31}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.18285714",
+      "DurationMax": "0.18285714",
+      "MediaRefs": [
+       {
+        "Id": "773483819"
+       }
+      ]
+     }
+    ],
+    "Busses": [
+     {
+      "Id": "3803692087",
+      "Name": "Master Audio Bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "4091100022",
+      "Name": "MediumRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb",
+      "GUID": "{E0A9728C-D1BE-436A-ABBB-E41C5B8C2647}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "1059792370"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{F92CC0A0-B2DC-9DD9-EE4A-7B31120D28E3}"
+ }
+}
