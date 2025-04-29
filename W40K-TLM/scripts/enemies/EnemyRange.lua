@@ -157,6 +157,8 @@ function on_update(dt)
     if range.isDead then return end
 
     if range.playingDieAnim then
+        range.enemyRb:set_trigger(true)
+        range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         range.dieTimer = range.dieTimer + dt
     end
 
@@ -182,7 +184,7 @@ function on_update(dt)
     range:check_effects(dt)
     range:check_pushed(dt)
 
-    if range.isPushed == true then return end
+    if range.isPushed then return end
         
     update_bullets(dt)
     change_state(dt)
