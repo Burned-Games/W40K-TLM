@@ -35,10 +35,10 @@ function on_ready()
     range.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Audio
-    range.rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
-    range.rangeHurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
-    range.rangeBulletImpactSFX = current_scene:get_entity_by_name("RangeBulletImpactSFX"):get_component("AudioSourceComponent")
-    range.rangeCaCImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
+    range.dyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
+    range.hurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
+    --range.bulletImpactSFX = current_scene:get_entity_by_name("RangeBulletImpactSFX"):get_component("AudioSourceComponent")
+    range.meleeImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
     range.rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
     
     -- Bullet pool
@@ -183,9 +183,7 @@ function on_update(dt)
         if range.key ~= 0 then
             range.playerScript.enemys_targeting = range.playerScript.enemys_targeting - 1
         end
-        range.rangeDyingSFX:play()
         range.currentState = range.state.Dead
-        
     end
 
     if range.haveShield and range.enemyShield <= 0 then
@@ -391,6 +389,7 @@ function range:stab_state(dt)
             range.particleSparkTransf.position = range.playerTransf.position
             range.particleSpark:emit(5)
 
+            range.meleeImpactSFX:play()
             range:make_damage(range.meleeDamage)
             if range.level > 1 then
                 effect:apply_bleed(range.playerScript)

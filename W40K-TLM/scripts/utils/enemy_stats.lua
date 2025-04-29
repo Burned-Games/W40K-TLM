@@ -134,28 +134,46 @@ local enemy_stats = {
 
     tank = {
 
+        -- Tank Level 1
         [1] = {
+            -- Stats
             health = 250,
+
             speed = 2,
             tackleSpeed = 13,
+
             meleeDamage = 40,
             tackleDamage = 80,
+
             detectionRange = 20,
             meleeAttackRange = 3,
+
             priority = 2
+
+
+
+            -- **Timers**
         },
 
+
+        -- Tank Level 2
         [2] = {
+            -- Stats
             health = 300,
+
             speed = 2,
             tackleSpeed = 13,
+
             meleeDamage = 60,
             tackleDamage = 180,
+
             detectionRange = 20,
             meleeAttackRange = 3,
-            priority = 2, 
+
             statsIncrement = 1.5,
-            statsDecrement = 0.33
+            statsDecrement = 0.33,
+
+            priority = 2,
         }
 
     },
@@ -193,7 +211,7 @@ local enemy_stats = {
             detectionRange = 20,
             attackRange = 1,
             explosionRange = 7,
-            
+
             priority = 3
         }
 

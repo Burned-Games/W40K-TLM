@@ -108,6 +108,9 @@ function enemy:new(obj)
     obj.dieTimer = 0.0
     obj.dieAnimDuration = 0.0
 
+    -- Audios
+    obj.hurtSFX = nil
+    obj.dyingSFX = nil
 
     -- Effects
     obj.isNeuralInhibitioning = false
@@ -201,6 +204,10 @@ function enemy:die_state(dt)
         end
         self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         self.currentState = self.state.Dead
+
+        self.hurtSFX:stop()
+        self.dyingSFX:play()
+
         self.playingDieAnim = true
         self.dieTimer = 0
         return
@@ -522,9 +529,11 @@ function enemy:take_damage(damage, shieldMultiplier)
     end
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
+        --self.hurtSFX:play()
         print(self.shieldHealth)
     else
         self.health = self.health - damage
+        --self.hurtSFX:play()
         print(self.health)
     end
 
