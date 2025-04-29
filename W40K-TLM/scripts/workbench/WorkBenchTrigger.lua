@@ -146,7 +146,6 @@ function workbenchFall()
 end
 
 function workbenchRise()
-    print("cuurrrelevel")
     if workbenchRB then
         workbenchRB.rb:set_freeze_y(false)
         workbenchRB.rb:set_velocity(Vector3.new(0, 20, 0))

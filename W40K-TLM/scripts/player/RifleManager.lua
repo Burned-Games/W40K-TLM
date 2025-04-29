@@ -635,20 +635,14 @@ function makeDisruptorDamage(enemy)
     local enemyScript = nil
     local enemyInstance = nil
 
-    print("qqqqqqqqqqqqqqqqq")
     if enemy ~= nil then  
-        print("wwwwwwwwwwwwwwwwwwwwwwwwwwwww")
         enemyTag = enemy:get_component("TagComponent").tag   
         print(enemyTag)
         enemyScript = enemy:get_component("ScriptComponent")
-        print("iiiiiiiiiiiiiiii")
         
     end
-    print("UUUUUUUUUUUUU")
     if enemy ~= nil then
-        print("LLLLLLLLLLLLLL")
         if enemyScript ~= nil then
-            print("ZZZZZZZZZZZZZZZZ")
             if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                 enemyInstance = enemyScript.range
             elseif enemyTag == "EnemySupport" then
@@ -660,28 +654,13 @@ function makeDisruptorDamage(enemy)
             elseif enemyTag == "MainBoss" then
                 enemyInstance = enemyScript.main_boss
             end
-            print("PPPPPPPPPP")
             enemyInstance:take_damage(disruptorBulletDamage, shieldMultiplier)
             playerScript.makeDamage = true
             activateZone = true
-            print("tppppppppppp")
             chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
             disruptorBulletRb:set_position(Vector3.new(0,1500,0))
             disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
-                    
-            -- if enemyScript.shieldHealth > 0 then
-            --     -- bulletDamageParticleComponent:emit(20)
-            --     enemyScript.shieldHealth = enemyScript.shieldHealth - (disruptorBulletDamage + disruptorBulletDamage * shieldMultiplier)
-            --     playerScript.makeDamage = true
-            -- else
-            --     -- bulletDamageParticleComponent:emit(20)
-            --     enemyScript.enemyHealth = enemyScript.enemyHealth - disruptorBulletDamage
-            --     playerScript.makeDamage = true
-            --     activateZone = true
-            --     chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
-            --     disruptorBulletRb:set_position(Vector3.new(0,1000,0))
-            --     disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
-            -- end
+
         end
     end
 

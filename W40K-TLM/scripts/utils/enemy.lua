@@ -171,7 +171,6 @@ function enemy:die_state(dt)
         end
         self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         self.currentState = self.state.Dead
-        print("PLAYING DIE ANIMATION")
         self.playingDieAnim = true
         self.dieTimer = 0
         return

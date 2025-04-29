@@ -2,7 +2,8 @@ local effect = require("scripts/utils/status_effects")
 
 
 -- Player
-health = 100
+local maxHealth = 250
+health = maxHealth
 playerTransf = nil
 local playerRb = nil
 local lastValidRotation = 0
