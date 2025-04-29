@@ -242,6 +242,7 @@ function on_ready()
             if entityARB:get_is_trigger() == false then
                 -- print("collisionA")
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
+                disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
                 -- print(nameA)
             end 
         end
@@ -250,6 +251,7 @@ function on_ready()
             if entityBRB:get_is_trigger() == false then
                 -- print("collisionB")
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
+                disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
             end
         end
 

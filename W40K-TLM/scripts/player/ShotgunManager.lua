@@ -365,23 +365,31 @@ function handle_bullet_collision(entityA, entityB)
                 end
             end
 
+            --  knockback -> not working well :(
 
             local enemyPosition = enemyEntity:get_component("TransformComponent").position
             local bulletPosition = bulletTransform.position
-            local knockbackDirection = Vector3.normalize(Vector3.new(
+            
+            local knockbackDirection = Vector3.new(
                 enemyPosition.x - bulletPosition.x,
                 0,
                 enemyPosition.z - bulletPosition.z
-            ))
+            )
             
+            local magnitude = math.sqrt(knockbackDirection.x^2 + knockbackDirection.z^2)
+            if magnitude > 0 then
+                knockbackDirection.x = knockbackDirection.x / magnitude
+                knockbackDirection.z = knockbackDirection.z / magnitude
+            end
             
             local knockbackVelocity = Vector3.new(
                 knockbackDirection.x * knockbackForce,
                 0,
                 knockbackDirection.z * knockbackForce
             )
+            
+            --enemyRigidBody:apply_force(knockbackVelocity) [DESCOMENTAR PARA HACER KNOCKBACK, AHORA VA MAL]
 
-            enemyRigidBody:apply_force(knockbackVelocity)
         end
     end
     
@@ -416,6 +424,19 @@ function handle_bullet_collision(entityA, entityB)
         damage_enemy(enemy, bullet)
     end
     
+    local bulletEntity = nil
+    
+    for _, bullet in ipairs(bullets) do
+        if bullet.entity == entityA or bullet.entity == entityB then
+            bulletEntity = bullet
+            break
+        end
+    end
+    
+    if bulletEntity and nameA ~= "Player" and nameB ~= "Player" and nameA ~= "FloorCollider" and nameB ~= "FloorCollider" then
+        bulletEntity.rigidBody:set_position(Vector3.new(0, -250, 0))
+        bulletEntity.rigidBody:set_velocity(Vector3.new(0, 0, 0))
+    end
 end
 
 
