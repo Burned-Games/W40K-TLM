@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{20C8051C-201E-42DC-B18A-16159390D428}",
     "Language": "SFX",
-    "Hash": "{2E8F3300-4BAC-08FA-8F96-479AA81D3D83}",
+    "Hash": "{252F95D6-D89E-A602-3C79-CDCC66A11C4C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -350,14 +350,6 @@
       "Location": "Memory",
       "ShortName": "grenade_explosion.wav",
       "CachePath": "E2/{E2DF08CB-1F6B-9C27-C37D-0887F7C34A0D}.wem"
-     },
-     {
-      "Id": "593561193",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "PlayerInyector.wav",
-      "CachePath": "58/{58183C13-BDFC-9DF1-7EE1-6F6D47C17B11}.wem"
      },
      {
       "Id": "634227420",
@@ -1386,20 +1378,6 @@
       ]
      },
      {
-      "Id": "1338027560",
-      "Name": "Play_PlayerInyector",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerInyector",
-      "GUID": "{E2721888-EACC-4784-9952-C530054948DC}",
-      "DurationType": "OneShot",
-      "DurationMin": "1.6206459",
-      "DurationMax": "1.6206459",
-      "MediaRefs": [
-       {
-        "Id": "593561193"
-       }
-      ]
-     },
-     {
       "Id": "3708622915",
       "Name": "Play_PonerEstandarte",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PonerEstandarte",
@@ -1731,6 +1709,6 @@
     ]
    }
   ],
-  "FileHash": "{7E8B1F50-48B7-668D-8A5B-CD55039588AA}"
+  "FileHash": "{A550315F-0A1E-D15B-5480-6E26637B9408}"
  }
 }

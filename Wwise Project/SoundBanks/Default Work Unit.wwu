@@ -45,7 +45,6 @@
 						<ObjectRef Name="Play_ar_shot_2" ID="{ECCF3DA6-EA74-46C8-8F88-4B76207EE149}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_monster_attack_2" ID="{EC5FA914-DF10-46E3-B403-86F513933A62}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossDamage" ID="{D1DFBB48-6D74-474D-819E-0BF7D1E55BE6}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_PlayerInyector" ID="{E2721888-EACC-4784-9952-C530054948DC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_TanqueStep2" ID="{48E1E877-FB66-47B7-8F55-C14EE952306B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MetalicDamage" ID="{E32A43FF-50E8-47C7-BAA8-4D414518A3BD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BolterHabilityShot" ID="{2D48573B-6EAF-4806-B3B1-0043FCEE5A26}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -99,9 +98,11 @@
 				<SoundBank Name="PlayerSFX" ID="{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_StepTest" ID="{6636D3E5-D787-4382-944B-E88757E016CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ZonaEstandarte" ID="{F80EB2F5-2F36-43A6-9319-389199207D7E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PlayerInyector_01" ID="{269E66E7-E7D2-43E5-9BCB-57354B75BD27}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BannerZone" ID="{6A1A6AB0-C3F3-4907-AA3A-6C294C00B6C3}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerDeath" ID="{2874B037-12F0-4A50-A1AA-E2E2A998D15F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerOverloads" ID="{C45CCF1C-B193-4DA2-BD31-1BC5EDBD19CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BannerFall" ID="{6D0A0DCA-6673-4F72-991F-38B8B4F18042}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
@@ -109,6 +110,7 @@
 				<SoundBank Name="BolterSFX" ID="{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_BolterShot" ID="{511D3FFC-C4E8-49F4-92DB-FAD3398864DC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BolterRifleReload" ID="{F7DF2E34-BF0F-4B9D-A71D-FC6E17DF899F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BolterBulletImpacts" ID="{7B56CB6A-7B8D-4C60-8C63-B232FC377916}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
@@ -179,7 +181,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="EnvironmentSFX" ID="{590DE83F-02C9-4D44-A80C-89EB32CFFA44}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_fireburn" ID="{A89DE179-729A-421B-BD9B-CD336F69964E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_metaldoor" ID="{ED62D851-4499-4458-AB59-0AAF8975C447}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_firetorch" ID="{812307E1-0975-4903-A4F7-D8A139FF55AD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_howlingwind" ID="{17132D66-47FF-4BBB-B20D-D40AA8128F03}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_lever" ID="{2B52C1AF-181D-4ED1-A394-93635FBC08C4}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>

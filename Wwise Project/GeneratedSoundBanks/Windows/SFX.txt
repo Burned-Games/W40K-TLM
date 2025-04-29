@@ -18,7 +18,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	1078507541	Play_MetalicDead2			\Default Work Unit\Player\Play_MetalicDead2	
 	1248355840	Play_shotgun_reload			\Default Work Unit\Weapons\Play_shotgun_reload	
 	1337601612	Play_BolterHabilityShot			\Default Work Unit\Weapons\Play_BolterHabilityShot	
-	1338027560	Play_PlayerInyector			\Default Work Unit\Player\Play_PlayerInyector	
 	1640622393	Play_TanqueDamage2			\Default Work Unit\Enemies\Play_TanqueDamage2	
 	1680378519	Play_TanqueRoca			\Default Work Unit\Enemies\Play_TanqueRoca	
 	1775483736	Play_TanqueStep4			\Default Work Unit\Enemies\Play_TanqueStep4	
@@ -133,7 +132,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	521620224	MetalicDead2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\65\{655260EF-F46C-259B-7FCC-FCFADE89D5F4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\MetalicDead2		183448
 	534913639	BolterHabilityElectric	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\39\{398EA627-5F76-430B-E9EC-562E23427081}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\BolterHabilityElectric		777704
 	547456275	grenade_explosion	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\E2\{E2DF08CB-1F6B-9C27-C37D-0887F7C34A0D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\grenade_explosion		528016
-	593561193	PlayerInyector	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\58\{58183C13-BDFC-9DF1-7EE1-6F6D47C17B11}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\PlayerInyector		311260
 	634227420	KamikazeScream	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F9\{F949A58F-D72E-7F9A-5847-992BC6E03684}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\KamikazeScream		556828
 	645657738	BossLaser	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\34\{34FF9A31-5EAE-E96E-3DCF-36ED73C9A50D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\BossLaser		178620
 	652609025	grenade_launch	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\4C\{4CE80ECB-C88D-E2FF-83D3-C1DC975116A3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\grenade_launch		142944

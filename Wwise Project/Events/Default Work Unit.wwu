@@ -194,6 +194,39 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_BannerFall" ID="{6D0A0DCA-6673-4F72-991F-38B8B4F18042}">
+									<ChildrenList>
+										<Action Name="" ID="{978435B9-7538-473C-A39B-7484AD16A936}" ShortID="764130414">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BannerFall" ID="{69FCF016-7DF0-4500-96EC-731A28514DD5}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_BannerZone" ID="{6A1A6AB0-C3F3-4907-AA3A-6C294C00B6C3}">
+									<ChildrenList>
+										<Action Name="" ID="{BBA95A59-2E67-4F73-BB54-9A5330876EA3}" ShortID="501777428">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BannerZone" ID="{DC9EC547-FBF1-46C8-8CD4-4C9F288F95D3}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_PlayerInyector_01" ID="{269E66E7-E7D2-43E5-9BCB-57354B75BD27}">
+									<ChildrenList>
+										<Action Name="" ID="{458DEC26-0B29-4AEA-BE76-A662641FAC91}" ShortID="1043791962">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PlayerInyector" ID="{A9F3249B-00B5-4372-841E-DAEB8E02212C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -439,6 +472,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="BolterShot" ID="{701368FD-FD8D-406B-B3DA-90BF537179F1}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_BolterRifleReload" ID="{F7DF2E34-BF0F-4B9D-A71D-FC6E17DF899F}">
+									<ChildrenList>
+										<Action Name="" ID="{B3C4E1D7-5A35-4177-B454-0F070C351159}" ShortID="56143386">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BolterRifleReload" ID="{D3FA5924-DE1C-4807-BCAB-0AC9AADA0348}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -1276,6 +1320,120 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="fighting_music_container" ID="{7ABDAC97-C746-46C2-ABF6-1908886E73F8}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExploringColiseum" ID="{ABB2AFD8-4679-4A61-9D33-D25BAF3143EF}">
+							<ChildrenList>
+								<Action Name="" ID="{881FA862-56B1-4F18-8BD1-834BA30ADCB3}" ShortID="307775971">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploringColiseum" ID="{4C8ED40D-4EA8-454F-91D1-E295C1753056}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExploringLevel1Indoor" ID="{784E7D4D-7F8E-4A87-B75D-349F8790352A}">
+							<ChildrenList>
+								<Action Name="" ID="{19EDA180-3097-45C5-959A-FAA1749C374A}" ShortID="362082167">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploringLevel1Indoor" ID="{72C928DB-C5D3-47D8-999D-462F3A5708D8}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExploringLevel1Outside" ID="{D3D2A23C-8EC5-4E86-92C4-72D4B5A32FC7}">
+							<ChildrenList>
+								<Action Name="" ID="{7FC3F8DF-CDF0-4AB0-8F46-9A0F655B7CC1}" ShortID="676022969">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploringLevel1Outside" ID="{637B8063-490E-4603-A134-087003AEB07D}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExploringLevel2Final" ID="{7591DC39-FC6B-47A0-A99A-2DB75908E2C2}">
+							<ChildrenList>
+								<Action Name="" ID="{B5768394-AED3-42A8-9910-DD93C1BFC916}" ShortID="43494102">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploringLevel2Final" ID="{0E7BC84C-838A-4CD5-A3E1-C0BCF64F6821}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExploringLevel2Mid" ID="{4256EF60-8548-4A5D-815B-A9A72F52D06B}">
+							<ChildrenList>
+								<Action Name="" ID="{E7CC96DD-2CE0-42B8-BE4F-CB4CDBAD3197}" ShortID="553578478">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploringLevel2Mid" ID="{201097C9-77B9-4522-95BE-9B3759B13353}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment" ID="{AF3C98AC-A6E2-440A-BE4F-8443810E4890}" ShortID="183007794">
+					<ChildrenList>
+						<Event Name="Play_fireburn" ID="{A89DE179-729A-421B-BD9B-CD336F69964E}">
+							<ChildrenList>
+								<Action Name="" ID="{1AB8FA00-101C-451B-B520-A3ED887FE553}" ShortID="59242362">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="fireburn" ID="{2CD28626-8295-4BEC-B06B-53C34CBED4F6}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_lever" ID="{2B52C1AF-181D-4ED1-A394-93635FBC08C4}">
+							<ChildrenList>
+								<Action Name="" ID="{55D5049A-3C1E-49AC-817A-62379F7D03F1}" ShortID="260378660">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="lever" ID="{89D93889-B0D5-4128-8F96-3EE0365687BB}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_firetorch" ID="{812307E1-0975-4903-A4F7-D8A139FF55AD}">
+							<ChildrenList>
+								<Action Name="" ID="{A2CF6CF4-CE9C-4751-8C3A-B638040D257E}" ShortID="884002517">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="firetorch" ID="{3A60FE82-D333-4650-973F-EB287734A54D}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_howlingwind" ID="{17132D66-47FF-4BBB-B20D-D40AA8128F03}">
+							<ChildrenList>
+								<Action Name="" ID="{E8EA7E18-86D7-4583-B8F2-05C4AE3C85C4}" ShortID="592863477">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="howlingwind" ID="{FD97D318-A10D-4EA0-9838-BC2CA8B0A7CA}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_metaldoor" ID="{ED62D851-4499-4458-AB59-0AAF8975C447}">
+							<ChildrenList>
+								<Action Name="" ID="{BFDC3216-4ECD-4841-9EFB-09634C30043D}" ShortID="112719852">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="metaldoor" ID="{B8D1703E-5B8A-420A-8031-AF8E7E024064}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
