@@ -187,7 +187,6 @@ function spawnEnemies()
     
     for i, entity in ipairs(activeEnemies) do
         -- Set enemy to active and spawn at random position
-        entity:set_active(true)
         local scriptComponent = entity:get_component("ScriptComponent")
         local rigidbodyComponent = entity:get_component("RigidbodyComponent")
         local navComponent = entity:get_component("NavigationAgentComponent")
@@ -222,6 +221,8 @@ function spawnEnemies()
             
             -- Log the spawn for debugging
             log("Enemy " .. enemyType .. " spawned at position: " .. spawnPos.x .. ", " .. spawnPos.y .. ", " .. spawnPos.z)
+
+            entity:set_active(true)
 
             if navComponent then
                 log("Enemy path updated")

@@ -4,7 +4,7 @@ local enemy = {}
 enemy.state = { Dead = 1, Idle = 2, Move = 3, Attack = 4}
 enemy.godMode = true
 
-
+local prefabScrap= "prefabs/Misc/Scrap.prefab"
 
 function enemy:new(obj)
 
@@ -438,13 +438,13 @@ function enemy:check_spawn()
 
 end
 
-
-
-
-
 -- Functions to calculate things
 function enemy:generate_scrap()
+    self.scrap= instantiate_prefab(prefabScrap, self.enemyTransf.position)
+    self.scrapTransf = self.scrap:get_component("TransformComponent")
+
     self.scrapTransf.position = self.enemyTransf.position
+    log("Spawned prefab at position: " .. self.enemyTransf.position.x .. ", " .. self.enemyTransf.position.y .. ", " .. self.enemyTransf.position.z)
 end
 
 function enemy:check_initial_distance()
