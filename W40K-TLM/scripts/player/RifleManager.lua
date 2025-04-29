@@ -285,7 +285,7 @@ function on_update(dt)
             local rightTrigger = Input.get_button(Input.action.Shoot)
             local leftShoulder = Input.get_button(Input.action.Skill2)
 
-            if ammo >= maxAmmo then
+            if ammo >= maxAmmo or Input.is_button_pressed(Input.controllercode.West) then
                 playReload()
                 if playerScript.currentUpAnim ~= playerScript.reload_Bolter and reloadAnimation == false then
                     playerScript.currentUpAnim = playerScript.reload_Bolter
