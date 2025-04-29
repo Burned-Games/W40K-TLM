@@ -54,6 +54,7 @@ tookDamage = false
 makeDamage = false 
 
 
+combatTimer = 0
 
 enemys_targeting = 0
 
