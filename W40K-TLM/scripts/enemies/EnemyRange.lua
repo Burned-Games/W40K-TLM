@@ -25,6 +25,13 @@ function on_ready()
         range.playerObjects[i] = current_scene:get_entity_by_name(range.playerObjectsTagList[i]):get_component("TransformComponent")
     end
 
+    -- Alert
+    range.alertRadius = 10.0
+    range.isAlerted = false
+    range.findRangesTimer = 0.0
+    range.findRangesInterval = 1.5
+    range.nearbyRanges = {}
+
     -- Explosive
     range.explosive = current_scene:get_entity_by_name("Explosive")
     range.explosiveTransf = range.explosive:get_component("TransformComponent")
@@ -178,7 +185,7 @@ function on_update(dt)
     if range.isPushed == true then return end
         
     update_bullets(dt)
-    change_state()
+    change_state(dt)
 
     if range.currentState == range.state.Idle then return end
     
@@ -207,6 +214,13 @@ function on_update(dt)
         end
     end
 
+    if isAlerted then
+        range.alertTimer = range.alertTimer + dt
+        if range.alertTimer >= range.alertCooldown then
+            range.isAlerted = false
+            range.alertTimer = 0.0
+        end
+    end
     
     local currentTargetPos = range.playerTransf.position
     if range.pathUpdateTimer >= range.pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
@@ -255,10 +269,21 @@ function on_update(dt)
 
 end
 
-function change_state()
+function change_state(dt)
 
     range:enemy_raycast()
     range:check_player_distance()
+
+    range.findRangesTimer = range.findRangesTimer + dt
+
+    -- Check for nearby ranges periodically
+    if range.findRangesTimer >= range.findRangesInterval then
+        if range.playerDetected then
+            range:find_nearby_ranges()
+            range:alert_nearby_ranges(dt)
+        end
+        range.findRangesTimer = 0
+    end
 
     -- If is Chasing don't return to Shoot or Move
     if range.isChasing then
@@ -488,6 +513,57 @@ function shoot_projectile(targetExplosive)
         range.currentBulletIndex = 1
     end
 
+end
+function range:find_nearby_ranges()
+    range.nearbyRanges = {}
+    
+    local all_entities = current_scene:get_all_entities()    
+    
+    local count = 0
+    for _, entity in ipairs(all_entities) do
+        local tag = entity:get_component("TagComponent")
+        local name = entity:get_component("TagComponent").tag
+        
+        if name == "EnemyRange" and entity ~= self then
+            local script = entity:get_component("ScriptComponent")
+            local entityTransform = entity:get_component("TransformComponent")
+            
+            if entityTransform and script then
+                local distance = range:get_distance(range.enemyTransf.position, entityTransform.position)
+                
+                if distance <= range.alertRadius then
+                    count = count + 1
+                    local rangeData = {
+                        entity = entity,
+                        transform = entityTransform,
+                        script = script.range,
+                        distance = distance,
+                        alerted = false
+                    }
+                    table.insert(range.nearbyRanges, rangeData)
+                end
+            end
+        end
+    end
+end
+
+function range:alert_nearby_ranges(dt)  
+    if range.isAlerted then return end
+    
+    local alertedCount = 0
+    for _, rangeData in ipairs(range.nearbyRanges) do
+        if rangeData.script and not rangeData.alerted then
+            rangeData.script.playerDetected = true
+            rangeData.script.isAlerted = true
+            rangeData.script.alertTimer = 0.0
+            if range:get_distance(rangeData.transform.position, range.playerTransf.position) > range.rangeAttackRange then
+                rangeData.script.currentState = range.state.Move
+            end
+            rangeData.alerted = true
+            alertedCount = alertedCount + 1
+        end
+    end
+    range.isAlerted = true
 end
 
 function on_exit() end
