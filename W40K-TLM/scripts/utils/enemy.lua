@@ -48,7 +48,7 @@ function enemy:new(obj)
     -- Tags
     obj.enemyType = "Nil"
     obj.playerObjectsTagList = {"Sphere1", "Sphere2", "Sphere3", "Sphere4", "Sphere5", "Sphere6", "Sphere7", "Sphere8", "DisruptorBullet", "Granade", "ChargeZone"} 
-
+    obj.playerObjects = {}
 
     -- Generic stats of the enemy
     obj.health = 95
@@ -565,12 +565,18 @@ end
 function enemy:check_player_distance()
 
     local distance = self:get_distance(self.enemyTransf.position, self.playerTransf.position)
-
     if distance <= self.proximityDetectionRadius then
         self.playerDetected = true
         self.playerDistance = distance
     end
-
+    for i = 1, 11 do
+        if self.playerObjects[i] ~= nil then
+            local objectDistance = self:get_distance(self.enemyTransf.position, self.playerObjects[i].position)
+            if objectDistance <= self.proximityDetectionRadius then
+                self.playerDetected = true
+            end
+        end
+    end
 end
 
 function enemy:get_distance(pos1, pos2)

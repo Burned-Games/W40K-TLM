@@ -21,6 +21,9 @@ function on_ready()
     range.player = current_scene:get_entity_by_name("Player")
     range.playerTransf = range.player:get_component("TransformComponent")
     range.playerScript = range.player:get_component("ScriptComponent")
+    for i = 1, 11 do
+        range.playerObjects[i] = current_scene:get_entity_by_name(range.playerObjectsTagList[i]):get_component("TransformComponent")
+    end
 
     -- Explosive
     range.explosive = current_scene:get_entity_by_name("Explosive")

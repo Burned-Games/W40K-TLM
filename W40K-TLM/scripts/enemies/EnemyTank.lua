@@ -23,6 +23,9 @@ local particle_spark = nil
 local particle_spark_transform = nil
 
 function on_ready()
+    for i = 1, 11 do
+        tank.playerObjects[i] = current_scene:get_entity_by_name(tank.playerObjectsTagList[i]):get_component("TransformComponent")
+    end
 
     tank.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
 

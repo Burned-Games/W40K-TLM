@@ -24,6 +24,9 @@ local supportDeadSFX
 
 
 function on_ready() 
+    for i = 1, 11 do
+        support.playerObjects[i] = current_scene:get_entity_by_name(support.playerObjectsTagList[i]):get_component("TransformComponent")
+    end
 
     support.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
 

@@ -20,6 +20,9 @@ function on_ready()
     kamikaze.player = current_scene:get_entity_by_name("Player")
     kamikaze.playerTransf = kamikaze.player:get_component("TransformComponent")
     kamikaze.playerScript = kamikaze.player:get_component("ScriptComponent")
+    for i = 1, 11 do
+        kamikaze.playerObjects[i] = current_scene:get_entity_by_name(kamikaze.playerObjectsTagList[i]):get_component("TransformComponent")
+    end
 
     -- Explosive
     kamikaze.explosiveBarrelRb = current_scene:get_entity_by_name("Explosive"):get_component("RigidbodyComponent").rb
