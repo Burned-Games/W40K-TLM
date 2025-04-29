@@ -276,10 +276,12 @@ function on_update(dt)
                 granadasSpeed = false
             end
 
-            if timerGranade < granadeCooldown then
-                timerGranade = timerGranade + dt
-            end
             
+            
+        end
+
+        if timerGranade < granadeCooldown then
+            timerGranade = timerGranade + dt
         end
     end
 end

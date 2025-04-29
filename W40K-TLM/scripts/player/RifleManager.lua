@@ -371,11 +371,7 @@ function on_update(dt)
                 
             end
 
-            if disruptorShooted and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown then
-                cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTimeCounter + dt
-                
-
-            end
+            
 
             if disruptorShooted2 then
                 disruptiveCharge()
@@ -386,6 +382,12 @@ function on_update(dt)
             
         end
 
+        if disruptorShooted and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown then
+            cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTimeCounter + dt
+            
+
+        end
+        
         if activateZone == true then
             chargedZoneUpdate(dt)
         end
