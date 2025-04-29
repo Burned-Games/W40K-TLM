@@ -9,6 +9,8 @@ local cameraSpeed = 2
 --zoom
 local zoom = -1.5
 local baseZoom = -1.5
+local bossZoom = 5
+local coliseumZoom = 1.5
 local minZoom = -3.5
 local maxZoom = -1.5
 local zoomStep = 0.5
@@ -87,8 +89,10 @@ function on_update(dt)
         -- Add update code here
         local zoomOffSet = Vector3.new(baseOffset.x * (1 + zoom * 0.2), baseOffset.y * (1 + zoom * 0.2), baseOffset.z * (1 + zoom * 0.2))  
 
+        local forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
 
-        local targetPos = Vector3.new(playerPos.x + zoomOffSet.x + playerScript.moveDirection.x * offsetPlayer, playerPos.y + zoomOffSet.y + playerScript.moveDirection.y * offsetPlayer, playerPos.z + zoomOffSet.z + playerScript.moveDirection.z * offsetPlayer)
+
+        local targetPos = Vector3.new(playerPos.x + zoomOffSet.x + forwardVector.x * offsetPlayer, playerPos.y + zoomOffSet.y + forwardVector.y * offsetPlayer, playerPos.z + zoomOffSet.z + forwardVector.z * offsetPlayer)
     
         local currentPos = cameraTransform.position
 
@@ -191,19 +195,24 @@ function startShake(amount, duration)
     shakeDuration = duration
 end
 
-function cameraBoss(activate)
+function cameraBoss(self, bool)
 
-    if zoom == 5 then
-        zoom = baseZoom
+    if bool == true then
+        zoom = bossZoom
     else
-        zoom = 5
+        zoom = baseZoom
     end
-    -- if activate == true then
-    --     zoom = 5
 
-    -- else
-    --     zoom = baseZoom
-    -- end
+    cameraBossActivated = bool
+end
+
+function cameraColisseum(self, activate)
+
+    if activate == true then
+        zoom = coliseumZoom
+    else
+        zoom = baseZoom
+    end
 
     
     cameraBossActivated = activate

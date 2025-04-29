@@ -12,7 +12,8 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
         if nameA == "Player" or nameB == "Player" then
-            cameraScript:cameraBoss(False)
+            cameraScript:cameraColisseum(false)
+            --cameraScript:cameraBoss(False)
         end
     end)
     
