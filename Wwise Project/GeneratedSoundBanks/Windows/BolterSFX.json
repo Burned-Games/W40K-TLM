@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}",
     "Language": "SFX",
-    "Hash": "{AA08A0B5-D1DF-F9AA-571E-E20F85AEDB97}",
+    "Hash": "{E9162CA0-ED33-40FF-BD74-35F36FBE8A5E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BolterSFX",
     "ShortName": "BolterSFX",
     "Path": "BolterSFX.bnk",
@@ -22,6 +22,14 @@
       "Location": "Memory",
       "ShortName": "BolterRifleShot.wav",
       "CachePath": "7B/{7B24EAC0-ADF0-E889-3986-D89B6BE4727A}.wem"
+     },
+     {
+      "Id": "314510217",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BolterRifleReload.wav",
+      "CachePath": "E7/{E747CF29-69AA-3EA0-A196-57F203F2191F}.wem"
      },
      {
       "Id": "429273542",
@@ -59,6 +67,20 @@
       ]
      },
      {
+      "Id": "431605187",
+      "Name": "Play_BolterRifleReload",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Bolter\\Play_BolterRifleReload",
+      "GUID": "{F7DF2E34-BF0F-4B9D-A71D-FC6E17DF899F}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.6057084",
+      "DurationMax": "2.6057084",
+      "MediaRefs": [
+       {
+        "Id": "314510217"
+       }
+      ]
+     },
+     {
       "Id": "338097734",
       "Name": "Play_BolterShot",
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Bolter\\Play_BolterShot",
@@ -75,6 +97,6 @@
     ]
    }
   ],
-  "FileHash": "{77206002-4D0C-47F7-B8C5-7EE50B3105BE}"
+  "FileHash": "{B557CC52-4968-7A37-8E3F-9617F99BB9CA}"
  }
 }
