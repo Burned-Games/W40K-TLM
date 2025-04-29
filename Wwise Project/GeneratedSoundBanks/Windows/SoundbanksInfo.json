@@ -3107,7 +3107,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{9684A7D9-DAA7-BDDA-1382-D07D994E8553}",
+    "Hash": "{48EB0220-3D2C-D446-EF8D-F599028C6EDA}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -3159,7 +3159,7 @@
       "Name": "Play_fireburn",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_fireburn",
       "GUID": "{A89DE179-729A-421B-BD9B-CD336F69964E}",
-      "MaxAttenuation": "7",
+      "MaxAttenuation": "30",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -3550,6 +3550,6 @@
     ]
    }
   ],
-  "FileHash": "{088926CB-862E-D3EA-7ACC-A823C6006F42}"
+  "FileHash": "{9105927D-A9D7-37FC-A926-731F3BADEA83}"
  }
 }
