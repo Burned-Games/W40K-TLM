@@ -137,8 +137,8 @@ function on_ready()
     range.currentBulletIndex = 1
 
     -- Timers
-    range.dieTimer = 0.0
-    range.dieAnimDuration = 1.0
+    range.dieTimer = 0
+    range.dieAnimDuration = 61
 
     -- Positions
     range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
@@ -159,7 +159,7 @@ function on_update(dt)
     if range.playingDieAnim then
         range.enemyRb:set_trigger(true)
         range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        range.dieTimer = range.dieTimer + dt
+        range.dieTimer = range.dieTimer + 1
     end
 
 
