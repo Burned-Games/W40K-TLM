@@ -3,63 +3,51 @@ local stats_data = require("scripts/utils/enemy_stats")
 
 tank = enemy:new()
 
-local pathUpdateTimer = 0.0
-local pathUpdateInterval = 0.5
-local attackTimer = 0.0
-local attackCooldown = 3.0
-local tackleTimer = 0.0
-local tackleCooldown = 10.0
-local idleDuration = 1.0
-local idleTimer = 0.0
 
--- Audio
-local tankBerserkerSFX
-local tankDetectPlayerSFX
-local tankImpactPlayerSFX
-local tankStepsSFX
-
--- Particulas
-local particle_spark = nil
-local particle_spark_transform = nil
 
 function on_ready()
-    for i = 1, 11 do
-        tank.playerObjects[i] = current_scene:get_entity_by_name(tank.playerObjectsTagList[i]):get_component("TransformComponent")
-    end
 
     tank.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
 
-    tank.player = current_scene:get_entity_by_name("Player")
-    tank.playerTransf = tank.player:get_component("TransformComponent")
-    tank.playerScript = tank.player:get_component("ScriptComponent")
-
+    -- Enemy
     tank.enemyTransf = self:get_component("TransformComponent")
     tank.animator = self:get_component("AnimatorComponent")
     tank.enemyRbComponent = self:get_component("RigidbodyComponent")
     tank.enemyRb = tank.enemyRbComponent.rb
     tank.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-    -- Audio 
-    tankBerserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
-    tankDetectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
-    tankImpactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
-    tankStepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
-
-    --Particles
-    particle_spark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    particle_spark_transform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
-
-    local enemy_type = "tank"
-    tank:set_level()
-
-    local stats = stats_data[enemy_type] and stats_data[enemy_type][tank.level]
-    -- Debug in case is not working
-    if not stats then
-        log("No stats for type: " .. enemy_type .. " level: " .. tank.level)
-        return
+    -- Player
+    tank.player = current_scene:get_entity_by_name("Player")
+    tank.playerTransf = tank.player:get_component("TransformComponent")
+    tank.playerScript = tank.player:get_component("ScriptComponent")
+    for i = 1, 11 do
+        tank.playerObjects[i] = current_scene:get_entity_by_name(tank.playerObjectsTagList[i]):get_component("TransformComponent")
     end
 
+    -- Audio 
+    tank.berserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
+    tank.detectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
+    tank.impactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
+    tank.stepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
 
+    -- Particles
+    tank.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    tank.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+
+
+
+    -- Level
+    tank.enemy_type = "tank"
+    tank:set_level()
+
+    local stats = stats_data[tank.enemy_type] and stats_data[tank.enemy_type][tank.level]
+    -- Debug in case is not working
+    if not stats then log("No stats for type: " .. tank.enemy_type .. " level: " .. tank.level) return end
+
+
+
+    -- States
+    tank.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Tackle = 5}
 
     -- Stats of the Tank
     tank.health = stats.health
@@ -71,27 +59,40 @@ function on_ready()
     tank.meleeAttackRange = stats.meleeAttackRange
     tank.priority = stats.priority
 
+    -- External Timers
+    tank.attackCooldown = stats.attackCooldown
+    tank.tackleCooldown = stats.tackleCooldown
+    tank.idleDuration = stats.idleDuration
+    tank.berserkaDuration = stats.berserkaDuration
 
-    tank.level2 = false -- Toggle levels for testing
-    tank.isBerserkaActive = false 
+    -- Internal Timers
+    tank.pathUpdateTimer = 0.0
+    tank.pathUpdateInterval = 0.1
+    tank.attackTimer = 0.0
+    tank.tackleTimer = 0.0
+    tank.idleTimer = 0.0
+    tank.berserkaTimer = 0.0
 
-    tank.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Tackle = 5}
-
-    tank.key = 0
-
+    -- Animations
     tank.idleAnim = 3
     tank.moveAnim = 4
     tank.attackAnim = 0
     tank.tackleAnim = 1
     tank.dieAnim = 2
 
+    -- Bools
+    tank.isBerserkaActive = false 
     tank.collisionWithPlayer = false
     tank.isCharging = false
     tank.canTackle = false
 
-    tank.playerDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
+    -- Positions
     tank.targetDirection = Vector3.new(0, 0, 0)
+    tank.playerDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position) + 100
 
+
+
+    -- On Collision functions
     tank.enemyRbComponent:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
@@ -102,14 +103,14 @@ function on_ready()
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
                 tank.isCharging = false
                 tank.canTackle = false
-                tackleTimer = 0
+                tank.tackleTimer = 0.0
 
                 if tank.currentState == tank.state.Tackle then
-                    particle_spark_transform.position = tank.playerTransf.position
-                    particle_spark:emit(5)
+                    tank.particleSparkTransf.position = tank.playerTransf.position
+                    tank.particleSpark:emit(5)
                     tank:make_damage(tank.tackleDamage)
                     
-                    if tank.level2 and not tank.isBerserkaActive then
+                    if tank.level == 2 and not tank.isBerserkaActive then
                         tank:berserka_rage()
                     end
                 end
@@ -120,8 +121,8 @@ function on_ready()
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
                 tank.isCharging = false
                 tank.canTackle = false
-                tackleTimer = 0
-                if tank.level2 and not tank.isBerserkaActive then
+                tank.tackleTimer = 0.0
+                if tank.level == 2 and not tank.isBerserkaActive then
                     tank:berserka_rage()
                 end
                 tank.currentState = tank.state.Move
@@ -142,20 +143,21 @@ end
 
 function on_update(dt)
 
+    if tank.isDead then return end
+
     if Input.is_key_pressed(Input.keycode.L) then
-       tank.level2 = true
-       print("Nivel 2 activado")
+       tank.level = 1
+       print("Tank Level 1 active")
     elseif Input.is_key_pressed(Input.keycode.O) then
-       tank.level2 = false
-       print("Nivel 2 desactivado")
+       tank.level = 2
+       print("Tank Level 2 active")
     end
 
-    if tank.isDead then return end
     tank:check_effects(dt)
     tank:check_pushed(dt)
-    if tank.isPushed == true then
-        return
-    end
+
+    if tank.isPushed == true then return end
+
     change_state()
 
     if tank.health <= 0 then
@@ -170,21 +172,21 @@ function on_update(dt)
         tank.shield_destroyed = true
     end
 
-    pathUpdateTimer = pathUpdateTimer + dt
+    tank.pathUpdateTimer = tank.pathUpdateTimer + dt
 
     local currentTargetPos = tank.playerTransf.position
-    if pathUpdateTimer >= pathUpdateInterval or tank:get_distance(tank.lastTargetPos, currentTargetPos) > 1.0 then
+    if tank.pathUpdateTimer >= tank.pathUpdateInterval or tank:get_distance(tank.lastTargetPos, currentTargetPos) > 1.0 then
         tank.lastTargetPos = currentTargetPos
         tank:update_path(tank.playerTransf)
-        pathUpdateTimer = 0
+        tank.pathUpdateTimer = 0.0
     end
 
     -- Update tackle cooldown timer
     if not tank.canTackle then
-        tackleTimer = tackleTimer + dt
-        if tackleTimer >= tackleCooldown then
+        tank.tackleTimer = tank.tackleTimer + dt
+        if tank.tackleTimer >= tank.tackleCooldown then
             tank.canTackle = true
-            tackleTimer = 0
+            tank.tackleTimer = 0.0
         end
     end
 
@@ -218,9 +220,8 @@ function on_update(dt)
 end
 
 function tank:is_other_tank_in_tackle()
-    if not tank.level2 then
-        return false
-    end
+
+    if tank.level ~= 2 then return false end
 
     local entities = current_scene:get_all_entities()
     for _, entity in ipairs(entities) do
@@ -237,7 +238,9 @@ function tank:is_other_tank_in_tackle()
             end
         end
     end
-    return false    
+    
+    return false  
+
 end
 
 function change_state()
@@ -290,7 +293,7 @@ end
 
 function tank:idle_state(dt) 
 
-    idleTimer = idleTimer + dt
+    tank.idleTimer = tank.idleTimer + dt
 
     if tank.currentAnim ~= tank.idleAnim then
         tank.currentAnim = tank.idleAnim
@@ -300,8 +303,8 @@ function tank:idle_state(dt)
     tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
     -- Periodic scan for player
-    if idleTimer >= idleDuration then
-        idleTimer = 0
+    if tank.idleTimer >= tank.idleDuration then
+        tank.idleTimer = 0.0
 
         if tank.collisionWithPlayer then
             tank.currentState = tank.state.Attack
@@ -321,18 +324,18 @@ function tank:attack_state(dt)
 
     tank:rotate_enemy(tank.playerTransf.position)
     
-    attackTimer = attackTimer + dt
+    tank.attackTimer = tank.attackTimer + dt
 
-    if attackTimer >= attackCooldown then
+    if tank.attackTimer >= tank.attackCooldown then
 
         local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
         if attackDistance <= tank.meleeAttackRange then
-            particle_spark_transform.position = tank.playerTransf.position
-            particle_spark:emit(5)
+            tank.particleSparkTransf.position = tank.playerTransf.position
+            tank.particleSpark:emit(5)
             tank:make_damage(tank.meleeDamage)
         end
 
-        attackTimer = 0
+        tank.attackTimer = 0.0
 
         local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
         if tank.collisionWithPlayer then
@@ -384,9 +387,6 @@ function tank:berserka_rage()
     tank.tackleSpeed = tank.tackleSpeed * stats.statsIncrement
     tank.meleeDamage = tank.meleeDamage * stats.statsIncrement
     tank.tackleDamage = tank.tackleDamage * stats.statsIncrement
-
-    tank.berserkaTimer = 0
-    tank.berserkaDuration = 180 
 
     function tank:update_berserka(dt)
         self.berserkaTimer = self.berserkaTimer + dt

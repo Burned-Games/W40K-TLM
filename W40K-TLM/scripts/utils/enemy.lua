@@ -205,8 +205,8 @@ function enemy:die_state(dt)
         self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         self.currentState = self.state.Dead
 
-        self.hurtSFX:stop()
-        self.dyingSFX:play()
+        if self.hurtSFX ~= nil then self.hurtSFX:stop() end
+        if self.dyingSFX ~= nil then self.dyingSFX:play() end
 
         self.playingDieAnim = true
         self.dieTimer = 0
@@ -529,11 +529,11 @@ function enemy:take_damage(damage, shieldMultiplier)
     end
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
-        --self.hurtSFX:play()
+        if self.hurtSFX then self.hurtSFX:play() end
         print(self.shieldHealth)
     else
         self.health = self.health - damage
-        --self.hurtSFX:play()
+        if self.hurtSFX then self.hurtSFX:play() end
         print(self.health)
     end
 

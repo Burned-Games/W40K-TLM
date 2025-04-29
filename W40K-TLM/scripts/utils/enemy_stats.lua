@@ -148,11 +148,18 @@ local enemy_stats = {
             detectionRange = 20,
             meleeAttackRange = 3,
 
-            priority = 2
+            priority = 2,
 
 
 
             -- **Timers**
+
+            -- Time between melee attacks
+            attackCooldown = 3.0,
+            -- Time between tackles
+            tackleCooldown = 10.0,
+            -- Idle time before going after the player again
+            idleDuration = 1.0
         },
 
 
@@ -174,6 +181,15 @@ local enemy_stats = {
             statsDecrement = 0.33,
 
             priority = 2,
+
+
+
+            -- **Timers**
+            attackCooldown = 3.0,
+            tackleCooldown = 10.0,
+            idleDuration = 1.0,
+            -- Total duration of Berserk mode (level 2 hability)
+            berserkaDuration = 180.0
         }
 
     },
