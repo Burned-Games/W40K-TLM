@@ -32,7 +32,7 @@ function on_ready()
 
     -- Particles
     range.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    range.particleSparkTransform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    range.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Audio
     range.rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
@@ -388,7 +388,7 @@ function range:stab_state(dt)
         end
 
         if not range.hasDealtDamage then
-            range.particleSparkTransform.position = range.playerTransf.position
+            range.particleSparkTransf.position = range.playerTransf.position
             range.particleSpark:emit(5)
 
             range:make_damage(range.meleeDamage)
@@ -470,7 +470,7 @@ function shoot_projectile(targetExplosive)
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            range.particleSparkTransform.position = range.playerTransf.position
+            range.particleSparkTransf.position = range.playerTransf.position
             range.particleSpark:emit(5) 
             range:make_damage(range.rangeDamage) 
         end
