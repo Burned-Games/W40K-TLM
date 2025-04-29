@@ -335,6 +335,8 @@ function on_ready()
 end
 
 function on_update(dt)
+
+    log (enemys_targeting)
     
     if not pauseScript.isPaused then
         dtColective = dtColective + dt
@@ -399,11 +401,7 @@ function on_update(dt)
         end
 
 
-        if Input.is_key_pressed(Input.keycode.L)  then
-            
-            --print("", enemys_targeting)
-
-        end
+        
 
         check_effects(dt)
         checkPlayerDeath(dt)
@@ -1268,6 +1266,9 @@ end
 function find_scrap()
     --local entities = current_scene:get_all_entities()
     --tuplaScrap = { {}, {} }
+    local entities = current_scene:get_all_entities()
+
+
     amountOfScrap = 0
 
 

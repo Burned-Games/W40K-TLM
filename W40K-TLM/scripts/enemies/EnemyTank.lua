@@ -163,6 +163,7 @@ function on_update(dt)
     if tank.health <= 0 then
         if tank.key ~= 0 then
             tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting - 1
+            tank.key = 0
         end
         tank:die_state()
     end

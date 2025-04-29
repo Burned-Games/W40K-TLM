@@ -101,12 +101,14 @@ function on_update(dt)
         drop_explosive()
         if kamikaze.key ~= 0 then
             kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting - 1
+            kamikaze.key = 0
         end
         kamikaze:die_state()
         kamikaze.kamikazeDieSFX:play()
     elseif kamikaze.hasExploded and kamikaze.health <= 0 then
         if kamikaze.key ~= 0 then
             kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting - 1
+            kamikaze.key = 0
         end
         
         kamikaze:die_state()

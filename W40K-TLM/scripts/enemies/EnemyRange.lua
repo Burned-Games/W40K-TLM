@@ -184,7 +184,9 @@ function on_update(dt)
     
     if range.health <= 0 then
         if range.key ~= 0 then
+            
             range.playerScript.enemys_targeting = range.playerScript.enemys_targeting - 1
+            range.key = 0
         end
         range.currentState = range.state.Dead
     end
