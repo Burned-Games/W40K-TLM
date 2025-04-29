@@ -389,7 +389,7 @@
     function update_health_display()
         if playerScript ~= nil then
             local vida = playerScript.health
-            local maxHealth = 100  
+            local maxHealth = playerScript.maxHealth  
             
             local healthPercentage = vida / maxHealth
             

@@ -2,7 +2,7 @@ local effect = require("scripts/utils/status_effects")
 
 
 -- Player
-local maxHealth = 250
+maxHealth = 250
 health = maxHealth
 playerTransf = nil
 local playerRb = nil
@@ -299,8 +299,6 @@ function on_ready()
         end
     end)
 
-
-
     --Mision
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
@@ -315,10 +313,10 @@ function on_ready()
         scrapCounter = load_progress("scrap", 0)
 
         local newHealth = load_progress("health", 100)
-        if newHealth > 80 then
+        if newHealth > maxHealth then
             health = newHealth
         else
-            health = 80
+            health = maxHealth
         end
     end
 
@@ -574,7 +572,7 @@ function updateGodMode(dt)
         if Input.is_key_pressed(Input.keycode.F6) then
             scrapCounter = scrapCounter + 1000
         end
-        health = 100
+        health = maxHealth
         bolterScript.ammo = 0
         shotgunammo = 0
         moveSpeed = godModeSpeed
@@ -1257,9 +1255,6 @@ function checkPlayerDeath(dt)
             
         end
     end
-    if health >= 100 then
-        health = 100
-    end
 end
 
 function handleBleed(dt)
@@ -1400,8 +1395,8 @@ function HealPlayer()
     health = health + 7
     
 
-    if health > 100 then
-        health = 100
+    if health > maxHealth then
+        health = maxHealth
     end
 
     if timesHealed >= 5 then
