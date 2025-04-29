@@ -16,15 +16,15 @@ function enemy:new(obj)
     -- Reference to the components of the entity
     obj.LevelGeneratorByPosition = nil
 
-    obj.player = nil
-    obj.playerTransf = nil
-    obj.playerScript = nil
-
     obj.enemyTransf = nil
     obj.animator = nil
     obj.enemyRbComponent = nil
     obj.enemyRb = nil
     obj.enemyNavmesh = nil
+
+    obj.player = nil
+    obj.playerTransf = nil
+    obj.playerScript = nil
 
     obj.explosive = nil
     obj.explosiveTransf = nil

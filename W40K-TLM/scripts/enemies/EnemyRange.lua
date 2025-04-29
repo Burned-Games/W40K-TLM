@@ -36,22 +36,29 @@ function on_ready()
 
     range.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
 
-    range.player = current_scene:get_entity_by_name("Player")
-    range.playerTransf = range.player:get_component("TransformComponent")
-    range.playerScript = range.player:get_component("ScriptComponent")
-
-    range.explosive = current_scene:get_entity_by_name("Explosive")
-    range.explosiveTransf = range.explosive:get_component("TransformComponent")
-
+    -- Enemy
     range.enemyTransf = self:get_component("TransformComponent")
     range.animator = self:get_component("AnimatorComponent")
     range.enemyRbComponent = self:get_component("RigidbodyComponent")
     range.enemyRb = range.enemyRbComponent.rb
     range.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-    --Mision
+    -- Player
+    range.player = current_scene:get_entity_by_name("Player")
+    range.playerTransf = range.player:get_component("TransformComponent")
+    range.playerScript = range.player:get_component("ScriptComponent")
+
+    -- Explosive
+    range.explosive = current_scene:get_entity_by_name("Explosive")
+    range.explosiveTransf = range.explosive:get_component("TransformComponent")
+
+    -- Mision
     range.misionManager = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
     range.enemyDie = false
+
+    -- Particles
+    range.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    range.particleSparkTransform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Audio
     rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
@@ -59,26 +66,27 @@ function on_ready()
     rangeBulletImpactSFX = current_scene:get_entity_by_name("RangeBulletImpactSFX"):get_component("AudioSourceComponent")
     rangeCaCImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
     rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
-
-    --Particles
-    range.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    range.particleSparkTransform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
     
     -- Initialize bullet pool
     for i = 1, 5 do
         local bulletEntity = current_scene:get_entity_by_name("EnemyBullet" .. i)
+
         local bullet = {
             entity = bulletEntity,
             transform = bulletEntity:get_component("TransformComponent"),
             rbComponent = bulletEntity:get_component("RigidbodyComponent"),
             active = false
         }
+
         bullet.rb = bullet.rbComponent.rb
         bullet.rb:set_trigger(true)
         bullet.rb:set_position(Vector3.new(0, -5, 0))
+
         bulletPool[i] = bullet
         bulletTimers[i] = 0
     end
+
+
 
     local enemy_type = "range"
     range:set_level()
@@ -104,6 +112,7 @@ function on_ready()
     range.chaseRange = stats.chaseRange
     range.maxBurstShots = stats.maxBurstShots
     range.priority = stats.priority
+
     range.level2 = false
     range.level3 = false
     range.key = 0
@@ -179,15 +188,11 @@ function on_update(dt)
     if range.isDead then return end
     if range.playingDieAnim then
         range.dieTimer = range.dieTimer + dt
-        print(range.dieTimer)
     end
 
     range:check_effects(dt)
     range:check_pushed(dt)
-    if range.isPushed == true then
-        print("zzzzzzzzzzzzzzzz")
-        return
-    end
+    if range.isPushed == true then return end
         
     update_bullets(dt)
     change_state()
@@ -195,12 +200,10 @@ function on_update(dt)
     if range.currentState == range.state.Idle then return end
     
     if range.health <= 0 then
-        print("tt")
         if range.key ~= 0 then
             range.playerScript.enemys_targeting = range.playerScript.enemys_targeting - 1
         end
         rangeDyingSFX:play()
-        --range:die_state()
         range.currentState = range.state.Dead
         
     end
