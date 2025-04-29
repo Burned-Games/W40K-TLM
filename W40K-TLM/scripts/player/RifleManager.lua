@@ -10,8 +10,8 @@ maxAmmo = 24
 ammo = 0
 local reloadTimeRifle = 0
 local shootCoolDown = 0
-shootCoolDownRifle = 0.8
-local damageRifle = 25
+shootCoolDownRifle = 0.6
+local damageRifle = 15
 local tripleShootTimer = 0
 local tripleShootCount = 0
 local tripleShootInterval = 0.1
@@ -28,7 +28,7 @@ local playerScript = nil
 
 local shooted = true
 
-damage = 25
+damage = 15
 
 --audio
 local bolterShotSFX
@@ -75,7 +75,7 @@ local particle_blood_spark_transform = nil
     local chargeZoneRb = nil
 
     local zoneRadius = 4
-    local chargeZoneDamagePerSecond = 15
+    local chargeZoneDamagePerSecond = 5
     local chargeZoneDuration = 5
     local secondCounter = 0
     local secondCounterTimes = 0
