@@ -331,119 +331,134 @@ body {
 
 
 /* Improvements Section */
-.warhammer-section {
-    padding: 250px 0 0 0;
-    width: 100vw;
-    height: 100vh;
+/* ===== 全局样式 ===== */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     background: #0a0a0a;
-    color: #e0e0e0;
     font-family: 'Gothic A1', sans-serif;
+    color: #e0e0e0;
+    line-height: 1.6;
+  }
+  
+  /* ===== 主内容区 ===== */
+  .warhammer-section {
+    padding: 8vh 0;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-/* Main container layout */
-.wh-container {
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .wh-container {
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    gap: 4rem;
-    width: 95%;
-    height: 100%;
-    max-width: none;
-}
-
-/* Left panel */
-.wh-left-panel {
+    grid-template-columns: 1.2fr 1.5fr;
+    gap: 3vw;
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: auto;
+  }
+  
+  /* ===== 左侧面板 ===== */
+  .wh-left-panel {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-}
-
-/* Navigation buttons */
-.wh-nav-group {
-    display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.wh-nav-btn {
-    width: 100px;
-    height: 100px;
+    height: 75vh;
+    position: relative;
+  }
+  
+  /* 导航按钮组 */
+  .wh-nav-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2vw;
+    margin-bottom: 3vh;
+  }
+  
+  .wh-nav-btn {
+    width: 9.5vw;
+    height: 9.5vw;
+    max-width: 120px;
+    max-height: 120px;
     border-radius: 50%;
     background: #2d2d2d;
     border: 3px solid #444;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.15vw;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    line-height: 1.3;
-}
-
-.wh-nav-btn:hover {
+    padding: 8px;
+  }
+  
+  .wh-nav-btn:hover {
     transform: scale(1.12);
     background: #3d3d3d;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-}
-
-.wh-nav-btn.active {
+  }
+  
+  .wh-nav-btn.active {
     background: #ffd700;
     color: #1a1a1a;
     border-color: #ffd700;
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-}
-
-/* Content section */
-.wh-content-box {
-    min-height: 280px;
-    position: relative;
+  }
+  
+  /* 内容区域 */
+  .wh-content-box {
+    min-height: 28vh;
+    padding-left: 2.5vw;
+    margin: 2vh 0;
     border-left: 3px solid #ffd700;
-    padding-left: 2rem;
-}
-
-.wh-text {
+    position: relative;
+  }
+  
+  .wh-text {
     position: absolute;
-    width: 100%;
+    width: 95%;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s ease;
-}
-
-.wh-text.active {
+  }
+  
+  .wh-text.active {
     opacity: 1;
     visibility: visible;
-}
-
-.wh-text h3 {
-    font-size: 2.4rem;
+  }
+  
+  .wh-text h3 {
+    font-size: 2.2vw;
     color: #ffd700;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5vh;
     text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.wh-text p {
-    font-size: 1.1rem;
+    letter-spacing: 1.2px;
+  }
+  
+  .wh-text p {
+    font-size: 1.15vw;
     line-height: 1.8;
     color: #cccccc;
-    max-width: 90%;
-}
-
-/* Preview images */
-.wh-preview-box {
-    height: 335px;
+    max-width: 85%;
+  }
+  
+  /* 预览图区域 */
+  .wh-preview-box {
+    height: 22vh;
+    min-height: 180px;
     position: relative;
-    margin-top: 1.5rem;
     border-radius: 8px;
     overflow: hidden;
-}
-
-.wh-preview-img {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  
+  .wh-preview-img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -451,67 +466,130 @@ body {
     opacity: 0;
     transition: opacity 0.4s ease;
     filter: grayscale(30%);
-}
-
-.wh-preview-img.active {
+  }
+  
+  .wh-preview-img.active {
     opacity: 1;
     filter: grayscale(0);
-}
-
-/* Right featured image */
-.wh-right-panel {
+  }
+  
+  /* ===== 右侧面板 ===== */
+  .wh-right-panel {
     position: relative;
-    height: 850px;
+    height: 75vh;
+    align-self: center;
+    width: 100%;
+  }
+  
+  .wh-featured-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 12px 35px rgba(0,0,0,0.5);
-}
-
-.wh-featured-img {
+  }
+  
+  .wh-featured-img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.5s ease;
-}
-
-.wh-featured-img.active {
+  }
+  
+  .wh-featured-img.active {
     opacity: 1;
-}
-
-/* Responsive design */
-@media (max-width: 1200px) {
-    .wh-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .wh-right-panel {
-        height: 600px;
-        order: -1;
-    }
-    
-    .wh-nav-group {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
+  }
+  
+  /* ===== 响应式设计 ===== */
+  @media (min-width: 1920px) {
     .wh-nav-btn {
-        width: 80px;
-        height: 80px;
-        font-size: 1rem;
+      font-size: 22px;
     }
-    
+    .wh-text h3 {
+      font-size: 42px;
+    }
+    .wh-text p {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 1600px) {
+    .wh-container {
+      grid-template-columns: 1fr 1.1fr;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .wh-container {
+      grid-template-columns: 1fr;
+      width: 92%;
+    }
+    .wh-right-panel {
+      height: 60vh;
+      order: -1;
+      margin-bottom: 4vh;
+    }
+    .wh-nav-btn {
+      width: 14vw;
+      height: 14vw;
+      font-size: 1.8vw;
+    }
+    .wh-text h3 {
+      font-size: 2.8vw;
+    }
+    .wh-text p {
+      font-size: 1.8vw;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .warhammer-section {
+      padding: 6vh 0;
+    }
+    .wh-left-panel {
+      height: auto;
+      gap: 4vh;
+    }
+    .wh-nav-btn {
+      width: 18vw;
+      height: 18vw;
+      font-size: 2.5vw;
+    }
     .wh-content-box {
-        min-height: 320px;
+      min-height: 35vh;
     }
-    
+    .wh-text h3 {
+      font-size: 3.5vw;
+    }
+    .wh-text p {
+      font-size: 2.2vw;
+      max-width: 95%;
+    }
     .wh-preview-box {
-        height: 180px;
+      height: 25vh;
     }
-}
+  }
+  
+  @media (max-width: 480px) {
+    .wh-nav-group {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3vw;
+    }
+    .wh-nav-btn {
+      width: 28vw;
+      height: 28vw;
+      font-size: 3.5vw;
+    }
+    .wh-text h3 {
+      font-size: 5.5vw;
+    }
+    .wh-text p {
+      font-size: 3.8vw;
+    }
+  }
 
 /* Fix for excessive width */
 body {
