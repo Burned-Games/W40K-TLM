@@ -54,6 +54,7 @@ tookDamage = false
 makeDamage = false 
 
 
+combatTimer = 0
 
 enemys_targeting = 0
 
@@ -341,6 +342,7 @@ function on_update(dt)
     if not pauseScript.isPaused then
         dtColective = dtColective + dt
         
+        update_combat_state(dt)
 
         if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
             StimsCounter = StimsCounter - 1
@@ -1417,12 +1419,8 @@ function saveProgress()
 end
 
 function takeHit()
-   
-
-        currentAnim = hit
-        isHitted = true
-
-    
+    currentAnim = hit
+    isHitted = true
 end
 
 function updateAnims(dt)
@@ -1464,4 +1462,16 @@ function check_effects(dt)
         neuralFirstTime = true
     end
 
+end
+
+function update_combat_state(dt)
+    if tookDamage or makeDamage then
+        combatTimer = 5.0
+        tookDamage = false
+        makeDamage = false
+    else
+        if combatTimer > 0 then
+            combatTimer = combatTimer - dt
+        end
+    end
 end
