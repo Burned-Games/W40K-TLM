@@ -12,21 +12,28 @@ function enemy:new(obj)
     setmetatable(obj, self)
     self.__index = self
 
+
     -- Reference to the components of the entity
     obj.LevelGeneratorByPosition = nil
+
     obj.player = nil
     obj.playerTransf = nil
     obj.playerScript = nil
+
     obj.enemyTransf = nil
     obj.animator = nil
     obj.enemyRbComponent = nil
     obj.enemyRb = nil
     obj.enemyNavmesh = nil
+
     obj.explosive = nil
     obj.explosiveTransf = nil
+
     obj.scrap = nil
     obj.scrapTransf = nil
+
     obj.misionManager = nil
+
     obj.zone1 = nil
     obj.zone2 = nil
     obj.zone3 = nil
@@ -36,21 +43,27 @@ function enemy:new(obj)
     obj.zone1Rb = nil
     obj.zone2Rb = nil
     obj.zone3Rb = nil
+
+
+    -- Tags of the bullets and habilities of the player
     obj.playerObjectsTagList = {"Sphere1", "Sphere2", "Sphere3", "Sphere4", "Sphere5", "Sphere6", "Sphere7", "Sphere8", "DisruptorBullet", "Granade", "ChargeZone"} 
+
 
     -- Generic stats of the enemy
     obj.health = 95
-    obj.shieldHealth = 0
-    obj.enemyShield = 35
     obj.speed = 3
     obj.defaultSpeed = 3
     obj.damage = 5
+    obj.shieldHealth = 0
+    obj.enemyShield = 35
     obj.detectionRange = 25
     obj.priority = 0
+
 
     -- Variables for the states
     obj.state = self.state
     obj.currentState = obj.state.Idle
+
 
     -- Variables for the animations
     obj.currentAnim = 0
@@ -59,38 +72,53 @@ function enemy:new(obj)
     obj.dieAnim = 2
     obj.attackAnim = 3
 
-    -- Variable for the functions of the enemy
-    obj.haveShield = false
-    obj.shieldDestroyed = false
+
+    -- **Variable for the functions of the enemy**
+    -- Int
     obj.level = 1
     obj.key = 0
-    obj.isDead = false
     obj.playerDistance = 0
-    obj.playerDetected = false
     obj.proximityDetectionRadius = 3
-    obj.enemyInitialPos = nil
-    obj.lastTargetPos = Vector3.new(0, 0, 0)
     obj.raycastAngle = 15
     obj.currentPathIndex = 1
     obj.currentRotationY = 0
     obj.raycastRotationY = 0
+    obj.zoneNumber = 0
+
+    -- Bool
+    obj.haveShield = false
+    obj.shieldDestroyed = false
+    obj.isDead = false
+    obj.playerDetected = false
     obj.invulnerable = false
     obj.isReturning = false
     obj.isPushed = false
-    obj.pushedTime = 0.3
-    obj.pushedTimeCounter = 0
-    obj.zoneNumber = 0
     obj.zoneSet = false
     obj.isArenaEnemy = false
     obj.playingDieAnim = false
+
+    -- Vector3
+    obj.enemyInitialPos = Vector3.new(0, 0, 0)
+    obj.lastTargetPos = Vector3.new(0, 0, 0)
+
+    -- Timers
+    obj.pushedTime = 0.3
+    obj.pushedTimeCounter = 0.0
     obj.dieTimer = 0.0
     obj.dieAnimDuration = 0.0
-    -- effects
+
+
+    -- Effects
     obj.isNeuralInhibitioning = false
     obj.neuralFirstTime = true
 
-    -- mision
+    -- Particles
+    obj.particle_spark = nil
+    obj.particle_spark_transform = nil
+
+    -- Mision
     obj.enemyDie = false
+
     return obj
 
 end
@@ -277,17 +305,14 @@ function enemy:enemy_raycast()
         if self:detect_by_tag(centerHit, self.playerObjectsTagList[i]) then
 
             self.playerDetected = true
-            self.playerDistance = self:get_distance(origin, centerHit.hitPoint)
     
         elseif self:detect_by_tag(leftHit, self.playerObjectsTagList[i]) then
     
             self.playerDetected = true
-            self.playerDistance = self:get_distance(origin, leftHit.hitPoint)
     
         elseif self:detect_by_tag(rightHit, self.playerObjectsTagList[i]) then
     
             self.playerDetected = true
-            self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
     
         end
     end

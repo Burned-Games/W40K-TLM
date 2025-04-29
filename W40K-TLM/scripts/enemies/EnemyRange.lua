@@ -31,10 +31,6 @@ local rangeBulletImpactSFX
 local rangeCaCImpactSFX
 local rangeShotSFX
 
---Particles
-local particle_spark = nil
-local particle_spark_transform = nil
-
 
 function on_ready() 
 
@@ -56,6 +52,7 @@ function on_ready()
     --Mision
     range.misionManager = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
     range.enemyDie = false
+
     -- Audio
     rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
     rangeHurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
@@ -64,8 +61,8 @@ function on_ready()
     rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
 
     --Particles
-    particle_spark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    particle_spark_transform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    range.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    range.particleSparkTransform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
     
     -- Initialize bullet pool
     for i = 1, 5 do
@@ -412,12 +409,14 @@ function range:stab_state(dt)
         end
 
         if not range.hasDealtDamage then
-            particle_spark_transform.position = range.playerTransf.position
-            particle_spark:emit(5) 
+            range.particleSparkTransform.position = range.playerTransf.position
+            range.particleSpark:emit(5)
+
             range:make_damage(range.meleeDamage)
             if range.level2 or range.leve3 then
                 effect:apply_bleed(range.playerScript)
             end
+
             range.hasDealtDamage = true
         end
 
@@ -458,16 +457,17 @@ function shoot_projectile(targetExplosive)
     bullet.active = true
     bulletTimers[currentBulletIndex] = 0
 
-    -- collision handling for current bullet
+    -- Collision handling for current bullet
     bullet.rbComponent:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            particle_spark_transform.position = range.playerTransf.position
-            particle_spark:emit(5) 
+            range.particleSparkTransform.position = range.playerTransf.position
+            range.particleSpark:emit(5) 
             range:make_damage(range.rangeDamage) 
         end
+        
         deactivate_bullet(currentBulletIndex)
     end)
 
