@@ -190,6 +190,8 @@ local healAnimationTime = 1
 
 local enemyOrkScript = nil
 
+movingBackLookingUp = false
+
 function on_ready()
     -- Add initialization code here
     -- Audio
@@ -696,7 +698,11 @@ function playerMovement(dt)
 
     local rightTrigger = Input.get_button(Input.action.Shoot)
 
-
+    if axisY_l > 1.0 - 0.2 and axisY_l < 1.0 + 0.2 and axisY_r > -1.0 - 0.2 and axisY_r < -1.0 + 0.2 then
+        movingBackLookingUp = true
+    else
+        movingBackLookingUp = false
+    end
     -- Camera angle in radians (45 degrees)
     local cameraAngle = math.rad(45)
 
@@ -713,18 +719,18 @@ function playerMovement(dt)
    
     if Input.is_key_pressed(Input.keycode.W) or Input.is_key_pressed(Input.keycode.A) or Input.is_key_pressed(Input.keycode.S) or Input.is_key_pressed(Input.keycode.D) then
         if Input.is_key_pressed(Input.keycode.W) then
-            moveDirectionY = -1  
+            moveDirectionY = -1
             
         elseif Input.is_key_pressed(Input.keycode.S) then
-            moveDirectionY = 1  
+            moveDirectionY = 1
         else
             moveDirectionY = 0
         end
         
         if Input.is_key_pressed(Input.keycode.A) then
-            moveDirectionX = -1  
+            moveDirectionX = -1
         elseif Input.is_key_pressed(Input.keycode.D) then
-            moveDirectionX = 1 
+            moveDirectionX = 1
         else
             moveDirectionX = 0
         end

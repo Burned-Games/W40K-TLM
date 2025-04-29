@@ -15,12 +15,19 @@ local minZoom = -3.5
 local maxZoom = -1.5
 local zoomStep = 0.5
 cameraBossActivated = false
-local baseOffset = Vector3.new(-10, 15, 10)
+local normalOffset = Vector3.new(-10, 15, 10)
+local baseOffset = normalOffset
+local backOffset = Vector3.new(-10, 10, 10)
+local zoomedOffset = Vector3.new(-5, 7, 5)
 local cameraTransform = nil
 local directionCached = false
 local smoothPos = Vector3.new(0, 0, 0)
 
-local offsetPlayer = 5
+local offsetPlayerBase = 5
+
+local offsetPlayer = offsetPlayerBase
+
+local backOffsetPlayer = 1
 
 local radiusSpawn = 25
 
@@ -91,7 +98,6 @@ function on_update(dt)
 
         local forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
 
-
         local targetPos = Vector3.new(playerPos.x + zoomOffSet.x + forwardVector.x * offsetPlayer, playerPos.y + zoomOffSet.y + forwardVector.y * offsetPlayer, playerPos.z + zoomOffSet.z + forwardVector.z * offsetPlayer)
     
         local currentPos = cameraTransform.position
@@ -111,6 +117,12 @@ function on_update(dt)
                     zoom = zoom + zoomStep
                 end
             end
+        end
+        
+        if playerScript.movingBackLookingUp == true then
+            offsetPlayer = backOffsetPlayer
+        else
+            offsetPlayer = offsetPlayerBase
         end
 
     end
