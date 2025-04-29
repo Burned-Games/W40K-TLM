@@ -5,17 +5,8 @@ local effect = require("scripts/utils/status_effects")
 main_boss = enemy:new()
 
 local stats = nil
-local enemy_type = "main_boss"
 
-local ultiTimer = 0.0
-local ultiAttackTimer = 0.0
-local ultiAttackDuration = 15.0
-local ultiCooldown = 15.0
-local ultiHittingTimer = 0.0
-local ultiHittingDuration = 4.0
 
-local totemTimer = 0.0
-local totemCooldown = 20.0
 
 function on_ready()
 
@@ -80,10 +71,11 @@ function on_ready()
 
 
     -- Level
-    stats = stats_data[enemy_type] and stats_data[enemy_type][main_boss.level]
+    main_boss.enemy_type = "main_boss"
+    stats = stats_data[main_boss.enemy_type] and stats_data[main_boss.enemy_type][main_boss.level]
     -- Debug in case is not working
     if not stats then
-        log("No stats for type: " .. enemy_type .. " level: " .. main_boss.level)
+        log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level)
         return
     end
 
@@ -104,22 +96,30 @@ function on_ready()
     main_boss.rangeAttackRange = stats.rangeAttackRange
 
     -- External Timers
-    main_boss.shieldCooldown = 15.0
-    main_boss.attackCooldown = 0.5
-    main_boss.meleeAttackDuration = 2.0
-    main_boss.lightningDuration = 0.5
-    main_boss.rangeAttackDuration = 10.0
-    main_boss.fistsDamageCooldown = 1.0
+    main_boss.attackCooldown = stats.attackCooldown
+    main_boss.meleeAttackDuration = stats.meleeAttackDuration
+    main_boss.lightningDuration = stats.lightningDuration
+    main_boss.rangeAttackDuration = stats.rangeAttackDuration
+    main_boss.fistsDamageCooldown = stats.fistsDamageCooldown
+    main_boss.shieldCooldown = stats.shieldCooldown
 
     -- Internal Timers
     main_boss.pathUpdateTimer = 0.0
     main_boss.pathUpdateInterval = 0.1
-    main_boss.shieldTimer = 0.0
     main_boss.attackTimer = 0.0
     main_boss.meleeAttackTimer = 0.0
     main_boss.lightningTimer = 0.0
     main_boss.rangeAttackTimer = 0.0
     main_boss.timeSinceLastFistHit = 0.0
+    main_boss.shieldTimer = 0.0
+    main_boss.ultiTimer = 0.0
+    main_boss.ultiAttackTimer = 0.0
+    main_boss.ultiHittingTimer = 0.0
+    main_boss.totemTimer = 0.0
+
+    -- Provisional Timers
+    main_boss.ultiTimer = 0.0
+    main_boss.ultiCooldown = 10.0
 
     -- Animations
     main_boss.idleAnim = 0
@@ -207,8 +207,8 @@ function on_update(dt)
     main_boss.pathUpdateTimer = main_boss.pathUpdateTimer + dt
 
     if main_boss.isRaging then
-        ultiTimer = ultiTimer + dt
-        totemTimer = totemTimer + dt
+        main_boss.ultiTimer = main_boss.ultiTimer + dt
+        main_boss.totemTimer = main_boss.totemTimer + dt
     end
 
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
@@ -219,9 +219,9 @@ function on_update(dt)
     end
 
     if main_boss.ultimateThrown then
-        ultiAttackTimer = ultiAttackTimer + dt
+        main_boss.ultiAttackTimer = main_boss.ultiAttackTimer + dt
 
-        if ultiAttackTimer >= ultiAttackDuration then
+        if main_boss.ultiAttackTimer >= main_boss.ultiAttackDuration then
             main_boss.ultimateCasting = true
         end
 
@@ -230,18 +230,18 @@ function on_update(dt)
                 main_boss.isUltimateDamaging = true
             end
 
-            ultiHittingTimer = ultiHittingTimer + dt
+            main_boss.ultiHittingTimer = main_boss.ultiHittingTimer + dt
 
             check_ulti_collision()
-            if ultiHittingTimer >= ultiHittingDuration then
+            if main_boss.ultiHittingTimer >= main_boss.ultiHittingDuration then
                 main_boss.ultimateTransf.position = Vector3.new(-500, 0, -150)
 
                 main_boss.ultimateThrown = false
                 main_boss.ultimateCasting = false
                 main_boss.isUltimateDamaging = false
-                ultiAttackTimer = 0.0
-                ultiHittingTimer = 0.0
-                ultiTimer = 0.0
+                main_boss.ultiAttackTimer = 0.0
+                main_boss.ultiHittingTimer = 0.0
+                main_boss.ultiTimer = 0.0
 
                 check_ulti_collision()
 
@@ -372,10 +372,10 @@ function main_boss:rage_state()
     if not main_boss.isRaging then
         main_boss.level = 2
 
-        stats = stats_data[enemy_type] and stats_data[enemy_type][main_boss.level]
+        stats = stats_data[main_boss.enemy_type] and stats_data[main_boss.enemy_type][main_boss.level]
         -- Debug in case is not working
         if not stats then
-            log("No stats for type: " .. enemy_type .. " level: " .. main_boss.level)
+            log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level)
             return
         end
 
@@ -390,6 +390,11 @@ function main_boss:rage_state()
         main_boss.rangeAttackRange = stats.rangeAttackRange
         main_boss.ultimateRange = stats.ultimateRange
         main_boss.totemRange = stats.totemRange
+
+        main_boss.ultiCooldown = stats.ultiCooldown
+        main_boss.ultiAttackDuration = stats.ultiAttackDuration
+        main_boss.ultiHittingDuration = stats.ultiHittingDuration
+        main_boss.totemCooldown = stats.totemCooldown
 
         log("New stats setted")
         main_boss.isRaging = true
@@ -436,7 +441,7 @@ function main_boss:attack_state()
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
     local attackChance = math.random()
 
-    if ultiTimer >= ultiCooldown then
+    if main_boss.ultiTimer >= main_boss.ultiCooldown then
         ultimate_attack()
     elseif attackChance < 0.3 then
         lightning_attack()
@@ -545,14 +550,14 @@ function ultimate_attack()
     table.insert(main_boss.scalingAttacks, {
         transform = main_boss.ultimateTransf, 
         elapsed = 0,
-        duration = ultiAttackDuration,
+        duration = main_boss.ultiAttackDuration,
         startScale = Vector3.new(1, 1, 1),
         targetScale = Vector3.new(20, 20, 20) 
     })
 
     main_boss.ultimateThrown = true
-    ultiTimer = 0.0
-    ultiAttackTimer = 0.0
+    main_boss.ultiTimer = 0.0
+    main_boss.ultiAttackTimer = 0.0
 
 end
 

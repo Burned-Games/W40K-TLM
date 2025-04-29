@@ -237,30 +237,76 @@ local enemy_stats = {
 
     main_boss = {
 
+        -- Main Boss Fase 1
         [1] = {
+            -- Stats
             health = 1000,
             rageHealth = 400,
             bossShieldHealth = 50,
+
             speed = 2,
+
             meleeDamage = 120,
             rangeDamage = 80,
+
             detectionRange = 20,
             meleeAttackRange = 10,
             rangeAttackRange = 15,
+
+
+
+            -- **Timers**
+
+            -- Time between attacks
+            attackCooldown = 0.5,
+            -- Charge time before the lightning makes damage
+            meleeAttackDuration = 2.0,
+            -- Time when the lightning is active and making damage
+            lightningDuration = 0.5,
+            -- Duration of the fist attack before they disappear
+            rangeAttackDuration = 10.0,
+            -- The damage of the fist is called every time this timer ends (ex. The fists attack makes damage every second staying on it, it can be changed to 2s, 3s, 4s...etc.)
+            fistsDamageCooldown = 1.0,
+            -- Time before throwing the shield
+            shieldCooldown = 15.0
         },
 
+
+        -- Main Boss Fase 2
         [2] = {
+            -- Stats
             bossShieldHealth = 70,
             totemHealth = 60,
+
             speed = 4,
+
             meleeDamage = 130,
             rangeDamage = 100,
             ultimateDamage = 350,
+
             detectionRange = 20,
             meleeAttackRange = 10,
             rangeAttackRange = 15,
             ultimateRange = 15,
-            totemRange = 2
+            totemRange = 2,
+
+
+
+            -- **Timers**
+            attackCooldown = 0.5,
+            meleeAttackDuration = 2.0,
+            lightningDuration = 0.5,
+            rangeAttackDuration = 10.0,
+            fistsDamageCooldown = 1.0,
+            shieldCooldown = 15.0,
+            -- Time between ultimates
+            ultiCooldown = 15.0,
+            -- Time before the ultimate starts making damage
+            ultiAttackDuration = 15.0,
+            -- Time of the ultimate active and making damage
+            ultiHittingDuration = 4.0,
+            -- Time befor throwing a totem
+            totemCooldown = 20.0
         }
 
     }
