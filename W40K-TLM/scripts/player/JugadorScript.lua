@@ -337,7 +337,7 @@ end
 
 function on_update(dt)
 
-    log (enemys_targeting)
+    --log (enemys_targeting)
     
     if not pauseScript.isPaused then
         dtColective = dtColective + dt

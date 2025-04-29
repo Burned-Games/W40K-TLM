@@ -96,6 +96,8 @@ local vibrationNormalSettings = Vector3.new(1, 0, 20)
 local vibrationDisrruptorShootSettings = Vector3.new(1, 1, 200)
 local vibrationDisrruptorChargeSettings = Vector3.new(0.2, 0.2, 100)
 
+local manualReload = false
+
 function on_ready()
 
     player = current_scene:get_entity_by_name("Player")
@@ -285,7 +287,11 @@ function on_update(dt)
             local rightTrigger = Input.get_button(Input.action.Shoot)
             local leftShoulder = Input.get_button(Input.action.Skill2)
 
-            if ammo >= maxAmmo or Input.is_button_pressed(Input.controllercode.West) then
+            if Input.is_button_pressed(Input.controllercode.West) and manualReload == false and ammo > 0 then
+                manualReload = true
+            end
+            if ammo >= maxAmmo or manualReload then
+                
                 playReload()
                 if playerScript.currentUpAnim ~= playerScript.reload_Bolter and reloadAnimation == false then
                     playerScript.currentUpAnim = playerScript.reload_Bolter
@@ -299,6 +305,7 @@ function on_update(dt)
                     ammo = 0
                     reloadTime = 0
                     reloadAnimation = false
+                    manualReload = false
                 end
             end
             if shooted == true then

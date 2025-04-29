@@ -100,6 +100,8 @@ local pauseMenu = nil
 local vibrationNormalSettings = Vector3.new(1, 1, 140)
 local vibrationGranadeExplosionSettings = Vector3.new(1, 1, 500)
 
+local manualReload = false
+
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -201,16 +203,19 @@ function on_update(dt)
         if using == true then
             -- updateTime
             current_time = current_time + dt  
+
+
             -- if in reload, check is fishing
-            if is_reloading then
+            if is_reloading or manualReload then
                 if current_time >= reload_end_time then
                     ammo = maxAmmo  -- reload bullet
                     is_reloading = false
+                    manualReload = false
+                    
                 else
                     if playerScript.currentUpAnim ~= playerScript.reload_Shotgun then
                         playerScript.currentUpAnim = playerScript.reload_Shotgun
                         playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
-                        
                     end
                     return 
                 end
@@ -236,7 +241,7 @@ function on_update(dt)
             end
 
             -- reload
-            if ammo == 0 and not is_reloading then
+            if (ammo == 0 or Input.is_button_pressed(Input.controllercode.West)) and not is_reloading then
                 is_reloading = true
                 reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
                 shotgunReloadSFX:play()
