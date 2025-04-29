@@ -205,7 +205,7 @@ function enemy:die_state(dt)
         self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         self.currentState = self.state.Dead
 
-        if self.hurtSFX ~= nil then self.hurtSFX:stop() end
+        --if self.hurtSFX ~= nil then self.hurtSFX:stop() end
         if self.dyingSFX ~= nil then self.dyingSFX:play() end
 
         self.playingDieAnim = true
