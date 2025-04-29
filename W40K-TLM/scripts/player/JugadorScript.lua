@@ -400,7 +400,7 @@ function on_update(dt)
 
         if Input.is_key_pressed(Input.keycode.L)  then
             
-            print("", enemys_targeting)
+            --print("", enemys_targeting)
 
         end
 
@@ -599,7 +599,7 @@ end
 function updateEntranceAnimation(dt)
     if level == 1 then
             
-        print("aaaaaaaaaaaaaaaa")
+        --print("aaaaaaaaaaaaaaaa")
         if animacionEntradaRealizada == false then
             if(currentAnim ~= drop) then
                 currentAnim = drop
