@@ -4,46 +4,100 @@ local enemy_stats = {
 
     range = {
 
+        -- Range Level 1
         [1] = {
+            -- Stats
             health = 95,
-            speed = 3,
+
+            speed = 5,
             bulletSpeed = 15,
+
             meleeDamage = 15,
             rangeDamage = 5,
+
             detectionRange = 25,
             meleeAttackRange = 1,
             rangeAttackRange = 16,
             chaseRange = 6,
+
             maxBurstShots = 4,
-            priority = 1
+
+            priority = 1,
+
+
+
+            -- **TIMERS**
+
+            -- Saves the position of the player for the enemy shoot
+            updateTargetInterval = 1.0,
+            -- Time between bursts
+            timeBetweenBursts = 1.0,
+            -- Minimun time between shots of the same burst
+            burstCooldown = 0.3,
+            -- Time between stabs attacks
+            stabCooldown = 2.0,
         },
 
+
+        -- Range Level 2
         [2] = {
+            -- Stats
             health = 110,
-            speed = 4,
+
+            speed = 7,
             bulletSpeed = 15,
+
             meleeDamage = 25,
             rangeDamage = 10,
+
             detectionRange = 25,
             meleeAttackRange = 1,
             rangeAttackRange = 10,
             chaseRange = 8,
+
             maxBurstShots = 4,
-            priority = 1
+
+            priority = 1,
+
+
+
+            -- **TIMERS**
+            updateTargetInterval = 1.0,
+            timeBetweenBursts = 1.0,
+            burstCooldown = 0.3,
+            stabCooldown = 2.0,
         },
 
+
+        -- Range Level 3
         [3] = {
+            --Stats
             health = 140,
-            speed = 5,
+
+            speed = 9,
             bulletSpeed = 15,
+
             meleeDamage = 35,
             rangeDamage = 15,
+
             detectionRange = 25,
             meleeAttackRange = 1,
             rangeAttackRange = 10,
             chaseRange = 8,
+
             maxBurstShots = 4,
-            priority = 1
+
+            priority = 1,
+
+
+
+            -- **TIMERS**
+            updateTargetInterval = 1.0,
+            timeBetweenBursts = 1.0,
+            burstCooldown = 0.3,
+            stabCooldown = 2.0,
+            -- Invulnerable time of the range level 3 hability
+            invulnerableTime = 5.0
         }
 
     },

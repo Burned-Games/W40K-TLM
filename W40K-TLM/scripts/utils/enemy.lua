@@ -45,7 +45,8 @@ function enemy:new(obj)
     obj.zone3Rb = nil
 
 
-    -- Tags of the bullets and habilities of the player
+    -- Tags
+    obj.enemyType = "Nil"
     obj.playerObjectsTagList = {"Sphere1", "Sphere2", "Sphere3", "Sphere4", "Sphere5", "Sphere6", "Sphere7", "Sphere8", "DisruptorBullet", "Granade", "ChargeZone"} 
 
 
@@ -74,7 +75,7 @@ function enemy:new(obj)
 
 
     -- **Variable for the functions of the enemy**
-    -- Int
+    -- Ints
     obj.level = 1
     obj.key = 0
     obj.playerDistance = 0
@@ -85,7 +86,7 @@ function enemy:new(obj)
     obj.raycastRotationY = 0
     obj.zoneNumber = 0
 
-    -- Bool
+    -- Bools
     obj.haveShield = false
     obj.shieldDestroyed = false
     obj.isDead = false

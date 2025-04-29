@@ -4,32 +4,6 @@ local effect = require("scripts/utils/status_effects")
 
 range = enemy:new()
 
-local pathUpdateTimer = 0.0
-local pathUpdateInterval = 0.5
-local updateTargetTimer = 0.0
-local updateTargetInterval = 1.0
-local timeSinceLastHit = 0.0
-local timeSinceLastShot = 0.0
-local timeBetweenBursts = 1.0
-local burstCooldownTimer = 0.0
-local burstCooldown = 0.3
-local stabTimer = 1.0
-local timeSinceLastStab = 0.0
-local stabCooldown = 2.0
-local stabCooldownTimer = 0.0
-local invulnerableTime = 5.0
-
-local bulletPool = {}
-local currentBulletIndex = 1
-local BULLET_LIFETIME = 5.0
-local bulletTimers = {}
-
--- Audio
-local rangeDyingSFX
-local rangeHurtSFX
-local rangeBulletImpactSFX
-local rangeCaCImpactSFX
-local rangeShotSFX
 
 
 function on_ready() 
@@ -61,13 +35,15 @@ function on_ready()
     range.particleSparkTransform = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Audio
-    rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
-    rangeHurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
-    rangeBulletImpactSFX = current_scene:get_entity_by_name("RangeBulletImpactSFX"):get_component("AudioSourceComponent")
-    rangeCaCImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
-    rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
+    range.rangeDyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
+    range.rangeHurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
+    range.rangeBulletImpactSFX = current_scene:get_entity_by_name("RangeBulletImpactSFX"):get_component("AudioSourceComponent")
+    range.rangeCaCImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
+    range.rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
     
-    -- Initialize bullet pool
+    -- Bullet pool
+    range.bulletPool = {}
+    range.bulletTimers = {}
     for i = 1, 5 do
         local bulletEntity = current_scene:get_entity_by_name("EnemyBullet" .. i)
 
@@ -82,24 +58,25 @@ function on_ready()
         bullet.rb:set_trigger(true)
         bullet.rb:set_position(Vector3.new(0, -5, 0))
 
-        bulletPool[i] = bullet
-        bulletTimers[i] = 0
+        range.bulletPool[i] = bullet
+        range.bulletTimers[i] = 0
     end
 
 
 
-    local enemy_type = "range"
+    -- Level
+    range.enemyType = "range"
     range:set_level()
 
-    local stats = stats_data[enemy_type] and stats_data[enemy_type][range.level]
+    local stats = stats_data[range.enemyType] and stats_data[range.enemyType][range.level]
     -- Debug in case is not working
-    if not stats then
-        log("No stats for type: " .. enemy_type .. " level: " .. range.level)
-        return
-    end
+    if not stats then log("No stats for type: " .. range.enemyType .. " level: " .. range.level) return end
 
 
-    
+
+    -- States
+    range.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Chase = 6, Stab = 7}
+
     -- Stats of the Range
     range.health = stats.health
     range.speed = stats.speed
@@ -113,85 +90,88 @@ function on_ready()
     range.maxBurstShots = stats.maxBurstShots
     range.priority = stats.priority
 
-    range.level2 = false
-    range.level3 = false
-    range.key = 0
+    -- External Timers
+    range.updateTargetInterval = stats.updateTargetInterval
+    range.timeBetweenBursts = stats.timeBetweenBursts
+    range.burstCooldown = stats.burstCooldown
+    range.stabCooldown = stats.stabCooldown
+    range.invulnerableTime = stats.invulnerableTime
 
+    -- Internal Timers
+    range.pathUpdateTimer = 0.0
+    range.pathUpdateInterval = 0.1
+    range.updateTargetTimer = 0.0
+    range.timeSinceLastShot = 0.0
+    range.burstCooldownTimer = 0.0
+    range.timeSinceLastStab = 0.0
+    range.stabCooldownTimer = 0.0
+    range.stabTimer = 1.0
+    range.bulletLifetime = 5.0
+
+    -- Animations
     range.idleAnim = 3
     range.moveAnim = 4
     range.meleeAttackAnim = 0
     range.rangeAttackAnim = 1
     range.dieAnim = 2
 
-    range.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Chase = 6, Stab = 7}
-
+    -- Bools
     range.isShootingBurst = false
     range.isChasing = false
     range.hasDealtDamage = false
     range.isfirstChase = true
     range.hasDealtDamage = false
 
+    -- Ints
     range.burstCount = 0
+    range.currentBulletIndex = 1
+
+    -- Timers
     range.dieTimer = 0.0
     range.dieAnimDuration = 1.0
 
+    -- Positions
     range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
-    range.playerDistance = range:get_distance(range.enemyTransf.position, range.playerTransf.position) + 100        -- **ESTO HAY QUE ARREGLARLO**
     range.lastTargetPos = range.playerTransf.position
     range.delayedPlayerPos = range.playerTransf.position
 
+    range.playerDistance = range:get_distance(range.enemyTransf.position, range.playerTransf.position) + 100
+
 end
 
-function update_bullets(dt)
-    for i, bullet in ipairs(bulletPool) do
-        if bullet.active then
-            bulletTimers[i] = bulletTimers[i] + dt
-            if bulletTimers[i] >= BULLET_LIFETIME then
-                deactivate_bullet(i)
-            end
-        end
-    end
-end
 
-function deactivate_bullet(index)
-    local bullet = bulletPool[index]
-    bullet.active = false
-    bullet.rb:set_position(Vector3.new(0, 0, 0))
-    bullet.rb:set_velocity(Vector3.new(0, 0, 0))
-    bulletTimers[index] = 0
-    --log("Bullet " .. index .. " deactivated")
-    --log("Bullet " .. index .. " position: " .. bullet.rb:get_position().x .. ", " .. bullet.rb:get_position().y .. ", " .. bullet.rb:get_position().z)
-end
 
 function on_update(dt) 
 
+    -- If the enemy is dead doesn't enter the on_update function
+    if range.isDead then return end
+
+    if range.playingDieAnim then
+        range.dieTimer = range.dieTimer + dt
+    end
+
+
+
+    -- Setting the zone to know if the enemy can spawn
     if range.zoneSet ~= true then
         range:check_spawn()
         range.zoneSet = true
     end
 
     if Input.is_key_pressed(Input.keycode.L) then
-        range.level2 = true
-        print("Nivel 2 activado")
+        range.level = 1
+        print("Range Level 1 active")
     elseif Input.is_key_pressed(Input.keycode.O) then
-        tank.level2 = false
-        print("Nivel 2 desactivado")
-    end
-    if Input.is_key_pressed(Input.keycode.P) then
-        range.level3 = true
-        print("Nivel 3 activado")
-    elseif Input.is_key_pressed(Input.keycode.I) then
-        range.level3 = false
-        print("Nivel 3 desactivado")
-    end
-
-    if range.isDead then return end
-    if range.playingDieAnim then
-        range.dieTimer = range.dieTimer + dt
+        range.level = 2
+        print("Range Level 2 active")
+    elseif Input.is_key_pressed(Input.keycode.P) then
+        range.level = 3
+        print("Range Level 3 active")
     end
 
     range:check_effects(dt)
     range:check_pushed(dt)
+
     if range.isPushed == true then return end
         
     update_bullets(dt)
@@ -203,7 +183,7 @@ function on_update(dt)
         if range.key ~= 0 then
             range.playerScript.enemys_targeting = range.playerScript.enemys_targeting - 1
         end
-        rangeDyingSFX:play()
+        range.rangeDyingSFX:play()
         range.currentState = range.state.Dead
         
     end
@@ -213,21 +193,20 @@ function on_update(dt)
         range.shieldDestroyed=true
     end
 
-    pathUpdateTimer = pathUpdateTimer + dt
-    updateTargetTimer = updateTargetTimer + dt
-    timeSinceLastHit = timeSinceLastHit + dt
+    range.pathUpdateTimer = range.pathUpdateTimer + dt
+    range.updateTargetTimer = range.updateTargetTimer + dt
 
     if range.invulnerable then
-        invulnerableTime = invulnerableTime - dt
-        if invulnerableTime <= 0 then
+        range.invulnerableTime = range.invulnerableTime - dt
+        if range.invulnerableTime <= 0 then
             range.invulnerable = false
-            invulnerableTime = 5.0
+            range.invulnerableTime = 5.0
         end
     end
 
     
     local currentTargetPos = range.playerTransf.position
-    if pathUpdateTimer >= pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
+    if range.pathUpdateTimer >= range.pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
         range.lastTargetPos = currentTargetPos
         range:check_initial_distance()
         if range.playerDetected then
@@ -235,12 +214,12 @@ function on_update(dt)
         else
             range:update_path_position(range.enemyInitialPos)
         end
-        pathUpdateTimer = 0
+        range.pathUpdateTimer = 0
     end
 
-    if updateTargetTimer >= updateTargetInterval then
+    if range.updateTargetTimer >= range.updateTargetInterval then
         range.delayedPlayerPos = Vector3.new(range.playerTransf.position.x, range.playerTransf.position.y, range.playerTransf.position.z)
-        updateTargetTimer = 0
+        range.updateTargetTimer = 0
     end
 
     if range.playerDetected then
@@ -283,12 +262,10 @@ function change_state()
         if range.playerDistance <= range.meleeAttackRange then
             if range.currentState ~= range.state.Stab then
                 range.currentState = range.state.Stab
-                log("Stab state")
             end
                 
         elseif range.playerDistance > range.meleeAttackRange and range.currentState == range.state.Stab then
             range.currentState = range.state.Chase
-            log("Chase state")
         end
                 
         return
@@ -299,30 +276,28 @@ function change_state()
         if range.currentState ~= range.state.Stab then
             range.currentState = range.state.Stab
             range.isChasing = true
-            log("Stab state")
         end
                 
     elseif range.playerDistance <= range.chaseRange then
         if range.currentState ~= range.state.Chase then
             range.currentState = range.state.Chase
             range.isChasing = true
-            log("Chase state")
         end
                 
     elseif range.playerDetected and range.playerDistance <= range.rangeAttackRange then
         if range.currentState ~= range.state.Shoot then
             range.currentState = range.state.Shoot
-            log("Shoot state")
         end
                 
     elseif range.playerDetected and range.playerDistance > range.rangeAttackRange then
         if range.currentState ~= range.state.Move then
             range.currentState = range.state.Move
-            log("Move state")
         end
     end
 
 end
+
+
 
 function range:shoot_state(dt)
 
@@ -343,17 +318,17 @@ function range:shoot_state(dt)
             range.animator:set_current_animation(range.currentAnim)
         end 
 
-        timeSinceLastShot = timeSinceLastShot + dt
+        range.timeSinceLastShot = range.timeSinceLastShot + dt
 
-        if timeSinceLastShot >= burstCooldown and range.burstCount < range.maxBurstShots then
+        if range.timeSinceLastShot >= range.burstCooldown and range.burstCount < range.maxBurstShots then
             shoot_projectile(shouldTargetExplosive)
             range.burstCount = range.burstCount + 1
-            timeSinceLastShot = 0
-            rangeShotSFX:play()
+            range.timeSinceLastShot = 0
+            range.rangeShotSFX:play()
 
             if range.burstCount >= range.maxBurstShots then
                 range.isShootingBurst = false
-                burstCooldownTimer = 0
+                range.burstCooldownTimer = 0
             end
         end
     else
@@ -362,19 +337,20 @@ function range:shoot_state(dt)
             range.animator:set_current_animation(range.currentAnim)
         end
 
-        burstCooldownTimer = burstCooldownTimer + dt
+        range.burstCooldownTimer = range.burstCooldownTimer + dt
 
-        if burstCooldownTimer >= timeBetweenBursts then
+        if range.burstCooldownTimer >= range.timeBetweenBursts then
             range.isShootingBurst = true
             range.burstCount = 0
-            timeSinceLastShot = 0
+            range.timeSinceLastShot = 0
         end
     end
+
 end
 
 function range:chase_state()
 
-    if range.level3 then
+    if range.level == 3 then
         if range.isfirstChase then
             range.invulnerable = true
             range.isfirstChase = false
@@ -394,8 +370,8 @@ function range:stab_state(dt)
 
     range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     
-    if stabCooldownTimer > 0 then
-        stabCooldownTimer = stabCooldownTimer - dt
+    if range.stabCooldownTimer > 0 then
+        range.stabCooldownTimer = range.stabCooldownTimer - dt
         if range.currentAnim ~= range.idleAnim then
             range.currentAnim = range.idleAnim
             range.animator:set_current_animation(range.currentAnim)
@@ -403,9 +379,9 @@ function range:stab_state(dt)
         return 
     end
 
-        timeSinceLastStab = timeSinceLastStab + dt
+        range.timeSinceLastStab = range.timeSinceLastStab + dt
 
-    if timeSinceLastStab < stabTimer then
+    if range.timeSinceLastStab < range.stabTimer then
         if range.currentAnim ~= range.meleeAttackAnim then
             range.currentAnim = range.meleeAttackAnim
             range.animator:set_current_animation(range.currentAnim)
@@ -416,23 +392,51 @@ function range:stab_state(dt)
             range.particleSpark:emit(5)
 
             range:make_damage(range.meleeDamage)
-            if range.level2 or range.leve3 then
+            if range.level > 1 then
                 effect:apply_bleed(range.playerScript)
             end
 
             range.hasDealtDamage = true
         end
 
-    elseif timeSinceLastStab >= stabTimer then
-        timeSinceLastStab = 0
-        stabCooldownTimer = stabCooldown 
+    elseif range.timeSinceLastStab >= range.stabTimer then
+        range.timeSinceLastStab = 0
+        range.stabCooldownTimer = range.stabCooldown 
         range.hasDealtDamage = false
     end
 
 end
 
+
+
+function update_bullets(dt)
+
+    for i, bullet in ipairs(range.bulletPool) do
+        if bullet.active then
+            range.bulletTimers[i] = range.bulletTimers[i] + dt
+            if range.bulletTimers[i] >= range.bulletLifetime then
+                deactivate_bullet(i)
+            end
+        end
+    end
+
+end
+
+function deactivate_bullet(index)
+
+    local bullet = range.bulletPool[index]
+    bullet.active = false
+
+    bullet.rb:set_position(Vector3.new(0, 0, 0))
+    bullet.rb:set_velocity(Vector3.new(0, 0, 0))
+
+    range.bulletTimers[index] = 0
+
+end
+
 function shoot_projectile(targetExplosive)
-    local bullet = bulletPool[currentBulletIndex]
+
+    local bullet = range.bulletPool[range.currentBulletIndex]
     
     local startPos = Vector3.new(
         range.enemyTransf.position.x -0.2,
@@ -443,7 +447,7 @@ function shoot_projectile(targetExplosive)
     
     -- Target position
     local targetPos = range.delayedPlayerPos -- Default to player
-    if targetExplosive and range.explosiveDetected and range.level3 then -- Switch to explosive if detected
+    if targetExplosive and range.explosiveDetected and range.level == 3 then -- Switch to explosive if detected
         targetPos = range.explosiveTransf.position 
     end
 
@@ -458,7 +462,7 @@ function shoot_projectile(targetExplosive)
         dz * range.bulletSpeed
     ))
     bullet.active = true
-    bulletTimers[currentBulletIndex] = 0
+    range.bulletTimers[range.currentBulletIndex] = 0
 
     -- Collision handling for current bullet
     bullet.rbComponent:on_collision_enter(function(entityA, entityB)
@@ -471,14 +475,15 @@ function shoot_projectile(targetExplosive)
             range:make_damage(range.rangeDamage) 
         end
         
-        deactivate_bullet(currentBulletIndex)
+        deactivate_bullet(range.currentBulletIndex)
     end)
 
     -- Update bullet index
-    currentBulletIndex = currentBulletIndex + 1
-    if currentBulletIndex > 5 then
-        currentBulletIndex = 1
+    range.currentBulletIndex = range.currentBulletIndex + 1
+    if range.currentBulletIndex > 5 then
+        range.currentBulletIndex = 1
     end
+
 end
 
 function on_exit() end
