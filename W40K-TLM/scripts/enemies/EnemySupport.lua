@@ -22,6 +22,7 @@ local supportShieldZapsSFX
 local supportShieldAssignSFX
 local supportDeadSFX
 
+
 function on_ready() 
 
     support.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
@@ -30,13 +31,14 @@ function on_ready()
     support.playerTransf = support.player:get_component("TransformComponent")
     support.playerScript = support.player:get_component("ScriptComponent")
 
+    support.prefabShield = current_scene:get_entity_by_name("Shield")
+
     support.enemyTransf = self:get_component("TransformComponent")
     support.animator = self:get_component("AnimatorComponent")
     support.enemyRbComponent = self:get_component("RigidbodyComponent")
     support.enemyRb = support.enemyRbComponent.rb
     support.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
-    support.prefabShield = current_scene:get_entity_by_name("Shield")
 
     support.waypointsParent = current_scene:get_entity_by_name("WaypointsParent")
 
@@ -164,8 +166,15 @@ function on_update(dt)
 end
 
 function change_state()
-    -- Resetear allShielded al inicio
     support.allShielded = true
+
+   
+    local distanceToPlayer = support:get_distance(support.enemyTransf.position, support.playerTransf.position)
+    
+    if distanceToPlayer > 35 then   
+        support.currentState = support.state.Idle
+        return
+    end
 
     if findEnemiesTimer >= findEnemiesInterval then
         find_all_enemies()
@@ -177,45 +186,47 @@ function change_state()
         return
     end
 
-    for _, enemyData in ipairs(support.Enemies) do
-        if not enemyData.haveShield then
-            support.allShielded = false
-            break
+
+    local filteredEnemies = {}
+    local suppPos = support.enemyTransf.position
+
+    for _, enemy in ipairs(support.Enemies) do
+        if enemy.transform then
+            local dist = support:get_distance(suppPos, enemy.transform.position)
+            if dist <= 20 then
+                table.insert(filteredEnemies, enemy)
+                if not enemy.haveShield then
+                    support.allShielded = false
+                end
+            end
         end
     end
-    
-    if support.allShielded then
+
+    support.Enemies = filteredEnemies
+
+    if #support.Enemies == 0 or support.allShielded then
         support.currentState = support.state.Flee
         return
     end
 
-    -- Obtener distancias una sola vez para eficiencia
-    local enemyDistances = enemies_distance()
-    
-    -- Obtener estados de escudo una sola vez
+    local distances = enemies_distance()
     local shieldStates = update_shield_status()
-    
-    -- Crear una tabla para buscar rápidamente el estado del escudo
     local shieldLookup = {}
-    for _, shield in ipairs(shieldStates) do
-        shieldLookup[shield.enemy.name] = shield.haveShield
+    for _, s in ipairs(shieldStates) do
+        shieldLookup[s.enemy.name] = s.haveShield
     end
 
-    local closestUnshieldedEnemy = nil
-    local minDistance = math.huge
-
-    for _, distData in ipairs(enemyDistances) do
-        local hasShield = shieldLookup[distData.enemy.name] or false
-        if not hasShield and distData.distance < minDistance then
-            minDistance = distData.distance
-            closestUnshieldedEnemy = distData.enemy
+    local closest, minD = nil, math.huge
+    for _, d in ipairs(distances) do
+        if not shieldLookup[d.enemy.name] and d.distance < minD then
+            minD = d.distance
+            closest = d.enemy
         end
     end
-    
-    if closestUnshieldedEnemy then
-        support.currentTarget = closestUnshieldedEnemy
-        
-        if minDistance <= support.shieldRange and support.canUseShield then
+
+    support.currentTarget = closest
+    if closest then
+        if minD <= support.shieldRange and support.canUseShield then
             support.currentState = support.state.Shield
         else
             support.currentState = support.state.Move
@@ -353,6 +364,7 @@ function support:shield_state(dt)
 
     support.currentState = support.state.Move
 end
+
 
 function support:flee_state(dt)
 
@@ -585,6 +597,7 @@ function create_new_shield(targetEnemy)
     
     return newShield
 end
+
 
 function update_waypoint_path()
     

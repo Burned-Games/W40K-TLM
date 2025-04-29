@@ -1,6 +1,6 @@
 local shieldTransform = nil
 targetEnemy = nil
-local isActive = false
+isActive = false
 
 function on_ready()
     shieldTransform = self:get_component("TransformComponent")
