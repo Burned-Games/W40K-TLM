@@ -653,14 +653,17 @@
 								</Sound>
 								<Sound Name="BannerZone" ID="{DC9EC547-FBF1-46C8-8CD4-4C9F288F95D3}" ShortID="907244663">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="6"/>
+										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="75"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
 											<Custom>
 												<Attenuation Name="Attenuation (Custom)" ID="{26C12D84-8507-4975-B43A-C79FB69D7BF2}" ShortID="103558245">
+													<PropertyList>
+														<Property Name="RadiusMax" Type="Real64" Value="6"/>
+													</PropertyList>
 													<CurveUsageInfoList>
 														<VolumeDryUsage>
 															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -675,7 +678,7 @@
 																			<Flags>5</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>100</XPos>
+																			<XPos>6</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>37</Flags>
 																		</Point>
@@ -2965,12 +2968,15 @@
 						<Sound Name="metaldoor" ID="{B8D1703E-5B8A-420A-8031-AF8E7E024064}" ShortID="778818223">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="1"/>
-								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="10"/>
+								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="75"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{A7482390-6FE3-4E54-8AC7-920350BCF4B4}" ShortID="588054715">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="10"/>
+											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -2985,7 +2991,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>100</XPos>
+																	<XPos>10</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -3073,18 +3079,21 @@
 						</Sound>
 						<Sound Name="fireburn" ID="{2CD28626-8295-4BEC-B06B-53C34CBED4F6}" ShortID="99447398">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="7"/>
+								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="75"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
-										<Attenuation Name="Attenuation (Custom)" ID="{B2C33250-F46C-4778-9510-76199F033520}" ShortID="497899049">
+										<Attenuation Name="Attenuation (Custom)" ID="{D1D6F6A8-BA06-4D6E-A72A-DEAEFEBEF89B}" ShortID="804337883">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="7"/>
+											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-														<Curve Name="VolumeDry" ID="{69D154DF-A42B-4DC9-9ADC-5F1F66AE3625}">
+														<Curve Name="VolumeDry" ID="{8A2F85F6-2F62-40B6-B5C5-045FF11E9E74}">
 															<PropertyList>
 																<Property Name="Flags" Type="int32" Value="3"/>
 															</PropertyList>
@@ -3095,7 +3104,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>100</XPos>
+																	<XPos>7</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -3113,7 +3122,25 @@
 													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
 												</LowPassFilterUsage>
 												<HighPassFilterUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None">
+														<Curve Name="HighPassFilter" ID="{BACE519B-7557-4716-83D1-4652C62F6FF7}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="65537"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>7</XPos>
+																	<YPos>100</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
 												</HighPassFilterUsage>
 												<SpreadUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
@@ -3205,14 +3232,17 @@
 						</Sound>
 						<Sound Name="firetorch" ID="{3A60FE82-D333-4650-973F-EB287734A54D}" ShortID="652486474">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="5"/>
+								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="75"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{F7DEAAE0-400E-46B7-A762-B3665318103A}" ShortID="683099813">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="5"/>
+											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -3227,7 +3257,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>100</XPos>
+																	<XPos>5</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>

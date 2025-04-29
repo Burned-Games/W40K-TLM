@@ -3107,7 +3107,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{05529676-04F2-8A01-A3BE-1B9B778C70FF}",
+    "Hash": "{9684A7D9-DAA7-BDDA-1382-D07D994E8553}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -3159,7 +3159,7 @@
       "Name": "Play_fireburn",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_fireburn",
       "GUID": "{A89DE179-729A-421B-BD9B-CD336F69964E}",
-      "MaxAttenuation": "100",
+      "MaxAttenuation": "7",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -3172,7 +3172,7 @@
       "Name": "Play_firetorch",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_firetorch",
       "GUID": "{812307E1-0975-4903-A4F7-D8A139FF55AD}",
-      "MaxAttenuation": "100",
+      "MaxAttenuation": "5",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -3213,7 +3213,7 @@
       "Name": "Play_metaldoor",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_metaldoor",
       "GUID": "{ED62D851-4499-4458-AB59-0AAF8975C447}",
-      "MaxAttenuation": "100",
+      "MaxAttenuation": "10",
       "DurationType": "OneShot",
       "DurationMin": "6.2363124",
       "DurationMax": "6.2363124",
@@ -3365,7 +3365,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{10CFF669-76C8-57D0-ACE4-1212553A231E}",
+    "Hash": "{A6AD4975-A521-A2E8-9D18-AD5DF7DCAB1B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -3471,7 +3471,7 @@
       "Name": "Play_BannerZone",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\New\\Play_BannerZone",
       "GUID": "{6A1A6AB0-C3F3-4907-AA3A-6C294C00B6C3}",
-      "MaxAttenuation": "100",
+      "MaxAttenuation": "6",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -3550,6 +3550,6 @@
     ]
    }
   ],
-  "FileHash": "{9A8B09FB-95FB-625F-2797-AEB30C559255}"
+  "FileHash": "{088926CB-862E-D3EA-7ACC-A823C6006F42}"
  }
 }

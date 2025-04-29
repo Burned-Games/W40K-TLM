@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{10CFF669-76C8-57D0-ACE4-1212553A231E}",
+    "Hash": "{A6AD4975-A521-A2E8-9D18-AD5DF7DCAB1B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -116,7 +116,7 @@
       "Name": "Play_BannerZone",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\New\\Play_BannerZone",
       "GUID": "{6A1A6AB0-C3F3-4907-AA3A-6C294C00B6C3}",
-      "MaxAttenuation": "100",
+      "MaxAttenuation": "6",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -195,6 +195,6 @@
     ]
    }
   ],
-  "FileHash": "{43ADC7C0-E238-1ACD-68F1-BE6FA54BC5E3}"
+  "FileHash": "{70CB6385-5258-6404-0DBC-A30890D308B0}"
  }
 }
