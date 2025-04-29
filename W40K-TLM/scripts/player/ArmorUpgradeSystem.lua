@@ -1,7 +1,6 @@
 local Player = nil
 local UpgradeManager = nil
 
-local combatTimer = 0
 local protectionTimer = 0
 local protectionActive = false
 
@@ -26,30 +25,12 @@ function on_ready()
     fervorAstartesStandardEntity = current_scene:get_entity_by_name("FervorAstartesStandard")
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     fervorAniamtor = fervorAstartesStandardEntity:get_component("AnimatorComponent")
-
 end
 
 function on_update(dt)
     if not pauseMenu.isPaused then
-        update_combat_state(dt)
         update_protection(dt)
         handle_fervor_astartes(dt)
-    end
-end
-
--- Function to update the combat state of the player
-function update_combat_state(dt)
-    if Player.tookDamage or Player.makeDamage then
-        combatTimer = 5.0
-        Player.tookDamage = false
-        Player.makeDamage = false
-    else
-        if combatTimer > 0 then
-            combatTimer = combatTimer - dt
-            if combatTimer <= 0 then
-                protectionTimer = 0
-            end
-        end
     end
 end
 
@@ -59,7 +40,7 @@ function update_protection(dt)
         return
     end
 
-    if combatTimer <= 0 then
+    if Player.combatTimer <= 0 then
         if not protectionActive then
             protectionActive = true
             Player.damageReduction = 0.9
@@ -71,6 +52,11 @@ function update_protection(dt)
             protectionActive = false
             Player.damageReduction = 1.0
         end
+    end
+    
+    -- Reset protection timer when combat ends
+    if Player.combatTimer <= 0 then
+        protectionTimer = 0
     end
 end
 

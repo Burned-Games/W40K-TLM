@@ -6,6 +6,7 @@
 local battleTrigger = nil -- child object with rigidbody
 local spawnPoint = nil -- child object, no components required
 local exitDoor = nil -- child object, no components required
+local arenaEnterDoor= nil
 
 local spawnRadius = 1.5 -- max distance from center to spawn enemies
 
@@ -29,6 +30,8 @@ waitingForKeyPress = false
 local allWavesCompleted = false
 
 local bBattleTrigger = false
+local doorTimer = 3.0
+local isDoorTimerActive = false
 
 -- Variables para controlar el estado de las teclas -- DELETE LATER
 local m_key_pressed = false
@@ -41,8 +44,9 @@ function on_ready()
     --enemyPool = current_scene:get_entity_by_name("ArenaEnemyPool")
     battleTrigger = current_scene:get_entity_by_name("ArenaBattleTrigger")
     spawnPoint = current_scene:get_entity_by_name("ArenaSpawnCenter"):get_component("TransformComponent").position
-    exitDoor = current_scene:get_entity_by_name("ArenaExitDoor")
+    exitDoor = current_scene:get_entity_by_name("ArenaExitCollission")
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
+    arenaEnterDoor = current_scene:get_entity_by_name("ArenaEnterCollission")
     
     -- Range enemies
     for i = 1, 6 do -- Serían 5 según el figma (falta poner un SUPP)
@@ -176,6 +180,17 @@ function on_update(dt)
         local enemyCount, enemiesDead = checkEnemyStatus()
         checkWaveCompletion(enemyCount, enemiesDead)
     end
+    
+    -- Timer para cerrar la puerta de entrada de la arena
+    if isDoorTimerActive then
+        doorTimer = doorTimer - dt
+        if doorTimer <= 0 then
+            local rbDoor = arenaEnterDoor:get_component("RigidbodyComponent").rb
+            rbDoor:set_trigger(false)
+            log("Arena entry door closed!")
+            isDoorTimerActive = false
+        end
+    end
 end
 
 function on_exit()
@@ -279,8 +294,9 @@ function listContainsValue(list, value)
 end
 
 function openDoor()
-    log("Opening exit door")
-    -- TODO -> Guillem??
+    local rbComponent = exitDoor:get_component("RigidbodyComponent")
+    local rb = rbComponent.rb
+    rb:set_trigger(true)
 end
 
 function configureBattleTrigger()
@@ -288,6 +304,11 @@ function configureBattleTrigger()
     local rb = rbComponent.rb
     rb:set_trigger(true)
     rb:set_use_gravity(false)
+
+    local rbDoor = arenaEnterDoor:get_component("RigidbodyComponent")
+    local rbDoor = rbDoor.rb
+    rbDoor:set_trigger(true)
+    rbDoor:set_use_gravity(false)
     
     rbComponent:on_collision_enter(function(entityA, entityB)
         if entityA:get_component("TagComponent").tag == "Player" or entityB:get_component("TagComponent").tag == "Player" then
@@ -299,6 +320,10 @@ function configureBattleTrigger()
             waitingForKeyPress = false
             allWavesCompleted = false
             bBattleTrigger = true
+
+            doorTimer = 3.0
+            isDoorTimerActive = true
+            log("Door will close in 3 seconds")
             
             -- Start the first wave immediately
             spawnLogic()
