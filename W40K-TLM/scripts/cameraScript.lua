@@ -71,12 +71,16 @@ local mapPolygonLevel1 = {
 
 local mapPolygonLevel2 = {
     {x = -1000, z = -1000},
-    {x = 1000, z = 1000}
+    {x = 1000, z = 1000},
+    {x = -1000, z = 1000},
+    {x = 1000, z = -1000}
 }
 
 local mapPolygonLevel3 = {
     {x = -1000, z = -1000},
-    {x = 1000, z = 1000}
+    {x = 1000, z = 1000},
+    {x = -1000, z = 1000},
+    {x = 1000, z = -1000}
 }
 
 local actualMapPolygon = nil
