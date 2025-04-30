@@ -58,7 +58,7 @@ function on_ready()
 
 
     -- Level
-    support.enemy_type = "support"
+    support.enemyType = "support"
     support:set_level()
 
     local stats = stats_data[support.enemyType] and stats_data[support.enemyType][support.level]
@@ -120,11 +120,9 @@ function on_ready()
     support.waypointPos[1] = support.wp1Transf.position
     support.waypointPos[2] = support.wp2Transf.position
     support.waypointPos[3] = support.wp3Transf.position
-
 end
 
 function on_update(dt)
-
     if support.zoneSet ~= true then
         support:check_spawn()
         support.zoneSet = true

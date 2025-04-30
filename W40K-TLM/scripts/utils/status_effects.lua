@@ -67,24 +67,24 @@ function effect:ApplyNeuralChanges(speed, attackSpeed)
     return Vector2.new(newSpeed, newattackSpeed)
 end
 
--- function effect:ApplyStun()
---     self.isStunned = true
---     stunTimer = stunDuration
---     timeSinceLastStun = 0
--- end
+function effect:ApplyStun()
+    self.isStunned = true
+    stunTimer = stunDuration
+    timeSinceLastStun = 0
+end
 
--- function effect:ManageStun(dt)
+function effect:ManageStun(dt)
     
---     stunTimer = stunTimer - dt
---     timeSinceLastStun = timeSinceLastStun + dt
+    stunTimer = stunTimer - dt
+    timeSinceLastStun = timeSinceLastStun + dt
 
---     if timeSinceLastStun >= stunInterval then
---         timeSinceLastStun = 0
---     end
+    if timeSinceLastStun >= stunInterval then
+        timeSinceLastStun = 0
+    end
 
---     if stunTimer <= 0 then
---         self.isStunned = false
---     end
--- end
+    if stunTimer <= 0 then
+        self.isStunned = false
+    end
+end
 
 return effect
