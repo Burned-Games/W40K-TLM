@@ -127,8 +127,15 @@ function on_ready()
         end
     end
 
-    
-    actualMapPolygon = mapPolygonLevel1
+    log(SceneManager:get_scene_name())
+
+    if SceneManager:get_scene_name() == "level1.TeaScene" then
+        actualMapPolygon = mapPolygonLevel1
+    elseif SceneManager:get_scene_name() == "level2.TeaScene" then
+        actualMapPolygon = mapPolygonLevel2
+    elseif SceneManager:get_scene_name() == "level3.TeaScene" then
+        actualMapPolygon = mapPolygonLevel3
+    end
 
 end
 
