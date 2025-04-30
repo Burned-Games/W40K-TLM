@@ -144,6 +144,9 @@ function on_ready()
     main_boss.hasMovedToCenter = false
     main_boss.isReturning = false
 
+    -- Vector3
+    main_boss.ultimateVibration = Vector3.new(1, 1, 200)
+
     -- Positions
     main_boss.lastTargetPos = main_boss.playerTransf.position
 
@@ -233,6 +236,8 @@ function on_update(dt)
             main_boss.ultiHittingTimer = main_boss.ultiHittingTimer + dt
 
             check_ulti_collision()
+            Input.send_rumble(main_boss.ultimateVibration.x, main_boss.ultimateVibration.y, main_boss.ultimateVibration.z)
+            
             if main_boss.ultiHittingTimer >= main_boss.ultiHittingDuration then
                 main_boss.ultimateTransf.position = Vector3.new(-500, 0, -150)
 

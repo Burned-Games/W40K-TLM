@@ -102,6 +102,8 @@ local vibrationDisrruptorChargeSettings = Vector3.new(0.2, 0.2, 100)
 
 local manualReload = false
 
+local vfxShoot = nil
+
 function on_ready()
 
     player = current_scene:get_entity_by_name("Player")
@@ -116,6 +118,14 @@ function on_ready()
     -- sphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
     -- sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
     -- sphere1RigidBody:set_trigger(true)
+
+    local children = player:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "vfxShoot" then
+            vfxShoot = child
+            vfxShoot:get_component("TransformComponent").position.y = -830
+        end
+    end
 
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
@@ -343,15 +353,19 @@ function on_update(dt)
                 
                 if shootCoolDown >= currentShootCoolDownRifle then
                     tripleShoot()
-
+                    --vfxShoot:get_component("TransformComponent").position.y = 1.403
                     --shootParticlesComponent:emit(6)
                     ammo = ammo + 3
                     shooted = true
                     shootCoolDown = 0
                     shootAnimation = false
+                else
+                    
                 end
 
             else
+                
+                --vfxShoot:get_component("TransformComponent").position.y = 830
                 shootAnimation = false
             end
 
