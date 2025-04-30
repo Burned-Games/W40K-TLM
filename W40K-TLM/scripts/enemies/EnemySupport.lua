@@ -83,12 +83,13 @@ function on_ready()
     support.attackRange = stats.attackRange
 
     -- Debug stats
-    support.idleAnim = 0
-    support.moveAnim = 0
+    support.idleAnim = 3
+    support.moveAnim = 6
     support.attackAnim = 0
-    support.shieldAnim = 1
-    support.dieAnim = 2
-    support.key = 0
+    support.shieldAnim = 4
+    support.dieAnim = 1
+    support.hitAnim = 2
+    support.stunAnim = 5
 
     support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Flee = 5, Shield = 6}
 
@@ -538,7 +539,7 @@ end
 function get_priority_enemy()
     local priorityEnemies = {}
     
-    -- Obtener prioridades y enemigos
+    
     for _, enemyData in ipairs(support.Enemies) do
         if enemyData.priority then
             table.insert(priorityEnemies, {
@@ -548,7 +549,7 @@ function get_priority_enemy()
         end
     end
     
-    -- Ordenar descendientemente por prioridad (mayor primero)
+    
     table.sort(priorityEnemies, function(a, b)
         return a.priority > b.priority
     end)
