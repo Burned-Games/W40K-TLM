@@ -21,7 +21,7 @@ local reloadSpeedMultiplier = 1.0
 
 -- Define the bullet speed
 local bullet_speed = 10.0
-local sphereSpeed = 100
+local sphereSpeed = 50
 -- BulletList
 local bullets = {}
 local bulletCount = 8  -- Bullet Num
@@ -440,7 +440,7 @@ function handle_bullet_collision(entityA, entityB)
         end
     end
     
-    if bulletEntity and nameA ~= "Player" and nameB ~= "Player" and nameA ~= "FloorCollider" and nameB ~= "FloorCollider" then
+    if bulletEntity and nameA ~= "Player" and nameB ~= "Player" and nameA ~= "FloorCollider" and nameB ~= "FloorCollider" and nameA ~= "Sphere1" and nameB ~= "Sphere1" and nameA ~= "Sphere2" and nameB ~= "Sphere2" and nameA ~= "Sphere3" and nameB ~= "Sphere3" and nameA ~= "Sphere4" and nameB ~= "Sphere4" and nameA ~= "Sphere5" and nameB ~= "Sphere5" and nameA ~= "Sphere6" and nameB ~= "Sphere6" and nameA ~= "Sphere7" and nameB ~= "Sphere7" and nameA ~= "Sphere8" and nameB ~= "Sphere8" then
         bulletEntity.rigidBody:set_position(Vector3.new(0, -250, 0))
         bulletEntity.rigidBody:set_velocity(Vector3.new(0, 0, 0))
     end
