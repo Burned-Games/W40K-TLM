@@ -25,13 +25,6 @@ function on_ready()
         range.playerObjects[i] = current_scene:get_entity_by_name(range.playerObjectsTagList[i]):get_component("TransformComponent")
     end
 
-    -- Alert
-    range.alertRadius = 10.0
-    range.isAlerted = false
-    range.findRangesTimer = 0.0
-    range.findRangesInterval = 1.5
-    range.nearbyRanges = {}
-
     -- Explosive
     range.explosive = current_scene:get_entity_by_name("Explosive")
     range.explosiveTransf = range.explosive:get_component("TransformComponent")
@@ -106,6 +99,7 @@ function on_ready()
     range.burstCooldown = stats.burstCooldown
     range.stabCooldown = stats.stabCooldown
     range.invulnerableTime = stats.invulnerableTime
+    range.alertRadius = stats.alertRadius
 
     -- Internal Timers
     range.pathUpdateTimer = 0.0
@@ -117,6 +111,8 @@ function on_ready()
     range.stabCooldownTimer = 0.0
     range.stabTimer = 1.0
     range.bulletLifetime = 5.0
+    range.findRangesTimer = 0.0
+    range.findRangesInterval = 1.5
 
     -- Animations
     range.idleAnim = 3
@@ -131,6 +127,7 @@ function on_ready()
     range.hasDealtDamage = false
     range.isfirstChase = true
     range.hasDealtDamage = false
+    range.isAlerted = false
 
     -- Ints
     range.burstCount = 0
@@ -139,6 +136,9 @@ function on_ready()
     -- Timers
     range.dieTimer = 0
     range.dieAnimDuration = 61
+
+    -- Lists
+    range.nearbyRanges = {}
 
     -- Positions
     range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
