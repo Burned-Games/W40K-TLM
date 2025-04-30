@@ -94,8 +94,6 @@
         skill1VisualCooldown = skill1VisualCooldownEntity:get_component("UIImageComponent")
         skill1TextCooldownEntity = current_scene:get_entity_by_name("Habilidad1CooldownText")
         skill1TextCooldown = skill1TextCooldownEntity:get_component("UITextComponent")
-        skill1VisualCooldownTransform = skill1VisualCooldownEntity:get_component("TransformComponent")
-        skill1VisualCooldownStartingPosition = Vector3.new(skill1VisualCooldownTransform.position.x, skill1VisualCooldownTransform.position.y, skill1VisualCooldownTransform.position.z)
 
         skill2 = current_scene:get_entity_by_name("Habilidad2Activable"):get_component("UIToggleComponent")
         skill2ButtonEntity = current_scene:get_entity_by_name("Habilidad2Boton")
@@ -104,8 +102,6 @@
         skill2VisualCooldown = skill2VisualCooldownEntity:get_component("UIImageComponent")
         skill2TextCooldownEntity = current_scene:get_entity_by_name("Habilidad2CooldownText")
         skill2TextCooldown = skill2TextCooldownEntity:get_component("UITextComponent")
-        skill2VisualCooldownTransform = skill2VisualCooldownEntity:get_component("TransformComponent")
-        skill2VisualCooldownStartingPosition = Vector3.new(skill2VisualCooldownTransform.position.x, skill2VisualCooldownTransform.position.y, skill2VisualCooldownTransform.position.z)
 
         skill3 = current_scene:get_entity_by_name("Habilidad3Activable"):get_component("UIToggleComponent")
         skill3ButtonEntity = current_scene:get_entity_by_name("Habilidad3Boton")
@@ -114,8 +110,6 @@
         skill3VisualCooldown = skill3VisualCooldownEntity:get_component("UIImageComponent")
         skill3TextCooldownEntity = current_scene:get_entity_by_name("Habilidad3CooldownText")
         skill3TextCooldown = skill3TextCooldownEntity:get_component("UITextComponent")
-        skill3VisualCooldownTransform = skill3VisualCooldownEntity:get_component("TransformComponent")
-        skill3VisualCooldownStartingPosition = Vector3.new(skill3VisualCooldownTransform.position.x, skill3VisualCooldownTransform.position.y, skill3VisualCooldownTransform.position.z)
 
         skillsArmasTextCooldownEntity = current_scene:get_entity_by_name("HabilidadesArmasCooldown")
         skillsArmasTextCooldown = skillsArmasTextCooldownEntity:get_component("UITextComponent")
@@ -173,15 +167,6 @@
         skillArma1.value = upgradeManager:has_weapon_special()
         skillArma2.value = upgradeManager:has_weapon_special() 
 
-        skill1VisualCooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
-        skill1TextCooldown:set_color(Vector4.new(1, 1, 1, 1))
-        skill2VisualCooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
-        skill2TextCooldown:set_color(Vector4.new(1, 1, 1, 1))
-        skill3VisualCooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
-        skill3TextCooldown:set_color(Vector4.new(1, 1, 1, 1))
-        skillArma1Cooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
-        skillArma2Cooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
-        skillsArmasTextCooldown:set_color(Vector4.new(1, 1, 1, 1))
     end
 
 
