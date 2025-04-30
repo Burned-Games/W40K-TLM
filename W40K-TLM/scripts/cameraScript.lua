@@ -69,6 +69,9 @@ local mapPolygonLevel1 = {
     {x = -8,  z = -19}
 }
 
+
+
+
 local mapPolygonLevel2 = {
     {x = 100, z = 100},
     {x = 300, z = 120},
@@ -146,11 +149,24 @@ function on_update(dt)
         local targetPos = Vector3.new(playerPos.x + zoomOffSet.x + forwardVector.x * offsetPlayer, playerPos.y + zoomOffSet.y + forwardVector.y * offsetPlayer, playerPos.z + zoomOffSet.z + forwardVector.z * offsetPlayer)
     
         --Check camera in map bounds
-        if IsPointInPolygon(playerPos.x, playerPos.z,  actualMapPolygon) then
-            local currentPos = cameraTransform.position
-            smoothPos = Vector3.lerp(currentPos, targetPos, dt * cameraSpeed)
-            cameraTransform.position = smoothPos
+        local targetX = targetPos.x
+        local targetZ = targetPos.z
+
+        -- Si está fuera del polígono, buscamos un punto válido cercano
+        if not IsPointInPolygon(targetX, targetZ, actualMapPolygon) then
+            -- Busca el punto más cercano dentro del polígono
+            local closest = GetClosestPointInPolygon(targetX, targetZ, actualMapPolygon)
+            targetX = closest.x
+            targetZ = closest.z
         end
+
+        -- Usamos la Y original porque la cámara flota
+        local adjustedTarget = Vector3.new(targetX, targetPos.y, targetZ)
+
+        -- Movimiento suave como antes
+        local currentPos = cameraTransform.position
+        smoothPos = Vector3.lerp(currentPos, adjustedTarget, dt * cameraSpeed)
+        cameraTransform.position = smoothPos
 
         if not cameraBossActivated and playerScript.godMode == false and pauseScript.isPaused == false then
             if Input.is_button_pressed(Input.controllercode.DpadUp) then
@@ -269,6 +285,42 @@ function IsPointInPolygon(x, z, polygon)
         j = i
     end
     return inside
+end
+
+function GetClosestPointInPolygon(x, z, polygon)
+    local closest = {x = polygon[1].x, z = polygon[1].z}
+    local minDistSq = math.huge
+
+    for i = 1, #polygon do
+        local a = polygon[i]
+        local b = polygon[(i % #polygon) + 1]
+
+        local proj = ProjectPointOnSegment(x, z, a.x, a.z, b.x, b.z)
+        local dx = x - proj.x
+        local dz = z - proj.z
+        local distSq = dx * dx + dz * dz
+
+        if distSq < minDistSq then
+            minDistSq = distSq
+            closest = proj
+        end
+    end
+
+    return closest
+end
+
+function ProjectPointOnSegment(px, pz, ax, az, bx, bz)
+    local abx = bx - ax
+    local abz = bz - az
+    local apx = px - ax
+    local apz = pz - az
+    local abLenSq = abx * abx + abz * abz
+    if abLenSq == 0 then
+        return {x = ax, z = az}
+    end
+    local t = (apx * abx + apz * abz) / abLenSq
+    t = math.max(0, math.min(1, t))
+    return {x = ax + t * abx, z = az + t * abz}
 end
 
 
