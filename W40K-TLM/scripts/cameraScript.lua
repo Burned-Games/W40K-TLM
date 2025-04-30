@@ -42,6 +42,49 @@ local shakeAmount = 0
 local shakeDuration = 0
 local shakeDecay = 3
 
+
+
+
+local mapPolygonLevel1 = {
+    {x = 0, z = 5},
+    {x = 42, z = -8},
+    {x = 40, z = -55},
+    {x = 68, z = -96},
+    {x = 140, z = -106},
+    {x = 182, z = -142},
+    {x = 198, z = -213},
+    {x = 259,  z = -215},
+    {x = 262,  z = -255},
+    {x = 199,  z = -270},
+    {x = 193,  z = -229},
+    {x = 112,  z = -187},
+    {x = 96,  z = -207},
+    {x = 70,  z = -183},
+    {x = 94,  z = -147},
+    {x = 77,  z = -128},
+    {x = 46,  z = -149},
+    {x = -37,  z = -127},
+    {x = -50,  z = -31},
+    {x = -19,  z = -13},
+    {x = -8,  z = -19}
+}
+
+local mapPolygonLevel2 = {
+    {x = 100, z = 100},
+    {x = 300, z = 120},
+    {x = 500, z = 250},
+    {x = 520, z = 400},
+    {x = 400, z = 600},
+    {x = 200, z = 650},
+    {x = 100, z = 500},
+    {x = 80,  z = 300}
+}
+
+local actualMapPolygon = nil
+
+
+
+
 function on_ready()
     -- Add initialization code here
 
@@ -85,6 +128,8 @@ function on_ready()
         end
     end
 
+    actualMapPolygon = mapPolygonLevel1
+
 end
 
 function on_update(dt)
@@ -100,12 +145,12 @@ function on_update(dt)
 
         local targetPos = Vector3.new(playerPos.x + zoomOffSet.x + forwardVector.x * offsetPlayer, playerPos.y + zoomOffSet.y + forwardVector.y * offsetPlayer, playerPos.z + zoomOffSet.z + forwardVector.z * offsetPlayer)
     
-        local currentPos = cameraTransform.position
-
-        smoothPos = Vector3.lerp(currentPos, targetPos, dt * cameraSpeed)
-
-   
-        cameraTransform.position = smoothPos
+        --Check camera in map bounds
+        if IsPointInPolygon(playerPos.x, playerPos.z,  actualMapPolygon) then
+            local currentPos = cameraTransform.position
+            smoothPos = Vector3.lerp(currentPos, targetPos, dt * cameraSpeed)
+            cameraTransform.position = smoothPos
+        end
 
         if not cameraBossActivated and playerScript.godMode == false and pauseScript.isPaused == false then
             if Input.is_button_pressed(Input.controllercode.DpadUp) then
@@ -126,28 +171,6 @@ function on_update(dt)
         end
 
     end
-
-    --[[if Input.is_key_pressed(Input.keycode.L) then
-        startShake(3,5)
-    end
-
-    if Input.is_key_pressed(Input.keycode.J) then
-        startShake(1,5)
-    end
-
-    if Input.is_key_pressed(Input.keycode.G) then
-        startShake(0.2,5)
-    end
-
-    if Input.is_key_pressed(Input.keycode.O) then
-        if cameraBossActivated then
-            cameraBoss(false)
-        else
-            cameraBoss(true)
-        end
-    end]]
-
-
 
     if shakeDuration > 0 then
         local shakeOffset = Vector3.new(
@@ -230,6 +253,25 @@ function cameraColisseum(self, activate)
     cameraBossActivated = activate
 
 end
+
+function IsPointInPolygon(x, z, polygon)
+    local inside = false
+    local j = #polygon
+    for i = 1, #polygon do
+        local xi, zi = polygon[i].x, polygon[i].z
+        local xj, zj = polygon[j].x, polygon[j].z
+
+        local intersect = ((zi > z) ~= (zj > z)) and
+                          (x < (xj - xi) * (z - zi) / ((zj - zi) + 0.0001) + xi)
+        if intersect then
+            inside = not inside
+        end
+        j = i
+    end
+    return inside
+end
+
+
 
 function on_exit()
     -- Add cleanup code here
