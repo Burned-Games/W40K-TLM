@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 1333509653133127485
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "textures/Placeholder_ScrapParticles/flare_01.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/1333509653133127485.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

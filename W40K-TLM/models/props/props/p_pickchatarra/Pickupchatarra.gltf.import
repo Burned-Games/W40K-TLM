@@ -1,0 +1,44 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Pickupchatarra_Cube.001",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 1922729568603917365
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "chatarra_Mat0",
+                        "value": {
+                            "value0": 3367513909543705289
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 9675990326938914430
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/p_pickchatarra/Pickupchatarra.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/9675990326938914430.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

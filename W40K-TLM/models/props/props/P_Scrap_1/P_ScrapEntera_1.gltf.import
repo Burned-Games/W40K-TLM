@@ -1,0 +1,44 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "P_ScrapEntera_1_Cube.013",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 4383930888095612174
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Scrap1.002_Mat0",
+                        "value": {
+                            "value0": 7822871901853253608
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 3080303008700479912
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_Scrap_1/P_ScrapEntera_1.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/3080303008700479912.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

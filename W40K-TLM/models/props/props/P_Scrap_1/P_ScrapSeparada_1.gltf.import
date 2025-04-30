@@ -1,0 +1,98 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.009",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 6989995791064798741
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.003",
+                        "value": {
+                            "value0": 6680862575924263243
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.004",
+                        "value": {
+                            "value0": 13158475561951460205
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.005",
+                        "value": {
+                            "value0": 9075143073786714298
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.011",
+                        "value": {
+                            "value0": 12041365661978770756
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.006",
+                        "value": {
+                            "value0": 10886400843052352844
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.007",
+                        "value": {
+                            "value0": 18232680764108226223
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.008",
+                        "value": {
+                            "value0": 1671617498901156469
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.012",
+                        "value": {
+                            "value0": 14289046034733393638
+                        }
+                    },
+                    {
+                        "key": "P_ScrapSeparada_1_Cube.013",
+                        "value": {
+                            "value0": 15984982825321001938
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Scrap1.002_Mat0",
+                        "value": {
+                            "value0": 9858892011924582249
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 12516557472988223930
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_Scrap_1/P_ScrapSeparada_1.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/12516557472988223930.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

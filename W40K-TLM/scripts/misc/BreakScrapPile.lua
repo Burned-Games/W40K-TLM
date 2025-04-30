@@ -18,6 +18,12 @@ local hasDisappeared = false
 local actualSize = 1
 local sizeDisappearSpeed = 3
 
+local prefabScrap= "prefabs/Misc/Scrap.prefab"
+
+local transform = nil
+
+local scrapSpawnArea = 4;
+
 function on_ready()
     -- Add initialization code here
 
@@ -52,6 +58,10 @@ function on_ready()
 
 
     end)
+
+    transform = self:get_component("TransformComponent")
+
+
 end
 
 
@@ -84,6 +94,28 @@ function give_phisycs()
         end
 
     end
+
+    local randomNumberSpawnScrap = math.random(1,3)
+
+    for i = 1, randomNumberSpawnScrap do
+        local scrap = instantiate_prefab(prefabScrap)
+
+        --local randomX = math.random((transform.position.x - scrapSpawnArea), (transform.position.x + scrapSpawnArea))
+        --local randomZ = math.random((transform.position.z - scrapSpawnArea), (transform.position.z + scrapSpawnArea))
+
+        local positionXMIN = transform.position.x - scrapSpawnArea
+        local positionXMAX = transform.position.x + scrapSpawnArea
+        local positionZMIN = transform.position.z - scrapSpawnArea
+        local positionZMAX = transform.position.z + scrapSpawnArea
+
+        local randomX = positionXMIN + (positionXMAX - positionXMIN) * math.random()
+        local randomZ = positionZMIN + (positionZMAX - positionZMIN) * math.random()
+
+        scrap:get_component("TransformComponent").position = Vector3.new(randomX, transform.position.y, randomZ)
+
+    end
+
+    
 
 
 
