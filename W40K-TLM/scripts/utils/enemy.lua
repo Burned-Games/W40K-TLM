@@ -471,13 +471,35 @@ function enemy:check_spawn()
 
 end
 
--- Functions to calculate things
-function enemy:generate_scrap()
-    self.scrap= instantiate_prefab(prefabScrap, self.enemyTransf.position)
-    self.scrapTransf = self.scrap:get_component("TransformComponent")
 
-    self.scrapTransf.position = self.enemyTransf.position
-    log("Spawned prefab at position: " .. self.enemyTransf.position.x .. ", " .. self.enemyTransf.position.y .. ", " .. self.enemyTransf.position.z)
+function enemy:generate_scrap()
+
+    local scrapCount = math.random(1, 3)
+    
+    log("Generating " .. scrapCount .. " scraps")
+    
+    for i = 1, scrapCount do
+        --offset para que no se spawneen uno encima de otro
+        local offsetX = math.random(-100, 100) / 100  
+        local offsetZ = math.random(-100, 100) / 100
+        
+        local spawnPosition = Vector3.new(
+            self.enemyTransf.position.x + offsetX,
+            self.enemyTransf.position.y,
+            self.enemyTransf.position.z + offsetZ
+        )
+        
+        local scrap = instantiate_prefab(prefabScrap)
+        local scrapTransf = scrap:get_component("TransformComponent")
+        scrapTransf.position = spawnPosition
+        
+        log("Spawned scrap " .. i .. " at position: " .. spawnPosition.x .. ", " .. spawnPosition.y .. ", " .. spawnPosition.z)
+        
+        if i == 1 then
+            self.scrap = scrap
+            self.scrapTransf = scrapTransf
+        end
+    end
 end
 
 function enemy:check_initial_distance()
