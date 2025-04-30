@@ -1,0 +1,68 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "shoot_Cylinder.002",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 15410086176420910942
+                        }
+                    },
+                    {
+                        "key": "shoot_Plane.001",
+                        "value": {
+                            "value0": 9656218346431922721
+                        }
+                    },
+                    {
+                        "key": "shoot_Plane.002",
+                        "value": {
+                            "value0": 5955275164817477935
+                        }
+                    },
+                    {
+                        "key": "shoot_Cone",
+                        "value": {
+                            "value0": 13333892663655622754
+                        }
+                    },
+                    {
+                        "key": "shoot_Cone.002",
+                        "value": {
+                            "value0": 398078014618078316
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Shoot_Mat0",
+                        "value": {
+                            "value0": 12043688380183693143
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 14691311975374717906
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/vfx_shoot/shoot.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/14691311975374717906.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
