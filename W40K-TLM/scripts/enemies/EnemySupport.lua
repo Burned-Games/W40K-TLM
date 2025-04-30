@@ -3,52 +3,32 @@ local stats_data = require("scripts/utils/enemy_stats")
 
 support = enemy:new()
 
-local shieldTimer = 0.0
-local shieldCooldown = 5.0
-local shieldAnimTimer = 0.0
-local shieldAnimDuration = 3.0
-local findEnemiesTimer = 0.0
-local findEnemiesInterval = 1.5
-local pathUpdateTimer = 0.0
-local pathUpdateInterval = 1.0
-local checkEnemyTimer = 0.0
-local checkEnemyInterval = 40.0 
-
--- Audio
-local supportAttackSFX
-local supportHurtSFX
-local supportShieldExplosionSFX
-local supportShieldZapsSFX
-local supportShieldAssignSFX
-local supportDeadSFX
 
 
 function on_ready() 
-    for i = 1, 11 do
-        support.playerObjects[i] = current_scene:get_entity_by_name(support.playerObjectsTagList[i]):get_component("TransformComponent")
-    end
 
     support.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
 
-    support.player = current_scene:get_entity_by_name("Player")
-    support.playerTransf = support.player:get_component("TransformComponent")
-    support.playerScript = support.player:get_component("ScriptComponent")
-
-    support.prefabShield = current_scene:get_entity_by_name("Shield")
-
+    -- Enemy
     support.enemyTransf = self:get_component("TransformComponent")
     support.animator = self:get_component("AnimatorComponent")
     support.enemyRbComponent = self:get_component("RigidbodyComponent")
     support.enemyRb = support.enemyRbComponent.rb
     support.enemyNavmesh = self:get_component("NavigationAgentComponent")
 
+    -- Player
+    support.player = current_scene:get_entity_by_name("Player")
+    support.playerTransf = support.player:get_component("TransformComponent")
+    support.playerScript = support.player:get_component("ScriptComponent")
+    for i = 1, 11 do
+        support.playerObjects[i] = current_scene:get_entity_by_name(support.playerObjectsTagList[i]):get_component("TransformComponent")
+    end
 
+    -- Shield
+    support.prefabShield = current_scene:get_entity_by_name("Shield")
+
+    -- Waypoints
     support.waypointsParent = current_scene:get_entity_by_name("WaypointsParent")
-
-    support.scrap = current_scene:get_entity_by_name("Scrap")
-    support.scrapTransf = support.scrap:get_component("TransformComponent")
-
-    -- This needs to be done by code, to avoid problems with other support entities
     local children = self:get_children()
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "SuppWaypoint1" then
@@ -62,15 +42,33 @@ function on_ready()
             child:set_parent(support.waypointsParent)
         end
     end
+    set_waypoints()
 
-    set_Waypoints()
-
+    -- Target
     support.currentTarget = nil
 
-    local enemy_type = "support"
+    -- Audio 
+    support.attackSFX = current_scene:get_entity_by_name("SupportAttackSFX"):get_component("AudioSourceComponent")
+    support.hurtSFX = current_scene:get_entity_by_name("SupportHurtSFX"):get_component("AudioSourceComponent")
+    support.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
+    support.shieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
+    support.shieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
+    support.dyingSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
+
+
+
+    -- Level
+    support.enemy_type = "support"
     support:set_level()
 
-    local stats = stats_data[enemy_type] and stats_data[enemy_type][support.level]
+    local stats = stats_data[support.enemyType] and stats_data[support.enemyType][support.level]
+    -- Debug in case is not working
+    if not stats then log("No stats for type: " .. support.enemyType .. " level: " .. support.level) return end
+
+
+
+    -- State
+    support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Flee = 5, Shield = 6}
 
     -- Stats of the Support
     support.health = stats.health
@@ -82,7 +80,21 @@ function on_ready()
     support.shieldRange = stats.shieldRange
     support.attackRange = stats.attackRange
 
-    -- Debug stats
+    -- External Timers
+    support.shieldCooldown = 5.0
+    support.checkEnemyInterval = 40.0
+
+    -- Internal Timers
+    support.shieldTimer = 0.0
+    support.shieldAnimTimer = 0.0
+    support.shieldAnimDuration = 3.0
+    support.findEnemiesTimer = 0.0
+    support.findEnemiesInterval = 1.5
+    support.pathUpdateTimer = 0.0
+    support.pathUpdateInterval = 1.0
+    support.checkEnemyTimer = 0.0
+
+    -- Animation
     support.idleAnim = 3
     support.moveAnim = 6
     support.attackAnim = 0
@@ -91,30 +103,23 @@ function on_ready()
     support.hitAnim = 2
     support.stunAnim = 5
 
-    support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Flee = 5, Shield = 6}
-
-    support.currentWaypoint = 1
-
+    -- Bools
     support.shieldCooldownActive = false
     support.canUseShield = true
     support.allShielded = true
 
-    support.lastTargetPos = Vector3.new(0, 0, 0)
+    -- Ints
+    support.currentWaypoint = 1
 
+    -- Lists
     support.Enemies = {}
     support.waypointPos = {}
 
+    -- Positions
+    support.lastTargetPos = Vector3.new(0, 0, 0)
     support.waypointPos[1] = support.wp1Transf.position
     support.waypointPos[2] = support.wp2Transf.position
     support.waypointPos[3] = support.wp3Transf.position
-
-    -- Audio 
-    supportAttackSFX = current_scene:get_entity_by_name("SupportAttackSFX"):get_component("AudioSourceComponent")
-    supportHurtSFX = current_scene:get_entity_by_name("SupportHurtSFX"):get_component("AudioSourceComponent")
-    supportShieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
-    supportShieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
-    supportShieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
-    supportDeadSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
 
 end
 
@@ -134,11 +139,11 @@ function on_update(dt)
     end
     change_state()
 
-    findEnemiesTimer = findEnemiesTimer + dt
+    support.findEnemiesTimer = support.findEnemiesTimer + dt
 
     if support.shieldCooldownActive then
-        shieldTimer = shieldTimer + dt 
-        if shieldTimer >= shieldCooldown then
+        support.shieldTimer = support.shieldTimer + dt 
+        if support.shieldTimer >= support.shieldCooldown then
             support.shieldCooldownActive = false
             support.canUseShield = true  
         end
@@ -180,9 +185,9 @@ function change_state()
         return
     end
 
-    if findEnemiesTimer >= findEnemiesInterval then
+    if support.findEnemiesTimer >= support.findEnemiesInterval then
         find_all_enemies()
-        findEnemiesTimer = 0
+        support.findEnemiesTimer = 0
     end
 
     if #support.Enemies == 0 then
@@ -295,11 +300,11 @@ function support:move_state(dt)
     if support.currentTarget and support.currentTarget.transform then
         local targetPos = support.currentTarget.transform
         
-        pathUpdateTimer = pathUpdateTimer + dt
-        if pathUpdateTimer >= pathUpdateInterval or not support.lastTargetPos or (support.lastTargetPos and support:get_distance(support.lastTargetPos, targetPos.position) > 1.0) then
+        support.pathUpdateTimer = support.pathUpdateTimer + dt
+        if support.pathUpdateTimer >= support.pathUpdateInterval or not support.lastTargetPos or (support.lastTargetPos and support:get_distance(support.lastTargetPos, targetPos.position) > 1.0) then
             support:update_path(targetPos)
             support.lastTargetPos = targetPos.position
-            pathUpdateTimer = 0
+            support.pathUpdateTimer = 0.0
         end
 
         support:follow_path() 
@@ -338,9 +343,9 @@ function support:shield_state(dt)
     local distance = support:get_distance(support.enemyTransf.position, targetPos)
 
     support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-    shieldAnimTimer = shieldAnimTimer + dt 
+    support.shieldAnimTimer = support.shieldAnimTimer + dt 
     
-    if shieldAnimTimer >= shieldAnimDuration then
+    if support.shieldAnimTimer >= support.shieldAnimDuration then
         if distance <= support.shieldRange and not support.currentTarget.script.haveShield then
             local shieldEntity = create_new_shield(support.currentTarget)
             if shieldEntity then
@@ -352,8 +357,8 @@ function support:shield_state(dt)
                 support.currentTarget.script.haveShield = true
                 support.canUseShield = false
                 support.shieldCooldownActive = true  
-                shieldTimer = 0 
-                shieldAnimTimer = 0 
+                support.shieldTimer = 0.0
+                support.shieldAnimTimer = 0 
 
                 -- Actualizamos el estado del enemigo en nuestra lista de enemigos
                 for i, enemyData in ipairs(support.Enemies) do
@@ -393,9 +398,9 @@ function support:flee_state(dt)
         update_waypoint_path()
     end
 
-    checkEnemyTimer = checkEnemyTimer + dt
-    if checkEnemyTimer >= checkEnemyInterval then
-        checkEnemyTimer = 0
+    support.checkEnemyTimer = support.checkEnemyTimer + dt
+    if support.checkEnemyTimer >= support.checkEnemyInterval then
+        support.checkEnemyTimer = 0
         
         -- Update the enemy list when the support is on flee state
         find_all_enemies()
@@ -418,7 +423,7 @@ function support:flee_state(dt)
 
 end
 
-function set_Waypoints()
+function set_waypoints()
     -- Obtener componentes Transform de los waypoints
     support.wp1Transf = support.waypoint1:get_component("TransformComponent")
     support.wp2Transf = support.waypoint2:get_component("TransformComponent")
@@ -477,7 +482,7 @@ function find_all_enemies()
     update_shield_status()
     
     -- Aumentar el intervalo entre detecciones
-    findEnemiesInterval = 4.0
+    support.findEnemiesInterval = 4.0
 end
 
 function find_all_entities_of_type(typeName, resultTable, scriptField)

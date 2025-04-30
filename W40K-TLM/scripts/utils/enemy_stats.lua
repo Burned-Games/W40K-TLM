@@ -22,6 +22,8 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
+            alertRadius = 10.0,
+
             priority = 1,
 
 
@@ -57,6 +59,8 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
+            alertRadius = 10.0,
+
             priority = 1,
 
 
@@ -87,6 +91,8 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
+            alertRadius = 10.0,
+
             priority = 1,
 
 
@@ -106,26 +112,52 @@ local enemy_stats = {
 
     support = {
 
+        -- Support Level 1
         [1] = {
+            -- Stats
             health = 50,
+
             speed = 5,
             fleeSpeed = 7,
+
             enemyShield = 35,
-            damage = 0,
+
             detectionRange = 10,
             shieldRange = 5,
-            attackRange = 0
+            attackRange = 0,
+
+
+
+            -- **Timers**
+
+            -- Time between throwing a shield and be able to put another
+            shieldCooldown = 5.0,
+            -- When its in flee state, frequency of the support checking if ther is some enemy wich is able to get a shield
+            checkEnemyInterval = 40.0
         },
 
+
+        -- Support Level 2
         [2] = {
+            -- Stats
             health = 75,
+
             speed = 5,
             fleeSpeed = 2,
+
             enemyShield = 70,
+
             damage = 30,
+
             detectionRange = 10,
             shieldRange = 5,
-            attackRange = 10
+            attackRange = 10,
+
+
+
+            -- **Timers**
+            shieldCooldown = 5.0,
+            checkEnemyInterval = 40.0
         }
 
     },
