@@ -69,18 +69,14 @@ local mapPolygonLevel1 = {
     {x = -8,  z = -19}
 }
 
-
-
-
 local mapPolygonLevel2 = {
-    {x = 100, z = 100},
-    {x = 300, z = 120},
-    {x = 500, z = 250},
-    {x = 520, z = 400},
-    {x = 400, z = 600},
-    {x = 200, z = 650},
-    {x = 100, z = 500},
-    {x = 80,  z = 300}
+    {x = -1000, z = -1000},
+    {x = 1000, z = 1000}
+}
+
+local mapPolygonLevel3 = {
+    {x = -1000, z = -1000},
+    {x = 1000, z = 1000}
 }
 
 local actualMapPolygon = nil
@@ -131,6 +127,7 @@ function on_ready()
         end
     end
 
+    
     actualMapPolygon = mapPolygonLevel1
 
 end
