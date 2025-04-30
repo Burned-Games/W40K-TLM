@@ -127,10 +127,6 @@
         skillArma2 = skillArma2Entity:get_component("UIToggleComponent")
         skillArma2CooldownEntity = current_scene:get_entity_by_name("HabilidadArma2Cooldown")
         skillArma2Cooldown = skillArma2CooldownEntity:get_component("UIImageComponent")
-        skillArma1VisualCooldownTransform = current_scene:get_entity_by_name("HabilidadArma1Cooldown"):get_component("TransformComponent")
-        skillArma1VisualCooldownStartingPosition = Vector3.new(skillArma1VisualCooldownTransform.position.x, skillArma1VisualCooldownTransform.position.y, skillArma1VisualCooldownTransform.position.z)
-        skillArma2VisualCooldownTransform = current_scene:get_entity_by_name("HabilidadArma2Cooldown"):get_component("TransformComponent")
-        skillArma2VisualCooldownStartingPosition = Vector3.new(skillArma2VisualCooldownTransform.position.x, skillArma2VisualCooldownTransform.position.y, skillArma2VisualCooldownTransform.position.z)
         skillsArmasBoton = current_scene:get_entity_by_name("HabilidadesArmasBoton")
 
         rifleScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
@@ -148,10 +144,6 @@
         
         --Chatarra
         chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
-        chatarraBar = current_scene:get_entity_by_name("ChatarraCantidad")
-        --chatarraBarComponent = chatarraBar:get_component("UIImageComponent") 
-        chatarraTransform = chatarraBar:get_component("TransformComponent")
-        chatarraStartingPosition = Vector3.new(chatarraTransform.position.x, chatarraTransform.position.y, chatarraTransform.position.z)
 
         player = current_scene:get_entity_by_name("Player")
         playerScript = player:get_component("ScriptComponent")
@@ -180,7 +172,18 @@
 
         skillArma1.value = upgradeManager:has_weapon_special()
         skillArma2.value = upgradeManager:has_weapon_special() 
+
+        skill1VisualCooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
+        skill1TextCooldown:set_color(Vector4.new(1, 1, 1, 1))
+        skill2VisualCooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
+        skill2TextCooldown:set_color(Vector4.new(1, 1, 1, 1))
+        skill3VisualCooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
+        skill3TextCooldown:set_color(Vector4.new(1, 1, 1, 1))
+        skillArma1Cooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
+        skillArma2Cooldown:set_color(Vector4.new(0.13, 0.13, 0.13, 0.5))
+        skillsArmasTextCooldown:set_color(Vector4.new(1, 1, 1, 1))
     end
+
 
     function on_update(dt)
         
@@ -228,7 +231,6 @@
             skill1VisualCooldownEntity:set_active(false)
             -- Reset de rect y color
             skill1VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
-            skill1VisualCooldown:set_color(Vector4.new(1, 1, 1, 1))
         end
         
         -- Skill 2 (Saw Sword)
