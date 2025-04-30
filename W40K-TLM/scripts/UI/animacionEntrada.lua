@@ -3,6 +3,7 @@ local buttonComponent
 local order
 local rect
 local BaseEntity
+local baseScript
 
 -- Datos de la animación de entrada
 local entrySpriteWidth = 579
@@ -36,6 +37,7 @@ function on_ready()
     buttonEntity = current_scene:get_entity_by_name("Botones")
     buttonComponent = buttonEntity:get_component("UIImageComponent")
     BaseEntity = current_scene:get_entity_by_name("Base")
+    baseScript = current_scene:get_entity_by_name("BaseManager"):get_component("ScriptComponent")
 
     order = current_scene:get_entity_by_name("Order")
 
@@ -100,6 +102,7 @@ function on_update(dt)
         if spriteIndex >= selectTotalSprites then
             animationFinished = true
             order:set_active(true)
+            baseScript.index = 0
             buttonEntity:set_active(false)
             return
         end
@@ -116,6 +119,11 @@ function on_update(dt)
         buttonComponent:set_rect(Vector4.new(x, y, w, h))
     end
 end
+
+function is_animation_finished()
+    return animationFinished
+end
+
 
 function on_exit()
     -- Cleanup

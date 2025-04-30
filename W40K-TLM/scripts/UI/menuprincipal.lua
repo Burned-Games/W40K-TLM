@@ -17,6 +17,9 @@ local OrderEntity
 local LogoEntity
 local LogoSalidaEntity
 local Ajustes
+
+local botonAnimadoScript
+
 ajustesOpened = false
 local salidaImagen
 local botonSalida1
@@ -56,6 +59,8 @@ function on_ready()
 
     button5 = current_scene:get_entity_by_name("Salir"):get_component("UIButtonComponent")
     --text5 = current_scene:get_entity_by_name("ExitText"):get_component("UITextComponent")
+
+    botonAnimadoScript = current_scene:get_entity_by_name("Base"):get_component("ScriptComponent")
 
     salidaImagen = current_scene:get_entity_by_name("Salida")
 
@@ -223,7 +228,7 @@ function on_update(dt)
         end
     end
 
-    if ajustesOpened == false then
+    if ajustesOpened == false and botonAnimadoScript:is_animation_finished() then
         local value = Input.get_direction("UiY")
             if (value ~= 0 and contadorMovimientoBotones > 0.2) then
                 contadorMovimientoBotones = 0
