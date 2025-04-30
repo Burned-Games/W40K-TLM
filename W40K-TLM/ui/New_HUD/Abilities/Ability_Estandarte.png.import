@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 14932606733680129799
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/New_HUD/Abilities/Ability_Estandarte.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/14932606733680129799.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}

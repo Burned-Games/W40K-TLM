@@ -149,7 +149,7 @@
         --Chatarra
         chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
         chatarraBar = current_scene:get_entity_by_name("ChatarraCantidad")
-        chatarraBarComponent = chatarraBar:get_component("UIImageComponent") 
+        --chatarraBarComponent = chatarraBar:get_component("UIImageComponent") 
         chatarraTransform = chatarraBar:get_component("TransformComponent")
         chatarraStartingPosition = Vector3.new(chatarraTransform.position.x, chatarraTransform.position.y, chatarraTransform.position.z)
 
@@ -379,10 +379,8 @@
     function updateAmmoText()
         if playerScript.actualweapon == 0 then
             ammoTextComponent:set_text(tostring(rifleScript.maxAmmo - rifleScript.ammo))
-            maxAmmoTextComponent:set_text(tostring(rifleScript.maxAmmo))
         else
             ammoTextComponent:set_text(tostring(shotGunScript.ammo))
-            maxAmmoTextComponent:set_text(tostring(shotGunScript.maxAmmo))
         end
     end
 
@@ -411,14 +409,6 @@
     function update_scrap_display()
         if playerScript ~= nil then
             local chatarra = playerScript.scrapCounter
-            local max_chatarra = maxChatarraDisplay
-            local percentage = chatarra / max_chatarra
-            percentage = math.max(0, math.min(1, percentage))
-            
             chatarraTextComponent:set_text(tostring(chatarra))
-            
-            local newRect = Vector4.new(0, 0, percentage, 1)
-            chatarraBarComponent:set_rect(newRect)
-            chatarraTextComponent:set_color(Vector4.new(1, 1, 1, 1))
         end
     end

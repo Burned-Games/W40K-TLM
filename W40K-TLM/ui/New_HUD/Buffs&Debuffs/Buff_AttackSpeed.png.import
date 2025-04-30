@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 6957811344139750388
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/New_HUD/Buffs&Debuffs/Buff_AttackSpeed.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/6957811344139750388.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
