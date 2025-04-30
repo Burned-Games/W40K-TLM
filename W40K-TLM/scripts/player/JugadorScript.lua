@@ -154,7 +154,7 @@ local heal = 12
 local hit = 13
 reload_Bolter = 17
 reload_Shotgun = 19
-local stun = 27
+local stun = 26
 
 local rotationAngle = 0
 local transf = nil
@@ -193,6 +193,8 @@ local healAnimationTime = 1
 local enemyOrkScript = nil
 
 movingBackLookingUp = false
+
+isStunned = false
 
 function on_ready()
     -- Add initialization code here
@@ -412,6 +414,17 @@ function on_update(dt)
 
         check_effects(dt)
         checkPlayerDeath(dt)
+        handleBleed(dt)
+
+        if Input.is_key_pressed(Input.keycode.M) then
+            applyStunn()
+        end
+
+
+        if isStunned == true then
+            playerTransf.rotation.y = math.deg(angleRotation)
+            return
+        end
         handleWeaponSwitch(dt)
         updateAnims(dt)
         
@@ -439,7 +452,7 @@ function on_update(dt)
         updateGodMode(dt)
         
         
-        handleBleed(dt)
+        
 
         autoaimUpdate()
         if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
@@ -1469,6 +1482,10 @@ function check_effects(dt)
         neuralFirstTime = true
     end
 
+    if isStunned then
+        isStunned = effect:ManageStun(dt)
+    end
+
 end
 
 function update_combat_state(dt)
@@ -1481,4 +1498,17 @@ function update_combat_state(dt)
             combatTimer = combatTimer - dt
         end
     end
+end
+
+function applyStunn()
+    effect:ApplyStun()
+    playerRb:set_velocity(Vector3.new(0, 0, 0))
+    isStunned = true
+
+    if currentAnim ~= stun then
+        currentAnim = stun
+        currentUpAnim = stun
+        animator:set_current_animation(currentAnim)
+    end
+
 end

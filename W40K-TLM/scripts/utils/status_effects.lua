@@ -13,8 +13,6 @@ local neuralDuration = 6.0
 --Stun
 local stunTimer = 0.0
 local stunDuration = 1.5
-local timeSinceLastStun = 0.0
-local stunInterval = 0.5
 
 
 
@@ -70,21 +68,14 @@ end
 function effect:ApplyStun()
     self.isStunned = true
     stunTimer = stunDuration
-    timeSinceLastStun = 0
 end
 
 function effect:ManageStun(dt)
-    
     stunTimer = stunTimer - dt
-    timeSinceLastStun = timeSinceLastStun + dt
-
-    if timeSinceLastStun >= stunInterval then
-        timeSinceLastStun = 0
-    end
-
     if stunTimer <= 0 then
-        self.isStunned = false
+        return false
     end
+    return true
 end
 
 return effect
