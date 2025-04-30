@@ -1,8 +1,10 @@
 --Base shoot
 using = false
+local bullets = {}
+local bulletCount = 3  -- Bullet Num
 local sphere1RigidBody = nil
 local sphere1RigidBodyComponent = nil
-local sphereSpeed = 100
+local sphereSpeed = 50
 local contadorDisparo = 0
 maxReloadTime = 2.5
 local reloadTime = 0
@@ -10,7 +12,7 @@ maxAmmo = 24
 ammo = 0
 local reloadTimeRifle = 0
 local shootCoolDown = 0
-shootCoolDownRifle = 0.6
+shootCoolDownRifle = 1
 local damageRifle = 15
 local tripleShootTimer = 0
 local tripleShootCount = 0
@@ -29,6 +31,8 @@ local playerScript = nil
 local shooted = true
 
 damage = 15
+
+local yPositionBullet = 1.5
 
 --audio
 local bolterShotSFX
@@ -106,12 +110,29 @@ function on_ready()
 
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
 
-    sphere1 = current_scene:get_entity_by_name("Sphere1")
-    transformSphere1 = sphere1:get_component("TransformComponent")
+    -- sphere1 = current_scene:get_entity_by_name("Sphere1")
+    -- transformSphere1 = sphere1:get_component("TransformComponent")
 
-    sphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
-    sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
-    sphere1RigidBody:set_trigger(true)
+    -- sphere1RigidBodyComponent = sphere1:get_component("RigidbodyComponent")
+    -- sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
+    -- sphere1RigidBody:set_trigger(true)
+
+    for i = 1, bulletCount do
+        local bulletName = "Sphere" .. i  
+        local bullet = {}
+        
+        bullet.entity = current_scene:get_entity_by_name(bulletName)
+        bullet.transform = bullet.entity:get_component("TransformComponent")
+        bullet.rigidBodyComponent = bullet.entity:get_component("RigidbodyComponent")
+        bullet.rigidBody = bullet.rigidBodyComponent.rb
+        bullet.rigidBody:set_trigger(true)
+        
+        table.insert(bullets, bullet)  -- save to table
+
+        bullet.rigidBodyComponent:on_collision_enter(function(entityA, entityB)
+            handle_bullet_collision(entityA, entityB)
+        end)
+    end
 
     -- Audio 
     bolterShotSFX = current_scene:get_entity_by_name("BolterShotSFX"):get_component("AudioSourceComponent")
@@ -130,59 +151,59 @@ function on_ready()
     --shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
     ---- bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
 
-    sphere1RigidBodyComponent:on_collision_enter(function(entityA, entityB) 
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
+    -- sphere1RigidBodyComponent:on_collision_enter(function(entityA, entityB) 
+    --     local nameA = entityA:get_component("TagComponent").tag
+    --     local nameB = entityB:get_component("TagComponent").tag
 
-        local entityARB = entityA:get_component("RigidbodyComponent").rb
-        local entityBRB = entityB:get_component("RigidbodyComponent").rb
+    --     local entityARB = entityA:get_component("RigidbodyComponent").rb
+    --     local entityBRB = entityB:get_component("RigidbodyComponent").rb
 
 
-        if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
-            local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
-            makeDamage(enemy)
+    --     if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
+    --         local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
+    --         makeDamage(enemy)
 
-        end
+    --     end
 
-        if nameA == "EnemySupport" or nameB == "EnemySupport" then
-            local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
-            makeDamage(enemy)
-        end
+    --     if nameA == "EnemySupport" or nameB == "EnemySupport" then
+    --         local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
+    --         makeDamage(enemy)
+    --     end
 
-        if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
-            local enemy = (nameA == "EnemyKamikaze" and entityA) or (nameB == "EnemyKamikaze" and entityB)
-            makeDamage(enemy)
-        end
+    --     if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
+    --         local enemy = (nameA == "EnemyKamikaze" and entityA) or (nameB == "EnemyKamikaze" and entityB)
+    --         makeDamage(enemy)
+    --     end
 
-        if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
-            local enemy = ((nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6") and entityA) or ((nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6") and entityB)
-            makeDamage(enemy)
-        end
+    --     if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
+    --         local enemy = ((nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6") and entityA) or ((nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6") and entityB)
+    --         makeDamage(enemy)
+    --     end
 
-        if nameA == "MainBoss" or nameB == "MainBoss" then
-            local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
-            makeDamage(enemy)
-        end
+    --     if nameA == "MainBoss" or nameB == "MainBoss" then
+    --         local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+    --         makeDamage(enemy)
+    --     end
 
-        if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
-            if entityARB:get_is_trigger() == false then
-                -- print("collisionA")
-                sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
-                -- print(nameA)
-            end 
-        end
+    --     if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
+    --         if entityARB:get_is_trigger() == false then
+    --             -- print("collisionA")
+    --             sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
+    --             -- print(nameA)
+    --         end 
+    --     end
 
-        if entityBRB and nameB ~= "Player" and nameB ~= "FloorCollider" then
-            if entityBRB:get_is_trigger() == false then
-                -- print("collisionB")
-                sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
-            end
-        end
+    --     if entityBRB and nameB ~= "Player" and nameB ~= "FloorCollider" then
+    --         if entityBRB:get_is_trigger() == false then
+    --             -- print("collisionB")
+    --             sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
+    --         end
+    --     end
 
 
         
         
-    end)
+    -- end)
 
     disruptorBullet = current_scene:get_entity_by_name("DisruptorBullet")
     disruptorBulletTransf = disruptorBullet:get_component("TransformComponent")
@@ -340,7 +361,7 @@ function on_update(dt)
             tripleShootTimer = tripleShootTimer - dt
 
             if tripleShootCount > 0 and tripleShootTimer <= 0 then
-                shoot(dt)
+                shoot(dt, tripleShootCount)
                 tripleShootCount = tripleShootCount - 1
                 tripleShootTimer = tripleShootInterval
             end
@@ -416,8 +437,8 @@ function tripleShoot()
     tripleShootTimer = 0
 end
 
-function shoot(dt)
-    
+function shoot(dt, bulletNum)
+
     shootCoolDownTimer = shootCoolDown
     Input.send_rumble(vibrationNormalSettings.x, vibrationNormalSettings.y, vibrationNormalSettings.z)
 
@@ -436,17 +457,18 @@ function shoot(dt)
         forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
     end
     
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , 0  , (forwardVector.z+ playerPosition.z) )
+    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , yPositionBullet  , (forwardVector.z+ playerPosition.z) )
 
-    transformSphere1.position = newPosition
-    transformSphere1.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
+    bullets[bulletNum].rigidBody:set_position(newPosition)
 
-    sphere1RigidBody:set_position(playerPosition)
-
-    sphere1RigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+    bullets[bulletNum].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
 
     local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
-    sphere1RigidBody:set_velocity(velocity)
+    bullets[bulletNum].rigidBody:set_velocity(velocity)
+
+
+
+    
 
    
 end
@@ -469,7 +491,7 @@ function disruptiveCharge()
     disruptorBulletTransf.position = newPosition
     disruptorBulletTransf.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
 
-    disruptorBulletRb:set_position(playerPosition)
+    disruptorBulletRb:set_position(newPosition)
 
     disruptorBulletRb:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
 
@@ -675,6 +697,57 @@ function makeDisruptorDamage(enemy)
         end
     end
 
+end
+
+function handle_bullet_collision(entityA, entityB)
+   
+    local nameA = entityA:get_component("TagComponent").tag
+    local nameB = entityB:get_component("TagComponent").tag
+
+    local entityARB = entityA:get_component("RigidbodyComponent").rb
+    local entityBRB = entityB:get_component("RigidbodyComponent").rb
+
+
+    if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
+        local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
+        makeDamage(enemy)
+
+    end
+
+    if nameA == "EnemySupport" or nameB == "EnemySupport" then
+        local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
+        makeDamage(enemy)
+    end
+
+    if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
+        local enemy = (nameA == "EnemyKamikaze" and entityA) or (nameB == "EnemyKamikaze" and entityB)
+        makeDamage(enemy)
+    end
+
+    if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
+        local enemy = ((nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6") and entityA) or ((nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6") and entityB)
+        makeDamage(enemy)
+    end
+
+    if nameA == "MainBoss" or nameB == "MainBoss" then
+        local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+        makeDamage(enemy)
+    end
+
+    if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
+        if entityARB:get_is_trigger() == false then
+            -- print("collisionA")
+            sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
+            -- print(nameA)
+        end 
+    end
+
+    if entityBRB and nameA ~= "Player" and nameB ~= "Player" and nameA ~= "FloorCollider" and nameB ~= "FloorCollider" and nameA ~= "Sphere1" and nameB ~= "Sphere1" and nameA ~= "Sphere2" and nameB ~= "Sphere2" and nameA ~= "Sphere3" and nameB ~= "Sphere3" and nameA ~= "Sphere4" and nameB ~= "Sphere4" and nameA ~= "Sphere5" and nameB ~= "Sphere5" and nameA ~= "Sphere6" and nameB ~= "Sphere6" and nameA ~= "Sphere7" and nameB ~= "Sphere7" and nameA ~= "Sphere8" and nameB ~= "Sphere8" then
+        if entityBRB:get_is_trigger() == false then
+            -- print("collisionB")
+            sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
+        end
+    end
 end
 
 function playShoot()
