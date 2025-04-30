@@ -31,6 +31,7 @@ local shootParticlesComponent
 local bulletDamageParticleComponent
 damage = 8
 local knockbackForce = 3000  -- force
+local yPositionBullet = 1.5
 
 
 --granadas
@@ -317,13 +318,11 @@ function shoot(dt)
         local forwardVector = Vector3.new(math.sin(shootAngle), 0, math.cos(shootAngle))
         local newPosition = Vector3.new(
             playerPosition.x + forwardVector.x,
-            playerPosition.y,
+            yPositionBullet,
             playerPosition.z + forwardVector.z
         )
         
-        bullet.transform.position = newPosition
-        bullet.transform.rotation = Vector3.new(0, math.deg(shootAngle), 0)
-        bullet.rigidBody:set_position(playerPosition)
+        bullet.rigidBody:set_position(newPosition)
         bullet.rigidBody:set_rotation(Vector3.new(0, math.deg(shootAngle), 0))
         
         local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
