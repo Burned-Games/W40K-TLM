@@ -1,0 +1,320 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "Buffs_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 1851910346053023932
+            }
+        },
+        "RootEntity": 0,
+        "value0": 4,
+        "value1": 4,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Tag": "Buffs"
+        },
+        "value9": 1,
+        "value10": {
+            "Tag": "Proteccion"
+        },
+        "value11": 2,
+        "value12": {
+            "Tag": "Recarga"
+        },
+        "value13": 3,
+        "value14": {
+            "Tag": "VelocidadAtaque"
+        },
+        "value15": 4,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 630.5,
+                "y": 548.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 100.0,
+                "y": 100.0,
+                "z": 1.0
+            }
+        },
+        "value18": 1,
+        "value19": {
+            "Position": {
+                "x": 630.5,
+                "y": 548.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 51.0,
+                "y": 51.0,
+                "z": 1.0
+            }
+        },
+        "value20": 2,
+        "value21": {
+            "Position": {
+                "x": 680.5,
+                "y": 548.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 51.0,
+                "y": 51.0,
+                "z": 1.0
+            }
+        },
+        "value22": 3,
+        "value23": {
+            "Position": {
+                "x": 730.5,
+                "y": 548.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 51.0,
+                "y": 51.0,
+                "z": 1.0
+            }
+        },
+        "value24": 4,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value27": 1,
+        "value28": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 3,
+            "Prev": 1
+        },
+        "value29": 2,
+        "value30": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value31": 3,
+        "value32": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value33": 0,
+        "value34": 0,
+        "value35": 0,
+        "value36": 0,
+        "value37": 0,
+        "value38": 0,
+        "value39": 4,
+        "value40": 0,
+        "value41": 1,
+        "value42": 2,
+        "value43": 3,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 0,
+        "value51": 0,
+        "value52": 4,
+        "value53": 0,
+        "value54": {
+            "cereal_class_version": 1,
+            "TextureUUID": {
+                "value0": 497748904080029038
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": 19.0,
+                    "y": -56.0
+                },
+                "OffsetMax": {
+                    "x": 119.0,
+                    "y": 44.0
+                }
+            },
+            "Layer": 0
+        },
+        "value55": 1,
+        "value56": {
+            "TextureUUID": {
+                "value0": 5415720967303225082
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -25.5,
+                    "y": -25.5
+                },
+                "OffsetMax": {
+                    "x": 25.5,
+                    "y": 25.5
+                }
+            },
+            "Layer": 0
+        },
+        "value57": 2,
+        "value58": {
+            "TextureUUID": {
+                "value0": 14715423923592461815
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 24.5,
+                    "y": -25.5
+                },
+                "OffsetMax": {
+                    "x": 75.5,
+                    "y": 25.5
+                }
+            },
+            "Layer": 0
+        },
+        "value59": 3,
+        "value60": {
+            "TextureUUID": {
+                "value0": 6957811344139750388
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": 74.5,
+                    "y": -25.5
+                },
+                "OffsetMax": {
+                    "x": 125.5,
+                    "y": 25.5
+                }
+            },
+            "Layer": 0
+        },
+        "value61": 0,
+        "value62": 0,
+        "value63": 0,
+        "value64": 0
+    }
+}
