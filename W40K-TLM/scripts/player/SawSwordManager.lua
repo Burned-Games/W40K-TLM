@@ -152,7 +152,11 @@ function Slash()
                         enemyInstance:take_damage(damage)
                         particle_blood_normal:emit(5)
                         particle_blood_spark:emit(5)
-                        playerScript.health = playerScript.health + HpStealed
+                        if playerScript.health + HpStealed >= playerScript.maxHealth then
+                            playerScript.health = playerScript.maxHealth
+                        else
+                            playerScript.health = playerScript.health + HpStealed
+                        end
                         playerScript.makeDamage = true
                         
                         enemyInstance.isPushed = true
