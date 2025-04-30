@@ -530,7 +530,6 @@ end
 function enemy:make_damage(damage)
     
     if self.playerScript.godMode then return end
-    if self.playerScript.intangibleDash then return end
     if self.playerScript.isCovering then return end
 
     if self.playerScript.health > 0 then

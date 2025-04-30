@@ -497,7 +497,7 @@ function updateDash(dt)
         
         local dashDirection = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
         local impulse = Vector3.new(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed, dashDirection.z * dashSpeed)
-        --playerRb:set_trigger(true)
+        playerRb:set_trigger(true)
         
         playerRb:apply_impulse(Vector3.new(impulse.x, impulse.y, impulse.z))
         impulseApplied = true
