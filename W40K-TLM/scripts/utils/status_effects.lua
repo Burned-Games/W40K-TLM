@@ -10,6 +10,11 @@ local movementSpeedMultiplier = 0.5
 local attackSpeedMultiplier = 0.7
 local neuralTimer = 0.0
 local neuralDuration = 6.0
+--Stun
+local stunTimer = 0.0
+local stunDuration = 1.5
+local timeSinceLastStun = 0.0
+local stunInterval = 0.5
 
 
 
@@ -61,5 +66,25 @@ function effect:ApplyNeuralChanges(speed, attackSpeed)
     neuralTimer = neuralDuration
     return Vector2.new(newSpeed, newattackSpeed)
 end
+
+-- function effect:ApplyStun()
+--     self.isStunned = true
+--     stunTimer = stunDuration
+--     timeSinceLastStun = 0
+-- end
+
+-- function effect:ManageStun(dt)
+    
+--     stunTimer = stunTimer - dt
+--     timeSinceLastStun = timeSinceLastStun + dt
+
+--     if timeSinceLastStun >= stunInterval then
+--         timeSinceLastStun = 0
+--     end
+
+--     if stunTimer <= 0 then
+--         self.isStunned = false
+--     end
+-- end
 
 return effect
