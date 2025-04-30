@@ -167,6 +167,7 @@ local particle_blood_normal = nil
 local particle_blood_spark = nil
 local particle_fire = nil
 local particle_smoke = nil
+local neuralInParticle = nil
 
 
 local dtColective = 0
@@ -325,6 +326,10 @@ function on_ready()
         scrapCounter = load_progress("scrap", 0)
         health = load_progress("health", 100)
         UpgradeManager:load_upgrades()
+    end
+
+    if level == 3 then
+        neuralInParticle = current_scene:get_entity_by_name("NeuralInhibitionPartycle"):get_component("TransformComponent")
     end
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
@@ -1452,11 +1457,13 @@ function check_effects(dt)
             speedDebuf = speedVecs.x       
             neuralFirstTime = false
         end
+        neuralInParticle.position = Vector3.new(playerTransf.position.x, 2.5, playerTransf.position.z)
         isNeuralInhibitioning = effect:neural(dt)
         
     else
         
         if not neuralFirstTime then
+            neuralInParticle.position = Vector3.new(-34, 3, -3)
             speedDebuf = 1
         end
         neuralFirstTime = true
