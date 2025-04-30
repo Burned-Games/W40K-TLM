@@ -2443,7 +2443,7 @@
     "Type": "User",
     "GUID": "{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}",
     "Language": "SFX",
-    "Hash": "{E9162CA0-ED33-40FF-BD74-35F36FBE8A5E}",
+    "Hash": "{51C5E9F5-9C3D-2801-FF13-49DE7196CC33}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BolterSFX",
     "ShortName": "BolterSFX",
     "Path": "BolterSFX.bnk",
@@ -3107,7 +3107,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{48EB0220-3D2C-D446-EF8D-F599028C6EDA}",
+    "Hash": "{7F8BD37C-D211-6D18-59D5-A205AF5EAC0D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -3134,7 +3134,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "fireburn.wav",
-      "CachePath": "91/{914641A6-4C92-4837-0C58-1B88C0B0B2E5}.wem"
+      "CachePath": "9C/{9C08EFBE-96F5-E65F-0058-7550D5CF4FD8}.wem"
      },
      {
       "Id": "657677064",
@@ -3150,7 +3150,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "firetorch.wav",
-      "CachePath": "E3/{E3663E5C-F768-537D-116C-1E71DFE6178B}.wem"
+      "CachePath": "98/{983392DE-6A15-D3C4-44D7-59C75BD911C9}.wem"
      }
     ],
     "Events": [
@@ -3159,7 +3159,7 @@
       "Name": "Play_fireburn",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_fireburn",
       "GUID": "{A89DE179-729A-421B-BD9B-CD336F69964E}",
-      "MaxAttenuation": "30",
+      "MaxAttenuation": "7",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -3365,7 +3365,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{A6AD4975-A521-A2E8-9D18-AD5DF7DCAB1B}",
+    "Hash": "{9A8FA306-E0BF-C63A-BA70-8F3D3522E937}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -3550,6 +3550,6 @@
     ]
    }
   ],
-  "FileHash": "{9105927D-A9D7-37FC-A926-731F3BADEA83}"
+  "FileHash": "{8D45C50E-922D-8498-53BE-8874B85DB0C7}"
  }
 }

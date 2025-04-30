@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{48EB0220-3D2C-D446-EF8D-F599028C6EDA}",
+    "Hash": "{7F8BD37C-D211-6D18-59D5-A205AF5EAC0D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -37,7 +37,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "fireburn.wav",
-      "CachePath": "91/{914641A6-4C92-4837-0C58-1B88C0B0B2E5}.wem"
+      "CachePath": "9C/{9C08EFBE-96F5-E65F-0058-7550D5CF4FD8}.wem"
      },
      {
       "Id": "657677064",
@@ -53,7 +53,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "firetorch.wav",
-      "CachePath": "E3/{E3663E5C-F768-537D-116C-1E71DFE6178B}.wem"
+      "CachePath": "98/{983392DE-6A15-D3C4-44D7-59C75BD911C9}.wem"
      }
     ],
     "Events": [
@@ -62,7 +62,7 @@
       "Name": "Play_fireburn",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_fireburn",
       "GUID": "{A89DE179-729A-421B-BD9B-CD336F69964E}",
-      "MaxAttenuation": "30",
+      "MaxAttenuation": "7",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -129,6 +129,6 @@
     ]
    }
   ],
-  "FileHash": "{2764D7A3-D209-49EF-D576-ED52D6ACC350}"
+  "FileHash": "{FA02186D-17B6-2465-3A1E-E4A182646B73}"
  }
 }
