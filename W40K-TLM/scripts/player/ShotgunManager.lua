@@ -242,7 +242,7 @@ function on_update(dt)
             end
 
             -- reload
-            if (ammo == 0 or Input.is_button_pressed(Input.controllercode.West)) and not is_reloading then
+            if (ammo == 0 or (Input.is_button_pressed(Input.controllercode.West) and ammo < maxAmmo)) and not is_reloading then
                 is_reloading = true
                 reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
                 shotgunReloadSFX:play()
