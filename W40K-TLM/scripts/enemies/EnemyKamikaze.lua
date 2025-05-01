@@ -53,7 +53,9 @@ function on_ready()
 
     -- Stats of the Kamikaze
     kamikaze.health = stats.health
+    kamikaze.defaultHealth = kamikaze.health
     kamikaze.speed = stats.speed
+    kamikaze.defaultSpeed = kamikaze.speed
     kamikaze.damage = stats.damage
     kamikaze.detectionRange = stats.detectionRange
     kamikaze.attackRange = stats.attackRange

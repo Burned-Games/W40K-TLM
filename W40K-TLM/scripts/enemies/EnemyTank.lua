@@ -51,7 +51,9 @@ function on_ready()
 
     -- Stats of the Tank
     tank.health = stats.health
+    tank.defaultHealth = tank.health
     tank.speed = stats.speed
+    tank.defaultSpeed = tank.speed
     tank.tackleSpeed = stats.tackleSpeed
     tank.meleeDamage = stats.meleeDamage
     tank.tackleDamage = stats.tackleDamage

@@ -72,7 +72,9 @@ function on_ready()
 
     -- Stats of the Support
     support.health = stats.health
+    support.defaultHealth = support.health
     support.speed = stats.speed
+    support.defaultSpeed = support.speed
     support.fleeSpeed = stats.fleeSpeed
     support.enemyShield = stats.enemyShield
     support.damage = stats.damage

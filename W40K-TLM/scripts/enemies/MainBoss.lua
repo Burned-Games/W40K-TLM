@@ -89,6 +89,7 @@ function on_ready()
     main_boss.rageHealth = stats.rageHealth
     main_boss.bossShieldHealth = stats.bossShieldHealth
     main_boss.speed = stats.speed
+    main_boss.defaultSpeed = main_boss.speed
     main_boss.meleeDamage = stats.meleeDamage
     main_boss.rangeDamage = stats.rangeDamage
     main_boss.detectionRange = stats.detectionRange
@@ -387,6 +388,7 @@ function main_boss:rage_state()
         main_boss.bossShieldHealth = stats.bossShieldHealth
         main_boss.totemHealth = stats.totemHealth
         main_boss.speed = stats.speed
+        main_boss.defaultSpeed = main_boss.speed
         main_boss.meleeDamage = stats.meleeDamage
         main_boss.rangeDamage = stats.rangeDamage
         main_boss.ultimateDamage = stats.ultimateDamage

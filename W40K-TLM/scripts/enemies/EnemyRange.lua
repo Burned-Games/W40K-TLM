@@ -82,7 +82,9 @@ function on_ready()
 
     -- Stats of the Range
     range.health = stats.health
+    range.defaultHealth = range.health
     range.speed = stats.speed
+    range.defaultSpeed = range.speed
     range.bulletSpeed = stats.bulletSpeed
     range.meleeDamage = stats.meleeDamage
     range.rangeDamage = stats.rangeDamage

@@ -52,6 +52,7 @@ function enemy:new(obj)
 
     -- Generic stats of the enemy
     obj.health = 95
+    obj.defaultHealth = 95
     obj.speed = 3
     obj.defaultSpeed = 3
     obj.damage = 5
@@ -509,10 +510,12 @@ function enemy:check_initial_distance()
         self.playerDetected = false
         self.currentState = self.state.Move
         self.isReturning = true
+        self.health = self.defaultHealth
     elseif self.isReturning and distance < 0.5 then
         self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         self.currentState = self.state.Idle
         self.isReturning = false
+        self.health = self.defaultHealth
     end
 
 end
