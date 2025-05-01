@@ -50,7 +50,7 @@ function on_ready()
 end
 
 
-function startIndicator(dt)
+function startIndicator()
     isRunning = true;
     indicatorTransform.scale = Vector3.new(0,0,0)
     backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, actualAlpha)

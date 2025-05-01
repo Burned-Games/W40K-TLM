@@ -5,8 +5,11 @@ local effect = require("scripts/utils/status_effects")
 main_boss = enemy:new()
 
 local stats = nil
+local fistMaxNumbers = 4
 
-
+--Prefabs locations
+local fistPrefabLocation = "prefabs/Enemies/BossFist.prefab"
+local fistAttackIndicatorPrefabLocation = "prefabs/Enemies/BossFistIndicator.prefab"
 
 function on_ready()
 
@@ -37,7 +40,11 @@ function on_ready()
     main_boss.fistTransf = {}
     main_boss.fistRbComponent = {}
     main_boss.fistRbs = {}
-    for i = 1, 3 do
+
+    for i = 1, fistMaxNumbers do
+
+        --local fistEntity = instantiate_prefab(fistPrefabLocation) --No funcionan las fisicas de los prefabs aun
+
         local fistEntity = current_scene:get_entity_by_name("Fist" .. i)
 
         main_boss.fistTransf[i] = fistEntity:get_component("TransformComponent")
@@ -45,6 +52,28 @@ function on_ready()
         main_boss.fistRbs[i] = main_boss.fistRbComponent[i].rb
         main_boss.fistRbs[i]:set_trigger(true)
     end
+
+
+    --Indicator attacks
+
+    ----Indicator attacks -> Fists
+    main_boss.fistIndicators = {}
+    main_boss.fistIndicatorsScript = {}
+    main_boss.fistIndicatorsTransform = {}
+
+    for i = 1, fistMaxNumbers do
+        local fistIndicator = instantiate_prefab(fistAttackIndicatorPrefabLocation)
+        main_boss.fistIndicators[i] = fistIndicator
+        main_boss.fistIndicatorsScript[i] = main_boss.fistIndicators[i]:get_component("ScriptComponent")
+        main_boss.fistIndicatorsTransform[i] = main_boss.fistIndicators[i]:get_component("TransformComponent")
+        main_boss.fistIndicatorsTransform[i].position = Vector3.new(-1000, 0, -1000)
+        main_boss.fistIndicatorsTransform[i].scale = Vector3.new(4, 0, 4)
+        main_boss.fistIndicatorsScript[i]:on_ready()
+    end
+
+    
+
+
 
     -- Lightning
     main_boss.lightning = current_scene:get_entity_by_name("Lightning")
@@ -178,7 +207,7 @@ function on_ready()
         end
     end)
 
-    for i = 1, 3 do
+    for i = 1, fistMaxNumbers do
         main_boss.fistRbComponent[i]:on_collision_stay(function(entityA, entityB)
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
@@ -526,7 +555,11 @@ function fists_attack()
         if main_boss.fistRbs[i] and main_boss.fistTransf[i] then
             -- Set initial position
             main_boss.fistRbs[i]:set_position(fistPositions[i])
-            
+            main_boss.fistIndicatorsTransform[i].position = fistPositions[i]
+            main_boss.fistIndicatorsTransform[i].position.y = 0.1;
+            -- Active indicator
+            main_boss.fistIndicatorsScript[i]:startIndicator()
+
             -- Reset scale
             main_boss.fistTransf[i].scale = Vector3.new(1, 1, 1)
             
