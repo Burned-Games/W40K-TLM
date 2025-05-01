@@ -46,9 +46,14 @@ local shakeDecay = 3
 
 
 local mapPolygonLevel1 = {
-    {x = 0, z = 5},
-    {x = 42, z = -8},
-    {x = 40, z = -55},
+    {x = 0, z = 15},
+    {x = 10, z = 10},
+    {x = 10, z = -3},
+    {x = 16, z = 3},
+    {x = 45, z = 3},
+    {x = 55, z = -8},
+    {x = 55, z = -40},
+
     {x = 68, z = -96},
     {x = 140, z = -106},
     {x = 182, z = -142},
@@ -66,7 +71,9 @@ local mapPolygonLevel1 = {
     {x = -37,  z = -127},
     {x = -50,  z = -31},
     {x = -19,  z = -13},
-    {x = -8,  z = -19}
+
+    {x = -10,  z = 10},
+    {x = -10,  z = -15}
 }
 
 local mapPolygonLevel2 = {
