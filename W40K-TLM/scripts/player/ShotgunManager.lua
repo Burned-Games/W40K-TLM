@@ -363,10 +363,16 @@ function handle_bullet_collision(entityA, entityB)
         
                     enemyInstance:take_damage(damage)
                     playerScript.makeDamage = true
+
+                    shotgunBulletImpactsSFX:pause()
+                    shotgunBulletImpactsSFX:play()
                        
                     if enemyTag == "MainBoss" then
                         enemyScript:take_damage(damage)
                         playerScript.makeDamage = true
+
+                        shotgunBulletImpactsSFX:pause()
+                        shotgunBulletImpactsSFX:play()
                     end
                 end
             end
@@ -580,6 +586,9 @@ end
 
 function explodeGranade()
     if granadeEntity ~= nil then
+
+        shotgunGrenadeSmokeSFX:play()
+        
         local rb = granadeEntity:get_component("RigidbodyComponent").rb
         local explosionPos = rb:get_position()
 

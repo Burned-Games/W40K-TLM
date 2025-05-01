@@ -36,7 +36,7 @@ local yPositionBullet = 1.5
 
 --audio
 local bolterShotSFX
-local rifle_reload
+local bolterReloadSFX
 local rifle_firerate = 0.8
 
 local rifle_firerate_count = 0
@@ -146,6 +146,7 @@ function on_ready()
 
     -- Audio 
     bolterShotSFX = current_scene:get_entity_by_name("BolterShotSFX"):get_component("AudioSourceComponent")
+    bolterReloadSFX = current_scene:get_entity_by_name("BolterReloadSFX"):get_component("AudioSourceComponent")
 
     -- Particles
     particle_cargdisruptor = current_scene:get_entity_by_name("particle_cargdisruptor"):get_component("ParticlesSystemComponent")
@@ -323,8 +324,8 @@ function on_update(dt)
             end
             if ammo >= maxAmmo or manualReload then
                 
-                playReload()
                 if playerScript.currentUpAnim ~= playerScript.reload_Bolter and reloadAnimation == false then
+                    playReload()
                     playerScript.currentUpAnim = playerScript.reload_Bolter
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     reloadAnimation = true
@@ -765,14 +766,12 @@ function handle_bullet_collision(entityA, entityB)
 end
 
 function playShoot()
-    --rifle_reload:pause() // A DESCOMENTAR
     bolterShotSFX:pause()
     bolterShotSFX:play()  
 end
 
 function playReload()
-    --rifle_reload:pause() // A DESCOMENTAR
-    --rifle_reload:play() // A DESCOMENTAR
+    bolterReloadSFX:play() 
 end
 
 
