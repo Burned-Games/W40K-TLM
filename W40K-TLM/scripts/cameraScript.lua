@@ -90,6 +90,13 @@ local mapPolygonLevel3 = {
     {x = -1000, z = 1000}
 }
 
+local mapPolygonOthers= {
+    {x = -1000, z = -1000},
+    {x = 1000, z = -1000},
+    {x = 1000, z = 1000},
+    {x = -1000, z = 1000}
+}
+
 local actualMapPolygon = nil
 
 
@@ -146,6 +153,8 @@ function on_ready()
         actualMapPolygon = mapPolygonLevel2
     elseif SceneManager:get_scene_name() == "level3.TeaScene" then
         actualMapPolygon = mapPolygonLevel3
+    else
+        actualMapPolygon = mapPolygonOthers
     end
 
 end
