@@ -196,6 +196,9 @@ movingBackLookingUp = false
 
 isStunned = false
 
+local lastTriggerTime = 0
+local interval = 2
+
 function on_ready()
     -- Add initialization code here
     -- Audio
@@ -287,6 +290,7 @@ function on_ready()
                    
             StimsCounter = StimsCounter + 1
             if nameA == "Inyectores" then
+                
                 local nameEntity = current_scene:get_entity_by_name("Inyectores") 
                 local rigid = nameEntity:get_component("RigidbodyComponent").rb
                 local newPos = Vector3.new(2000000, 0, 0)
@@ -344,12 +348,22 @@ end
 
 function on_update(dt)
 
-    --log (enemys_targeting)
+    
+
+    
     
     if not pauseScript.isPaused then
         dtColective = dtColective + dt
         
         update_combat_state(dt)
+
+        
+
+        if dtColective - lastTriggerTime >= interval then
+            updateScrapList()
+            
+            lastTriggerTime = dtColective
+        end
 
         if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
             StimsCounter = StimsCounter - 1
@@ -403,11 +417,11 @@ function on_update(dt)
         
         end
 
-        if enemys_targeting == 0 then
+        
             
             attractionActive = not attractionActive 
             find_scrap()
-        end
+        
 
 
         
@@ -1286,17 +1300,19 @@ end
 function find_scrap()
     --local entities = current_scene:get_all_entities()
     --tuplaScrap = { {}, {} }
-    local entities = current_scene:get_all_entities()
+    --local entities = current_scene:get_all_entities()
 
 
     amountOfScrap = 0
 
 
     scrapObjects = {}
-
+    local amount = 0
     for _, entity in ipairs(entities) do
         local entitiname = entity:get_component("TagComponent").tag
+        
         if entitiname == "Scrap" then
+            amount = amount + 1
             playerPos = playerTransf.position
 
             local transform = entity:get_component("TransformComponent")
@@ -1314,12 +1330,11 @@ function find_scrap()
 
             table.insert(scrapObjects, entity:get_component("TransformComponent"))
 
-            --tuplaScrap = tuplet_insert(tuplaScrap, entity, 1)
             
-            --tuplaScrap = tuplet_insert(tuplaScrap, transform, 2)
             amountOfScrap = amountOfScrap + 1
             end
         end
+        
         
         
     end
@@ -1327,9 +1342,9 @@ function find_scrap()
         attractionActive = false
 
     end
+    
 
-    --tuplaP1 = tuplaScrap[1]
-    --tuplaP2 = tuplaScrap[2]
+    
 end
 
 function attract_scrap(dt)
@@ -1510,5 +1525,10 @@ function applyStunn()
         currentUpAnim = stun
         animator:set_current_animation(currentAnim)
     end
+
+end
+function updateScrapList()
+    
+    entities = current_scene:get_all_entities()
 
 end

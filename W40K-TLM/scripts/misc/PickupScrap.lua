@@ -1,4 +1,4 @@
-
+--[[]]
 local actualYRotation = 0
 local transform;
 local rotationSpeed = 100
@@ -32,7 +32,7 @@ function on_ready()
 
 end
 
-function on_update(dt)
+function on_update(dt)--[[
     -- Add update code here
 
 
@@ -54,7 +54,7 @@ function on_update(dt)
 
     time = time + dt
     offsetYPosition = math.sin(time * frequency * 2 * math.pi) * amplitude
-    transform.position.y = initialYPosition + offsetYPosition
+    transform.position.y = initialYPosition + offsetYPosition]]
 
 end
 
