@@ -112,6 +112,7 @@ function enemy:new(obj)
     -- Audios
     obj.hurtSFX = nil
     obj.dyingSFX = nil
+    obj.stepSFX = nil
 
     -- Effects
     obj.isNeuralInhibitioning = false

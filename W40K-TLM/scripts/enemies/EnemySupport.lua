@@ -330,6 +330,7 @@ function support:shield_state(dt)
     if support.currentAnim ~= support.shieldAnim then
         support.currentAnim = support.shieldAnim
         support.animator:set_current_animation(support.currentAnim)
+
     end
 
     if not support.currentTarget or not support.currentTarget.transform then
@@ -602,6 +603,8 @@ function create_new_shield(targetEnemy)
     local shieldScript = newShield:get_component("ScriptComponent")
     shieldTransform.scale = Vector3.new(1.8, 1.8, 1.8)
     
+    shieldAssignSFX:play()
+
     return newShield
 end
 
