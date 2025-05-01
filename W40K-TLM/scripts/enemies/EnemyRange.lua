@@ -8,6 +8,9 @@ range = enemy:new()
 
 function on_ready() 
 
+    -- Scene
+    range.sceneName = SceneManager:get_scene_name()
+
     -- Enemy
     range.enemyTransf = self:get_component("TransformComponent")
     range.animator = self:get_component("AnimatorComponent")

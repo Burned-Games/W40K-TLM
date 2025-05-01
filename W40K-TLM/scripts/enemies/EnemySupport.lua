@@ -7,6 +7,9 @@ support = enemy:new()
 
 function on_ready() 
 
+    -- Scene
+    support.sceneName = SceneManager:get_scene_name()
+
     -- Enemy
     support.enemyTransf = self:get_component("TransformComponent")
     support.animator = self:get_component("AnimatorComponent")

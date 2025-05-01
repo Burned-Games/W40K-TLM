@@ -7,6 +7,9 @@ tank = enemy:new()
 
 function on_ready()
 
+    -- Scene
+    tank.sceneName = SceneManager:get_scene_name()
+
     -- Enemy
     tank.enemyTransf = self:get_component("TransformComponent")
     tank.animator = self:get_component("AnimatorComponent")

@@ -7,6 +7,9 @@ kamikaze = enemy:new()
 
 function on_ready() 
 
+    -- Scene
+    kamikaze.sceneName = SceneManager:get_scene_name()
+
     -- Enemy
     kamikaze.enemyTransf = self:get_component("TransformComponent")
     kamikaze.animator = self:get_component("AnimatorComponent")

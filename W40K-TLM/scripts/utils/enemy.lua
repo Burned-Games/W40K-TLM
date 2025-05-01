@@ -14,7 +14,7 @@ function enemy:new(obj)
 
 
     -- Reference to the components of the entity
-    obj.LevelGeneratorByPosition = nil
+    obj.sceneName = nil
 
     obj.enemyTransf = nil
     obj.animator = nil
@@ -523,9 +523,9 @@ end
 
 function enemy:set_level()
 
-    if SceneManager:get_scene_name() == "level1.TeaScene" then
+    if self.sceneName == "level1.TeaScene" then
         self.level = 1
-    elseif SceneManager:get_scene_name() == "level2.TeaScene" then
+    elseif self.sceneName == "level2.TeaScene" then
         self.level = 2
     else
         self.level = 1
