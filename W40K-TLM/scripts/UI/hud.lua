@@ -81,6 +81,26 @@
 
     local upgradeManager = nil
 
+    local quemadoEntity = nil
+    local quemado = nil
+    local sangradoEntity = nil
+    local sangrado = nil
+    local ralentizadoEntity = nil
+    local ralentizado = nil
+    local aturdidoEntity = nil
+    local aturdido = nil
+    local silenciadoEntity = nil
+    local silenciado = nil
+
+    local proteccionEntity = nil
+    local proteccion = nil
+    local recargaEntity = nil
+    local recarga = nil
+    local velocidadAtaqueEntity = nil
+    local velocidadAtaque = nil
+
+    local cantidadConsumible = nil
+
     function on_ready()
         --Vida
         lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
@@ -147,7 +167,28 @@
 
         upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
 
+        --Debuffs
+        quemadoEntity = current_scene:get_entity_by_name("Quemado")
+        quemado = quemadoEntity:get_component("UIImageComponent")
+        sangradoEntity = current_scene:get_entity_by_name("Sangrado")
+        sangrado = sangradoEntity:get_component("UIImageComponent")
+        ralentizadoEntity = current_scene:get_entity_by_name("Ralentizado")
+        ralentizado = ralentizadoEntity:get_component("UIImageComponent")
+        aturdidoEntity = current_scene:get_entity_by_name("Aturdido")
+        aturdido = aturdidoEntity:get_component("UIImageComponent")
+        silenciadoEntity = current_scene:get_entity_by_name("Silenciado")
+        silenciado = silenciadoEntity:get_component("UIImageComponent")
+        
+        --Buffs
+        proteccionEntity = current_scene:get_entity_by_name("Proteccion")
+        proteccion = proteccionEntity:get_component("UIImageComponent")
+        recargaEntity = current_scene:get_entity_by_name("Recarga")
+        recarga = recargaEntity:get_component("UIImageComponent")
+        velocidadAtaqueEntity = current_scene:get_entity_by_name("VelocidadAtaque")
+        velocidadAtaque = velocidadAtaqueEntity:get_component("UIImageComponent")
 
+        cantidadConsumible = current_scene:get_entity_by_name("ConsumibleCantidad"):get_component("UITextComponent")
+        
         skill1TextCooldownEntity:set_active(false)
         skill1VisualCooldownEntity:set_active(false)
 
@@ -167,6 +208,16 @@
         skillArma1.value = upgradeManager:has_weapon_special()
         skillArma2.value = upgradeManager:has_weapon_special() 
 
+        quemadoEntity:set_active(false)
+        sangradoEntity:set_active(false)
+        ralentizadoEntity:set_active(false)
+        aturdidoEntity:set_active(false)
+        silenciadoEntity:set_active(false)
+
+        proteccionEntity:set_active(false)
+        recargaEntity:set_active(false)
+        velocidadAtaqueEntity:set_active(false)
+
     end
 
 
@@ -179,6 +230,11 @@
         update_health_display()
 
         update_scrap_display() 
+
+        buff_debuff_manager()
+
+        cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
+
     end
 
     function on_exit()
@@ -398,4 +454,27 @@
             local chatarra = playerScript.scrapCounter
             chatarraTextComponent:set_text(tostring(chatarra))
         end
+    end
+
+    function buff_debuff_manager()
+        if playerScript.isBleeding then
+            sangradoEntity:set_active(true)
+        else
+            sangradoEntity:set_active(false)
+        end
+        
+        if playerScript.isStunned then
+            aturdidoEntity:set_active(true)
+        else
+            aturdidoEntity:set_active(false)
+        end
+
+        quemadoEntity:set_active(false)
+        ralentizadoEntity:set_active(false)
+        silenciadoEntity:set_active(false)
+
+        proteccionEntity:set_active(false)
+        recargaEntity:set_active(false)
+        velocidadAtaqueEntity:set_active(false)
+        
     end
