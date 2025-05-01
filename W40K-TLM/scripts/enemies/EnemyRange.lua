@@ -470,9 +470,9 @@ function shoot_projectile(targetExplosive)
     local bullet = range.bulletPool[range.currentBulletIndex]
     
     local startPos = Vector3.new(
-        range.enemyTransf.position.x -0.2,
-        range.enemyTransf.position.y + 0.65,
-        range.enemyTransf.position.z
+        range.enemyTransf.position.x - 1,
+        range.enemyTransf.position.y + 0.982,
+        range.enemyTransf.position.z - 0.1
     )
     bullet.rb:set_position(startPos)
     
