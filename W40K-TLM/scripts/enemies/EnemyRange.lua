@@ -141,7 +141,7 @@ function on_ready()
     range.dieAnimDuration = 61
 
     -- Lists
-    range.nearbyRanges = {}
+    range.nearbyEnemies = {}
 
     -- Positions
     range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
@@ -281,8 +281,8 @@ function change_state(dt)
     -- Check for nearby ranges periodically
     if range.findRangesTimer >= range.findRangesInterval then
         if range.playerDetected then
-            range:find_nearby_ranges()
-            range:alert_nearby_ranges(dt)
+            range:find_nearby_enemies()
+            range:alert_nearby_enemies(dt)
         end
         range.findRangesTimer = 0
     end
@@ -516,8 +516,8 @@ function shoot_projectile(targetExplosive)
     end
 
 end
-function range:find_nearby_ranges()
-    range.nearbyRanges = {}
+function range:find_nearby_enemies()
+    range.nearbyEnemies = {}
     
     local all_entities = current_scene:get_all_entities()    
     
@@ -526,7 +526,7 @@ function range:find_nearby_ranges()
         local tag = entity:get_component("TagComponent")
         local name = entity:get_component("TagComponent").tag
         
-        if name == "EnemyRange" and entity ~= self then
+        if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze") and entity ~= self then
             local script = entity:get_component("ScriptComponent")
             local entityTransform = entity:get_component("TransformComponent")
             
@@ -535,33 +535,33 @@ function range:find_nearby_ranges()
                 
                 if distance <= range.alertRadius then
                     count = count + 1
-                    local rangeData = {
+                    local enemyData = {
                         entity = entity,
                         transform = entityTransform,
-                        script = script.range,
+                        script = script[name:lower():sub(6)],
                         distance = distance,
                         alerted = false
                     }
-                    table.insert(range.nearbyRanges, rangeData)
+                    table.insert(range.nearbyEnemies, enemyData)
                 end
             end
         end
     end
 end
 
-function range:alert_nearby_ranges(dt)  
+function range:alert_nearby_enemies(dt)  
     if range.isAlerted then return end
     
     local alertedCount = 0
-    for _, rangeData in ipairs(range.nearbyRanges) do
-        if rangeData.script and not rangeData.alerted then
-            rangeData.script.playerDetected = true
-            rangeData.script.isAlerted = true
-            rangeData.script.alertTimer = 0.0
-            if range:get_distance(rangeData.transform.position, range.playerTransf.position) > range.rangeAttackRange then
-                rangeData.script.currentState = range.state.Move
+    for _, enemyData in ipairs(range.nearbyEnemies) do
+        if enemyData.script and not enemyData.alerted then
+            enemyData.script.playerDetected = true
+            enemyData.script.isAlerted = true
+            enemyData.script.alertTimer = 0.0
+            if range:get_distance(enemyData.transform.position, range.playerTransf.position) > range.rangeAttackRange then
+                enemyData.script.currentState = range.state.Move
             end
-            rangeData.alerted = true
+            enemyData.alerted = true
             alertedCount = alertedCount + 1
         end
     end

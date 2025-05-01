@@ -156,8 +156,13 @@ function on_update(dt)
        print("Tank Level 2 active")
     end
 
-    tank:check_effects(dt)
-    tank:check_pushed(dt)
+    if not tank.isBerserkaActive then
+        tank:check_effects(dt)
+    end
+
+    if tank.currentState ~= tank.state.Tackle then
+        tank:check_pushed(dt)
+    end
 
     if tank.isPushed == true then return end
 
