@@ -7,8 +7,6 @@ tank = enemy:new()
 
 function on_ready()
 
-    tank.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
-
     -- Enemy
     tank.enemyTransf = self:get_component("TransformComponent")
     tank.animator = self:get_component("AnimatorComponent")
@@ -112,7 +110,7 @@ function on_ready()
                     tank.particleSpark:emit(5)
                     tank:make_damage(tank.tackleDamage)
                     
-                    if tank.level == 2 and not tank.isBerserkaActive then
+                    if not tank.isBerserkaActive then
                         tank:berserka_rage()
                     end
                 end
@@ -124,7 +122,7 @@ function on_ready()
                 tank.isCharging = false
                 tank.canTackle = false
                 tank.tackleTimer = 0.0
-                if tank.level == 2 and not tank.isBerserkaActive then
+                if not tank.isBerserkaActive then
                     tank:berserka_rage()
                 end
                 tank.currentState = tank.state.Move
@@ -223,8 +221,6 @@ function on_update(dt)
 end
 
 function tank:is_other_tank_in_tackle()
-
-    if tank.level ~= 2 then return false end
 
     local entities = current_scene:get_all_entities()
     for _, entity in ipairs(entities) do

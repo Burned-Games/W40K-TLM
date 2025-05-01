@@ -8,8 +8,6 @@ range = enemy:new()
 
 function on_ready() 
 
-    range.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
-
     -- Enemy
     range.enemyTransf = self:get_component("TransformComponent")
     range.animator = self:get_component("AnimatorComponent")
@@ -178,9 +176,6 @@ function on_update(dt)
     elseif Input.is_key_pressed(Input.keycode.O) then
         range.level = 2
         print("Range Level 2 active")
-    elseif Input.is_key_pressed(Input.keycode.P) then
-        range.level = 3
-        print("Range Level 3 active")
     end
 
     range:check_effects(dt)
@@ -382,7 +377,7 @@ end
 
 function range:chase_state()
 
-    if range.level == 3 then
+    if range.level == 2 then
         if range.isfirstChase then
             range.invulnerable = true
             range.isfirstChase = false
@@ -425,7 +420,7 @@ function range:stab_state(dt)
 
             range.meleeImpactSFX:play()
             range:make_damage(range.meleeDamage)
-            if range.level > 1 then
+            if range.level ~= 1 then
                 effect:apply_bleed(range.playerScript)
             end
 
@@ -480,7 +475,7 @@ function shoot_projectile(targetExplosive)
     
     -- Target position
     local targetPos = range.delayedPlayerPos -- Default to player
-    if targetExplosive and range.explosiveDetected and range.level == 3 then -- Switch to explosive if detected
+    if targetExplosive and range.explosiveDetected and range.level == 2 then -- Switch to explosive if detected
         targetPos = range.explosiveTransf.position 
     end
 
