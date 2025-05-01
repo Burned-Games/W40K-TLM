@@ -49,6 +49,7 @@ function on_ready()
     local savedFXVolume = load_progress("fxVolume", 1.0)
     savedFXVolume = savedFXVolume / 100
     slider2.value = savedFXVolume
+    set_sfx_volume(savedFXVolume)
 
     
     --ajustes de audio

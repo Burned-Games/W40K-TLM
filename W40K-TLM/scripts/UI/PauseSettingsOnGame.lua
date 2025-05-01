@@ -72,7 +72,7 @@ function on_ready()
     savedVolumeGeneral = savedVolumeGeneral / 100
     slider1.value = savedVolumeGeneral
     
-    local savedFXVolume = load_progress("fxVolume", 1.0)
+    local savedFXVolume = load_progress("fxVolume", 100.0)
     savedFXVolume = savedFXVolume / 100
     slider2.value = savedFXVolume
 
