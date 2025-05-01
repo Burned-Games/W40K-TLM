@@ -70,41 +70,9 @@ local enemy_stats = {
             timeBetweenBursts = 1.0,
             burstCooldown = 0.3,
             stabCooldown = 2.0,
-        },
-
-
-        -- Range Level 3
-        [3] = {
-            --Stats
-            health = 140,
-
-            speed = 9,
-            bulletSpeed = 15,
-
-            meleeDamage = 35,
-            rangeDamage = 15,
-
-            detectionRange = 25,
-            meleeAttackRange = 1,
-            rangeAttackRange = 10,
-            chaseRange = 8,
-
-            maxBurstShots = 4,
-
-            alertRadius = 10.0,
-
-            priority = 1,
-
-
-
-            -- **TIMERS**
-            updateTargetInterval = 1.0,
-            timeBetweenBursts = 1.0,
-            burstCooldown = 0.3,
-            stabCooldown = 2.0,
-            -- Invulnerable time of the range level 3 hability
+            -- Invulnerable time of the range level 2 hability
             invulnerableTime = 5.0
-        }
+        },
 
     },
 
@@ -180,6 +148,9 @@ local enemy_stats = {
             detectionRange = 20,
             meleeAttackRange = 3,
 
+            statsIncrement = 1.5,
+            statsDecrement = 0.33,
+
             priority = 2,
 
 
@@ -192,6 +163,8 @@ local enemy_stats = {
             tackleCooldown = 10.0,
             -- Idle time before going after the player again
             idleDuration = 1.0
+            -- Total duration of Berserk mode
+            berserkaDuration = 180.0
         },
 
 
@@ -220,7 +193,6 @@ local enemy_stats = {
             attackCooldown = 3.0,
             tackleCooldown = 10.0,
             idleDuration = 1.0,
-            -- Total duration of Berserk mode (level 2 hability)
             berserkaDuration = 180.0
         }
 
@@ -245,23 +217,6 @@ local enemy_stats = {
 
             priority = 3
         },
-
-
-        -- Kamikaze Level 2
-        [2] = {
-            -- Stats
-            health = 51,
-
-            speed = 12,
-
-            damage = 70,
-
-            detectionRange = 20,
-            attackRange = 1,
-            explosionRange = 7,
-
-            priority = 3
-        }
 
     },
 

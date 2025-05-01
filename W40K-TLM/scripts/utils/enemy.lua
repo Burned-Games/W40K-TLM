@@ -522,10 +522,12 @@ end
 
 function enemy:set_level()
 
-    if self.LevelGeneratorByPosition.position.y > 0 then
+    if SceneManager:get_scene_name() == "level1.TeaScene" then
+        self.level = 1
+    elseif SceneManager:get_scene_name() == "level2.TeaScene" then
         self.level = 2
-    elseif self.LevelGeneratorByPosition.position.z > 0 then
-        self.level = 3
+    else
+        self.level = 1
     end
 
 end

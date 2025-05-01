@@ -7,8 +7,6 @@ support = enemy:new()
 
 function on_ready() 
 
-    support.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
-
     -- Enemy
     support.enemyTransf = self:get_component("TransformComponent")
     support.animator = self:get_component("AnimatorComponent")

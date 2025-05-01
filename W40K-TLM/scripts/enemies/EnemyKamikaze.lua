@@ -7,8 +7,6 @@ kamikaze = enemy:new()
 
 function on_ready() 
 
-    kamikaze.LevelGeneratorByPosition = current_scene:get_entity_by_name("LevelGeneratorByPosition"):get_component("TransformComponent")
-
     -- Enemy
     kamikaze.enemyTransf = self:get_component("TransformComponent")
     kamikaze.animator = self:get_component("AnimatorComponent")
