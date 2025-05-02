@@ -12,6 +12,11 @@ function on_update(dt)
         if scriptComponent and scriptComponent.targetEnemy then
             targetEnemy = scriptComponent.targetEnemy
             isActive = true
+            
+            -- Update the target enemy's shield status when shield is activated
+            if targetEnemy and targetEnemy.script then
+                targetEnemy.script.haveShield = true
+            end
         else
             return
         end
@@ -33,6 +38,14 @@ function shieldDestroy()
     if shieldTransform then
         local currentPos = shieldTransform.position
         shieldTransform.position = Vector3.new(5000, currentPos.y, currentPos.z)
+        
+        -- Update the target enemy's shield status when shield is destroyed
+        if targetEnemy and targetEnemy.script then
+            targetEnemy.script.haveShield = false
+        end
+        
+        isActive = false
+        targetEnemy = nil
     end
 end
 

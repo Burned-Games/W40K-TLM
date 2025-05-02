@@ -3,10 +3,9 @@ local stats_data = require("scripts/utils/enemy_stats")
 
 support = enemy:new()
 
-
+local prefab_path = "prefabs/Shield.prefab"
 
 function on_ready() 
-
     -- Scene
     support.sceneName = SceneManager:get_scene_name()
 
@@ -26,7 +25,7 @@ function on_ready()
     end
 
     -- Shield
-    support.prefabShield = current_scene:get_entity_by_name("Shield")
+    --support.prefabShield = current_scene:get_entity_by_name("Shield")
 
     -- Waypoints
     support.waypointsParent = current_scene:get_entity_by_name("WaypointsParent")
@@ -56,8 +55,6 @@ function on_ready()
     support.shieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
     support.dyingSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
 
-
-
     -- Level
     support.enemyType = "support"
     support:set_level()
@@ -65,8 +62,6 @@ function on_ready()
     local stats = stats_data[support.enemyType] and stats_data[support.enemyType][support.level]
     -- Debug in case is not working
     if not stats then log("No stats for type: " .. support.enemyType .. " level: " .. support.level) return end
-
-
 
     -- State
     support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Flee = 5, Shield = 6}
@@ -172,13 +167,25 @@ function on_update(dt)
     elseif support.currentState == support.state.Shield then
         support:shield_state(dt)
     end
+end
 
+-- Function to check shield status of all enemies
+function update_shield_status()
+    local shieldState = {}
+    
+    for _, enemyData in ipairs(support.Enemies) do
+        table.insert(shieldState, {
+            enemy = enemyData,
+            haveShield = enemyData.haveShield or false
+        })
+    end
+
+    return shieldState
 end
 
 function change_state()
     support.allShielded = true
 
-   
     local distanceToPlayer = support:get_distance(support.enemyTransf.position, support.playerTransf.position)
     
     if distanceToPlayer > 35 then   
@@ -195,7 +202,6 @@ function change_state()
         support.currentState = support.state.Flee
         return
     end
-
 
     local filteredEnemies = {}
     local suppPos = support.enemyTransf.position
@@ -333,7 +339,6 @@ function support:shield_state(dt)
     if support.currentAnim ~= support.shieldAnim then
         support.currentAnim = support.shieldAnim
         support.animator:set_current_animation(support.currentAnim)
-
     end
 
     if not support.currentTarget or not support.currentTarget.transform then
@@ -349,6 +354,7 @@ function support:shield_state(dt)
     
     if support.shieldAnimTimer >= support.shieldAnimDuration then
         if distance <= support.shieldRange and not support.currentTarget.script.haveShield then
+           
             local shieldEntity = create_new_shield(support.currentTarget)
             if shieldEntity then
                 local shieldScript = shieldEntity:get_component("ScriptComponent")
@@ -359,10 +365,9 @@ function support:shield_state(dt)
                 support.currentTarget.script.haveShield = true
                 support.canUseShield = false
                 support.shieldCooldownActive = true  
-                support.shieldTimer = 0.0
-                support.shieldAnimTimer = 0 
+                support.shieldTimer = 0  -- Fixed variable name (was shieldTimer)
+                support.shieldAnimTimer = 0  -- Fixed variable name (was shieldAnimTimer)
 
-                -- Actualizamos el estado del enemigo en nuestra lista de enemigos
                 for i, enemyData in ipairs(support.Enemies) do
                     if enemyData.name == support.currentTarget.name then
                         enemyData.haveShield = true
@@ -376,9 +381,7 @@ function support:shield_state(dt)
     support.currentState = support.state.Move
 end
 
-
 function support:flee_state(dt)
-
     if support.currentAnim ~= support.moveAnim then
         support.currentAnim = support.moveAnim
         support.animator:set_current_animation(support.currentAnim)
@@ -410,7 +413,8 @@ function support:flee_state(dt)
         local allEnemiesWithShield = true
         
         -- Check if all enemies have shields
-        for _, shieldData in ipairs(update_shield_status()) do
+        local shieldStatus = update_shield_status()
+        for _, shieldData in ipairs(shieldStatus) do
             if not shieldData.haveShield then
                 allEnemiesWithShield = false
                 break
@@ -418,11 +422,10 @@ function support:flee_state(dt)
         end
         
         -- If not all enemies have shields, we can move
-        if not allEnemiesWithShield then
+        if not allEnemiesWithShield and support.canUseShield then
             support.currentState = support.state.Move
         end
     end
-
 end
 
 function set_waypoints()
@@ -450,8 +453,8 @@ function set_waypoints()
         local z = suppPos.z + radius * math.sin(randomAngle)
         local newPos = Vector3.new(x, 0, z)
         
-        -- Asignar nueva posición al waypoint (CORRECCIÓN AQUÍ)
-        wpTransf.position = newPos  -- Asignación directa en lugar de método
+        -- Asignar nueva posición al waypoint
+        wpTransf.position = newPos
     end
 end
 
@@ -479,9 +482,6 @@ function find_all_enemies()
     for _, enemy in ipairs(support.EnemyKamikaze) do
         table.insert(support.Enemies, enemy)
     end
-    
-    -- Asegurar que la información de escudos está actualizada
-    update_shield_status()
     
     -- Aumentar el intervalo entre detecciones
     support.findEnemiesInterval = 4.0
@@ -582,45 +582,35 @@ function enemies_distance()
     return distances
 end
 
-function update_shield_status()
-    local shieldState = {}
-    
-    for _, enemyData in ipairs(support.Enemies) do
-        table.insert(shieldState, {
-            enemy = enemyData,
-            haveShield = enemyData.haveShield or false
-        })
-    end
-
-    return shieldState
-end
-
 function create_new_shield(targetEnemy)
-    if not targetEnemy then
-        log("Error: No target enemy provided for shield")
+    if not targetEnemy or not targetEnemy.transform then
+        log("Error: No se proporcionó un enemigo válido para el escudo")
         return nil
     end
 
-    local newShield = current_scene:duplicate_entity(support.prefabShield)
-    local shieldTransform = newShield:get_component("TransformComponent")
-    local shieldScript = newShield:get_component("ScriptComponent")
-    shieldTransform.scale = Vector3.new(1.8, 1.8, 1.8)
-    
-    --shieldAssignSFX:play()
+    local pos = targetEnemy.transform.position
+
+    local transform = Mat4.identity():translate(pos)
+  
+    local newShield = instantiate_prefab(prefab_path, transform)
+    if not newShield or not newShield:is_valid() then
+        log("Error: instantiate_prefab falló al crear el escudo")
+        return nil
+    end
+
+    local shieldTransf = newShield:get_component("TransformComponent")
+    shieldTransf.scale = Vector3.new(2, 2, 2)
 
     return newShield
 end
 
-
 function update_waypoint_path()
-    
     if #support.waypointPos > 0 then
         local targetPos = support.waypointPos[support.currentWaypoint]
         support.enemyNavmesh.path = support.enemyNavmesh:find_path(support.enemyTransf.position, targetPos)
         support.lastTargetPos = targetPos
         support.currentPathIndex = 1
     end
-
 end
 
 function on_exit() end
