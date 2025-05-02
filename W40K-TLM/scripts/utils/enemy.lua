@@ -126,10 +126,27 @@ function enemy:new(obj)
     -- Mision
     obj.enemyDie = false
 
+    -- Alert system
+    obj.isAlerted = false
+
     return obj
 
 end
 
+function enemy:alert_nearby_enemies(dt)  
+    if self.isAlerted then return end
+    local alertedCount = 0
+    for _, enemyData in ipairs(self.nearbyEnemies) do
+        if enemyData.script and not enemyData.alerted then
+            enemyData.script.playerDetected = true
+            enemyData.script.isAlerted = true
+            enemyData.script.alertTimer = 0.0
+            enemyData.alerted = true
+            alertedCount = alertedCount + 1
+        end
+    end
+    self.isAlerted = true
+end
 
 
 function enemy:check_effects(dt)

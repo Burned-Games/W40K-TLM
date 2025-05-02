@@ -25,6 +25,9 @@ function on_ready()
         kamikaze.playerObjects[i] = current_scene:get_entity_by_name(kamikaze.playerObjectsTagList[i]):get_component("TransformComponent")
     end
 
+    -- Camera
+    kamikaze.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
+
     -- Explosive
     kamikaze.explosiveBarrelRb = current_scene:get_entity_by_name("Explosive"):get_component("RigidbodyComponent").rb
 
@@ -68,6 +71,8 @@ function on_ready()
     kamikaze.pathUpdateInterval = 0.1
     kamikaze.attackTimer = 0.0
     kamikaze.attackDelay = 0.75
+    kamikaze.findEnemiesTimer = 0.0
+    kamikaze.findEnemiesInterval = 1.5
 
     -- Animations
     kamikaze.idleAnim = 3
@@ -75,11 +80,15 @@ function on_ready()
     kamikaze.attackAnim = 7
     kamikaze.dieAnim = 0
 
+    -- Lists
+    kamikaze.nearbyEnemies = {}
+
     -- Bools
     kamikaze.isExploding = false
     kamikaze.hasExploded = false
     kamikaze.hasDealtDamage = false
     kamikaze.hasStartedExplosionAnim = false
+    kamikaze.isAlerted = false
 
     -- Positions
     kamikaze.lastTargetPos = kamikaze.playerTransf.position
@@ -127,6 +136,23 @@ function on_update(dt)
         kamikaze.attackTimer = kamikaze.attackTimer + dt
         kamikaze:attack_state()
         return
+    end
+
+    if isAlerted then
+        kamikaze.alertTimer = kamikaze.alertTimer + dt
+        if kamikaze.alertTimer >= kamikaze.alertCooldown then
+            kamikaze.isAlerted = false
+            kamikaze.alertTimer = 0.0
+        end
+    end
+
+    kamikaze.findEnemiesTimer = kamikaze.findEnemiesTimer + dt
+    if kamikaze.findEnemiesTimer >= kamikaze.findEnemiesInterval then
+        if kamikaze.playerDetected then
+            kamikaze:find_nearby_enemies()
+            kamikaze:alert_nearby_enemies(dt)
+        end
+        kamikaze.findEnemiesTimer = 0
     end
 
     kamikaze.pathUpdateTimer = kamikaze.pathUpdateTimer + dt
@@ -215,6 +241,37 @@ function drop_explosive()
 
     kamikaze.explosiveBarrelRb:set_position(Vector3.new(kamikaze.enemyTransf.position.x, 0.4, kamikaze.enemyTransf.position.z))
 
+end
+
+function kamikaze:find_nearby_enemies()
+    kamikaze.nearbyEnemies = {}
+
+    local count = 0
+    for _, entity in ipairs(kamikaze.cameraScript.enemies) do
+        local tag = entity:get_component("TagComponent")
+        local name = entity:get_component("TagComponent").tag
+        
+        if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze") and entity ~= self then
+            local script = entity:get_component("ScriptComponent")
+            local entityTransform = entity:get_component("TransformComponent")
+            
+            if entityTransform and script then
+                local distance = kamikaze:get_distance(kamikaze.enemyTransf.position, entityTransform.position)
+                
+                if distance <= kamikaze.alertRadius then
+                    count = count + 1
+                    local enemyData = {
+                        entity = entity,
+                        transform = entityTransform,
+                        script = script[name:lower():sub(6)],
+                        distance = distance,
+                        alerted = false
+                    }
+                    table.insert(kamikaze.nearbyEnemies, enemyData)
+                end
+            end
+        end
+    end
 end
 
 function on_exit() end

@@ -176,7 +176,7 @@ function on_update(dt)
     if range.isPushed then return end
         
     update_bullets(dt)
-    change_state(dt)
+    change_state()
 
     if range.currentState == range.state.Idle then return end
     
@@ -213,6 +213,15 @@ function on_update(dt)
             range.isAlerted = false
             range.alertTimer = 0.0
         end
+    end
+
+    range.findRangesTimer = range.findRangesTimer + dt
+    if range.findRangesTimer >= range.findRangesInterval then
+        if range.playerDetected then
+            range:find_nearby_enemies()
+            range:alert_nearby_enemies(dt)
+        end
+        range.findRangesTimer = 0
     end
     
     local currentTargetPos = range.playerTransf.position
@@ -262,21 +271,10 @@ function on_update(dt)
 
 end
 
-function change_state(dt)
+function change_state()
 
     range:enemy_raycast()
     range:check_player_distance()
-
-    range.findRangesTimer = range.findRangesTimer + dt
-
-    -- Check for nearby ranges periodically
-    if range.findRangesTimer >= range.findRangesInterval then
-        if range.playerDetected then
-            range:find_nearby_enemies()
-            range:alert_nearby_enemies(dt)
-        end
-        range.findRangesTimer = 0
-    end
 
     -- If is Chasing don't return to Shoot or Move
     if range.isChasing then
@@ -564,24 +562,6 @@ function range:find_nearby_enemies()
             end
         end
     end
-end
-
-function range:alert_nearby_enemies(dt)  
-    if range.isAlerted then return end
-    local alertedCount = 0
-    for _, enemyData in ipairs(range.nearbyEnemies) do
-        if enemyData.script and not enemyData.alerted then
-            enemyData.script.playerDetected = true
-            enemyData.script.isAlerted = true
-            enemyData.script.alertTimer = 0.0
-            if range:get_distance(enemyData.transform.position, range.playerTransf.position) > range.rangeAttackRange then
-                enemyData.script.currentState = range.state.Move
-            end
-            enemyData.alerted = true
-            alertedCount = alertedCount + 1
-        end
-    end
-    range.isAlerted = true
 end
 
 function range:set_stats(level)

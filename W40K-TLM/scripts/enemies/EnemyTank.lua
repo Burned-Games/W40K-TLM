@@ -27,6 +27,9 @@ function on_ready()
         tank.playerObjects[i] = current_scene:get_entity_by_name(tank.playerObjectsTagList[i]):get_component("TransformComponent")
     end
 
+    -- Camera
+    tank.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
+
     -- Audio 
     tank.berserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
     tank.detectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
@@ -57,6 +60,8 @@ function on_ready()
     tank.tackleTimer = 0.0
     tank.idleTimer = 0.0
     tank.berserkaTimer = 0.0
+    tank.findEnemiesTimer = 0.0
+    tank.findEnemiesInterval = 1.5
 
     -- Animations
     tank.idleAnim = 3
@@ -65,11 +70,15 @@ function on_ready()
     tank.tackleAnim = 1
     tank.dieAnim = 2
 
+    -- Lists
+    tank.nearbyEnemies = {}
+
     -- Bools
     tank.isBerserkaActive = false 
     tank.collisionWithPlayer = false
     tank.isCharging = false
     tank.canTackle = false
+    tank.isAlerted = false
 
     -- Positions
     tank.targetDirection = Vector3.new(0, 0, 0)
@@ -182,6 +191,23 @@ function on_update(dt)
             tank.canTackle = true
             tank.tackleTimer = 0.0
         end
+    end
+
+    if isAlerted then
+        tank.alertTimer = tank.alertTimer + dt
+        if tank.alertTimer >= tank.alertCooldown then
+            tank.isAlerted = false
+            tank.alertTimer = 0.0
+        end
+    end
+
+    tank.findEnemiesTimer = tank.findEnemiesTimer + dt
+    if tank.findEnemiesTimer >= tank.findEnemiesInterval then
+        if tank.playerDetected then
+            tank:find_nearby_enemies()
+            tank:alert_nearby_enemies(dt)
+        end
+        tank.findEnemiesTimer = 0
     end
 
     if tank.update_berserka then
@@ -395,6 +421,37 @@ function tank:berserka_rage()
             self.isBerserkaActive = false
             self.update_berserka = nil
             self.originalStats = nil
+        end
+    end
+end
+
+function tank:find_nearby_enemies()
+    tank.nearbyEnemies = {}
+
+    local count = 0
+    for _, entity in ipairs(tank.cameraScript.enemies) do
+        local tag = entity:get_component("TagComponent")
+        local name = entity:get_component("TagComponent").tag
+        
+        if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze") and entity ~= self then
+            local script = entity:get_component("ScriptComponent")
+            local entityTransform = entity:get_component("TransformComponent")
+            
+            if entityTransform and script then
+                local distance = tank:get_distance(tank.enemyTransf.position, entityTransform.position)
+                
+                if distance <= tank.alertRadius then
+                    count = count + 1
+                    local enemyData = {
+                        entity = entity,
+                        transform = entityTransform,
+                        script = script[name:lower():sub(6)],
+                        distance = distance,
+                        alerted = false
+                    }
+                    table.insert(tank.nearbyEnemies, enemyData)
+                end
+            end
         end
     end
 end
