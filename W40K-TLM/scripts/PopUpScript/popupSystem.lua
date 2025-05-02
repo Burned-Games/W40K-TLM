@@ -23,6 +23,8 @@ local popupTextYExit = -400      -- Exit position
 
 local actualAlpha = 0
 
+local popupQueue = {}
+
 -- Initialization
 function on_ready()
     -- Get UI components
@@ -43,21 +45,29 @@ function on_update(dt)
     if Input.is_key_pressed(Input.keycode.R) then
         show_popup(false, "ssssssw")
     end
+
+  
 end
 
 -- Show popup: isBoss indicates whether it's a Boss area, message is the displayed text
 function show_popup(isBoss, message)
+    
+    if popupIsActive then
+        table.insert(popupQueue, { isBoss = isBoss, message = message })
+        return
+    end
+
     popupIsActive = true
     popupState = "enter"
     popupTimer = 0.0
     useBossImage = isBoss
-
     actualAlpha = 0
 
     if popupText then
         popupText:set_text(message or " ")
     end
 end
+
 
 -- Called every frame: Controls the animation state machine
 function update_popup(dt)
@@ -83,15 +93,20 @@ function update_popup(dt)
     elseif popupState == "exit" then
         actualAlpha = lerp(actualAlpha, 0.0, dt * popupSpeed)
         set_popup_alpha(actualAlpha)
-
+    
         if actualAlpha < 0.01 then
             actualAlpha = 0.0
             set_popup_alpha(actualAlpha)
             popupState = "idle"
             popupIsActive = false
+    
+            if #popupQueue > 0 then
+                local nextPopup = table.remove(popupQueue, 1)
+                show_popup(nextPopup.isBoss, nextPopup.message)
+            end
         end
     end
-end
+end    
 
 -- Helper function: Sets transparency for three components
 function set_popup_alpha(alpha)
