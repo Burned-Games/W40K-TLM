@@ -19,6 +19,13 @@ local redTasks = {
 }
 
 
+local dialogLines = {
+    { name = "Decius Marcellus", text = "Brother Quintus... this is where your path ends-or where legends are born." },
+    { name = "Decius Marcellus", text = "You stand alone, the last blade of Guilliman's will, facing the warboss who brought an entire world to ruin." },
+    { name = "Decius Marcellus", text = "Garrosh waits, surrounded by the corpses of heroes. But you are no mere warrior. You are an Ultramarine." },
+    { name = "Decius Marcellus", text = "This is not the hour of your death-this is the hour of vengeance. Let none survive." }
+}
+
 local blueTaskIndex = 1
 local redTaskIndex = 1
 
@@ -88,15 +95,11 @@ enemyDie_M7 = 1
 enemyDie_M10 = 1
 M5_WorkBrech = false
 M9_WorkBrech = false
+local dialogScriptComponent = nil
 
 local actualAlpha = 1
 
 function on_ready()
-    --mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
-    --mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
-    --mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
-    --mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
-    --mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
 
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
@@ -108,6 +111,9 @@ function on_ready()
 
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
+
+    dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+    dialogScriptComponent.start_dialog(dialogLines)
 end
 
 function on_update(dt)
