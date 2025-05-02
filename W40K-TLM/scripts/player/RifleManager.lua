@@ -317,6 +317,10 @@ function on_update(dt)
             else
                 
                 --vfxShoot:get_component("TransformComponent").position.y = 830
+                if disruptorShooted2 == false then
+                    playerScript.activateAutoAim = false
+                end
+                
                 shootAnimation = false
             end
 
@@ -326,6 +330,7 @@ function on_update(dt)
             tripleShootTimer = tripleShootTimer - dt
 
             if tripleShootCount > 0 and tripleShootTimer <= 0 then
+                playerScript.activateAutoAim = true
                 shoot(dt, tripleShootCount)
                 tripleShootCount = tripleShootCount - 1
                 tripleShootTimer = tripleShootInterval
@@ -345,6 +350,7 @@ function on_update(dt)
             end
 
             if leftShoulder == Input.state.Up and charging then
+
                 disruptorChargeTimeCounter = disruptorChargeTimeCounter + dt
                 if disruptorChargeTimeCounter >= disruptorChargeTime then
                     cooldownDisruptorBulletTimeCounter = 0
@@ -367,6 +373,7 @@ function on_update(dt)
             
 
             if disruptorShooted2 then
+                playerScript.activateAutoAim = true
                 disruptiveCharge()
                 disruptorChargeTimeCounter = 0
                 disruptorShooted2 = false
@@ -445,7 +452,12 @@ function disruptiveCharge()
 
     Input.send_rumble(vibrationDisrruptorShootSettings.x, vibrationDisrruptorShootSettings.y, vibrationDisrruptorShootSettings.z)
 
-     local forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+    if playerScript.enemyDirection ~= nil then
+        forwardVector = playerScript.enemyDirection
+        playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
+    else
+        forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+    end
     
     local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
 

@@ -67,7 +67,6 @@ function on_update(dt)
         slashCounter = slashCounter + dt
 
         if slashCounter >= slashTime and slashed == false then
-            print("qqqqqqqqqqqqq")
             Slash()
             slashed = true
 
@@ -92,7 +91,6 @@ end
 
 
 function Slash()
-    print("rrrrrrrrrrrrrr")
     for _, entity in ipairs(cameraScript.enemies) do 
         if entity ~= player and entity:has_component("RigidbodyComponent") and entity:is_active() then
             local entityRb = entity:get_component("RigidbodyComponent").rb
@@ -142,7 +140,6 @@ function Slash()
                         elseif enemyTag == "EnemyKamikaze" then
                             enemyInstance = enemyScript.kamikaze
                         end
-                        print("uuuuuuuuuuuuuu")
                         enemyInstance:take_damage(damage)
                         particle_blood_normal:emit(5)
                         particle_blood_spark:emit(5)

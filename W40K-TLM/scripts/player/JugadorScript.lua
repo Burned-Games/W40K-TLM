@@ -200,6 +200,8 @@ local lastTriggerTime = 0
 local interval = 2
 local sceneName = nil
 
+activateAutoAim = false
+
 function on_ready()
     sceneName = SceneManager:get_scene_name()
     -- Add initialization code here
@@ -469,8 +471,9 @@ function on_update(dt)
         
         
         
-
-        autoaimUpdate()
+        if godMode or activateAutoAim then
+            autoaimUpdate()
+        end
         if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
             playerMovement(dt)
         else 
@@ -1198,6 +1201,7 @@ function autoaimUpdate()
         Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
         Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
     end
+
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
     local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
     local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
