@@ -1387,7 +1387,7 @@ function attract_scrap(dt)
             scrap.position.x = 5000000000
             scrap.position.y = 5000000000
             scrap.position.z = 5000000000
-            scrapCounter = scrapCounter + 100
+            scrapCounter = scrapCounter + 37
             scrapDestroyed = scrapDestroyed + 1
 
 
