@@ -203,7 +203,7 @@ local enemy_stats = {
     kamikaze = {
 
         -- Kamikaze Level 1
-        [1] = {
+        [2] = {
             -- Stats
             health = 45,
 

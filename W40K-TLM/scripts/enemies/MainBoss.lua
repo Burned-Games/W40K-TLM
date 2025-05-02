@@ -5,7 +5,7 @@ local effect = require("scripts/utils/status_effects")
 main_boss = enemy:new()
 
 local stats = nil
-local fistMaxNumbers = 4
+local fistMaxNumbers = 3
 
 --Prefabs locations
 local fistPrefabLocation = "prefabs/Enemies/BossFist.prefab"
