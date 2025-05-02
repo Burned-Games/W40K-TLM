@@ -112,6 +112,7 @@ function on_ready()
                     tank.particleSparkTransf.position = tank.playerTransf.position
                     tank.particleSpark:emit(5)
                     tank:make_damage(tank.tackleDamage)
+                    tank.playerScript.applyStunn()
                     
                     if not tank.isBerserkaActive then
                         tank:berserka_rage()

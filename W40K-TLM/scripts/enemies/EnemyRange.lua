@@ -28,6 +28,9 @@ function on_ready()
         range.playerObjects[i] = current_scene:get_entity_by_name(range.playerObjectsTagList[i]):get_component("TransformComponent")
     end
 
+    -- Camera
+    range.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
+
     -- Explosive
     range.explosive = current_scene:get_entity_by_name("Explosive")
     range.explosiveTransf = range.explosive:get_component("TransformComponent")
@@ -533,11 +536,10 @@ function shoot_projectile(targetExplosive)
 end
 function range:find_nearby_enemies()
     range.nearbyEnemies = {}
-    
-    local all_entities = current_scene:get_all_entities()    
+
     
     local count = 0
-    for _, entity in ipairs(all_entities) do
+    for _, entity in ipairs(range.cameraScript.enemies) do
         local tag = entity:get_component("TagComponent")
         local name = entity:get_component("TagComponent").tag
         
