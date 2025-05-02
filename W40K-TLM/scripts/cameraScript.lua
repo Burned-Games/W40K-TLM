@@ -141,7 +141,6 @@ function on_ready()
         local tag = entity:get_component("TagComponent").tag 
         if tag == "EnemyRange" or tag == "EnemySupp" or tag == "EnemyKamikaze" or tag == "EnemyTank" or tag== "EnemyRange1" or tag== "EnemyRange2" or tag== "EnemyRange3" or tag== "EnemyRange4" or tag== "EnemyRange5" or tag== "EnemyRange6" or tag == "EnemyTank1" or tag == "EnemyTank2" or tag == "EnemyTank3" or tag == "EnemyTank4" or tag == "EnemyTank5" or tag == "EnemyTank6" or tag == "MainBoss" then 
             table.insert(enemies, entity)
-            table.insert(enemies, entity) 
             entity:set_active(false) 
         end
     end

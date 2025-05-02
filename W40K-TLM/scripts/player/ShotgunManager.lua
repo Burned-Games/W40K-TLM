@@ -592,9 +592,9 @@ function explodeGranade()
         local rb = granadeEntity:get_component("RigidbodyComponent").rb
         local explosionPos = rb:get_position()
 
-        local entities = current_scene:get_all_entities()
+        
 
-        for _, entity in ipairs(entities) do 
+        for _, entity in ipairs(cameraScript.enemies) do 
             if entity ~= granadeEntity and entity ~= current_scene:get_entity_by_name("Player") and entity:has_component("RigidbodyComponent") then 
                 local entityRb = entity:get_component("RigidbodyComponent").rb
                 local entityPos = entityRb:get_position()
