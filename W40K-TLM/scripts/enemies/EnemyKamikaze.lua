@@ -92,8 +92,9 @@ function on_ready()
 
     -- Positions
     kamikaze.lastTargetPos = kamikaze.playerTransf.position
-
+    kamikaze.enemyInitialPos = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y, kamikaze.enemyTransf.position.z)
     kamikaze.playerDistance = kamikaze:get_distance(kamikaze.enemyTransf.position, kamikaze.playerTransf.position) + 100
+    kamikaze.lastTargetPos = kamikaze.playerTransf.position
 
 end
 

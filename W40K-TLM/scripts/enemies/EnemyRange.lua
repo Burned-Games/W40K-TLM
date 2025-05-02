@@ -223,7 +223,7 @@ function on_update(dt)
         end
         range.findRangesTimer = 0
     end
-    
+
     local currentTargetPos = range.playerTransf.position
     if range.pathUpdateTimer >= range.pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
         range.lastTargetPos = currentTargetPos

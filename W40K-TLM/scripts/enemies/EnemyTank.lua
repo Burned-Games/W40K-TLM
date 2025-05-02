@@ -82,7 +82,9 @@ function on_ready()
 
     -- Positions
     tank.targetDirection = Vector3.new(0, 0, 0)
+    tank.enemyInitialPos = Vector3.new(tank.enemyTransf.position.x, tank.enemyTransf.position.y, tank.enemyTransf.position.z)
     tank.playerDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position) + 100
+    tank.lastTargetPos = tank.playerTransf.position
 
 
 
