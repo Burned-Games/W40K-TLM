@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
     "Language": "SFX",
-    "Hash": "{11B45FE7-E82F-39E1-19F0-C0F7CAD46D21}",
+    "Hash": "{8F893E11-327D-20B0-A477-8F6DE8F61342}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\RangedSFX",
     "ShortName": "RangedSFX",
     "Path": "RangedSFX.bnk",
@@ -22,6 +22,14 @@
       "Location": "Memory",
       "ShortName": "RangedDying.wav",
       "CachePath": "C8/{C829E543-93F5-8B17-71C9-4B3839634FC6}.wem"
+     },
+     {
+      "Id": "235500153",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RangedStomp.wav",
+      "CachePath": "2D/{2DC941ED-1BE3-359F-1C4F-18A9E0755508}.wem"
      },
      {
       "Id": "298949231",
@@ -126,10 +134,24 @@
         "Id": "774323198"
        }
       ]
+     },
+     {
+      "Id": "2497668414",
+      "Name": "Play_RangedStomp",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedStomp",
+      "GUID": "{4794DD84-574D-4FB5-99E8-CEB874A08C65}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5039166",
+      "DurationMax": "1.5039166",
+      "MediaRefs": [
+       {
+        "Id": "235500153"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{33F1BE13-170A-C2FD-2E5F-238208348C2B}"
+  "FileHash": "{1AFF90FA-4D76-6CCE-25A7-9D4162570279}"
  }
 }

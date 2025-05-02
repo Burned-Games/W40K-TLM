@@ -710,17 +710,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_fighting_music_container" ID="{756A6442-9A99-4E29-84C9-7C6D6636DE88}">
-							<ChildrenList>
-								<Action Name="" ID="{F0D51BC8-D296-419A-A9B8-967ADB422F05}" ShortID="459150892">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="fighting_music_container" ID="{7ABDAC97-C746-46C2-ABF6-1908886E73F8}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_ExploringColiseum" ID="{ABB2AFD8-4679-4A61-9D33-D25BAF3143EF}">
 							<ChildrenList>
 								<Action Name="" ID="{881FA862-56B1-4F18-8BD1-834BA30ADCB3}" ShortID="307775971">
@@ -771,6 +760,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="ExploringLevel2Mid" ID="{201097C9-77B9-4522-95BE-9B3759B13353}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_FightingMusic" ID="{F946DD80-47B3-4EDA-8D65-4F688A251623}">
+							<ChildrenList>
+								<Action Name="" ID="{A87E53A3-513C-4A23-9156-45C2615E5BE7}" ShortID="983179149">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FightingMusic" ID="{055FFD0F-5E9A-4304-923E-4BE014393D89}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

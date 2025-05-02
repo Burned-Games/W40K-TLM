@@ -10,12 +10,302 @@
     "Type": "User",
     "GUID": "{BAB19078-95DC-4C2B-868E-8037B0209A03}",
     "Language": "SFX",
-    "Hash": "{ACD21E09-0C89-DAAC-3F6E-BB158F68A106}",
+    "Hash": "{39A954EC-2C62-023D-B80C-4FA7E4B12FF8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BossSFX",
     "ShortName": "BossSFX",
-    "Path": "BossSFX.bnk"
+    "Path": "BossSFX.bnk",
+    "Media": [
+     {
+      "Id": "13375720",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossConeAtack.wav",
+      "CachePath": "62/{6233FB4D-4A3D-9565-A099-930F40FE1C0D}.wem"
+     },
+     {
+      "Id": "166699868",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossStep1.wav",
+      "CachePath": "26/{26D27BE7-8AB0-40DA-EAA0-113AE1D5CFF2}.wem"
+     },
+     {
+      "Id": "235862312",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossFase2Change.wav",
+      "CachePath": "35/{352508DD-AA6D-70CA-55A3-DB91F6BAD18B}.wem"
+     },
+     {
+      "Id": "260004005",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossShieldZap1.wav",
+      "CachePath": "E1/{E1747AE3-562F-66B4-9937-70B965ED35E5}.wem"
+     },
+     {
+      "Id": "371829015",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossShieldZap4.wav",
+      "CachePath": "65/{654C6D00-6C59-6019-76D0-F52D4644D4CB}.wem"
+     },
+     {
+      "Id": "403676809",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossSmashImpact.wav",
+      "CachePath": "AE/{AE1BDFF5-FDDE-8FB0-E117-396F650131E2}.wem"
+     },
+     {
+      "Id": "594959049",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossShieldZap2.wav",
+      "CachePath": "BE/{BE994054-8274-A72E-D670-ABA31F2845E5}.wem"
+     },
+     {
+      "Id": "602668499",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossStep2.wav",
+      "CachePath": "01/{010717C8-A964-A9DB-7F25-4DFCDD63280B}.wem"
+     },
+     {
+      "Id": "750335857",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossStep3.wav",
+      "CachePath": "38/{381E6752-1847-BB63-F2B9-44CE370AA37C}.wem"
+     },
+     {
+      "Id": "821359826",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossChargeUltimate.wav",
+      "CachePath": "9B/{9B7C1624-84A2-E925-6EEE-CABE013C25C1}.wem"
+     },
+     {
+      "Id": "916895430",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossUltimateExplosion.wav",
+      "CachePath": "AF/{AFBC6862-A3B9-0CD6-99B0-D54F6E4A7E94}.wem"
+     },
+     {
+      "Id": "929635064",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossShieldExplosion.wav",
+      "CachePath": "DC/{DC571229-9C08-2305-A613-079143914070}.wem"
+     },
+     {
+      "Id": "987094350",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossHurt.wav",
+      "CachePath": "1E/{1EFD27D9-BD3A-BDA4-A524-643648603D62}.wem"
+     },
+     {
+      "Id": "1019227559",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossStep4.wav",
+      "CachePath": "65/{658392D3-4B93-92F4-CEDC-FBE495F9644E}.wem"
+     },
+     {
+      "Id": "1061460826",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossShieldZap3.wav",
+      "CachePath": "B0/{B0A1F619-D2C4-1590-9DEC-F0CB2B2853AE}.wem"
+     },
+     {
+      "Id": "1073295311",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossSmashDescend.wav",
+      "CachePath": "50/{50773E2C-411C-D62B-15B2-4CF3640DB18E}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1560622280",
+      "Name": "Play_BossChargeUltimate",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossChargeUltimate",
+      "GUID": "{920B37F9-CEA4-47A3-AD55-3B6538D26886}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.9814584",
+      "DurationMax": "3.9814584",
+      "MediaRefs": [
+       {
+        "Id": "821359826"
+       }
+      ]
+     },
+     {
+      "Id": "3484987558",
+      "Name": "Play_BossConeAtack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossConeAtack",
+      "GUID": "{341718C5-E47B-4580-850A-762204DA40F0}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.6035833",
+      "DurationMax": "2.6035833",
+      "MediaRefs": [
+       {
+        "Id": "13375720"
+       }
+      ]
+     },
+     {
+      "Id": "2850559980",
+      "Name": "Play_BossFase2Change",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossFase2Change",
+      "GUID": "{8E7B445A-5244-41A5-81C3-934F63F779BD}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0448072",
+      "DurationMax": "2.0448072",
+      "MediaRefs": [
+       {
+        "Id": "235862312"
+       }
+      ]
+     },
+     {
+      "Id": "3965648330",
+      "Name": "Play_BossHurt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossHurt",
+      "GUID": "{F19B5EBB-EA02-492E-A85F-14C92D906990}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6782917",
+      "DurationMax": "0.6782917",
+      "MediaRefs": [
+       {
+        "Id": "987094350"
+       }
+      ]
+     },
+     {
+      "Id": "224814659",
+      "Name": "Play_BossShieldExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossShieldExplosion",
+      "GUID": "{AAAC3D6A-1472-4F0F-8327-FADB0B24B6D0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.74854165",
+      "DurationMax": "0.74854165",
+      "MediaRefs": [
+       {
+        "Id": "929635064"
+       }
+      ]
+     },
+     {
+      "Id": "2892469327",
+      "Name": "Play_BossShieldZap",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossShieldZap",
+      "GUID": "{110C8EB9-1F48-4B8C-801E-1BF98CF8DF26}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.620375",
+      "DurationMax": "0.7478333",
+      "MediaRefs": [
+       {
+        "Id": "260004005"
+       },
+       {
+        "Id": "371829015"
+       },
+       {
+        "Id": "594959049"
+       },
+       {
+        "Id": "1061460826"
+       }
+      ]
+     },
+     {
+      "Id": "3700234439",
+      "Name": "Play_BossSmashDescend",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossSmashDescend",
+      "GUID": "{559CE15B-1B61-4207-BA50-1DAF57A5B2D2}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0265833",
+      "DurationMax": "1.0265833",
+      "MediaRefs": [
+       {
+        "Id": "1073295311"
+       }
+      ]
+     },
+     {
+      "Id": "4242577965",
+      "Name": "Play_BossSmashImpact",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossSmashImpact",
+      "GUID": "{283BAC8F-1E2B-4FBD-AF7B-A14B94FB836F}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.98175",
+      "DurationMax": "1.98175",
+      "MediaRefs": [
+       {
+        "Id": "403676809"
+       }
+      ]
+     },
+     {
+      "Id": "600347558",
+      "Name": "Play_BossSteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossSteps",
+      "GUID": "{4F3A93D6-E7DF-45D2-AC6A-0E3C93F033E0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1885625",
+      "DurationMax": "0.34820834",
+      "MediaRefs": [
+       {
+        "Id": "166699868"
+       },
+       {
+        "Id": "602668499"
+       },
+       {
+        "Id": "750335857"
+       },
+       {
+        "Id": "1019227559"
+       }
+      ]
+     },
+     {
+      "Id": "2567408085",
+      "Name": "Play_BossUltimateExplosion",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossUltimateExplosion",
+      "GUID": "{F1ACC66E-6006-4343-97FF-BB6FB5DB50AA}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.08275",
+      "DurationMax": "3.08275",
+      "MediaRefs": [
+       {
+        "Id": "916895430"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{E90481D4-4980-3F67-A316-FED23A40F496}"
+  "FileHash": "{1A7E623D-F5E5-B9CC-8471-ECE724775DBB}"
  }
 }

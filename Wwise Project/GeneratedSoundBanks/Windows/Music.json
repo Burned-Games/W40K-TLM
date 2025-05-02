@@ -10,26 +10,50 @@
     "Type": "User",
     "GUID": "{AD3F8103-0D7F-40E4-A74A-E4083404369B}",
     "Language": "SFX",
-    "Hash": "{7DA43D31-03B3-9978-0AAA-D49C7057E2A9}",
+    "Hash": "{50E101D6-E401-86BE-19B8-8347AEAEC420}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
     "Media": [
      {
-      "Id": "190831399",
+      "Id": "49117587",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "fighting_music.wav",
-      "CachePath": "5B/{5B92F68A-5C28-0A3E-13C0-02FB3A95A685}.wem"
+      "ShortName": "ExploringLevel2Mid.wav",
+      "CachePath": "3A/{3A852E15-EFAC-E847-855C-3F38916AB838}.wem"
      },
      {
-      "Id": "606711652",
+      "Id": "555446988",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "exploring_music.wav",
-      "CachePath": "77/{771AC8EF-6AF5-4841-FBA3-FC995C52A96B}.wem"
+      "ShortName": "ExploringLevel1Outside.wav",
+      "CachePath": "EF/{EF8F70D0-25E4-17CB-2520-ABA58A2C3243}.wem"
+     },
+     {
+      "Id": "642317731",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploringLevel1Indoor.wav",
+      "CachePath": "7C/{7CD2DB66-9CDF-BA3A-5573-4E36679C294D}.wem"
+     },
+     {
+      "Id": "672104360",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploringColiseum.wav",
+      "CachePath": "72/{72766DBF-73E6-9CC9-C7F4-F6D20C926F82}.wem"
+     },
+     {
+      "Id": "745571181",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FightingMusic.wav",
+      "CachePath": "AA/{AACD7A1C-4DF1-B312-31B8-3657B1DFABD6}.wem"
      },
      {
       "Id": "764091017",
@@ -38,42 +62,98 @@
       "Location": "Memory",
       "ShortName": "mainMenu_music.wav",
       "CachePath": "79/{79A2B0EF-C32F-7676-0371-CC5C4F475272}.wem"
+     },
+     {
+      "Id": "973688362",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploringLevel2Final.wav",
+      "CachePath": "A3/{A386FDAF-846F-BA1B-B92D-2B40F57DDB6B}.wem"
      }
     ],
-    "Plugins": {
-     "Custom": [
-      {
-       "Id": "1059792370",
-       "Name": "RoomVerb (Custom)",
-       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb\\[Effect Slot [0]: (RoomVerb)]\\RoomVerb (Custom)",
-       "GUID": "{3B71926A-77CD-4268-AB04-046D5691BAA6}",
-       "LibName": "Wwise RoomVerb",
-       "LibId": "7733251"
-      }
-     ]
-    },
     "Events": [
      {
-      "Id": "1280960182",
-      "Name": "Play_exploring_music_container",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_exploring_music_container",
-      "GUID": "{ECDD290F-5C6C-4EA2-A4DA-3295C378FB9D}",
-      "DurationType": "Infinite",
+      "Id": "986770155",
+      "Name": "Play_ExploringColiseum",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringColiseum",
+      "GUID": "{ABB2AFD8-4679-4A61-9D33-D25BAF3143EF}",
+      "DurationType": "OneShot",
+      "DurationMin": "65.60887",
+      "DurationMax": "65.60887",
       "MediaRefs": [
        {
-        "Id": "606711652"
+        "Id": "672104360"
        }
       ]
      },
      {
-      "Id": "285999916",
-      "Name": "Play_fighting_music_container",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_fighting_music_container",
-      "GUID": "{756A6442-9A99-4E29-84C9-7C6D6636DE88}",
-      "DurationType": "Infinite",
+      "Id": "3120347016",
+      "Name": "Play_ExploringLevel1Indoor",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Indoor",
+      "GUID": "{784E7D4D-7F8E-4A87-B75D-349F8790352A}",
+      "DurationType": "OneShot",
+      "DurationMin": "54.652332",
+      "DurationMax": "54.652332",
       "MediaRefs": [
        {
-        "Id": "190831399"
+        "Id": "642317731"
+       }
+      ]
+     },
+     {
+      "Id": "3376606354",
+      "Name": "Play_ExploringLevel1Outside",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Outside",
+      "GUID": "{D3D2A23C-8EC5-4E86-92C4-72D4B5A32FC7}",
+      "DurationType": "OneShot",
+      "DurationMin": "66.18785",
+      "DurationMax": "66.18785",
+      "MediaRefs": [
+       {
+        "Id": "555446988"
+       }
+      ]
+     },
+     {
+      "Id": "3885261454",
+      "Name": "Play_ExploringLevel2Final",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Final",
+      "GUID": "{7591DC39-FC6B-47A0-A99A-2DB75908E2C2}",
+      "DurationType": "OneShot",
+      "DurationMin": "51.342083",
+      "DurationMax": "51.342083",
+      "MediaRefs": [
+       {
+        "Id": "973688362"
+       }
+      ]
+     },
+     {
+      "Id": "1745649876",
+      "Name": "Play_ExploringLevel2Mid",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Mid",
+      "GUID": "{4256EF60-8548-4A5D-815B-A9A72F52D06B}",
+      "DurationType": "OneShot",
+      "DurationMin": "60.369686",
+      "DurationMax": "60.369686",
+      "MediaRefs": [
+       {
+        "Id": "49117587"
+       }
+      ]
+     },
+     {
+      "Id": "4051651001",
+      "Name": "Play_FightingMusic",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_FightingMusic",
+      "GUID": "{F946DD80-47B3-4EDA-8D65-4F688A251623}",
+      "DurationType": "OneShot",
+      "DurationMin": "31.92771",
+      "DurationMax": "31.92771",
+      "MediaRefs": [
+       {
+        "Id": "745571181"
        }
       ]
      },
@@ -89,58 +169,9 @@
        }
       ]
      }
-    ],
-    "Busses": [
-     {
-      "Id": "2886307548",
-      "Name": "MusicBus",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MusicBus",
-      "GUID": "{4B8BF592-A668-49BA-AD98-9AB43626CBDC}"
-     },
-     {
-      "Id": "3803692087",
-      "Name": "Master Audio Bus",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
-      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
-     },
-     {
-      "Id": "3803850708",
-      "Name": "SFXBus",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFXBus",
-      "GUID": "{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}"
-     }
-    ],
-    "AuxBusses": [
-     {
-      "Id": "4091100022",
-      "Name": "MediumRoomVerb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MediumRoomVerb",
-      "GUID": "{E0A9728C-D1BE-436A-ABBB-E41C5B8C2647}",
-      "PluginRefs": {
-       "Custom": [
-        {
-         "Id": "1059792370"
-        }
-       ]
-      }
-     }
-    ],
-    "GameParameters": [
-     {
-      "Id": "1675023289",
-      "Name": "MusicBus_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\MusicBus_Volume",
-      "GUID": "{4BD37A12-F1F9-48F4-B247-2BBCB5ADC3FB}"
-     },
-     {
-      "Id": "3405162881",
-      "Name": "SFXBus_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SFXBus_Volume",
-      "GUID": "{5F4F4D52-E91E-4B31-B512-F02B92DA0CFE}"
-     }
     ]
    }
   ],
-  "FileHash": "{1A8DBD5B-C526-E7E1-9DEF-EB7E64CDC4A3}"
+  "FileHash": "{2CDBFC27-861F-7D9F-FD51-B443DA3320C4}"
  }
 }

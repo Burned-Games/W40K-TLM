@@ -10,12 +10,60 @@
     "Type": "User",
     "GUID": "{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}",
     "Language": "SFX",
-    "Hash": "{49171BD8-1792-F341-D5DE-18C3C866D59F}",
+    "Hash": "{4F4EE2CD-98F6-1DC5-E69A-C926194FFEB1}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\MeleeSFX",
     "ShortName": "MeleeSFX",
-    "Path": "MeleeSFX.bnk"
+    "Path": "MeleeSFX.bnk",
+    "Media": [
+     {
+      "Id": "408420617",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ChainswordHit.wav",
+      "CachePath": "B4/{B440F16D-7705-DA22-2A75-9CFAA6007CE1}.wem"
+     },
+     {
+      "Id": "926023896",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ChainswordAttack.wav",
+      "CachePath": "A4/{A4177D3E-52B3-57A7-4DBB-02A6EBBFF58E}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "973688628",
+      "Name": "Play_ChainswordAttack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Chainsword\\Play_ChainswordAttack",
+      "GUID": "{EC25E3E1-5BEE-4895-9DA2-AF06D06C6EB1}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.904875",
+      "DurationMax": "2.904875",
+      "MediaRefs": [
+       {
+        "Id": "926023896"
+       }
+      ]
+     },
+     {
+      "Id": "2819698039",
+      "Name": "Play_ChainswordHit",
+      "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Chainsword\\Play_ChainswordHit",
+      "GUID": "{72C328AE-A9BA-4571-9C76-B364F224321F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.98595834",
+      "DurationMax": "0.98595834",
+      "MediaRefs": [
+       {
+        "Id": "408420617"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{2898C12D-6104-4E95-2427-948D63D59AEE}"
+  "FileHash": "{F57F29A7-8B73-C565-304C-0D3836D57A28}"
  }
 }

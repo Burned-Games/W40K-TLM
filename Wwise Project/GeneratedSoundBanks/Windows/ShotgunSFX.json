@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{447F08BC-7E47-48A7-950A-3E3785307500}",
     "Language": "SFX",
-    "Hash": "{0AC67CEC-7836-D1F4-74DC-A6D6A06DEBE2}",
+    "Hash": "{2E0BBB3F-0072-C8DE-86FC-1082EA7295AA}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\ShotgunSFX",
     "ShortName": "ShotgunSFX",
     "Path": "ShotgunSFX.bnk",
@@ -21,7 +21,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunReload.wav",
-      "CachePath": "96/{96566A78-5833-FB44-E828-04432C1810F3}.wem"
+      "CachePath": "70/{704C056D-613E-5BAD-2E19-26025CDBBD19}.wem"
      },
      {
       "Id": "68810511",
@@ -125,10 +125,10 @@
       "Id": "1780972667",
       "Name": "Play_ShotgunReload",
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunReload",
-      "GUID": "{1B077963-63FF-4C41-98F2-48ECAA991393}",
+      "GUID": "{ED7FC692-A568-4B06-BABF-7DE5243B278A}",
       "DurationType": "OneShot",
-      "DurationMin": "2.7987075",
-      "DurationMax": "2.7987075",
+      "DurationMin": "2.660479",
+      "DurationMax": "2.660479",
       "MediaRefs": [
        {
         "Id": "1530029"
@@ -152,6 +152,6 @@
     ]
    }
   ],
-  "FileHash": "{727F78B3-DCFD-C482-3CC8-E1B1B81EBFD2}"
+  "FileHash": "{AA3C4EB0-B89E-8CA8-3F2B-619876944821}"
  }
 }
