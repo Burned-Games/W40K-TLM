@@ -4,6 +4,8 @@ local effect = require("scripts/utils/status_effects")
 
 range = enemy:new()
 
+local stats = nil
+
 
 
 function on_ready() 
@@ -72,37 +74,10 @@ function on_ready()
     range.enemyType = "range"
     range:set_level()
 
-    local stats = stats_data[range.enemyType] and stats_data[range.enemyType][range.level]
-    -- Debug in case is not working
-    if not stats then log("No stats for type: " .. range.enemyType .. " level: " .. range.level) return end
-
-
+    set_stats(range.level)
 
     -- States
     range.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Chase = 6, Stab = 7}
-
-    -- Stats of the Range
-    range.health = stats.health
-    range.defaultHealth = range.health
-    range.speed = stats.speed
-    range.defaultSpeed = range.speed
-    range.bulletSpeed = stats.bulletSpeed
-    range.meleeDamage = stats.meleeDamage
-    range.rangeDamage = stats.rangeDamage
-    range.detectionRange = stats.detectionRange
-    range.meleeAttackRange = stats.meleeAttackRange
-    range.rangeAttackRange = stats.rangeAttackRange
-    range.chaseRange = stats.chaseRange
-    range.maxBurstShots = stats.maxBurstShots
-    range.priority = stats.priority
-
-    -- External Timers
-    range.updateTargetInterval = stats.updateTargetInterval
-    range.timeBetweenBursts = stats.timeBetweenBursts
-    range.burstCooldown = stats.burstCooldown
-    range.stabCooldown = stats.stabCooldown
-    range.invulnerableTime = stats.invulnerableTime
-    range.alertRadius = stats.alertRadius
 
     -- Internal Timers
     range.pathUpdateTimer = 0.0
@@ -175,9 +150,11 @@ function on_update(dt)
 
     if Input.is_key_pressed(Input.keycode.L) then
         range.level = 1
+        set_stats(range.level)
         print("Range Level 1 active")
     elseif Input.is_key_pressed(Input.keycode.O) then
         range.level = 2
+        set_stats(range.level)
         print("Range Level 2 active")
     end
 
@@ -566,6 +543,36 @@ function range:alert_nearby_enemies(dt)
         end
     end
     range.isAlerted = true
+end
+
+function set_stats(level)
+    stats = stats_data[range.enemyType] and stats_data[range.enemyType][range.level]
+    -- Debug in case is not working
+    if not stats then log("No stats for type: " .. range.enemyType .. " level: " .. range.level) return end
+
+    -- Stats of the Range
+    range.health = stats.health
+    range.defaultHealth = range.health
+    range.speed = stats.speed
+    range.defaultSpeed = range.speed
+    range.bulletSpeed = stats.bulletSpeed
+    range.meleeDamage = stats.meleeDamage
+    range.rangeDamage = stats.rangeDamage
+    range.detectionRange = stats.detectionRange
+    range.meleeAttackRange = stats.meleeAttackRange
+    range.rangeAttackRange = stats.rangeAttackRange
+    range.chaseRange = stats.chaseRange
+    range.maxBurstShots = stats.maxBurstShots
+    range.alertRadius = stats.alertRadius
+    range.priority = stats.priority
+
+    -- External Timers
+    range.updateTargetInterval = stats.updateTargetInterval
+    range.timeBetweenBursts = stats.timeBetweenBursts
+    range.burstCooldown = stats.burstCooldown
+    range.stabCooldown = stats.stabCooldown
+    range.invulnerableTime = stats.invulnerableTime
+
 end
 
 function on_exit() end

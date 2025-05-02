@@ -96,6 +96,7 @@ function on_ready()
     -- Attack lists
     main_boss.scalingAttacks = {}
     main_boss.attacksToTeleport = {}
+    main_boss.fistPositions = {}
 
 
 
@@ -132,6 +133,7 @@ function on_ready()
     main_boss.rangeAttackDuration = stats.rangeAttackDuration
     main_boss.fistsDamageCooldown = stats.fistsDamageCooldown
     main_boss.shieldCooldown = stats.shieldCooldown
+    main_boss.fistsAttackDelay = 2.0
 
     -- Internal Timers
     main_boss.pathUpdateTimer = 0.0
@@ -146,6 +148,7 @@ function on_ready()
     main_boss.ultiAttackTimer = 0.0
     main_boss.ultiHittingTimer = 0.0
     main_boss.totemTimer = 0.0
+    main_boss.fistsAttackDelayTimer = 0.0
 
     -- Provisional Timers
     main_boss.ultiTimer = 0.0
@@ -173,6 +176,10 @@ function on_ready()
     main_boss.shieldActive = false
     main_boss.hasMovedToCenter = false
     main_boss.isReturning = false
+    main_boss.fistsAttackPending = false
+
+    -- Ints
+    main_boss.radius = 6
 
     -- Vector3
     main_boss.ultimateVibration = Vector3.new(1, 1, 200)
@@ -199,7 +206,7 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if nameA == "Player" or nameB == "Player" and main_boss.isLightningDamaging then
+        if (nameA == "Player" or nameB == "Player") and main_boss.isLightningDamaging then
             if not main_boss.hasDealtLightningDamage then
                 main_boss:make_damage(main_boss.meleeDamage)
                 main_boss.hasDealtLightningDamage = true
@@ -212,7 +219,8 @@ function on_ready()
             local nameA = entityA:get_component("TagComponent").tag
             local nameB = entityB:get_component("TagComponent").tag
 
-            if nameA == "Player" or nameB == "Player" and main_boss.isFistsDamaging then
+            if (nameA == "Player" or nameB == "Player") and main_boss.isFistsDamaging then
+                log("Player in fist")
                 main_boss:make_damage(main_boss.rangeDamage)
                 main_boss.isFistsDamaging = false
             end
@@ -284,6 +292,15 @@ function on_update(dt)
                     manage_destroyed_pillar()
                 end
             end
+        end
+    end
+
+    if main_boss.fistsAttackPending then
+        main_boss.fistsAttackDelayTimer = main_boss.fistsAttackDelayTimer + dt
+        if main_boss.fistsAttackDelayTimer >= main_boss.fistsAttackDelay then
+            execute_fists_attack()
+            main_boss.fistsAttackPending = false
+            main_boss.fistsAttackDelayTimer = 0.0
         end
     end
 
@@ -535,37 +552,56 @@ end
 
 function fists_attack()
 
+    if main_boss.fistsThrown or main_boss.fistsAttackPending then return end
+    log("Fists Indicator ")
+
+    main_boss.fistsAttackPending = true
+    main_boss.fistsAttackDelayTimer = 0.0
+
+    local playerPos = main_boss.playerTransf.position
+    main_boss.fistPositions = {
+        Vector3.new(playerPos.x + main_boss.radius, 0, playerPos.z),  -- Right
+        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z + main_boss.radius * 0.866),  -- Bottom left
+        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z - main_boss.radius * 0.866)   -- Top left
+    }
+
+    for i = 1, fistMaxNumbers do
+        if main_boss.fistIndicatorsTransform[i] then
+            main_boss.fistIndicatorsTransform[i].position = main_boss.fistPositions[i]
+            main_boss.fistIndicatorsTransform[i].position.y = 0.1
+        end
+        if main_boss.fistIndicatorsScript[i] then
+            main_boss.fistIndicatorsScript[i]:startIndicator()
+        end
+    end
+
+end
+
+function execute_fists_attack()
+
     if main_boss.fistsThrown then return end
 
     log("Fists Attack")
     local playerPos = main_boss.playerTransf.position
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-    -- Calculate positions around the player (equidistant points in a circle)
-    local radius = 3.5
-    local fistPositions = {
-        Vector3.new(playerPos.x + radius, 0, playerPos.z),  -- Right
-        Vector3.new(playerPos.x - radius/2, 0, playerPos.z + radius * 0.866),  -- Bottom left
-        Vector3.new(playerPos.x - radius/2, 0, playerPos.z - radius * 0.866)   -- Top left
-    }
 
     -- Clear previous scaling operations
     main_boss.scalingAttacks = {}
 
-    for i = 1, 3 do
+    for i = 1, fistMaxNumbers do
         if main_boss.fistRbs[i] and main_boss.fistTransf[i] then
             -- Set initial position
-            main_boss.fistRbs[i]:set_position(fistPositions[i])
-            main_boss.fistIndicatorsTransform[i].position = fistPositions[i]
-            main_boss.fistIndicatorsTransform[i].position.y = 0.1;
-            -- Active indicator
-            main_boss.fistIndicatorsScript[i]:startIndicator()
+            main_boss.fistRbs[i]:set_position(main_boss.fistPositions[i])
 
             -- Reset scale
             main_boss.fistTransf[i].scale = Vector3.new(1, 1, 1)
+            main_boss.fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)
+            main_boss.fistRbComponent[i].rb:set_trigger(true)
             
             -- Add to scaling list with reference to the specific fist transform
             table.insert(main_boss.scalingAttacks, {
                 transform = main_boss.fistTransf[i],
+                transformRb = main_boss.fistRbComponent[i],
                 elapsed = 0,
                 duration = main_boss.rangeAttackDuration,
                 startScale = Vector3.new(1, 1, 1),
@@ -649,10 +685,20 @@ function update_scaling_attacks(dt)
             if data.transform then
                 data.transform.scale = newScale
             end
+
+            if data.transformRb then
+                --data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
+                --data.transformRb.rb:set_trigger(true)
+            end
         else
             -- Scaling complete, set to final scale
             if data.transform then
                 data.transform.scale = data.targetScale
+            end
+
+            if data.transformRb then
+                --data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
+                --data.transformRb.rb:set_trigger(true)
             end
             table.remove(main_boss.scalingAttacks, i)
         end
