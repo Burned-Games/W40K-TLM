@@ -79,6 +79,7 @@ m3_EnemyCount = 0
 --M4
 m4_lever = false
 m4_EnemyCount = 0
+m4_showLeverPop = false
 --M5
 m5_Upgrade = false
 --M6
@@ -155,6 +156,12 @@ function on_update(dt)
         if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
     end)
 
+
+    if m4_EnemyCount == 2 and m4_showLeverPop == false then
+        popupScriptComponent.show_popup(false, "[A] to interact")
+        m4_showLeverPop = true
+    end
+
   
 end
 
@@ -194,8 +201,6 @@ function missionBlue_Tutor()
     elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
         startAnimation(blueAnimation)
         popupScriptComponent.show_popup(false, "[RT] to break some objects")
-    elseif blueTaskIndex == 4 and m4_EnemyCount == 2 then
-        popupScriptComponent.show_popup(false, "[A] to interact")
     elseif blueTaskIndex == 4 and m4_lever and m4_EnemyCount == 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
