@@ -7,22 +7,22 @@ local enemy_stats = {
         -- Range Level 1
         [1] = {
             -- Stats
-            health = 95,
+            health = 70,
 
-            speed = 5,
+            speed = 5.5,
             bulletSpeed = 15,
 
             meleeDamage = 15,
             rangeDamage = 5,
 
-            detectionRange = 25,
+            detectionRange = 20,
             meleeAttackRange = 1,
-            rangeAttackRange = 16,
+            rangeAttackRange = 12,
             chaseRange = 6,
 
             maxBurstShots = 4,
 
-            alertRadius = 10.0,
+            alertRadius = 5.0,
 
             priority = 1,
 
@@ -44,22 +44,22 @@ local enemy_stats = {
         -- Range Level 2
         [2] = {
             -- Stats
-            health = 110,
+            health = 90,
 
-            speed = 7,
+            speed = 5.5,
             bulletSpeed = 15,
 
-            meleeDamage = 25,
-            rangeDamage = 10,
+            meleeDamage = 20,
+            rangeDamage = 7,
 
-            detectionRange = 25,
+            detectionRange = 20,
             meleeAttackRange = 1,
-            rangeAttackRange = 10,
-            chaseRange = 8,
+            rangeAttackRange = 12,
+            chaseRange = 6,
 
             maxBurstShots = 4,
 
-            alertRadius = 10.0,
+            alertRadius = 5.0,
 
             priority = 1,
 
@@ -83,14 +83,14 @@ local enemy_stats = {
         -- Support Level 1
         [1] = {
             -- Stats
-            health = 50,
+            health = 60,
 
             speed = 5,
             fleeSpeed = 7,
 
             enemyShield = 35,
 
-            detectionRange = 10,
+            detectionRange = 20,
             shieldRange = 5,
             attackRange = 0,
 
@@ -111,20 +111,20 @@ local enemy_stats = {
             health = 75,
 
             speed = 5,
-            fleeSpeed = 2,
+            fleeSpeed = 7,
 
-            enemyShield = 70,
+            enemyShield = 50,
 
             damage = 30,
 
-            detectionRange = 10,
+            detectionRange = 20,
             shieldRange = 5,
             attackRange = 10,
 
 
 
             -- **Timers**
-            shieldCooldown = 5.0,
+            shieldCooldown = 4.0,
             checkEnemyInterval = 40.0
         }
 
@@ -139,11 +139,11 @@ local enemy_stats = {
             -- Stats
             health = 250,
 
-            speed = 2,
-            tackleSpeed = 13,
+            speed = 3,
+            tackleSpeed = 12,
 
             meleeDamage = 40,
-            tackleDamage = 80,
+            tackleDamage = 90,
 
             detectionRange = 20,
             meleeAttackRange = 3,
@@ -158,13 +158,13 @@ local enemy_stats = {
             -- **Timers**
 
             -- Time between melee attacks
-            attackCooldown = 3.0,
+            attackCooldown = 2.0,
             -- Time between tackles
-            tackleCooldown = 10.0,
+            tackleCooldown = 6.0,
             -- Idle time before going after the player again
             idleDuration = 1.0,
             -- Total duration of Berserk mode
-            berserkaDuration = 180.0
+            berserkaDuration = 10.0
         },
 
 
@@ -173,11 +173,11 @@ local enemy_stats = {
             -- Stats
             health = 300,
 
-            speed = 2,
-            tackleSpeed = 13,
+            speed = 3,
+            tackleSpeed = 12,
 
             meleeDamage = 60,
-            tackleDamage = 180,
+            tackleDamage = 110,
 
             detectionRange = 20,
             meleeAttackRange = 3,
@@ -190,10 +190,10 @@ local enemy_stats = {
 
 
             -- **Timers**
-            attackCooldown = 3.0,
-            tackleCooldown = 10.0,
+            attackCooldown = 2.0,
+            tackleCooldown = 6.0,
             idleDuration = 1.0,
-            berserkaDuration = 180.0
+            berserkaDuration = 10.0
         }
 
     },
@@ -207,13 +207,13 @@ local enemy_stats = {
             -- Stats
             health = 45,
 
-            speed = 10,
+            speed = 7,
 
             damage = 40,
 
             detectionRange = 20,
             attackRange = 1,
-            explosionRange = 5,
+            explosionRange = 3,
 
             priority = 3
         },
