@@ -105,7 +105,7 @@ function updatePosition(dt)
     )
 
     if proximity.x < 2 and proximity.y < 2 and proximity.z < 2 then
-        transform.position = Vector3.new(5000000000, 5000000000, 5000000000)
+        self:set_active(false)
         scrapCollected = true
         playerScript.scrapCounter = playerScript.scrapCounter + 37
        
