@@ -293,15 +293,15 @@ function on_ready()
             StimsCounter = StimsCounter + 1
             if nameA == "Inyectores" then
                 
-                local nameEntity = current_scene:get_entity_by_name("Inyectores") 
-                local rigid = nameEntity:get_component("RigidbodyComponent").rb
+                
+                local rigid = entityA:get_component("RigidbodyComponent").rb
                 local newPos = Vector3.new(2000000, 0, 0)
                 rigid:set_position(newPos)
             end
             if nameB == "Inyectores" then
                 
-                local nameEntity = current_scene:get_entity_by_name("Inyectores") 
-                local rigid = nameEntity:get_component("RigidbodyComponent").rb
+                
+                local rigid = entityB:get_component("RigidbodyComponent").rb
                 local newPos = Vector3.new(2000000, 0, 0)
                 rigid:set_position(newPos)
                 
