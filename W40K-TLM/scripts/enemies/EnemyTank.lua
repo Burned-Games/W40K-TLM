@@ -162,7 +162,7 @@ function on_update(dt)
 
     if tank.isPushed == true then return end
 
-    change_state()
+    change_state(dt)
 
     if tank.health <= 0 then
         if tank.key ~= 0 then
@@ -268,9 +268,9 @@ function tank:is_other_tank_in_tackle()
 
 end
 
-function change_state()
+function change_state(dt)
 
-    tank:enemy_raycast()
+    tank:enemy_raycast(dt)
     tank:check_player_distance()
 
     if tank.collisionWithPlayer then

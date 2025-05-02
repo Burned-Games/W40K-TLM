@@ -176,7 +176,7 @@ function on_update(dt)
     if range.isPushed then return end
         
     update_bullets(dt)
-    change_state()
+    change_state(dt)
 
     if range.currentState == range.state.Idle then return end
     
@@ -271,9 +271,9 @@ function on_update(dt)
 
 end
 
-function change_state()
+function change_state(dt)
 
-    range:enemy_raycast()
+    range:enemy_raycast(dt)
     range:check_player_distance()
 
     -- If is Chasing don't return to Shoot or Move

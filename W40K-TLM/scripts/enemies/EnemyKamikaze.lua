@@ -107,7 +107,7 @@ function on_update(dt)
     if kamikaze.isPushed == true then
         return
     end
-    change_state()
+    change_state(dt)
 
     if kamikaze.currentState == kamikaze.state.Idle then return end
 
@@ -194,9 +194,9 @@ function on_update(dt)
 
 end
 
-function change_state()
+function change_state(dt)
 
-    kamikaze:enemy_raycast()
+    kamikaze:enemy_raycast(dt)
     kamikaze:check_player_distance()
 
     if kamikaze.playerDetected and kamikaze.playerDistance <= kamikaze.detectionRange then

@@ -86,6 +86,8 @@ function enemy:new(obj)
     obj.currentPathIndex = 1
     obj.currentRotationY = 0
     obj.raycastRotationY = 0
+    obj.oscillationAngle = 0
+    obj.oscillationSpeed = 2
     obj.zoneNumber = 0
 
     -- Bools
@@ -261,7 +263,7 @@ end
 
 
 -- Function of the raycast
-function enemy:enemy_raycast()
+function enemy:enemy_raycast(dt)
 
     local direction = Vector3.new(0, 0, 0)
     local origin = self.enemyTransf.position
@@ -293,6 +295,20 @@ function enemy:enemy_raycast()
     -- Separation angle in radians (~30 degrees)
     local angleOffset = math.rad(self.raycastAngle)  
 
+    local centerDirection = Vector3.new(0, 0, 0)
+    if not self.playerDetected then
+        self.oscillationAngle = self.oscillationAngle + self.oscillationSpeed * dt
+        local centralAngleOffset = math.sin(self.oscillationAngle) * angleOffset
+        
+        centerDirection = Vector3.new(
+            direction.x * math.cos(centralAngleOffset) - direction.z * math.sin(centralAngleOffset),
+            0,
+            direction.x * math.sin(centralAngleOffset) + direction.z * math.cos(centralAngleOffset)
+        )
+    else
+        centerDirection = direction
+    end
+
     local leftDirection = Vector3.new(
         direction.x * math.cos(angleOffset) - direction.z * math.sin(angleOffset),
         0,
@@ -306,7 +322,7 @@ function enemy:enemy_raycast()
     )
 
     -- Raycast
-    local centerHit = Physics.Raycast(origin, direction, maxDistance)
+    local centerHit = Physics.Raycast(origin, centerDirection, maxDistance)
     local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
 
@@ -380,7 +396,7 @@ function enemy:enemy_raycast()
 
     -- Debug draw of the rays
     if self.playerScript.godMode then
-        Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+        Physics.DebugDrawRaycast(origin, centerDirection, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
         Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
         Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
     end
