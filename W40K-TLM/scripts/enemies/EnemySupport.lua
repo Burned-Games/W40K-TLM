@@ -606,7 +606,7 @@ function create_new_shield(targetEnemy)
     local shieldScript = newShield:get_component("ScriptComponent")
     shieldTransform.scale = Vector3.new(1.8, 1.8, 1.8)
     
-    shieldAssignSFX:play()
+    --shieldAssignSFX:play()
 
     return newShield
 end
