@@ -40,10 +40,12 @@ function on_ready()
 
 
     -- Level
-    tank.enemy_type = "tank"
+    tank.enemyType = "tank"
     tank:set_level()
 
-    set_stats(tank.level)
+    tank:set_stats(tank.level)
+
+    print(tank.tackleCooldown)
 
     -- States
     tank.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Tackle = 5}
@@ -397,7 +399,7 @@ function tank:berserka_rage()
     end
 end
 
-function set_stats(level)
+function tank:set_stats(level)
     stats = stats_data[tank.enemyType] and stats_data[tank.enemyType][tank.level]
     -- Debug in case is not working
     if not stats then log("No stats for type: " .. tank.enemyType .. " level: " .. tank.level) return end
@@ -419,7 +421,6 @@ function set_stats(level)
     tank.tackleCooldown = stats.tackleCooldown
     tank.idleDuration = stats.idleDuration
     tank.berserkaDuration = stats.berserkaDuration
-
 end
 
 function on_exit() end

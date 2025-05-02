@@ -43,7 +43,7 @@ function on_ready()
 
 
     -- Level
-    kamikaze.enemy_type = "kamikaze"
+    kamikaze.enemyType = "kamikaze"
     kamikaze:set_level()
 
     local stats = stats_data[kamikaze.enemy_type] and stats_data[kamikaze.enemy_type][kamikaze.level]
