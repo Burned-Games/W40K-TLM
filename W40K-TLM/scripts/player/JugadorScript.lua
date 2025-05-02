@@ -82,6 +82,8 @@ local swordAnimationTime = 1
 local swordAnimationTimeCounter = 0
 
 -- Audio
+local playerListener = nil
+
 local explorationMusic = nil
 local combatMusic = nil
 
@@ -204,8 +206,12 @@ activateAutoAim = false
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
+
     -- Add initialization code here
     -- Audio
+
+    playerListener = current_scene:get_entity_by_name("Listener"):get_component("TransformComponent")
+
     --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
     playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
@@ -483,6 +489,9 @@ function on_update(dt)
         handleCover()
         
         backgroundMusicToPlay = 0
+
+        -- Listener Position
+        playerListener.position = playerTransf.position
 
     end
 end
