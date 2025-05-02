@@ -29,6 +29,7 @@ local particle_blood_normal = nil
 local particle_blood_spark = nil
 local particle_blood_normal_transform = nil
 local particle_blood_spark_transform = nil
+local cameraScript = nil
 
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
@@ -41,17 +42,7 @@ function on_ready()
     particle_blood_normal_transform = current_scene:get_entity_by_name("particle_blood_normal"):get_component("TransformComponent")
     particle_blood_spark_transform = current_scene:get_entity_by_name("particle_blood_spark"):get_component("TransformComponent")
 
-    --------------shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
-    ----bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
-
-    entities = current_scene:get_all_entities()
-    enemies = {} 
-    for _, entity in ipairs(entities) do 
-        enemyTag = entity:get_component("TagComponent").tag
-        if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" or enemyTag == "EnemySupport" or enemyTag == "EnemyKamikaze" or enemyTag == "EnemyTank" or enemyTag == "MainBoss" then
-            table.insert(enemies, entity)
-        end
-    end
+    cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
 end
 
@@ -76,6 +67,7 @@ function on_update(dt)
         slashCounter = slashCounter + dt
 
         if slashCounter >= slashTime and slashed == false then
+            print("qqqqqqqqqqqqq")
             Slash()
             slashed = true
 
@@ -100,7 +92,8 @@ end
 
 
 function Slash()
-    for _, entity in ipairs(enemies) do 
+    print("rrrrrrrrrrrrrr")
+    for _, entity in ipairs(cameraScript.enemies) do 
         if entity ~= player and entity:has_component("RigidbodyComponent") and entity:is_active() then
             local entityRb = entity:get_component("RigidbodyComponent").rb
             local entityPos = entityRb:get_position()
@@ -149,6 +142,7 @@ function Slash()
                         elseif enemyTag == "EnemyKamikaze" then
                             enemyInstance = enemyScript.kamikaze
                         end
+                        print("uuuuuuuuuuuuuu")
                         enemyInstance:take_damage(damage)
                         particle_blood_normal:emit(5)
                         particle_blood_spark:emit(5)

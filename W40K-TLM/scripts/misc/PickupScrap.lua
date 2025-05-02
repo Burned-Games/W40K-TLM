@@ -41,7 +41,7 @@ end
 
 function on_update(dt)
     -- Add update code here
-    log(dt)
+    --log(dt)
 
 
     if not onReadyDoned then
