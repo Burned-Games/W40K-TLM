@@ -197,15 +197,15 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
-        popupScriptComponent.show_popup(false, "[Y] to change weapon")
+        --popupScriptComponent.show_popup(false, "[Y] to change weapon")
     elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
         startAnimation(blueAnimation)
-        popupScriptComponent.show_popup(false, "[RT] to break some objects")
+        --popupScriptComponent.show_popup(false, "[RT] to break some objects")
     elseif blueTaskIndex == 4 and m4_lever and m4_EnemyCount == 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)
-        popupScriptComponent.show_popup(false, "[B] to dash")
+        --popupScriptComponent.show_popup(false, "[B] to dash")
     elseif blueTaskIndex == 6 and m6_heal then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 7 and m7_Defeate then
