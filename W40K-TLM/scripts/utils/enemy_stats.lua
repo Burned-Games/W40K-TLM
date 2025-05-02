@@ -153,7 +153,7 @@ local enemy_stats = {
 
             priority = 2,
 
-
+            alertRadius = 20.0,
 
             -- **Timers**
 
@@ -187,7 +187,7 @@ local enemy_stats = {
 
             priority = 2,
 
-
+            alertRadius = 20.0,
 
             -- **Timers**
             attackCooldown = 2.0,
@@ -215,7 +215,9 @@ local enemy_stats = {
             attackRange = 1,
             explosionRange = 3,
 
-            priority = 3
+            priority = 3,
+            
+            alertRadius = 20.0,
         },
 
     },

@@ -65,6 +65,7 @@ function on_ready()
     kamikaze.attackRange = stats.attackRange
     kamikaze.explosionRange = stats.explosionRange
     kamikaze.priority = stats.priority
+    kamikaze.alertRadius = stats.alertRadius
 
     -- Timers
     kamikaze.pathUpdateTimer = 0.0
@@ -162,7 +163,7 @@ function on_update(dt)
     if kamikaze.pathUpdateTimer >= kamikaze.pathUpdateInterval or kamikaze:get_distance(kamikaze.lastTargetPos, currentTargetPos) > 1.0 then
         kamikaze.lastTargetPos = currentTargetPos
         kamikaze:check_initial_distance()
-        if not kamikazekamikaze.isReturning then
+        if not kamikaze.isReturning then
             kamikaze:update_path(kamikaze.playerTransf)
         else
             kamikaze:update_path_position(kamikaze.enemyInitialPos)

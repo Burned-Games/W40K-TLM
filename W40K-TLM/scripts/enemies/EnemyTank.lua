@@ -479,6 +479,7 @@ function tank:set_stats(level)
     tank.detectionRange = stats.detectionRange
     tank.meleeAttackRange = stats.meleeAttackRange
     tank.priority = stats.priority
+    tank.alertRadius = stats.alertRadius
 
     -- External Timers
     tank.attackCooldown = stats.attackCooldown
