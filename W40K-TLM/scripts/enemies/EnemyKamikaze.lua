@@ -46,9 +46,9 @@ function on_ready()
     kamikaze.enemyType = "kamikaze"
     kamikaze:set_level()
 
-    local stats = stats_data[kamikaze.enemy_type] and stats_data[kamikaze.enemy_type][kamikaze.level]
+    local stats = stats_data[kamikaze.enemyType] and stats_data[kamikaze.enemyType][kamikaze.level]
     -- Debug in case is not working
-    if not stats then log("No stats for type: " .. kamikaze.enemy_type .. " level: " .. kamikaze.level) return end
+    if not stats then log("No stats for type: " .. kamikaze.enemyType .. " level: " .. kamikaze.level) return end
 
 
 

@@ -77,7 +77,7 @@ function on_ready()
     range.enemyType = "range"
     range:set_level()
 
-    set_stats(range.level)
+    range:set_stats(range.level)
 
     -- States
     range.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Chase = 6, Stab = 7}
@@ -93,7 +93,7 @@ function on_ready()
     range.stabTimer = 1.0
     range.bulletLifetime = 5.0
     range.findRangesTimer = 0.0
-    range.findRangesInterval = 1.5
+    range.findRangesInterval = 50
     range.invulnerabilityTimer = 0.0
 
     -- Animations
@@ -114,6 +114,8 @@ function on_ready()
     range.isfirstChase = true
     range.hasDealtDamage = false
     range.isAlerted = false
+    range.playingDetectAnim = false
+    range.detectAnimFinished = false
 
     -- Ints
     range.burstCount = 0
@@ -124,7 +126,7 @@ function on_ready()
     range.dieAnimDuration = 0.90
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
-    range.detectAnimDuration = 0.9
+    range.detectAnimDuration = 5
     range.detectAnimTimer = 0.0
 
     -- Lists
@@ -176,6 +178,33 @@ function on_update(dt)
     if range.isPushed then return end
         
     update_bullets(dt)
+
+    if range.playingDetectAnim then
+        range.detectAnimTimer = range.detectAnimTimer + dt
+
+        if range.detectAnimTimer >= range.detectAnimDuration then
+            range.playingDetectAnim = false
+            range.detectAnimTimer = 0.0
+
+            local alertedCount = 0
+            for _, enemyData in ipairs(range.nearbyEnemies) do
+                if enemyData.script and not enemyData.alerted then
+                    enemyData.script.playerDetected = true
+                    enemyData.script.isAlerted = true
+                    enemyData.script.alertTimer = 0.0
+                    if range:get_distance(enemyData.transform.position, range.playerTransf.position) > range.rangeAttackRange then
+                        enemyData.script.currentState = range.state.Move
+                    end
+                    enemyData.alerted = true
+                    alertedCount = alertedCount + 1
+                end
+            end
+
+            range.isAlerted = true
+        end
+    end
+    range.isAlerted = true
+
     change_state(dt)
 
     if range.currentState == range.state.Idle then return end
@@ -206,14 +235,6 @@ function on_update(dt)
             range.invulnerable = false
         end
     end
-
-    if isAlerted then
-        range.alertTimer = range.alertTimer + dt
-        if range.alertTimer >= range.alertCooldown then
-            range.isAlerted = false
-            range.alertTimer = 0.0
-        end
-    end
     
     local currentTargetPos = range.playerTransf.position
     if range.pathUpdateTimer >= range.pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
@@ -241,6 +262,8 @@ function on_update(dt)
         range:rotate_enemy(range.playerTransf.position)
     end
 
+    if range.playingDetectAnim then return end
+
     if range.currentState == range.state.Dead then
         range:die_state(dt)
         return
@@ -263,6 +286,8 @@ function on_update(dt)
 end
 
 function change_state(dt)
+
+    if range.playingDetectAnim then return end
 
     range:enemy_raycast()
     range:check_player_distance()
@@ -534,6 +559,7 @@ function shoot_projectile(targetExplosive)
     end
 
 end
+
 function range:find_nearby_enemies()
     range.nearbyEnemies = {}
 
@@ -567,24 +593,19 @@ function range:find_nearby_enemies()
 end
 
 function range:alert_nearby_enemies(dt)  
-    if range.isAlerted then return end
-    local alertedCount = 0
-    for _, enemyData in ipairs(range.nearbyEnemies) do
-        if enemyData.script and not enemyData.alerted then
-            enemyData.script.playerDetected = true
-            enemyData.script.isAlerted = true
-            enemyData.script.alertTimer = 0.0
-            if range:get_distance(enemyData.transform.position, range.playerTransf.position) > range.rangeAttackRange then
-                enemyData.script.currentState = range.state.Move
-            end
-            enemyData.alerted = true
-            alertedCount = alertedCount + 1
-        end
+    if range.isAlerted or range.playingDetectAnim then return end
+    log("AAAA")
+
+    if range.currentAnim ~= range.detectAnim then
+        range.currentAnim = range.detectAnim
+        range.animator:set_current_animation(range.currentAnim)
     end
-    range.isAlerted = true
+
+    range.detectAnimTimer = 0.0
+    range.playingDetectAnim = true
 end
 
-function set_stats(level)
+function range:set_stats(level)
     stats = stats_data[range.enemyType] and stats_data[range.enemyType][range.level]
     -- Debug in case is not working
     if not stats then log("No stats for type: " .. range.enemyType .. " level: " .. range.level) return end
