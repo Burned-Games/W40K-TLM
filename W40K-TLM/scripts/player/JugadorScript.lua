@@ -406,7 +406,7 @@ function on_update(dt)
             intervalChekerDown = intervalChekerDown + 1.5
             HealPlayer()
         end
-
+--[[
         if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
 
             attractionActive = not attractionActive 
@@ -415,14 +415,14 @@ function on_update(dt)
         end
 
         if attractionActive == true then 
-            attract_scrap(dt)
+            --attract_scrap(dt)
         
         end
 
         
             
             attractionActive = not attractionActive 
-            find_scrap()
+            find_scrap()]]
         
 
 
@@ -1298,7 +1298,7 @@ function handleBleed(dt)
     end
 
 end
-
+--[[
 function find_scrap()
     --local entities = current_scene:get_all_entities()
     --tuplaScrap = { {}, {} }
@@ -1404,11 +1404,11 @@ function attract_scrap(dt)
         if partOfList >= amountOfScrap then
             partOfList = 0
         end
-        ]]
+        
     
     end 
 end
-
+]]
 function handleCover()
     if barricadeScript.isPlayerInRange == false then
         isCovering = false

@@ -1,9 +1,12 @@
 local actualYRotation = 0
 local transform;
+local playerTrans = 0
 local rotationSpeed = 100
 
 local actualSize = Vector3.new(0, 0, 0)
 local sizeSpeed = 1
+
+local attractionSpeed = 2
 
 
 local direction = true -- true = up, false = down
@@ -18,14 +21,19 @@ local frequency = 0.5
 local amplitude = 0.1 
 
 local onReadyDoned = false
+local playerScript 
 
 
 function on_ready()
     -- Add initialization code here
     transform = self:get_component("TransformComponent")
+    local player = current_scene:get_entity_by_name("Player")
+    playerTrans = player:get_component("TransformComponent")
     transform.rotation = Vector3.new(0, actualYRotation, 0)
     transform.scale = actualSize
     initialYPosition = transform.position.y
+    playerScript = player:get_component("ScriptComponent")
+
 
     onReadyDoned = true
 
@@ -33,6 +41,7 @@ end
 
 function on_update(dt)
     -- Add update code here
+    log(dt)
 
 
     if not onReadyDoned then
@@ -55,6 +64,8 @@ function on_update(dt)
     offsetYPosition = math.sin(time * frequency * 2 * math.pi) * amplitude
     transform.position.y = initialYPosition + offsetYPosition
 
+    updatePosition(dt)
+
 end
 
 function on_exit()
@@ -63,4 +74,40 @@ end
 
 function lerp(a, b, t)
     return a + (b - a) * t
+end
+
+function updatePosition(dt)
+    local playerPos = playerTrans.position
+    local scrapPos = transform.position
+
+    local direction = Vector3.new(
+        playerPos.x - scrapPos.x,
+        playerPos.y - scrapPos.y,
+        playerPos.z - scrapPos.z
+    )
+    
+
+    local l = attractionSpeed * dt
+    local p = Vector3.new(direction.x * l, direction.y * l, direction.z * l)
+
+    local newPos = Vector3.new(
+        scrapPos.x + p.x,
+        scrapPos.y + p.y,
+        scrapPos.z + p.z
+    )
+
+    transform.position = newPos
+
+    local proximity = Vector3.new(
+        math.abs(playerPos.x - newPos.x),
+        math.abs(playerPos.y - newPos.y),
+        math.abs(playerPos.z - newPos.z)
+    )
+
+    if proximity.x < 2 and proximity.y < 2 and proximity.z < 2 then
+        transform.position = Vector3.new(5000000000, 5000000000, 5000000000)
+        scrapCollected = true
+        playerScript.scrapCounter = playerScript.scrapCounter + 37
+       
+    end
 end
