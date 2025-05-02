@@ -124,6 +124,10 @@ function on_ready()
 
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
+
+    dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+    dialogScriptComponent.start_dialog(dialogLines)
+
 end
 
 function on_update(dt)
@@ -203,8 +207,10 @@ function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
     if redTaskIndex == 1 and mr1_Check then
         startAnimation(redAnimation)
+        dialogScriptComponent.start_dialog(dialogLines2)
     elseif redTaskIndex == 2 and mr2_Check then
         startAnimation(redAnimation)
+        dialogScriptComponent.start_dialog(dialogLines3)
     elseif redTaskIndex == 3 and mr3_Check then
         startAnimation(redAnimation)
     end
