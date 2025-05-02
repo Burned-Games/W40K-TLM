@@ -47,7 +47,7 @@ function on_update(dt)
     )
 
     if distance.x < 1 and distance.z < 1 and Input.get_button(Input.action.Confirm) == Input.state.Down then
-        if mission_Component.getCurrerTaskIndex(true) == 4 and mission_Component.getCurrerLevel() == 1 then
+        if mission_Component.getCurrerTaskIndex(true) == 4 and mission_Component.getCurrerLevel() == 1 and mission_Component.m4_EnemyCount == 2 then
             mission_Component.m4_lever = true
         end
 

@@ -21,10 +21,10 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag   
     if nameA == "Player" or nameB == "Player" then
-        m4_Clear =true
+        --m4_Clear =true
 
         --dialogScriptComponent.start_dialog(dialogLines)
-        popupScriptComponent.show_popup(false, "QUEST STARTING")
+       -- popupScriptComponent.show_popup(false, "QUEST STARTING")
 
     end
     end)
