@@ -157,11 +157,6 @@ function on_update(dt)
     end)
 
 
-    if m4_EnemyCount == 2 and m4_showLeverPop == false then
-        popupScriptComponent.show_popup(false, "[A] to interact")
-        m4_showLeverPop = true
-    end
-
   
 end
 
@@ -198,9 +193,9 @@ function missionBlue_Tutor()
     elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
         --popupScriptComponent.show_popup(false, "[Y] to change weapon")
-    elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
+    elseif blueTaskIndex == 3 and m3_EnemyCount >= 2 then
         startAnimation(blueAnimation)
-        --popupScriptComponent.show_popup(false, "[RT] to break some objects")
+        popupScriptComponent.start_popup_removal_timer()
     elseif blueTaskIndex == 4 and m4_lever and m4_EnemyCount == 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
@@ -212,10 +207,14 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 8 and m7_Upgrade then
         startAnimation(blueAnimation)
+        popupScriptComponent.start_popup_removal_timer()
     elseif blueTaskIndex == 9 and m8_lever == 2 then
         startAnimation(blueAnimation)
+        popupScriptComponent.start_popup_removal_timer()
+        popupScriptComponent.remove_persistent_popup()
     elseif blueTaskIndex == 10 and m9_EnemyCount == 3 then
         startAnimation(blueAnimation)
+        popupScriptComponent.remove_persistent_popup()
     elseif blueTaskIndex == 11 and m10_Upgrade then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 12 and m11_NewZone then

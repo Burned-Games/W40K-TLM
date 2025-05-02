@@ -21,6 +21,10 @@ local popupQueue = {}
 local persistentPopup = nil
 local isPersistentActive = false
 
+
+local popupTimer = 0
+local popupShouldRemove = false
+
 -- Initialization
 function on_ready()
     popupNormal = current_scene:get_entity_by_name("PopUpNewZoneIMG"):get_component("UIImageComponent")
@@ -48,6 +52,9 @@ function on_update(dt)
     if Input.is_key_pressed(Input.keycode.Y) then
         remove_persistent_popup() -- Stop persistent popup
     end
+
+
+    update_popup_timer(dt)
 end
 
 -- Show popup: isPersistent optional parameter (default false)
@@ -75,6 +82,15 @@ function show_popup(isBoss, message, isPersistent)
     start_popup(isBoss, message)
 end
 
+function update_persistent_popup_text(newText)
+    if isPersistentActive and persistentPopup then
+        if popupText then
+            popupText:set_text(newText or " ")
+        end
+    end
+end
+
+
 -- Start popup (used for internal calls)
 function start_popup(isBoss, message)
     popupIsActive = true
@@ -94,6 +110,23 @@ function remove_persistent_popup()
     isPersistentActive = false
     popupState = "exit"
     popupTimer = 0.0
+end
+
+
+function start_popup_removal_timer()
+    popupTimer = 0
+    popupShouldRemove = true
+end
+
+function update_popup_timer(dt)
+    if popupShouldRemove then
+        popupTimer = popupTimer + dt
+        if popupTimer >= 1.0 then
+            popupShouldRemove = false
+            popupTimer = 0
+            remove_persistent_popup()
+        end
+    end
 end
 
 -- Control popup animation state machine
