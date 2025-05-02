@@ -3,6 +3,8 @@ local stats_data = require("scripts/utils/enemy_stats")
 
 tank = enemy:new()
 
+local stats = nil
+
 
 
 function on_ready()
@@ -41,32 +43,10 @@ function on_ready()
     tank.enemy_type = "tank"
     tank:set_level()
 
-    local stats = stats_data[tank.enemy_type] and stats_data[tank.enemy_type][tank.level]
-    -- Debug in case is not working
-    if not stats then log("No stats for type: " .. tank.enemy_type .. " level: " .. tank.level) return end
-
-
+    set_stats(tank.level)
 
     -- States
     tank.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Tackle = 5}
-
-    -- Stats of the Tank
-    tank.health = stats.health
-    tank.defaultHealth = tank.health
-    tank.speed = stats.speed
-    tank.defaultSpeed = tank.speed
-    tank.tackleSpeed = stats.tackleSpeed
-    tank.meleeDamage = stats.meleeDamage
-    tank.tackleDamage = stats.tackleDamage
-    tank.detectionRange = stats.detectionRange
-    tank.meleeAttackRange = stats.meleeAttackRange
-    tank.priority = stats.priority
-
-    -- External Timers
-    tank.attackCooldown = stats.attackCooldown
-    tank.tackleCooldown = stats.tackleCooldown
-    tank.idleDuration = stats.idleDuration
-    tank.berserkaDuration = stats.berserkaDuration
 
     -- Internal Timers
     tank.pathUpdateTimer = 0.0
@@ -151,9 +131,11 @@ function on_update(dt)
 
     if Input.is_key_pressed(Input.keycode.L) then
        tank.level = 1
+       set_stats(tank.level)
        print("Tank Level 1 active")
     elseif Input.is_key_pressed(Input.keycode.O) then
        tank.level = 2
+       set_stats(tank.level)
        print("Tank Level 2 active")
     end
 
@@ -413,6 +395,31 @@ function tank:berserka_rage()
             self.originalStats = nil
         end
     end
+end
+
+function set_stats(level)
+    stats = stats_data[tank.enemyType] and stats_data[tank.enemyType][tank.level]
+    -- Debug in case is not working
+    if not stats then log("No stats for type: " .. tank.enemyType .. " level: " .. tank.level) return end
+
+    -- Stats of the Tank
+    tank.health = stats.health
+    tank.defaultHealth = tank.health
+    tank.speed = stats.speed
+    tank.defaultSpeed = tank.speed
+    tank.tackleSpeed = stats.tackleSpeed
+    tank.meleeDamage = stats.meleeDamage
+    tank.tackleDamage = stats.tackleDamage
+    tank.detectionRange = stats.detectionRange
+    tank.meleeAttackRange = stats.meleeAttackRange
+    tank.priority = stats.priority
+
+    -- External Timers
+    tank.attackCooldown = stats.attackCooldown
+    tank.tackleCooldown = stats.tackleCooldown
+    tank.idleDuration = stats.idleDuration
+    tank.berserkaDuration = stats.berserkaDuration
+
 end
 
 function on_exit() end
