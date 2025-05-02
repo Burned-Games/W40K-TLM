@@ -198,8 +198,10 @@ isStunned = false
 
 local lastTriggerTime = 0
 local interval = 2
+local sceneName = nil
 
 function on_ready()
+    sceneName = SceneManager:get_scene_name()
     -- Add initialization code here
     -- Audio
     --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
@@ -386,7 +388,7 @@ function on_update(dt)
         end
         updateEntranceAnimation(dt)
 
-        if animacionEntradaRealizada == false and level == 1 then
+        if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" then
             return
         end
         if healAnimationSecondBool then
@@ -630,7 +632,7 @@ function updateGodMode(dt)
 end
 
 function updateEntranceAnimation(dt)
-    if level == 1 then
+    if sceneName == "level1.TeaScene" then
             
         --print("aaaaaaaaaaaaaaaa")
         if animacionEntradaRealizada == false then
