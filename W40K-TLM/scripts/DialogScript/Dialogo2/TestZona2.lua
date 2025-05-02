@@ -6,7 +6,7 @@ dialogLines = {
 
 local mission4RigidBodyComponent = nil
 local mission4RigidBody = nil
-dialogScriptComponent = nil
+--dialogScriptComponent = nil
 
 m4_Clear = false
 function on_ready()
@@ -21,10 +21,10 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag   
     if nameA == "Player" or nameB == "Player" then
-        m4_Clear =true
+        --m4_Clear =true
 
-        dialogScriptComponent.start_dialog(dialogLines)
-        popupScriptComponent.show_popup(false, "QUEST STARTING2")
+        --dialogScriptComponent.start_dialog(dialogLines)
+        --popupScriptComponent.show_popup(false, "QUEST STARTING2")
 
     end
     end)

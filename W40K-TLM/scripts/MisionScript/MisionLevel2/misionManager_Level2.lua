@@ -19,19 +19,19 @@ local redTasks = {
 }
 
 
-dialogLines = {
+local dialogLines = {
     { name = "Decius Marcellus", text = "This is Decius Marcellus, commander of Guilliman's Fist..." },
     { name = "Decius Marcellus", text = "Has anyone successfully made planetfall? I repeat: are there any survivors?" },
     { name = "Decius Marcellus", text = "I think you're the only survivor, Brother Quintus Maxillian. Maintain course toward Martyria Eterna." },
     { name = "Decius Marcellus", text = "We detect enemies along your path. May the Emperor be with you." }
 }
 
-dialogLines2 = {
+local dialogLines2 = {
     { name = "Decius Marcellus", text = "Brother Quintus, that is an upgrade station. With it, you can enhance your equipment to continue the xenos purge." },
     { name = "Decius Marcellus", text = "Search for them in the field-they could make a huge difference in how the battle unfolds." }
 }
 
-dialogLines3 = {
+local dialogLines3 = {
     { name = "Decius Marcellus", text = "Brother Quintus, it's an ambush! Hold out until the enemies are eliminated." },
     { name = "Decius Marcellus", text = "May the Emperor's light guide you, for Ultramar!" }
 }
@@ -107,13 +107,10 @@ M9_WorkBrech = false
 
 local actualAlpha = 1
 
-function on_ready()
-    --mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
-    --mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
-    --mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
-    --mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
-    --mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
+local dialogScriptComponent = nil
 
+function on_ready()
+   
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
     textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
