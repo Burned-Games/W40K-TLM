@@ -79,7 +79,7 @@ local particle_blood_spark_transform = nil
     local chargeZoneRb = nil
 
     local zoneRadius = 4
-    local chargeZoneDamagePerSecond = 5
+    local chargeZoneDamagePerSecond = 10
     local chargeZoneDuration = 5
     local secondCounter = 0
     local secondCounterTimes = 0
@@ -104,8 +104,12 @@ local manualReload = false
 
 local vfxShoot = nil
 
-function on_ready()
+local enemies = nil
 
+local cameraScript = nil
+
+function on_ready()
+    cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
@@ -159,62 +163,6 @@ function on_ready()
     particle_blood_normal_transform = current_scene:get_entity_by_name("particle_blood_normal"):get_component("TransformComponent")
     particle_blood_spark_transform = current_scene:get_entity_by_name("particle_blood_spark"):get_component("TransformComponent")
     
-    --shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
-    ---- bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent") // A DESCOMENTAR
-
-    -- sphere1RigidBodyComponent:on_collision_enter(function(entityA, entityB) 
-    --     local nameA = entityA:get_component("TagComponent").tag
-    --     local nameB = entityB:get_component("TagComponent").tag
-
-    --     local entityARB = entityA:get_component("RigidbodyComponent").rb
-    --     local entityBRB = entityB:get_component("RigidbodyComponent").rb
-
-
-    --     if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
-    --         local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
-    --         makeDamage(enemy)
-
-    --     end
-
-    --     if nameA == "EnemySupport" or nameB == "EnemySupport" then
-    --         local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
-    --         makeDamage(enemy)
-    --     end
-
-    --     if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
-    --         local enemy = (nameA == "EnemyKamikaze" and entityA) or (nameB == "EnemyKamikaze" and entityB)
-    --         makeDamage(enemy)
-    --     end
-
-    --     if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
-    --         local enemy = ((nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6") and entityA) or ((nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6") and entityB)
-    --         makeDamage(enemy)
-    --     end
-
-    --     if nameA == "MainBoss" or nameB == "MainBoss" then
-    --         local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
-    --         makeDamage(enemy)
-    --     end
-
-    --     if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
-    --         if entityARB:get_is_trigger() == false then
-    --             -- print("collisionA")
-    --             sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
-    --             -- print(nameA)
-    --         end 
-    --     end
-
-    --     if entityBRB and nameB ~= "Player" and nameB ~= "FloorCollider" then
-    --         if entityBRB:get_is_trigger() == false then
-    --             -- print("collisionB")
-    --             sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
-    --         end
-    --     end
-
-
-        
-        
-    -- end)
 
     disruptorBullet = current_scene:get_entity_by_name("DisruptorBullet")
     disruptorBulletTransf = disruptorBullet:get_component("TransformComponent")
@@ -298,6 +246,8 @@ function on_ready()
     chargeZoneRb:set_trigger(true)
 
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+
+
 
 end
 
@@ -527,16 +477,16 @@ function chargedZoneUpdate(dt)
      else
         chargeZoneRb:set_position(Vector3.new(0,-100,0))
         activateZone = false
+        secondCounterTimes = 0
      end
 
      if secondCounter >= 1 then
         
          
 
-        local entities = current_scene:get_all_entities()
+        for _, entity in ipairs(cameraScript.enemies) do 
 
-        for _, entity in ipairs(entities) do 
-            if entity ~= chargeZone and entity:has_component("RigidbodyComponent") then
+            if entity ~= chargeZone and entity:has_component("RigidbodyComponent") and entity ~= nil then
                 local entityRb = entity:get_component("RigidbodyComponent").rb
                 local entityPos = entityRb:get_position()
 
@@ -564,7 +514,8 @@ function chargedZoneUpdate(dt)
 
                     if name== "EnemyRange" or name== "EnemyRange1" or name== "EnemyRange2" or name== "EnemyRange3" or name== "EnemyRange4" or name== "EnemyRange5" or name== "EnemyRange6" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
-                        if enemyOrkScript ~= nil then                            
+                        if enemyOrkScript ~= nil then                          
+                            print("damage")
                             enemyOrkScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
 
@@ -622,7 +573,7 @@ function chargedZoneUpdate(dt)
         
         secondCounter = 0
         secondCounterTimes = secondCounterTimes + 1
-        --print("secondCounterTimes", secondCounterTimes)
+        
 
     end
 

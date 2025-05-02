@@ -33,7 +33,7 @@ local radiusSpawn = 25
 
 local entities = nil
 
-local orkEntities = nil
+enemies  = nil
 
 local pauseScript = nil
 
@@ -135,12 +135,13 @@ function on_ready()
 
     entities = current_scene:get_all_entities() 
 
-    orkEntities = {} 
+    enemies = {} 
 
     for _, entity in ipairs(entities) do 
         local tag = entity:get_component("TagComponent").tag 
-        if tag == "EnemyOrk" or tag == "EnemySupp" or tag == "EnemyKamikaze" or tag == "EnemyTank" then 
-            table.insert(orkEntities, entity) 
+        if tag == "EnemyRange" or tag == "EnemySupp" or tag == "EnemyKamikaze" or tag == "EnemyTank" or tag== "EnemyRange1" or tag== "EnemyRange2" or tag== "EnemyRange3" or tag== "EnemyRange4" or tag== "EnemyRange5" or tag== "EnemyRange6" or tag == "EnemyTank1" or tag == "EnemyTank2" or tag == "EnemyTank3" or tag == "EnemyTank4" or tag == "EnemyTank5" or tag == "EnemyTank6" or tag == "MainBoss" then 
+            table.insert(enemies, entity)
+            table.insert(enemies, entity) 
             entity:set_active(false) 
         end
     end
@@ -232,7 +233,7 @@ end
 function updateEnemyActivation()
 
 
-    for _, entity in ipairs(orkEntities) do 
+    for _, entity in ipairs(enemies) do 
         if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent")then
             local entityRb = entity:get_component("RigidbodyComponent").rb
             local entityPos = entityRb:get_position()
