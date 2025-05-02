@@ -81,7 +81,7 @@ function on_ready()
 
     -- Internal Timers
     range.pathUpdateTimer = 0.0
-    range.pathUpdateInterval = 0.1
+    range.pathUpdateInterval = 0.1 
     range.updateTargetTimer = 0.0
     range.timeSinceLastShot = 0.0
     range.burstCooldownTimer = 0.0
@@ -91,13 +91,18 @@ function on_ready()
     range.bulletLifetime = 5.0
     range.findRangesTimer = 0.0
     range.findRangesInterval = 1.5
+    range.invulnerabilityTimer = 0.0
 
     -- Animations
-    range.idleAnim = 3
-    range.moveAnim = 4
+    range.idleAnim = 5
+    range.moveAnim = 7
     range.meleeAttackAnim = 0
     range.rangeAttackAnim = 1
-    range.dieAnim = 2
+    range.dieAnim = 3
+    range.hitAnim = 4
+    range.stompAnim = 6
+    range.detectAnim = 2
+    range.stunAnim = 8
 
     -- Bools
     range.isShootingBurst = false
@@ -111,9 +116,13 @@ function on_ready()
     range.burstCount = 0
     range.currentBulletIndex = 1
 
-    -- Timers
-    range.dieTimer = 0
-    range.dieAnimDuration = 61
+    -- Animation Timers
+    range.dieTimer = 0.0
+    range.dieAnimDuration = 0.90
+    range.firstChaseTimer = 0.0
+    range.firstChaseDuration = 0.9
+    range.detectAnimDuration = 0.9
+    range.detectAnimTimer = 0.0
 
     -- Lists
     range.nearbyEnemies = {}
@@ -137,7 +146,7 @@ function on_update(dt)
     if range.playingDieAnim then
         range.enemyRb:set_trigger(true)
         range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        range.dieTimer = range.dieTimer + 1
+        range.dieTimer = range.dieTimer + dt
     end
 
 
@@ -186,10 +195,12 @@ function on_update(dt)
     range.updateTargetTimer = range.updateTargetTimer + dt
 
     if range.invulnerable then
-        range.invulnerableTime = range.invulnerableTime - dt
-        if range.invulnerableTime <= 0 then
+
+        range.invulnerabilityTimer = range.invulnerabilityTimer + dt
+
+        if range.invulnerableTime >= range.invulnerableTime then
+            range.invulnerabilityTimer = 0
             range.invulnerable = false
-            range.invulnerableTime = 5.0
         end
     end
 
@@ -240,7 +251,7 @@ function on_update(dt)
         range:shoot_state(dt)
 
     elseif range.currentState == range.state.Chase then
-        range:chase_state()
+        range:chase_state(dt)
 
     elseif range.currentState == range.state.Stab then
         range:stab_state(dt)
@@ -355,21 +366,48 @@ function range:shoot_state(dt)
 
 end
 
-function range:chase_state()
+function range:chase_state(dt)
 
     if range.level == 2 then
         if range.isfirstChase then
-            range.invulnerable = true
-            range.isfirstChase = false
-        end
-    end
-    
-    if range.currentAnim ~= range.moveAnim then
-        range.currentAnim = range.moveAnim
-        range.animator:set_current_animation(range.currentAnim)
-    end
 
-    range:follow_path()
+            range.invulnerable = true
+            if range.currentAnim ~= range.stompAnim then
+                range.currentAnim = range.stompAnim
+                range.animator:set_current_animation(range.currentAnim)
+    
+            end
+
+            range.firstChaseTimer = range.firstChaseTimer + dt
+
+            if range.firstChaseTimer >= range.firstChaseDuration then
+
+                range.isfirstChase = false
+                range.currentAnim = range.moveAnim
+                range.animator:set_current_animation(range.currentAnim)
+            
+                range.firstChaseTimer = 0
+                range:follow_path()
+            end 
+        
+        else
+            if range.currentAnim ~= range.moveAnim then
+                range.currentAnim = range.moveAnim
+                range.animator:set_current_animation(range.currentAnim)
+    
+            end
+            range:follow_path()
+        end
+        
+    else 
+        if range.currentAnim ~= range.moveAnim then
+            range.currentAnim = range.moveAnim
+            range.animator:set_current_animation(range.currentAnim)
+
+        end
+        range:follow_path()
+
+    end 
 
 end
 
@@ -528,7 +566,6 @@ end
 
 function range:alert_nearby_enemies(dt)  
     if range.isAlerted then return end
-    
     local alertedCount = 0
     for _, enemyData in ipairs(range.nearbyEnemies) do
         if enemyData.script and not enemyData.alerted then

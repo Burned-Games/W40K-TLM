@@ -73,6 +73,7 @@ function enemy:new(obj)
     obj.moveAnim = 1
     obj.dieAnim = 2
     obj.attackAnim = 3
+    obj.hitAnim = -1
 
 
     -- **Variable for the functions of the enemy**
@@ -548,6 +549,14 @@ function enemy:make_damage(damage)
 end
 
 function enemy:take_damage(damage, shieldMultiplier)
+    
+    -- if self.hitAnim ~= -1 then
+    --     if self.currentAnim ~= self.hitAnim then
+    --         self.currentAnim = self.hitAnim
+    --         self.animator:set_current_animation(self.currentAnim)
+    --     end
+    -- end
+    
     if shieldMultiplier == nil then
         shieldMultiplier = 1
     end
