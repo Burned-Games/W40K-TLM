@@ -1,38 +1,32 @@
 -- UI components
 local popupNormal = nil
 local popupBoss = nil
+local popupText = nil
 
--- Animation state for popup image
+-- Animation state
 local popupIsActive = false
 local popupTimer = 0.0
 local popupState = "idle" -- "enter", "hold", "exit"
-local popupDuration = 2.0 -- seconds to hold
+local popupDuration = 2.0
+local popupSpeed = 4.0
 
-local popupYStart = -200
-local popupYTarget = -200
-local popupYExit = -400
-local popupSpeed = 4.0 -- higher = faster
-
+-- Popup visuals
 local useBossImage = false
-
--- Text component and its animation variables
-local popupText = nil
-local popupTextYStart = -400     -- Initial position (off-screen)
-local popupTextYTarget = -185    -- Target position when popup is open
-local popupTextYExit = -400      -- Exit position
-
 local actualAlpha = 0
 
+-- Popup queue
 local popupQueue = {}
+
+-- Persistent popup data
+local persistentPopup = nil
+local isPersistentActive = false
 
 -- Initialization
 function on_ready()
-    -- Get UI components
     popupNormal = current_scene:get_entity_by_name("PopUpNewZoneIMG"):get_component("UIImageComponent")
-    popupBoss = current_scene:get_entity_by_name("PopUpBossZoneIMG"):get_component("UIImageComponent") -- Pay attention to spelling!
+    popupBoss = current_scene:get_entity_by_name("PopUpBossZoneIMG"):get_component("UIImageComponent")
     popupText = current_scene:get_entity_by_name("PopUpText"):get_component("UITextComponent")
 
-    -- Initialize as transparent
     set_popup_alpha_Start(0)
 end
 
@@ -42,21 +36,47 @@ function on_update(dt)
         update_popup(dt)
     end
 
+    -- Example shortcut key test
     if Input.is_key_pressed(Input.keycode.R) then
-        show_popup(false, "ssssssw")
+        show_popup(false, "Normal area")
     end
 
-  
+    if Input.is_key_pressed(Input.keycode.T) then
+        show_popup(false, "Defeat enemies 0/2", true) -- Persistent popup example
+    end
+
+    if Input.is_key_pressed(Input.keycode.Y) then
+        remove_persistent_popup() -- Stop persistent popup
+    end
 end
 
--- Show popup: isBoss indicates whether it's a Boss area, message is the displayed text
-function show_popup(isBoss, message)
-    
-    if popupIsActive then
+-- Show popup: isPersistent optional parameter (default false)
+function show_popup(isBoss, message, isPersistent)
+    if isPersistent then
+        persistentPopup = { isBoss = isBoss, message = message }
+
+        -- If currently playing, add to queue instead of playing immediately
+        if popupIsActive then
+            table.insert(popupQueue, { isBoss = isBoss, message = message, isPersistent = true })
+        else
+            isPersistentActive = true
+            start_popup(isBoss, message)
+        end
+        return
+    end
+
+    -- Normal popup added to queue
+    if popupIsActive or isPersistentActive then
         table.insert(popupQueue, { isBoss = isBoss, message = message })
         return
     end
 
+    -- Otherwise, play immediately
+    start_popup(isBoss, message)
+end
+
+-- Start popup (used for internal calls)
+function start_popup(isBoss, message)
     popupIsActive = true
     popupState = "enter"
     popupTimer = 0.0
@@ -68,8 +88,15 @@ function show_popup(isBoss, message)
     end
 end
 
+-- Manually remove persistent popup
+function remove_persistent_popup()
+    -- Trigger exit animation (do not cancel immediately)
+    isPersistentActive = false
+    popupState = "exit"
+    popupTimer = 0.0
+end
 
--- Called every frame: Controls the animation state machine
+-- Control popup animation state machine
 function update_popup(dt)
     local currentPopup = useBossImage and popupBoss or popupNormal
 
@@ -85,6 +112,12 @@ function update_popup(dt)
         end
 
     elseif popupState == "hold" then
+        if isPersistentActive and persistentPopup then
+            -- Persistent popup: Keep displaying, do not exit
+            return
+        end
+    
+        -- Normal popup: Countdown until exit
         popupTimer = popupTimer + dt
         if popupTimer >= popupDuration then
             popupState = "exit"
@@ -100,15 +133,22 @@ function update_popup(dt)
             popupState = "idle"
             popupIsActive = false
     
+            -- Play next popup in queue
             if #popupQueue > 0 then
                 local nextPopup = table.remove(popupQueue, 1)
-                show_popup(nextPopup.isBoss, nextPopup.message)
+    
+                if nextPopup.isPersistent then
+                    persistentPopup = nextPopup
+                    isPersistentActive = true
+                end
+    
+                start_popup(nextPopup.isBoss, nextPopup.message)
             end
         end
-    end
-end    
+    end    
+end
 
--- Helper function: Sets transparency for three components
+-- Set transparency
 function set_popup_alpha(alpha)
     if useBossImage then
         if popupBoss then popupBoss:set_color(Vector4.new(1, 1, 1, alpha)) end
@@ -124,7 +164,7 @@ function set_popup_alpha_Start(alpha)
     if popupText then popupText:set_color(Vector4.new(1, 1, 1, alpha)) end
 end
 
--- Linear interpolation function
+-- Linear interpolation
 function lerp(a, b, t)
     return a + (b - a) * t
 end
