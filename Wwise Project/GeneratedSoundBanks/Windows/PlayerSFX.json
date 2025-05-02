@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{9A8FA306-E0BF-C63A-BA70-8F3D3522E937}",
+    "Hash": "{7C5A684F-90B9-2AF6-3382-631E6AAF0112}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -22,14 +22,6 @@
       "Location": "Memory",
       "ShortName": "Overload2.wav",
       "CachePath": "A6/{A60F3294-6C68-883E-7D8B-447D511A4D3D}.wem"
-     },
-     {
-      "Id": "174829407",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep.wav",
-      "CachePath": "D9/{D9DD909B-CE89-9E22-DD36-37384062A494}.wem"
      },
      {
       "Id": "393389286",
@@ -70,30 +62,6 @@
       "Location": "Memory",
       "ShortName": "BannerFall.wav",
       "CachePath": "C5/{C5D1CD64-92C9-3600-325B-1B047BCC1B87}.wem"
-     },
-     {
-      "Id": "784979147",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep3.wav",
-      "CachePath": "6D/{6DC6E29E-3FDC-5540-EE44-AA453B181A14}.wem"
-     },
-     {
-      "Id": "813472966",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep4.wav",
-      "CachePath": "8E/{8E925B89-F433-A173-CB2C-165B47EAB303}.wem"
-     },
-     {
-      "Id": "1047720961",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MetalSandStep2.wav",
-      "CachePath": "6C/{6C6CE1BC-A2F9-5C59-0F80-E4A74F30644D}.wem"
      }
     ],
     "Events": [
@@ -168,33 +136,10 @@
         "Id": "619122296"
        }
       ]
-     },
-     {
-      "Id": "581613120",
-      "Name": "Play_StepTest",
-      "ObjectPath": "\\Events\\Default Work Unit\\Steps\\Play_StepTest",
-      "GUID": "{6636D3E5-D787-4382-944B-E88757E016CE}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.1885625",
-      "DurationMax": "0.34820834",
-      "MediaRefs": [
-       {
-        "Id": "174829407"
-       },
-       {
-        "Id": "784979147"
-       },
-       {
-        "Id": "813472966"
-       },
-       {
-        "Id": "1047720961"
-       }
-      ]
      }
     ]
    }
   ],
-  "FileHash": "{BD3BB1ED-819E-710B-5142-E8407F14B9CA}"
+  "FileHash": "{64693591-0877-8DDD-8725-938246BC92D1}"
  }
 }
