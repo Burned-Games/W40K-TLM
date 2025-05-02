@@ -81,7 +81,7 @@ function on_update(dt)
         workbenchRB.rb:set_velocity(Vector3.new(0, 0, 0))
     end
 
-    if playerInRange and Input.get_button(Input.action.Cancel) == Input.state.Down then
+    if playerInRange and Input.get_button(Input.action.Confirm) == Input.state.Down then
         -- Open the workbench UI
         local workbenchOpen = workbenchUIManagerScript.isWorkBenchOpen
         if workbenchOpen == false then

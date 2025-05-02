@@ -404,7 +404,7 @@ function on_update(dt)
     end
 
 
-    local cancelState = Input.get_button(Input.action.Confirm)
+    local cancelState = Input.get_button(Input.action.Cancel)
     if cancelState == Input.state.Down and isWorkBenchOpen then
         hide_ui()
     end
@@ -415,7 +415,7 @@ function handle_gun_controls(dt)
         gunBuyButton.state = 1
         gunExitButton.state = 0
 
-        local confirmState = Input.get_button(Input.action.Cancel)
+        local confirmState = Input.get_button(Input.action.Confirm)
 
         if confirmState == Input.state.Repeat and not confirmPressed then
             confirmPressed = true
@@ -438,7 +438,7 @@ function handle_gun_controls(dt)
         gunBuyButton.state = 0
         gunExitButton.state = 1
 
-        local confirmState = Input.get_button(Input.action.Cancel)
+        local confirmState = Input.get_button(Input.action.Confirm)
         if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
             gunExitButton.state = 2
@@ -476,7 +476,7 @@ function handle_character_controls(dt)
         charBuyButton.state = 1
         charExitButton.state = 0
 
-        local confirmState = Input.get_button(Input.action.Cancel)
+        local confirmState = Input.get_button(Input.action.Confirm)
         if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
             charBuyButton.state = 2
@@ -498,7 +498,7 @@ function handle_character_controls(dt)
         charBuyButton.state = 0
         charExitButton.state = 1
 
-        local confirmState = Input.get_button(Input.action.Cancel)
+        local confirmState = Input.get_button(Input.action.Confirm)
         if(confirmState == Input.state.Repeat and not confirmPressed) then
             confirmPressed = true
             charExitButton.state = 2
