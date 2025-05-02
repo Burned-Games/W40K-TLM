@@ -45,7 +45,7 @@ function on_ready()
 
     tank:set_stats(tank.level)
 
-    print(tank.tackleCooldown)
+    
 
     -- States
     tank.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Tackle = 5}
@@ -133,11 +133,11 @@ function on_update(dt)
 
     if Input.is_key_pressed(Input.keycode.L) then
        tank.level = 1
-       set_stats(tank.level)
+       tank:set_stats(tank.level)
        print("Tank Level 1 active")
     elseif Input.is_key_pressed(Input.keycode.O) then
        tank.level = 2
-       set_stats(tank.level)
+       tank:set_stats(tank.level)
        print("Tank Level 2 active")
     end
 

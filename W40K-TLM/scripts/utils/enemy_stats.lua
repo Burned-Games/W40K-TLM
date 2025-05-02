@@ -22,7 +22,7 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
-            alertRadius = 5.0,
+            alertRadius = 20.0,
 
             priority = 1,
 
@@ -59,7 +59,7 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
-            alertRadius = 5.0,
+            alertRadius = 20.0,
 
             priority = 1,
 
