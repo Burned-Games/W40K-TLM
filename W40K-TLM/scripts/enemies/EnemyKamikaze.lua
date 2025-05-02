@@ -160,7 +160,12 @@ function on_update(dt)
     local currentTargetPos = kamikaze.playerTransf.position
     if kamikaze.pathUpdateTimer >= kamikaze.pathUpdateInterval or kamikaze:get_distance(kamikaze.lastTargetPos, currentTargetPos) > 1.0 then
         kamikaze.lastTargetPos = currentTargetPos
-        kamikaze:update_path(kamikaze.playerTransf)
+        kamikaze:check_initial_distance()
+        if not kamikazekamikaze.isReturning then
+            kamikaze:update_path(kamikaze.playerTransf)
+        else
+            kamikaze:update_path_position(kamikaze.enemyInitialPos)
+        end
         kamikaze.pathUpdateTimer = 0
     end
 

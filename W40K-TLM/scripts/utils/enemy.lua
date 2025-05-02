@@ -311,37 +311,39 @@ function enemy:enemy_raycast()
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
 
     -- Raycast hitting the player
-    if self:detect(centerHit, self.player) then
-
-        self.playerDetected = true
-        self.playerDistance = self:get_distance(origin, centerHit.hitPoint)
-
-    elseif self:detect(leftHit, self.player) then
-
-        self.playerDetected = true
-        self.playerDistance = self:get_distance(origin, leftHit.hitPoint)
-
-    elseif self:detect(rightHit, self.player) then
-
-        self.playerDetected = true
-        self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
-
-    end
-
-    -- Raycast hitting the player objects
-    for i = 1, 11 do
-        if self:detect_by_tag(centerHit, self.playerObjectsTagList[i]) then
+    if not self.isReturning then
+        if self:detect(centerHit, self.player) then
 
             self.playerDetected = true
+            self.playerDistance = self:get_distance(origin, centerHit.hitPoint)
     
-        elseif self:detect_by_tag(leftHit, self.playerObjectsTagList[i]) then
-    
-            self.playerDetected = true
-    
-        elseif self:detect_by_tag(rightHit, self.playerObjectsTagList[i]) then
+        elseif self:detect(leftHit, self.player) then
     
             self.playerDetected = true
+            self.playerDistance = self:get_distance(origin, leftHit.hitPoint)
     
+        elseif self:detect(rightHit, self.player) then
+    
+            self.playerDetected = true
+            self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
+    
+        end
+    
+        -- Raycast hitting the player objects
+        for i = 1, 11 do
+            if self:detect_by_tag(centerHit, self.playerObjectsTagList[i]) then
+    
+                self.playerDetected = true
+        
+            elseif self:detect_by_tag(leftHit, self.playerObjectsTagList[i]) then
+        
+                self.playerDetected = true
+        
+            elseif self:detect_by_tag(rightHit, self.playerObjectsTagList[i]) then
+        
+                self.playerDetected = true
+        
+            end
         end
     end
 
@@ -444,8 +446,12 @@ function enemy:follow_path()
             direction.y / distance,
             direction.z / distance
         )
-
+        
         local velocity = Vector3.new(normalizedDirection.x * self.speed, 0, normalizedDirection.z * self.speed)
+        if self.isReturning then
+            velocity = velocity * 2
+        end
+
         self.enemyRb:set_velocity(velocity)
 
         self:rotate_enemy(nextPoint)
@@ -618,7 +624,7 @@ function enemy:rotate_enemy(targetPosition)
 end
 
 function enemy:check_player_distance()
-
+    if self.isReturning then return end
     local distance = self:get_distance(self.enemyTransf.position, self.playerTransf.position)
     if distance <= self.proximityDetectionRadius then
         self.playerDetected = true

@@ -228,7 +228,7 @@ function on_update(dt)
     if range.pathUpdateTimer >= range.pathUpdateInterval or range:get_distance(range.lastTargetPos, currentTargetPos) > 1.0 then
         range.lastTargetPos = currentTargetPos
         range:check_initial_distance()
-        if range.playerDetected then
+        if not range.isReturning then
             range:update_path(range.playerTransf)
         else
             range:update_path_position(range.enemyInitialPos)
