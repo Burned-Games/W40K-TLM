@@ -193,6 +193,7 @@ function on_ready()
 
     -- Ints
     main_boss.radius = 6
+    main_boss.angle = 0
 
     -- Vector3
     main_boss.ultimateVibration = Vector3.new(1, 1, 200)
@@ -237,7 +238,7 @@ function on_ready()
 
             if (nameA == "Player" or nameB == "Player") and main_boss.isFistsDamaging then
                 log("Player in fist")
-                --main_boss:make_damage(main_boss.rangeDamage)
+                main_boss:make_damage(main_boss.rangeDamage)
                 main_boss.isFistsDamaging = false
             end
         end)
@@ -545,37 +546,13 @@ function lightning_attack()
     if main_boss.lightningThrown then return end
 
     log("Lightning Attack")
-    --local dx = main_boss.playerTransf.position.x - main_boss.enemyTransf.position.x
-    --local dz = main_boss.playerTransf.position.z - main_boss.enemyTransf.position.z
 
-    local x1 = main_boss.playerTransf.position.x
-    local x2 = main_boss.enemyTransf.position.x
-    local z1 = main_boss.playerTransf.position.z
-    local z2 = main_boss.enemyTransf.position.z
-    local direction = nil
-    local dx = x2 - x1
-    local dz = z2 - z1
-    local magnitud = math.sqrt(dx * dx + dz * dz)
-
-    if magnitud == 0 then
-        direction = Vector3.new(0, 0, 0)
-    else
-        direction = Vector3.new(dx / magnitud, 0, dz / magnitud)
-    end
-
-    local angle = math.deg(math.atan(dx, dz))
-    if dz < 0 then
-        angle = angle + 180
-    end
-
-    --local newPos = Vector3.new(main_boss.playerTransf.position.x + dx, main_boss.playerTransf.position.y, main_boss.playerTransf.position.z + dz)
-    --local direction = direccion_unitaria(main_boss.playerTransf.x, main_boss.playerTransf.z, main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.z)
+    local direction = unitary_direction(main_boss.playerTransf.position.x, main_boss.enemyTransf.position.x, main_boss.playerTransf.position.z, main_boss.enemyTransf.position.z)
 
     main_boss.lightningRb:set_position(Vector3.new(main_boss.enemyTransf.position.x + (direction.x * -12), main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z + (direction.z * -12)))
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
-    --main_boss.lightningTransf.rotation = Vector3.new(main_boss.lightningTransf.rotation.x, -90 + angle, main_boss.lightningTransf.rotation.z)
-    main_boss.lightningRb:set_rotation(Vector3.new(-90 + angle, 0, 90))
+    main_boss.lightningRb:set_rotation(Vector3.new(90 + main_boss.angle, 0, 90))
 
     main_boss.lightningThrown = true
     main_boss.isLightningDamaging = false
@@ -747,6 +724,22 @@ function manage_destroyed_pillar()
     pillarRb:set_position(Vector3.new(-800, 0, -800))
 
     main_boss.pillarToDestroy = nil
+end
+
+function unitary_direction(x1, x2, z1, z2)
+
+    local dx = x2 - x1
+    local dz = z2 - z1
+    local magnitud = math.sqrt(dx * dx + dz * dz)
+
+    main_boss.angle = math.deg(math.atan(dx, dz))
+
+    if magnitud == 0 then
+        return Vector3.new(0, 0, 0)
+    else
+        return Vector3.new(dx / magnitud, 0, dz / magnitud)
+    end
+
 end
 
 function on_exit()
