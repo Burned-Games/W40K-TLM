@@ -39,12 +39,24 @@ function on_update(dt)
         update_protection(dt)
         handle_fervor_astartes(dt)
     end
+    
+    if isPlayerInRadius then
+        hudManager.recargaEntity:set_active(true)
+        hudManager.velocidadAtaqueEntity:set_active(true)
+    else
+        hudManager.recargaEntity:set_active(false)
+        hudManager.velocidadAtaqueEntity:set_active(false)
+    end
 end
 
 -- Function to update the protection state of the player
 function update_protection(dt)
     if not UpgradeManager.upgrades.armor.protection then
+        hudManager.proteccionEntity:set_active(false)
         return
+    else
+        hudManager.proteccionEntity:set_active(true)
+
     end
 
     if Player.combatTimer <= 0 then
@@ -58,13 +70,11 @@ function update_protection(dt)
         if protectionTimer >= 3.0 then
             protectionActive = false
             Player.damageReduction = 1.0
-            hudManager.proteccionEntity:set_active(false)
         end
     end
     
     if Player.combatTimer <= 0 then
         protectionTimer = 0
-        hudManager.proteccionEntity:set_active(true)
     end
 end
 
@@ -107,15 +117,6 @@ function handle_fervor_astartes(dt)
             
             local wasInRadius = isPlayerInRadius
             isPlayerInRadius = distance <= fervorAstartesRadius
-            
-            if isPlayerInRadius then
-                hudManager.recargaEntity:set_active(true)
-                hudManager.velocidadAtaqueEntity:set_active(true)
-            else
-                
-                hudManager.recargaEntity:set_active(false)
-                hudManager.velocidadAtaqueEntity:set_active(false)
-            end
         end
     end
 end
