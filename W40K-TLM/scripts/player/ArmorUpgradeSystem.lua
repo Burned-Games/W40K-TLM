@@ -19,12 +19,19 @@ local reloadSpeedBonus = 1.15
 
 local pauseMenu = nil
 
+local hudManager = nil
+local isPlayerInRadius = false 
+
 function on_ready()
     Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     fervorAstartesStandardEntity = current_scene:get_entity_by_name("FervorAstartesStandard")
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     fervorAniamtor = fervorAstartesStandardEntity:get_component("AnimatorComponent")
+    hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
+    
+    hudManager.recargaEntity:set_active(false)
+    hudManager.velocidadAtaqueEntity:set_active(false)
 end
 
 function on_update(dt)
@@ -51,12 +58,13 @@ function update_protection(dt)
         if protectionTimer >= 3.0 then
             protectionActive = false
             Player.damageReduction = 1.0
+            hudManager.proteccionEntity:set_active(false)
         end
     end
     
-    -- Reset protection timer when combat ends
     if Player.combatTimer <= 0 then
         protectionTimer = 0
+        hudManager.proteccionEntity:set_active(true)
     end
 end
 
@@ -69,7 +77,6 @@ function handle_fervor_astartes(dt)
     local playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     local standardTransform = current_scene:get_entity_by_name("FervorAstartesStandard"):get_component("TransformComponent")
 
-    -- Reducir el cooldown siempre que sea mayor que 0, independientemente del estado de la habilidad
     if fervorAstartesCooldown > 0 then
         fervorAstartesCooldown = fervorAstartesCooldown - dt
         fervorAstartesAvailable = false
@@ -83,7 +90,6 @@ function handle_fervor_astartes(dt)
         place_fervor_astartes_standard(playerPosition, standardTransform)
     end
     
-    -- El resto del código permanece igual
     if fervorAstartesActive then
         fervorAstartesTimer = fervorAstartesTimer + dt
 
@@ -99,7 +105,10 @@ function handle_fervor_astartes(dt)
                 (playerPos.z - standardPos.z) ^ 2
             )
             
-            if distance <= fervorAstartesRadius and fervorAstartesActive then
+            local wasInRadius = isPlayerInRadius
+            isPlayerInRadius = distance <= fervorAstartesRadius
+            
+            if isPlayerInRadius then
                 if Player.bolterScript then
                     Player.bolterScript:set_attack_speed_multiplier(attackSpeedBonus)
                     Player.bolterScript:set_reload_speed_multiplier(reloadSpeedBonus)
@@ -109,6 +118,9 @@ function handle_fervor_astartes(dt)
                     Player.shotgunScript:set_attack_speed_multiplier(attackSpeedBonus)
                     Player.shotgunScript:set_reload_speed_multiplier(reloadSpeedBonus)
                 end
+
+                hudManager.recargaEntity:set_active(true)
+                hudManager.velocidadAtaqueEntity:set_active(true)
             else
                 if Player.bolterScript then
                     Player.bolterScript:set_attack_speed_multiplier(1.0)
@@ -119,6 +131,9 @@ function handle_fervor_astartes(dt)
                     Player.shotgunScript:set_attack_speed_multiplier(1.0)
                     Player.shotgunScript:set_reload_speed_multiplier(1.0)
                 end
+
+                hudManager.recargaEntity:set_active(false)
+                hudManager.velocidadAtaqueEntity:set_active(false)
             end
         end
     end
@@ -132,13 +147,27 @@ function place_fervor_astartes_standard(playerPosition, standardTransform)
         local posicion = Vector3.new(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z)
         standardTransform.position = posicion
 
-
         fervorAstartesStandardPlaced = true
         fervorAstartesActive = true
         fervorAstartesTimer = 0
         
         fervorAstartesCooldown = 25
         fervorAstartesAvailable = false
+        
+        isPlayerInRadius = false
+        
+        if Player.bolterScript then
+            Player.bolterScript:set_attack_speed_multiplier(1.0)
+            Player.bolterScript:set_reload_speed_multiplier(1.0)
+        end
+
+        if Player.shotgunScript then
+            Player.shotgunScript:set_attack_speed_multiplier(1.0)
+            Player.shotgunScript:set_reload_speed_multiplier(1.0)
+        end
+        
+        hudManager.recargaEntity:set_active(false)
+        hudManager.velocidadAtaqueEntity:set_active(false)
     end
 end 
 
@@ -152,4 +181,18 @@ function end_fervor_astartes(standardTransform)
     standardTransform.position = endingPosition
 
     fervorAniamtor:set_current_animation(1)
+    
+    if Player.bolterScript then
+        Player.bolterScript:set_attack_speed_multiplier(1.0)
+        Player.bolterScript:set_reload_speed_multiplier(1.0)
+    end
+
+    if Player.shotgunScript then
+        Player.shotgunScript:set_attack_speed_multiplier(1.0)
+        Player.shotgunScript:set_reload_speed_multiplier(1.0)
+    end
+    
+    isPlayerInRadius = false
+    hudManager.recargaEntity:set_active(false)
+    hudManager.velocidadAtaqueEntity:set_active(false)
 end
