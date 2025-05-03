@@ -80,7 +80,7 @@ function on_ready()
     range:set_stats(range.level)
 
     -- States
-    range.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Chase = 6, Stab = 7}
+    range.state = {Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5, Shoot = 6, Chase = 7, Stab = 8}
 
     -- Internal Timers
     range.pathUpdateTimer = 0.0
@@ -112,8 +112,9 @@ function on_ready()
     range.isChasing = false
     range.hasDealtDamage = false
     range.isfirstChase = true
-    range.hasDealtDamage = false
     range.isAlerted = false
+    range.hasAlerted = false
+    range.hasFoundNearbyEnemies = false
 
     -- Ints
     range.burstCount = 0
@@ -124,7 +125,7 @@ function on_ready()
     range.dieAnimDuration = 0.90
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
-    range.detectAnimDuration = 0.9
+    range.detectAnimDuration = 2.33
     range.detectAnimTimer = 0.0
 
     -- Lists
@@ -170,6 +171,11 @@ function on_update(dt)
         print("Range Level 2 active")
     end
 
+    if not range.hasFoundNearbyEnemies then
+        range:find_nearby_enemies()
+        range.hasFoundNearbyEnemies = true
+    end
+
     range:check_effects(dt)
     range:check_pushed(dt)
 
@@ -196,32 +202,16 @@ function on_update(dt)
 
     range.pathUpdateTimer = range.pathUpdateTimer + dt
     range.updateTargetTimer = range.updateTargetTimer + dt
+    if range.playingDetectAnim then range.detectAnimTimer = range.detectAnimTimer + dt end
 
     if range.invulnerable then
 
         range.invulnerabilityTimer = range.invulnerabilityTimer + dt
 
-        if range.invulnerableTime >= range.invulnerableTime then
-            range.invulnerabilityTimer = 0
+        if range.invulnerabilityTimer >= range.invulnerableTime then
+            range.invulnerabilityTimer = 0.0
             range.invulnerable = false
         end
-    end
-
-    if isAlerted then
-        range.alertTimer = range.alertTimer + dt
-        if range.alertTimer >= range.alertCooldown then
-            range.isAlerted = false
-            range.alertTimer = 0.0
-        end
-    end
-
-    range.findRangesTimer = range.findRangesTimer + dt
-    if range.findRangesTimer >= range.findRangesInterval then
-        if range.playerDetected then
-            range:find_nearby_enemies()
-            range:alert_nearby_enemies(dt)
-        end
-        range.findRangesTimer = 0
     end
 
     local currentTargetPos = range.playerTransf.position
@@ -267,14 +257,23 @@ function on_update(dt)
 
     elseif range.currentState == range.state.Stab then
         range:stab_state(dt)
+
+    elseif range.currentState == range.state.Detect then
+        range:detect_state(dt)
     end
 
 end
 
 function change_state(dt)
 
+    if range.playingDetectAnim then return end
+
     range:enemy_raycast(dt)
     range:check_player_distance()
+
+    if range.playerDetected and not range.isAlerted then
+        range.currentState = range.state.Detect
+    end
 
     -- If is Chasing don't return to Shoot or Move
     if range.isChasing then
@@ -562,6 +561,23 @@ function range:find_nearby_enemies()
             end
         end
     end
+end
+
+function range:alert_nearby_enemies(dt)  
+    if range.isAlerted then return end
+    local alertedCount = 0
+    for _, enemyData in ipairs(range.nearbyEnemies) do
+        if enemyData.script and not enemyData.alerted then
+            enemyData.script.playerDetected = true
+            enemyData.script.isAlerted = true
+            enemyData.script.alertTimer = 0.0
+            enemyData.alerted = true
+            alertedCount = alertedCount + 1
+        end
+    end
+    range.isAlerted = true
+    range.currentState = range.state.Move
+
 end
 
 function range:set_stats(level)

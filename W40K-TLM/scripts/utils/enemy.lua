@@ -1,7 +1,7 @@
 local effect = require("scripts/utils/status_effects")
 local enemy = {}
 
-enemy.state = { Dead = 1, Idle = 2, Move = 3, Attack = 4}
+enemy.state = { Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5}
 enemy.godMode = true
 
 local prefabScrap= "prefabs/Misc/Scrap.prefab"
@@ -74,6 +74,7 @@ function enemy:new(obj)
     obj.dieAnim = 2
     obj.attackAnim = 3
     obj.hitAnim = -1
+    obj.detectAnim = 4
 
 
     -- **Variable for the functions of the enemy**
@@ -101,6 +102,7 @@ function enemy:new(obj)
     obj.zoneSet = false
     obj.isArenaEnemy = false
     obj.playingDieAnim = false
+    obj.playingDetectAnim = false
 
     -- Vector3
     obj.enemyInitialPos = Vector3.new(0, 0, 0)
@@ -111,6 +113,8 @@ function enemy:new(obj)
     obj.pushedTimeCounter = 0.0
     obj.dieTimer = 0.0
     obj.dieAnimDuration = 0.0
+    obj.detectAnimTimer = 0.0
+    obj.detectAnimDuration = 0.0
 
     -- Audios
     obj.hurtSFX = nil
@@ -148,6 +152,7 @@ function enemy:alert_nearby_enemies(dt)
         end
     end
     self.isAlerted = true
+    self.currentState = self.state.Move
 end
 
 
@@ -215,6 +220,24 @@ function enemy:attack_state()
     -- Function implementation here
     log("Attack State")
 
+end
+
+function enemy:detect_state(dt)
+
+    if not self.playingDetectAnim then
+        if self.currentAnim ~= self.detectAnim then
+            self.currentAnim = self.detectAnim
+            self.animator:set_current_animation(self.currentAnim)
+        end
+
+        self.playingDetectAnim = true
+    end
+
+    if self.detectAnimTimer >= self.detectAnimDuration and not self.isAlerted then
+        self.alert_nearby_enemies(dt)
+
+        self.playingDetectAnim = false
+    end
 end
 
 function enemy:die_state(dt)

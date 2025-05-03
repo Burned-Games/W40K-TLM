@@ -51,7 +51,7 @@ function on_ready()
     
 
     -- States
-    tank.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Tackle = 5}
+    tank.state = {Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5, Tackle = 6}
 
     -- Internal Timers
     tank.pathUpdateTimer = 0.0
