@@ -149,6 +149,7 @@ function on_ready()
     main_boss.ultiHittingTimer = 0.0
     main_boss.totemTimer = 0.0
     main_boss.fistsAttackDelayTimer = 0.0
+    main_boss.colliderUpdateInterval = 0.1
 
     -- Provisional Timers
     main_boss.ultiTimer = 0.0
@@ -605,7 +606,8 @@ function execute_fists_attack()
                 elapsed = 0,
                 duration = main_boss.rangeAttackDuration,
                 startScale = Vector3.new(1, 1, 1),
-                targetScale = Vector3.new(10, 10, 10)
+                targetScale = Vector3.new(10, 10, 10),
+                colliderTimer = 0.0
             })
         end
     end
@@ -671,34 +673,34 @@ function update_scaling_attacks(dt)
     for i = #main_boss.scalingAttacks, 1, -1 do
         local data = main_boss.scalingAttacks[i]
         data.elapsed = data.elapsed + dt
+        data.colliderTimer = (data.colliderTimer or 0) + dt
 
-        if data.elapsed <= data.duration then
-            -- Calculate scale based on elapsed time (linear interpolation)
-            local t = data.elapsed / data.duration
-            local newScale = Vector3.new(
-                data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
-                data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
-                data.startScale.z + (data.targetScale.z - data.startScale.z) * t
-            )
-            
-            -- Apply scale to the specific fist transform
-            if data.transform then
-                data.transform.scale = newScale
-            end
+        local t = math.min(data.elapsed / data.duration, 1.0)
+        local newScale = Vector3.new(
+            data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
+            data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
+            data.startScale.z + (data.targetScale.z - data.startScale.z) * t
+        )
 
+        if data.transform then
+            data.transform.scale = newScale
+        end
+
+        if data.colliderTimer >= main_boss.colliderUpdateInterval then
             if data.transformRb then
-                --data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
-                --data.transformRb.rb:set_trigger(true)
+                data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
+                data.transformRb.rb:set_trigger(true)
             end
-        else
-            -- Scaling complete, set to final scale
+            data.colliderTimer = 0.0
+        end
+
+        if data.elapsed >= data.duration then
             if data.transform then
                 data.transform.scale = data.targetScale
             end
-
             if data.transformRb then
-                --data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
-                --data.transformRb.rb:set_trigger(true)
+                data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
+                data.transformRb.rb:set_trigger(true)
             end
             table.remove(main_boss.scalingAttacks, i)
         end
