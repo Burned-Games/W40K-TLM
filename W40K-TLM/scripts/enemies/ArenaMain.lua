@@ -8,7 +8,7 @@ local spawnPoint = nil -- child object, no components required
 local exitDoor = nil -- child object, no components required
 local arenaEnterDoor= nil
 
-local spawnRadius = 1.5 -- max distance from center to spawn enemies
+local spawnRadius = 2 -- max distance from center to spawn enemies
 
 local enemies = {}
 local enemyScripts = {}
@@ -19,7 +19,7 @@ local currentRound = 0
 local WaveData = {
     {{type="tank", id=1}},
     {{type="range", id=1}, {type="range", id=2}, {type="range", id=3}, {type="range", id=4}}, -- TODO CHANGE ONE RANGE FOR ONE SUPP
-    {{type="range", id=5}, {type="range", id=6}, {type="tank", id=2}} -- TODO TANK2 NOT WORKING (NO TANK2 IN SCENE)
+    {{type="range", id=5}, {type="range", id=6}, {type="tank", id=2}}
 }
 local activeEnemies = {}
 local activeEnemyScripts = {}
@@ -218,11 +218,16 @@ function spawnEnemies()
         end
         
         if enemyEntity then
+            enemyEntity.isDead = false 
+            enemyEntity.health = enemyEntity.defaultHealth
+            enemyEntity.playingDieAnim = false
+            enemyEntity.key = 0
+
             enemyEntity.isArenaEnemy = true
             enemyEntity.zoneNumber = 3 
             enemyEntity.zoneSet = true  
 
-            enemyEntity.currentState = 1 -- state.Idle
+            enemyEntity.currentState = enemyEntity.state.Idle
 
             -- Initial spawn position
             local spawnOffset = Vector3.new(
