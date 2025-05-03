@@ -1,0 +1,547 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "BolterRifleAudio_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 2928003254736026004
+            }
+        },
+        "RootEntity": 0,
+        "value0": 8,
+        "value1": 8,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 8,
+        "value11": 0,
+        "value12": {
+            "cereal_class_version": 0,
+            "Tag": "BolterRifleAudio"
+        },
+        "value13": 1,
+        "value14": {
+            "Tag": "BolterBulletImpactsSFX"
+        },
+        "value15": 2,
+        "value16": {
+            "Tag": "BolterShotSFX"
+        },
+        "value17": 3,
+        "value18": {
+            "Tag": "BolterReloadSFX"
+        },
+        "value19": 4,
+        "value20": {
+            "Tag": "BolterSkillShotSFX"
+        },
+        "value21": 5,
+        "value22": {
+            "Tag": "BolterSkillExplosionSFX"
+        },
+        "value23": 6,
+        "value24": {
+            "Tag": "BolterSkillChargeSFX"
+        },
+        "value25": 7,
+        "value26": {
+            "Tag": "BolterSkillAreaSFX"
+        },
+        "value27": 8,
+        "value28": 0,
+        "value29": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value30": 1,
+        "value31": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value32": 2,
+        "value33": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value34": 3,
+        "value35": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value36": 4,
+        "value37": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value38": 5,
+        "value39": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value40": 6,
+        "value41": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value42": 7,
+        "value43": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value44": 8,
+        "value45": 0,
+        "value46": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value47": 1,
+        "value48": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 7,
+            "Prev": 5
+        },
+        "value49": 2,
+        "value50": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value51": 3,
+        "value52": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value53": 4,
+        "value54": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value55": 5,
+        "value56": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value57": 6,
+        "value58": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value59": 7,
+        "value60": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
+        "value61": 0,
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 8,
+        "value68": 0,
+        "value69": 1,
+        "value70": 2,
+        "value71": 3,
+        "value72": 4,
+        "value73": 5,
+        "value74": 6,
+        "value75": 7,
+        "value76": 0,
+        "value77": 0,
+        "value78": 7,
+        "value79": 1,
+        "value80": {
+            "cereal_class_version": 0,
+            "GameObjectID": 12730425632419176089,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "Name": "BolterSFX",
+                        "Events": [
+                            "Play_BolterBulletImpacts",
+                            "Play_BolterShot"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "BolterSFX",
+            "EventName": "Play_BolterBulletImpacts",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value81": 2,
+        "value82": {
+            "GameObjectID": 14951850516534642806,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "BolterSFX",
+            "EventName": "Play_BolterShot",
+            "Volume": 0.5080000162124634,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value83": 3,
+        "value84": {
+            "GameObjectID": 14893701237418069444,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "Name": "BolterSFX",
+                        "Events": [
+                            "Play_BolterBulletImpacts",
+                            "Play_BolterRifleReload",
+                            "Play_BolterShot"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "BolterSFX",
+            "EventName": "Play_BolterRifleReload",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value85": 4,
+        "value86": {
+            "GameObjectID": 16254793767052205973,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "Name": "BolterSFX",
+                        "Events": [
+                            "Play_BolterBulletImpacts",
+                            "Play_BolterRifleReload",
+                            "Play_BolterRifleSkillArea",
+                            "Play_BolterRifleSkillCharge",
+                            "Play_BolterRifleSkillExplosion",
+                            "Play_BolterRifleSkillShot",
+                            "Play_BolterShot"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "BolterSFX",
+            "EventName": "Play_BolterRifleSkillShot",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value87": 5,
+        "value88": {
+            "GameObjectID": 8771593609474293266,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 3
+                }
+            },
+            "AudioBankName": "BolterSFX",
+            "EventName": "Play_BolterRifleSkillExplosion",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value89": 6,
+        "value90": {
+            "GameObjectID": 2711782696223696872,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 3
+                }
+            },
+            "AudioBankName": "BolterSFX",
+            "EventName": "Play_BolterRifleSkillCharge",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value91": 7,
+        "value92": {
+            "GameObjectID": 6775616429335001733,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 3
+                }
+            },
+            "AudioBankName": "BolterSFX",
+            "EventName": "Play_BolterRifleSkillArea",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value93": 0,
+        "value94": 0,
+        "value95": 0,
+        "value96": 0,
+        "value97": 0,
+        "value98": 0,
+        "value99": 0,
+        "value100": 0,
+        "value101": 0,
+        "value102": 0
+    }
+}
