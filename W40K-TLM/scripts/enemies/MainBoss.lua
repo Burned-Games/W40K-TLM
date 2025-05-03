@@ -219,10 +219,13 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if (nameA == "Player" or nameB == "Player") and main_boss.isLightningDamaging then
-            if not main_boss.hasDealtLightningDamage then
-                main_boss:make_damage(main_boss.meleeDamage)
-                main_boss.hasDealtLightningDamage = true
+        if (nameA == "Player" or nameB == "Player") then
+            if main_boss.isLightningDamaging then
+                log("AAAA")
+                if not main_boss.hasDealtLightningDamage then
+                    main_boss:make_damage(main_boss.meleeDamage)
+                    main_boss.hasDealtLightningDamage = true
+                end
             end
         end
     end)
@@ -234,7 +237,7 @@ function on_ready()
 
             if (nameA == "Player" or nameB == "Player") and main_boss.isFistsDamaging then
                 log("Player in fist")
-                main_boss:make_damage(main_boss.rangeDamage)
+                --main_boss:make_damage(main_boss.rangeDamage)
                 main_boss.isFistsDamaging = false
             end
         end)
@@ -542,17 +545,37 @@ function lightning_attack()
     if main_boss.lightningThrown then return end
 
     log("Lightning Attack")
-    main_boss.lightningRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
-    main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+    --local dx = main_boss.playerTransf.position.x - main_boss.enemyTransf.position.x
+    --local dz = main_boss.playerTransf.position.z - main_boss.enemyTransf.position.z
 
-    local dx = main_boss.playerTransf.position.x - main_boss.enemyTransf.position.x
-    local dz = main_boss.playerTransf.position.z - main_boss.enemyTransf.position.z
+    local x1 = main_boss.playerTransf.position.x
+    local x2 = main_boss.enemyTransf.position.x
+    local z1 = main_boss.playerTransf.position.z
+    local z2 = main_boss.enemyTransf.position.z
+    local direction = nil
+    local dx = x2 - x1
+    local dz = z2 - z1
+    local magnitud = math.sqrt(dx * dx + dz * dz)
+
+    if magnitud == 0 then
+        direction = Vector3.new(0, 0, 0)
+    else
+        direction = Vector3.new(dx / magnitud, 0, dz / magnitud)
+    end
 
     local angle = math.deg(math.atan(dx, dz))
     if dz < 0 then
         angle = angle + 180
     end
-    main_boss.lightningRb:set_rotation(Vector3.new(main_boss.lightningTransf.rotation.x, -90 + angle, main_boss.lightningTransf.rotation.z))
+
+    --local newPos = Vector3.new(main_boss.playerTransf.position.x + dx, main_boss.playerTransf.position.y, main_boss.playerTransf.position.z + dz)
+    --local direction = direccion_unitaria(main_boss.playerTransf.x, main_boss.playerTransf.z, main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.z)
+
+    main_boss.lightningRb:set_position(Vector3.new(main_boss.enemyTransf.position.x + (direction.x * -12), main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z + (direction.z * -12)))
+    main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+    --main_boss.lightningTransf.rotation = Vector3.new(main_boss.lightningTransf.rotation.x, -90 + angle, main_boss.lightningTransf.rotation.z)
+    main_boss.lightningRb:set_rotation(Vector3.new(-90 + angle, 0, 90))
 
     main_boss.lightningThrown = true
     main_boss.isLightningDamaging = false
