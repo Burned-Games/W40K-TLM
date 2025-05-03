@@ -1086,8 +1086,8 @@
         "value324": 37,
         "value325": {
             "Position": {
-                "x": 616.5,
-                "y": 426.5,
+                "x": 610.0,
+                "y": 455.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -1096,8 +1096,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1233.0,
-                "y": 853.0,
+                "x": 1220.0,
+                "y": 911.0,
                 "z": 1.0
             }
         },
@@ -1122,8 +1122,8 @@
         "value328": 39,
         "value329": {
             "Position": {
-                "x": 615.5,
-                "y": 279.5,
+                "x": 827.0,
+                "y": 789.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -1132,16 +1132,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1231.0,
-                "y": 559.0,
+                "x": 351.0,
+                "y": 412.0,
                 "z": 1.0
             }
         },
         "value330": 40,
         "value331": {
             "Position": {
-                "x": 615.5,
-                "y": 42.0,
+                "x": 862.5,
+                "y": 703.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -1158,8 +1158,8 @@
         "value332": 41,
         "value333": {
             "Position": {
-                "x": 615.5,
-                "y": 279.5,
+                "x": 829.0,
+                "y": 741.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -1168,7 +1168,7 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 526.0,
+                "x": 204.0,
                 "y": 22.0,
                 "z": 1.0
             }
@@ -1176,8 +1176,8 @@
         "value334": 42,
         "value335": {
             "Position": {
-                "x": 615.5,
-                "y": 385.5,
+                "x": 829.0,
+                "y": 862.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -1186,7 +1186,7 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 526.0,
+                "x": 204.0,
                 "y": 22.0,
                 "z": 1.0
             }
@@ -1194,8 +1194,8 @@
         "value336": 43,
         "value337": {
             "Position": {
-                "x": 181.5,
-                "y": 288.5,
+                "x": 428.5,
+                "y": 876.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -1212,8 +1212,8 @@
         "value338": 44,
         "value339": {
             "Position": {
-                "x": 181.5,
-                "y": 385.5,
+                "x": 428.5,
+                "y": 973.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -3297,7 +3297,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 25348.513671875,
+                        "ElapsedTime": 27329.380859375,
                         "TextureUUID": {
                             "value0": 3119739597825529390
                         }
@@ -3305,7 +3305,7 @@
                 }
             }
         },
-        "value712": 46,
+        "value712": 52,
         "value713": 38,
         "value714": 73,
         "value715": 47,
@@ -3352,11 +3352,17 @@
         "value756": 11,
         "value757": 45,
         "value758": 46,
-        "value759": 0,
-        "value760": 0,
-        "value761": 9,
-        "value762": 0,
-        "value763": {
+        "value759": 39,
+        "value760": 40,
+        "value761": 41,
+        "value762": 43,
+        "value763": 42,
+        "value764": 44,
+        "value765": 0,
+        "value766": 0,
+        "value767": 9,
+        "value768": 0,
+        "value769": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 4469959336063580015
@@ -3394,8 +3400,8 @@
             },
             "Layer": 0
         },
-        "value764": 37,
-        "value765": {
+        "value770": 37,
+        "value771": {
             "TextureUUID": {
                 "value0": 6711820436760903955
             },
@@ -3431,10 +3437,10 @@
             },
             "Layer": 25
         },
-        "value766": 39,
-        "value767": {
+        "value772": 39,
+        "value773": {
             "TextureUUID": {
-                "value0": 4549735328248801287
+                "value0": 6567579207960679563
             },
             "Color": {
                 "x": 1.0,
@@ -3450,136 +3456,25 @@
             },
             "Anchor": {
                 "AnchorMin": {
-                    "x": 0.0,
-                    "y": 0.0
+                    "x": 0.5,
+                    "y": 1.0
                 },
                 "AnchorMax": {
-                    "x": 1.0,
+                    "x": 0.5,
                     "y": 1.0
                 },
                 "OffsetMin": {
-                    "x": 0.0,
-                    "y": 0.0
+                    "x": 41.5,
+                    "y": -328.0
                 },
                 "OffsetMax": {
-                    "x": 0.0,
-                    "y": 0.0
-                }
-            },
-            "Layer": 5
-        },
-        "value768": 69,
-        "value769": {
-            "TextureUUID": {
-                "value0": 13497759060308766086
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "AnchorMax": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "OffsetMin": {
-                    "x": -97.0,
-                    "y": -2606.0
-                },
-                "OffsetMax": {
-                    "x": 9135.0,
-                    "y": 442.0
-                }
-            },
-            "Layer": 1
-        },
-        "value770": 70,
-        "value771": {
-            "TextureUUID": {
-                "value0": 16729074033814122264
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "AnchorMax": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "OffsetMin": {
-                    "x": 201.0,
-                    "y": -89.0
-                },
-                "OffsetMax": {
-                    "x": 3675.0,
-                    "y": 647.0
-                }
-            },
-            "Layer": 2
-        },
-        "value772": 78,
-        "value773": {
-            "TextureUUID": {
-                "value0": 10299412717692332123
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "AnchorMax": {
-                    "x": 0.0,
-                    "y": 0.0
-                },
-                "OffsetMin": {
-                    "x": 207.0,
-                    "y": -4323.0
-                },
-                "OffsetMax": {
-                    "x": 7155.0,
-                    "y": 1077.0
+                    "x": 392.5,
+                    "y": 84.0
                 }
             },
             "Layer": 0
         },
-        "value774": 79,
+        "value774": 69,
         "value775": {
             "TextureUUID": {
                 "value0": 13497759060308766086
@@ -3616,7 +3511,7 @@
             },
             "Layer": 1
         },
-        "value776": 80,
+        "value776": 70,
         "value777": {
             "TextureUUID": {
                 "value0": 16729074033814122264
@@ -3653,8 +3548,119 @@
             },
             "Layer": 2
         },
-        "value778": 81,
+        "value778": 78,
         "value779": {
+            "TextureUUID": {
+                "value0": 10299412717692332123
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": 207.0,
+                    "y": -4323.0
+                },
+                "OffsetMax": {
+                    "x": 7155.0,
+                    "y": 1077.0
+                }
+            },
+            "Layer": 0
+        },
+        "value780": 79,
+        "value781": {
+            "TextureUUID": {
+                "value0": 13497759060308766086
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -97.0,
+                    "y": -2606.0
+                },
+                "OffsetMax": {
+                    "x": 9135.0,
+                    "y": 442.0
+                }
+            },
+            "Layer": 1
+        },
+        "value782": 80,
+        "value783": {
+            "TextureUUID": {
+                "value0": 16729074033814122264
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": 201.0,
+                    "y": -89.0
+                },
+                "OffsetMax": {
+                    "x": 3675.0,
+                    "y": 647.0
+                }
+            },
+            "Layer": 2
+        },
+        "value784": 81,
+        "value785": {
             "TextureUUID": {
                 "value0": 16729074033814122264
             },
@@ -3690,9 +3696,9 @@
             },
             "Layer": 2
         },
-        "value780": 9,
-        "value781": 1,
-        "value782": {
+        "value786": 9,
+        "value787": 1,
+        "value788": {
             "cereal_class_version": 0,
             "Text": "While faithless traitors still live, \nthere can be no forgiveness!",
             "FontPath": "",
@@ -3726,8 +3732,8 @@
             },
             "Layer": 0
         },
-        "value783": 4,
-        "value784": {
+        "value789": 4,
+        "value790": {
             "Text": "New Game",
             "FontPath": "",
             "Color": {
@@ -3760,8 +3766,8 @@
             },
             "Layer": 0
         },
-        "value785": 6,
-        "value786": {
+        "value791": 6,
+        "value792": {
             "Text": "Continue",
             "FontPath": "",
             "Color": {
@@ -3794,8 +3800,8 @@
             },
             "Layer": 0
         },
-        "value787": 8,
-        "value788": {
+        "value793": 8,
+        "value794": {
             "Text": "Settings",
             "FontPath": "",
             "Color": {
@@ -3828,8 +3834,8 @@
             },
             "Layer": 0
         },
-        "value789": 10,
-        "value790": {
+        "value795": 10,
+        "value796": {
             "Text": "Credits\n",
             "FontPath": "",
             "Color": {
@@ -3862,8 +3868,8 @@
             },
             "Layer": 0
         },
-        "value791": 12,
-        "value792": {
+        "value797": 12,
+        "value798": {
             "Text": "Exit",
             "FontPath": "",
             "Color": {
@@ -3896,9 +3902,9 @@
             },
             "Layer": 0
         },
-        "value793": 40,
-        "value794": {
-            "Text": "Settings",
+        "value799": 40,
+        "value800": {
+            "Text": "",
             "FontPath": "",
             "Color": {
                 "x": 1.0,
@@ -3930,9 +3936,9 @@
             },
             "Layer": 0
         },
-        "value795": 43,
-        "value796": {
-            "Text": "Volume",
+        "value801": 43,
+        "value802": {
+            "Text": "",
             "FontPath": "",
             "Color": {
                 "x": 1.0,
@@ -3964,9 +3970,9 @@
             },
             "Layer": 0
         },
-        "value797": 44,
-        "value798": {
-            "Text": "FX",
+        "value803": 44,
+        "value804": {
+            "Text": "",
             "FontPath": "",
             "Color": {
                 "x": 1.0,
@@ -3998,10 +4004,10 @@
             },
             "Layer": 0
         },
-        "value799": 0,
-        "value800": 11,
-        "value801": 2,
-        "value802": {
+        "value805": 0,
+        "value806": 11,
+        "value807": 2,
+        "value808": {
             "cereal_class_version": 0,
             "Interactable": true,
             "NormalTextureUUID": {
@@ -4060,8 +4066,8 @@
             },
             "Layer": 10
         },
-        "value803": 5,
-        "value804": {
+        "value809": 5,
+        "value810": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -4119,8 +4125,8 @@
             },
             "Layer": 0
         },
-        "value805": 7,
-        "value806": {
+        "value811": 7,
+        "value812": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1093479493542519087
@@ -4178,8 +4184,8 @@
             },
             "Layer": 0
         },
-        "value807": 9,
-        "value808": {
+        "value813": 9,
+        "value814": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -4237,8 +4243,8 @@
             },
             "Layer": 0
         },
-        "value809": 11,
-        "value810": {
+        "value815": 11,
+        "value816": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -4296,8 +4302,8 @@
             },
             "Layer": 0
         },
-        "value811": 71,
-        "value812": {
+        "value817": 71,
+        "value818": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1093479493542519087
@@ -4355,8 +4361,8 @@
             },
             "Layer": 0
         },
-        "value813": 73,
-        "value814": {
+        "value819": 73,
+        "value820": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1093479493542519087
@@ -4414,8 +4420,8 @@
             },
             "Layer": 3
         },
-        "value815": 74,
-        "value816": {
+        "value821": 74,
+        "value822": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1093479493542519087
@@ -4473,8 +4479,8 @@
             },
             "Layer": 0
         },
-        "value817": 75,
-        "value818": {
+        "value823": 75,
+        "value824": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1093479493542519087
@@ -4532,8 +4538,8 @@
             },
             "Layer": 0
         },
-        "value819": 76,
-        "value820": {
+        "value825": 76,
+        "value826": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1093479493542519087
@@ -4591,8 +4597,8 @@
             },
             "Layer": 0
         },
-        "value821": 77,
-        "value822": {
+        "value827": 77,
+        "value828": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 1093479493542519087
@@ -4650,9 +4656,9 @@
             },
             "Layer": 0
         },
-        "value823": 2,
-        "value824": 41,
-        "value825": {
+        "value829": 2,
+        "value830": 41,
+        "value831": {
             "cereal_class_version": 0,
             "Value": 0.0,
             "MinValue": 0.0,
@@ -4662,10 +4668,10 @@
                 "y": 1.0
             },
             "BackgroundTextureUUID": {
-                "value0": 13554918212805852877
+                "value0": 14442742713761494208
             },
             "HandleTextureUUID": {
-                "value0": 15692961168637335866
+                "value0": 5001673987222417828
             },
             "Anchor": {
                 "AnchorMin": {
@@ -4677,18 +4683,18 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -263.0,
-                    "y": -11.0
+                    "x": -100.0,
+                    "y": -59.0
                 },
                 "OffsetMax": {
-                    "x": 263.0,
-                    "y": 11.0
+                    "x": 104.0,
+                    "y": -37.0
                 }
             },
             "Layer": 5
         },
-        "value826": 42,
-        "value827": {
+        "value832": 42,
+        "value833": {
             "Value": 0.0,
             "MinValue": 0.0,
             "MaxValue": 1.0,
@@ -4697,10 +4703,10 @@
                 "y": 1.0
             },
             "BackgroundTextureUUID": {
-                "value0": 13554918212805852877
+                "value0": 14442742713761494208
             },
             "HandleTextureUUID": {
-                "value0": 15692961168637335866
+                "value0": 5001673987222417828
             },
             "Anchor": {
                 "AnchorMin": {
@@ -4712,12 +4718,12 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -263.0,
-                    "y": 95.0
+                    "x": -100.0,
+                    "y": 62.0
                 },
                 "OffsetMax": {
-                    "x": 263.0,
-                    "y": 117.0
+                    "x": 104.0,
+                    "y": 84.0
                 }
             },
             "Layer": 5

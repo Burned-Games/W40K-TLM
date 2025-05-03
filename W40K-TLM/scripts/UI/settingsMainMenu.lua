@@ -37,7 +37,7 @@ function on_ready()
     musicaFondoDefault = current_scene:get_entity_by_name("BackgroundMusic"):get_component("AudioSourceComponent")
 
     -- guardar el nivel de volumen actual
-    mainMenuBase:set_active(false)
+    --mainMenuBase:set_active(false)
 
 
     local savedVolumeGeneral = load_progress("musicVolumeGeneral", 1.0)
@@ -68,13 +68,13 @@ function on_update(dt)
 
     if mainMenuScript.saliendoDeMenu == false then
         if mainMenuScript.ajustesOpened then
-            mainMenuBase:set_active(false)
+            mainMenuBase:set_active(true)
             settingsMainMenu:set_active(true)
         else
             mainMenuBase:set_active(true)
             settingsMainMenu:set_active(false)
         end
-    end
+    end 
     
     if inputCooldown > 0 then
         inputCooldown = inputCooldown - dt
