@@ -41,6 +41,18 @@ function on_ready()
     main_boss.fistRbComponent = {}
     main_boss.fistRbs = {}
 
+    -- Audio
+    main_boss.bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
+    main_boss.bossConeAtackSFX = current_scene:get_entity_by_name("BossConeAtackSFX"):get_component("AudioSourceComponent")
+    main_boss.bossFaseTwoChangeSFX = current_scene:get_entity_by_name("BossFaseTwoChangeSFX"):get_component("AudioSourceComponent")
+    main_boss.bossHurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
+    main_boss.bossShieldExplosioneSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
+    main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossSmashDescentSFX"):get_component("AudioSourceComponent")
+    main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
+    main_boss.bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
+    main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
+    main_boss.bossUltimateExplosionSFX = current_scene:get_entity_by_name("BossUltimateExplosionSFX"):get_component("AudioSourceComponent")
+
     for i = 1, fistMaxNumbers do
 
         --local fistEntity = instantiate_prefab(fistPrefabLocation) --No funcionan las fisicas de los prefabs aun
