@@ -20,7 +20,7 @@ local reloadSpeedBonus = 1.15
 local pauseMenu = nil
 
 local hudManager = nil
-local isPlayerInRadius = false 
+isPlayerInRadius = false 
 
 function on_ready()
     Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -109,29 +109,10 @@ function handle_fervor_astartes(dt)
             isPlayerInRadius = distance <= fervorAstartesRadius
             
             if isPlayerInRadius then
-                if Player.bolterScript then
-                    Player.bolterScript:set_attack_speed_multiplier(attackSpeedBonus)
-                    Player.bolterScript:set_reload_speed_multiplier(reloadSpeedBonus)
-                end
-
-                if Player.shotgunScript then
-                    Player.shotgunScript:set_attack_speed_multiplier(attackSpeedBonus)
-                    Player.shotgunScript:set_reload_speed_multiplier(reloadSpeedBonus)
-                end
-
                 hudManager.recargaEntity:set_active(true)
                 hudManager.velocidadAtaqueEntity:set_active(true)
             else
-                if Player.bolterScript then
-                    Player.bolterScript:set_attack_speed_multiplier(1.0)
-                    Player.bolterScript:set_reload_speed_multiplier(1.0)
-                end
-
-                if Player.shotgunScript then
-                    Player.shotgunScript:set_attack_speed_multiplier(1.0)
-                    Player.shotgunScript:set_reload_speed_multiplier(1.0)
-                end
-
+                
                 hudManager.recargaEntity:set_active(false)
                 hudManager.velocidadAtaqueEntity:set_active(false)
             end
@@ -156,16 +137,6 @@ function place_fervor_astartes_standard(playerPosition, standardTransform)
         
         isPlayerInRadius = false
         
-        if Player.bolterScript then
-            Player.bolterScript:set_attack_speed_multiplier(1.0)
-            Player.bolterScript:set_reload_speed_multiplier(1.0)
-        end
-
-        if Player.shotgunScript then
-            Player.shotgunScript:set_attack_speed_multiplier(1.0)
-            Player.shotgunScript:set_reload_speed_multiplier(1.0)
-        end
-        
         hudManager.recargaEntity:set_active(false)
         hudManager.velocidadAtaqueEntity:set_active(false)
     end
@@ -181,17 +152,7 @@ function end_fervor_astartes(standardTransform)
     standardTransform.position = endingPosition
 
     fervorAniamtor:set_current_animation(1)
-    
-    if Player.bolterScript then
-        Player.bolterScript:set_attack_speed_multiplier(1.0)
-        Player.bolterScript:set_reload_speed_multiplier(1.0)
-    end
-
-    if Player.shotgunScript then
-        Player.shotgunScript:set_attack_speed_multiplier(1.0)
-        Player.shotgunScript:set_reload_speed_multiplier(1.0)
-    end
-    
+       
     isPlayerInRadius = false
     hudManager.recargaEntity:set_active(false)
     hudManager.velocidadAtaqueEntity:set_active(false)

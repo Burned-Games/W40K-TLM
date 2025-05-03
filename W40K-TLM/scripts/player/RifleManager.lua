@@ -108,11 +108,14 @@ local enemies = nil
 
 local cameraScript = nil
 
+local astartesFervorManager = nil
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = player:get_component("ScriptComponent")
+    astartesFervorManager = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
 
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
 
@@ -252,6 +255,14 @@ function on_ready()
 end
 
 function on_update(dt)
+
+    if astartesFervorManager.isPlayerInRadius then
+        set_attack_speed_multiplier(1.5)
+        set_reload_speed_multiplier(1.5)
+    else
+        set_attack_speed_multiplier(1.5)
+        set_reload_speed_multiplier(1.0)
+    end
 
 
     if playerScript.health <= 0 then

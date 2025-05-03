@@ -103,6 +103,7 @@ local vibrationGranadeExplosionSettings = Vector3.new(1, 1, 500)
 
 local manualReload = false
 
+local astartesFervorManager = nil
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -121,7 +122,9 @@ function on_ready()
     particle_previewG_exterior = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("ParticlesSystemComponent")
     particle_previewG_exterior_transform = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("TransformComponent")
     particle_previewG_interior_transform = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("TransformComponent")
-    
+
+    astartesFervorManager = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
+
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
         local bullet = {}
@@ -184,7 +187,15 @@ function normalizeVector(v)
 end
 
 function on_update(dt)
-    
+
+    if astartesFervorManager.isPlayerInRadius then
+        set_attack_speed_multiplier(2.0)
+        set_reload_speed_multiplier(1.5)
+    else
+        set_attack_speed_multiplier(1.0)
+        set_reload_speed_multiplier(1.0)
+    end
+
     if playerScript.health <= 0 then
         return
     end
