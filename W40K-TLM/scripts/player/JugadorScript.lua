@@ -296,7 +296,7 @@ function on_ready()
         
         local newIndex = zonePlayer + 1
 
-        if nameA == "Inyectores" or nameB == "Inyectores" then   
+        --[[ if nameA == "Inyectores" or nameB == "Inyectores" then   
                    
             StimsCounter = StimsCounter + 1
             if nameA == "Inyectores" then
@@ -314,7 +314,7 @@ function on_ready()
                 rigid:set_position(newPos)
                 
             end
-        end
+        end ]]
     end)
 
     --Mision

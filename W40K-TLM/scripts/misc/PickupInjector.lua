@@ -28,18 +28,18 @@ local pickUpRange = 5
 
 function on_ready()
     -- Add initialization code here
-    transform = self:get_component("TransformComponent")
-    transform.rotation = Vector3.new(0, actualYRotation, 0)
-    transform.scale = actualSize
-    initialYPosition = transform.position.y
-
-    local player = current_scene:get_entity_by_name("Player")
-    playerTrans = player:get_component("TransformComponent")
-    playerScript = player:get_component("ScriptComponent")
-
-
-    onReadyDoned = true
-
+        -- Add initialization code here
+        transform = self:get_component("TransformComponent")
+        transform.rotation = Vector3.new(0, actualYRotation, 0)
+        transform.scale = actualSize
+        initialYPosition = transform.position.y
+    
+        local player = current_scene:get_entity_by_name("Player")
+        playerTrans = player:get_component("TransformComponent")
+        playerScript = player:get_component("ScriptComponent")
+    
+    
+        onReadyDoned = true
 end
 
 function on_update(dt)
@@ -67,13 +67,14 @@ function on_update(dt)
     if playerTrans then
         updatePosition(dt) 
     end
-    
+
 
 end
 
 function on_exit()
     -- Add cleanup code here
 end
+
 
 function lerp(a, b, t)
     return a + (b - a) * t
@@ -114,8 +115,7 @@ function updatePosition(dt)
         if proximity.x < 2 and proximity.y < 2 and proximity.z < 2 then
             self:set_active(false)
             scrapCollected = true
-            playerScript.scrapCounter = playerScript.scrapCounter + 37
-        
+            playerScript.StimsCounter =  playerScript.StimsCounter + 1        
         end
     end
 end

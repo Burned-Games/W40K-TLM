@@ -10,27 +10,32 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 4232432187793434135
+                "value0": 14723421021335014505
             }
         },
         "RootEntity": 0,
-        "value0": 1,
-        "value1": 1,
+        "value0": 2,
+        "value1": 2,
         "value2": 0,
         "value3": 1,
-        "value4": 0,
-        "value5": {
+        "value4": 2,
+        "value5": 0,
+        "value6": {
             "cereal_class_version": 0,
             "Tag": "Inyectores"
         },
-        "value6": 1,
-        "value7": 0,
+        "value7": 1,
         "value8": {
+            "Tag": "FlareParticle"
+        },
+        "value9": 2,
+        "value10": 0,
+        "value11": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
-                "y": 0.2749824523925781,
-                "z": -11.141255378723145
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
@@ -43,18 +48,43 @@
                 "z": 1.0
             }
         },
-        "value9": 1,
-        "value10": 0,
-        "value11": {
+        "value12": 1,
+        "value13": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.699999988079071,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value14": 2,
+        "value15": 0,
+        "value16": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value17": 1,
+        "value18": {
+            "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value12": 1,
-        "value13": 0,
-        "value14": {
+        "value19": 1,
+        "value20": 0,
+        "value21": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 8313718502183485424
@@ -63,18 +93,18 @@
                 "value0": 0
             }
         },
-        "value15": 1,
-        "value16": 0,
-        "value17": {
+        "value22": 1,
+        "value23": 0,
+        "value24": {
             "cereal_class_version": 0,
             "Material": {
                 "value0": 15458287372179937111
             }
         },
-        "value18": 0,
-        "value19": 1,
-        "value20": 0,
-        "value21": {
+        "value25": 0,
+        "value26": 1,
+        "value27": 0,
+        "value28": {
             "cereal_class_version": 0,
             "RigidBody": true,
             "RigidBodyData": {
@@ -115,13 +145,13 @@
                                         "ShapeType": 0,
                                         "Offset": {
                                             "x": 0.0,
-                                            "y": 0.0,
+                                            "y": 0.699999988079071,
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.07135115563869477,
-                                            "y": 0.17301632463932038,
-                                            "z": 0.13524623215198518
+                                            "x": 0.33660000562667849,
+                                            "y": 0.43859997391700747,
+                                            "z": 0.40059998631477358
                                         }
                                     }
                                 }
@@ -131,22 +161,309 @@
                 }
             }
         },
-        "value22": 0,
-        "value23": 0,
-        "value24": 1,
-        "value25": 0,
-        "value26": 0,
-        "value27": 0,
-        "value28": 0,
-        "value29": 0,
-        "value30": 0,
-        "value31": 0,
+        "value29": 1,
+        "value30": 1,
+        "value31": {
+            "cereal_class_version": 0,
+            "ParticleEmitter": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "cereal_class_version": 2,
+                        "TransformMatrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.699999988079071,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        },
+                        "UseDirectionRandom": false,
+                        "Direction": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "DirectionRandom": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "UseColorRandom": false,
+                        "ColorNormal": {
+                            "x": 1.0,
+                            "y": 0.27822577953338625,
+                            "z": 0.27822577953338625,
+                            "w": 1.0
+                        },
+                        "ColorRandom": {
+                            "x": 0.519939661026001,
+                            "y": 0.9596773982048035,
+                            "z": 0.2515283524990082,
+                            "w": 1.0
+                        },
+                        "Amount": 1000,
+                        "Looping": true,
+                        "UseRandomLifeTime": false,
+                        "StartLifeTimeMin": 5.0,
+                        "StartLifeTimeMax": 5.0,
+                        "StartLifeTime": 1.0,
+                        "UseRandomSpeed": false,
+                        "StartSpeedMin": 5.0,
+                        "StartSpeedMax": 5.0,
+                        "StartSpeed": 0.0,
+                        "UseRandomSize": false,
+                        "UseSplitAxesSize": false,
+                        "StartSizeMin": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSizeMax": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSize": {
+                            "x": 3.0,
+                            "y": 3.0,
+                            "z": 3.0
+                        },
+                        "UseRandomRotation": false,
+                        "StartRotationMin": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotationMax": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 90.0
+                        },
+                        "SimulationSpace": 1,
+                        "UseEmission": true,
+                        "RateOverTime": 1.0,
+                        "UseBurst": false,
+                        "Bursts": [],
+                        "ShapeType": 2,
+                        "MinSpread": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "MaxSpread": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "UseShape": true,
+                        "ShapeAngle": 45.0,
+                        "ShapeRadius": 1.0,
+                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "UseVelocityOverLifetime": false,
+                        "VelocitySeparateAxes": false,
+                        "VelocityOverLifeX": [
+                            {
+                                "cereal_class_version": 0,
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "UseSizeOverLifetime": true,
+                        "SizeSeparateAxes": false,
+                        "SizeOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 0.6800000071525574
+                            },
+                            {
+                                "value0": 0.22499999403953553,
+                                "value1": 0.8400000333786011
+                            },
+                            {
+                                "value0": 0.49000000953674319,
+                                "value1": 0.9800000190734863
+                            },
+                            {
+                                "value0": 0.75,
+                                "value1": 0.8799999952316284
+                            },
+                            {
+                                "value0": 0.9950000047683716,
+                                "value1": 0.7400000095367432
+                            }
+                        ],
+                        "UseRotationOverLifetime": true,
+                        "RotationOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "UseColorOverLifetime": false,
+                        "OverLifetimeColor": {
+                            "x": 8.35173884737591e-43,
+                            "y": 0.0,
+                            "z": 0.0,
+                            "w": 0.0
+                        },
+                        "ColorGradientPoints": [
+                            {
+                                "cereal_class_version": 0,
+                                "value0": 0.0,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 1.0,
+                                    "value2": 1.0,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 1.0,
+                                    "value2": 1.0,
+                                    "value3": 1.0
+                                }
+                            }
+                        ],
+                        "UseRenderer": true,
+                        "RenderMode": 0,
+                        "RenderAlignment": 0,
+                        "ElapsedTime": 214.88455200195313,
+                        "TextureUUID": {
+                            "value0": 1333509653133127485
+                        }
+                    }
+                }
+            }
+        },
         "value32": 0,
-        "value33": 0,
+        "value33": 2,
         "value34": 0,
-        "value35": 0,
-        "value36": 0,
+        "value35": 1,
+        "value36": 1,
         "value37": 0,
-        "value38": 0
+        "value38": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/misc/PickupInjector.lua",
+            "Language": 0
+        },
+        "value39": 0,
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 0
     }
 }
