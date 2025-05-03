@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 2216904702597924961
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/Default/spritesheet_ButtonSelectedInOut2.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/2216904702597924961.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
