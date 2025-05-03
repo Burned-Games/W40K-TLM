@@ -92,11 +92,11 @@
     local silenciadoEntity = nil
     local silenciado = nil
 
-    local proteccionEntity = nil
+    proteccionEntity = nil
     local proteccion = nil
-    local recargaEntity = nil
+    recargaEntity = nil
     local recarga = nil
-    local velocidadAtaqueEntity = nil
+    velocidadAtaqueEntity = nil
     local velocidadAtaque = nil
 
     local cantidadConsumible = nil
@@ -469,12 +469,12 @@
             aturdidoEntity:set_active(false)
         end
 
-        quemadoEntity:set_active(false)
-        ralentizadoEntity:set_active(false)
-        silenciadoEntity:set_active(false)
+        if playerScript.isNeuralInhibitioning then
+            ralentizadoEntity:set_active(true)
+        else
+            ralentizadoEntity:set_active(false)
+        end
 
-        proteccionEntity:set_active(false)
-        recargaEntity:set_active(false)
-        velocidadAtaqueEntity:set_active(false)
-        
+        quemadoEntity:set_active(false)
+        silenciadoEntity:set_active(false)
     end
