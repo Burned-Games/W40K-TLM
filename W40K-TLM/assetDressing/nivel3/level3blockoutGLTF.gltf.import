@@ -1,0 +1,128 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 13044570991351201108
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-1",
+                        "value": {
+                            "value0": 11784347597881358980
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-2",
+                        "value": {
+                            "value0": 9656268505559280276
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-3",
+                        "value": {
+                            "value0": 12454814270708515105
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-4",
+                        "value": {
+                            "value0": 15153958180400696846
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-5",
+                        "value": {
+                            "value0": 10784168630633837137
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-6",
+                        "value": {
+                            "value0": 10478260576273851525
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF_Cylinder.086-7",
+                        "value": {
+                            "value0": 14056392500854442843
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Banco_Mat4",
+                        "value": {
+                            "value0": 18350554447319153799
+                        }
+                    },
+                    {
+                        "key": "Wall_MAT_Mat0",
+                        "value": {
+                            "value0": 10157402580019583089
+                        }
+                    },
+                    {
+                        "key": "Columna_MAT_Mat1",
+                        "value": {
+                            "value0": 14791946750988375188
+                        }
+                    },
+                    {
+                        "key": "vallas.001_Mat2",
+                        "value": {
+                            "value0": 9922871872966874841
+                        }
+                    },
+                    {
+                        "key": "Suelo_MAT_Mat3",
+                        "value": {
+                            "value0": 1026945713243208317
+                        }
+                    },
+                    {
+                        "key": "Banco.001_Mat5",
+                        "value": {
+                            "value0": 11112199764868320900
+                        }
+                    },
+                    {
+                        "key": "level3blockoutGLTF.gltf_Mat7",
+                        "value": {
+                            "value0": 160384752918600508
+                        }
+                    },
+                    {
+                        "key": "vallas.002_Mat6",
+                        "value": {
+                            "value0": 3345048535545871384
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 14646720264795328726
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel3/level3blockoutGLTF.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/14646720264795328726.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
