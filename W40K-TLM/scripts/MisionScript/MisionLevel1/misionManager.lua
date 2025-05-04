@@ -196,7 +196,7 @@ function missionBlue_Tutor()
     elseif blueTaskIndex == 3 and m3_EnemyCount >= 2 then
         startAnimation(blueAnimation)
         popupScriptComponent.start_popup_removal_timer()
-    elseif blueTaskIndex == 4 and m4_lever and m4_EnemyCount == 2 then
+    elseif blueTaskIndex == 4 and m4_lever and m4_EnemyCount >= 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)
