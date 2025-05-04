@@ -723,19 +723,20 @@ function handle_bullet_collision(entityA, entityB)
         makeDamage(enemy)
     end
 
-    if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
+    if entityARB and nameB ~= "Player"  and nameB ~= "FloorCollider" and nameB ~= "Sphere1"  and nameB ~= "Sphere2"  and nameB ~= "Sphere3"  and nameB ~= "Sphere4"  and nameB ~= "Sphere5" and nameB ~= "Sphere6" and nameB ~= "Sphere7" and nameB ~= "Sphere8" then
         if entityARB:get_is_trigger() == false then
-            -- print("collisionA")
-            sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
+            print("collisionA")
+            entityBRB:set_position(Vector3.new(0,-150,0))
             -- print(nameA)
         end 
     end
 
-    if entityBRB and nameA ~= "Player" and nameB ~= "Player" and nameA ~= "FloorCollider" and nameB ~= "FloorCollider" and nameA ~= "Sphere1" and nameB ~= "Sphere1" and nameA ~= "Sphere2" and nameB ~= "Sphere2" and nameA ~= "Sphere3" and nameB ~= "Sphere3" and nameA ~= "Sphere4" and nameB ~= "Sphere4" and nameA ~= "Sphere5" and nameB ~= "Sphere5" and nameA ~= "Sphere6" and nameB ~= "Sphere6" and nameA ~= "Sphere7" and nameB ~= "Sphere7" and nameA ~= "Sphere8" and nameB ~= "Sphere8" then
-        if entityBRB:get_is_trigger() == false then
-            -- print("collisionB")
-            sphere1RigidBodyComponent.rb:set_position(Vector3.new(0,-150,0))
-        end
+    if entityBRB and nameA ~= "Player"  and nameA ~= "FloorCollider" and nameA ~= "Sphere1"  and nameA ~= "Sphere2"  and nameA ~= "Sphere3"  and nameA ~= "Sphere4"  and nameA ~= "Sphere5" and nameA ~= "Sphere6" and nameA ~= "Sphere7" and nameA ~= "Sphere8" then
+        if entityARB:get_is_trigger() == false then
+            print("collisionB")
+            entityBRB:set_position(Vector3.new(0,-150,0))
+            -- print(nameA)
+        end 
     end
 end
 

@@ -416,11 +416,11 @@ function on_update(dt)
                   animator:set_upper_animation(currentUpAnim)
             end
         end
-        updateEntranceAnimation(dt)
+        --updateEntranceAnimation(dt)
 
-        if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" then
-            return
-        end
+        -- if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" then
+        --     return
+        -- end
         if healAnimationSecondBool then
             healAnimCounter = healAnimCounter + dt
             if healAnimCounter >= healAnimationTime then

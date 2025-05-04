@@ -411,7 +411,6 @@ function handle_bullet_collision(entityA, entityB)
                 knockbackDirection.z * knockbackForce
             )
             
-            --enemyRigidBody:apply_force(knockbackVelocity) [DESCOMENTAR PARA HACER KNOCKBACK, AHORA VA MAL]
 
         end
     end
@@ -447,18 +446,36 @@ function handle_bullet_collision(entityA, entityB)
         damage_enemy(enemy, bullet)
     end
     
-    local bulletEntity = nil
+    local bulletEntityA = nil
+    local bulletEntityB = nil
     
     for _, bullet in ipairs(bullets) do
-        if bullet.entity == entityA or bullet.entity == entityB then
-            bulletEntity = bullet
+        if bullet.entity == entityA then
+            bulletEntityA = bullet
+            break
+        end
+
+        if bullet.entity == entityB then
+            bulletEntityB = bullet
             break
         end
     end
-    
-    if bulletEntity and nameA ~= "Player" and nameB ~= "Player" and nameA ~= "FloorCollider" and nameB ~= "FloorCollider" and nameA ~= "Sphere1" and nameB ~= "Sphere1" and nameA ~= "Sphere2" and nameB ~= "Sphere2" and nameA ~= "Sphere3" and nameB ~= "Sphere3" and nameA ~= "Sphere4" and nameB ~= "Sphere4" and nameA ~= "Sphere5" and nameB ~= "Sphere5" and nameA ~= "Sphere6" and nameB ~= "Sphere6" and nameA ~= "Sphere7" and nameB ~= "Sphere7" and nameA ~= "Sphere8" and nameB ~= "Sphere8" then
-        bulletEntity.rigidBody:set_position(Vector3.new(0, -250, 0))
-        bulletEntity.rigidBody:set_velocity(Vector3.new(0, 0, 0))
+    print(bulletEntityA)
+    print(bulletEntityB)
+    print(nameA)
+    print(nameB)
+    if bulletEntityA and (nameB ~= "Player" and nameB ~= "FloorCollider" and nameB ~= "Sphere1" and nameB ~= "Sphere2" and nameB ~= "Sphere3"  and nameB ~= "Sphere4" and nameB ~= "Sphere5" and nameB ~= "Sphere6" and nameB ~= "Sphere7" and nameB ~= "Sphere8" ) then
+        print("aaaaaaaaaaaaaaaaaaaa")
+        bulletEntityA.rigidBody:set_position(Vector3.new(0, -250, 0))
+        bulletEntityA.rigidBody:set_velocity(Vector3.new(0, 0, 0))
+    end
+
+    if bulletEntityB and (nameA ~= "Player" and nameA ~= "FloorCollider" and nameA ~= "Sphere1" and nameA ~= "Sphere2" and nameA ~= "Sphere3"  and nameA ~= "Sphere4" and nameA ~= "Sphere5" and nameA ~= "Sphere6" and nameA ~= "Sphere7" and nameA ~= "Sphere8" ) then
+        print("bbbbbbbbbbbbbbb")
+        bulletEntityB.rigidBody:set_position(Vector3.new(0, -250, 0))
+        print("cccccccccccccccc")
+        print(bulletEntityB:get_component("TransformComponent").position.y)
+        bulletEntityB.rigidBody:set_velocity(Vector3.new(0, 0, 0))
     end
 end
 
