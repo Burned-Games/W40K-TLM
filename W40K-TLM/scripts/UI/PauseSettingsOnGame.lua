@@ -60,6 +60,14 @@ function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
 
+    if currentSelectedSlider == 1 then
+        slider1.selected = true
+        slider2.selected = false
+    elseif currentSelectedSlider == 2 then
+        slider2.selected = true
+        slider1.selected = false
+    end
+
 
     PauseText = current_scene:get_entity_by_name("PauseText"):get_component("UITextComponent")
     SettingsBaseText = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
@@ -218,11 +226,11 @@ function on_update(dt)
         end
 
         if currentSelectedSlider == 1 then
-            text1:set_color(selectedColor)
-            text2:set_color(defaultColor)
+            slider1.selected = true
+            slider2.selected = false
         elseif currentSelectedSlider == 2 then
-            text1:set_color(defaultColor)
-            text2:set_color(selectedColor)
+            slider2.selected = true
+            slider1.selected = false
         end
         
         inputCooldown = cooldownTime
