@@ -46,17 +46,6 @@
             }
         },
         {
-            "key": "MoveY",
-            "value": {
-                "KeyPos": 26,
-                "KeyNeg": 22,
-                "ButtonPos": -1,
-                "ButtonNeg": -1,
-                "Axis": 1,
-                "invertedAxis": false
-            }
-        },
-        {
             "key": "Interact",
             "value": {
                 "KeyPos": 25,
@@ -75,6 +64,17 @@
                 "ButtonPos": 0,
                 "ButtonNeg": -1,
                 "Axis": -1,
+                "invertedAxis": false
+            }
+        },
+        {
+            "key": "MoveY",
+            "value": {
+                "KeyPos": 26,
+                "KeyNeg": 22,
+                "ButtonPos": -1,
+                "ButtonNeg": -1,
+                "Axis": 1,
                 "invertedAxis": false
             }
         },
