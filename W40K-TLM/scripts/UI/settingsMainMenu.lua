@@ -56,11 +56,11 @@ function on_ready()
     --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
 
     if currentSelectedSlider == 1 then
-        text1:set_color(selectedColor)
-        text2:set_color(defaultColor)
-    else
-        text1:set_color(defaultColor)
-        text2:set_color(selectedColor)
+        slider1.selected = true
+        slider2.selected = false
+    elseif currentSelectedSlider == 2 then
+        slider2.selected = true
+        slider1.selected = false
     end
 end
 
@@ -108,11 +108,11 @@ function on_update(dt)
             end
 
             if currentSelectedSlider == 1 then
-                text1:set_color(selectedColor)
-                text2:set_color(defaultColor)
-            else
-                text1:set_color(defaultColor)
-                text2:set_color(selectedColor)
+                slider1.selected = true
+                slider2.selected = false
+            elseif currentSelectedSlider == 2 then
+                slider2.selected = true
+                slider1.selected = false
             end
             inputCooldown = cooldownTime
             return
