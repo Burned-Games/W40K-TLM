@@ -1,0 +1,104 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Workbench_Cylinder.013-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 11553937508660279976
+                        }
+                    },
+                    {
+                        "key": "Workbench_Cylinder.013-1",
+                        "value": {
+                            "value0": 4604796718061043744
+                        }
+                    },
+                    {
+                        "key": "Workbench_Cube.003",
+                        "value": {
+                            "value0": 17890455906512210942
+                        }
+                    },
+                    {
+                        "key": "Workbench_Cylinder.022",
+                        "value": {
+                            "value0": 15464692388237247275
+                        }
+                    },
+                    {
+                        "key": "Workbench_Cylinder.021",
+                        "value": {
+                            "value0": 18034808985784345765
+                        }
+                    },
+                    {
+                        "key": "Workbench_Cube.001",
+                        "value": {
+                            "value0": 8884104512790652134
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Workbench_MAT_Mat0",
+                        "value": {
+                            "value0": 16412995606423454217
+                        }
+                    },
+                    {
+                        "key": "Bolter_Mat2",
+                        "value": {
+                            "value0": 13642333099529582592
+                        }
+                    },
+                    {
+                        "key": "Checker.002_Mat3",
+                        "value": {
+                            "value0": 1492336113675144123
+                        }
+                    },
+                    {
+                        "key": "VFX_Mat1",
+                        "value": {
+                            "value0": 12887685381274757566
+                        }
+                    },
+                    {
+                        "key": "Checker.001_Mat4",
+                        "value": {
+                            "value0": 18040437686477746993
+                        }
+                    },
+                    {
+                        "key": "Escpoeta_MAT_Mat5",
+                        "value": {
+                            "value0": 12078371331879126823
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 13513616226753175715
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/p_workbench/Workbench.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13513616226753175715.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
