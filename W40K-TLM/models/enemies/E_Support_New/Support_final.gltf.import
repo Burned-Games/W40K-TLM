@@ -1,0 +1,56 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Support_final_Mesh.001",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 15684823468314180829
+                        }
+                    },
+                    {
+                        "key": "Support_final_Mesh.013",
+                        "value": {
+                            "value0": 17352687527105169332
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Support_Mat0",
+                        "value": {
+                            "value0": 15689185188634210958
+                        }
+                    },
+                    {
+                        "key": "E_SupWeapon_Mat1",
+                        "value": {
+                            "value0": 10385708086231581720
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 8768763779544765147
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/enemies/E_Support_New/Support_final.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/8768763779544765147.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
