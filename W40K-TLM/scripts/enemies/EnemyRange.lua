@@ -271,8 +271,9 @@ function change_state(dt)
     range:enemy_raycast(dt)
     range:check_player_distance()
 
-    if range.playerDetected and not range.isAlerted then
+    if range.playerDetected and range.currentState ~= range.state.Detect and not range.isAlerted then
         range.currentState = range.state.Detect
+        return
     end
 
     -- If is Chasing don't return to Shoot or Move

@@ -278,6 +278,11 @@ function change_state(dt)
     tank:enemy_raycast(dt)
     tank:check_player_distance()
 
+    if tank.playerDetected and not tank.isAlerted then
+        tank.currentState = tank.state.Detect
+        return
+    end
+
     if tank.collisionWithPlayer then
         if tank.currentState == tank.state.Tackle or tank.currentState == tank.state.Move then
             tank.currentState = tank.state.Attack
