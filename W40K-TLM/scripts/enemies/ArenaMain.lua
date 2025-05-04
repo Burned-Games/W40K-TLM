@@ -84,9 +84,7 @@ function registerEnemy(type, id, enemyName)
         elseif type == "supp" and enemyScripts[key].supp then
             enemyScripts[key].supp.isArenaEnemy = true
         end
-
         enemy:set_active(false)
-    
     end
 end
 

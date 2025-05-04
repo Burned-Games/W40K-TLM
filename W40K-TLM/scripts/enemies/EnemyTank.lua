@@ -142,6 +142,11 @@ function on_update(dt)
 
     if tank.isDead then return end
 
+    if tank.zoneSet ~= true then
+        tank:check_spawn()
+        tank.zoneSet = true
+    end
+
     if Input.is_key_pressed(Input.keycode.L) then
        tank.level = 1
        tank:set_stats(tank.level)
