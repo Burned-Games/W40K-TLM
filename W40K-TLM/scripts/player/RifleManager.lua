@@ -288,6 +288,7 @@ function on_update(dt)
                 if playerScript.currentUpAnim ~= playerScript.reload_Bolter and reloadAnimation == false then
                     playReload()
                     playerScript.currentUpAnim = playerScript.reload_Bolter
+                    
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     reloadAnimation = true
                 end
@@ -298,6 +299,7 @@ function on_update(dt)
                     ammo = 0
                     reloadTime = 0
                     reloadAnimation = false
+                    playerScript.currentAnim = -1
                     manualReload = false
                 end
             end
@@ -307,9 +309,9 @@ function on_update(dt)
 
             if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) then
                 
-                if playerScript.currentAnim ~= playerScript.attack and shootAnimation == false then
-                    playerScript.currentAnim = playerScript.attack
-                    playerScript.animator:set_upper_animation(playerScript.currentAnim)
+                if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
+                    playerScript.currentUpAnim = playerScript.attack
+                    playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     shootAnimation = true
                 end
                 
@@ -320,7 +322,7 @@ function on_update(dt)
                     ammo = ammo + 3
                     shooted = true
                     shootCoolDown = 0
-                    shootAnimation = false
+                    --shootAnimation = false
                 else
                     
                 end
@@ -331,8 +333,11 @@ function on_update(dt)
                 if disruptorShooted2 == false then
                     playerScript.activateAutoAim = false
                 end
-                
+                if playerScript.currentAnim ~= -1 and shootAnimation == true then
+                    playerScript.currentAnim = -1
+                end
                 shootAnimation = false
+
             end
 
 
