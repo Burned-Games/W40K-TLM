@@ -1,0 +1,469 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "BackgroundMusic_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 13105264977596209283
+            }
+        },
+        "RootEntity": 0,
+        "value0": 7,
+        "value1": 7,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Tag": "BackgroundMusic"
+        },
+        "value12": 1,
+        "value13": {
+            "Tag": "ColiseumMusic"
+        },
+        "value14": 2,
+        "value15": {
+            "Tag": "LevelOneIndoorMusic"
+        },
+        "value16": 3,
+        "value17": {
+            "Tag": "LevelOneOutsideMusic"
+        },
+        "value18": 4,
+        "value19": {
+            "Tag": "LevelTwoFinalMusic"
+        },
+        "value20": 5,
+        "value21": {
+            "Tag": "LevelTwoMidMusic"
+        },
+        "value22": 6,
+        "value23": {
+            "Tag": "FightingMusic"
+        },
+        "value24": 7,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value27": 1,
+        "value28": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 2,
+        "value30": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value31": 3,
+        "value32": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value33": 4,
+        "value34": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value35": 5,
+        "value36": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value37": 6,
+        "value38": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 7,
+        "value40": 0,
+        "value41": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value42": 1,
+        "value43": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 6,
+            "Prev": 4
+        },
+        "value44": 2,
+        "value45": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value46": 3,
+        "value47": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value48": 4,
+        "value49": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value50": 5,
+        "value51": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value52": 6,
+        "value53": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value54": 0,
+        "value55": 0,
+        "value56": 0,
+        "value57": 0,
+        "value58": 0,
+        "value59": 0,
+        "value60": 7,
+        "value61": 0,
+        "value62": 1,
+        "value63": 2,
+        "value64": 3,
+        "value65": 4,
+        "value66": 5,
+        "value67": 6,
+        "value68": 0,
+        "value69": 0,
+        "value70": 6,
+        "value71": 1,
+        "value72": {
+            "cereal_class_version": 0,
+            "GameObjectID": 7903331545697927961,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "Name": "Music",
+                        "Events": [
+                            "Play_ExploringColiseum",
+                            "Play_ExploringLevel1Indoor",
+                            "Play_ExploringLevel1Outside",
+                            "Play_ExploringLevel2Final",
+                            "Play_ExploringLevel2Mid",
+                            "Play_FightingMusic",
+                            "Play_mainMenu_music_container"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "Music",
+            "EventName": "Play_ExploringColiseum",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value73": 2,
+        "value74": {
+            "GameObjectID": 9027503650088535501,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "Music",
+            "EventName": "Play_ExploringLevel1Indoor",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value75": 3,
+        "value76": {
+            "GameObjectID": 14202704320726586930,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "Music",
+            "EventName": "Play_ExploringLevel1Outside",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value77": 4,
+        "value78": {
+            "GameObjectID": 296869191633484789,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "Music",
+            "EventName": "Play_ExploringLevel2Final",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value79": 5,
+        "value80": {
+            "GameObjectID": 13604867195032955467,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "Music",
+            "EventName": "Play_ExploringLevel2Mid",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value81": 6,
+        "value82": {
+            "GameObjectID": 4914562327643990715,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "Music",
+            "EventName": "Play_FightingMusic",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value83": 0,
+        "value84": 0,
+        "value85": 0,
+        "value86": 0,
+        "value87": 0,
+        "value88": 0,
+        "value89": 0,
+        "value90": 0,
+        "value91": 0,
+        "value92": 0
+    }
+}

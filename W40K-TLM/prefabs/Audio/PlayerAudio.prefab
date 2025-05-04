@@ -1,0 +1,725 @@
+{
+    "value0": {
+        "cereal_class_version": 0,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "PlayerAudio_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 15079841442664810733
+            }
+        },
+        "RootEntity": 0,
+        "value0": 11,
+        "value1": 11,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 8,
+        "value11": 9,
+        "value12": 10,
+        "value13": 11,
+        "value14": 0,
+        "value15": {
+            "cereal_class_version": 0,
+            "Tag": "PlayerAudio"
+        },
+        "value16": 1,
+        "value17": {
+            "Tag": "BannerFallSFX"
+        },
+        "value18": 2,
+        "value19": {
+            "Tag": "BannerZoneSFX"
+        },
+        "value20": 3,
+        "value21": {
+            "Tag": "PlayerBleedingSFX"
+        },
+        "value22": 4,
+        "value23": {
+            "Tag": "PlayerBurningSFX"
+        },
+        "value24": 5,
+        "value25": {
+            "Tag": "PlayerDashSFX"
+        },
+        "value26": 6,
+        "value27": {
+            "Tag": "PlayerDeathSFX"
+        },
+        "value28": 7,
+        "value29": {
+            "Tag": "PlayerInyectorSFX"
+        },
+        "value30": 8,
+        "value31": {
+            "Tag": "PlayerOverloadsSFX"
+        },
+        "value32": 9,
+        "value33": {
+            "Tag": "PlayerStepsSFX"
+        },
+        "value34": 10,
+        "value35": {
+            "Tag": "PlayerSwapWeaponsSFX"
+        },
+        "value36": 11,
+        "value37": 0,
+        "value38": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 1,
+        "value40": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value41": 2,
+        "value42": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value43": 3,
+        "value44": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value45": 4,
+        "value46": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value47": 5,
+        "value48": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value49": 6,
+        "value50": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value51": 7,
+        "value52": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value53": 8,
+        "value54": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value55": 9,
+        "value56": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value57": 10,
+        "value58": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value59": 11,
+        "value60": 0,
+        "value61": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value62": 1,
+        "value63": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 10,
+            "Prev": 8
+        },
+        "value64": 2,
+        "value65": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value66": 3,
+        "value67": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value68": 4,
+        "value69": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value70": 5,
+        "value71": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value72": 6,
+        "value73": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value74": 7,
+        "value75": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
+        "value76": 8,
+        "value77": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 7
+        },
+        "value78": 9,
+        "value79": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 8
+        },
+        "value80": 10,
+        "value81": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 9
+        },
+        "value82": 0,
+        "value83": 0,
+        "value84": 0,
+        "value85": 0,
+        "value86": 0,
+        "value87": 0,
+        "value88": 11,
+        "value89": 0,
+        "value90": 1,
+        "value91": 2,
+        "value92": 3,
+        "value93": 4,
+        "value94": 5,
+        "value95": 6,
+        "value96": 7,
+        "value97": 8,
+        "value98": 9,
+        "value99": 10,
+        "value100": 0,
+        "value101": 0,
+        "value102": 10,
+        "value103": 1,
+        "value104": {
+            "cereal_class_version": 0,
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "Name": "PlayerSFX",
+                        "Events": [
+                            "Play_BannerFall",
+                            "Play_BannerZone",
+                            "Play_PlayerBleeding",
+                            "Play_PlayerBurning",
+                            "Play_PlayerDash",
+                            "Play_PlayerDeath",
+                            "Play_PlayerInyector_01",
+                            "Play_PlayerOverloads",
+                            "Play_PlayerStepsLvl1",
+                            "Play_PlayerStepsLvl2",
+                            "Play_PlayerSwapWeapons"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_BannerFall",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value105": 2,
+        "value106": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_BannerZone",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value107": 3,
+        "value108": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerBleeding",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value109": 4,
+        "value110": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerBurning",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value111": 5,
+        "value112": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerDash",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value113": 6,
+        "value114": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerDeath",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value115": 7,
+        "value116": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerInyector_01",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value117": 8,
+        "value118": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerOverloads",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value119": 9,
+        "value120": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerStepsLvl2",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value121": 10,
+        "value122": {
+            "GameObjectID": 18446744073709551615,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerSwapWeapons",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value123": 0,
+        "value124": 0,
+        "value125": 0,
+        "value126": 0,
+        "value127": 0,
+        "value128": 0,
+        "value129": 0,
+        "value130": 0,
+        "value131": 0,
+        "value132": 0
+    }
+}
