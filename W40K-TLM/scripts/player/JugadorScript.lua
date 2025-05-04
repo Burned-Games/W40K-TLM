@@ -1158,7 +1158,7 @@ function playerMovement(dt)
 
 
     if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
-        if currentUpAnim ~= aim then
+        if currentUpAnim ~= aim and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false then
             currentUpAnim = aim
             animator:set_upper_animation(currentUpAnim)
             aimAnimation = true
