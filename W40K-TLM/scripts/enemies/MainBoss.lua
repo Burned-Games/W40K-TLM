@@ -220,13 +220,10 @@ function on_ready()
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
-        if (nameA == "Player" or nameB == "Player") then
-            if main_boss.isLightningDamaging then
-                log("AAAA")
-                if not main_boss.hasDealtLightningDamage then
-                    main_boss:make_damage(main_boss.meleeDamage)
-                    main_boss.hasDealtLightningDamage = true
-                end
+        if (nameA == "Player" or nameB == "Player") and main_boss.isLightningDamaging then
+            if not main_boss.hasDealtLightningDamage then
+                main_boss:make_damage(main_boss.meleeDamage)
+                main_boss.hasDealtLightningDamage = true
             end
         end
     end)
@@ -332,10 +329,10 @@ function on_update(dt)
             end
         elseif main_boss.rangeAttackTimer >= main_boss.rangeAttackDuration then
             -- Send them back
-            main_boss.fistRbs[1]:set_position(Vector3.new(-500, 0, -150))
-            main_boss.fistRbs[2]:set_position(Vector3.new(-500, 0, -150))
-            main_boss.fistRbs[3]:set_position(Vector3.new(-500, 0, -150))
-
+            for i = 1, fistMaxNumbers do
+                main_boss.fistRbComponent[i].rb:set_position(Vector3.new(-500, 0, -150))
+            end
+        
             main_boss.fistsThrown = false
         end
     end
@@ -579,6 +576,7 @@ function fists_attack()
     }
 
     for i = 1, fistMaxNumbers do
+        log("Indicator: " .. main_boss.fistPositions[i].x .. ", " .. main_boss.fistPositions[i].y .. ", " .. main_boss.fistPositions[i].z)
         if main_boss.fistIndicatorsTransform[i] then
             main_boss.fistIndicatorsTransform[i].position = main_boss.fistPositions[i]
             main_boss.fistIndicatorsTransform[i].position.y = 0.1
@@ -604,7 +602,8 @@ function execute_fists_attack()
     for i = 1, fistMaxNumbers do
         if main_boss.fistRbs[i] and main_boss.fistTransf[i] then
             -- Set initial position
-            main_boss.fistRbs[i]:set_position(main_boss.fistPositions[i])
+            main_boss.fistRbComponent[i].rb:set_position(main_boss.fistPositions[i])
+            log("Collider: " .. main_boss.fistPositions[i].x .. ", " .. main_boss.fistPositions[i].y .. ", " .. main_boss.fistPositions[i].z)
 
             -- Reset scale
             main_boss.fistTransf[i].scale = Vector3.new(1, 1, 1)
@@ -682,6 +681,7 @@ function check_ulti_collision()
 end
 
 function update_scaling_attacks(dt)
+
     for i = #main_boss.scalingAttacks, 1, -1 do
         local data = main_boss.scalingAttacks[i]
         data.elapsed = data.elapsed + dt
@@ -717,13 +717,16 @@ function update_scaling_attacks(dt)
             table.remove(main_boss.scalingAttacks, i)
         end
     end
+    
 end
 
 function manage_destroyed_pillar()
+
     local pillarRb = main_boss.pillarToDestroy:get_component("RigidbodyComponent").rb
     pillarRb:set_position(Vector3.new(-800, 0, -800))
 
     main_boss.pillarToDestroy = nil
+
 end
 
 function unitary_direction(x1, x2, z1, z2)

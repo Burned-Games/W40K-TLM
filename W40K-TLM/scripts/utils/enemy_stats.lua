@@ -273,7 +273,7 @@ local enemy_stats = {
             rangeDamage = 100,
             ultimateDamage = 350,
 
-            detectionRange = 20,
+            detectionRange = 40,
             meleeAttackRange = 10,
             rangeAttackRange = 15,
             ultimateRange = 15,
