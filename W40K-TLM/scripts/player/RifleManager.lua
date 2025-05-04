@@ -34,10 +34,16 @@ damage = 15
 
 local yPositionBullet = 1.5
 
---audio
-local bolterShotSFX
-local bolterReloadSFX
+--Audio
 local rifle_firerate = 0.8
+
+local bolterShotSFX = nil
+local bolterReloadSFX = nil
+local bolterSkillAreaSFX = nil
+local bolterSkillChargeSFX = nil
+local bolterSkillExplosionSFX = nil
+local bolterSkillShotSFX = nil
+local bolterBulletImpactSFX = nil
 
 local rifle_firerate_count = 0
 
@@ -154,6 +160,11 @@ function on_ready()
     -- Audio 
     bolterShotSFX = current_scene:get_entity_by_name("BolterShotSFX"):get_component("AudioSourceComponent")
     bolterReloadSFX = current_scene:get_entity_by_name("BolterReloadSFX"):get_component("AudioSourceComponent")
+    bolterSkillAreaSFX = current_scene:get_entity_by_name("BolterSkillAreaSFX"):get_component("AudioSourceComponent")
+    bolterSkillChargeSFX = current_scene:get_entity_by_name("BolterSkillChargeSFX"):get_component("AudioSourceComponent")
+    bolterSkillExplosionSFX = current_scene:get_entity_by_name("BolterSkillExplosionSFX"):get_component("AudioSourceComponent")
+    bolterSkillShotSFX = current_scene:get_entity_by_name("BolterSkillShotSFX"):get_component("AudioSourceComponent")
+    bolterBulletImpactSFX = current_scene:get_entity_by_name("BolterBulletImpactsSFX"):get_component("AudioSourceComponent")
 
     -- Particles
     particle_cargdisruptor = current_scene:get_entity_by_name("particle_cargdisruptor"):get_component("ParticlesSystemComponent")
@@ -375,6 +386,9 @@ function on_update(dt)
                     charging = false
                     chaaarging = false
                 else
+
+                    if chaaarging == false then bolterSkillChargeSFX:play() end
+
                     playerScript.moveSpeed = 1
                     chaaarging = true
                     if playerScript.currentAnim ~= playerScript.h1_Bolter then
@@ -468,6 +482,8 @@ function disruptiveCharge()
 
     Input.send_rumble(vibrationDisrruptorShootSettings.x, vibrationDisrruptorShootSettings.y, vibrationDisrruptorShootSettings.z)
 
+    bolterSkillShotSFX:play()
+
     if playerScript.enemyDirection ~= nil then
         forwardVector = playerScript.enemyDirection
         playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
@@ -496,8 +512,6 @@ end
 function chargedZoneUpdate(dt)
 
     
-
-        
      if secondCounterTimes < 5 then
             
         secondCounter = secondCounter + dt
@@ -647,6 +661,7 @@ function makeDamage(enemy)
                 enemyInstance:take_damage(damageRifle)
                 particle_blood_normal:emit(5)
                 particle_blood_spark:emit(5)
+                bolterBulletImpactSFX:play()
                 playerScript.makeDamage = true
             end
         end
@@ -687,6 +702,9 @@ function makeDisruptorDamage(enemy)
             chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
             disruptorBulletRb:set_position(Vector3.new(0,1500,0))
             disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+
+            bolterSkillExplosionSFX:play()
+            bolterSkillAreaSFX:play()
 
         end
     end
