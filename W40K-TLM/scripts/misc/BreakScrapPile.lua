@@ -1,7 +1,8 @@
 
 
 local objectNormal = nil
-local objectSeparate = nil
+
+local separate = nil
 
 local separateChildren = nil;
 
@@ -19,6 +20,7 @@ local actualSize = 1
 local sizeDisappearSpeed = 3
 
 local prefabScrap= "prefabs/Misc/Scrap.prefab"
+local prefabScrapSeparate = "prefabs/Misc/SeparateScrapPile.prefab"
 
 local transform = nil
 
@@ -28,18 +30,13 @@ function on_ready()
     -- Add initialization code here
 
     local children = self:get_children()
+
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "Normal" then
             objectNormal = child
-            
-        elseif child:get_component("TagComponent").tag == "Separate" then
-            objectSeparate = child
         end
     end
 
-    separateChildren = objectSeparate:get_children()
-    objectSeparate:set_active(false)
-    objectNormal:set_active(true)
 
     rbComponent = self:get_component("RigidbodyComponent");
     rbComponent:on_collision_enter(function(entityA, entityB)
@@ -68,14 +65,16 @@ end
 function give_phisycs()
     rbComponent.rb:set_trigger(true)
     rbComponent.rb:set_use_gravity(false)
-    objectSeparate:set_active(true)
-    objectNormal:set_active(false)
+
+    --objectNormal:get_component("TransformComponent").position = Vector3.new(-100, -100, -100)
+
+    separate = instantiate_prefab(prefabScrapSeparate)
+    separate:get_component("TransformComponent").position = self:get_component("TransformComponent").position
+    separate:get_component("TransformComponent").rotation = self:get_component("TransformComponent").rotation
+
+    separateChildren = separate:get_children()
 
     for _, child in ipairs(separateChildren) do
-        if not child:has_component("RigidbodyComponent") then
-            child:add_component("RigidbodyComponent")
-        end
-
         if child:has_component("RigidbodyComponent") then
             local rb = child:get_component("RigidbodyComponent").rb
 

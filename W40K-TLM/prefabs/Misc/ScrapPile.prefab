@@ -10,86 +10,31 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 5707903258489808911
+                "value0": 14506898910357954618
             }
         },
         "RootEntity": 0,
-        "value0": 13,
-        "value1": 13,
+        "value0": 2,
+        "value1": 2,
         "value2": 0,
         "value3": 1,
         "value4": 2,
-        "value5": 3,
-        "value6": 4,
-        "value7": 5,
-        "value8": 6,
-        "value9": 7,
-        "value10": 8,
-        "value11": 9,
-        "value12": 10,
-        "value13": 11,
-        "value14": 12,
-        "value15": 13,
-        "value16": 0,
-        "value17": {
+        "value5": 0,
+        "value6": {
             "cereal_class_version": 0,
             "Tag": "ScrapPile"
         },
-        "value18": 1,
-        "value19": {
+        "value7": 1,
+        "value8": {
             "Tag": "Normal"
         },
-        "value20": 2,
-        "value21": {
-            "Tag": "Separate"
-        },
-        "value22": 3,
-        "value23": {
-            "Tag": "tubo4"
-        },
-        "value24": 4,
-        "value25": {
-            "Tag": "tubo3"
-        },
-        "value26": 5,
-        "value27": {
-            "Tag": "tubo2"
-        },
-        "value28": 6,
-        "value29": {
-            "Tag": "tubo1"
-        },
-        "value30": 7,
-        "value31": {
-            "Tag": "cilindro2"
-        },
-        "value32": 8,
-        "value33": {
-            "Tag": "cilindro1"
-        },
-        "value34": 9,
-        "value35": {
-            "Tag": "tabla4"
-        },
-        "value36": 10,
-        "value37": {
-            "Tag": "tabla3"
-        },
-        "value38": 11,
-        "value39": {
-            "Tag": "tabla2"
-        },
-        "value40": 12,
-        "value41": {
-            "Tag": "tabla1"
-        },
-        "value42": 13,
-        "value43": 0,
-        "value44": {
+        "value9": 2,
+        "value10": 0,
+        "value11": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": -1.356766700744629,
                 "z": 0.0
             },
             "Rotation": {
@@ -103,8 +48,8 @@
                 "z": 1.0
             }
         },
-        "value45": 1,
-        "value46": {
+        "value12": 1,
+        "value13": {
             "Position": {
                 "x": -0.23106317222118379,
                 "y": 0.9300373196601868,
@@ -121,300 +66,25 @@
                 "z": 1.0
             }
         },
-        "value47": 2,
-        "value48": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value49": 3,
-        "value50": {
-            "Position": {
-                "x": -0.23106317222118379,
-                "y": 0.9300373196601868,
-                "z": 0.4612118899822235
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value51": 4,
-        "value52": {
-            "Position": {
-                "x": -0.16522818803787232,
-                "y": 0.3152323365211487,
-                "z": -0.20860980451107026
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value53": 5,
-        "value54": {
-            "Position": {
-                "x": -0.3657979667186737,
-                "y": 1.0817524194717408,
-                "z": 0.11750106513500214
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value55": 6,
-        "value56": {
-            "Position": {
-                "x": -0.03227420896291733,
-                "y": 0.6058788895606995,
-                "z": -0.9355143308639526
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value57": 7,
-        "value58": {
-            "Position": {
-                "x": -1.0854465961456299,
-                "y": 0.8662311434745789,
-                "z": -0.056999996304512027
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value59": 8,
-        "value60": {
-            "Position": {
-                "x": 0.06928874552249909,
-                "y": 0.6099564433097839,
-                "z": 0.8051266670227051
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value61": 9,
-        "value62": {
-            "Position": {
-                "x": -0.4665508568286896,
-                "y": 0.7869479060173035,
-                "z": 0.9158170819282532
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value63": 10,
-        "value64": {
-            "Position": {
-                "x": 0.5337021350860596,
-                "y": 0.4871606230735779,
-                "z": 0.009573034942150116
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value65": 11,
-        "value66": {
-            "Position": {
-                "x": -0.3242342472076416,
-                "y": 0.701951801776886,
-                "z": -0.029848136007785798
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value67": 12,
-        "value68": {
-            "Position": {
-                "x": -0.2805978059768677,
-                "y": 0.5500142574310303,
-                "z": 0.14221248030662538
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value69": 13,
-        "value70": 0,
-        "value71": {
+        "value14": 2,
+        "value15": 0,
+        "value16": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value72": 1,
-        "value73": {
+        "value17": 1,
+        "value18": {
             "Parent": 0,
             "First": 4294967295,
-            "Next": 2,
+            "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value74": 2,
-        "value75": {
-            "Parent": 0,
-            "First": 3,
-            "Next": 4294967295,
-            "Prev": 1
-        },
-        "value76": 3,
-        "value77": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 12,
-            "Prev": 10
-        },
-        "value78": 4,
-        "value79": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 3
-        },
-        "value80": 5,
-        "value81": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4
-        },
-        "value82": 6,
-        "value83": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 5
-        },
-        "value84": 7,
-        "value85": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 6
-        },
-        "value86": 8,
-        "value87": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 7
-        },
-        "value88": 9,
-        "value89": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 8
-        },
-        "value90": 10,
-        "value91": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 9
-        },
-        "value92": 11,
-        "value93": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 10
-        },
-        "value94": 12,
-        "value95": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 11
-        },
-        "value96": 11,
-        "value97": 1,
-        "value98": {
+        "value19": 1,
+        "value20": 1,
+        "value21": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 4383930888095612174
@@ -423,168 +93,18 @@
                 "value0": 0
             }
         },
-        "value99": 3,
-        "value100": {
-            "Mesh": {
-                "value0": 15984982825321001938
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value101": 4,
-        "value102": {
-            "Mesh": {
-                "value0": 14289046034733393638
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value103": 5,
-        "value104": {
-            "Mesh": {
-                "value0": 12041365661978770756
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value105": 6,
-        "value106": {
-            "Mesh": {
-                "value0": 1671617498901156469
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value107": 7,
-        "value108": {
-            "Mesh": {
-                "value0": 18232680764108226223
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value109": 8,
-        "value110": {
-            "Mesh": {
-                "value0": 10886400843052352844
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value111": 9,
-        "value112": {
-            "Mesh": {
-                "value0": 9075143073786714298
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value113": 10,
-        "value114": {
-            "Mesh": {
-                "value0": 13158475561951460205
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value115": 11,
-        "value116": {
-            "Mesh": {
-                "value0": 6680862575924263243
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value117": 12,
-        "value118": {
-            "Mesh": {
-                "value0": 6989995791064798741
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value119": 11,
-        "value120": 1,
-        "value121": {
+        "value22": 1,
+        "value23": 1,
+        "value24": {
             "cereal_class_version": 0,
             "Material": {
                 "value0": 7822871901853253608
             }
         },
-        "value122": 3,
-        "value123": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value124": 4,
-        "value125": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value126": 5,
-        "value127": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value128": 6,
-        "value129": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value130": 7,
-        "value131": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value132": 8,
-        "value133": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value134": 9,
-        "value135": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value136": 10,
-        "value137": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value138": 11,
-        "value139": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value140": 12,
-        "value141": {
-            "Material": {
-                "value0": 9858892011924582249
-            }
-        },
-        "value142": 0,
-        "value143": 11,
-        "value144": 0,
-        "value145": {
+        "value25": 0,
+        "value26": 1,
+        "value27": 0,
+        "value28": {
             "cereal_class_version": 0,
             "RigidBody": true,
             "RigidBodyData": {
@@ -625,13 +145,13 @@
                                         "ShapeType": 0,
                                         "Offset": {
                                             "x": -0.20000000298023225,
-                                            "y": 0.800000011920929,
+                                            "y": 0.8999999761581421,
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 1.5099999904632569,
-                                            "y": 0.46000000834465029,
-                                            "z": 1.4100000858306885
+                                            "x": 1.3100000619888306,
+                                            "y": 0.60999995470047,
+                                            "z": 1.4600000381469727
                                         }
                                     }
                                 }
@@ -641,560 +161,29 @@
                 }
             }
         },
-        "value146": 3,
-        "value147": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483651,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483652,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 0.44030338525772097,
-                                            "y": 0.512884795665741,
-                                            "z": 0.24103735387325288
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value148": 4,
-        "value149": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483653,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483654,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 1.2467833757400513,
-                                            "y": 0.1534689962863922,
-                                            "z": 0.272029310464859
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value150": 5,
-        "value151": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483655,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483656,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 0.12786374986171723,
-                                            "y": 0.502931535243988,
-                                            "z": 0.45758000016212466
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value152": 6,
-        "value153": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483657,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483658,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 1.016291856765747,
-                                            "y": 0.6487510800361633,
-                                            "z": 0.5002986788749695
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value154": 7,
-        "value155": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483659,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483660,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 0.7088301181793213,
-                                            "y": 0.5080609321594238,
-                                            "z": 0.9950971007347107
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value156": 8,
-        "value157": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483661,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483662,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 0.4139229953289032,
-                                            "y": 0.23777461051940919,
-                                            "z": 0.4461461305618286
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value158": 9,
-        "value159": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483663,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483664,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 0.28481775522232058,
-                                            "y": 0.6766754984855652,
-                                            "z": 0.3507605791091919
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value160": 10,
-        "value161": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483665,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483666,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 0.6250075697898865,
-                                            "y": 0.34990522265434267,
-                                            "z": 1.325132966041565
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value162": 11,
-        "value163": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483667,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483668,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 1.0220186710357667,
-                                            "y": 0.6947343945503235,
-                                            "z": 1.5166308879852296
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value164": 12,
-        "value165": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483669,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": true,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 1,
-                            "ptr_wrapper": {
-                                "id": 2147483670,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 0,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Size": {
-                                            "x": 1.643498182296753,
-                                            "y": 0.35402464866638186,
-                                            "z": 0.3845876157283783
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value166": 0,
-        "value167": 0,
-        "value168": 13,
-        "value169": 0,
-        "value170": 1,
-        "value171": 2,
-        "value172": 3,
-        "value173": 4,
-        "value174": 5,
-        "value175": 6,
-        "value176": 7,
-        "value177": 8,
-        "value178": 9,
-        "value179": 10,
-        "value180": 11,
-        "value181": 12,
-        "value182": 1,
-        "value183": 0,
-        "value184": {
+        "value29": 0,
+        "value30": 0,
+        "value31": 2,
+        "value32": 0,
+        "value33": 1,
+        "value34": 1,
+        "value35": 0,
+        "value36": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/BreakScrapPile.lua",
             "Language": 0
         },
-        "value185": 0,
-        "value186": 0,
-        "value187": 0,
-        "value188": 0,
-        "value189": 0,
-        "value190": 0,
-        "value191": 0,
-        "value192": 0,
-        "value193": 0,
-        "value194": 0,
-        "value195": 0,
-        "value196": 0
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0
     }
 }
