@@ -35,6 +35,8 @@ function on_ready()
     tank.detectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
     tank.impactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
     tank.stepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
+    tank.dyingSFX = current_scene:get_entity_by_name("TankDeadSFX"):get_component("AudioSourceComponent")
+    tank.hurtSFX = current_scene:get_entity_by_name("TankHurtSFX"):get_component("AudioSourceComponent")
 
     -- Particles
     tank.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
@@ -64,11 +66,29 @@ function on_ready()
     tank.findEnemiesInterval = 1.5
 
     -- Animations
-    tank.idleAnim = 3
-    tank.moveAnim = 4
-    tank.attackAnim = 0
-    tank.tackleAnim = 1
-    tank.dieAnim = 2
+    tank.attackAnim = 0 
+    tank.berserkaAnim = 1 
+    tank.dieAnim = 3 
+    tank.detectAnim = 4 
+    -- tank.hitAnim = 5 
+    tank.idleAnim = 7 
+    tank.stuneAnim = 9 
+    tank.tackleAnim = 10 
+    tank.moveAnim = 11 
+
+    -- Animation timers
+    tank.attackAnimTimer = 0.0
+    tank.attackAnimDuration = 3.0
+    tank.berserkaAnimTimer = 0.0
+    tank.berserkaAnimDuration = 2.0
+    tank.dieAnimTimer = 0.0
+    tank.dieAnimDuration = 0.45
+    tank.detectAnimTimer = 0.0
+    tank.detectAnimDuration = 2.0
+    tank.stuneAnimTimer = 0.0
+    tank.stuneAnimDuration = 1.0
+    tank.tackleAnimTimer = 0.0
+    tank.tackleAnimDuration = 0.83
 
     -- Lists
     tank.nearbyEnemies = {}
@@ -142,6 +162,12 @@ function on_update(dt)
 
     if tank.isDead then return end
 
+    if tank.playingDieAnim then
+        tank.enemyRb:set_trigger(true)
+        tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        tank.dieTimer = tank.dieTimer + dt
+    end
+
     if tank.zoneSet ~= true then
         tank:check_spawn()
         tank.zoneSet = true
@@ -177,12 +203,25 @@ function on_update(dt)
         tank:die_state()
     end
 
-    if tank.haveShield and tank.health <= 0 then
+    if tank.haveShield and tank.enemyShield <= 0 then
         tank.haveShield = false
         tank.shield_destroyed = true
     end
 
+    if tank.haveShield then
+        tank.stuneAnimTimer = tank.stuneAnimTimer + dt
+        if tank.stuneAnimTimer >= tank.stuneAnimDuration then 
+            if currentAnim ~= tank.stuneAnim then
+                tank.currentAnim = tank.stuneAnim
+                tank.animator:set_current_animation(tank.currentAnim)
+            end
+            tank.stuneAnimTimer = 0.0
+            tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        end 
+    end
+
     tank.pathUpdateTimer = tank.pathUpdateTimer + dt
+    if tank.playingDetectAnim then tank.detectAnimTimer = tank.detectAnimTimer + dt end
 
     local currentTargetPos = tank.playerTransf.position
     if tank.pathUpdateTimer >= tank.pathUpdateInterval or tank:get_distance(tank.lastTargetPos, currentTargetPos) > 1.0 then
@@ -275,6 +314,8 @@ end
 
 function change_state(dt)
 
+    if tank.playingDetectAnim then return end
+
     tank:enemy_raycast(dt)
     tank:check_player_distance()
 
@@ -350,16 +391,22 @@ end
 
 function tank:attack_state(dt)
 
+    tank.attackTimer = tank.attackTimer + dt
+    
+    tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+    tank:rotate_enemy(tank.playerTransf.position)
+
     if tank.currentAnim ~= tank.attackAnim then
+        tank.attackAnimTimer = tank.attackAnimTimer + dt
         tank.currentAnim = tank.attackAnim
         tank.animator:set_current_animation(tank.currentAnim)
+
+        if tank.attackAnimTimer >= tank.attackAnimDuration then
+            tank.attackAnimTimer = 0.0
+            tank.currentAnim = tank.idleAnim
+            tank.animator:set_current_animation(tank.currentAnim)
+        end
     end
-
-    tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-
-    tank:rotate_enemy(tank.playerTransf.position)
-    
-    tank.attackTimer = tank.attackTimer + dt
 
     if tank.attackTimer >= tank.attackCooldown then
 

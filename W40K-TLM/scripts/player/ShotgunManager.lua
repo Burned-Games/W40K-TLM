@@ -236,8 +236,8 @@ function on_update(dt)
 
             -- shoot
             if rightTrigger == Input.state.Repeat then
-                if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
-                    playerScript.currentUpAnim = playerScript.attack
+                if playerScript.currentUpAnim ~= playerScript.shotgun_Pump and shootAnimation == false then
+                    playerScript.currentUpAnim = playerScript.shotgun_Pump
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     shootAnimation = true
                 end
@@ -465,20 +465,14 @@ function handle_bullet_collision(entityA, entityB)
             break
         end
     end
-    print(bulletEntityA)
-    print(bulletEntityB)
-    print(nameA)
-    print(nameB)
+
     if bulletEntityA and (nameB ~= "Player" and nameB ~= "FloorCollider" and nameB ~= "Sphere1" and nameB ~= "Sphere2" and nameB ~= "Sphere3"  and nameB ~= "Sphere4" and nameB ~= "Sphere5" and nameB ~= "Sphere6" and nameB ~= "Sphere7" and nameB ~= "Sphere8" ) then
-        print("aaaaaaaaaaaaaaaaaaaa")
         bulletEntityA.rigidBody:set_position(Vector3.new(0, -250, 0))
         bulletEntityA.rigidBody:set_velocity(Vector3.new(0, 0, 0))
     end
 
     if bulletEntityB and (nameA ~= "Player" and nameA ~= "FloorCollider" and nameA ~= "Sphere1" and nameA ~= "Sphere2" and nameA ~= "Sphere3"  and nameA ~= "Sphere4" and nameA ~= "Sphere5" and nameA ~= "Sphere6" and nameA ~= "Sphere7" and nameA ~= "Sphere8" ) then
-        print("bbbbbbbbbbbbbbb")
         bulletEntityB.rigidBody:set_position(Vector3.new(0, -250, 0))
-        print("cccccccccccccccc")
         print(bulletEntityB:get_component("TransformComponent").position.y)
         bulletEntityB.rigidBody:set_velocity(Vector3.new(0, 0, 0))
     end
@@ -619,7 +613,11 @@ end
 
 function explodeGranade()
     if granadeEntity ~= nil then
-        
+
+        if playerScript.currentAnim ~= -1 then
+            playerScript.currentAnim = -1
+        end
+
         shotgunGrenadeSmokeSFX:play()
         
         local rb = granadeEntity:get_component("RigidbodyComponent").rb
