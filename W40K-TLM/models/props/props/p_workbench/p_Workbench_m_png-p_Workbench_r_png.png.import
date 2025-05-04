@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 637746613080602364
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/props/props/p_workbench/p_Workbench_m_png-p_Workbench_r_png.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/637746613080602364.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}
