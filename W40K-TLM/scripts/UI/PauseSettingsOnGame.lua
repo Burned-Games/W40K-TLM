@@ -44,9 +44,9 @@ fxVolume = 0.0
 
 function on_ready()
     -- Add initialization code here
-    button1 = current_scene:get_entity_by_name("Continue"):get_component("UITextComponent")
-    button2 = current_scene:get_entity_by_name("SettingsButton"):get_component("UITextComponent")
-    button4 = current_scene:get_entity_by_name("Exit"):get_component("UITextComponent")
+    button1 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
+    button2 = current_scene:get_entity_by_name("SettingsButton"):get_component("UIButtonComponent")
+    button4 = current_scene:get_entity_by_name("Exit"):get_component("UIButtonComponent")
 
     text1 = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
     text2 = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
@@ -103,9 +103,9 @@ function on_update(dt)
 
 
     if index == 0 then
-        button1:set_color(selectedColor)
-        button2:set_color(defaultColor)
-        button4:set_color(defaultColor)
+        button1.state = State.Hover
+        button2.state = State.Normal
+        button4.state = State.Normal
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
@@ -117,9 +117,9 @@ function on_update(dt)
         end
 
     elseif index == 1 then
-        button1:set_color(defaultColor)
-        button2:set_color(selectedColor)
-        button4:set_color(defaultColor)
+        button1.state = State.Normal
+        button2.state = State.Hover
+        button4.state = State.Normal
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
@@ -134,9 +134,9 @@ function on_update(dt)
         end
         
     else
-        button1:set_color(defaultColor)
-        button2:set_color(defaultColor)
-        button4:set_color(selectedColor)
+        button1.state = State.Normal
+        button2.state = State.Normal
+        button4.state = State.Hover
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
