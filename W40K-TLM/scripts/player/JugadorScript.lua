@@ -491,6 +491,7 @@ function on_update(dt)
         if deathAnimationSetted then
             return
         end
+
         updateMusic(dt)
         
         if workbenchUIManagerScript.isWorkBenchOpen == false then
@@ -498,8 +499,6 @@ function on_update(dt)
         end
 
         updateGodMode(dt)
-        
-        
         
         if godMode or activateAutoAim then
             autoaimUpdate()
