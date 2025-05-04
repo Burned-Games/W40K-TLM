@@ -508,7 +508,7 @@ function enemy:check_spawn()
         local pos = self.enemyTransf.position
 
         local zones = {
-            { id = 1, min = { x = 12, z = -50 }, max = { x = 40, z = -5 } },
+            { id = 1, min = { x = 12, z = -50 }, max = { x = 50, z = -5 } },
             { id = 2, min = { x = -40,  z = -125 }, max = { x = 65, z = -49 } },
             { id = 3, min = { x = 82,  z = -182 }, max = { x = 151, z = -110 } },
             { id = 4, min = { x = 200, z = -255 }, max = { x = 247, z = -213 } }

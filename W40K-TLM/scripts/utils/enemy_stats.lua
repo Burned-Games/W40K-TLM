@@ -15,7 +15,7 @@ local enemy_stats = {
             meleeDamage = 15,
             rangeDamage = 5,
 
-            detectionRange = 20,
+            detectionRange = 15,
             meleeAttackRange = 1,
             rangeAttackRange = 12,
             chaseRange = 6,
@@ -52,7 +52,7 @@ local enemy_stats = {
             meleeDamage = 20,
             rangeDamage = 7,
 
-            detectionRange = 20,
+            detectionRange = 15,
             meleeAttackRange = 1,
             rangeAttackRange = 12,
             chaseRange = 6,
@@ -90,7 +90,7 @@ local enemy_stats = {
 
             enemyShield = 35,
 
-            detectionRange = 20,
+            detectionRange = 15,
             shieldRange = 5,
             attackRange = 0,
 
@@ -117,7 +117,7 @@ local enemy_stats = {
 
             damage = 30,
 
-            detectionRange = 20,
+            detectionRange = 15,
             shieldRange = 5,
             attackRange = 10,
 
@@ -145,7 +145,7 @@ local enemy_stats = {
             meleeDamage = 40,
             tackleDamage = 90,
 
-            detectionRange = 20,
+            detectionRange = 15,
             meleeAttackRange = 3,
 
             statsIncrement = 1.5,
@@ -179,7 +179,7 @@ local enemy_stats = {
             meleeDamage = 60,
             tackleDamage = 110,
 
-            detectionRange = 20,
+            detectionRange = 15,
             meleeAttackRange = 3,
 
             statsIncrement = 1.5,
@@ -211,7 +211,7 @@ local enemy_stats = {
 
             damage = 40,
 
-            detectionRange = 20,
+            detectionRange = 15,
             attackRange = 1,
             explosionRange = 3,
 
