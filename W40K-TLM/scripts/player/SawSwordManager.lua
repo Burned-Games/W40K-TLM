@@ -31,6 +31,10 @@ local particle_blood_normal_transform = nil
 local particle_blood_spark_transform = nil
 local cameraScript = nil
 
+-- Audio
+local meleeHitSFX = nil
+local meleeAttackSFX = nil
+
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
@@ -41,6 +45,11 @@ function on_ready()
     particle_blood_spark = current_scene:get_entity_by_name("particle_blood_spark"):get_component("ParticlesSystemComponent")
     particle_blood_normal_transform = current_scene:get_entity_by_name("particle_blood_normal"):get_component("TransformComponent")
     particle_blood_spark_transform = current_scene:get_entity_by_name("particle_blood_spark"):get_component("TransformComponent")
+
+    -- Audio
+    meleeHitSFX = current_scene:get_entity_by_name("MeleeHit"):get_component("AudioSourceComponent")
+    meleeAttackSFX = current_scene:get_entity_by_name("MeleeAttack"):get_component("AudioSourceComponent")
+
 
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
@@ -57,9 +66,10 @@ function on_update(dt)
     if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true then
         
         slasheeed = true
-        
             
         sawSwordAvailable = false
+
+        meleeAttackSFX:play()
         
     end
 
@@ -143,6 +153,9 @@ function Slash()
                         enemyInstance:take_damage(damage)
                         particle_blood_normal:emit(5)
                         particle_blood_spark:emit(5)
+
+                        meleeHitSFX:play()
+
                         if playerScript.health + HpStealed >= playerScript.maxHealth then
                             playerScript.health = playerScript.maxHealth
                         else

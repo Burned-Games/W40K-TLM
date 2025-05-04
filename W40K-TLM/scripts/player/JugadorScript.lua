@@ -93,7 +93,17 @@ local explorationMusicVolume = 0.05
 local prevBackgroundMusicToPlay = -1
 backgroundMusicToPlay = 0 -- 0 exploration 1 combat
 
-local playerDeathSFX
+local footstepSFXTimer = 0
+local footstepSFXDelay = 0.5
+
+local playerDeathSFX = nil
+local playerBleedingSFX = nil
+local playerBurningSFX = nil
+local playerDashSFX = nil
+local playerInyectorSFX = nil
+local playerOverloadsSFX = nil
+local playerStepsSFX = nil
+local playerSwapWeaponsSFX = nil
 
 -- effects
 isBleeding = false
@@ -212,13 +222,22 @@ function on_ready()
     sceneName = SceneManager:get_scene_name()
 
     -- Add initialization code here
+
     -- Audio
 
     playerListener = current_scene:get_entity_by_name("Listener"):get_component("TransformComponent")
 
     --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
     --combatMusic = current_scene:get_entity_by_name("MusicCombat"):get_component("AudioSourceComponent")
+
     playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
+    playerBleedingSFX = current_scene:get_entity_by_name("PlayerBleedingSFX"):get_component("AudioSourceComponent")
+    playerBurningSFX = current_scene:get_entity_by_name("PlayerBurningSFX"):get_component("AudioSourceComponent")
+    playerDashSFX = current_scene:get_entity_by_name("PlayerDashSFX"):get_component("AudioSourceComponent")
+    playerInyectorSFX = current_scene:get_entity_by_name("PlayerInyectorSFX"):get_component("AudioSourceComponent")
+    playerOverloadsSFX = current_scene:get_entity_by_name("PlayerOverloadsSFX"):get_component("AudioSourceComponent")
+    playerStepsSFX = current_scene:get_entity_by_name("PlayerStepsSFX"):get_component("AudioSourceComponent")
+    playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
 
    -- local musicVolume = load_progress("musicVolumeGeneral", 1.0)
     --explorationMusic:set_volume(musicVolume)
@@ -362,9 +381,8 @@ end
 
 function on_update(dt)
 
-    
 
-    
+    footstepSFXTimer = footstepSFXTimer + dt
     
     if not pauseScript.isPaused then
         dtColective = dtColective + dt
@@ -553,7 +571,9 @@ function updateDash(dt)
         impulseApplied = true
         dashAvailable = false
         intangibleDash = true
-            
+        
+        playerDashSFX:play()
+
     end
     
     -- Update dash cooldown
@@ -687,6 +707,8 @@ function handleWeaponSwitch(dt)
                 actualweapon = 0
             end
             pressedButtonChangeWeapon = true
+
+            playerSwapWeaponsSFX:play()
         end
     else
         pressedButtonChangeWeapon = false
@@ -834,6 +856,10 @@ function playerMovement(dt)
     if impulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
 
+        if footstepSFXTimer > footstepSFXDelay then
+            footstepSFXTimer = 0
+            playerStepsSFX:play()
+        end
         isMoving = true
         particle_lvl1_run:emit(1)
         -- Animacion walk
@@ -1312,6 +1338,7 @@ function handleBleed(dt)
 
     if isBleeding then
         health = effect:bleed(health, dt)
+        --playerBleedingSFX:play()
     end
 
 end
@@ -1445,7 +1472,9 @@ function handleCover()
 end
 
 function HealPlayer()
-    
+
+    if timesHealed <= 0 then playerInyectorSFX:play() end
+
     timesHealed = timesHealed + 1
     health = health + 7
     
