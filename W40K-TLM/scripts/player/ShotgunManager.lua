@@ -223,7 +223,7 @@ function on_update(dt)
                     ammo = maxAmmo  -- reload bullet
                     is_reloading = false
                     manualReload = false
-                    
+                    playerScript.currentAnim = -1
                 else
                     if playerScript.currentUpAnim ~= playerScript.reload_Shotgun then
                         playerScript.currentUpAnim = playerScript.reload_Shotgun
@@ -245,11 +245,16 @@ function on_update(dt)
                     ammo = ammo - 1  -- use bullet 
                     shoot(dt)
                     next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
-                    shootAnimation = false
+                    
                 end
 
             else
+                if playerScript.currentAnim ~= -1 and shootAnimation == true then
+                    playerScript.currentAnim = -1
+                end
                 shootAnimation = false
+                
+                
             end
 
             -- reload
