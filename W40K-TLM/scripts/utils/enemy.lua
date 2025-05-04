@@ -509,9 +509,9 @@ function enemy:check_spawn()
 
         local zones = {
             { id = 1, min = { x = 12, z = -50 }, max = { x = 50, z = -5 } },
-            { id = 2, min = { x = -40,  z = -125 }, max = { x = 65, z = -49 } },
-            { id = 3, min = { x = 82,  z = -182 }, max = { x = 151, z = -110 } },
-            { id = 4, min = { x = 200, z = -255 }, max = { x = 247, z = -213 } }
+            { id = 2, min = { x = -50,  z = -135 }, max = { x = 65, z = -43 } },
+            { id = 3, min = { x = 82,  z = -200 }, max = { x = 184, z = -110 } },
+            { id = 4, min = { x = 200, z = -270 }, max = { x = 270, z = -210 } }
         }
     
         for _, zone in ipairs(zones) do
