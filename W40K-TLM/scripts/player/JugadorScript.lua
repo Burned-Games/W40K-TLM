@@ -159,7 +159,7 @@ local runB = 24
 local runL = 25
 local runR = 26
 local walk = 29
-local shotgun_Pump = 27
+shotgun_Pump = 27
 local run_Shotgun = 12
 h1_Bolter = 10
 h1_Shotgun_Aim = 11
@@ -1094,7 +1094,7 @@ function playerMovement(dt)
     
         
             -- Animation idle
-            if currentAnim ~= idle and bolterScript.shootAnimation == false and bolterScript.chaaarging == false and swordScript.slasheeed == false or currentUpAnim ~= idle and shotGunScript.shootAnimation == false and aimAnimation == false and swordScript.slasheeed == false and isHitted == false and shotGunScript.is_reloading == false and bolterScript.chaaarging == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and bolterScript.shootAnimation == false then
+            if currentAnim ~= idle and bolterScript.shootAnimation == false and bolterScript.chaaarging == false or currentUpAnim ~= idle and shotGunScript.shootAnimation == false and aimAnimation == false and swordScript.slasheeed == false and isHitted == false and shotGunScript.is_reloading == false and bolterScript.chaaarging == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and bolterScript.shootAnimation == false then
                 currentAnim = idle
                 animator:set_lower_animation(currentAnim)
                 if shotGunScript.shootAnimation == false and aimAnimation == false and bolterScript.shootAnimation == false and aimAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and swordScript.slasheeed == false then
@@ -1158,7 +1158,7 @@ function playerMovement(dt)
 
 
     if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
-        if currentUpAnim ~= aim and aimAnimation == false then
+        if currentUpAnim ~= aim and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false then
             currentUpAnim = aim
             animator:set_upper_animation(currentUpAnim)
             aimAnimation = true

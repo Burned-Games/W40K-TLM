@@ -1,0 +1,122 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Tank_Mesh.003",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 7864544438303702041
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.004",
+                        "value": {
+                            "value0": 5244312376734194083
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.013",
+                        "value": {
+                            "value0": 14000557827601727726
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.011",
+                        "value": {
+                            "value0": 15992943677866652202
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.002",
+                        "value": {
+                            "value0": 9460368823896035190
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh",
+                        "value": {
+                            "value0": 11397486372012449972
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.005",
+                        "value": {
+                            "value0": 12402147139528608122
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.001",
+                        "value": {
+                            "value0": 291896350558779552
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.008",
+                        "value": {
+                            "value0": 1209721138930887723
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.007",
+                        "value": {
+                            "value0": 9784754672446656766
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.009",
+                        "value": {
+                            "value0": 3049304100643289999
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.010",
+                        "value": {
+                            "value0": 1698354616888977612
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.006",
+                        "value": {
+                            "value0": 9063104940373402658
+                        }
+                    },
+                    {
+                        "key": "Tank_Mesh.012",
+                        "value": {
+                            "value0": 4251964068661937444
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "standardSurface1_Mat0",
+                        "value": {
+                            "value0": 4981052704221542097
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 11339491607766521352
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/enemies/E_Tank/Tank.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11339491607766521352.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

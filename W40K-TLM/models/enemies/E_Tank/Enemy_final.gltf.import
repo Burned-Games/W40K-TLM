@@ -1,0 +1,68 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Enemy_final_Mesh.011",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 898723788035892096
+                        }
+                    },
+                    {
+                        "key": "Enemy_final_Mesh.054",
+                        "value": {
+                            "value0": 11745877804035271646
+                        }
+                    },
+                    {
+                        "key": "Enemy_final_Plane",
+                        "value": {
+                            "value0": 10110230490559595694
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "standardSurface1_Mat0",
+                        "value": {
+                            "value0": 4805353756189472097
+                        }
+                    },
+                    {
+                        "key": "standardSurface2.001_Mat1",
+                        "value": {
+                            "value0": 6331345995513167351
+                        }
+                    },
+                    {
+                        "key": "Plane_Mat2",
+                        "value": {
+                            "value0": 17132090421858200593
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 18214959005656000793
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/enemies/E_Tank/Enemy_final.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/18214959005656000793.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
