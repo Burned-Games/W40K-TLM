@@ -377,7 +377,7 @@ function range:chase_state(dt)
             if range.currentAnim ~= range.stompAnim then
                 range.currentAnim = range.stompAnim
                 range.animator:set_current_animation(range.currentAnim)
-    
+                range.rangeStompSFX:play()
             end
 
             range.firstChaseTimer = range.firstChaseTimer + dt
