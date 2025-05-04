@@ -1,0 +1,150 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "Wrath_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 12823865382654939367
+            }
+        },
+        "RootEntity": 0,
+        "value0": 1,
+        "value1": 1,
+        "value2": 0,
+        "value3": 1,
+        "value4": 0,
+        "value5": {
+            "cereal_class_version": 0,
+            "Tag": "Wrath"
+        },
+        "value6": 1,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": -148.42262268066407,
+                "y": 0.0,
+                "z": -221.03607177734376
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 10.0,
+                "y": 10.0,
+                "z": 10.0
+            }
+        },
+        "value9": 1,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value12": 1,
+        "value13": 0,
+        "value14": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 5227399678571516383
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value15": 1,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 0,
+            "Material": {
+                "value0": 5480553833972988348
+            }
+        },
+        "value18": 0,
+        "value19": 1,
+        "value20": 0,
+        "value21": {
+            "cereal_class_version": 0,
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "m_Properties": {
+                            "cereal_class_version": 0,
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": true,
+                            "freezeZ": false,
+                            "freezeRotX": true,
+                            "freezeRotY": true,
+                            "freezeRotZ": true,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Coffee::SphereCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "cereal_class_version": 0,
+                                        "ShapeType": 8,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Radius": 10.0
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value22": 0,
+        "value23": 1,
+        "value24": 0,
+        "value25": 1,
+        "value26": 0,
+        "value27": 0,
+        "value28": 0,
+        "value29": 0,
+        "value30": 0,
+        "value31": 0,
+        "value32": 0,
+        "value33": 0,
+        "value34": 0,
+        "value35": 0,
+        "value36": 0,
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 0
+    }
+}

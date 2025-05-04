@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 4563619156762619139
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "assetDressing/m_level3/P_Banco_m-P_Banco_r.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/4563619156762619139.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}

@@ -1,0 +1,944 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "lvl3_collisions_eduG_Cube",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 16570098990122202398
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.001",
+                        "value": {
+                            "value0": 8808252003613035471
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.002",
+                        "value": {
+                            "value0": 8007493457803534006
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.006",
+                        "value": {
+                            "value0": 5787383027641495486
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.011",
+                        "value": {
+                            "value0": 13601561729214124426
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.226",
+                        "value": {
+                            "value0": 6002122911442732203
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.015",
+                        "value": {
+                            "value0": 5483393352537106816
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.222",
+                        "value": {
+                            "value0": 9642208178168057451
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.216",
+                        "value": {
+                            "value0": 483358438395108372
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.090",
+                        "value": {
+                            "value0": 6797872755657819966
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.217",
+                        "value": {
+                            "value0": 16566109497238526354
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.091",
+                        "value": {
+                            "value0": 12181932146501721615
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.214",
+                        "value": {
+                            "value0": 9009347775897571199
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.092",
+                        "value": {
+                            "value0": 5340622654878946923
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.215",
+                        "value": {
+                            "value0": 4157231492564648369
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.093",
+                        "value": {
+                            "value0": 4721099591171722852
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.094",
+                        "value": {
+                            "value0": 6084639943492405621
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.210",
+                        "value": {
+                            "value0": 5676069684441275683
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.096",
+                        "value": {
+                            "value0": 14875242076242862521
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.211",
+                        "value": {
+                            "value0": 16105638954698554320
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.097",
+                        "value": {
+                            "value0": 14827103768332738775
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.098",
+                        "value": {
+                            "value0": 6189783605170417371
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.203",
+                        "value": {
+                            "value0": 16866897042895586942
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.108",
+                        "value": {
+                            "value0": 15871018117140265834
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.202",
+                        "value": {
+                            "value0": 5856579392407691168
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.109",
+                        "value": {
+                            "value0": 16949208158382802907
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.161",
+                        "value": {
+                            "value0": 12091646411618496069
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.110",
+                        "value": {
+                            "value0": 7346634140665565916
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.136",
+                        "value": {
+                            "value0": 7336859627415811736
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.191",
+                        "value": {
+                            "value0": 17203211626125317198
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.137",
+                        "value": {
+                            "value0": 16034096639813295276
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.138",
+                        "value": {
+                            "value0": 2915978541661240565
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.139",
+                        "value": {
+                            "value0": 9337516016109049398
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.140",
+                        "value": {
+                            "value0": 3765873872203626898
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.141",
+                        "value": {
+                            "value0": 16048647255544791203
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.143",
+                        "value": {
+                            "value0": 12401515543231030857
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.144",
+                        "value": {
+                            "value0": 2854575097022788220
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.145",
+                        "value": {
+                            "value0": 10106472164182280953
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.146",
+                        "value": {
+                            "value0": 12735366240182662670
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.147",
+                        "value": {
+                            "value0": 13828256491731427347
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.148",
+                        "value": {
+                            "value0": 17014555654925997870
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.149",
+                        "value": {
+                            "value0": 17717701913543889997
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.150",
+                        "value": {
+                            "value0": 13278563977650784464
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.208",
+                        "value": {
+                            "value0": 12431956480336791369
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.151",
+                        "value": {
+                            "value0": 5930652869902384075
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.209",
+                        "value": {
+                            "value0": 17772988202279612473
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.152",
+                        "value": {
+                            "value0": 25360481343527794
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.153",
+                        "value": {
+                            "value0": 6393384690636922107
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.154",
+                        "value": {
+                            "value0": 15301250280946925577
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.155",
+                        "value": {
+                            "value0": 866910663407965763
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.156",
+                        "value": {
+                            "value0": 10901062770351842748
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.157",
+                        "value": {
+                            "value0": 15859873336138673219
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.158",
+                        "value": {
+                            "value0": 11634254120474502023
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.200",
+                        "value": {
+                            "value0": 15350151799688715362
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.159",
+                        "value": {
+                            "value0": 12666890221751728117
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.201",
+                        "value": {
+                            "value0": 5954039354467100584
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.160",
+                        "value": {
+                            "value0": 12834754251186818591
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.162",
+                        "value": {
+                            "value0": 1605573349520654914
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.163",
+                        "value": {
+                            "value0": 16493555189525872209
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.228",
+                        "value": {
+                            "value0": 1797723717225955960
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.164",
+                        "value": {
+                            "value0": 13792177934142289418
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.165",
+                        "value": {
+                            "value0": 10360335067226530758
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.166",
+                        "value": {
+                            "value0": 8193051692355014996
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.204",
+                        "value": {
+                            "value0": 126782091159336238
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.205",
+                        "value": {
+                            "value0": 1647895138410987714
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.206",
+                        "value": {
+                            "value0": 6003854076422893097
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.207",
+                        "value": {
+                            "value0": 12224642059328130659
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.213",
+                        "value": {
+                            "value0": 5604279985249890511
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.218",
+                        "value": {
+                            "value0": 5252454871987256416
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.219",
+                        "value": {
+                            "value0": 14598904273679509408
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.220",
+                        "value": {
+                            "value0": 3939959647158593959
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.221",
+                        "value": {
+                            "value0": 986341155318966526
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.223",
+                        "value": {
+                            "value0": 2320724472146571659
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.224",
+                        "value": {
+                            "value0": 11865415799545845480
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.225",
+                        "value": {
+                            "value0": 444263252826605724
+                        }
+                    },
+                    {
+                        "key": "lvl3_collisions_eduG_Cube.227",
+                        "value": {
+                            "value0": 11136813704054058318
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Cube_Mat0",
+                        "value": {
+                            "value0": 12923479269074472909
+                        }
+                    },
+                    {
+                        "key": "Cube.070_Mat0",
+                        "value": {
+                            "value0": 16979455689308589734
+                        }
+                    },
+                    {
+                        "key": "Cube.001_Mat0",
+                        "value": {
+                            "value0": 831396387756504299
+                        }
+                    },
+                    {
+                        "key": "Cube.073_Mat0",
+                        "value": {
+                            "value0": 2843197264016213012
+                        }
+                    },
+                    {
+                        "key": "Cube.002_Mat0",
+                        "value": {
+                            "value0": 14974706100735839242
+                        }
+                    },
+                    {
+                        "key": "Cube.072_Mat0",
+                        "value": {
+                            "value0": 5883820652885168700
+                        }
+                    },
+                    {
+                        "key": "Cube.003_Mat0",
+                        "value": {
+                            "value0": 9624236101274223228
+                        }
+                    },
+                    {
+                        "key": "Cube.075_Mat0",
+                        "value": {
+                            "value0": 11282702055739403569
+                        }
+                    },
+                    {
+                        "key": "Cube.004_Mat0",
+                        "value": {
+                            "value0": 11006874707914317984
+                        }
+                    },
+                    {
+                        "key": "Cube.074_Mat0",
+                        "value": {
+                            "value0": 11978554314270685489
+                        }
+                    },
+                    {
+                        "key": "Cube.005_Mat0",
+                        "value": {
+                            "value0": 1898825024930915015
+                        }
+                    },
+                    {
+                        "key": "Cube.006_Mat0",
+                        "value": {
+                            "value0": 15538853328731034056
+                        }
+                    },
+                    {
+                        "key": "Cube.076_Mat0",
+                        "value": {
+                            "value0": 3784941566396687298
+                        }
+                    },
+                    {
+                        "key": "Cube.007_Mat0",
+                        "value": {
+                            "value0": 2469463945641453894
+                        }
+                    },
+                    {
+                        "key": "Cube.008_Mat0",
+                        "value": {
+                            "value0": 15911505396756462003
+                        }
+                    },
+                    {
+                        "key": "Cube.009_Mat0",
+                        "value": {
+                            "value0": 5044200705708779310
+                        }
+                    },
+                    {
+                        "key": "Cube.010_Mat0",
+                        "value": {
+                            "value0": 10491129114474794240
+                        }
+                    },
+                    {
+                        "key": "Cube.043_Mat0",
+                        "value": {
+                            "value0": 179856689849334278
+                        }
+                    },
+                    {
+                        "key": "Cube.012_Mat0",
+                        "value": {
+                            "value0": 695097621687806727
+                        }
+                    },
+                    {
+                        "key": "Cube.041_Mat0",
+                        "value": {
+                            "value0": 15380760884192133114
+                        }
+                    },
+                    {
+                        "key": "Cube.013_Mat0",
+                        "value": {
+                            "value0": 12581957983477078007
+                        }
+                    },
+                    {
+                        "key": "Cube.040_Mat0",
+                        "value": {
+                            "value0": 13592147726810481790
+                        }
+                    },
+                    {
+                        "key": "Cube.058_Mat0",
+                        "value": {
+                            "value0": 7615191484254548674
+                        }
+                    },
+                    {
+                        "key": "Cube.014_Mat0",
+                        "value": {
+                            "value0": 7768934037967691618
+                        }
+                    },
+                    {
+                        "key": "Cube.047_Mat0",
+                        "value": {
+                            "value0": 4507281354547302018
+                        }
+                    },
+                    {
+                        "key": "Cube.059_Mat0",
+                        "value": {
+                            "value0": 17131308206672121097
+                        }
+                    },
+                    {
+                        "key": "Cube.015_Mat0",
+                        "value": {
+                            "value0": 7094130915849965346
+                        }
+                    },
+                    {
+                        "key": "Cube.046_Mat0",
+                        "value": {
+                            "value0": 8406749172237891145
+                        }
+                    },
+                    {
+                        "key": "Cube.016_Mat0",
+                        "value": {
+                            "value0": 5147518780949762289
+                        }
+                    },
+                    {
+                        "key": "Cube.045_Mat0",
+                        "value": {
+                            "value0": 16143739087140239377
+                        }
+                    },
+                    {
+                        "key": "Cube.017_Mat0",
+                        "value": {
+                            "value0": 13755965437069551769
+                        }
+                    },
+                    {
+                        "key": "Cube.044_Mat0",
+                        "value": {
+                            "value0": 3202505464886156407
+                        }
+                    },
+                    {
+                        "key": "Cube.054_Mat0",
+                        "value": {
+                            "value0": 12790270106093969775
+                        }
+                    },
+                    {
+                        "key": "Cube.018_Mat0",
+                        "value": {
+                            "value0": 2945534202669417641
+                        }
+                    },
+                    {
+                        "key": "Cube.055_Mat0",
+                        "value": {
+                            "value0": 5467603517556680532
+                        }
+                    },
+                    {
+                        "key": "Cube.019_Mat0",
+                        "value": {
+                            "value0": 6981270688230960690
+                        }
+                    },
+                    {
+                        "key": "Cube.020_Mat0",
+                        "value": {
+                            "value0": 9231654035640022926
+                        }
+                    },
+                    {
+                        "key": "Cube.021_Mat0",
+                        "value": {
+                            "value0": 13838839433605224080
+                        }
+                    },
+                    {
+                        "key": "Cube.022_Mat0",
+                        "value": {
+                            "value0": 9936058699082961386
+                        }
+                    },
+                    {
+                        "key": "Cube.023_Mat0",
+                        "value": {
+                            "value0": 9681425460173067216
+                        }
+                    },
+                    {
+                        "key": "Cube.024_Mat0",
+                        "value": {
+                            "value0": 17036374375955794775
+                        }
+                    },
+                    {
+                        "key": "Cube.025_Mat0",
+                        "value": {
+                            "value0": 3722519237840426353
+                        }
+                    },
+                    {
+                        "key": "Cube.026_Mat0",
+                        "value": {
+                            "value0": 7882563376864444665
+                        }
+                    },
+                    {
+                        "key": "Cube.027_Mat0",
+                        "value": {
+                            "value0": 5382793568744559361
+                        }
+                    },
+                    {
+                        "key": "Cube.028_Mat0",
+                        "value": {
+                            "value0": 6335776656855229023
+                        }
+                    },
+                    {
+                        "key": "Cube.029_Mat0",
+                        "value": {
+                            "value0": 12947328753349472136
+                        }
+                    },
+                    {
+                        "key": "Cube.030_Mat0",
+                        "value": {
+                            "value0": 14868286104199555155
+                        }
+                    },
+                    {
+                        "key": "Cube.031_Mat0",
+                        "value": {
+                            "value0": 9019615359026273427
+                        }
+                    },
+                    {
+                        "key": "Cube.032_Mat0",
+                        "value": {
+                            "value0": 12387006914891572784
+                        }
+                    },
+                    {
+                        "key": "Cube.033_Mat0",
+                        "value": {
+                            "value0": 15760149037288441071
+                        }
+                    },
+                    {
+                        "key": "Cube.034_Mat0",
+                        "value": {
+                            "value0": 2990710317816250689
+                        }
+                    },
+                    {
+                        "key": "Cube.035_Mat0",
+                        "value": {
+                            "value0": 8369394595996533518
+                        }
+                    },
+                    {
+                        "key": "Cube.069_Mat0",
+                        "value": {
+                            "value0": 15434511473443370589
+                        }
+                    },
+                    {
+                        "key": "Cube.036_Mat0",
+                        "value": {
+                            "value0": 15972442397649211434
+                        }
+                    },
+                    {
+                        "key": "Cube.068_Mat0",
+                        "value": {
+                            "value0": 9450785859175933698
+                        }
+                    },
+                    {
+                        "key": "Cube.037_Mat0",
+                        "value": {
+                            "value0": 8380162575120410437
+                        }
+                    },
+                    {
+                        "key": "Cube.067_Mat0",
+                        "value": {
+                            "value0": 16226102125756921616
+                        }
+                    },
+                    {
+                        "key": "Cube.038_Mat0",
+                        "value": {
+                            "value0": 9430189021980251741
+                        }
+                    },
+                    {
+                        "key": "Cube.066_Mat0",
+                        "value": {
+                            "value0": 15044656699444017137
+                        }
+                    },
+                    {
+                        "key": "Cube.039_Mat0",
+                        "value": {
+                            "value0": 8064310869605657296
+                        }
+                    },
+                    {
+                        "key": "Cube.042_Mat0",
+                        "value": {
+                            "value0": 17276923513266622253
+                        }
+                    },
+                    {
+                        "key": "Cube.057_Mat0",
+                        "value": {
+                            "value0": 1203731660708717356
+                        }
+                    },
+                    {
+                        "key": "Cube.048_Mat0",
+                        "value": {
+                            "value0": 3751873848605611280
+                        }
+                    },
+                    {
+                        "key": "Cube.056_Mat0",
+                        "value": {
+                            "value0": 8773084999165254154
+                        }
+                    },
+                    {
+                        "key": "Cube.049_Mat0",
+                        "value": {
+                            "value0": 9011940409391826899
+                        }
+                    },
+                    {
+                        "key": "Cube.050_Mat0",
+                        "value": {
+                            "value0": 17091147300491016281
+                        }
+                    },
+                    {
+                        "key": "Cube.051_Mat0",
+                        "value": {
+                            "value0": 2333678447926416899
+                        }
+                    },
+                    {
+                        "key": "Cube.052_Mat0",
+                        "value": {
+                            "value0": 17097861749894856196
+                        }
+                    },
+                    {
+                        "key": "Cube.053_Mat0",
+                        "value": {
+                            "value0": 12457974980602615201
+                        }
+                    },
+                    {
+                        "key": "Cube.060_Mat0",
+                        "value": {
+                            "value0": 12218889350883918991
+                        }
+                    },
+                    {
+                        "key": "Cube.061_Mat0",
+                        "value": {
+                            "value0": 6062562091784825273
+                        }
+                    },
+                    {
+                        "key": "Cube.062_Mat0",
+                        "value": {
+                            "value0": 15698702050380535203
+                        }
+                    },
+                    {
+                        "key": "Cube.063_Mat0",
+                        "value": {
+                            "value0": 5617665345046254996
+                        }
+                    },
+                    {
+                        "key": "Cube.064_Mat0",
+                        "value": {
+                            "value0": 13221850802674967761
+                        }
+                    },
+                    {
+                        "key": "Cube.065_Mat0",
+                        "value": {
+                            "value0": 5504575766417654617
+                        }
+                    },
+                    {
+                        "key": "Cube.071_Mat0",
+                        "value": {
+                            "value0": 6209717454196750153
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 14233953056817312471
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel3/Collisions/lvl3_collisions_eduG/lvl3_collisions_eduG.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/14233953056817312471.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
