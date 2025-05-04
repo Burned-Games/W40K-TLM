@@ -619,7 +619,7 @@ end
 
 function explodeGranade()
     if granadeEntity ~= nil then
-
+        
         shotgunGrenadeSmokeSFX:play()
         
         local rb = granadeEntity:get_component("RigidbodyComponent").rb
