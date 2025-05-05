@@ -1,11 +1,12 @@
 local bossBar = nil
 local bossBarLife = nil
+local bossManager = nil
 
 function on_ready()
     bossBar = current_scene:get_entity_by_name("BossBar")
     bossBarLife = current_scene:get_entity_by_name("BossLifeUI"):get_component("UIImageComponent")
     bossManager = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent") 
-    
+
     bossBar:set_active(true)
 end
 
@@ -13,8 +14,11 @@ function on_update(dt)
     local vida = bossManager.main_boss.health
     local maxHealth = 1000
     
+    if vida <= 0 then
+        bossBar:set_active(false)
+    end
+    
     local healthPercentage = vida / maxHealth
-       
     local cropPercentage = 1 - healthPercentage
     
     local x = 0
@@ -29,4 +33,3 @@ end
 function on_exit()
     -- Add cleanup code here
 end
-
