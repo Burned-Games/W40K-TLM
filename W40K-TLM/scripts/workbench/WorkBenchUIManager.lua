@@ -5,46 +5,62 @@ local dialogManager = nil
 local popUpManager = nil
 local pauseMenu = nil
 
-local gunBuyButtonEntity, gunBuyButton
-local charBuyButtonEntity, charBuyButton
-local gunExitButtonEntity, gunExitButton
-local charExitButtonEntity, charExitButton
--- Perk button references
-local gunPerk1ButtonEntity, gunPerk1Button
-local gunPerk2ButtonEntity, gunPerk2Button
-local gunPerk3ButtonEntity, gunPerk3Button
-local gunPerk4ButtonEntity, gunPerk4Button
--- Character perk button references
-local charPerk1ButtonEntity, charPerk1Button
-local charPerk2ButtonEntity, charPerk2Button
-local charPerk3ButtonEntity, charPerk3Button
--- Text components
-local gunPerk1TextEntity, gunPerk1Text
-local gunPerk2TextEntity, gunPerk2Text
-local gunPerk3TextEntity, gunPerk3Text
-local gunPerk4TextEntity, gunPerk4Text
-local charPerk1TextEntity, charPerk1Text
-local charPerk2TextEntity, charPerk2Text
-local charPerk3TextEntity, charPerk3Text
-local gunDescriptionTextEntity, gunDescriptionText
-local gunBuyTextEntity, gunBuyText
-local gunNameTextEntity, gunNameText
-local charDescriptionTextEntity, charDescriptionText
-local charBuyTextEntity, charBuyText
-local charNameTextEntity, charNameText
+-- Shared UI elements (General)
+local gBackgroundEntity, gBackground
+local gDot1ButtonEntity, gDot1Button
+local gDot2ButtonEntity, gDot2Button
+local gScrapTxtEntity, gScrapTxt
 
-local gunExitTextEntity, gunExitText
-local charExitTextEntity, charExitText
+-- Weapon UI elements
+local wNameTxtEntity, wNameTxt
+local wDescTxtEntity, wDescTxt
+local wTitleTxtEntity, wTitleTxt
+local wCostTxtEntity, wCostTxt
+local wBuyTxtEntity, wBuyTxt
+local wScrapIconEntity, wScrapIcon
+local wRenderEntity, wRender
+local wUpgradesBackgroundEntity, wUpgradesBackground
+-- Weapon upgrade indicators
+local wIEntity, wI
+local wIIEntity, wII
+local wIIIEntity, wIII
+local wIVEntity, wIV
+local wIBoughtEntity, wIBought
+local wIIBoughtEntity, wIIBought
+local wIIIBoughtEntity, wIIIBought
+local wIVBoughtEntity, wIVBought
+-- Weapon selection buttons
+local wISelButtonEntity, wISelButton
+local wIISelButtonEntity, wIISelButton
+local wIIISelButtonEntity, wIIISelButton
+local wIVSelButtonEntity, wIVSelButton
+local wUpgradeSelButtonEntity, wUpgradeSelButton
 
--- Image components  
-local gunScrapIconEntity, gunScrapIcon
-local gunBackgroundEntity, gunBackground
-local charScrapIconEntity, charScrapIcon
-local charBackgroundEntity, charBackground
+-- Armor UI elements
+local aNameTxtEntity, aNameTxt
+local aDescTxtEntity, aDescTxt
+local aTitleTxtEntity, aTitleTxt
+local aCostTxtEntity, aCostTxt
+local aBuyTxtEntity, aBuyTxt
+local aScrapIconEntity, aScrapIcon
+local aRenderEntity, aRender
+local aUpgradesBackgroundEntity, aUpgradesBackground
+-- Armor upgrade indicators
+local aIEntity, aI
+local aIIEntity, aII
+local aIIIEntity, aIII
+local aIBoughtEntity, aIBought
+local aIIBoughtEntity, aIIBought
+local aIIIBoughtEntity, aIIIBought
+-- Armor selection buttons
+local aISelButtonEntity, aISelButton
+local aIISelButtonEntity, aIISelButton
+local aIIISelButtonEntity, aIIISelButton
+local aUpgradeSelButtonEntity, aUpgradeSelButton
 
 -- Indexes for each screen
-local gunIndex = 0
-local charIndex = 0
+local weaponIndex = 0  -- 0 for upgrade select, 1-4 for individual upgrades
+local armorIndex = 0   -- 0 for upgrade select, 1-3 for individual upgrades
 local buttonCooldown = 0
 local buttonCooldownTime = 0.1
 local contadorMovimientoBotones = 0
@@ -87,20 +103,6 @@ function on_ready()
     
     -- Initialize HUD
     hud = current_scene:get_entity_by_name("HUD")
-
-    -- local children = hud:get_children()
-    -- for _, child in ipairs(children) do
-    --     if child:get_component("TagComponent").tag == "MisionManager" then
-    --         missionManager = child
-    --         -- print("Found MissionManager")
-    --     elseif child:get_component("TagComponent").tag == "DialogManager" then
-    --         dialogManager = child
-    --         -- print("Found DialogManager")
-    --     elseif child:get_component("TagComponent").tag == "PopUpManager" then
-    --         popUpManager = child
-    --         -- print("Found PopUpManager")
-    --     end
-    -- end
     
     missionManager = current_scene:get_entity_by_name("MisionManager")
     dialogManager = current_scene:get_entity_by_name("DialogManager")
@@ -109,85 +111,147 @@ function on_ready()
     -- Initialize pause menu
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
-    -- Initialize buttons from the scene
-    gunBuyButtonEntity = current_scene:get_entity_by_name("GunBuyButton")
-    gunBuyButton = gunBuyButtonEntity:get_component("UIButtonComponent")
-    charBuyButtonEntity = current_scene:get_entity_by_name("CharBuyButton")
-    charBuyButton = charBuyButtonEntity:get_component("UIButtonComponent")
-    
-    -- Initialize exit buttons for each screen
-    gunExitButtonEntity = current_scene:get_entity_by_name("GunExitButton")
-    gunExitButton = gunExitButtonEntity:get_component("UIButtonComponent")
-    charExitButtonEntity = current_scene:get_entity_by_name("CharExitButton")
-    charExitButton = charExitButtonEntity:get_component("UIButtonComponent")
-    
-    -- Initialize gun perk buttons
-    gunPerk1ButtonEntity = current_scene:get_entity_by_name("GunPerk1")
-    gunPerk1Button = gunPerk1ButtonEntity:get_component("UIButtonComponent")
-    gunPerk2ButtonEntity = current_scene:get_entity_by_name("GunPerk2")
-    gunPerk2Button = gunPerk2ButtonEntity:get_component("UIButtonComponent")
-    gunPerk3ButtonEntity = current_scene:get_entity_by_name("GunPerk3")
-    gunPerk3Button = gunPerk3ButtonEntity:get_component("UIButtonComponent")
-    gunPerk4ButtonEntity = current_scene:get_entity_by_name("GunPerk4")
-    gunPerk4Button = gunPerk4ButtonEntity:get_component("UIButtonComponent")
-    
-    -- Initialize character perk buttons
-    charPerk1ButtonEntity = current_scene:get_entity_by_name("CharPerk1")
-    charPerk1Button = charPerk1ButtonEntity:get_component("UIButtonComponent")
-    charPerk2ButtonEntity = current_scene:get_entity_by_name("CharPerk2")
-    charPerk2Button = charPerk2ButtonEntity:get_component("UIButtonComponent")
-    charPerk3ButtonEntity = current_scene:get_entity_by_name("CharPerk3")
-    charPerk3Button = charPerk3ButtonEntity:get_component("UIButtonComponent")
-    
-    -- Initialize text components - Gun
-    gunPerk1TextEntity = current_scene:get_entity_by_name("GunPerk1TXT")
-    gunPerk1Text = gunPerk1TextEntity:get_component("UITextComponent")
-    gunPerk2TextEntity = current_scene:get_entity_by_name("GunPerk2TXT")
-    gunPerk2Text = gunPerk2TextEntity:get_component("UITextComponent")
-    gunPerk3TextEntity = current_scene:get_entity_by_name("GunPerk3TXT")
-    gunPerk3Text = gunPerk3TextEntity:get_component("UITextComponent")
-    gunPerk4TextEntity = current_scene:get_entity_by_name("GunPerk4TXT")
-    gunPerk4Text = gunPerk4TextEntity:get_component("UITextComponent")
-    gunDescriptionTextEntity = current_scene:get_entity_by_name("GunDescriptionTXT")
-    gunDescriptionText = gunDescriptionTextEntity:get_component("UITextComponent")
-    gunBuyTextEntity = current_scene:get_entity_by_name("GunBuyTXT")
-    gunBuyText = gunBuyTextEntity:get_component("UITextComponent")
-    gunNameTextEntity = current_scene:get_entity_by_name("GunNameTXT")
-    gunNameText = gunNameTextEntity:get_component("UITextComponent")
-    
-    -- Initialize text components - Character
-    charPerk1TextEntity = current_scene:get_entity_by_name("CharPerk1TXT")
-    charPerk1Text = charPerk1TextEntity:get_component("UITextComponent")
-    charPerk2TextEntity = current_scene:get_entity_by_name("CharPerk2TXT")
-    charPerk2Text = charPerk2TextEntity:get_component("UITextComponent")
-    charPerk3TextEntity = current_scene:get_entity_by_name("CharPerk3TXT")
-    charPerk3Text = charPerk3TextEntity:get_component("UITextComponent")
-    charDescriptionTextEntity = current_scene:get_entity_by_name("CharDescriptionTXT")
-    charDescriptionText = charDescriptionTextEntity:get_component("UITextComponent")
-    charBuyTextEntity = current_scene:get_entity_by_name("CharBuyTXT")
-    charBuyText = charBuyTextEntity:get_component("UITextComponent")
-    charNameTextEntity = current_scene:get_entity_by_name("CharNameTXT")
-    charNameText = charNameTextEntity:get_component("UITextComponent")
-    
-    -- Initialize shared text components
-    gunExitTextEntity = current_scene:get_entity_by_name("GunExitTXT")
-    gunExitText = gunExitTextEntity:get_component("UITextComponent")
-    charExitTextEntity = current_scene:get_entity_by_name("CharExitTXT")
-    charExitText = charExitTextEntity:get_component("UITextComponent")
-    currentScrapTextEntity = current_scene:get_entity_by_name("CurrentScrapTXT")
-    currentScrapText = currentScrapTextEntity:get_component("UITextComponent")
-    
-    -- Initialize image components
-    gunScrapIconEntity = current_scene:get_entity_by_name("GunScrapIcon")
-    gunScrapIcon = gunScrapIconEntity:get_component("UIImageComponent")
-    gunBackgroundEntity = current_scene:get_entity_by_name("GunBackground")
-    gunBackground = gunBackgroundEntity:get_component("UIImageComponent")
-    charScrapIconEntity = current_scene:get_entity_by_name("CharScrapIcon")
-    charScrapIcon = charScrapIconEntity:get_component("UIImageComponent")
-    charBackgroundEntity = current_scene:get_entity_by_name("CharBackground")
-    charBackground = charBackgroundEntity:get_component("UIImageComponent")
-    
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+
+    -- Get all workbench UI elements
+    local workbenchUIEntity = current_scene:get_entity_by_name("WorkBenchUI2")
+    if workbenchUIEntity then
+        -- General UI elements
+        gBackgroundEntity = current_scene:get_entity_by_name("GBackground")
+        gBackground = gBackgroundEntity:get_component("UIButtonComponent")
+        
+        gDot1ButtonEntity = current_scene:get_entity_by_name("GDot1BUTTON")
+        gDot1Button = gDot1ButtonEntity:get_component("UIButtonComponent")
+        
+        gDot2ButtonEntity = current_scene:get_entity_by_name("GDot2BUTTON")
+        gDot2Button = gDot2ButtonEntity:get_component("UIButtonComponent")
+        
+        gScrapTxtEntity = current_scene:get_entity_by_name("GScrapTXT")
+        gScrapTxt = gScrapTxtEntity:get_component("UITextComponent")
+        
+        -- Weapon UI elements
+        wNameTxtEntity = current_scene:get_entity_by_name("WNameTXT")
+        wNameTxt = wNameTxtEntity:get_component("UITextComponent")
+        
+        wDescTxtEntity = current_scene:get_entity_by_name("WDescTXT")
+        wDescTxt = wDescTxtEntity:get_component("UITextComponent")
+        
+        wTitleTxtEntity = current_scene:get_entity_by_name("WTitleTXT")
+        wTitleTxt = wTitleTxtEntity:get_component("UITextComponent")
+        
+        wCostTxtEntity = current_scene:get_entity_by_name("WCostTXT")
+        wCostTxt = wCostTxtEntity:get_component("UITextComponent")
+        
+        wBuyTxtEntity = current_scene:get_entity_by_name("WBuyTXT")
+        wBuyTxt = wBuyTxtEntity:get_component("UITextComponent")
+        
+        wScrapIconEntity = current_scene:get_entity_by_name("WScrapIcon")
+        wScrapIcon = wScrapIconEntity:get_component("UIImageComponent")
+        
+        wRenderEntity = current_scene:get_entity_by_name("WRender")
+        wRender = wRenderEntity:get_component("UIImageComponent")
+        
+        wUpgradesBackgroundEntity = current_scene:get_entity_by_name("WUpgradesBackground")
+        wUpgradesBackground = wUpgradesBackgroundEntity:get_component("UIImageComponent")
+        
+        -- Weapon upgrade indicators
+        wIEntity = current_scene:get_entity_by_name("WI")
+        wI = wIEntity:get_component("UIImageComponent")
+        
+        wIIEntity = current_scene:get_entity_by_name("WII")
+        wII = wIIEntity:get_component("UIImageComponent")
+        
+        wIIIEntity = current_scene:get_entity_by_name("WIII")
+        wIII = wIIIEntity:get_component("UIImageComponent")
+        
+        wIVEntity = current_scene:get_entity_by_name("WIV")
+        wIV = wIVEntity:get_component("UIImageComponent")
+        
+        wIBoughtEntity = current_scene:get_entity_by_name("WIBought")
+        wIBought = wIBoughtEntity:get_component("UIImageComponent")
+        
+        wIIBoughtEntity = current_scene:get_entity_by_name("WIIBought")
+        wIIBought = wIIBoughtEntity:get_component("UIImageComponent")
+        
+        wIIIBoughtEntity = current_scene:get_entity_by_name("WIIIBought")
+        wIIIBought = wIIIBoughtEntity:get_component("UIImageComponent")
+        
+        wIVBoughtEntity = current_scene:get_entity_by_name("WIVBought")
+        wIVBought = wIVBoughtEntity:get_component("UIImageComponent")
+        
+        -- Weapon selection buttons
+        wISelButtonEntity = current_scene:get_entity_by_name("WISelBUTTON")
+        wISelButton = wISelButtonEntity:get_component("UIButtonComponent")
+        
+        wIISelButtonEntity = current_scene:get_entity_by_name("WIISelBUTTON")
+        wIISelButton = wIISelButtonEntity:get_component("UIButtonComponent")
+        
+        wIIISelButtonEntity = current_scene:get_entity_by_name("WIIISelBUTTON")
+        wIIISelButton = wIIISelButtonEntity:get_component("UIButtonComponent")
+        
+        wIVSelButtonEntity = current_scene:get_entity_by_name("WIVSelBUTTON")
+        wIVSelButton = wIVSelButtonEntity:get_component("UIButtonComponent")
+        
+        wUpgradeSelButtonEntity = current_scene:get_entity_by_name("WUpgradeSelBUTTON")
+        wUpgradeSelButton = wUpgradeSelButtonEntity:get_component("UIButtonComponent")
+        
+        -- Armor UI elements
+        aNameTxtEntity = current_scene:get_entity_by_name("ANameTXT")
+        aNameTxt = aNameTxtEntity:get_component("UITextComponent")
+        
+        aDescTxtEntity = current_scene:get_entity_by_name("ADescTXT")
+        aDescTxt = aDescTxtEntity:get_component("UITextComponent")
+        
+        aTitleTxtEntity = current_scene:get_entity_by_name("ATitleTXT")
+        aTitleTxt = aTitleTxtEntity:get_component("UITextComponent")
+        
+        aCostTxtEntity = current_scene:get_entity_by_name("ACostTXT")
+        aCostTxt = aCostTxtEntity:get_component("UITextComponent")
+        
+        aBuyTxtEntity = current_scene:get_entity_by_name("ABuyTXT")
+        aBuyTxt = aBuyTxtEntity:get_component("UITextComponent")
+        
+        aScrapIconEntity = current_scene:get_entity_by_name("AScrapIcon")
+        aScrapIcon = aScrapIconEntity:get_component("UIImageComponent")
+        
+        aRenderEntity = current_scene:get_entity_by_name("ARender")
+        aRender = aRenderEntity:get_component("UIImageComponent")
+        
+        aUpgradesBackgroundEntity = current_scene:get_entity_by_name("AUpgradesBackground")
+        aUpgradesBackground = aUpgradesBackgroundEntity:get_component("UIImageComponent")
+        
+        -- Armor upgrade indicators
+        aIEntity = current_scene:get_entity_by_name("AI")
+        aI = aIEntity:get_component("UIImageComponent")
+        
+        aIIEntity = current_scene:get_entity_by_name("AII")
+        aII = aIIEntity:get_component("UIImageComponent")
+        
+        aIIIEntity = current_scene:get_entity_by_name("AIII")
+        aIII = aIIIEntity:get_component("UIImageComponent")
+        
+        aIBoughtEntity = current_scene:get_entity_by_name("AIBought")
+        aIBought = aIBoughtEntity:get_component("UIImageComponent")
+        
+        aIIBoughtEntity = current_scene:get_entity_by_name("AIIBought")
+        aIIBought = aIIBoughtEntity:get_component("UIImageComponent")
+        
+        aIIIBoughtEntity = current_scene:get_entity_by_name("AIIIBought")
+        aIIIBought = aIIIBoughtEntity:get_component("UIImageComponent")
+        
+        -- Armor selection buttons
+        aISelButtonEntity = current_scene:get_entity_by_name("AISelBUTTON")
+        aISelButton = aISelButtonEntity:get_component("UIButtonComponent")
+        
+        aIISelButtonEntity = current_scene:get_entity_by_name("AIISelBUTTON")
+        aIISelButton = aIISelButtonEntity:get_component("UIButtonComponent")
+        
+        aIIISelButtonEntity = current_scene:get_entity_by_name("AIIISelBUTTON")
+        aIIISelButton = aIIISelButtonEntity:get_component("UIButtonComponent")
+        
+        aUpgradeSelButtonEntity = current_scene:get_entity_by_name("AUpgradeSelBUTTON")
+        aUpgradeSelButton = aUpgradeSelButtonEntity:get_component("UIButtonComponent")
+    end
 
     hide_ui()
 end
@@ -202,6 +266,30 @@ function find_next_available_upgrade(category)
     return false
 end
 
+function is_next_available_upgrade(category, index)
+    local upgradeName = upgradeTypes[category][index + 1]
+    
+    -- If this upgrade is already purchased, it's not available
+    if upgradeManager.upgrades[category][upgradeName] then
+        return false
+    end
+    
+    -- For the first upgrade (index 0), it's available if not purchased
+    if index == 0 then
+        return true
+    end
+    
+    -- For subsequent upgrades, check if all previous upgrades are purchased
+    for i = 0, index - 1 do
+        local prevUpgradeName = upgradeTypes[category][i + 1]
+        if not upgradeManager.upgrades[category][prevUpgradeName] then
+            return false -- A previous upgrade is not purchased
+        end
+    end
+    
+    return true -- All previous upgrades are purchased
+end
+
 function update_ui()
     if currentScreen == "gun" then
         update_gun_ui()
@@ -210,7 +298,7 @@ function update_ui()
     end
     
     if upgradeManager then
-        currentScrapText:set_text(tostring(playerScript.scrapCounter))
+        gScrapTxt:set_text(tostring(playerScript.scrapCounter))
     end
 end
 
@@ -221,24 +309,26 @@ function update_gun_ui()
     
     if upgradeManager then
         -- Update name and description
-        gunNameText:set_text(upgradeManager.upgradeNames.weapons[currentUpgrade])
-        gunDescriptionText:set_text(upgradeManager.upgradeDescriptions.weapons[currentUpgrade])
+        wNameTxt:set_text(upgradeManager.upgradeNames.weapons[currentUpgrade])
+        wDescTxt:set_text(upgradeManager.upgradeDescriptions.weapons[currentUpgrade])
         
-        -- Update buy button text with cost
+        -- Update cost text (numeric cost)
         local cost = upgradeManager.costs.weapons[currentUpgrade]
-        gunBuyText:set_text(tostring(cost))
+        wCostTxt:set_text(tostring(cost))
         
-        -- Check player enough scrap to purchase
-        local canBuy = not upgradeManager.upgrades.weapons[currentUpgrade] and 
-                       playerScript.scrapCounter >= cost
-                       
-
-        -- Set button state 
-        if upgradeManager.upgrades.weapons[currentUpgrade] then
-            gunBuyText:set_text("PURCHASED")
-            find_next_available_upgrade("weapons")
+        -- Determine if this upgrade is already purchased
+        local isPurchased = upgradeManager.upgrades.weapons[currentUpgrade]
+        
+        -- Determine if this is the next available upgrade in the sequence
+        local isNextAvailable = is_next_available_upgrade("weapons", currentUpgradeIndex.weapons)
+        
+        -- Update buy text based on status
+        if isPurchased then
+            wBuyTxt:set_text("Bought")
+        elseif isNextAvailable then
+            wBuyTxt:set_text("Upgrade")
         else
-            gunBuyText:set_text(tostring(cost))
+            wBuyTxt:set_text("Locked")
         end
     end
 end
@@ -251,24 +341,26 @@ function update_char_ui()
     
     if upgradeManager then
         -- Update name and description
-        charNameText:set_text(upgradeManager.upgradeNames.armor[currentUpgrade])
-        charDescriptionText:set_text(upgradeManager.upgradeDescriptions.armor[currentUpgrade])
+        aNameTxt:set_text(upgradeManager.upgradeNames.armor[currentUpgrade])
+        aDescTxt:set_text(upgradeManager.upgradeDescriptions.armor[currentUpgrade])
         
-        -- Update buy button text with cost
+        -- Update cost text (numeric cost)
         local cost = upgradeManager.costs.armor[currentUpgrade]
-        charBuyText:set_text(tostring(cost))
+        aCostTxt:set_text(tostring(cost))
         
-        -- Check player enough scrap to purchase
-        local canBuy = not upgradeManager.upgrades.armor[currentUpgrade] and 
-                       playerScript.scrapCounter >= cost
-                       
-
-        -- Set button state 
-        if upgradeManager.upgrades.armor[currentUpgrade] then
-            charBuyText:set_text("PURCHASED")
-            find_next_available_upgrade("armor")
+        -- Determine if this upgrade is already purchased
+        local isPurchased = upgradeManager.upgrades.armor[currentUpgrade]
+        
+        -- Determine if this is the next available upgrade in the sequence
+        local isNextAvailable = is_next_available_upgrade("armor", currentUpgradeIndex.armor)
+        
+        -- Update buy text based on status
+        if isPurchased then
+            aBuyTxt:set_text("Bought")
+        elseif isNextAvailable then
+            aBuyTxt:set_text("Upgrade")
         else
-            charBuyText:set_text(tostring(cost))
+            aBuyTxt:set_text("Locked")
         end
     end
 end
@@ -276,96 +368,127 @@ end
 function update_gun_perk_buttons()
     if upgradeManager then
         if upgradeManager.upgrades.weapons.reloadReduction then
-            gunPerk1Button.state = 1
+            wISelButton.state = 1
         else
-            gunPerk1Button.state = 0
+            wISelButton.state = 0
         end
         
         if upgradeManager.upgrades.weapons.damageBoost then
-            gunPerk2Button.state = 1
+            wIISelButton.state = 1
         else
-            gunPerk2Button.state = 0
+            wIISelButton.state = 0
         end
         
         if upgradeManager.upgrades.weapons.fireRateBoost then
-            gunPerk3Button.state = 1
+            wIIISelButton.state = 1
         else
-            gunPerk3Button.state = 0
+            wIIISelButton.state = 0
         end
         
         if upgradeManager.upgrades.weapons.specialAbility then
-            gunPerk4Button.state = 1
+            wIVSelButton.state = 1
         else
-            gunPerk4Button.state = 0
+            wIVSelButton.state = 0
         end
     end
+     -- Show appropriate upgrade indicators based on purchase status
+     if upgradeManager then
+        -- First upgrade (reload reduction)
+        local upgrade1 = upgradeManager.upgrades.weapons.reloadReduction
+        wIEntity:set_active(not upgrade1)
+        wIBoughtEntity:set_active(upgrade1)
+        wISelButtonEntity:set_active(true)
+        
+        -- Second upgrade (damage boost)
+        local upgrade2 = upgradeManager.upgrades.weapons.damageBoost
+        wIIEntity:set_active(not upgrade2)
+        wIIBoughtEntity:set_active(upgrade2)
+        wIISelButtonEntity:set_active(true)
+        
+        -- Third upgrade (fire rate boost)
+        local upgrade3 = upgradeManager.upgrades.weapons.fireRateBoost
+        wIIIEntity:set_active(not upgrade3)
+        wIIIBoughtEntity:set_active(upgrade3)
+        wIIISelButtonEntity:set_active(true)
+        
+        -- Fourth upgrade (special ability)
+        local upgrade4 = upgradeManager.upgrades.weapons.specialAbility
+        wIVEntity:set_active(not upgrade4)
+        wIVBoughtEntity:set_active(upgrade4)
+        wIVSelButtonEntity:set_active(true)
+     end
 end
 
 function update_char_perk_buttons()
     if upgradeManager then
         if upgradeManager.upgrades.armor.healthBoost then
-            charPerk1Button.state = 1
+            aISelButton.state = 1
         else
-            charPerk1Button.state = 0
+            aISelButton.state = 0
         end
         
         if upgradeManager.upgrades.armor.protection then
-            charPerk2Button.state = 1
+            aIISelButton.state = 1
         else
-            charPerk2Button.state = 0
+            aIISelButton.state = 0
         end
         
         if upgradeManager.upgrades.armor.specialAbility then
-            charPerk3Button.state = 1
+            aIIISelButton.state = 1
         else
-            charPerk3Button.state = 0
+            aIIISelButton.state = 0
         end
+    end
+    if upgradeManager then
+        -- First upgrade (health boost)
+        local upgrade1 = upgradeManager.upgrades.armor.healthBoost
+        aIEntity:set_active(not upgrade1)
+        aIBoughtEntity:set_active(upgrade1)
+        aISelButtonEntity:set_active(true)
+        
+        -- Second upgrade (protection)
+        local upgrade2 = upgradeManager.upgrades.armor.protection
+        aIIEntity:set_active(not upgrade2)
+        aIIBoughtEntity:set_active(upgrade2)
+        aIISelButtonEntity:set_active(true)
+        
+        -- Third upgrade (special ability)
+        local upgrade3 = upgradeManager.upgrades.armor.specialAbility
+        aIIIEntity:set_active(not upgrade3)
+        aIIIBoughtEntity:set_active(upgrade3)
+        aIIISelButtonEntity:set_active(true)
     end
 end
 
 function toggle_screen()
     if currentScreen == "gun" then
-        gunIndex = gunIndex
+        weaponIndex = weaponIndex
         currentScreen = "character"
         show_character_ui()
         hide_gun_ui(false) -- false means don't hide shared elements
     else
-        charIndex = charIndex
+        armorIndex = armorIndex
         currentScreen = "gun"
         show_gun_ui()
         hide_character_ui(false) -- false means don't hide shared elements
+    end
+
+    if currentScreen == "gun" then
+        show_gun_ui()
+        -- Set dot1 to hover and dot2 to normal
+        if gDot1Button then gDot1Button.state = 1 end
+        if gDot2Button then gDot2Button.state = 0 end
+    else
+        show_character_ui()
+        -- Set dot1 to normal and dot2 to hover
+        if gDot1Button then gDot1Button.state = 0 end
+        if gDot2Button then gDot2Button.state = 1 end
     end
     
     update_ui()
 end
 
 function on_update(dt)
-    -- if not isWorkBenchOpen then
-    --     if Input.is_key_pressed(Input.keycode.U) then
-    --         show_ui()
-    --     end
-    --     return
-    -- end
-    
-    -- if Input.is_key_pressed(Input.keycode.I) then
-    --     hide_ui()
-    -- end
-
-    -- if isWorkBenchOpen or pauseMenu.isPaused then
-    --     hud:set_active(false)
-    -- else
-    --     hud:set_active(true)
-        -- if missionManager then
-        --     missionManager:set_active(false)
-        -- end
-        -- if dialogManager then
-        --     dialogManager:set_active(false)
-        -- end
-        -- if popUpManager then
-        --     popUpManager:set_active(false)
-        -- end
-    -- end
-
     if not isWorkBenchOpen then
         return
     end
@@ -411,41 +534,80 @@ function on_update(dt)
 end
 
 function handle_gun_controls(dt)
-    if gunIndex == 0 then
-        gunBuyButton.state = 1
-        gunExitButton.state = 0
-
-        local confirmState = Input.get_button(Input.action.Confirm)
-
-        if confirmState == Input.state.Repeat and not confirmPressed then
-            confirmPressed = true
-            gunBuyButton.state = 2
-            
+    -- Reset button states
+    wUpgradeSelButton.state = 0
+    wISelButton.state = 0
+    wIISelButton.state = 0
+    wIIISelButton.state = 0
+    wIVSelButton.state = 0
+    
+    -- Set active button based on current index
+    if weaponIndex == 0 then
+        wUpgradeSelButton.state = 1
+    elseif weaponIndex == 1 then
+        wISelButton.state = 1
+    elseif weaponIndex == 2 then
+        wIISelButton.state = 1
+    elseif weaponIndex == 3 then
+        wIIISelButton.state = 1
+    elseif weaponIndex == 4 then
+        wIVSelButton.state = 1
+    end
+    
+    -- Handle confirm button press
+    local confirmState = Input.get_button(Input.action.Confirm)
+    if confirmState == Input.state.Repeat and not confirmPressed then
+        confirmPressed = true
+        
+        -- Handle action based on selected index
+        if weaponIndex == 0 then
+            wUpgradeSelButton.state = 2
             -- Buy the currently selected upgrade
             local currentUpgrade = upgradeTypes.weapons[currentUpgradeIndex.weapons + 1]
-            if currentUpgrade then
+            local isPreviousPurchased = upgradeTypes.weapons[currentUpgradeIndex.weapons]
+            if isPreviousPurchased == nil then
+                isPreviousPurchased = true
+            end
+            -- local upgradeManager.has_upgrade("weapons", isPreviousPurchased)
+            -- print(currentUpgradeIndex.weapons)
+
+            if currentUpgrade and upgradeManager.has_upgrade("weapons", isPreviousPurchased) then
                 local success = upgradeManager.buy_upgrade("weapons", currentUpgrade)
-                
+                if success then
+                    find_next_available_upgrade("weapons")
+                    update_ui()
+                end
+            elseif currentUpgrade and isPreviousPurchased and currentUpgrade == "reloadReduction" then
+                local success = upgradeManager.buy_upgrade("weapons", "reloadReduction")
                 if success then
                     find_next_available_upgrade("weapons")
                     update_ui()
                 end
             end
-        elseif confirmState ~= Input.state.Repeat then
-            confirmPressed = false
-        end
-    else
-        gunBuyButton.state = 0
-        gunExitButton.state = 1
 
-        local confirmState = Input.get_button(Input.action.Confirm)
-        if(confirmState == Input.state.Repeat and not confirmPressed) then
-            confirmPressed = true
-            gunExitButton.state = 2
-            hide_ui()
-        elseif confirmState ~= Input.state.Repeat then
-            confirmPressed = false
+        elseif weaponIndex == 1 then
+            wISelButton.state = 1
+            -- Select first upgrade
+            currentUpgradeIndex.weapons = 0
+            update_ui()
+        elseif weaponIndex == 2 then
+            wIISelButton.state = 1
+            -- Select second upgrade
+            currentUpgradeIndex.weapons = 1
+            update_ui()
+        elseif weaponIndex == 3 then
+            wIIISelButton.state = 1
+            -- Select third upgrade
+            currentUpgradeIndex.weapons = 2
+            update_ui()
+        elseif weaponIndex == 4 then
+            wIVSelButton.state = 1
+            -- Select fourth upgrade
+            currentUpgradeIndex.weapons = 3
+            update_ui()
         end
+    elseif confirmState ~= Input.state.Repeat then
+        confirmPressed = false
     end
     
     -- Handle navigation for gun screen
@@ -454,16 +616,16 @@ function handle_gun_controls(dt)
         contadorMovimientoBotones = 0
         
         if value < 0 then
-            gunIndex = gunIndex - 1
-            if gunIndex < 0 then
-                gunIndex = 1
+            weaponIndex = weaponIndex - 1
+            if weaponIndex < 0 then
+                weaponIndex = 4
             end
         end
         
         if value > 0 then
-            gunIndex = gunIndex + 1
-            if gunIndex > 1 then
-                gunIndex = 0
+            weaponIndex = weaponIndex + 1
+            if weaponIndex > 4 then
+                weaponIndex = 0
             end
         end
     else
@@ -472,40 +634,72 @@ function handle_gun_controls(dt)
 end
 
 function handle_character_controls(dt)
-    if charIndex == 0 then
-        charBuyButton.state = 1
-        charExitButton.state = 0
-
-        local confirmState = Input.get_button(Input.action.Confirm)
-        if(confirmState == Input.state.Repeat and not confirmPressed) then
-            confirmPressed = true
-            charBuyButton.state = 2
-            
+    -- Reset button states
+    aUpgradeSelButton.state = 0
+    aISelButton.state = 0
+    aIISelButton.state = 0
+    aIIISelButton.state = 0
+    
+    -- Set active button based on current index
+    if armorIndex == 0 then
+        aUpgradeSelButton.state = 1
+    elseif armorIndex == 1 then
+        aISelButton.state = 1
+    elseif armorIndex == 2 then
+        aIISelButton.state = 1
+    elseif armorIndex == 3 then
+        aIIISelButton.state = 1
+    end
+    
+    -- Handle confirm button press
+    local confirmState = Input.get_button(Input.action.Confirm)
+    if confirmState == Input.state.Repeat and not confirmPressed then
+        confirmPressed = true
+        
+        -- Handle action based on selected index
+        if armorIndex == 0 then
+            aUpgradeSelButton.state = 2
             -- Buy the currently selected upgrade
             local currentUpgrade = upgradeTypes.armor[currentUpgradeIndex.armor + 1]
-            if currentUpgrade then
+
+
+            local isPreviousPurchased = upgradeTypes.armor[currentUpgradeIndex.armor]
+            if isPreviousPurchased == nil then
+                isPreviousPurchased = true
+            end               
+
+            if currentUpgrade and upgradeManager.has_upgrade("armor", isPreviousPurchased) then
                 local success = upgradeManager.buy_upgrade("armor", currentUpgrade)
-                
+                if success then
+                    find_next_available_upgrade("armor")
+                    update_ui()
+                end  
+            elseif currentUpgrade and isPreviousPurchased and currentUpgrade == "healthBoost" then
+                local success = upgradeManager.buy_upgrade("armor", "healthBoost")
                 if success then
                     find_next_available_upgrade("armor")
                     update_ui()
                 end
             end
-        elseif confirmState ~= Input.state.Repeat then
-            confirmPressed = false
-        end
-    else
-        charBuyButton.state = 0
-        charExitButton.state = 1
 
-        local confirmState = Input.get_button(Input.action.Confirm)
-        if(confirmState == Input.state.Repeat and not confirmPressed) then
-            confirmPressed = true
-            charExitButton.state = 2
-            hide_ui()
-        elseif confirmState ~= Input.state.Repeat then
-            confirmPressed = false
+        elseif armorIndex == 1 then
+            aISelButton.state = 2
+            -- Select first upgrade
+            currentUpgradeIndex.armor = 0
+            update_ui()
+        elseif armorIndex == 2 then
+            aIISelButton.state = 2
+            -- Select second upgrade
+            currentUpgradeIndex.armor = 1
+            update_ui()
+        elseif armorIndex == 3 then
+            aIIISelButton.state = 2
+            -- Select third upgrade
+            currentUpgradeIndex.armor = 2
+            update_ui()
         end
+    elseif confirmState ~= Input.state.Repeat then
+        confirmPressed = false
     end
     
     -- Handle navigation for character screen
@@ -514,16 +708,16 @@ function handle_character_controls(dt)
         contadorMovimientoBotones = 0
         
         if value < 0 then
-            charIndex = charIndex - 1
-            if charIndex < 0 then
-                charIndex = 1
+            armorIndex = armorIndex - 1
+            if armorIndex < 0 then
+                armorIndex = 3
             end
         end
         
         if value > 0 then
-            charIndex = charIndex + 1
-            if charIndex > 1 then
-                charIndex = 0
+            armorIndex = armorIndex + 1
+            if armorIndex > 3 then
+                armorIndex = 0
             end
         end
     else
@@ -532,12 +726,22 @@ function handle_character_controls(dt)
 end
 
 function show_ui()
-    currentScrapTextEntity:set_active(true)
+    -- Show shared UI elements
+    gBackgroundEntity:set_active(true)
+    gDot1ButtonEntity:set_active(true)
+    gDot2ButtonEntity:set_active(true)
+    gScrapTxtEntity:set_active(true)
     
     if currentScreen == "gun" then
         show_gun_ui()
+        -- Set dot1 to hover and dot2 to normal
+        if gDot1Button then gDot1Button.state = 0 end
+        if gDot2Button then gDot2Button.state = 1 end
     else
         show_character_ui()
+        -- Set dot1 to normal and dot2 to hover
+        if gDot1Button then gDot1Button.state = 1 end
+        if gDot2Button then gDot2Button.state = 0 end
     end
     
     find_next_available_upgrade("weapons")
@@ -557,50 +761,121 @@ function show_ui()
     if popUpManager then
         popUpManager:set_active(false)
     end
-
 end
 
 function show_gun_ui()
     -- Show gun UI elements
-    gunBuyButtonEntity:set_active(true)
-    gunExitButtonEntity:set_active(true)
-    gunExitTextEntity:set_active(true)
-    gunPerk1ButtonEntity:set_active(true)
-    gunPerk2ButtonEntity:set_active(true)
-    gunPerk3ButtonEntity:set_active(true)
-    gunPerk4ButtonEntity:set_active(true)
-    gunPerk1TextEntity:set_active(true)
-    gunPerk2TextEntity:set_active(true)
-    gunPerk3TextEntity:set_active(true)
-    gunPerk4TextEntity:set_active(true)
-    gunDescriptionTextEntity:set_active(true)
-    gunBuyTextEntity:set_active(true)
-    gunNameTextEntity:set_active(true)
-    gunScrapIconEntity:set_active(true)
-    gunBackgroundEntity:set_active(true)
+    wNameTxtEntity:set_active(true)
+    wDescTxtEntity:set_active(true)
+    wTitleTxtEntity:set_active(true)
+    wCostTxtEntity:set_active(true)
+    wBuyTxtEntity:set_active(true)
+    wScrapIconEntity:set_active(true)
+    wRenderEntity:set_active(true)
+    wUpgradesBackgroundEntity:set_active(true)
+    
+    -- Show upgrade indicators and buttons
+    wUpgradeSelButtonEntity:set_active(true)
+    
+    -- Show appropriate upgrade indicators based on purchase status
+    if upgradeManager then
+        -- First upgrade (reload reduction)
+        local upgrade1 = upgradeManager.upgrades.weapons.reloadReduction
+        wIEntity:set_active(not upgrade1)
+        wIBoughtEntity:set_active(upgrade1)
+        wISelButtonEntity:set_active(true)
+        
+        -- Second upgrade (damage boost)
+        local upgrade2 = upgradeManager.upgrades.weapons.damageBoost
+        wIIEntity:set_active(not upgrade2)
+        wIIBoughtEntity:set_active(upgrade2)
+        wIISelButtonEntity:set_active(true)
+        
+        -- Third upgrade (fire rate boost)
+        local upgrade3 = upgradeManager.upgrades.weapons.fireRateBoost
+        wIIIEntity:set_active(not upgrade3)
+        wIIIBoughtEntity:set_active(upgrade3)
+        wIIISelButtonEntity:set_active(true)
+        
+        -- Fourth upgrade (special ability)
+        local upgrade4 = upgradeManager.upgrades.weapons.specialAbility
+        wIVEntity:set_active(not upgrade4)
+        wIVBoughtEntity:set_active(upgrade4)
+        wIVSelButtonEntity:set_active(true)
+    else
+        -- If upgradeManager not available, show default state (unpurchased)
+        wIEntity:set_active(true)
+        wIIEntity:set_active(true)
+        wIIIEntity:set_active(true)
+        wIVEntity:set_active(true)
+        wIBoughtEntity:set_active(false)
+        wIIBoughtEntity:set_active(false)
+        wIIIBoughtEntity:set_active(false)
+        wIVBoughtEntity:set_active(false)
+        wISelButtonEntity:set_active(true)
+        wIISelButtonEntity:set_active(true)
+        wIIISelButtonEntity:set_active(true)
+        wIVSelButtonEntity:set_active(true)
+    end
 end
 
 function show_character_ui()
     -- Show character UI elements
-    charBuyButtonEntity:set_active(true)
-    charExitButtonEntity:set_active(true)
-    charExitTextEntity:set_active(true)
-    charPerk1ButtonEntity:set_active(true)
-    charPerk2ButtonEntity:set_active(true)
-    charPerk3ButtonEntity:set_active(true)
-    charPerk1TextEntity:set_active(true)
-    charPerk2TextEntity:set_active(true)
-    charPerk3TextEntity:set_active(true)
-    charDescriptionTextEntity:set_active(true)
-    charBuyTextEntity:set_active(true)
-    charNameTextEntity:set_active(true)
-    charScrapIconEntity:set_active(true)
-    charBackgroundEntity:set_active(true)
+    aNameTxtEntity:set_active(true)
+    aDescTxtEntity:set_active(true)
+    aTitleTxtEntity:set_active(true)
+    aCostTxtEntity:set_active(true)
+    aBuyTxtEntity:set_active(true)
+    aScrapIconEntity:set_active(true)
+    aRenderEntity:set_active(true)
+    aUpgradesBackgroundEntity:set_active(true)
+    
+    -- Show upgrade indicators and buttons
+    aUpgradeSelButtonEntity:set_active(true)
+    
+    -- Show appropriate upgrade indicators based on purchase status
+    if upgradeManager then
+        -- First upgrade (health boost)
+        local upgrade1 = upgradeManager.upgrades.armor.healthBoost
+        aIEntity:set_active(not upgrade1)
+        aIBoughtEntity:set_active(upgrade1)
+        aISelButtonEntity:set_active(true)
+        
+        -- Second upgrade (protection)
+        local upgrade2 = upgradeManager.upgrades.armor.protection
+        aIIEntity:set_active(not upgrade2)
+        aIIBoughtEntity:set_active(upgrade2)
+        aIISelButtonEntity:set_active(true)
+        
+        -- Third upgrade (special ability)
+        local upgrade3 = upgradeManager.upgrades.armor.specialAbility
+        aIIIEntity:set_active(not upgrade3)
+        aIIIBoughtEntity:set_active(upgrade3)
+        aIIISelButtonEntity:set_active(true)
+    else
+        -- If upgradeManager not available, show default state (unpurchased)
+        aIEntity:set_active(true)
+        aIIEntity:set_active(true)
+        aIIIEntity:set_active(true)
+        aIBoughtEntity:set_active(false)
+        aIIBoughtEntity:set_active(false)
+        aIIIBoughtEntity:set_active(false)
+        aISelButtonEntity:set_active(true)
+        aIISelButtonEntity:set_active(true)
+        aIIISelButtonEntity:set_active(true)
+    end
 end
 
 function hide_ui()
     hide_gun_ui(true) 
     hide_character_ui(true)
+    
+    -- Hide shared UI elements
+    gBackgroundEntity:set_active(false)
+    gDot1ButtonEntity:set_active(false)
+    gDot2ButtonEntity:set_active(false)
+    gScrapTxtEntity:set_active(false)
+    
     isWorkBenchOpen = false
 
     hud:set_active(true)
@@ -617,49 +892,66 @@ end
 
 function hide_gun_ui(hideShared)
     -- Hide gun UI elements
-    gunBuyButtonEntity:set_active(false)
-    gunExitButtonEntity:set_active(false)
-    gunExitTextEntity:set_active(false)
-    gunPerk1ButtonEntity:set_active(false)
-    gunPerk2ButtonEntity:set_active(false)
-    gunPerk3ButtonEntity:set_active(false)
-    gunPerk4ButtonEntity:set_active(false)
-    gunPerk1TextEntity:set_active(false)
-    gunPerk2TextEntity:set_active(false)
-    gunPerk3TextEntity:set_active(false)
-    gunPerk4TextEntity:set_active(false)
-    gunDescriptionTextEntity:set_active(false)
-    gunBuyTextEntity:set_active(false)
-    gunNameTextEntity:set_active(false)
-    gunScrapIconEntity:set_active(false)
-    gunBackgroundEntity:set_active(false)
+    wNameTxtEntity:set_active(false)
+    wDescTxtEntity:set_active(false)
+    wTitleTxtEntity:set_active(false)
+    wCostTxtEntity:set_active(false)
+    wBuyTxtEntity:set_active(false)
+    wScrapIconEntity:set_active(false)
+    wRenderEntity:set_active(false)
+    wUpgradesBackgroundEntity:set_active(false)
+    
+    -- Hide upgrade indicators
+    wIEntity:set_active(false)
+    wIIEntity:set_active(false)
+    wIIIEntity:set_active(false)
+    wIVEntity:set_active(false)
+    wIBoughtEntity:set_active(false)
+    wIIBoughtEntity:set_active(false)
+    wIIIBoughtEntity:set_active(false)
+    wIVBoughtEntity:set_active(false)
+    
+    -- Hide selection buttons
+    wISelButtonEntity:set_active(false)
+    wIISelButtonEntity:set_active(false)
+    wIIISelButtonEntity:set_active(false)
+    wIVSelButtonEntity:set_active(false)
+    wUpgradeSelButtonEntity:set_active(false)
     
     -- Hide shared elements if required
     if hideShared then
-        currentScrapTextEntity:set_active(false)
+        -- This is handled in hide_ui now
     end
 end
 
 function hide_character_ui(hideShared)
     -- Hide character UI elements
-    charBuyButtonEntity:set_active(false)
-    charExitButtonEntity:set_active(false)
-    charExitTextEntity:set_active(false)
-    charPerk1ButtonEntity:set_active(false)
-    charPerk2ButtonEntity:set_active(false)
-    charPerk3ButtonEntity:set_active(false)
-    charPerk1TextEntity:set_active(false)
-    charPerk2TextEntity:set_active(false)
-    charPerk3TextEntity:set_active(false)
-    charDescriptionTextEntity:set_active(false)
-    charBuyTextEntity:set_active(false)
-    charNameTextEntity:set_active(false)
-    charScrapIconEntity:set_active(false)
-    charBackgroundEntity:set_active(false)
+    aNameTxtEntity:set_active(false)
+    aDescTxtEntity:set_active(false)
+    aTitleTxtEntity:set_active(false)
+    aCostTxtEntity:set_active(false)
+    aBuyTxtEntity:set_active(false)
+    aScrapIconEntity:set_active(false)
+    aRenderEntity:set_active(false)
+    aUpgradesBackgroundEntity:set_active(false)
+    
+    -- Hide upgrade indicators
+    aIEntity:set_active(false)
+    aIIEntity:set_active(false)
+    aIIIEntity:set_active(false)
+    aIBoughtEntity:set_active(false)
+    aIIBoughtEntity:set_active(false)
+    aIIIBoughtEntity:set_active(false)
+    
+    -- Hide selection buttons
+    aISelButtonEntity:set_active(false)
+    aIISelButtonEntity:set_active(false)
+    aIIISelButtonEntity:set_active(false)
+    aUpgradeSelButtonEntity:set_active(false)
     
     -- Hide shared elements if required
     if hideShared then
-        currentScrapTextEntity:set_active(false)
+        -- This is handled in hide_ui now
     end
 end
 

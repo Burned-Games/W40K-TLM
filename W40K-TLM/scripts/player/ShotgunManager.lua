@@ -60,6 +60,7 @@ local granadeAnimationDuration = 0.4
 
 --Workbench
 local upgradeManager = nil
+local workbenchUIManager = nil
 
 
 local baseGranadePosition = nil       
@@ -168,6 +169,7 @@ function on_ready()
     end)
 
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+    workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
@@ -196,7 +198,7 @@ function on_update(dt)
         set_reload_speed_multiplier(1.0)
     end
 
-    if playerScript.health <= 0 then
+    if playerScript.health <= 0 or workbenchUIManager.isWorkBenchOpen then
         return
     end
 

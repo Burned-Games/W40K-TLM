@@ -36,6 +36,7 @@ local entities = nil
 enemies  = nil
 
 local pauseScript = nil
+local workbenchUIManagerScript = nil
 
 --Shake
 local shakeAmount = 0
@@ -100,11 +101,38 @@ local mapPolygonLevel1 = {
     {x = -10,  z = 7}
 }
 
+-- local mapPolygonLevel2 = {
+--     {x = -1000, z = -1000},
+--     {x = 1000, z = -1000},
+--     {x = 1000, z = 1000},
+--     {x = -1000, z = 1000}
+-- }
+
 local mapPolygonLevel2 = {
-    {x = -1000, z = -1000},
-    {x = 1000, z = -1000},
-    {x = 1000, z = 1000},
-    {x = -1000, z = 1000}
+
+    -- abajo derecha
+    {x = -16, z = 18},
+    {x = 5, z = 18},
+    {x = 2, z = -12},
+    {x = 17, z = -12},
+    {x = 17, z = -32},
+    {x = 46, z = -34},
+    {x = 51, z = -57},
+    {x = 72, z = -20},
+
+    -- arriba derecha
+    {x = 103, z = -32},
+
+
+    -- arriba izquierda
+    {x = 116, z = -65},
+    {x = 85, z = -79},
+    {x = 20, z = -70},
+
+
+    -- abajo izquierda
+    {x = -25, z = -44}
+
 }
 
 local mapPolygonLevel3 = {
@@ -137,6 +165,8 @@ function on_ready()
     playerScript = player:get_component("ScriptComponent")
 
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+
+    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
     
 
@@ -216,7 +246,7 @@ function on_update(dt)
         smoothPos = Vector3.lerp(currentPos, adjustedTarget, dt * cameraSpeed)
         cameraTransform.position = smoothPos
 
-        if not cameraBossActivated and playerScript.godMode == false and pauseScript.isPaused == false then
+        if not cameraBossActivated and playerScript.godMode == false and pauseScript.isPaused == false and not workbenchUIManagerScript.isWorkBenchOpen then
             if Input.is_button_pressed(Input.controllercode.DpadUp) then
                 if zoom > minZoom then
                     zoom = zoom - zoomStep

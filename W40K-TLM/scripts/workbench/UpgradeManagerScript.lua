@@ -83,7 +83,7 @@ upgradeNames = {
     },
     armor = {
         healthBoost = "Strenth through suffering",
-        protection = "Emperor’s Blessing",
+        protection = "Emperor's Blessing",
         specialAbility = "Ultramarine Ancient"
     }
 }
@@ -97,7 +97,7 @@ upgradeDescriptions = {
     },
     armor = {
         healthBoost = "Increases max health by 20%",
-        protection = "Grants protection after 5 seconds \nout of combat",
+        protection = "Grants protection after \n5 seconds out of combat",
         specialAbility = "Unlock Astartes Fervor"
     }
 }

@@ -386,137 +386,7 @@ function on_update(dt)
 
     footstepSFXTimer = footstepSFXTimer + dt
     
-    if not pauseScript.isPaused then
-        dtColective = dtColective + dt
-        update_combat_state(dt)
-
-        
-
-        if dtColective - lastTriggerTime >= interval then
-            updateScrapList()
-            
-            lastTriggerTime = dtColective
-        end
-
-        if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
-            StimsCounter = StimsCounter - 1
-            intervalcheker = dtColective
-            intervalChekerDown = intervalcheker - 0.5
-            intervalchekerUp = intervalcheker + 0.5
-            isHealing = true
-            damageReduction = 1.15
-            if mission_Component.getCurrerTaskIndex(true) == 6 then
-                mission_Component.m6_heal = true
-            end
-
-            if currentUpAnim ~= heal then
-                healAnimationSecondBool = true
-                healAnimationBool = true
-                  currentUpAnim = heal
-                  
-                  animator:set_upper_animation(currentUpAnim)
-            end
-        end
-        --updateEntranceAnimation(dt)
-
-        -- if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" then
-        --     return
-        -- end
-        if healAnimationSecondBool then
-            healAnimCounter = healAnimCounter + dt
-            if healAnimCounter >= healAnimationTime then
-                healAnimationBool = false
-                healAnimationSecondBool = false
-                currentAnim = -1
-            end
-        end
-        
-        if isHealing == true and intervalchekerUp > dtColective and intervalChekerDown < dtColective  then
-            
-            intervalchekerUp = intervalchekerUp + 1.5
-            intervalChekerDown = intervalChekerDown + 1.5
-            HealPlayer()
-        end
---[[
-        if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
-
-            attractionActive = not attractionActive 
-            find_scrap()
-
-        end
-
-        if attractionActive == true then 
-            --attract_scrap(dt)
-        
-        end
-
-        
-            
-            attractionActive = not attractionActive 
-            find_scrap()]]
-        
-
-
-        
-
-        check_effects(dt)
-        checkPlayerDeath(dt)
-        handleBleed(dt)
-
-        if Input.is_key_pressed(Input.keycode.M) then
-            applyStunn()
-        end
-
-
-        if isStunned == true then
-            playerTransf.rotation.y = math.deg(angleRotation)
-            return
-        end
-        handleWeaponSwitch(dt)
-        updateAnims(dt)
-        
-        if(changeing)then
-            if fadeToBlackScript.fadeToBlackDoned then
-                changeScene = true
-            end
-        end
-
-
-        if changeScene == true and not changed then
-            SceneManager.change_scene("scenes/lose.TeaScene")
-            changed = true
-        end
-
-        if deathAnimationSetted then
-            return
-        end
-
-        updateMusic(dt)
-        
-        if workbenchUIManagerScript.isWorkBenchOpen == false then
-            updateDash(dt)
-        end
-
-        updateGodMode(dt)
-        
-        if godMode or activateAutoAim then
-            autoaimUpdate()
-        end
-        if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
-            playerMovement(dt)
-        end 
-            
-            
-
-
-        handleCover()
-        
-        backgroundMusicToPlay = 0
-
-        -- Listener Position
-        playerListener.position = playerTransf.position
-
-    else
+    if pauseScript.isPaused or workbenchUIManagerScript.isWorkBenchOpen then
         playerRb:set_velocity(Vector3.new(0, 0, 0))
         if currentAnim ~= idle  then
             currentAnim = idle
@@ -526,7 +396,136 @@ function on_update(dt)
                 animator:set_upper_animation(currentUpAnim)
             end
         end
+        return
+    end 
+    dtColective = dtColective + dt
+    update_combat_state(dt)
+
+    
+
+    if dtColective - lastTriggerTime >= interval then
+        updateScrapList()
+        
+        lastTriggerTime = dtColective
     end
+
+    if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
+        StimsCounter = StimsCounter - 1
+        intervalcheker = dtColective
+        intervalChekerDown = intervalcheker - 0.5
+        intervalchekerUp = intervalcheker + 0.5
+        isHealing = true
+        damageReduction = 1.15
+        if mission_Component.getCurrerTaskIndex(true) == 6 then
+            mission_Component.m6_heal = true
+        end
+
+        if currentUpAnim ~= heal then
+            healAnimationSecondBool = true
+            healAnimationBool = true
+                currentUpAnim = heal
+                
+                animator:set_upper_animation(currentUpAnim)
+        end
+    end
+    --updateEntranceAnimation(dt)
+
+    -- if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" then
+    --     return
+    -- end
+    if healAnimationSecondBool then
+        healAnimCounter = healAnimCounter + dt
+        if healAnimCounter >= healAnimationTime then
+            healAnimationBool = false
+            healAnimationSecondBool = false
+            currentAnim = -1
+        end
+    end
+    
+    if isHealing == true and intervalchekerUp > dtColective and intervalChekerDown < dtColective  then
+        
+        intervalchekerUp = intervalchekerUp + 1.5
+        intervalChekerDown = intervalChekerDown + 1.5
+        HealPlayer()
+    end
+--[[
+    if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
+
+        attractionActive = not attractionActive 
+        find_scrap()
+
+    end
+
+    if attractionActive == true then 
+        --attract_scrap(dt)
+    
+    end
+
+    
+        
+        attractionActive = not attractionActive 
+        find_scrap()]]
+    
+
+
+    
+
+    check_effects(dt)
+    checkPlayerDeath(dt)
+    handleBleed(dt)
+
+    if Input.is_key_pressed(Input.keycode.M) then
+        applyStunn()
+    end
+
+
+    if isStunned == true then
+        playerTransf.rotation.y = math.deg(angleRotation)
+        return
+    end
+    handleWeaponSwitch(dt)
+    updateAnims(dt)
+    
+    if(changeing)then
+        if fadeToBlackScript.fadeToBlackDoned then
+            changeScene = true
+        end
+    end
+
+
+    if changeScene == true and not changed then
+        SceneManager.change_scene("scenes/lose.TeaScene")
+        changed = true
+    end
+
+    if deathAnimationSetted then
+        return
+    end
+
+    updateMusic(dt)
+    
+    if workbenchUIManagerScript.isWorkBenchOpen == false then
+        updateDash(dt)
+    end
+
+    updateGodMode(dt)
+    
+    if godMode or activateAutoAim then
+        autoaimUpdate()
+    end
+    if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
+        playerMovement(dt)
+    end 
+        
+        
+
+
+    handleCover()
+    
+    backgroundMusicToPlay = 0
+
+    -- Listener Position
+    playerListener.position = playerTransf.position
 end
 
 function on_exit()

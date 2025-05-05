@@ -94,6 +94,8 @@ local particle_blood_spark_transform = nil
     --Workbench
     local upgradeManager = nil
 
+    local workbenchUIManager = nil
+
 shootAnimation = false
 reloadAnimation = false
 
@@ -124,6 +126,7 @@ function on_ready()
     astartesFervorManager = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
 
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+    workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
     -- sphere1 = current_scene:get_entity_by_name("Sphere1")
     -- transformSphere1 = sphere1:get_component("TransformComponent")
@@ -276,7 +279,7 @@ function on_update(dt)
     end
 
 
-    if playerScript.health <= 0 then
+    if playerScript.health <= 0 or workbenchUIManager.isWorkBenchOpen then
         return
     end
 

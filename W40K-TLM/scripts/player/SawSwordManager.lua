@@ -35,6 +35,10 @@ local cameraScript = nil
 local meleeHitSFX = nil
 local meleeAttackSFX = nil
 
+-- UpgradeManager
+local workbenchUIManagerScript = nil
+local pauseScript = nil
+
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
@@ -53,11 +57,14 @@ function on_ready()
 
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
+    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
+    pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+
 end
 
 function on_update(dt)
 
-    if playerScript.health <= 0 then
+    if playerScript.health <= 0 or workbenchUIManagerScript.isWorkBenchOpen or pauseScript.isPaused then
         return
     end
 
