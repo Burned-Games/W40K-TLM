@@ -82,7 +82,7 @@ upgradeNames = {
         specialAbility = "Tactical Supremacy"
     },
     armor = {
-        healthBoost = "Strenth through suffering",
+        healthBoost = "Strength through suffering",
         protection = "Emperor's Blessing",
         specialAbility = "Ultramarine Ancient"
     }
@@ -96,7 +96,7 @@ upgradeDescriptions = {
         specialAbility = "Unlock \n  - Disruptor Charge \n  - Neuroinhibitor Grenade"
     },
     armor = {
-        healthBoost = "Increases max health by 20%",
+        healthBoost = "Increases max health \n by 20%",
         protection = "Grants protection after \n5 seconds out of combat",
         specialAbility = "Unlock Astartes Fervor"
     }
