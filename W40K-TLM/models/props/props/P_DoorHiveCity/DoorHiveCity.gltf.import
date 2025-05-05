@@ -1,0 +1,56 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "DoorHiveCity_Mesh.001-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 6814221125708362657
+                        }
+                    },
+                    {
+                        "key": "DoorHiveCity_Mesh.001-1",
+                        "value": {
+                            "value0": 5477745606087645137
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "standardSurface1.001_Mat0",
+                        "value": {
+                            "value0": 1343957700499287386
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.003_Mat1",
+                        "value": {
+                            "value0": 14670314758477243190
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 985985939468979797
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_DoorHiveCity/DoorHiveCity.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/985985939468979797.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
