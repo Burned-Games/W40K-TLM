@@ -570,7 +570,7 @@ function updateDash(dt)
     -- Check for dash activation
     if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true then
 
-        if(currentAnim ~= dash) then
+        if(currentAnim ~= dash) and melee == false then
             currentAnim = dash
             currentUpAnim = dash
             animator:set_current_animation(currentAnim)
@@ -702,7 +702,7 @@ end
 end
 
 function handleWeaponSwitch(dt)
-    if Input.get_button(Input.action.Skill1) == Input.state.Down then
+    if Input.get_button(Input.action.Skill1) == Input.state.Down and swordScript.slasheeed == false then
         if pressedButtonChangeWeapon == false then
             if actualweapon == 0 then
                 actualweapon = 1
@@ -1052,21 +1052,13 @@ function playerMovement(dt)
                     if currentAnim ~= run and bolterScript.shootAnimation == false  and swordScript.slasheeed == false and isHitted == false and shotGunScript.granadeAnimation == false then
                         currentAnim = run
                         animator:set_lower_animation(currentAnim)
-                        if currentUpAnim ~= run and shotGunScript.is_reloading == false and aimAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and swordScript.slasheeed == false then
-                            
+                        if currentUpAnim ~= run and shotGunScript.is_reloading == false and aimAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and swordScript.slasheeed == false then                     
                             currentUpAnim = run
                             animator:set_upper_animation(currentUpAnim)
                         end
                         
                         
-                    end
-                    -- if currentUpAnim ~= idle and shotGunScript.shootAnimation == false and aimAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and bolterScript.chaaarging== false and shotGunScript.is_reloading == false  then
-                            
-                    --     currentUpAnim = idle
-                    --     animator:set_upper_animation(currentUpAnim)
-                    -- end
-
-                    
+                    end                 
                 end
             end
         end
