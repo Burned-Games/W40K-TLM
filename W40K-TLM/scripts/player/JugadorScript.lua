@@ -42,7 +42,7 @@ local timerAnimacionEntrada = 0
 
 --Healing sistem
 StimsCounter = 3
-local isHealing = false
+isHealing = false
 local timesHealed = 0
 
 local intervalcheker = 0

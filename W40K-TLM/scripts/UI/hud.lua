@@ -445,8 +445,8 @@
             
             local newRect = Vector4.new(x, y, width, height * healthPercentage)
             lifeFullComponent:set_rect(newRect)
-            
         end
+        
     end
     
     function update_scrap_display()
@@ -473,6 +473,14 @@
             ralentizadoEntity:set_active(true)
         else
             ralentizadoEntity:set_active(false)
+        end
+
+        
+        local colorHealing = Vector4.new(0, 1, 0.2, 1)
+        if playerScript.isHealing then
+            lifeFullComponent:set_color(colorHealing)
+        else
+            lifeFullComponent:set_color(Vector4.new(1, 0.2, 0.2, 1))
         end
 
         quemadoEntity:set_active(false)

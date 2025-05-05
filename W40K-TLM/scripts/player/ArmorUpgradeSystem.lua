@@ -29,9 +29,6 @@ function on_ready()
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     fervorAniamtor = fervorAstartesStandardEntity:get_component("AnimatorComponent")
     hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
-    
-    hudManager.recargaEntity:set_active(false)
-    hudManager.velocidadAtaqueEntity:set_active(false)
 end
 
 function on_update(dt)
