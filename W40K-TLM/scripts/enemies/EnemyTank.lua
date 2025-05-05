@@ -137,10 +137,12 @@ function on_ready()
             local isSphereOrGranade = 
                 nameA == "Sphere1" or nameA == "Sphere2" or nameA == "Sphere3" or 
                 nameA == "Sphere4" or nameA == "Sphere5" or nameA == "Sphere6" or 
-                nameA == "Sphere7" or nameA == "Sphere8" or nameA == "Granade" or
+                nameA == "Sphere7" or nameA == "Sphere8" or nameA == "Granade" or 
+                nameA ==  "DisruptorBullet" or nameA == "ChargeZone" or
                 nameB == "Sphere1" or nameB == "Sphere2" or nameB == "Sphere3" or 
                 nameB == "Sphere4" or nameB == "Sphere5" or nameB == "Sphere6" or 
-                nameB == "Sphere7" or nameB == "Sphere8" or nameB == "Granade"
+                nameB == "Sphere7" or nameB == "Sphere8" or nameB == "Granade" or 
+                nameB ==  "DisruptorBullet" or nameB == "ChargeZone"
 
             if not isSphereOrGranade and tank.currentState == tank.state.Tackle then
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
