@@ -1,3 +1,114 @@
+/* Desktop - 1200px */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .wh-container {
+    grid-template-columns: 1fr;
+    width: 92%;
+  }
+
+  .wh-right-panel {
+    height: 60vh;
+    order: -1;
+    margin-bottom: 4vh;
+  }
+
+  .wh-nav-btn {
+    width: 14vw;
+    height: 14vw;
+    font-size: 1.8vw;
+  }
+
+  .wh-text h3 {
+    font-size: 2.8vw;
+  }
+
+  .wh-text p {
+    font-size: 1.8vw;
+  }
+
+  .nav-menu {
+    gap: 1.5rem;
+  }
+}
+
+/* Table：481px - 768px */
+@media (max-width: 768px) and (min-width: 481px) {
+  .warhammer-section {
+    padding: 6vh 0;
+  }
+
+  .wh-left-panel {
+    height: auto;
+    gap: 4vh;
+  }
+
+  .wh-nav-btn {
+    width: 18vw;
+    height: 18vw;
+    font-size: 2.5vw;
+  }
+
+  .wh-content-box {
+    min-height: 35vh;
+  }
+
+  .wh-text h3 {
+    font-size: 3.5vw;
+  }
+
+  .wh-text p {
+    font-size: 2.2vw;
+    max-width: 95%;
+  }
+
+  .wh-preview-box {
+    height: 25vh;
+  }
+
+  .main-nav {
+    padding: 1rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .nav-button {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Mobile：320px - 480px */
+@media (max-width: 480px) {
+  .wh-nav-group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
+  }
+
+  .wh-nav-btn {
+    width: 28vw;
+    height: 28vw;
+    font-size: 3.5vw;
+  }
+
+  .wh-text h3 {
+    font-size: 5.5vw;
+  }
+
+  .wh-text p {
+    font-size: 3.8vw;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+
 :root {
     --primary-color: #2A2A2A; /* Primary color */
     --accent-color: #4CAF50; /* Accent color */
@@ -20,9 +131,18 @@ html {
 }
 
 body {
-    font-family: 'Helvetica Neue', system-ui, sans-serif;
-    color: var(--text-dark);
+  font-family: 'Gothic A1', 'Helvetica Neue', system-ui, sans-serif;
+  color: #e0e0e0; /* 优先使用明确色值，代替 --text-dark */
+  background: #0a0a0a;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 防止横向滚动 */
 }
+
+
+
 
 /* Scroll to Top Button */
 .to-top {
@@ -125,37 +245,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .nav-menu {
-        gap: 1.5rem;
-    }
-}
 
-@media (max-width: 768px) {
-    .main-nav {
-        padding: 1rem;
-    }
-
-    .nav-menu {
-        gap: 1rem;
-    }
-
-    .nav-link {
-        font-size: 0.9rem;
-    }
-
-    .nav-button {
-        padding: 0.5rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-}
 
 /* Content Sections */
 .page-section {
@@ -332,17 +422,7 @@ body {
 
 
 /* Improvements Section */
-/* ===== 全局样式 ===== */
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background: #0a0a0a;
-    font-family: 'Gothic A1', sans-serif;
-    color: #e0e0e0;
-    line-height: 1.6;
-  }
-  
+
   /* ===== 主内容区 ===== */
   .warhammer-section {
     padding: 8vh 0;
@@ -504,101 +584,9 @@ body {
     opacity: 1;
   }
   
-  /* ===== 响应式设计 ===== */
-  @media (min-width: 1920px) {
-    .wh-nav-btn {
-      font-size: 22px;
-    }
-    .wh-text h3 {
-      font-size: 42px;
-    }
-    .wh-text p {
-      font-size: 18px;
-    }
-  }
   
-  @media (max-width: 1600px) {
-    .wh-container {
-      grid-template-columns: 1fr 1.1fr;
-    }
-  }
-  
-  @media (max-width: 1200px) {
-    .wh-container {
-      grid-template-columns: 1fr;
-      width: 92%;
-    }
-    .wh-right-panel {
-      height: 60vh;
-      order: -1;
-      margin-bottom: 4vh;
-    }
-    .wh-nav-btn {
-      width: 14vw;
-      height: 14vw;
-      font-size: 1.8vw;
-    }
-    .wh-text h3 {
-      font-size: 2.8vw;
-    }
-    .wh-text p {
-      font-size: 1.8vw;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .warhammer-section {
-      padding: 6vh 0;
-    }
-    .wh-left-panel {
-      height: auto;
-      gap: 4vh;
-    }
-    .wh-nav-btn {
-      width: 18vw;
-      height: 18vw;
-      font-size: 2.5vw;
-    }
-    .wh-content-box {
-      min-height: 35vh;
-    }
-    .wh-text h3 {
-      font-size: 3.5vw;
-    }
-    .wh-text p {
-      font-size: 2.2vw;
-      max-width: 95%;
-    }
-    .wh-preview-box {
-      height: 25vh;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .wh-nav-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3vw;
-    }
-    .wh-nav-btn {
-      width: 28vw;
-      height: 28vw;
-      font-size: 3.5vw;
-    }
-    .wh-text h3 {
-      font-size: 5.5vw;
-    }
-    .wh-text p {
-      font-size: 3.8vw;
-    }
-  }
 
-/* Fix for excessive width */
-body {
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
+
 
 
 /* Gallery Section */
