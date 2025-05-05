@@ -573,6 +573,7 @@ function updateDash(dt)
 
         if(currentAnim ~= dash) then
             currentAnim = dash
+            currentUpAnim = dash
             animator:set_current_animation(currentAnim)
         end
         
