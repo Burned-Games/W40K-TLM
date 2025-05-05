@@ -388,7 +388,6 @@ function on_update(dt)
     
     if not pauseScript.isPaused then
         dtColective = dtColective + dt
-        
         update_combat_state(dt)
 
         
@@ -505,9 +504,10 @@ function on_update(dt)
         end
         if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
             playerMovement(dt)
-        else 
-            playerRb:set_velocity(Vector3.new(0, 0, 0))
-        end
+        end 
+            
+            
+
 
         handleCover()
         
@@ -516,6 +516,16 @@ function on_update(dt)
         -- Listener Position
         playerListener.position = playerTransf.position
 
+    else
+        playerRb:set_velocity(Vector3.new(0, 0, 0))
+        if currentAnim ~= idle  then
+            currentAnim = idle
+            animator:set_lower_animation(currentAnim)
+            if currentAnim then
+                currentUpAnim = idle
+                animator:set_upper_animation(currentUpAnim)
+            end
+        end
     end
 end
 
@@ -673,7 +683,6 @@ end
 function updateEntranceAnimation(dt)
     if sceneName == "level1.TeaScene" then
             
-        --print("aaaaaaaaaaaaaaaa")
         if animacionEntradaRealizada == false then
             if(currentAnim ~= drop) then
                 currentAnim = drop
@@ -1031,7 +1040,6 @@ function playerMovement(dt)
 
             if rotationDirection.x == 0 and rotationDirection.z == 0 then
                 if actualweapon == 0 then
-                    print(currentAnim)
                     if currentAnim ~= run and bolterScript.shootAnimation == false  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false  then
                         currentAnim = run
                         animator:set_lower_animation(currentAnim)
