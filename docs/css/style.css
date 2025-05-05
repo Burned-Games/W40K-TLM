@@ -30,6 +30,7 @@
   }
 }
 
+
 /* Table：481px - 768px */
 @media (max-width: 768px) and (min-width: 481px) {
   .warhammer-section {
@@ -79,6 +80,10 @@
   .nav-button {
     padding: 0.5rem 1rem;
   }
+
+  .download-button img {
+    width: 20rem;
+  }
 }
 
 /* Mobile：320px - 480px */
@@ -105,6 +110,10 @@
   .nav-menu {
     flex-wrap: wrap;
     justify-content: flex-end;
+  }
+
+  .download-button img {
+    width: 14rem;
   }
 }
 
@@ -629,25 +638,29 @@ body {
 /* Download Section */
 /* Center the button */
 .download-button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .download-button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background: #FFD700;
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
 }
 
-.download-button:hover {
-    background: #FFC107;
+.download-button img {
+  display: block;
+  width: 30rem; /* 默认桌面尺寸 */
+  height: auto;
+  max-width: 90vw; /* 防止溢出 */
 }
+
+
+
+
 
 /* Align the two requirement boxes */
 .download-wrapper {
