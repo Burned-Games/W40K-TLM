@@ -264,7 +264,10 @@ function on_ready()
 
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
+    if current_scene:get_entity_by_name("SawSwordManager"):has_component("ScriptComponent") then
 
+        swordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
+    end
 
 end
 
@@ -321,9 +324,10 @@ function on_update(dt)
                 shootCoolDown = shootCoolDown + dt
             end
 
-            if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) then
+            if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false then
                 
                 if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
+                    print("wwwwwwwwwwww")
                     playerScript.currentUpAnim = playerScript.attack
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     shootAnimation = true

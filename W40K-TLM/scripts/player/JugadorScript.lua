@@ -741,6 +741,7 @@ function handleWeaponSwitch(dt)
         
             if currentUpAnim ~= melee then
                 currentUpAnim = melee
+                print("uuuuuuuuuuuuuuuuuuuuuuuuu")
                 animator:set_current_animation(currentUpAnim)
             end
             swordUpper:set_active(true)
@@ -1094,7 +1095,7 @@ function playerMovement(dt)
     
         
             -- Animation idle
-            if currentAnim ~= idle and bolterScript.shootAnimation == false and bolterScript.chaaarging == false or currentUpAnim ~= idle and shotGunScript.shootAnimation == false and aimAnimation == false and swordScript.slasheeed == false and isHitted == false and shotGunScript.is_reloading == false and bolterScript.chaaarging == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and bolterScript.shootAnimation == false then
+            if currentAnim ~= idle and bolterScript.shootAnimation == false and bolterScript.chaaarging == false and swordScript.slasheeed == false or currentUpAnim ~= idle and shotGunScript.shootAnimation == false and aimAnimation == false and swordScript.slasheeed == false and isHitted == false and shotGunScript.is_reloading == false and bolterScript.chaaarging == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and bolterScript.shootAnimation == false then
                 currentAnim = idle
                 animator:set_lower_animation(currentAnim)
                 if shotGunScript.shootAnimation == false and aimAnimation == false and bolterScript.shootAnimation == false and aimAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and swordScript.slasheeed == false then
