@@ -3,14 +3,14 @@
         "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 0,
-            "value0": "Shield_Prefab",
+            "value0": "FireParticle_Prefab",
             "value1": {
                 "value0": ""
             },
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 9873128137879155273
+                "value0": 5414943697551361407
             }
         },
         "RootEntity": 0,
@@ -21,7 +21,7 @@
         "value4": 0,
         "value5": {
             "cereal_class_version": 0,
-            "Tag": "Shield"
+            "Tag": "FireParticle"
         },
         "value6": 1,
         "value7": 0,
@@ -34,7 +34,7 @@
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -96,9 +96,9 @@
                         },
                         "UseColorRandom": false,
                         "ColorNormal": {
-                            "x": 0.37492889165878298,
-                            "y": 0.3652770519256592,
-                            "z": 0.9637096524238586,
+                            "x": 0.8509804010391235,
+                            "y": 0.49803921580314639,
+                            "z": 0.125490203499794,
                             "w": 1.0
                         },
                         "ColorRandom": {
@@ -112,11 +112,11 @@
                         "UseRandomLifeTime": false,
                         "StartLifeTimeMin": 5.0,
                         "StartLifeTimeMax": 5.0,
-                        "StartLifeTime": 1.0,
+                        "StartLifeTime": 0.699999988079071,
                         "UseRandomSpeed": false,
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
-                        "StartSpeed": 0.0,
+                        "StartSpeed": 3.0,
                         "UseRandomSize": false,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
@@ -130,9 +130,9 @@
                             "z": 1.0
                         },
                         "StartSize": {
-                            "x": 3.5,
-                            "y": 3.5,
-                            "z": 3.5
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
                         },
                         "UseRandomRotation": false,
                         "StartRotationMin": {
@@ -152,19 +152,19 @@
                         },
                         "SimulationSpace": 1,
                         "UseEmission": true,
-                        "RateOverTime": 1.0,
+                        "RateOverTime": 30.0,
                         "UseBurst": false,
                         "Bursts": [],
                         "ShapeType": 2,
                         "MinSpread": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
+                            "x": 0.5,
+                            "y": -0.10000000149011612,
+                            "z": -0.10000000149011612
                         },
                         "MaxSpread": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
+                            "x": 0.10000000149011612,
+                            "y": 0.10000000149011612,
+                            "z": 0.10000000149011612
                         },
                         "UseShape": true,
                         "ShapeAngle": 45.0,
@@ -213,7 +213,7 @@
                                 "value1": 0.5
                             }
                         ],
-                        "UseSizeOverLifetime": false,
+                        "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
                             {
@@ -247,8 +247,16 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
-                                "value1": 1.0
+                                "value0": 0.07999999821186066,
+                                "value1": 0.5600000023841858
+                            },
+                            {
+                                "value0": 0.19499999284744264,
+                                "value1": 0.8199999928474426
+                            },
+                            {
+                                "value0": 0.6150000095367432,
+                                "value1": 0.7799999713897705
                             },
                             {
                                 "value0": 1.0,
@@ -286,40 +294,40 @@
                                 "value1": 0.5
                             }
                         ],
-                        "UseColorOverLifetime": false,
+                        "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
-                            "x": 7.370829922348538e-43,
-                            "y": 4.7055861145224459e-27,
-                            "z": 7.370829922348538e-43,
-                            "w": 4.7057463518938189e-27
+                            "x": 5.843414596234487e-43,
+                            "y": -9.138620786291032e-27,
+                            "z": 5.843414596234487e-43,
+                            "w": -9.138620786291032e-27
                         },
                         "ColorGradientPoints": [
                             {
                                 "cereal_class_version": 0,
                                 "value0": 0.0,
                                 "value1": {
-                                    "value0": 1.0,
-                                    "value1": 1.0,
-                                    "value2": 1.0,
+                                    "value0": 0.8823529481887817,
+                                    "value1": 0.35850727558135989,
+                                    "value2": 0.09019606560468674,
                                     "value3": 1.0
                                 }
                             },
                             {
                                 "value0": 1.0,
                                 "value1": {
-                                    "value0": 1.0,
-                                    "value1": 1.0,
-                                    "value2": 1.0,
-                                    "value3": 1.0
+                                    "value0": 0.9529411792755127,
+                                    "value1": 0.5568627715110779,
+                                    "value2": 0.10980392247438431,
+                                    "value3": 0.38823530077934267
                                 }
                             }
                         ],
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 324.60260009765627,
+                        "ElapsedTime": 280.8877868652344,
                         "TextureUUID": {
-                            "value0": 17847465092735393937
+                            "value0": 5108660922888521590
                         }
                     }
                 }
