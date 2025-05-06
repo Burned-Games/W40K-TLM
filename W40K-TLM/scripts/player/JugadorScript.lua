@@ -220,6 +220,8 @@ activateAutoAim = false
 
 local aimAnimation = false
 
+playerScript = nil
+
 function on_ready()
     sceneName = SceneManager:get_scene_name()
 
@@ -270,6 +272,7 @@ function on_ready()
 
     transf = self:get_component("TransformComponent")
 
+    playerScript = self:get_component("ScriptComponent")
 
     rotationAngle = { value = self:get_component("TransformComponent").position.y }
     
@@ -1359,7 +1362,7 @@ end
 function handleBleed(dt)
 
     if isBleeding then
-        health = effect:bleed(health, dt)
+        health = effect:bleed(playerScript, health, dt)
         --playerBleedingSFX:play()
     end
 

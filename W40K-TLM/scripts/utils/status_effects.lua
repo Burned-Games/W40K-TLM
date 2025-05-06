@@ -26,7 +26,7 @@ function effect:apply_bleed(entityScript)
 
 end
 
-function effect:bleed(health, dt)
+function effect:bleed(entityScript,health, dt)
 
     bleedTimer = bleedTimer - dt
     timeSinceLastBleed = timeSinceLastBleed + dt
@@ -37,9 +37,9 @@ function effect:bleed(health, dt)
         end
         timeSinceLastBleed = 0
     end
-
+    
     if bleedTimer <= 0 then
-        self.isBleeding = false
+        entityScript.isBleeding = false
     end
 
     return health
