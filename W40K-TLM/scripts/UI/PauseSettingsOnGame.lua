@@ -18,6 +18,7 @@ local ExitText
 local PauseText
 local SettingsBaseText
 local BaseTextureBG
+local HUD = nil
 
 isPaused = false
 
@@ -60,6 +61,8 @@ function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
 
+    HUD = current_scene:get_entity_by_name("HUD")
+
     if currentSelectedSlider == 1 then
         slider1.selected = true
         slider2.selected = false
@@ -98,11 +101,13 @@ function on_update(dt)
             isPaused = false
             visibilidad1Entity:set_active(false)
             visibilidad2Entity:set_active(false)
+            HUD:set_active(true)
             isOnPauseSettings = false
 
         else
             isPaused = true
             visibilidad1Entity:set_active(true)
+            HUD:set_active(false)
             if workbenchUIManagerScript.isWorkBenchOpen == true then
                 workbenchUIManagerScript:hide_ui() 
             end
@@ -243,6 +248,7 @@ function on_update(dt)
         sceneChanged = true
         visibilidad1Entity:set_active(false)
         visibilidad2Entity:set_active(false)
+        HUD:set_active(true)
         isOnPauseSettings = false
         isPaused = false
     end 
