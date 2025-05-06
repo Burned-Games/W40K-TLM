@@ -1,0 +1,104 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Destructibles_Prop_Barrel_v01-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 14340832127344781863
+                        }
+                    },
+                    {
+                        "key": "Destructibles_Prop_Barrel_v01-1",
+                        "value": {
+                            "value0": 723972938962118272
+                        }
+                    },
+                    {
+                        "key": "Destructibles_Prop_Barrel_v01-2",
+                        "value": {
+                            "value0": 18098193040992123685
+                        }
+                    },
+                    {
+                        "key": "Destructibles_Prop_Barrel_v01-3",
+                        "value": {
+                            "value0": 3851051753133224578
+                        }
+                    },
+                    {
+                        "key": "Destructibles_Prop_Barrel_v01-4",
+                        "value": {
+                            "value0": 15393946754209501
+                        }
+                    },
+                    {
+                        "key": "Destructibles_Prop_Barrel_v01-5",
+                        "value": {
+                            "value0": 18142856197374247301
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "barrelMAT.001_Mat0",
+                        "value": {
+                            "value0": 7638533462398683199
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.002_Mat1",
+                        "value": {
+                            "value0": 3175367254353852306
+                        }
+                    },
+                    {
+                        "key": "Material.010_Mat2",
+                        "value": {
+                            "value0": 13429861144740879375
+                        }
+                    },
+                    {
+                        "key": "Material.007_Mat4",
+                        "value": {
+                            "value0": 8132031906419757801
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat3",
+                        "value": {
+                            "value0": 2430466351222318601
+                        }
+                    },
+                    {
+                        "key": "Material.018_Mat5",
+                        "value": {
+                            "value0": 8608392466520244293
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 2449990365259994812
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel1/AssetDressingUpdate1/DestructiblesLevel1/Destructibles.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/2449990365259994812.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

@@ -2688,134 +2688,178 @@
         "value627": 22,
         "value628": 14,
         "value629": {
-            "cereal_class_version": 0,
-            "Material": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 5013373291479302372
             }
         },
         "value630": 15,
         "value631": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 5013373291479302372
             }
         },
         "value632": 16,
         "value633": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 16574589554561446541
             }
         },
         "value634": 17,
         "value635": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 11986006820189164847
             }
         },
         "value636": 18,
         "value637": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 16508454056983102542
             }
         },
         "value638": 19,
         "value639": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 16508454056983102542
             }
         },
         "value640": 20,
         "value641": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 15419052778490210292
             }
         },
         "value642": 21,
         "value643": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 15419052778490210292
             }
         },
         "value644": 22,
         "value645": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 13192220213484133887
             }
         },
         "value646": 23,
         "value647": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 13192220213484133887
             }
         },
         "value648": 24,
         "value649": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 16574589554561446541
             }
         },
         "value650": 48,
         "value651": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 11372316082866776952
             }
         },
         "value652": 49,
         "value653": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 11372316082866776952
             }
         },
         "value654": 50,
         "value655": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 8348193485042813902
             }
         },
         "value656": 51,
         "value657": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 7927663519988027713
             }
         },
         "value658": 52,
         "value659": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 15158911836875380333
             }
         },
         "value660": 53,
         "value661": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 15158911836875380333
             }
         },
         "value662": 54,
         "value663": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 12155827881145589550
             }
         },
         "value664": 55,
         "value665": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 12155827881145589550
             }
         },
         "value666": 56,
         "value667": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 6815303935430544860
             }
         },
         "value668": 57,
         "value669": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 6815303935430544860
             }
         },
         "value670": 58,
         "value671": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 8348193485042813902
             }
         },
@@ -3297,7 +3341,7 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 28812.193359375,
+                        "ElapsedTime": 28820.5859375,
                         "TextureUUID": {
                             "value0": 3119739597825529390
                         }

@@ -72,47 +72,27 @@ function give_phisycs()
     separate:get_component("TransformComponent").position = self:get_component("TransformComponent").position
     separate:get_component("TransformComponent").rotation = self:get_component("TransformComponent").rotation
 
-    separateChildren = separate:get_children()
+    separateChildren = separate:get_children();
 
-    for _, child in ipairs(separateChildren) do
-        if child:has_component("RigidbodyComponent") then
-            local rb = child:get_component("RigidbodyComponent").rb
+     local randomNumberSpawnScrap = math.random(1,3)
 
-            local pivotObjectPosition = self:get_component("TransformComponent").position
-            local pivotChildPosition = child:get_component("TransformComponent").position
+     for i = 1, randomNumberSpawnScrap do
+         local scrap = instantiate_prefab(prefabScrap)
 
-            local pivotChildPositionOffset = Vector3.new(pivotObjectPosition.x + pivotChildPosition.x, pivotObjectPosition.y + pivotChildPosition.y, pivotObjectPosition.z + pivotChildPosition.z)
+         --local randomX = math.random((transform.position.x - scrapSpawnArea), (transform.position.x + scrapSpawnArea))
+         --local randomZ = math.random((transform.position.z - scrapSpawnArea), (transform.position.z + scrapSpawnArea))
 
-            local impulseForce = Vector3.new(pivotObjectPosition.x - pivotChildPositionOffset.x, pivotObjectPosition.y - pivotChildPositionOffset.y, pivotObjectPosition.z - pivotChildPositionOffset.z )
+      local positionXMIN = transform.position.x - scrapSpawnArea
+         local positionXMAX = transform.position.x + scrapSpawnArea
+         local positionZMIN = transform.position.z - scrapSpawnArea
+         local positionZMAX = transform.position.z + scrapSpawnArea
 
-            impulseForce = Vector3.new((impulseForce.x + impulseStrength) * math.random(-1,1), (impulseForce.y  + 0) + math.random(-1,1), (impulseForce.z  + impulseStrength) * math.random(-1,1))
+         local randomX = positionXMIN + (positionXMAX - positionXMIN) * math.random()
+         local randomZ = positionZMIN + (positionZMAX - positionZMIN) * math.random()
 
-            rb:apply_impulse(impulseForce)
-            rb:apply_torque_impulse(impulseForce)
-        
-        end
+         scrap:get_component("TransformComponent").position = Vector3.new(randomX, transform.position.y, randomZ)
 
-    end
-
-    local randomNumberSpawnScrap = math.random(1,3)
-
-    for i = 1, randomNumberSpawnScrap do
-        local scrap = instantiate_prefab(prefabScrap)
-
-        --local randomX = math.random((transform.position.x - scrapSpawnArea), (transform.position.x + scrapSpawnArea))
-        --local randomZ = math.random((transform.position.z - scrapSpawnArea), (transform.position.z + scrapSpawnArea))
-
-        local positionXMIN = transform.position.x - scrapSpawnArea
-        local positionXMAX = transform.position.x + scrapSpawnArea
-        local positionZMIN = transform.position.z - scrapSpawnArea
-        local positionZMAX = transform.position.z + scrapSpawnArea
-
-        local randomX = positionXMIN + (positionXMAX - positionXMIN) * math.random()
-        local randomZ = positionZMIN + (positionZMAX - positionZMIN) * math.random()
-
-        scrap:get_component("TransformComponent").position = Vector3.new(randomX, transform.position.y, randomZ)
-
-    end
+     end
 
     
 

@@ -7,8 +7,9 @@ function on_ready()
         if not child:has_component("RigidbodyComponent") then
             child:add_component("RigidbodyComponent")
             child:get_component("RigidbodyComponent").rb:set_body_type(0)
-            child:remove_component("MeshComponent") 
+            
         end 
+        child:remove_component("MeshComponent") 
     end
 end
 

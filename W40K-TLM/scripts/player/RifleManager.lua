@@ -120,7 +120,7 @@ local astartesFervorManager = nil
 
 vfxShootTransf = nil
 
-vfxShootPosY =  1.403
+vfxShootPosY =  1.533
 
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
