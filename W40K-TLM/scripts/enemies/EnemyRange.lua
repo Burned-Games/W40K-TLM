@@ -126,7 +126,7 @@ function on_ready()
     range.dieAnimDuration = 0.90
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
-    --range.detectAnimDuration = 2.33
+    range.detectAnimDuration = 2.33
     range.detectAnimTimer = 0.0
 
     -- Lists
@@ -272,8 +272,9 @@ function change_state(dt)
     range:enemy_raycast(dt)
     range:check_player_distance()
 
-    if range.playerDetected and range.currentState ~= range.state.Detect and not range.isAlerted then
+    if range.playerDetected and range.currentState ~= range.state.Detect and not range.isAlerted and not range.hasAlerted then
         range.currentState = range.state.Detect
+        range:avoid_alert_enemies()
         return
     end
 
@@ -563,23 +564,6 @@ function range:find_nearby_enemies()
             end
         end
     end
-end
-
-function range:alert_nearby_enemies(dt)  
-    if range.isAlerted then return end
-    local alertedCount = 0
-    for _, enemyData in ipairs(range.nearbyEnemies) do
-        if enemyData.script and not enemyData.alerted then
-            enemyData.script.playerDetected = true
-            enemyData.script.isAlerted = true
-            enemyData.script.alertTimer = 0.0
-            enemyData.alerted = true
-            alertedCount = alertedCount + 1
-        end
-    end
-    range.isAlerted = true
-    range.currentState = range.state.Move
-
 end
 
 function range:set_stats(level)

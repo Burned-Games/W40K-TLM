@@ -134,6 +134,7 @@ function enemy:new(obj)
 
     -- Alert system
     obj.isAlerted = false
+    obj.hasAlerted = false
 
     return obj
 
@@ -154,6 +155,18 @@ function enemy:alert_nearby_enemies(dt)
     self.isAlerted = true
     self.currentState = self.state.Move
 end
+
+
+function enemy:avoid_alert_enemies(dt)  
+    if self.hasAlerted then return end
+    for _, enemyData in ipairs(self.nearbyEnemies) do
+        if enemyData.script then
+            enemyData.script.hasAlerted = true
+        end
+    end
+    self.hasAlerted = true
+end
+
 
 
 function enemy:check_effects(dt)
@@ -234,7 +247,7 @@ function enemy:detect_state(dt)
     end
 
     if self.detectAnimTimer >= self.detectAnimDuration and not self.isAlerted then
-        self.alert_nearby_enemies(dt)
+        self:alert_nearby_enemies(dt)
 
         self.playingDetectAnim = false
     end
