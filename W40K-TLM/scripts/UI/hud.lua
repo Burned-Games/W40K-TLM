@@ -457,10 +457,14 @@
     end
 
     function buff_debuff_manager()
+
+        local bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
         if playerScript.isBleeding then
             sangradoEntity:set_active(true)
+            bleedingFeedback:set_active(true)
         else
             sangradoEntity:set_active(false)
+            bleedingFeedback:set_active(false)
         end
         
         if playerScript.isStunned then
