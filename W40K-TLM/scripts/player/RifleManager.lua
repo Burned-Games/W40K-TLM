@@ -118,6 +118,10 @@ local cameraScript = nil
 
 local astartesFervorManager = nil
 
+vfxShootTransf = nil
+
+vfxShootPosY =  1.403
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -135,14 +139,14 @@ function on_ready()
     -- sphere1RigidBody = sphere1:get_component("RigidbodyComponent").rb
     -- sphere1RigidBody:set_trigger(true)
 
-    local children = player:get_children()
-    for _, child in ipairs(children) do
-        if child:get_component("TagComponent").tag == "vfxShoot" then
-            vfxShoot = child
-            vfxShoot:get_component("TransformComponent").position.y = -830
-        end
-    end
-
+    -- local children = player:get_children()
+    -- for _, child in ipairs(children) do
+    --     if child:get_component("TagComponent").tag == "vfxShoot" then
+    --         vfxShoot = child
+    --         vfxShoot:get_component("TransformComponent").position.y = -830
+    --     end
+    -- end
+    vfxShootTransf = current_scene:get_entity_by_name("vfxShoot"):get_component("TransformComponent")
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
         local bullet = {}
@@ -327,7 +331,6 @@ function on_update(dt)
             if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false then
                 
                 if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
-                    print("wwwwwwwwwwww")
                     playerScript.currentUpAnim = playerScript.attack
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     shootAnimation = true
@@ -335,7 +338,7 @@ function on_update(dt)
                 
                 if shootCoolDown >= currentShootCoolDownRifle then
                     tripleShoot()
-                    --vfxShoot:get_component("TransformComponent").position.y = 1.403
+                    vfxShootTransf.position.y = vfxShootPosY
                     --shootParticlesComponent:emit(6)
                     ammo = ammo + 3
                     shooted = true
@@ -347,7 +350,7 @@ function on_update(dt)
 
             else
                 
-                --vfxShoot:get_component("TransformComponent").position.y = 830
+                vfxShootTransf.position.y = 830
                 if disruptorShooted2 == false then
                     playerScript.activateAutoAim = false
                 end

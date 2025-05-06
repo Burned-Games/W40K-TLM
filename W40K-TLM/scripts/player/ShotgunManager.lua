@@ -106,11 +106,17 @@ local manualReload = false
 
 local astartesFervorManager = nil
 
+local bolterScript = nil
+
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
-    
+    if current_scene:get_entity_by_name("BolterManager"):has_component("ScriptComponent") then
+
+        bolterScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
+    end
     -- Audio
     shotgunBulletImpactsSFX = current_scene:get_entity_by_name("ShotgunBulletImpactsSFX"):get_component("AudioSourceComponent")
     shotgunGrenadeShotSFX = current_scene:get_entity_by_name("ShotgunGrenadeShotSFX"):get_component("AudioSourceComponent")
@@ -245,6 +251,7 @@ function on_update(dt)
                 end
                 if ammo > 0 and current_time >= next_fire_time then
                     ammo = ammo - 1  -- use bullet 
+                    bolterScript.vfxShootTransf.position.y = vfxShootPosY
                     shoot(dt)
                     next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
                     
@@ -254,6 +261,8 @@ function on_update(dt)
                 if playerScript.currentAnim ~= -1 and shootAnimation == true then
                     playerScript.currentAnim = -1
                 end
+                bolterScript.vfxShootTransf.position.y = 830
+                
                 shootAnimation = false
                 
                 
