@@ -76,11 +76,11 @@ function on_ready()
 
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
-    local savedVolumeGeneral = load_progress("musicVolumeGeneral", 1.0)
+    local savedVolumeGeneral = load_progress("musicVolumeGeneral", 50.0)
     savedVolumeGeneral = savedVolumeGeneral / 100
     slider1.value = savedVolumeGeneral
     
-    local savedFXVolume = load_progress("fxVolume", 100.0)
+    local savedFXVolume = load_progress("fxVolume", 50.0)
     savedFXVolume = savedFXVolume / 100
     slider2.value = savedFXVolume
 
