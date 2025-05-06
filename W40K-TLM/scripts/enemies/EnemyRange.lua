@@ -126,7 +126,7 @@ function on_ready()
     range.dieAnimDuration = 0.90
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
-    range.detectAnimDuration = 2.33
+    --range.detectAnimDuration = 2.33
     range.detectAnimTimer = 0.0
 
     -- Lists
