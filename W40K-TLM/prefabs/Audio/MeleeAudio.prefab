@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 0,
             "value0": "MeleeAudio_Prefab",
@@ -10,7 +10,7 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 11329635875274114473
+                "value0": 6420676586429775879
             }
         },
         "RootEntity": 0,
@@ -27,11 +27,11 @@
         },
         "value8": 1,
         "value9": {
-            "Tag": "MeleeAttack"
+            "Tag": "MeleeHit"
         },
         "value10": 2,
         "value11": {
-            "Tag": "MeleeHit"
+            "Tag": "MeleeAttack"
         },
         "value12": 3,
         "value13": 0,
@@ -128,7 +128,7 @@
         "value39": 1,
         "value40": {
             "cereal_class_version": 0,
-            "GameObjectID": 10385388559825110485,
+            "GameObjectID": 10273528540381889628,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -143,8 +143,8 @@
                 }
             },
             "AudioBankName": "MeleeSFX",
-            "EventName": "Play_ChainswordAttack",
-            "Volume": 1.0,
+            "EventName": "Play_ChainswordHit",
+            "Volume": 0.32100000977516177,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -168,15 +168,15 @@
         },
         "value41": 2,
         "value42": {
-            "GameObjectID": 10273528540381889628,
+            "GameObjectID": 10385388559825110485,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "MeleeSFX",
-            "EventName": "Play_ChainswordHit",
-            "Volume": 1.0,
+            "EventName": "Play_ChainswordAttack",
+            "Volume": 0.3490000069141388,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -207,6 +207,7 @@
         "value49": 0,
         "value50": 0,
         "value51": 0,
-        "value52": 0
+        "value52": 0,
+        "value53": 0
     }
 }

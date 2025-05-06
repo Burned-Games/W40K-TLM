@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 0,
             "value0": "BolterRifleAudio_Prefab",
@@ -10,7 +10,7 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 2928003254736026004
+                "value0": 2819407940584302941
             }
         },
         "RootEntity": 0,
@@ -32,15 +32,15 @@
         },
         "value13": 1,
         "value14": {
-            "Tag": "BolterBulletImpactsSFX"
+            "Tag": "BolterSkillAreaSFX"
         },
         "value15": 2,
         "value16": {
-            "Tag": "BolterShotSFX"
+            "Tag": "BolterSkillChargeSFX"
         },
         "value17": 3,
         "value18": {
-            "Tag": "BolterReloadSFX"
+            "Tag": "BolterSkillExplosionSFX"
         },
         "value19": 4,
         "value20": {
@@ -48,15 +48,15 @@
         },
         "value21": 5,
         "value22": {
-            "Tag": "BolterSkillExplosionSFX"
+            "Tag": "BolterReloadSFX"
         },
         "value23": 6,
         "value24": {
-            "Tag": "BolterSkillChargeSFX"
+            "Tag": "BolterShotSFX"
         },
         "value25": 7,
         "value26": {
-            "Tag": "BolterSkillAreaSFX"
+            "Tag": "BolterBulletImpactsSFX"
         },
         "value27": 8,
         "value28": 0,
@@ -283,7 +283,7 @@
         "value79": 1,
         "value80": {
             "cereal_class_version": 0,
-            "GameObjectID": 12730425632419176089,
+            "GameObjectID": 6775616429335001733,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -292,14 +292,19 @@
                         "Name": "BolterSFX",
                         "Events": [
                             "Play_BolterBulletImpacts",
+                            "Play_BolterRifleReload",
+                            "Play_BolterRifleSkillArea",
+                            "Play_BolterRifleSkillCharge",
+                            "Play_BolterRifleSkillExplosion",
+                            "Play_BolterRifleSkillShot",
                             "Play_BolterShot"
                         ]
                     }
                 }
             },
             "AudioBankName": "BolterSFX",
-            "EventName": "Play_BolterBulletImpacts",
-            "Volume": 1.0,
+            "EventName": "Play_BolterRifleSkillArea",
+            "Volume": 0.3019999861717224,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -323,15 +328,15 @@
         },
         "value81": 2,
         "value82": {
-            "GameObjectID": 14951850516534642806,
+            "GameObjectID": 2711782696223696872,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "BolterSFX",
-            "EventName": "Play_BolterShot",
-            "Volume": 0.5080000162124634,
+            "EventName": "Play_BolterRifleSkillCharge",
+            "Volume": 0.32499998807907107,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -355,23 +360,15 @@
         },
         "value83": 3,
         "value84": {
-            "GameObjectID": 14893701237418069444,
+            "GameObjectID": 8771593609474293266,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483650,
-                    "data": {
-                        "Name": "BolterSFX",
-                        "Events": [
-                            "Play_BolterBulletImpacts",
-                            "Play_BolterRifleReload",
-                            "Play_BolterShot"
-                        ]
-                    }
+                    "id": 1
                 }
             },
             "AudioBankName": "BolterSFX",
-            "EventName": "Play_BolterRifleReload",
-            "Volume": 1.0,
+            "EventName": "Play_BolterRifleSkillExplosion",
+            "Volume": 0.37299999594688418,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -398,24 +395,12 @@
             "GameObjectID": 16254793767052205973,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483651,
-                    "data": {
-                        "Name": "BolterSFX",
-                        "Events": [
-                            "Play_BolterBulletImpacts",
-                            "Play_BolterRifleReload",
-                            "Play_BolterRifleSkillArea",
-                            "Play_BolterRifleSkillCharge",
-                            "Play_BolterRifleSkillExplosion",
-                            "Play_BolterRifleSkillShot",
-                            "Play_BolterShot"
-                        ]
-                    }
+                    "id": 1
                 }
             },
             "AudioBankName": "BolterSFX",
             "EventName": "Play_BolterRifleSkillShot",
-            "Volume": 1.0,
+            "Volume": 0.2549999952316284,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -439,15 +424,23 @@
         },
         "value87": 5,
         "value88": {
-            "GameObjectID": 8771593609474293266,
+            "GameObjectID": 14893701237418069444,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 3
+                    "id": 2147483650,
+                    "data": {
+                        "Name": "BolterSFX",
+                        "Events": [
+                            "Play_BolterBulletImpacts",
+                            "Play_BolterRifleReload",
+                            "Play_BolterShot"
+                        ]
+                    }
                 }
             },
             "AudioBankName": "BolterSFX",
-            "EventName": "Play_BolterRifleSkillExplosion",
-            "Volume": 1.0,
+            "EventName": "Play_BolterRifleReload",
+            "Volume": 0.3019999861717224,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -471,15 +464,22 @@
         },
         "value89": 6,
         "value90": {
-            "GameObjectID": 2711782696223696872,
+            "GameObjectID": 14951850516534642806,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 3
+                    "id": 2147483651,
+                    "data": {
+                        "Name": "BolterSFX",
+                        "Events": [
+                            "Play_BolterBulletImpacts",
+                            "Play_BolterShot"
+                        ]
+                    }
                 }
             },
             "AudioBankName": "BolterSFX",
-            "EventName": "Play_BolterRifleSkillCharge",
-            "Volume": 1.0,
+            "EventName": "Play_BolterShot",
+            "Volume": 0.20100000500679017,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -503,15 +503,15 @@
         },
         "value91": 7,
         "value92": {
-            "GameObjectID": 6775616429335001733,
+            "GameObjectID": 12730425632419176089,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 3
                 }
             },
             "AudioBankName": "BolterSFX",
-            "EventName": "Play_BolterRifleSkillArea",
-            "Volume": 1.0,
+            "EventName": "Play_BolterBulletImpacts",
+            "Volume": 0.23100000619888307,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -542,6 +542,7 @@
         "value99": 0,
         "value100": 0,
         "value101": 0,
-        "value102": 0
+        "value102": 0,
+        "value103": 0
     }
 }

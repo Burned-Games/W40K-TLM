@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 0,
             "value0": "EnemyRangeAudio_Prefab",
@@ -10,7 +10,7 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 13022775396266104793
+                "value0": 11205594507152827067
             }
         },
         "RootEntity": 0,
@@ -31,27 +31,27 @@
         },
         "value12": 1,
         "value13": {
-            "Tag": "RangeDyingSFX"
+            "Tag": "RangeStompSFX"
         },
         "value14": 2,
         "value15": {
-            "Tag": "RangeHurtSFX"
+            "Tag": "RangeShotSFX"
         },
         "value16": 3,
         "value17": {
-            "Tag": "RangeBulletImpactSFX"
+            "Tag": "RangeCaCImpactSFX"
         },
         "value18": 4,
         "value19": {
-            "Tag": "RangeCaCImpactSFX"
+            "Tag": "RangeBulletImpactSFX"
         },
         "value20": 5,
         "value21": {
-            "Tag": "RangeShotSFX"
+            "Tag": "RangeHurtSFX"
         },
         "value22": 6,
         "value23": {
-            "Tag": "RangeStompSFX"
+            "Tag": "RangeDyingSFX"
         },
         "value24": 7,
         "value25": 0,
@@ -252,7 +252,7 @@
         "value71": 1,
         "value72": {
             "cereal_class_version": 0,
-            "GameObjectID": 5726376078884207463,
+            "GameObjectID": 7767491048050014299,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -271,8 +271,8 @@
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedDying",
-            "Volume": 0.009999999776482582,
+            "EventName": "Play_RangedStomp",
+            "Volume": 0.27399998903274538,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -296,7 +296,7 @@
         },
         "value73": 2,
         "value74": {
-            "GameObjectID": 6484491094923457821,
+            "GameObjectID": 3974621043292008700,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483650,
@@ -313,8 +313,8 @@
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedHurt",
-            "Volume": 1.0,
+            "EventName": "Play_RangedShot",
+            "Volume": 0.24699999392032624,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -338,15 +338,15 @@
         },
         "value75": 3,
         "value76": {
-            "GameObjectID": 5751540155656303417,
+            "GameObjectID": 4758222267947128748,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedImpactoBalasPlayer",
-            "Volume": 1.0,
+            "EventName": "Play_RangedImpactoCaCPlayer",
+            "Volume": 0.3070000112056732,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -370,15 +370,15 @@
         },
         "value77": 4,
         "value78": {
-            "GameObjectID": 4758222267947128748,
+            "GameObjectID": 5751540155656303417,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedImpactoCaCPlayer",
-            "Volume": 1.0,
+            "EventName": "Play_RangedImpactoBalasPlayer",
+            "Volume": 0.20800000429153443,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -402,15 +402,15 @@
         },
         "value79": 5,
         "value80": {
-            "GameObjectID": 3974621043292008700,
+            "GameObjectID": 6484491094923457821,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedShot",
-            "Volume": 0.3790000081062317,
+            "EventName": "Play_RangedHurt",
+            "Volume": 0.10400000214576721,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -434,15 +434,15 @@
         },
         "value81": 6,
         "value82": {
-            "GameObjectID": 7767491048050014299,
+            "GameObjectID": 5726376078884207463,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedStomp",
-            "Volume": 1.0,
+            "EventName": "Play_RangedDying",
+            "Volume": 0.515999972820282,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -473,6 +473,7 @@
         "value89": 0,
         "value90": 0,
         "value91": 0,
-        "value92": 0
+        "value92": 0,
+        "value93": 0
     }
 }

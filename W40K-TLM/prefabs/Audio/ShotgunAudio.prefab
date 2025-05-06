@@ -3,19 +3,19 @@
         "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 0,
-            "value0": "EnemyTankAudio_Prefab",
+            "value0": "ShotgunAudio_Prefab",
             "value1": {
                 "value0": ""
             },
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 6503015731347634443
+                "value0": 12954679740415785201
             }
         },
         "RootEntity": 0,
-        "value0": 7,
-        "value1": 7,
+        "value0": 6,
+        "value1": 6,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -23,39 +23,34 @@
         "value6": 4,
         "value7": 5,
         "value8": 6,
-        "value9": 7,
-        "value10": 0,
-        "value11": {
+        "value9": 0,
+        "value10": {
             "cereal_class_version": 0,
-            "Tag": "EnemyTankAudio"
+            "Tag": "ShotgunAudio"
         },
-        "value12": 1,
-        "value13": {
-            "Tag": "TankDeadSFX"
+        "value11": 1,
+        "value12": {
+            "Tag": "ShotgunBulletImpactsSFX"
         },
-        "value14": 2,
-        "value15": {
-            "Tag": "TankHurtSFX"
+        "value13": 2,
+        "value14": {
+            "Tag": "ShotgunGrenadeShotSFX"
         },
-        "value16": 3,
-        "value17": {
-            "Tag": "TankImpactPlayerSFX"
+        "value15": 3,
+        "value16": {
+            "Tag": "ShotgunGrenadeSmokeSFX"
         },
-        "value18": 4,
-        "value19": {
-            "Tag": "TankDetectPlayerSFX"
+        "value17": 4,
+        "value18": {
+            "Tag": "ShotgunReloadSFX"
         },
-        "value20": 5,
-        "value21": {
-            "Tag": "TankBerserkerSFX"
+        "value19": 5,
+        "value20": {
+            "Tag": "ShotgunShotSFX"
         },
-        "value22": 6,
+        "value21": 6,
+        "value22": 0,
         "value23": {
-            "Tag": "TankStepsSFX"
-        },
-        "value24": 7,
-        "value25": 0,
-        "value26": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
@@ -73,8 +68,8 @@
                 "z": 1.0
             }
         },
-        "value27": 1,
-        "value28": {
+        "value24": 1,
+        "value25": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -91,8 +86,8 @@
                 "z": 1.0
             }
         },
-        "value29": 2,
-        "value30": {
+        "value26": 2,
+        "value27": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -109,8 +104,8 @@
                 "z": 1.0
             }
         },
-        "value31": 3,
-        "value32": {
+        "value28": 3,
+        "value29": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -127,8 +122,8 @@
                 "z": 1.0
             }
         },
-        "value33": 4,
-        "value34": {
+        "value30": 4,
+        "value31": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -145,133 +140,202 @@
                 "z": 1.0
             }
         },
-        "value35": 5,
+        "value32": 5,
+        "value33": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value34": 6,
+        "value35": 0,
         "value36": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value37": 6,
-        "value38": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value39": 7,
-        "value40": 0,
-        "value41": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value42": 1,
-        "value43": {
+        "value37": 1,
+        "value38": {
             "Parent": 0,
             "First": 4294967295,
-            "Next": 6,
-            "Prev": 4
+            "Next": 5,
+            "Prev": 3
         },
-        "value44": 2,
-        "value45": {
+        "value39": 2,
+        "value40": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1
         },
-        "value46": 3,
-        "value47": {
+        "value41": 3,
+        "value42": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2
         },
-        "value48": 4,
-        "value49": {
+        "value43": 4,
+        "value44": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 3
         },
-        "value50": 5,
-        "value51": {
+        "value45": 5,
+        "value46": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4
         },
-        "value52": 6,
-        "value53": {
-            "Parent": 0,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 5
-        },
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 0,
+        "value51": 0,
+        "value52": 0,
+        "value53": 6,
         "value54": 0,
-        "value55": 0,
-        "value56": 0,
-        "value57": 0,
-        "value58": 0,
-        "value59": 0,
-        "value60": 7,
+        "value55": 1,
+        "value56": 2,
+        "value57": 3,
+        "value58": 4,
+        "value59": 5,
+        "value60": 0,
         "value61": 0,
-        "value62": 1,
-        "value63": 2,
-        "value64": 3,
-        "value65": 4,
-        "value66": 5,
-        "value67": 6,
-        "value68": 0,
-        "value69": 0,
-        "value70": 6,
-        "value71": 1,
-        "value72": {
+        "value62": 5,
+        "value63": 1,
+        "value64": {
             "cereal_class_version": 0,
-            "GameObjectID": 1243482678751162951,
+            "GameObjectID": 8390152398064475195,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
                         "cereal_class_version": 0,
-                        "Name": "TankSFX",
+                        "Name": "ShotgunSFX",
                         "Events": [
-                            "Play_TankBerserker",
-                            "Play_TankDead",
-                            "Play_TankDetectPlayer",
-                            "Play_TankHurt",
-                            "Play_TankImpactPlayer",
-                            "Play_TankSteps"
+                            "Play_ShotgunBulletImpacts",
+                            "Play_ShotgunGrenadeShot",
+                            "Play_ShotgunGrenadeSmoke",
+                            "Play_ShotgunReload",
+                            "Play_ShotgunShot"
                         ]
                     }
                 }
             },
-            "AudioBankName": "TankSFX",
-            "EventName": "Play_TankDead",
+            "AudioBankName": "ShotgunSFX",
+            "EventName": "Play_ShotgunBulletImpacts",
+            "Volume": 0.21699999272823335,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value65": 2,
+        "value66": {
+            "GameObjectID": 12390673525581197779,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "ShotgunSFX",
+            "EventName": "Play_ShotgunGrenadeShot",
+            "Volume": 0.2460000067949295,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value67": 3,
+        "value68": {
+            "GameObjectID": 11032130947413478563,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "ShotgunSFX",
+            "EventName": "Play_ShotgunGrenadeSmoke",
+            "Volume": 0.22200000286102296,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value69": 4,
+        "value70": {
+            "GameObjectID": 15623342468235196545,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "ShotgunSFX",
+            "EventName": "Play_ShotgunReload",
             "Volume": 0.27799999713897707,
             "Mute": false,
             "PlayOnAwake": false,
@@ -294,17 +358,17 @@
                 "m33": 1.0
             }
         },
-        "value73": 2,
-        "value74": {
-            "GameObjectID": 12851904662088717239,
+        "value71": 5,
+        "value72": {
+            "GameObjectID": 3709381073859797251,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
-            "AudioBankName": "TankSFX",
-            "EventName": "Play_TankHurt",
-            "Volume": 0.1940000057220459,
+            "AudioBankName": "ShotgunSFX",
+            "EventName": "Play_ShotgunShot",
+            "Volume": 0.20000000298023225,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -326,153 +390,16 @@
                 "m33": 1.0
             }
         },
-        "value75": 3,
-        "value76": {
-            "GameObjectID": 6489254453371455043,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 2147483650,
-                    "data": {
-                        "Name": "TankSFX",
-                        "Events": [
-                            "Play_TankBerserker",
-                            "Play_TankDetectPlayer",
-                            "Play_TankImpactPlayer",
-                            "Play_TankSteps"
-                        ]
-                    }
-                }
-            },
-            "AudioBankName": "TankSFX",
-            "EventName": "Play_TankImpactPlayer",
-            "Volume": 0.24500000476837159,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value77": 4,
-        "value78": {
-            "GameObjectID": 15389217686627097709,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 2
-                }
-            },
-            "AudioBankName": "TankSFX",
-            "EventName": "Play_TankDetectPlayer",
-            "Volume": 0.2070000022649765,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value79": 5,
-        "value80": {
-            "GameObjectID": 20035084951501541,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 2
-                }
-            },
-            "AudioBankName": "TankSFX",
-            "EventName": "Play_TankBerserker",
-            "Volume": 0.25,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value81": 6,
-        "value82": {
-            "GameObjectID": 5469280175021168163,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 2
-                }
-            },
-            "AudioBankName": "TankSFX",
-            "EventName": "Play_TankSteps",
-            "Volume": 0.32499998807907107,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value83": 0,
-        "value84": 0,
-        "value85": 0,
-        "value86": 0,
-        "value87": 0,
-        "value88": 0,
-        "value89": 0,
-        "value90": 0,
-        "value91": 0,
-        "value92": 0,
-        "value93": 0
+        "value73": 0,
+        "value74": 0,
+        "value75": 0,
+        "value76": 0,
+        "value77": 0,
+        "value78": 0,
+        "value79": 0,
+        "value80": 0,
+        "value81": 0,
+        "value82": 0,
+        "value83": 0
     }
 }

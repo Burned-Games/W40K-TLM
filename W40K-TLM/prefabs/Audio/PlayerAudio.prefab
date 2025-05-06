@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 0,
             "value0": "PlayerAudio_Prefab",
@@ -10,7 +10,7 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 15079841442664810733
+                "value0": 2092716304424512034
             }
         },
         "RootEntity": 0,
@@ -35,43 +35,43 @@
         },
         "value16": 1,
         "value17": {
-            "Tag": "BannerFallSFX"
+            "Tag": "PlayerSwapWeaponsSFX"
         },
         "value18": 2,
         "value19": {
-            "Tag": "BannerZoneSFX"
+            "Tag": "PlayerStepsSFX"
         },
         "value20": 3,
         "value21": {
-            "Tag": "PlayerBleedingSFX"
+            "Tag": "PlayerOverloadsSFX"
         },
         "value22": 4,
         "value23": {
-            "Tag": "PlayerBurningSFX"
+            "Tag": "PlayerInyectorSFX"
         },
         "value24": 5,
         "value25": {
-            "Tag": "PlayerDashSFX"
+            "Tag": "PlayerDeathSFX"
         },
         "value26": 6,
         "value27": {
-            "Tag": "PlayerDeathSFX"
+            "Tag": "PlayerDashSFX"
         },
         "value28": 7,
         "value29": {
-            "Tag": "PlayerInyectorSFX"
+            "Tag": "PlayerBurningSFX"
         },
         "value30": 8,
         "value31": {
-            "Tag": "PlayerOverloadsSFX"
+            "Tag": "PlayerBleedingSFX"
         },
         "value32": 9,
         "value33": {
-            "Tag": "PlayerStepsSFX"
+            "Tag": "BannerZoneSFX"
         },
         "value34": 10,
         "value35": {
-            "Tag": "PlayerSwapWeaponsSFX"
+            "Tag": "BannerFallSFX"
         },
         "value36": 11,
         "value37": 0,
@@ -376,7 +376,7 @@
         "value103": 1,
         "value104": {
             "cereal_class_version": 0,
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 3266615419147511299,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -400,8 +400,8 @@
                 }
             },
             "AudioBankName": "PlayerSFX",
-            "EventName": "Play_BannerFall",
-            "Volume": 1.0,
+            "EventName": "Play_PlayerSwapWeapons",
+            "Volume": 0.2879999876022339,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -425,15 +425,15 @@
         },
         "value105": 2,
         "value106": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 12239604854595108084,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "PlayerSFX",
-            "EventName": "Play_BannerZone",
-            "Volume": 1.0,
+            "EventName": "Play_PlayerStepsLvl1",
+            "Volume": 0.1599999964237213,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -457,167 +457,7 @@
         },
         "value107": 3,
         "value108": {
-            "GameObjectID": 18446744073709551615,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "PlayerSFX",
-            "EventName": "Play_PlayerBleeding",
-            "Volume": 1.0,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value109": 4,
-        "value110": {
-            "GameObjectID": 18446744073709551615,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "PlayerSFX",
-            "EventName": "Play_PlayerBurning",
-            "Volume": 1.0,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value111": 5,
-        "value112": {
-            "GameObjectID": 18446744073709551615,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "PlayerSFX",
-            "EventName": "Play_PlayerDash",
-            "Volume": 1.0,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value113": 6,
-        "value114": {
-            "GameObjectID": 18446744073709551615,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "PlayerSFX",
-            "EventName": "Play_PlayerDeath",
-            "Volume": 1.0,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value115": 7,
-        "value116": {
-            "GameObjectID": 18446744073709551615,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "PlayerSFX",
-            "EventName": "Play_PlayerInyector_01",
-            "Volume": 1.0,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value117": 8,
-        "value118": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 16389636840796904467,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
@@ -647,16 +487,176 @@
                 "m33": 1.0
             }
         },
-        "value119": 9,
-        "value120": {
-            "GameObjectID": 18446744073709551615,
+        "value109": 4,
+        "value110": {
+            "GameObjectID": 11997844952344021812,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "PlayerSFX",
-            "EventName": "Play_PlayerStepsLvl2",
+            "EventName": "Play_PlayerInyector_01",
+            "Volume": 0.5,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value111": 5,
+        "value112": {
+            "GameObjectID": 17256932729769199125,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerDeath",
+            "Volume": 0.22599999606609345,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value113": 6,
+        "value114": {
+            "GameObjectID": 13454851155845124380,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerDash",
+            "Volume": 0.1459999978542328,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value115": 7,
+        "value116": {
+            "GameObjectID": 16262102354205553616,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerBurning",
+            "Volume": 0.3490000069141388,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value117": 8,
+        "value118": {
+            "GameObjectID": 16260309388177154603,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_PlayerBleeding",
+            "Volume": 0.38199999928474429,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value119": 9,
+        "value120": {
+            "GameObjectID": 3962326338218469858,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "PlayerSFX",
+            "EventName": "Play_BannerZone",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -681,14 +681,14 @@
         },
         "value121": 10,
         "value122": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 12941517269550564871,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "PlayerSFX",
-            "EventName": "Play_PlayerSwapWeapons",
+            "EventName": "Play_BannerFall",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -720,6 +720,7 @@
         "value129": 0,
         "value130": 0,
         "value131": 0,
-        "value132": 0
+        "value132": 0,
+        "value133": 0
     }
 }
