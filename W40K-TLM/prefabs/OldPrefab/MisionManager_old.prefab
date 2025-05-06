@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 1,
+        "cereal_class_version": 0,
         "Base": {
             "cereal_class_version": 0,
             "value0": "MisionManager_Prefab",
@@ -10,7 +10,7 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 15154904510425797877
+                "value0": 11561583815138616320
             }
         },
         "RootEntity": 0,
@@ -59,15 +59,15 @@
             },
             "Scale": {
                 "x": 1.0,
-                "y": 0.0,
+                "y": 1.0,
                 "z": 1.0
             }
         },
         "value21": 1,
         "value22": {
             "Position": {
-                "x": 763.3828125,
-                "y": 274.859375,
+                "x": 671.5,
+                "y": 185.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -76,16 +76,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 46.40625,
-                "y": 46.40625,
+                "x": 1.0,
+                "y": 1.0,
                 "z": 1.0
             }
         },
         "value23": 2,
         "value24": {
             "Position": {
-                "x": 761.0625,
-                "y": 249.3359375,
+                "x": 671.5,
+                "y": 140.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -94,16 +94,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 46.40625,
-                "y": 46.40625,
+                "x": 1.0,
+                "y": 1.0,
                 "z": 1.0
             }
         },
         "value25": 3,
         "value26": {
             "Position": {
-                "x": 819.0703125,
-                "y": 253.9765625,
+                "x": 785.5,
+                "y": 150.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -112,16 +112,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 116.015625,
-                "y": 34.8046875,
+                "x": 250.0,
+                "y": 75.0,
                 "z": 1.0
             }
         },
         "value27": 4,
         "value28": {
             "Position": {
-                "x": 819.0703125,
-                "y": 279.5,
+                "x": 785.5,
+                "y": 195.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -130,8 +130,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 116.015625,
-                "y": 34.8046875,
+                "x": 250.0,
+                "y": 75.0,
                 "z": 1.0
             }
         },
@@ -188,7 +188,7 @@
         "value53": 0,
         "value54": {
             "cereal_class_version": 0,
-            "ScriptPath": "scripts/MisionScript/MisionLevel2/misionManager_Level2.lua",
+            "ScriptPath": "scripts/MisionScript/misionManager.lua",
             "Language": 0
         },
         "value55": 0,
@@ -201,21 +201,9 @@
         "value62": 2,
         "value63": 3,
         "value64": {
-            "cereal_class_version": 1,
+            "cereal_class_version": 0,
             "TextureUUID": {
                 "value0": 8983992674018412212
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
             },
             "Anchor": {
                 "cereal_class_version": 0,
@@ -228,32 +216,20 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -280.0,
-                    "y": -92.5
+                    "x": 205.0,
+                    "y": 112.5
                 },
                 "OffsetMax": {
-                    "x": -30.0,
-                    "y": -17.5
+                    "x": 455.0,
+                    "y": 187.5
                 }
             },
-            "Layer": 100
+            "Layer": 0
         },
         "value65": 4,
         "value66": {
             "TextureUUID": {
                 "value0": 15214301479000495684
-            },
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "UVRect": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 1.0,
-                "w": 1.0
             },
             "Anchor": {
                 "AnchorMin": {
@@ -265,15 +241,15 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -280.0,
-                    "y": -37.5
+                    "x": 205.0,
+                    "y": 157.5
                 },
                 "OffsetMax": {
-                    "x": -30.0,
-                    "y": 37.5
+                    "x": 455.0,
+                    "y": 232.5
                 }
             },
-            "Layer": 100
+            "Layer": 0
         },
         "value67": 2,
         "value68": 1,
@@ -301,12 +277,12 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -325.0,
-                    "y": -60.0
+                    "x": 166.0,
+                    "y": 135.0
                 },
                 "OffsetMax": {
-                    "x": -225.0,
-                    "y": 40.0
+                    "x": 266.0,
+                    "y": 235.0
                 }
             },
             "Layer": 0
@@ -335,42 +311,18 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -330.0,
-                    "y": -115.0
+                    "x": 166.0,
+                    "y": 90.0
                 },
                 "OffsetMax": {
-                    "x": -230.0,
-                    "y": -15.0
+                    "x": 266.0,
+                    "y": 190.0
                 }
             },
             "Layer": 0
         },
         "value72": 0,
         "value73": 0,
-        "value74": 0,
-        "value75": 1,
-        "value76": 0,
-        "value77": {
-            "cereal_class_version": 0,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": -50.0,
-                    "y": -50.0
-                },
-                "OffsetMax": {
-                    "x": 50.0,
-                    "y": 50.0
-                }
-            },
-            "Layer": 0
-        }
+        "value74": 0
     }
 }

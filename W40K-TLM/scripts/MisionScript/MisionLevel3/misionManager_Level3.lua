@@ -1,21 +1,21 @@
 -- Task list split by color
 local blueTasks = {
-    {id = 12, description = "Aqui es nivel 3 Blue"},
-    {id = 13, description = "Find and use the lever to open the East Door"},
-    {id = 14, description = "Make your way through the city"},
-    {id = 15, description = "Explore and exit the Hive City Central Square"},
-    {id = 16, description = "Upgrade your equipment before fighting in the Great Bridge"},
-    {id = 17, description = "Pull the lever to open the Great Bridge door"},
-    {id = 18, description = "Pull all the levers on the Great Bridge to open the Elevator Door. (x/2)"},
-    {id = 19, description = "Enter the Great Bridge Elevator"}
+    {id = 1, description = "Destroy Boss"},
+    {id = 2, description = "Find and use the lever to open the East Door"},
+    {id = 3, description = "Make your way through the city"},
+    {id = 4, description = "Explore and exit the Hive City Central Square"},
+    {id = 5, description = "Upgrade your equipment before fighting in the Great Bridge"},
+    {id = 6, description = "Pull the lever to open the Great Bridge door"},
+    {id = 7, description = "Pull all the levers on the Great Bridge to open the Elevator Door. (x/2)"},
+    {id = 8, description = "Enter the Great Bridge Elevator"}
 }
 
 
 
 local redTasks = {
-    {id = 4, description = "Aqui es nivel 3 Red"},
-    {id = 5, description = "Fight your way to the elevator of the Hive City"},
-    {id = 6, description = "Fight and defeat (name)"}
+    {id = 1, description = "Destroy Boss"},
+    {id = 2, description = "Fight your way to the elevator of the Hive City"},
+    {id = 3, description = "Fight and defeat (name)"}
 }
 
 
@@ -23,7 +23,17 @@ local dialogLines = {
     { name = "Decius Marcellus", text = "Brother Quintus... this is where your path ends-or where legends are born." },
     { name = "Decius Marcellus", text = "You stand alone, the last blade of Guilliman's will, facing the warboss who brought an entire world to ruin." },
     { name = "Decius Marcellus", text = "Garrosh waits, surrounded by the corpses of heroes. But you are no mere warrior. You are an Ultramarine." },
-    { name = "Decius Marcellus", text = "This is not the hour of your death-this is the hour of vengeance. Let none survive." }
+    { name = "Decius Marcellus", text = "This is not the hour of your death—this is the hour of vengeance. Let none survive." }
+}
+
+local dialogLines2 = {
+    { name = "Decius Marcellus", text = "Brother Quintus, that is an upgrade station. With it, you can enhance your equipment to continue the xenos purge." },
+    { name = "Decius Marcellus", text = "Search for them in the field-they could make a huge difference in how the battle unfolds." }
+}
+
+local dialogLines3 = {
+    { name = "Decius Marcellus", text = "Brother Quintus, it's an ambush! Hold out until the enemies are eliminated." },
+    { name = "Decius Marcellus", text = "May the Emperor's light guide you, for Ultramar!" }
 }
 
 local blueTaskIndex = 1
@@ -58,35 +68,34 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
+local current_Level = 2
+
 --MisionBlue
+--M1
+m1_Upgrade = false
+--M2
+m2_lever = false
 --M3
-m3_EnemyCount = 0
+m3_throughCity = false
 --M4
-m4_lever = false
-m4_EnemyCount = 0
+m4_exitCity = false
 --M5
 m5_Upgrade = false
 --M6
-m6_heal  = false
+m6_lever = false
 --M7
-m7_Upgrade = false
---m8
-m8_lever1 = false
-m8_lever2 = false
---M9
-m9_EnemyCount = 0
---M10
-m10_Upgrade = false
---M11
-m11_NewZone = false
+m7_lever = 0
+--M8
+m8_Elevator = false
+
 
 --MisionRed
 --MR1
-mr1_supply = false
+mr1_Check = false
 --MR2
-mr2_orkzBase = false
+mr2_Check = false
 --MR3
-mr3_breakOut = false
+mr3_Check = false
 
 -- Trigger variables
 enemyDieCounttest = 2
@@ -95,12 +104,13 @@ enemyDie_M7 = 1
 enemyDie_M10 = 1
 M5_WorkBrech = false
 M9_WorkBrech = false
-local dialogScriptComponent = nil
 
 local actualAlpha = 1
 
-function on_ready()
+local dialogScriptComponent = nil
 
+function on_ready()
+   
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
     textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
@@ -114,10 +124,11 @@ function on_ready()
 
     dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
     dialogScriptComponent.start_dialog(dialogLines)
+
 end
 
 function on_update(dt)
-    updateText()
+    --updateText()
     missionBlue_Tutor()
     missionRed_Tutor()
 
@@ -132,18 +143,17 @@ function on_update(dt)
 
 
     if Input.is_key_pressed(Input.keycode.I) then
-        m8_lever1 = true
-        m8_lever2 = true
+       if getCurrerTaskIndex(true) == 2 then
+        m2_lever = true
+        elseif getCurrerTaskIndex(true) == 6 then
+            m6_lever = true
+        elseif getCurrerTaskIndex(true) == 7 then
+            m7_lever = m7_lever + 1
+       end
     end
 
 
 
-
-   
-    --imgBlue.position.y = imgBlue.position.y-1
-   --imgBlue.position.y = 500
-   --imgBlue:set_size(Vector2.new(1,1))
-   --print(imgBlue.position.y)
 
 end
 
@@ -158,51 +168,47 @@ function getCurrentTask(tasks, index)
     if index > #tasks then return "" end
     local description = tasks[index].description
 
-    if blueTaskIndex == 3 then
-        description = description:gsub("x", tostring(m3_EnemyCount))
-    end
-
-    if blueTaskIndex == 9 then
-        description = description:gsub("x", tostring(m9_EnemyCount))
+    if blueTaskIndex == 7 then
+        description = description:gsub("x", tostring(m7_lever))
     end
 
     return insert_line_breaks(description, 23)
 end
 
+
+
+
+
 function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
-    if blueTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
+    if blueTaskIndex == 1 and m1_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightX) ~= 0 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
+    elseif blueTaskIndex == 2 and m2_lever then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 3 and m3_EnemyCount == 2 then
+    elseif blueTaskIndex == 3 and m3_throughCity then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 4 and m4_EnemyCount == 2 then
+    elseif blueTaskIndex == 4 and m4_exitCity then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 6 and m6_heal then
+    elseif blueTaskIndex == 6 and m6_lever then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 7 and m7_Upgrade then
+    elseif blueTaskIndex == 7 and m7_lever == 2 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 8 and m8_lever1 and m8_lever2 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 9 and m9_EnemyCount == 3 then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 10 and m10_Upgrade then
-        startAnimation(blueAnimation)
-    elseif blueTaskIndex == 11 and m11_NewZone then
+    elseif blueTaskIndex == 8 and m8_Elevator then
         startAnimation(blueAnimation)
     end
 end
 
 function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
-    if redTaskIndex == 1 and mr1_supply then
+    if redTaskIndex == 1 and mr1_Check then
         startAnimation(redAnimation)
-    elseif redTaskIndex == 2 and mr2_orkzBase then
+        dialogScriptComponent.start_dialog(dialogLines2)
+    elseif redTaskIndex == 2 and mr2_Check then
         startAnimation(redAnimation)
-    elseif redTaskIndex == 3 and mr3_breakOut then
+        dialogScriptComponent.start_dialog(dialogLines3)
+    elseif redTaskIndex == 3 and mr3_Check then
         startAnimation(redAnimation)
     end
 end
@@ -288,3 +294,8 @@ function utf8_char_count(s)
     local _, count = s:gsub("[^\128-\191]", "")
     return count
 end
+
+function getCurrerLevel()
+   
+    return current_Level
+end 

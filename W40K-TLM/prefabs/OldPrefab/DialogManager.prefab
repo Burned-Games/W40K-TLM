@@ -10,7 +10,7 @@
             "value2": 12,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 13994043771320481227
+                "value0": 9858601923536919107
             }
         },
         "RootEntity": 0,
@@ -28,7 +28,7 @@
         },
         "value9": 1,
         "value10": {
-            "Tag": "DialogName"
+            "Tag": "DialogIMG"
         },
         "value11": 2,
         "value12": {
@@ -36,15 +36,15 @@
         },
         "value13": 3,
         "value14": {
-            "Tag": "DialogIMG"
+            "Tag": "DialogName"
         },
         "value15": 4,
         "value16": 0,
         "value17": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.0,
-                "y": 0.0,
+                "x": 476.0,
+                "y": 252.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -53,16 +53,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 952.0,
+                "y": 505.0,
                 "z": 1.0
             }
         },
         "value18": 1,
         "value19": {
             "Position": {
-                "x": 455.5,
-                "y": 384.5,
+                "x": 476.0,
+                "y": 345.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -71,16 +71,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 600.0,
+                "y": 100.0,
                 "z": 1.0
             }
         },
         "value20": 2,
         "value21": {
             "Position": {
-                "x": 455.5,
-                "y": 424.5,
+                "x": 476.0,
+                "y": 345.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -97,8 +97,8 @@
         "value22": 3,
         "value23": {
             "Position": {
-                "x": 455.5,
-                "y": 419.5,
+                "x": 476.0,
+                "y": 315.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -107,8 +107,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 600.0,
-                "y": 100.0,
+                "x": 1.0,
+                "y": 1.0,
                 "z": 1.0
             }
         },
@@ -167,72 +167,87 @@
         "value51": 0,
         "value52": 0,
         "value53": 0,
-        "value54": 1,
-        "value55": 3,
+        "value54": 2,
+        "value55": 0,
         "value56": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "TextureUUID": {
-                "value0": 18293614392373388477
+                "value0": 497748904080029038
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
             },
             "Anchor": {
                 "cereal_class_version": 0,
                 "AnchorMin": {
-                    "x": 1.0,
-                    "y": 1.0
+                    "x": 0.0,
+                    "y": 0.0
                 },
                 "AnchorMax": {
                     "x": 1.0,
                     "y": 1.0
                 },
                 "OffsetMin": {
-                    "x": -300.0,
-                    "y": 90.0
+                    "x": 0.0,
+                    "y": 0.0
                 },
                 "OffsetMax": {
-                    "x": 300.0,
-                    "y": 190.0
+                    "x": 0.0,
+                    "y": 0.0
                 }
             },
-            "Layer": 0
+            "Layer": 100
         },
-        "value57": 2,
-        "value58": 1,
-        "value59": {
-            "cereal_class_version": 0,
-            "Text": "DialogName",
-            "FontPath": "",
+        "value57": 1,
+        "value58": {
+            "TextureUUID": {
+                "value0": 18293614392373388477
+            },
             "Color": {
                 "x": 1.0,
                 "y": 1.0,
                 "z": 1.0,
                 "w": 1.0
             },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 1,
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
             "Anchor": {
                 "AnchorMin": {
-                    "x": 1.0,
+                    "x": 0.5,
                     "y": 1.0
                 },
                 "AnchorMax": {
-                    "x": 1.0,
+                    "x": 0.5,
                     "y": 1.0
                 },
                 "OffsetMin": {
-                    "x": -50.0,
-                    "y": 55.0
+                    "x": -300.0,
+                    "y": -210.0
                 },
                 "OffsetMax": {
-                    "x": 50.0,
-                    "y": 155.0
+                    "x": 300.0,
+                    "y": -110.0
                 }
             },
-            "Layer": 0
+            "Layer": 100
         },
+        "value59": 2,
         "value60": 2,
         "value61": {
+            "cereal_class_version": 0,
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -247,26 +262,60 @@
             "Alignment": 1,
             "Anchor": {
                 "AnchorMin": {
-                    "x": 1.0,
+                    "x": 0.5,
                     "y": 1.0
                 },
                 "AnchorMax": {
-                    "x": 1.0,
+                    "x": 0.5,
                     "y": 1.0
                 },
                 "OffsetMin": {
                     "x": -50.0,
-                    "y": 95.0
+                    "y": -210.0
                 },
                 "OffsetMax": {
                     "x": 50.0,
-                    "y": 195.0
+                    "y": -110.0
                 }
             },
             "Layer": 0
         },
-        "value62": 0,
-        "value63": 0,
-        "value64": 0
+        "value62": 3,
+        "value63": {
+            "Text": "DialogName",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -240.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": -140.0
+                }
+            },
+            "Layer": 0
+        },
+        "value64": 0,
+        "value65": 0,
+        "value66": 0
     }
 }
