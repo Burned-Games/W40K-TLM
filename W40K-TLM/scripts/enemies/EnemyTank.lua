@@ -236,12 +236,17 @@ function on_update(dt)
     local currentTargetPos = tank.playerTransf.position
     if tank.pathUpdateTimer >= tank.pathUpdateInterval or tank:get_distance(tank.lastTargetPos, currentTargetPos) > 1.0 then
         tank.lastTargetPos = currentTargetPos
-        tank:check_initial_distance()
-        if not tank.isReturning then
-            tank:update_path(tank.playerTransf)
-        else
-            tank:update_path_position(tank.enemyInitialPos)
-        end
+
+        -- This is disabled until it gets fixed
+
+        -- tank:check_initial_distance()
+        -- if not tank.isReturning then
+        --     tank:update_path(tank.playerTransf)
+        -- else
+        --     tank:update_path_position(tank.enemyInitialPos)
+        -- end
+        
+        tank:update_path(tank.playerTransf)
         tank.pathUpdateTimer = 0
     end
 
