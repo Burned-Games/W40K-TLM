@@ -136,11 +136,10 @@ local mapPolygonLevel2 = {
 }
 
 local mapPolygonLevel3 = {
-    {x = -20, z = -3},
-    {x = -4, z = 13},
-    {x = 10, z = 7},
-    {x = 21, z = -111},
-    {x = -21, z = 111}
+    {x = -10, z = -4},
+    {x = 1, z = -4},
+    {x = 11, z = -89},
+    {x = -11, z = -89}
 
 }
 
