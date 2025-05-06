@@ -367,32 +367,7 @@ end
 
 function update_gun_perk_buttons()
     if upgradeManager then
-        if upgradeManager.upgrades.weapons.reloadReduction then
-            wISelButton.state = 1
-        else
-            wISelButton.state = 0
-        end
         
-        if upgradeManager.upgrades.weapons.damageBoost then
-            wIISelButton.state = 1
-        else
-            wIISelButton.state = 0
-        end
-        
-        if upgradeManager.upgrades.weapons.fireRateBoost then
-            wIIISelButton.state = 1
-        else
-            wIIISelButton.state = 0
-        end
-        
-        if upgradeManager.upgrades.weapons.specialAbility then
-            wIVSelButton.state = 1
-        else
-            wIVSelButton.state = 0
-        end
-    end
-     -- Show appropriate upgrade indicators based on purchase status
-     if upgradeManager then
         -- First upgrade (reload reduction)
         local upgrade1 = upgradeManager.upgrades.weapons.reloadReduction
         wIEntity:set_active(not upgrade1)
@@ -416,30 +391,12 @@ function update_gun_perk_buttons()
         wIVEntity:set_active(not upgrade4)
         wIVBoughtEntity:set_active(upgrade4)
         wIVSelButtonEntity:set_active(true)
-     end
+    end
 end
 
 function update_char_perk_buttons()
     if upgradeManager then
-        if upgradeManager.upgrades.armor.healthBoost then
-            aISelButton.state = 1
-        else
-            aISelButton.state = 0
-        end
         
-        if upgradeManager.upgrades.armor.protection then
-            aIISelButton.state = 1
-        else
-            aIISelButton.state = 0
-        end
-        
-        if upgradeManager.upgrades.armor.specialAbility then
-            aIIISelButton.state = 1
-        else
-            aIIISelButton.state = 0
-        end
-    end
-    if upgradeManager then
         -- First upgrade (health boost)
         local upgrade1 = upgradeManager.upgrades.armor.healthBoost
         aIEntity:set_active(not upgrade1)
@@ -704,17 +661,17 @@ function handle_character_controls(dt)
                 end
             end
         elseif armorIndex == 1 then
-            aISelButton.state = 2
+            aISelButton.state = 1
             -- Select first upgrade
             currentUpgradeIndex.armor = 0
             update_ui()
         elseif armorIndex == 2 then
-            aIISelButton.state = 2
+            aIISelButton.state = 1
             -- Select second upgrade
             currentUpgradeIndex.armor = 1
             update_ui()
         elseif armorIndex == 3 then
-            aIIISelButton.state = 2
+            aIIISelButton.state = 1
             -- Select third upgrade
             currentUpgradeIndex.armor = 2
             update_ui()
