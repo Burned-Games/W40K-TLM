@@ -136,8 +136,8 @@ local mapPolygonLevel2 = {
 }
 
 local mapPolygonLevel3 = {
-    {x = -8, z = -2},
-    {x = 1, z = -2},
+    {x = -10, z = -4},
+    {x = 1, z = -4},
     {x = 11, z = -89},
     {x = -11, z = -89}
 
