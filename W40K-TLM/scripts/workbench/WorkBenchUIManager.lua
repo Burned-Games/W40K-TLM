@@ -584,7 +584,6 @@ function handle_gun_controls(dt)
                     update_ui()
                 end
             end
-
         elseif weaponIndex == 1 then
             wISelButton.state = 1
             -- Select first upgrade
@@ -610,25 +609,49 @@ function handle_gun_controls(dt)
         confirmPressed = false
     end
     
-    -- Handle navigation for gun screen
-    local value = Input.get_axis(Input.action.UiMoveVertical)
-    if (value ~= 0 and contadorMovimientoBotones > 0.2) then
+    -- Handle vertical navigation
+    local verticalValue = Input.get_axis(Input.action.UiMoveVertical)
+    if (verticalValue ~= 0 and contadorMovimientoBotones > 0.05) then
         contadorMovimientoBotones = 0
         
-        if value < 0 then
-            weaponIndex = weaponIndex - 1
-            if weaponIndex < 0 then
-                weaponIndex = 4
+        if verticalValue < 0 then  -- Down
+            if weaponIndex == 0 then
+                -- If currently on upgrade button, go to the first weapon upgrade button
+                weaponIndex = 1
+            else
+                -- If on weapon upgrade buttons, go to main upgrade button
+                weaponIndex = 0
             end
-        end
-        
-        if value > 0 then
-            weaponIndex = weaponIndex + 1
-            if weaponIndex > 4 then
+        elseif verticalValue > 0 then  -- Up
+            if weaponIndex == 0 then
+                -- If currently on upgrade button, go to the first weapon upgrade button
+                weaponIndex = 1
+            else
+                -- If on weapon upgrade buttons, go to main upgrade button
                 weaponIndex = 0
             end
         end
-    else
+    end
+    
+    -- Handle horizontal navigation (only when on weapon upgrade buttons)
+    local horizontalValue = Input.get_axis(Input.action.UiMoveHorizontal)
+    if (horizontalValue ~= 0 and contadorMovimientoBotones > 0.05 and weaponIndex > 0) then
+        contadorMovimientoBotones = 0
+        
+        if horizontalValue > 0 then  -- Right
+            weaponIndex = weaponIndex + 1
+            if weaponIndex > 4 then
+                weaponIndex = 1  -- Loop back to first upgrade button
+            end
+        elseif horizontalValue < 0 then  -- Left
+            weaponIndex = weaponIndex - 1
+            if weaponIndex < 1 then
+                weaponIndex = 4  -- Loop to last upgrade button
+            end
+        end
+    end
+    
+    if verticalValue == 0 and horizontalValue == 0 then
         contadorMovimientoBotones = contadorMovimientoBotones + dt
     end
 end
@@ -662,7 +685,6 @@ function handle_character_controls(dt)
             -- Buy the currently selected upgrade
             local currentUpgrade = upgradeTypes.armor[currentUpgradeIndex.armor + 1]
 
-
             local isPreviousPurchased = upgradeTypes.armor[currentUpgradeIndex.armor]
             if isPreviousPurchased == nil then
                 isPreviousPurchased = true
@@ -681,7 +703,6 @@ function handle_character_controls(dt)
                     update_ui()
                 end
             end
-
         elseif armorIndex == 1 then
             aISelButton.state = 2
             -- Select first upgrade
@@ -702,25 +723,49 @@ function handle_character_controls(dt)
         confirmPressed = false
     end
     
-    -- Handle navigation for character screen
-    local value = Input.get_axis(Input.action.UiMoveVertical)
-    if (value ~= 0 and contadorMovimientoBotones > 0.2) then
+    -- Handle vertical navigation
+    local verticalValue = Input.get_axis(Input.action.UiMoveVertical)
+    if (verticalValue ~= 0 and contadorMovimientoBotones > 0.05) then
         contadorMovimientoBotones = 0
         
-        if value < 0 then
-            armorIndex = armorIndex - 1
-            if armorIndex < 0 then
-                armorIndex = 3
+        if verticalValue < 0 then  -- Down
+            if armorIndex == 0 then
+                -- If currently on upgrade button, go to the first armor upgrade button
+                armorIndex = 1
+            else
+                -- If on armor upgrade buttons, go to main upgrade button
+                armorIndex = 0
             end
-        end
-        
-        if value > 0 then
-            armorIndex = armorIndex + 1
-            if armorIndex > 3 then
+        elseif verticalValue > 0 then  -- Up
+            if armorIndex == 0 then
+                -- If currently on upgrade button, go to the first armor upgrade button
+                armorIndex = 1
+            else
+                -- If on armor upgrade buttons, go to main upgrade button
                 armorIndex = 0
             end
         end
-    else
+    end
+    
+    -- Handle horizontal navigation (only when on armor upgrade buttons)
+    local horizontalValue = Input.get_axis(Input.action.UiMoveHorizontal)
+    if (horizontalValue ~= 0 and contadorMovimientoBotones > 0.05 and armorIndex > 0) then
+        contadorMovimientoBotones = 0
+        
+        if horizontalValue > 0 then  -- Right
+            armorIndex = armorIndex + 1
+            if armorIndex > 3 then
+                armorIndex = 1  -- Loop back to first upgrade button
+            end
+        elseif horizontalValue < 0 then  -- Left
+            armorIndex = armorIndex - 1
+            if armorIndex < 1 then
+                armorIndex = 3  -- Loop to last upgrade button
+            end
+        end
+    end
+    
+    if verticalValue == 0 and horizontalValue == 0 then
         contadorMovimientoBotones = contadorMovimientoBotones + dt
     end
 end
