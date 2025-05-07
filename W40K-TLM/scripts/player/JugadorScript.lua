@@ -209,6 +209,8 @@ local healAnimationTime = 1
 local enemyOrkScript = nil
 
 movingBackLookingUp = false
+notMovingLookingUp = false
+notMovingnotLooking = false
 
 isStunned = false
 
@@ -1086,6 +1088,11 @@ function playerMovement(dt)
     
     else
         isMoving = false
+        if axisY_r > -1.0 - 0.2 and axisY_r < -1.0 + 0.2 then
+            notMovingLookingUp = true
+        else
+            notMovingLookingUp = false
+        end
         -- deaccelerate
         if currentSpeed > 0 then
             currentSpeed = math.max(currentSpeed - deceleration * dt, 0) -- Reducir velocidad gradualmente
@@ -1162,6 +1169,7 @@ function playerMovement(dt)
 
 
     if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
+        notMovingnotLooking = false
         if currentUpAnim ~= aim and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false then
             currentUpAnim = aim
             animator:set_upper_animation(currentUpAnim)
@@ -1172,6 +1180,7 @@ function playerMovement(dt)
         playerTransf.rotation.y = math.deg(lastValidRotation)  
         isAiming = true
     elseif moveDirectionX ~= 0 or moveDirectionY ~= 0 then
+        notMovingnotLooking = false
         if currentAnim ~= -1 and aimAnimation == true then
             currentAnim = -1
         end
@@ -1180,6 +1189,7 @@ function playerMovement(dt)
         angleRotation = lastValidRotation
         playerTransf.rotation.y = math.deg(lastValidRotation)
     else
+        notMovingnotLooking = true
         if currentAnim ~= -1 and aimAnimation == true then
             currentAnim = -1
         end

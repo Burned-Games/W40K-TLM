@@ -261,7 +261,7 @@ function on_update(dt)
             end
         end
         
-        if playerScript.movingBackLookingUp == true then
+        if playerScript.movingBackLookingUp == true or playerScript.notMovingLookingUp == true or playerScript.notMovingnotLooking == true then
             offsetPlayer = backOffsetPlayer
         else
             offsetPlayer = offsetPlayerBase
