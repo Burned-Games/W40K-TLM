@@ -1,6 +1,6 @@
 local fadeToBlackScript = nil
 local textLoading = nil
-local loadingGif = nil
+
 
 local changeScene = false
 local changeing = false
@@ -18,6 +18,19 @@ local tipTexts = {
 }
 
 
+local loadingGif = nil
+local spriteWidth = 50
+local spriteHeight = 18
+local sheetWidth = 200
+local sheetHeight = 90
+local horizontalSprites = sheetWidth / spriteWidth
+local verticalSprites = sheetHeight / spriteHeight
+
+local animationTime = 0
+local speed = 1/24
+local rect = nil
+
+
 local counterLoading = 0
 
 local levelToLoad = -1
@@ -31,6 +44,11 @@ function on_ready()
 
     counterLoading = 0
 
+    loadingGif = current_scene:get_entity_by_name("LoadingGif"):get_component("UIImageComponent")
+    rect = Vector4.new(0, 0, spriteWidth / sheetWidth, spriteHeight / sheetHeight)
+    loadingGif:set_rect(rect)
+
+
     levelToLoad = load_progress("level", 1)
 
 
@@ -38,6 +56,7 @@ end
 
 function on_update(dt)
 
+    handle_loading_gif(dt)
 
     counterLoading = counterLoading + dt
     if counterLoading >= 6 and not changeing then
@@ -77,6 +96,28 @@ function on_update(dt)
     end
 
 end
+
+
+function handle_loading_gif(dt)
+    animationTime = animationTime + dt
+    local totalSprites = 20
+    local spriteIndex = math.floor(animationTime / speed)
+    if spriteIndex >= totalSprites then
+        animationTime = 0
+        spriteIndex = 1
+    end
+
+    local reversedIndex = (totalSprites - 1) - spriteIndex
+    local horizontalIndex = reversedIndex % horizontalSprites
+    local verticalIndex = math.floor(reversedIndex / horizontalSprites)
+
+    rect.x = horizontalIndex * (spriteWidth / sheetWidth)
+    rect.y = (verticalSprites - 1 - verticalIndex) * (spriteHeight / sheetHeight)
+
+    loadingGif:set_rect(rect)
+
+end
+
 
 function on_exit()
     -- Add cleanup code here
