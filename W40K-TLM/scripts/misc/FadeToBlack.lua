@@ -57,7 +57,7 @@ function FadeToBlack(dt)
 
     if (contador > fadeToBlackTimer) then
         fading = false;
-        fadeToBlackImage:set_color(Vector4.new(1,1,1, 0))
+        fadeToBlackImage:set_color(Vector4.new(1,1,1, 1))
         fadeToBlackDoned = true
     end
 end
