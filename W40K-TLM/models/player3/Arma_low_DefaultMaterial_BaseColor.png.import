@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 14409048071854033258
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "models/player3/Arma_low_DefaultMaterial_BaseColor.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/14409048071854033258.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
