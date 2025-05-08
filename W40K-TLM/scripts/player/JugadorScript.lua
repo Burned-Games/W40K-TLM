@@ -362,6 +362,7 @@ function on_ready()
     end
 
     UpgradeManager:load_upgrades()
+    StimsCounter = load_progress("stims", StimsCounter)
     scrapCounter = load_progress("scrap", 0)
 
     if zonePlayer >= 1 then
@@ -1525,6 +1526,7 @@ function saveProgress()
     save_progress("zonePlayer", zonePlayer)
     save_progress("scrap", scrapCounter)
     save_progress("health", health)
+    save_progress("stims", StimsCounter)
 end
 
 function saveUpgrades()
