@@ -20,6 +20,8 @@ local tipTexts = {
 
 local counterLoading = 0
 
+local levelToLoad = -1
+
 function on_ready()
     -- Add initialization code here
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
@@ -28,6 +30,9 @@ function on_ready()
     textLoading:set_text(tipTexts[textIndex])
 
     counterLoading = 0
+
+    levelToLoad = load_progress("level", 1)
+
 
 end
 
@@ -59,7 +64,15 @@ function on_update(dt)
 
 
     if changeScene == true and not changed then
-        SceneManager.change_scene("scenes/level3.TeaScene")
+        if levelToLoad == 1 then
+            SceneManager.change_scene("scenes/level1.TeaScene")
+        elseif levelToLoad == 2 then
+            SceneManager.change_scene("scenes/level2.TeaScene")
+        elseif levelToLoad == 3 then
+            SceneManager.change_scene("scenes/level3.TeaScene")
+        else
+            SceneManager.change_scene("scenes/level1.TeaScene")
+        end
         changed = true
     end
 

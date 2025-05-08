@@ -41,7 +41,7 @@ function on_update(dt)
 
 
     if changeScene == true and not changed then
-        SceneManager.change_scene("scenes/level3.TeaScene")
+        SceneManager.change_scene("scenes/loading.TeaScene")
         changed = true
     end
 end

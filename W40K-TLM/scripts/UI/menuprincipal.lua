@@ -257,17 +257,8 @@ function on_update(dt)
                 if changingScene == 1 then
                     save_progress("zonePlayer", 0)
                     save_progress("level", 1)
-                    SceneManager.change_scene("scenes/level1.TeaScene")
                 end
-                if changingScene == 2 then
-                    if level == 1 then
-                        SceneManager.change_scene("scenes/level1.TeaScene")
-                    elseif level == 2 then
-                        SceneManager.change_scene("scenes/level2.TeaScene")
-                    elseif level == 3 then
-                        SceneManager.change_scene("scenes/level3.TeaScene")
-                    end
-                end
+                SceneManager.change_scene("scenes/loading.TeaScene")
     
                 changeScene = true
             end
