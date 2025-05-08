@@ -5,7 +5,6 @@ local workbenchAreaTrigger = nil
 local areaTriggerRB = nil
 local workbenchInitialPosition = nil
 local playerScript = nil
-local playerExit = false
 local workbenchNumber = nil
 local workbenchAnimator = nil
 local currentAnimation = nil
@@ -147,7 +146,6 @@ function handle_workbench_collision_stay(entityA, entityB)
 
     if nameA == "Player" or nameB == "Player" then
         playerInRange = true
-        playerExit = false
         -- print("Player is in range of the workbench")
     end
 end
@@ -158,8 +156,12 @@ function handle_workbench_collision_exit(entityA, entityB)
 
     if nameA == "Player" or nameB == "Player" then
         playerInRange = false
-        playerExit = true
-        playerScript:saveProgress()
+
+        if tonumber(workbenchNumber) > playerScript.zonePlayer then
+            playerScript:saveProgress()
+        else
+            playerScript:saveUpgrades()
+        end
         -- print("Player exited the workbench range")
     end
 end

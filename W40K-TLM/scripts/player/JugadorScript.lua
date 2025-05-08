@@ -354,35 +354,26 @@ function on_ready()
 
     zonePlayer = load_progress("zonePlayer", 0)
     if level == 1 and zonePlayer >= 1 then
-        playerRb:set_position(checkpointsPosition[zonePlayer])
         --animacionEntradaRealizada = true
-
-        UpgradeManager:load_upgrades()
-        scrapCounter = load_progress("scrap", 0)
-
-        local newHealth = load_progress("health", 100)
-        if newHealth > maxHealth then
-            health = newHealth
-        else
-            health = maxHealth
-        end
-    end
-
-    if level > 1 then
-        scrapCounter = load_progress("scrap", 0)
-        health = load_progress("health", 100)
-        UpgradeManager:load_upgrades()
     end
 
     if level == 3 or SceneManager:get_scene_name() == "level3.TeaScene" then
         neuralInParticle = current_scene:get_entity_by_name("NeuralInhibitionPartycle"):get_component("TransformComponent")
     end
 
+    UpgradeManager:load_upgrades()
+    scrapCounter = load_progress("scrap", 0)
+
+    if zonePlayer >= 1 then
+        health = load_progress("health", maxHealth)
+        playerRb:set_position(checkpointsPosition[zonePlayer])
+    else
+        health = maxHealth
+        local newPos = Vector3.new(playerTransf.position.x,0,playerTransf.position.z)
+        playerRb:set_position(newPos)
+    end
+
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
-
-    local newPos = Vector3.new(playerTransf.position.x,0,playerTransf.position.z)
-    playerRb:set_position(newPos)
-
 
 end
 
@@ -1527,11 +1518,17 @@ function HealPlayer()
 end
 
 function saveProgress()
-    UpgradeManager:save_upgrades()
-    save_progress("zonePlayer", zonePlayer)
+    saveUpgrades()
+
+    health = maxHealth
     zonePlayer = zonePlayer + 1
+    save_progress("zonePlayer", zonePlayer)
     save_progress("scrap", scrapCounter)
     save_progress("health", health)
+end
+
+function saveUpgrades()
+    UpgradeManager:save_upgrades()
 end
 
 function takeHit()
