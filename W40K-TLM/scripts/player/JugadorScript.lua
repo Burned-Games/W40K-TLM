@@ -144,7 +144,7 @@ level = 1
 
 enemyDirection = Vector3.new(0,0,0)
 
-local checkpointsPosition = { Vector3.new(-6, 0, -30), Vector3.new(95, 0, -115)}
+local checkpointsPosition = { Vector3.new(-14, 0, -32), Vector3.new(105, 0, -115), Vector3.new(194, 0, -216)}
 
 --animation indexs
 idle = 16 --16
