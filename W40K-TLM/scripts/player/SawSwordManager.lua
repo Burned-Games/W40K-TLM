@@ -82,7 +82,6 @@ function on_update(dt)
 
     if slasheeed == true then
         slashCounter = slashCounter + dt
-
         if slashCounter >= slashTime and slashed == false then
             Slash()
             slashed = true
