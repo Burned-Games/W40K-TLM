@@ -224,6 +224,7 @@ function on_update(dt)
             if(index == 4) then
                 -- preguntar como cerrar el juego 
                 --print("Exiting game...")
+                App.quit()
             end
         end
     end
