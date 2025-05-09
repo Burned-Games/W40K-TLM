@@ -568,8 +568,7 @@ end
 function updateDash(dt)
     -- Check for dash activation
     if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true then
-
-        if(currentAnim ~= dash) and melee == false then
+        if(currentAnim ~= dash) and swordScript.slasheeed == false then
             currentAnim = dash
             currentUpAnim = dash
             animator:set_current_animation(currentAnim)
