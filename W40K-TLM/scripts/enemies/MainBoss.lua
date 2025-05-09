@@ -26,7 +26,7 @@ function on_ready()
     main_boss.playerScript = main_boss.player:get_component("ScriptComponent")
 
     -- Shield
-    main_boss.shield = current_scene:get_entity_by_name("Shield")
+    main_boss.shield = current_scene:get_entity_by_name("ShieldBoss")
     main_boss.shieldTransf = main_boss.shield:get_component("TransformComponent")
 
     -- Wrath
