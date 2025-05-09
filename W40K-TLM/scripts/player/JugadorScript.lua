@@ -1482,20 +1482,22 @@ function attract_scrap(dt)
 end
 ]]
 function handleCover()
-    if barricadeScript.isPlayerInRange == false then
-        isCovering = false
-        moveSpeed = normalSpeed * speedDebuf
-        return
-    end
-    if Input.get_button(Input.action.Cover) == Input.state.Down then
-        isCovering = not isCovering
-        --print("isCovering", isCovering)
-    end
+    if sceneName ~= "level3.TeaScene" then
+        if barricadeScript.isPlayerInRange == false then
+            isCovering = false
+            moveSpeed = normalSpeed * speedDebuf
+            return
+        end
+        if Input.get_button(Input.action.Cover) == Input.state.Down then
+            isCovering = not isCovering
+            --print("isCovering", isCovering)
+        end
 
-    if isCovering then
-        moveSpeed = 4 * speedDebuf
-    else
-        moveSpeed = normalSpeed * speedDebuf
+        if isCovering then
+            moveSpeed = 4 * speedDebuf
+        else
+            moveSpeed = normalSpeed * speedDebuf
+        end
     end
 end
 
