@@ -1,0 +1,227 @@
+{
+    "value0": {
+        "cereal_class_version": 2,
+        "value0": 4,
+        "value1": 4,
+        "value2": 3,
+        "value3": 2097152,
+        "value4": 2097153,
+        "value5": 2097154,
+        "value6": 4,
+        "value7": 3,
+        "value8": {
+            "cereal_class_version": 0,
+            "Tag": "Camera"
+        },
+        "value9": 2097152,
+        "value10": {
+            "Tag": "prop_droppod_v01.gltf"
+        },
+        "value11": 2097153,
+        "value12": {
+            "Tag": "Drop_pod_final"
+        },
+        "value13": 2097154,
+        "value14": {
+            "Tag": "Root"
+        },
+        "value15": 4,
+        "value16": 3,
+        "value17": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.5447572469711304,
+                "y": 2.3248209953308107,
+                "z": 16.78585433959961
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -13.187758445739746
+            },
+            "Scale": {
+                "x": 0.9999988675117493,
+                "y": 0.9999988675117493,
+                "z": 1.0
+            }
+        },
+        "value18": 2097152,
+        "value19": {
+            "Position": {
+                "x": 0.0,
+                "y": -0.1110360398888588,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value20": 2097153,
+        "value21": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value22": 2097154,
+        "value23": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": -179.99998474121095,
+                "y": 59.9999885559082,
+                "z": -180.0
+            },
+            "Scale": {
+                "x": 0.9999999403953552,
+                "y": 0.9999999403953552,
+                "z": 0.9999999403953552
+            }
+        },
+        "value24": 4,
+        "value25": 3,
+        "value26": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value27": 2097152,
+        "value28": {
+            "Parent": 4294967295,
+            "First": 2097153,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value29": 2097153,
+        "value30": {
+            "Parent": 2097152,
+            "First": 4294967295,
+            "Next": 2097154,
+            "Prev": 4294967295
+        },
+        "value31": 2097154,
+        "value32": {
+            "Parent": 2097152,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2097153
+        },
+        "value33": 1,
+        "value34": 3,
+        "value35": {
+            "cereal_class_version": 0,
+            "Camera": {
+                "cereal_class_version": 0,
+                "FOV": 45.0,
+                "AspectRatio": 1.7777777910232545,
+                "NearClip": 0.10000000149011612,
+                "FarClip": 1000.0,
+                "ProjectionType": 0,
+                "ViewportWidth": 1280.0,
+                "ViewportHeight": 720.0
+            }
+        },
+        "value36": 1,
+        "value37": 2097153,
+        "value38": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "cereal_class_version": 0,
+                "value0": 1799289960703676367
+            },
+            "AnimatorUUID": {
+                "value0": 13022089739303106082
+            }
+        },
+        "value39": 1,
+        "value40": 2097153,
+        "value41": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 13321323325830636168
+            }
+        },
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 1,
+        "value48": 2097152,
+        "value49": {
+            "cereal_class_version": 0,
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 10324684958855572827
+            },
+            "AnimatorUUID": {
+                "value0": 13022089739303106082
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "CurrentAnimation": 1
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "CurrentAnimation": 1
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value50": 0,
+        "value51": 0,
+        "value52": 0,
+        "value53": 0,
+        "value54": 4,
+        "value55": 3,
+        "value56": 2097152,
+        "value57": 2097153,
+        "value58": 2097154,
+        "value59": 0,
+        "value60": 0,
+        "value61": 0,
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 0,
+        "value66": 0
+    }
+}

@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.2.60",
+		"generator":"Khronos glTF Blender I/O v4.4.55",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -16,58 +16,58 @@
 		{
 			"name":"Door.1",
 			"rotation":[
-				-0.13814479112625122,
-				1.2788605374680628e-07,
-				-1.646814062894464e-08,
+				-0.13814477622509003,
+				1.4195292408203386e-07,
+				2.6555027066166303e-09,
 				0.9904120564460754
 			],
 			"scale":[
-				0.9999999403953552,
-				0.9999998807907104,
+				1,
+				1,
 				0.9999999403953552
 			],
 			"translation":[
-				0,
-				0.11954521387815475,
-				1.2078666687011719
+				1.0449600296169592e-07,
+				0.1195453405380249,
+				1.2078664302825928
 			]
 		},
 		{
 			"name":"Door.2",
 			"rotation":[
-				0.03567621111869812,
+				0.035676226019859314,
 				-0.25689879059791565,
-				-0.13345858454704285,
+				-0.13345851004123688,
 				0.9565140008926392
 			],
 			"scale":[
-				0.9999998807907104,
-				0.9999998211860657,
+				0.9999999403953552,
+				1,
 				0.9999999403953552
 			],
 			"translation":[
-				-1.0460432767868042,
-				0.11954521387815475,
-				-0.6039333939552307
+				-1.046042799949646,
+				0.11954474449157715,
+				-0.6039332747459412
 			]
 		},
 		{
 			"name":"Door.3",
 			"rotation":[
-				0.0243835411965847,
-				0.3360370099544525,
-				0.13597580790519714,
+				0.024383537471294403,
+				0.33603712916374207,
+				0.13597577810287476,
 				0.9316625595092773
 			],
 			"scale":[
+				0.9999998211860657,
 				0.9999998807907104,
-				0.9999998807907104,
-				1
+				0.9999999403953552
 			],
 			"translation":[
-				1.0460432767868042,
-				0.11954521387815475,
-				-0.6039333939552307
+				1.0460429191589355,
+				0.11954522877931595,
+				-0.6039333343505859
 			]
 		},
 		{
@@ -78,9 +78,9 @@
 			],
 			"name":"Root",
 			"rotation":[
-				0,
+				-3.552932170691747e-08,
 				0.8660253882408142,
-				0,
+				-6.815157860273757e-08,
 				0.4999999701976776
 			],
 			"scale":[
@@ -99,7 +99,12 @@
 				4,
 				3
 			],
-			"name":"Rig_Droppod"
+			"name":"Rig_Droppod",
+			"translation":[
+				0,
+				-0.1110360398888588,
+				0
+			]
 		}
 	],
 	"animations":[
@@ -209,7 +214,7 @@
 				},
 				{
 					"input":9,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":12
 				},
 				{
@@ -239,7 +244,7 @@
 				},
 				{
 					"input":9,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":18
 				},
 				{
@@ -251,6 +256,157 @@
 					"input":9,
 					"interpolation":"STEP",
 					"output":20
+				}
+			]
+		},
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":3,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":3,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":3,
+						"path":"scale"
+					}
+				},
+				{
+					"sampler":3,
+					"target":{
+						"node":0,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":4,
+					"target":{
+						"node":0,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":5,
+					"target":{
+						"node":0,
+						"path":"scale"
+					}
+				},
+				{
+					"sampler":6,
+					"target":{
+						"node":1,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":7,
+					"target":{
+						"node":1,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":8,
+					"target":{
+						"node":1,
+						"path":"scale"
+					}
+				},
+				{
+					"sampler":9,
+					"target":{
+						"node":2,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":10,
+					"target":{
+						"node":2,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":11,
+					"target":{
+						"node":2,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"Intro_drop",
+			"samplers":[
+				{
+					"input":21,
+					"interpolation":"LINEAR",
+					"output":22
+				},
+				{
+					"input":21,
+					"interpolation":"LINEAR",
+					"output":23
+				},
+				{
+					"input":24,
+					"interpolation":"STEP",
+					"output":25
+				},
+				{
+					"input":24,
+					"interpolation":"LINEAR",
+					"output":26
+				},
+				{
+					"input":24,
+					"interpolation":"STEP",
+					"output":27
+				},
+				{
+					"input":24,
+					"interpolation":"STEP",
+					"output":28
+				},
+				{
+					"input":24,
+					"interpolation":"LINEAR",
+					"output":29
+				},
+				{
+					"input":24,
+					"interpolation":"STEP",
+					"output":30
+				},
+				{
+					"input":24,
+					"interpolation":"STEP",
+					"output":31
+				},
+				{
+					"input":24,
+					"interpolation":"LINEAR",
+					"output":32
+				},
+				{
+					"input":24,
+					"interpolation":"STEP",
+					"output":33
+				},
+				{
+					"input":24,
+					"interpolation":"STEP",
+					"output":34
 				}
 			]
 		}
@@ -339,14 +495,14 @@
 			"componentType":5126,
 			"count":4184,
 			"max":[
-				1.989344835281372,
-				5.8341498374938965,
-				1.3565083742141724
+				1.989344596862793,
+				5.723114013671875,
+				1.3565081357955933
 			],
 			"min":[
-				-1.989344835281372,
-				-0.010085891000926495,
-				-2.1311798095703125
+				-1.989344596862793,
+				-0.12112192809581757,
+				-2.1311795711517334
 			],
 			"type":"VEC3"
 		},
@@ -389,9 +545,9 @@
 		{
 			"bufferView":7,
 			"componentType":5126,
-			"count":41,
+			"count":65,
 			"max":[
-				1.6
+				2.56
 			],
 			"min":[
 				0
@@ -401,7 +557,7 @@
 		{
 			"bufferView":8,
 			"componentType":5126,
-			"count":41,
+			"count":65,
 			"type":"VEC3"
 		},
 		{
@@ -409,7 +565,7 @@
 			"componentType":5126,
 			"count":2,
 			"max":[
-				1.6
+				2.56
 			],
 			"min":[
 				0
@@ -455,7 +611,7 @@
 		{
 			"bufferView":16,
 			"componentType":5126,
-			"count":41,
+			"count":65,
 			"type":"VEC4"
 		},
 		{
@@ -478,6 +634,102 @@
 		},
 		{
 			"bufferView":20,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":21,
+			"componentType":5126,
+			"count":351,
+			"max":[
+				14
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":22,
+			"componentType":5126,
+			"count":351,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":23,
+			"componentType":5126,
+			"count":351,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":24,
+			"componentType":5126,
+			"count":2,
+			"max":[
+				14
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":25,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":26,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":27,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":28,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":29,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":30,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":31,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":32,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":33,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":34,
 			"componentType":5126,
 			"count":2,
 			"type":"VEC3"
@@ -527,73 +779,143 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":164,
+			"byteLength":260,
 			"byteOffset":238560
 		},
 		{
 			"buffer":0,
-			"byteLength":492,
-			"byteOffset":238724
+			"byteLength":780,
+			"byteOffset":238820
 		},
 		{
 			"buffer":0,
 			"byteLength":8,
-			"byteOffset":239216
+			"byteOffset":239600
 		},
 		{
 			"buffer":0,
 			"byteLength":32,
-			"byteOffset":239224
+			"byteOffset":239608
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":239256
+			"byteOffset":239640
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":239280
+			"byteOffset":239664
 		},
 		{
 			"buffer":0,
 			"byteLength":32,
-			"byteOffset":239304
+			"byteOffset":239688
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":239336
+			"byteOffset":239720
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":239360
+			"byteOffset":239744
 		},
 		{
 			"buffer":0,
-			"byteLength":656,
-			"byteOffset":239384
-		},
-		{
-			"buffer":0,
-			"byteLength":24,
-			"byteOffset":240040
+			"byteLength":1040,
+			"byteOffset":239768
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":240064
+			"byteOffset":240808
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":240832
 		},
 		{
 			"buffer":0,
 			"byteLength":32,
-			"byteOffset":240088
+			"byteOffset":240856
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":240120
+			"byteOffset":240888
+		},
+		{
+			"buffer":0,
+			"byteLength":1404,
+			"byteOffset":240912
+		},
+		{
+			"buffer":0,
+			"byteLength":4212,
+			"byteOffset":242316
+		},
+		{
+			"buffer":0,
+			"byteLength":5616,
+			"byteOffset":246528
+		},
+		{
+			"buffer":0,
+			"byteLength":8,
+			"byteOffset":252144
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":252152
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":252176
+		},
+		{
+			"buffer":0,
+			"byteLength":32,
+			"byteOffset":252200
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":252232
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":252256
+		},
+		{
+			"buffer":0,
+			"byteLength":32,
+			"byteOffset":252280
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":252312
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":252336
+		},
+		{
+			"buffer":0,
+			"byteLength":32,
+			"byteOffset":252360
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":252392
 		}
 	],
 	"samplers":[
@@ -604,7 +926,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":240144,
+			"byteLength":252416,
 			"uri":"prop_droppod_v01.bin"
 		}
 	]
