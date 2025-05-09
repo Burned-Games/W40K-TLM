@@ -6,9 +6,19 @@ local canInteract = false
 local maxInteractions = 0
 local currentInteractions = 0
 
+local interactionDistance = 2.5;
+
 playerTransform = nil
 parentTransform = nil
 parentScript = nil
+
+local interactionSprite = nil
+local interactionSpriteAlphaDirection = true --True = to visible, False = to invisible
+local interactionSpriteActualAlpha = 0
+local interactionSpriteTransitionTimerTarget = 0.4
+local interactionSpriteTransitionTimer = 0.0
+local outOfRange = true
+local beforeFrameOutOfRange = true
 
 function on_ready()
     parentScript = self:get_parent():get_component("ScriptComponent")
@@ -16,7 +26,18 @@ function on_ready()
     parentTransform = self:get_parent():get_component("TransformComponent")
     transform = self:get_component("TransformComponent")
     leverAnimator = self:get_component("AnimatorComponent")
-    
+
+
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "InteractionIcon" then
+            interactionSprite = child:get_component("SpriteComponent")
+        end
+    end
+    if interactionSprite then
+        interactionSprite.tint_color = Vector4.new(1,1,1,0)
+    end
+
     local parentTag = self:get_parent():get_component("TagComponent").tag
     isArenaLever = parentTag == "ArenaMain"
 
@@ -30,6 +51,9 @@ function on_ready()
 end
 
 function on_update(dt)
+
+    beforeFrameOutOfRange = outOfRange
+
     if isArenaLever and not parentScript.waitingForKeyPress then
         canInteract = false
     else
@@ -46,33 +70,54 @@ function on_update(dt)
         math.abs(playerTransform.position.z - (transform.position.z + parentTransform.position.z))
     )
 
-    if distance.x < 1 and distance.z < 1 and Input.get_button(Input.action.Confirm) == Input.state.Down then
-        if mission_Component.getCurrerTaskIndex(true) == 4 and mission_Component.getCurrerLevel() == 1 and mission_Component.m4_EnemyCount >= 2 then
-            mission_Component.m4_lever = true
-        end
 
-        if mission_Component.getCurrerTaskIndex(true) == 9 and mission_Component.getCurrerLevel() == 1 then
-            mission_Component.m8_lever = mission_Component.m8_lever + 1
-        end
+    if distance.x < interactionDistance and distance.z < interactionDistance then
+        --Icon
+        outOfRange = false
+        if  Input.get_button(Input.action.Confirm) == Input.state.Down then
+            if mission_Component.getCurrerTaskIndex(true) == 4 and mission_Component.getCurrerLevel() == 1 and mission_Component.m4_EnemyCount >= 2 then
+                mission_Component.m4_lever = true
+            end
 
-        if mission_Component.getCurrerTaskIndex(true) == 2 and mission_Component.getCurrerLevel() == 2 then
-            mission_Component.m2_lever = true
-        end
+            if mission_Component.getCurrerTaskIndex(true) == 9 and mission_Component.getCurrerLevel() == 1 then
+                mission_Component.m8_lever = mission_Component.m8_lever + 1
+            end
 
-        if mission_Component.getCurrerTaskIndex(true) == 6 and mission_Component.getCurrerLevel() == 2 then
-            mission_Component.m6_lever = true
-        end
+            if mission_Component.getCurrerTaskIndex(true) == 2 and mission_Component.getCurrerLevel() == 2 then
+                mission_Component.m2_lever = true
+            end
 
-        if mission_Component.getCurrerTaskIndex(true) == 7 and mission_Component.getCurrerLevel() == 2 then
-            mission_Component.m7_lever = mission_Component.m7_lever + 1
-        end
-        
-        if canInteract and not hasInteracted then
-            interact()
+            if mission_Component.getCurrerTaskIndex(true) == 6 and mission_Component.getCurrerLevel() == 2 then
+                mission_Component.m6_lever = true
+            end
+
+            if mission_Component.getCurrerTaskIndex(true) == 7 and mission_Component.getCurrerLevel() == 2 then
+                mission_Component.m7_lever = mission_Component.m7_lever + 1
+            end
+            
+            if canInteract and not hasInteracted then
+                interact()
+            end
         end
     else
-        hasInteracted = false
+        outOfRange = true
     end
+
+    if outOfRange ~= beforeFrameOutOfRange then
+        interactionSpriteTransitionTimer = 0
+    end
+
+    if outOfRange then
+        if interactionSprite then
+            FadeToTransparent(dt)
+        end
+    else 
+        if interactionSprite then
+            FadeToBlack(dt)
+        end
+    end
+
+
 end
 
 function interact()
@@ -89,4 +134,23 @@ end
 
 function on_exit()
     -- Add cleanup code here
+end
+
+function FadeToTransparent(dt)
+    interactionSpriteTransitionTimer = interactionSpriteTransitionTimer + dt
+    local alpha = math.min(interactionSpriteTransitionTimer / interactionSpriteTransitionTimerTarget, 1.0)
+    alpha = 1.0 - alpha -- invertir
+    interactionSprite.tint_color = Vector4.new(1,1,1,alpha)
+    if (interactionSpriteTransitionTimer > interactionSpriteTransitionTimerTarget) then
+        interactionSprite.tint_color = Vector4.new(1,1,1,0)
+    end
+end
+
+function FadeToBlack(dt)
+    interactionSpriteTransitionTimer = interactionSpriteTransitionTimer + dt
+    local alpha = math.min(interactionSpriteTransitionTimer / interactionSpriteTransitionTimerTarget, 1.0)
+    interactionSprite.tint_color = Vector4.new(1,1,1,alpha)
+    if (interactionSpriteTransitionTimer > interactionSpriteTransitionTimerTarget) then
+        interactionSprite.tint_color = Vector4.new(1,1,1,1)
+    end
 end
