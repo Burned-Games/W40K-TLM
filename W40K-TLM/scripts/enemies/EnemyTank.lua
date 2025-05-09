@@ -281,7 +281,14 @@ function on_update(dt)
     end
 
     if tank.playerDetected and tank.currentState ~= tank.state.Tackle then
-        tank:rotate_enemy(tank.playerTransf.position)
+        if tank.key == 0 then
+             
+            tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting + 1
+            tank.key = tank.key + 1
+        end
+        if not tank.playingDieAnim then
+            tank:rotate_enemy(tank.playerTransf.position)
+        end
     end
 
     if tank.currentState == tank.state.Idle then
@@ -289,11 +296,6 @@ function on_update(dt)
         return
 
     elseif tank.currentState == tank.state.Move then 
-        if tank.key == 0 then
-             
-            tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting + 1
-            tank.key = tank.key + 1
-        end
         tank:move_state()
 
     elseif tank.currentState == tank.state.Attack then

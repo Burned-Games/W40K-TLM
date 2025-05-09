@@ -178,7 +178,10 @@ function on_update(dt)
             kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting + 1
             kamikaze.key = kamikaze.key + 1
         end
-        kamikaze:rotate_enemy(kamikaze.playerTransf.position)
+
+        if not kamikaze.playingDieAnim then
+            kamikaze:rotate_enemy(kamikaze.playerTransf.position)
+        end
     end
 
     if kamikaze.currentState == kamikaze.state.Idle then
