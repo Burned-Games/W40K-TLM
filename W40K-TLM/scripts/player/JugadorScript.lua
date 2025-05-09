@@ -866,7 +866,7 @@ function playerMovement(dt)
 
     if impulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
-
+        notMovingLookingUp = false
         if footstepSFXTimer > footstepSFXDelay then
             footstepSFXTimer = 0
             playerStepsSFX:play()
@@ -1048,6 +1048,7 @@ function playerMovement(dt)
     
     else
         isMoving = false
+        print(axisY_r)
         if axisY_r > -1.0 - 0.2 and axisY_r < -1.0 + 0.2 then
             notMovingLookingUp = true
         else
