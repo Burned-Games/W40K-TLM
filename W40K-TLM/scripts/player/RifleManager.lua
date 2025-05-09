@@ -147,6 +147,7 @@ function on_ready()
     --     end
     -- end
     vfxShootTransf = current_scene:get_entity_by_name("vfxShoot"):get_component("TransformComponent")
+    vfxShootTransf.position.y = -83
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
         local bullet = {}
