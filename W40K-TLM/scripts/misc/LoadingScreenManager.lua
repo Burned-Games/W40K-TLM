@@ -20,7 +20,7 @@ local tipTexts = {
 
 local loadingGif = nil
 local spriteWidth = 50
-local spriteHeight = 18
+local spriteHeight = 15
 local sheetWidth = 200
 local sheetHeight = 90
 local horizontalSprites = sheetWidth / spriteWidth
