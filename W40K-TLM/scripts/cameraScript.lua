@@ -234,7 +234,7 @@ function on_update(dt)
         local targetZ = targetPos.z
 
         -- Si está fuera del polígono, buscamos un punto válido cercano
-        if not IsPointInPolygon(targetX, targetZ, actualMapPolygon) then
+        if playerScript.godMode and not IsPointInPolygon(targetX, targetZ, actualMapPolygon) then
             -- Busca el punto más cercano dentro del polígono
             local closest = GetClosestPointInPolygon(targetX, targetZ, actualMapPolygon)
             targetX = closest.x
