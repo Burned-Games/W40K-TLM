@@ -8,122 +8,122 @@
                 "cereal_class_version": 0,
                 "meshUUIDs": [
                     {
-                        "key": "character_ultramarine_Cylinder.002",
-                        "value": {
-                            "cereal_class_version": 0,
-                            "value0": 4855602468904802074
-                        }
-                    },
-                    {
                         "key": "character_ultramarine_Cube.003",
                         "value": {
-                            "value0": 17144911522955262661
-                        }
-                    },
-                    {
-                        "key": "character_ultramarine_Plane.002",
-                        "value": {
-                            "value0": 4192472320341923737
+                            "cereal_class_version": 0,
+                            "value0": 12846672621278149181
                         }
                     },
                     {
                         "key": "character_ultramarine_Cube.007",
                         "value": {
-                            "value0": 8198179482090615809
+                            "value0": 10008015862097977396
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cylinder.002",
+                        "value": {
+                            "value0": 10648091902157243195
                         }
                     },
                     {
                         "key": "character_ultramarine_Cylinder.004",
                         "value": {
-                            "value0": 10067876037523211802
+                            "value0": 18203381469332365550
                         }
                     },
                     {
-                        "key": "character_ultramarine_Cube.004",
+                        "key": "character_ultramarine_Plane.002",
                         "value": {
-                            "value0": 3862507626469447259
+                            "value0": 9467192748879883612
                         }
                     },
                     {
                         "key": "character_ultramarine_Plane.001",
                         "value": {
-                            "value0": 10392406206664591426
+                            "value0": 8847299467565557141
                         }
                     },
                     {
                         "key": "character_ultramarine_Cylinder.003",
                         "value": {
-                            "value0": 10793372047859760221
+                            "value0": 13907245517263694377
+                        }
+                    },
+                    {
+                        "key": "character_ultramarine_Cube.004",
+                        "value": {
+                            "value0": 6660479663582957889
                         }
                     },
                     {
                         "key": "character_ultramarine_Cube.001",
                         "value": {
-                            "value0": 10216211791814974989
+                            "value0": 9595444083238579660
                         }
                     },
                     {
                         "key": "character_ultramarine_Cube.002",
                         "value": {
-                            "value0": 6252665601438289219
+                            "value0": 17271950892489303451
                         }
                     },
                     {
                         "key": "character_ultramarine_Cylinder.038",
                         "value": {
-                            "value0": 2448686566957350858
+                            "value0": 10300188538141941297
                         }
                     }
                 ],
                 "materialUUIDs": [
                     {
-                        "key": "Bolter_Mat0",
+                        "key": "Checker.001_Mat4",
                         "value": {
-                            "value0": 11664172688787087677
+                            "value0": 1760841751768809578
                         }
                     },
                     {
-                        "key": "Checker.001_Mat4",
+                        "key": "Bolter_Mat0",
                         "value": {
-                            "value0": 14874966134583317891
+                            "value0": 11438324956249227134
                         }
                     },
                     {
                         "key": "Ultramarine_MAT_Mat1",
                         "value": {
-                            "value0": 10534529364515356524
-                        }
-                    },
-                    {
-                        "key": "Checker.002_Mat2",
-                        "value": {
-                            "value0": 3167032174277964469
+                            "value0": 11671816545262568601
                         }
                     },
                     {
                         "key": "Material.001_Mat3",
                         "value": {
-                            "value0": 2856420263902804891
+                            "value0": 5382582224953354165
+                        }
+                    },
+                    {
+                        "key": "Checker.002_Mat2",
+                        "value": {
+                            "value0": 4881189985882148564
                         }
                     },
                     {
                         "key": "Escpoeta_MAT_Mat5",
                         "value": {
-                            "value0": 13336748283396079571
+                            "value0": 6047948316072755977
                         }
                     }
                 ],
                 "value0": {
                     "cereal_class_version": 0,
                     "uuid": {
-                        "value0": 9369553783055854710
+                        "value0": 15932908852566914790
                     },
                     "type": 4,
                     "originalPath": {
-                        "value0": "models/Ultramarine/character_ultramarine.gltf"
+                        "value0": "models/character_ultramarine/character_ultramarine.gltf"
                     },
                     "cachedPath": {
-                        "value0": ".CoffeeEngine/Cache/9369553783055854710.model"
+                        "value0": ".CoffeeEngine/Cache/15932908852566914790.model"
                     },
                     "cache": true,
                     "internal": false
