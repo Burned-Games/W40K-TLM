@@ -73,7 +73,7 @@ function on_update(dt)
 
     if distance.x < interactionDistance and distance.z < interactionDistance then
         --Icon
-        outOfRange = false
+        
         if  Input.get_button(Input.action.Confirm) == Input.state.Down then
             if mission_Component.getCurrerTaskIndex(true) == 4 and mission_Component.getCurrerLevel() == 1 and mission_Component.m4_EnemyCount >= 2 then
                 mission_Component.m4_lever = true
@@ -99,6 +99,14 @@ function on_update(dt)
                 interact()
             end
         end
+
+        if canInteract and not hasInteracted then
+            outOfRange = false
+        else
+            outOfRange = true
+        end
+        
+
     else
         outOfRange = true
     end
