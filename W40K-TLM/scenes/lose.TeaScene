@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 1,
+        "cereal_class_version": 2,
         "value0": 4,
         "value1": 4,
         "value2": 0,
@@ -31,7 +31,7 @@
             "cereal_class_version": 0,
             "Position": {
                 "x": 455.5,
-                "y": 263.0,
+                "y": 279.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -41,7 +41,7 @@
             },
             "Scale": {
                 "x": 911.0,
-                "y": 526.0,
+                "y": 559.0,
                 "z": 1.0
             }
         },
@@ -67,7 +67,7 @@
         "value21": {
             "Position": {
                 "x": 455.5,
-                "y": 263.0,
+                "y": 279.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -77,7 +77,7 @@
             },
             "Scale": {
                 "x": 911.0,
-                "y": 526.0,
+                "y": 559.0,
                 "z": 1.0
             }
         },
@@ -255,6 +255,7 @@
         "value64": 0,
         "value65": 0,
         "value66": 0,
-        "value67": 0
+        "value67": 0,
+        "value68": 0
     }
 }
