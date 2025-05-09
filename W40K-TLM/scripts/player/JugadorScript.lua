@@ -367,7 +367,9 @@ function on_ready()
 
     if zonePlayer >= 1 then
         health = load_progress("health", maxHealth)
-        playerRb:set_position(checkpointsPosition[zonePlayer])
+        if SceneManager:get_scene_name() == "level1.TeaScene" then
+            playerRb:set_position(checkpointsPosition[zonePlayer])
+        end
     else
         health = maxHealth
         local newPos = Vector3.new(playerTransf.position.x,0,playerTransf.position.z)
