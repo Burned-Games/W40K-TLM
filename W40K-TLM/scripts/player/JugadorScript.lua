@@ -446,28 +446,7 @@ function on_update(dt)
         intervalchekerUp = intervalchekerUp + 1.5
         intervalChekerDown = intervalChekerDown + 1.5
         HealPlayer()
-    end
---[[
-    if Input.is_key_pressed(Input.keycode.P) and attractionActive == false then
-
-        attractionActive = not attractionActive 
-        find_scrap()
-
-    end
-
-    if attractionActive == true then 
-        --attract_scrap(dt)
-    
-    end
-
-    
-        
-        attractionActive = not attractionActive 
-        find_scrap()]]
-    
-
-
-    
+    end   
 
     check_effects(dt)
     checkPlayerDeath(dt)
@@ -618,6 +597,7 @@ function updateDash(dt)
 end
 
 function updateGodMode(dt)
+
     if Input.is_key_pressed(Input.keycode.F1) then
         if godMode == false then
             moveSpeed = normalSpeed * speedDebuf
@@ -627,6 +607,7 @@ function updateGodMode(dt)
         end
         if pressedButton == false then
             godMode = not godMode
+            current_scene.debug_flags.debug_draw = godMode
         end
         pressedButton = true
     else
