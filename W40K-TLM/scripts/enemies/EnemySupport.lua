@@ -1,5 +1,6 @@
 local enemy = require("scripts/utils/enemy")
 local stats_data = require("scripts/utils/enemy_stats")
+local effect = require("scripts/utils/status_effects")
 
 support = enemy:new()
 
@@ -54,6 +55,11 @@ function on_ready()
     support.shieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
     support.shieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
     support.dyingSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
+    support.supportShotSFX = current_scene:get_entity_by_name("SupportShotSFX"):get_component("AudioSourceComponent")
+    
+    -- Particles
+    support.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    support.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Level
     support.enemyType = "support"
@@ -64,33 +70,44 @@ function on_ready()
     if not stats then log("No stats for type: " .. support.enemyType .. " level: " .. support.level) return end
 
     -- State
-    support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Flee = 5, Shield = 6}
+    support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Shield = 6}
 
     -- Stats of the Support
     support.health = stats.health
     support.defaultHealth = support.health
     support.speed = stats.speed
     support.defaultSpeed = support.speed
-    support.fleeSpeed = stats.fleeSpeed
     support.enemyShield = stats.enemyShield
     support.damage = stats.damage
     support.detectionRange = stats.detectionRange
     support.shieldRange = stats.shieldRange
     support.attackRange = stats.attackRange
+    support.rangeAttackRange = stats.rangeAttackRange
+    support.supportDamage = stats.supportDamage 
+    support.bulletSpeed = stats.bulletSpeed or 15
 
     -- External Timers
     support.shieldCooldown = 5.0
     support.checkEnemyInterval = 40.0
+    support.maxBurstShots = stats.maxBurstShots 
+    support.timeBetweenBursts = stats.timeBetweenBursts
+    support.burstCooldown = stats.burstCooldown 
 
     -- Internal Timers
     support.shieldTimer = 0.0
     support.shieldAnimTimer = 0.0
-    support.shieldAnimDuration = 3.0
+    support.shieldAnimDuration = 3.4
+    support.attackAnimTimer = 0.0
+    support.attackAnimDuration = 4.0
     support.findEnemiesTimer = 0.0
     support.findEnemiesInterval = 1.5
     support.pathUpdateTimer = 0.0
     support.pathUpdateInterval = 1.0
     support.checkEnemyTimer = 0.0
+    support.timeSinceLastShot = 0.0
+    support.burstCooldownTimer = 0.0
+    support.updateTargetTimer = 0.0
+    support.updateTargetInterval = 0.5
 
     -- Animation
     support.idleAnim = 3
@@ -105,19 +122,46 @@ function on_ready()
     support.shieldCooldownActive = false
     support.canUseShield = true
     support.allShielded = true
+    support.isShootingBurst = false
 
     -- Ints
     support.currentWaypoint = 1
+    support.burstCount = 0
+    support.currentBulletIndex = 1
+    support.key = 0
 
     -- Lists
     support.Enemies = {}
     support.waypointPos = {}
+    support.bulletPool = {}
+    support.bulletTimers = {}
+
+    -- Create bullet pool
+    for i = 1, 5 do
+        local bulletEntity = current_scene:get_entity_by_name("SupportBullet" .. i)
+        
+        local bullet = {
+            entity = bulletEntity,
+            transform = bulletEntity:get_component("TransformComponent"),
+            rbComponent = bulletEntity:get_component("RigidbodyComponent"),
+            active = false
+        }
+        
+        bullet.rb = bullet.rbComponent.rb
+        bullet.rb:set_trigger(true)
+        bullet.rb:set_position(Vector3.new(0, -5, 0))
+        
+        support.bulletPool[i] = bullet
+        support.bulletTimers[i] = 0
+    end
 
     -- Positions
     support.lastTargetPos = Vector3.new(0, 0, 0)
     support.waypointPos[1] = support.wp1Transf.position
     support.waypointPos[2] = support.wp2Transf.position
     support.waypointPos[3] = support.wp3Transf.position
+    support.delayedPlayerPos = support.playerTransf.position
+    support.bulletLifetime = 5.0
 end
 
 function on_update(dt)
@@ -133,9 +177,17 @@ function on_update(dt)
     if support.isPushed == true then
         return
     end
+    
+    update_bullets(dt)
     change_state()
 
     support.findEnemiesTimer = support.findEnemiesTimer + dt
+    support.updateTargetTimer = support.updateTargetTimer + dt
+
+    if support.updateTargetTimer >= support.updateTargetInterval then
+        support.delayedPlayerPos = Vector3.new(support.playerTransf.position.x, support.playerTransf.position.y, support.playerTransf.position.z)
+        support.updateTargetTimer = 0
+    end
 
     if support.shieldCooldownActive then
         support.shieldTimer = support.shieldTimer + dt 
@@ -150,19 +202,13 @@ function on_update(dt)
         return
 
     elseif support.currentState == support.state.Move then
-       --[[ if support.key == 0 then
-             
-            support.playerScript.enemys_targeting = support.playerScript.enemys_targeting + 1
-            support.key = support.key + 1
-        end
-        ]]--
         support:move_state(dt)
 
     elseif support.currentState == support.state.Attack then
         support:attack_state()
 
-    elseif support.currentState == support.state.Flee then
-        support:flee_state(dt)
+    elseif support.currentState == support.state.Shoot then
+        support:shoot_state(dt)
 
     elseif support.currentState == support.state.Shield then
         support:shield_state(dt)
@@ -199,7 +245,7 @@ function change_state()
     end
 
     if #support.Enemies == 0 then
-        support.currentState = support.state.Flee
+        support.currentState = support.state.Shoot
         return
     end
 
@@ -221,7 +267,7 @@ function change_state()
     support.Enemies = filteredEnemies
 
     if #support.Enemies == 0 or support.allShielded then
-        support.currentState = support.state.Flee
+        support.currentState = support.state.Shoot
         return
     end
 
@@ -248,7 +294,7 @@ function change_state()
             support.currentState = support.state.Move
         end
     else
-        support.currentState = support.state.Flee
+        support.currentState = support.state.Shoot
     end
 end
 
@@ -257,7 +303,6 @@ function support:move_state(dt)
         support.currentAnim = support.moveAnim
         support.animator:set_current_animation(support.currentAnim)
     end 
-        
     
     local validTargets = {}
     for _, enemyData in ipairs(support.Enemies) do
@@ -266,10 +311,9 @@ function support:move_state(dt)
         end
     end
     
-  
     if #validTargets == 0 then
         support.currentTarget = nil
-        support.currentState = support.state.Flee
+        support.currentState = support.state.Shoot
         return
     end
 
@@ -331,7 +375,7 @@ function support:move_state(dt)
             support.currentState = support.state.Shield
         end
     else
-        support.currentState = support.state.Flee
+        support.currentState = support.state.Shoot
     end
 end
 
@@ -367,6 +411,7 @@ function support:shield_state(dt)
                 support.shieldCooldownActive = true  
                 support.shieldTimer = 0  -- Fixed variable name (was shieldTimer)
                 support.shieldAnimTimer = 0  -- Fixed variable name (was shieldAnimTimer)
+                support.shieldAssignSFX:play()
 
                 for i, enemyData in ipairs(support.Enemies) do
                     if enemyData.name == support.currentTarget.name then
@@ -381,33 +426,64 @@ function support:shield_state(dt)
     support.currentState = support.state.Move
 end
 
-function support:flee_state(dt)
-    if support.currentAnim ~= support.moveAnim then
-        support.currentAnim = support.moveAnim
-        support.animator:set_current_animation(support.currentAnim)
-    end 
+function support:shoot_state(dt)
 
-    support.currentTarget = support.waypointPos[support.currentWaypoint]
+    -- Turn towards player
+    support:rotate_enemy(support.playerTransf.position)
+    support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+    -- Shoot in bursts
+    local shouldTargetExplosive = false
+    if support.explosiveDetected then
+        local playerToExplosive = support:get_distance(support.playerTransf.position, support.explosiveTransf.position)
+        if playerToExplosive <= 5.0 then
+            shouldTargetExplosive = true
+        end
+    end
+
+    support.attackAnimTimer = support.attackAnimTimer + dt 
     
-    if support:get_distance(support.lastTargetPos, support.currentTarget) > 1.0 then
-        update_waypoint_path()
+    if support.attackAnimTimer >= support.attackAnimDuration then
+        if support.isShootingBurst then
+            if support.currentAnim ~= support.attackAnim then
+                support.currentAnim = support.attackAnim
+                support.animator:set_current_animation(support.currentAnim)
+            end 
+
+            support.timeSinceLastShot = support.timeSinceLastShot + dt
+
+            if support.timeSinceLastShot >= support.burstCooldown and support.burstCount < support.maxBurstShots then
+                shoot_projectile(shouldTargetExplosive)
+                support.burstCount = support.burstCount + 1
+                support.timeSinceLastShot = 0
+                --support.supportShotSFX:play()
+
+                if support.burstCount >= support.maxBurstShots then
+                    support.isShootingBurst = false
+                    support.burstCooldownTimer = 0
+                end
+            end
+        else
+            if support.currentAnim ~= support.idleAnim then
+                support.currentAnim = support.idleAnim
+                support.animator:set_current_animation(support.currentAnim)
+            end
+
+            support.burstCooldownTimer = support.burstCooldownTimer + dt
+
+            if support.burstCooldownTimer >= support.timeBetweenBursts then
+                support.isShootingBurst = true
+                support.burstCount = 0
+                support.timeSinceLastShot = 0
+            end
+        end
     end
-
-    support:follow_path()
-
-    local distance = support:get_distance(support.enemyTransf.position, support.currentTarget)
-
-    if distance <= 1.0 then
-        support.currentWaypoint = support.currentWaypoint % #support.waypointPos + 1
-        support.currentTarget = support.waypointPos[support.currentWaypoint]
-        update_waypoint_path()
-    end
-
+    -- Periodic enemy check
     support.checkEnemyTimer = support.checkEnemyTimer + dt
     if support.checkEnemyTimer >= support.checkEnemyInterval then
         support.checkEnemyTimer = 0
         
-        -- Update the enemy list when the support is on flee state
+        -- Update the enemy list
         find_all_enemies()
         
         local allEnemiesWithShield = true
@@ -421,11 +497,85 @@ function support:flee_state(dt)
             end
         end
         
-        -- If not all enemies have shields, we can move
+        -- If not all enemies have shields and can use shield, change to move state
         if not allEnemiesWithShield and support.canUseShield then
             support.currentState = support.state.Move
         end
     end
+end
+
+function update_bullets(dt)
+    for i, bullet in ipairs(support.bulletPool) do
+        if bullet and bullet.active then
+            support.bulletTimers[i] = support.bulletTimers[i] + dt
+            if support.bulletTimers[i] >= support.bulletLifetime then
+                deactivate_bullet(i)
+            end
+        end
+    end
+end
+
+function deactivate_bullet(index)
+    local bullet = support.bulletPool[index]
+    
+    bullet.active = false
+
+    bullet.rb:set_position(Vector3.new(0, 0, 0))
+    bullet.rb:set_velocity(Vector3.new(0, 0, 0))
+
+    support.bulletTimers[index] = 0
+end
+
+function shoot_projectile(targetExplosive)
+
+    local bullet = support.bulletPool[support.currentBulletIndex]
+    
+    local startPos = Vector3.new(
+        support.enemyTransf.position.x - 1,
+        support.enemyTransf.position.y + 0.982,
+        support.enemyTransf.position.z - 0.1
+    )
+    bullet.rb:set_position(startPos)
+    
+    -- Target position
+    local targetPos = support.delayedPlayerPos -- Default to player
+    if targetExplosive and support.explosiveDetected and support.level == 2 then -- Switch to explosive if detected
+        targetPos = support.explosiveTransf.position 
+    end
+
+    -- Calculate normalized direction
+    local dx = targetPos.x - startPos.x
+    local dz = targetPos.z - startPos.z
+    
+    -- Set velocity and activate bullet
+    bullet.rb:set_velocity(Vector3.new(
+        dx * support.bulletSpeed,
+        0,
+        dz * support.bulletSpeed
+    ))
+    bullet.active = true
+    support.bulletTimers[support.currentBulletIndex] = 0
+
+    -- Collision handling for current bullet
+    bullet.rbComponent:on_collision_enter(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            support.particleSparkTransf.position = support.playerTransf.position
+            support.particleSpark:emit(5) 
+            support:make_damage(support.supportDamage) 
+        end
+        
+        deactivate_bullet(support.currentBulletIndex)
+    end)
+
+    -- Update bullet index
+    support.currentBulletIndex = support.currentBulletIndex + 1
+    if support.currentBulletIndex > 5 then
+        support.currentBulletIndex = 1
+    end
+
 end
 
 function set_waypoints()
@@ -599,18 +749,9 @@ function create_new_shield(targetEnemy)
     end
 
     local shieldTransf = newShield:get_component("TransformComponent")
-    shieldTransf.scale = Vector3.new(2, 2, 2)
+    shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
 
     return newShield
-end
-
-function update_waypoint_path()
-    if #support.waypointPos > 0 then
-        local targetPos = support.waypointPos[support.currentWaypoint]
-        support.enemyNavmesh.path = support.enemyNavmesh:find_path(support.enemyTransf.position, targetPos)
-        support.lastTargetPos = targetPos
-        support.currentPathIndex = 1
-    end
 end
 
 function on_exit() end

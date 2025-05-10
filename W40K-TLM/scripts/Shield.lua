@@ -27,7 +27,7 @@ function on_update(dt)
         return
     end
 
-    shieldTransform.position = targetEnemy.transform.position
+    shieldTransform.position = Vector3.new(targetEnemy.transform.position.x, targetEnemy.transform.position.y + 0.75, targetEnemy.transform.position.z)
 
     if targetEnemy.script.shieldHealth <= 0 then
         shieldDestroy()

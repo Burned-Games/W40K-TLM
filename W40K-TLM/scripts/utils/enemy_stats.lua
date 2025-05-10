@@ -87,8 +87,13 @@ local enemy_stats = {
 
             speed = 5,
             fleeSpeed = 7,
+            bulletSpeed = 15,
 
             enemyShield = 50,
+
+            supportDamage = 10,
+
+            maxBurstShots = 4,
 
             detectionRange = 15,
             shieldRange = 5,
@@ -101,7 +106,11 @@ local enemy_stats = {
             -- Time between throwing a shield and be able to put another
             shieldCooldown = 4.0,
             -- When its in flee state, frequency of the support checking if ther is some enemy wich is able to get a shield
-            checkEnemyInterval = 40.0
+            checkEnemyInterval = 40.0,
+
+            timeBetweenBursts = 2.0,
+            -- Minimun time between shots of the same burst
+            burstCooldown = 0.2
         },
 
 
@@ -112,10 +121,13 @@ local enemy_stats = {
 
             speed = 5,
             fleeSpeed = 7,
+            bulletSpeed = 15,
 
             enemyShield = 70,
 
-            damage = 20,
+            supportDamage = 20,
+
+            maxBurstShots = 4,
 
             detectionRange = 15,
             shieldRange = 5,
@@ -125,7 +137,10 @@ local enemy_stats = {
 
             -- **Timers**
             shieldCooldown = 3.0,
-            checkEnemyInterval = 40.0
+            checkEnemyInterval = 40.0,
+            timeBetweenBursts = 2.0,
+            -- Minimun time between shots of the same burst
+            burstCooldown = 0.2
         }
 
     },
