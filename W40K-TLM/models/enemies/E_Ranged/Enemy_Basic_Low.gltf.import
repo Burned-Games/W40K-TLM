@@ -8,32 +8,44 @@
                 "cereal_class_version": 0,
                 "meshUUIDs": [
                     {
-                        "key": "E_Kamikaze_final_Plane.027",
+                        "key": "Enemy_Basic_Low_BézierCurve",
                         "value": {
                             "cereal_class_version": 0,
-                            "value0": 1401852388725091543
+                            "value0": 17525980538355336686
+                        }
+                    },
+                    {
+                        "key": "Enemy_Basic_Low_Plane.004",
+                        "value": {
+                            "value0": 683157941854290990
                         }
                     }
                 ],
                 "materialUUIDs": [
                     {
-                        "key": "Material.016_Mat0",
+                        "key": "Material_Mat0",
                         "value": {
-                            "value0": 7857297386079528717
+                            "value0": 16546042006167027828
+                        }
+                    },
+                    {
+                        "key": "ork_Mat1",
+                        "value": {
+                            "value0": 5937779838726978707
                         }
                     }
                 ],
                 "value0": {
                     "cereal_class_version": 0,
                     "uuid": {
-                        "value0": 16479383496133367235
+                        "value0": 17152838548300854353
                     },
                     "type": 4,
                     "originalPath": {
-                        "value0": "models/enemies/Kamikaze/E_Kamikaze/E_Kamikaze_final.glb"
+                        "value0": "models/enemies/E_Ranged/Enemy_Basic_Low.gltf"
                     },
                     "cachedPath": {
-                        "value0": ".CoffeeEngine/Cache/16479383496133367235.model"
+                        "value0": ".CoffeeEngine/Cache/17152838548300854353.model"
                     },
                     "cache": true,
                     "internal": false
