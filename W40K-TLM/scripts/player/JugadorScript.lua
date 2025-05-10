@@ -739,7 +739,6 @@ function handleWeaponSwitch(dt)
         
             if currentUpAnim ~= melee then
                 currentUpAnim = melee
-                print("uuuuuuuuuuuuuuuuuuuuuuuuu")
                 animator:set_current_animation(currentUpAnim)
             end
             swordUpper:set_active(true)
@@ -1051,7 +1050,6 @@ function playerMovement(dt)
     
     else
         isMoving = false
-        print(axisY_r)
         if axisY_r > -1.0 - 0.2 and axisY_r < -1.0 + 0.2 then
             notMovingLookingUp = true
         else
@@ -1229,7 +1227,10 @@ function autoaimUpdate()
         direction.x * math.sin(-intermediateAngleOffset) + direction.z * math.cos(-intermediateAngleOffset)
     )
 
-    local origin = playerTransf.position
+    local pos = playerTransf.position
+    local origin = Vector3.new(pos.x, pos.y, pos.z)
+
+    origin.y = 1
     local maxDistance = 12.0
 
     if godMode then

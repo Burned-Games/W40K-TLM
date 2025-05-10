@@ -198,6 +198,22 @@ function on_ready()
 
         local entityARB = entityA:get_component("RigidbodyComponent").rb
         local entityBRB = entityB:get_component("RigidbodyComponent").rb
+
+        if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
+            print("aaaaaaaaaaaaaaa")
+            if entityARB:get_is_trigger() == false then
+                disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
+                disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
+            end 
+        end
+
+        if entityBRB and nameB ~= "Player" and nameB ~= "FloorCollider" then
+            print("bbbbbbbbbbbbbbb")
+            if entityBRB:get_is_trigger() == false then
+                disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
+                disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
+            end
+        end
         
         if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" then 
             makeDisruptorDamage(entityA)
@@ -242,22 +258,7 @@ function on_ready()
             makeDisruptorDamage(entityB)
         end
 
-        if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
-            if entityARB:get_is_trigger() == false then
-                -- print("collisionA")
-                disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
-                disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
-                -- print(nameA)
-            end 
-        end
-
-        if entityBRB and nameB ~= "Player" and nameB ~= "FloorCollider" then
-            if entityBRB:get_is_trigger() == false then
-                -- print("collisionB")
-                disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
-                disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
-            end
-        end
+        
 
     end)
 
@@ -730,6 +731,7 @@ function handle_bullet_collision(entityA, entityB)
     local entityARB = entityA:get_component("RigidbodyComponent").rb
     local entityBRB = entityB:get_component("RigidbodyComponent").rb
 
+    
 
     if nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
         local enemy = ((nameA == "EnemyRange" or nameA == "EnemyRange1" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyRange1" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
@@ -754,24 +756,21 @@ function handle_bullet_collision(entityA, entityB)
 
     if nameA == "MainBoss" or nameB == "MainBoss" then
         local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+        
         makeDamage(enemy)
     end
-
     if entityARB and nameB ~= "Player"  and nameB ~= "FloorCollider" and nameB ~= "Sphere1"  and nameB ~= "Sphere2"  and nameB ~= "Sphere3"  and nameB ~= "Sphere4"  and nameB ~= "Sphere5" and nameB ~= "Sphere6" and nameB ~= "Sphere7" and nameB ~= "Sphere8" then
-        if entityARB:get_is_trigger() == false then
-            print("collisionA")
-            entityBRB:set_position(Vector3.new(0,-150,0))
-            -- print(nameA)
+        if entityBRB:get_is_trigger() == false then
+            entityARB:set_position(Vector3.new(0,-150,0))
         end 
     end
 
     if entityBRB and nameA ~= "Player"  and nameA ~= "FloorCollider" and nameA ~= "Sphere1"  and nameA ~= "Sphere2"  and nameA ~= "Sphere3"  and nameA ~= "Sphere4"  and nameA ~= "Sphere5" and nameA ~= "Sphere6" and nameA ~= "Sphere7" and nameA ~= "Sphere8" then
         if entityARB:get_is_trigger() == false then
-            print("collisionB")
             entityBRB:set_position(Vector3.new(0,-150,0))
-            -- print(nameA)
         end 
     end
+    
 end
 
 function playShoot()

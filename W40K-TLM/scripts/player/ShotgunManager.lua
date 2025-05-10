@@ -484,7 +484,6 @@ function handle_bullet_collision(entityA, entityB)
 
     if bulletEntityB and (nameA ~= "Player" and nameA ~= "FloorCollider" and nameA ~= "Sphere1" and nameA ~= "Sphere2" and nameA ~= "Sphere3"  and nameA ~= "Sphere4" and nameA ~= "Sphere5" and nameA ~= "Sphere6" and nameA ~= "Sphere7" and nameA ~= "Sphere8" ) then
         bulletEntityB.rigidBody:set_position(Vector3.new(0, -250, 0))
-        print(bulletEntityB:get_component("TransformComponent").position.y)
         bulletEntityB.rigidBody:set_velocity(Vector3.new(0, 0, 0))
     end
 end
