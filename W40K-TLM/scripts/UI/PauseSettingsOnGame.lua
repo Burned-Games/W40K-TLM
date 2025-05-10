@@ -155,6 +155,7 @@ function on_update(dt)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
                 --button4:set_state("Pressed")
                 if(index == 2) then
+                save_progress("skipIntroDelay", true)
                 SceneManager.change_scene("scenes/Default.TeaScene")
                 end
             end

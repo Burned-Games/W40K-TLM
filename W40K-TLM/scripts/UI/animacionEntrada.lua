@@ -41,6 +41,15 @@ function on_ready()
 
     order = current_scene:get_entity_by_name("Order")
 
+    local skipDelay = load_progress("skipIntroDelay", false)
+    
+    if skipDelay then
+        delayDuration = 0
+        save_progress("skipIntroDelay", false) -- Resetea el flag para futuras aperturas
+    else
+        delayDuration = 0.5
+    end
+
     -- Inicializamos el rect de entrada
     local entryRect = Vector4.new(0, 0, entrySpriteWidth / entrySheetWidth, entrySpriteHeight / entrySheetHeight)
     imageComponent:set_rect(entryRect)
