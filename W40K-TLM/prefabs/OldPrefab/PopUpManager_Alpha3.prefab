@@ -1,0 +1,311 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 0,
+            "value0": "PopUpManager_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 12,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 15175073644038008478
+            }
+        },
+        "RootEntity": 0,
+        "value0": 4,
+        "value1": 4,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Tag": "PopUpManager"
+        },
+        "value9": 1,
+        "value10": {
+            "Tag": "PopUpNewZoneIMG"
+        },
+        "value11": 2,
+        "value12": {
+            "Tag": "PopUpBossZoneIMG"
+        },
+        "value13": 3,
+        "value14": {
+            "Tag": "PopUpText"
+        },
+        "value15": 4,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.10027886182069779,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value18": 1,
+        "value19": {
+            "Position": {
+                "x": 445.5,
+                "y": 23.203125,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 194.90625,
+                "y": 46.40625,
+                "z": 1.0
+            }
+        },
+        "value20": 2,
+        "value21": {
+            "Position": {
+                "x": 445.5,
+                "y": 23.203125,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 194.90625,
+                "y": 46.40625,
+                "z": 1.0
+            }
+        },
+        "value22": 3,
+        "value23": {
+            "Position": {
+                "x": 445.5,
+                "y": 23.203125,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 46.40625,
+                "y": 46.40625,
+                "z": 1.0
+            }
+        },
+        "value24": 4,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value27": 1,
+        "value28": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 3,
+            "Prev": 1
+        },
+        "value29": 2,
+        "value30": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value31": 3,
+        "value32": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value33": 0,
+        "value34": 0,
+        "value35": 0,
+        "value36": 0,
+        "value37": 0,
+        "value38": 0,
+        "value39": 4,
+        "value40": 0,
+        "value41": 1,
+        "value42": 2,
+        "value43": 3,
+        "value44": 1,
+        "value45": 0,
+        "value46": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/PopUpScript/popupSystem.lua",
+            "Language": 0
+        },
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 0,
+        "value51": 0,
+        "value52": 0,
+        "value53": 0,
+        "value54": 2,
+        "value55": 1,
+        "value56": {
+            "cereal_class_version": 1,
+            "TextureUUID": {
+                "value0": 16609560832358601222
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -210.0,
+                    "y": -0.0
+                },
+                "OffsetMax": {
+                    "x": 210.0,
+                    "y": 100.0
+                }
+            },
+            "Layer": 100
+        },
+        "value57": 2,
+        "value58": {
+            "TextureUUID": {
+                "value0": 807586784681185070
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -210.0,
+                    "y": -0.0
+                },
+                "OffsetMax": {
+                    "x": 210.0,
+                    "y": 100.0
+                }
+            },
+            "Layer": 100
+        },
+        "value59": 1,
+        "value60": 3,
+        "value61": {
+            "cereal_class_version": 0,
+            "Text": "Popup",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -0.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 100.0
+                }
+            },
+            "Layer": 0
+        },
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 1,
+        "value66": 0,
+        "value67": {
+            "cereal_class_version": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -50.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 50.0
+                }
+            },
+            "Layer": 0
+        }
+    }
+}

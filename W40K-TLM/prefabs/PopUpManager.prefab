@@ -2,16 +2,17 @@
     "value0": {
         "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "PopUpManager_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 15175073644038008478
-            }
+                "value0": 3014176240516423836
+            },
+            "value4": false
         },
         "RootEntity": 0,
         "value0": 4,
@@ -28,7 +29,7 @@
         },
         "value9": 1,
         "value10": {
-            "Tag": "PopUpNewZoneIMG"
+            "Tag": "PopUpText"
         },
         "value11": 2,
         "value12": {
@@ -36,14 +37,14 @@
         },
         "value13": 3,
         "value14": {
-            "Tag": "PopUpText"
+            "Tag": "PopUpNewZoneIMG"
         },
         "value15": 4,
         "value16": 0,
         "value17": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.10027886182069779,
+                "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -53,16 +54,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 0.0,
-                "y": 1.0,
+                "x": 1.0,
+                "y": 0.0,
                 "z": 1.0
             }
         },
         "value18": 1,
         "value19": {
             "Position": {
-                "x": 445.5,
-                "y": 23.203125,
+                "x": 946.5,
+                "y": 44.21296310424805,
                 "z": 0.0
             },
             "Rotation": {
@@ -71,16 +72,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 194.90625,
-                "y": 46.40625,
+                "x": 88.4259033203125,
+                "y": 88.4259262084961,
                 "z": 1.0
             }
         },
         "value20": 2,
         "value21": {
             "Position": {
-                "x": 445.5,
-                "y": 23.203125,
+                "x": 946.5,
+                "y": 44.21296310424805,
                 "z": 0.0
             },
             "Rotation": {
@@ -89,16 +90,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 194.90625,
-                "y": 46.40625,
+                "x": 371.388916015625,
+                "y": 88.4259262084961,
                 "z": 1.0
             }
         },
         "value22": 3,
         "value23": {
             "Position": {
-                "x": 445.5,
-                "y": 23.203125,
+                "x": 946.5,
+                "y": 44.21296310424805,
                 "z": 0.0
             },
             "Rotation": {
@@ -107,8 +108,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 46.40625,
-                "y": 46.40625,
+                "x": 371.388916015625,
+                "y": 88.4259262084961,
                 "z": 1.0
             }
         },
@@ -168,11 +169,11 @@
         "value52": 0,
         "value53": 0,
         "value54": 2,
-        "value55": 1,
+        "value55": 2,
         "value56": {
             "cereal_class_version": 1,
             "TextureUUID": {
-                "value0": 16609560832358601222
+                "value0": 807586784681185070
             },
             "Color": {
                 "x": 1.0,
@@ -207,10 +208,10 @@
             },
             "Layer": 100
         },
-        "value57": 2,
+        "value57": 3,
         "value58": {
             "TextureUUID": {
-                "value0": 807586784681185070
+                "value0": 16609560832358601222
             },
             "Color": {
                 "x": 1.0,
@@ -245,7 +246,7 @@
             "Layer": 100
         },
         "value59": 1,
-        "value60": 3,
+        "value60": 1,
         "value61": {
             "cereal_class_version": 0,
             "Text": "Popup",
