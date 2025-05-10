@@ -195,7 +195,7 @@ local changed = false
 local changeScene = false
 
 local pauseMenu = nil
-local isHitted = false
+isHitted = false
 
 local hitAnimationTime = 0.5
 local hitAnimationCounter = 0
@@ -1567,6 +1567,7 @@ function update_combat_state(dt)
         makeDamage = false
     else
         if combatTimer > 0 then
+        if combatTimer > 0 then 
             combatTimer = combatTimer - dt
         end
     end
