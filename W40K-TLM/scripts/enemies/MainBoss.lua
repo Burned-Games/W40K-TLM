@@ -572,12 +572,17 @@ function fists_attack()
     main_boss.fistsAttackDelayTimer = 0.0
 
     local playerPos = main_boss.playerTransf.position
-    main_boss.fistPositions = {
-        Vector3.new(playerPos.x, 0, playerPos.z),                                                       -- Player
-        Vector3.new(playerPos.x + main_boss.radius, 0, playerPos.z),                                    -- Right
-        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z + main_boss.radius * 0.866),     -- Bottom left
-        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z - main_boss.radius * 0.866)      -- Top left
-    }
+    main_boss.fistPositions = {Vector3.new(playerPos.x, 0, playerPos.z)}
+
+    -- Generate the other positions with some variability
+    for i = 1, fistMaxNumbers - 1 do
+        local angle = math.rad((360 / (fistMaxNumbers - 1)) * (i - 1))
+        local radius = main_boss.radius + math.random() * 5
+        local offsetX = math.cos(angle) * radius + (math.random() * 2 - 1) * 5
+        local offsetZ = math.sin(angle) * radius + (math.random() * 2 - 1) * 5
+
+        table.insert(main_boss.fistPositions, Vector3.new(playerPos.x + offsetX, 0, playerPos.z + offsetZ))
+    end
 
     for i = 1, fistMaxNumbers do
         log("Indicator: " .. main_boss.fistPositions[i].x .. ", " .. main_boss.fistPositions[i].y .. ", " .. main_boss.fistPositions[i].z)
