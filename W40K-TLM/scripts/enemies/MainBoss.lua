@@ -5,7 +5,7 @@ local effect = require("scripts/utils/status_effects")
 main_boss = enemy:new()
 
 local stats = nil
-local fistMaxNumbers = 3
+local fistMaxNumbers = 4
 
 --Prefabs locations
 local fistPrefabLocation = "prefabs/Enemies/BossFist.prefab"
@@ -267,6 +267,7 @@ function on_update(dt)
     end
 
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
+        main_boss:follow_path()
         if main_boss:get_distance(main_boss.enemyTransf.position, main_boss.arenaTrasnf.position) < 0.5 then
             main_boss.hasMovedToCenter = true
             main_boss.currentState = main_boss.state.Rage
@@ -274,6 +275,7 @@ function on_update(dt)
     end
 
     if main_boss.ultimateThrown then
+        main_boss.invulnerable = true
         main_boss.ultiAttackTimer = main_boss.ultiAttackTimer + dt
 
         if main_boss.ultiAttackTimer >= main_boss.ultiAttackDuration then
@@ -296,6 +298,7 @@ function on_update(dt)
                 main_boss.ultimateThrown = false
                 main_boss.ultimateCasting = false
                 main_boss.isUltimateDamaging = false
+                main_boss.invulnerable = false
                 main_boss.ultiAttackTimer = 0.0
                 main_boss.ultiHittingTimer = 0.0
                 main_boss.ultiTimer = 0.0
@@ -570,9 +573,10 @@ function fists_attack()
 
     local playerPos = main_boss.playerTransf.position
     main_boss.fistPositions = {
-        Vector3.new(playerPos.x + main_boss.radius, 0, playerPos.z),  -- Right
-        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z + main_boss.radius * 0.866),  -- Bottom left
-        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z - main_boss.radius * 0.866)   -- Top left
+        Vector3.new(playerPos.x, 0, playerPos.z),                                                       -- Player
+        Vector3.new(playerPos.x + main_boss.radius, 0, playerPos.z),                                    -- Right
+        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z + main_boss.radius * 0.866),     -- Bottom left
+        Vector3.new(playerPos.x - main_boss.radius / 2, 0, playerPos.z - main_boss.radius * 0.866)      -- Top left
     }
 
     for i = 1, fistMaxNumbers do
