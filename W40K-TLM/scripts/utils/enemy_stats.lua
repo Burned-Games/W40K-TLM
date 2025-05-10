@@ -7,18 +7,18 @@ local enemy_stats = {
         -- Range Level 1
         [1] = {
             -- Stats
-            health = 70,
+            health = 100,
 
             speed = 5.5,
             bulletSpeed = 15,
 
-            meleeDamage = 15,
-            rangeDamage = 5,
+            meleeDamage = 10,
+            rangeDamage = 4,
 
             detectionRange = 15,
             meleeAttackRange = 1,
-            rangeAttackRange = 12,
-            chaseRange = 6,
+            rangeAttackRange = 13,
+            chaseRange = 4,
 
             maxBurstShots = 4,
 
@@ -44,22 +44,22 @@ local enemy_stats = {
         -- Range Level 2
         [2] = {
             -- Stats
-            health = 90,
+            health = 120,
 
             speed = 5.5,
             bulletSpeed = 15,
 
-            meleeDamage = 20,
-            rangeDamage = 7,
+            meleeDamage = 15,
+            rangeDamage = 6,
 
             detectionRange = 15,
             meleeAttackRange = 1,
-            rangeAttackRange = 12,
-            chaseRange = 6,
+            rangeAttackRange = 13,
+            chaseRange = 4,
 
             maxBurstShots = 4,
 
-            alertRadius = 20.0,
+            alertRadius = 15.0,
 
             priority = 1,
 
@@ -71,7 +71,7 @@ local enemy_stats = {
             burstCooldown = 0.3,
             stabCooldown = 2.0,
             -- Invulnerable time of the range level 2 hability
-            invulnerableTime = 5.0
+            invulnerableTime = 2.0
         },
 
     },
@@ -83,12 +83,12 @@ local enemy_stats = {
         -- Support Level 1
         [1] = {
             -- Stats
-            health = 60,
+            health = 80,
 
             speed = 5,
             fleeSpeed = 7,
 
-            enemyShield = 35,
+            enemyShield = 50,
 
             detectionRange = 15,
             shieldRange = 5,
@@ -99,7 +99,7 @@ local enemy_stats = {
             -- **Timers**
 
             -- Time between throwing a shield and be able to put another
-            shieldCooldown = 5.0,
+            shieldCooldown = 4.0,
             -- When its in flee state, frequency of the support checking if ther is some enemy wich is able to get a shield
             checkEnemyInterval = 40.0
         },
@@ -108,14 +108,14 @@ local enemy_stats = {
         -- Support Level 2
         [2] = {
             -- Stats
-            health = 75,
+            health = 95,
 
             speed = 5,
             fleeSpeed = 7,
 
-            enemyShield = 50,
+            enemyShield = 70,
 
-            damage = 30,
+            damage = 20,
 
             detectionRange = 15,
             shieldRange = 5,
@@ -124,7 +124,7 @@ local enemy_stats = {
 
 
             -- **Timers**
-            shieldCooldown = 4.0,
+            shieldCooldown = 3.0,
             checkEnemyInterval = 40.0
         }
 
@@ -142,8 +142,8 @@ local enemy_stats = {
             speed = 3,
             tackleSpeed = 12,
 
-            meleeDamage = 40,
-            tackleDamage = 90,
+            meleeDamage = 30,
+            tackleDamage = 65,
 
             detectionRange = 15,
             meleeAttackRange = 3,
@@ -164,7 +164,7 @@ local enemy_stats = {
             -- Idle time before going after the player again
             idleDuration = 1.0,
             -- Total duration of Berserk mode
-            berserkaDuration = 10.0
+            berserkaDuration = 5.0
         },
 
 
@@ -205,7 +205,7 @@ local enemy_stats = {
         -- Kamikaze Level 1
         [2] = {
             -- Stats
-            health = 45,
+            health = 55,
 
             speed = 7,
 

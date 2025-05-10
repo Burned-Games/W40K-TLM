@@ -12,7 +12,7 @@ maxAmmo = 24
 ammo = 0
 local reloadTimeRifle = 0
 local shootCoolDown = 0
-shootCoolDownRifle = 1
+shootCoolDownRifle = 1.3
 local damageRifle = 15
 local tripleShootTimer = 0
 local tripleShootCount = 0
@@ -66,7 +66,7 @@ local particle_blood_spark_transform = nil
     local disruptorBulletRbComponent = nil
     local disruptorBulletRb = nil
 
-    local disruptorBulletDamage = 40
+    local disruptorBulletDamage = 75
 
     local shieldMultiplier = 0.3
 
@@ -85,7 +85,7 @@ local particle_blood_spark_transform = nil
     local chargeZoneRb = nil
 
     local zoneRadius = 4
-    local chargeZoneDamagePerSecond = 10
+    local chargeZoneDamagePerSecond = 12
     local chargeZoneDuration = 5
     local secondCounter = 0
     local secondCounterTimes = 0

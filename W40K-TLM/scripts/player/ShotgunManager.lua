@@ -1,7 +1,7 @@
 using = false
 -- Time
 local current_time = 0  
-shotgun_fire_rate = 1.3 
+shotgun_fire_rate = 1.5 
 next_fire_time = 0 
 
 -- ammo
@@ -24,8 +24,8 @@ local bullet_speed = 10.0
 local sphereSpeed = 50
 -- BulletList
 local bullets = {}
-local bulletCount = 8  -- Bullet Num
-local spreadAngle = 5  -- Bullet angle
+local bulletCount = 6  -- Bullet Num
+local spreadAngle = 7.5  -- Bullet angle
 
 local shootParticlesComponent
 local bulletDamageParticleComponent

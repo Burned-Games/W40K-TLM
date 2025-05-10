@@ -1,12 +1,12 @@
 
 
 local radiusAttack = 2.5
-local damage = 50
-local HpStealed = 10
+local damage = 65
+local HpStealed = 20
 coolDown = 6
 coolDownCounter = 6
 local impulseDirection = nil
-local impulseForce = 10
+local impulseForce = 15
 
 local player = nil
 local playerTransf = nil
