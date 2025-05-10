@@ -1,0 +1,128 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.001",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 9383725930736127013
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.002",
+                        "value": {
+                            "value0": 13930940665255936028
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.003",
+                        "value": {
+                            "value0": 7679525094135220566
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.004",
+                        "value": {
+                            "value0": 15757631755679541420
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.005",
+                        "value": {
+                            "value0": 2726719220377051975
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.006",
+                        "value": {
+                            "value0": 18150815711235673463
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.007",
+                        "value": {
+                            "value0": 6719309525409332478
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.008",
+                        "value": {
+                            "value0": 10480022458291751873
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.009",
+                        "value": {
+                            "value0": 11326914543719893124
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.010",
+                        "value": {
+                            "value0": 8279631130473309206
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.011",
+                        "value": {
+                            "value0": 6076999846912931496
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.012",
+                        "value": {
+                            "value0": 2222056584157203611
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.013",
+                        "value": {
+                            "value0": 17198391465273915552
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.014",
+                        "value": {
+                            "value0": 96334101364317432
+                        }
+                    },
+                    {
+                        "key": "Testbarril_Prop_Barrel_v01.015",
+                        "value": {
+                            "value0": 14652242386608799728
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "barrelMAT.001_Mat0",
+                        "value": {
+                            "value0": 14722102627572349509
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 6608869309250379654
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_Barrel/barrilSeparado2/Testbarril.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/6608869309250379654.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
