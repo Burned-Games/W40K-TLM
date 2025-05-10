@@ -198,18 +198,21 @@ function on_ready()
     main_boss.totemTimer = 0.0
     main_boss.fistsAttackDelayTimer = 0.0
     main_boss.colliderUpdateInterval = 0.1
+    main_boss.animDuration = 0.0
+    main_boss.animTimer = 0.0
 
     -- Provisional Timers
     main_boss.ultiTimer = 0.0
     main_boss.ultiCooldown = 10.0
 
     -- Animations
-    main_boss.idleAnim = 0
-    main_boss.moveAnim = 2
-    main_boss.attackAnim = 3
-    main_boss.shieldAnim = 3
-    main_boss.rageAnim = 3
-    main_boss.ultiAnim = 4
+    main_boss.idleAnim = 3
+    main_boss.moveAnim = 8
+    main_boss.meleeAnim = 5
+    main_boss.rangeAnim = 4
+    main_boss.shieldAnim = 0
+    main_boss.rageAnim = 6
+    main_boss.ultiAnim = 7
 
     -- Bools
     main_boss.isRaging = false
@@ -226,6 +229,7 @@ function on_ready()
     main_boss.hasMovedToCenter = false
     main_boss.isReturning = false
     main_boss.fistsAttackPending = false
+    main_boss.isPlayingAnimation = false
 
     -- Ints
     main_boss.radius = 6
@@ -418,6 +422,22 @@ function on_update(dt)
         main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     end
 
+    if main_boss.isPlayingAnimation then
+        main_boss.animTimer = main_boss.animTimer + dt
+        main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+        if main_boss.animTimer >= main_boss.animDuration then
+            main_boss.isPlayingAnimation = false
+        else
+            return
+        end
+    end
+
+    if main_boss.playerDetected then
+        if not main_boss.isDead or not main_boss.isPlayingAnimation or main_boss.ultimateThrown or main_boss.ultimateCasting then
+            main_boss:rotate_enemy(main_boss.playerTransf.position)
+        end
+    end
 
     if main_boss.currentState == main_boss.state.Idle then
         main_boss:idle_state()
@@ -521,8 +541,7 @@ end
 function main_boss:shield_state()
 
     if main_boss.currentAnim ~= main_boss.shieldAnim then
-        main_boss.currentAnim = main_boss.shieldAnim
-        main_boss.animator:set_current_animation(main_boss.currentAnim)
+        main_boss:play_blocking_animation(main_boss.shieldAnim, 1.5)
     end
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -542,11 +561,6 @@ function main_boss:attack_state()
         main_boss.isAttacking = false
         main_boss.attackTimer = 0.0
         return
-    end
-
-    if main_boss.currentAnim ~= main_boss.attackAnim then
-        main_boss.currentAnim = main_boss.attackAnim
-        main_boss.animator:set_current_animation(main_boss.currentAnim)
     end
 
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
@@ -586,6 +600,10 @@ function lightning_attack()
 
     if main_boss.lightningThrown then return end
 
+    if main_boss.currentAnim ~= main_boss.meleeAnim then
+        main_boss:play_blocking_animation(main_boss.meleeAnim, 2.2)
+    end
+
     log("Lightning Attack")
 
     local direction = unitary_direction(main_boss.playerTransf.position.x, main_boss.enemyTransf.position.x, main_boss.playerTransf.position.z, main_boss.enemyTransf.position.z)
@@ -621,6 +639,11 @@ end
 function fists_attack()
 
     if main_boss.fistsThrown or main_boss.fistsAttackPending then return end
+
+    if main_boss.currentAnim ~= main_boss.rangeAnim then
+        main_boss:play_blocking_animation(main_boss.rangeAnim, 1.2)
+    end
+
     log("Fists Indicator ")
 
     main_boss.fistsAttackPending = true
@@ -694,7 +717,12 @@ end
 
 function ultimate_attack()
 
+    if main_boss.currentAnim ~= main_boss.rageAnim then
+        main_boss:play_blocking_animation(main_boss.rageAnim, 2.8)
+    end
+
     log("Ultimate Attack")
+
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     main_boss.ultimateTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
     main_boss.ultimateTransf.scale = Vector3.new(1, 1, 1)
@@ -715,6 +743,10 @@ function ultimate_attack()
 end
 
 function check_ulti_collision()
+
+    if main_boss.currentAnim ~= main_boss.ultiAnim then
+        main_boss:play_blocking_animation(main_boss.ultiAnim, 2)
+    end
 
     local origin = main_boss.ultimateTransf.position
     local direction = Vector3.new(
@@ -807,6 +839,14 @@ function unitary_direction(x1, x2, z1, z2)
         return Vector3.new(dx / magnitud, 0, dz / magnitud)
     end
 
+end
+
+function main_boss:play_blocking_animation(animId, duration)
+    main_boss.currentAnim = animId
+    main_boss.animator:set_current_animation(animId)
+    main_boss.isPlayingAnimation = true
+    main_boss.animDuration = duration
+    main_boss.animTimer = 0.0
 end
 
 function on_exit()
