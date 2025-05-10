@@ -105,14 +105,14 @@ function handle_loading_gif(dt)
     animationTime = animationTime + dt
     local totalSprites = 20
     local spriteIndex = math.floor(animationTime / speed)
+
     if spriteIndex >= totalSprites then
         animationTime = 0
         spriteIndex = 1
     end
 
-    local reversedIndex = (totalSprites - 1) - spriteIndex
-    local horizontalIndex = reversedIndex % horizontalSprites
-    local verticalIndex = math.floor(reversedIndex / horizontalSprites)
+    local horizontalIndex = spriteIndex % horizontalSprites
+    local verticalIndex = math.floor(spriteIndex / horizontalSprites)
 
     rect.x = horizontalIndex * (spriteWidth / sheetWidth)
     rect.y = (verticalSprites - 1 - verticalIndex) * (spriteHeight / sheetHeight)
