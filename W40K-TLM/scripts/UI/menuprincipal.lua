@@ -106,7 +106,7 @@ function on_update(dt)
                     --button1:set_state("Pressed")
                     --sceneChanged = true
                     --save_progress("zonePlayer", 0)
-                    save_progress("level", 1)
+                    save_progress("level", 0)
                     --SceneManager.change_scene("scenes/level1.TeaScene")
 
                     save_progress("weaponsReloadReduction", false)
@@ -257,7 +257,7 @@ function on_update(dt)
     
                 if changingScene == 1 then
                     save_progress("zonePlayer", 0)
-                    save_progress("level", 1)
+                    save_progress("level", 0)
                 end
                 SceneManager.change_scene("scenes/loading.TeaScene")
     

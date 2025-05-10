@@ -83,7 +83,10 @@ function on_update(dt)
 
 
     if changeScene == true and not changed then
-        if levelToLoad == 1 then
+        if levelToLoad == 0 then
+            save_progress("level", 1)
+            SceneManager.change_scene("scenes/IntroCinematic.TeaScene")
+        elseif levelToLoad == 1 then
             SceneManager.change_scene("scenes/level1.TeaScene")
         elseif levelToLoad == 2 then
             SceneManager.change_scene("scenes/level2.TeaScene")
