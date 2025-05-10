@@ -183,7 +183,7 @@ function getCurrentTask(tasks, index)
         description = description:gsub("x", tostring(m9_EnemyCount))
     end
 
-    return insert_line_breaks(description, 23)
+    return insert_line_breaks(description, 31)
 end
 
 function missionBlue_Tutor()
@@ -284,22 +284,32 @@ function lerp(a, b, t)
 end
 
 function insert_line_breaks(text, max_chars_per_line)
-    local result, current_line, current_length = {}, "", 0
+    local result = {}
+    local current_line = ""
+    local current_length = 0
+
     for word in text:gmatch("%S+") do
         local word_length = utf8_char_count(word)
+
         if current_length + word_length > max_chars_per_line then
             table.insert(result, current_line)
-            current_line, current_length = word, word_length
+            current_line = word
+            current_length = word_length
         else
             if current_line ~= "" then
                 current_line = current_line .. " " .. word
                 current_length = current_length + 1 + word_length
             else
-                current_line, current_length = word, word_length
+                current_line = word
+                current_length = word_length
             end
         end
     end
-    if current_line ~= "" then table.insert(result, current_line) end
+
+    if current_line ~= "" then
+        table.insert(result, current_line)
+    end
+
     return table.concat(result, "\n")
 end
 

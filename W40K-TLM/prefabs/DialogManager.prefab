@@ -2,16 +2,17 @@
     "value0": {
         "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "DialogManager_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 12130142713712255246
-            }
+                "value0": 18072593096826676465
+            },
+            "value4": false
         },
         "RootEntity": 0,
         "value0": 4,
@@ -28,7 +29,7 @@
         },
         "value9": 1,
         "value10": {
-            "Tag": "DialogName"
+            "Tag": "DialogIMG"
         },
         "value11": 2,
         "value12": {
@@ -36,14 +37,14 @@
         },
         "value13": 3,
         "value14": {
-            "Tag": "DialogIMG"
+            "Tag": "DialogName"
         },
         "value15": 4,
         "value16": 0,
         "value17": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.0,
+                "x": -0.5000000596046448,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -53,16 +54,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 0.0,
+                "x": 0.0,
+                "y": 1.0,
                 "z": 1.0
             }
         },
         "value18": 1,
         "value19": {
             "Position": {
-                "x": 445.5,
-                "y": 384.9765625,
+                "x": 946.5,
+                "y": 712.7129516601563,
                 "z": 0.0
             },
             "Rotation": {
@@ -71,16 +72,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 46.40625,
-                "y": 46.40625,
+                "x": 530.5556030273438,
+                "y": 135.2916259765625,
                 "z": 1.0
             }
         },
         "value20": 2,
         "value21": {
             "Position": {
-                "x": 445.5,
-                "y": 401.68280029296877,
+                "x": 946.5,
+                "y": 706.5231323242188,
                 "z": 0.0
             },
             "Rotation": {
@@ -89,16 +90,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 46.40625,
-                "y": 46.40625,
+                "x": 88.4259033203125,
+                "y": 136.1759033203125,
                 "z": 1.0
             }
         },
         "value22": 3,
         "value23": {
             "Position": {
-                "x": 445.5,
-                "y": 398.8984375,
+                "x": 946.5,
+                "y": 672.0370483398438,
                 "z": 0.0
             },
             "Rotation": {
@@ -107,8 +108,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 278.4375,
-                "y": 46.40625,
+                "x": 88.4259033203125,
+                "y": 136.1759033203125,
                 "z": 1.0
             }
         },
@@ -168,7 +169,7 @@
         "value52": 0,
         "value53": 0,
         "value54": 1,
-        "value55": 3,
+        "value55": 1,
         "value56": {
             "cereal_class_version": 1,
             "TextureUUID": {
@@ -198,53 +199,19 @@
                 },
                 "OffsetMin": {
                     "x": -300.0,
-                    "y": -395.0
+                    "y": -350.5
                 },
                 "OffsetMax": {
                     "x": 300.0,
-                    "y": -295.0
+                    "y": -197.5
                 }
             },
             "Layer": 100
         },
         "value57": 2,
-        "value58": 1,
+        "value58": 2,
         "value59": {
             "cereal_class_version": 0,
-            "Text": "DialogName",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 24.0,
-            "Alignment": 1,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 1.0
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 1.0
-                },
-                "OffsetMin": {
-                    "x": -50.0,
-                    "y": -425.0
-                },
-                "OffsetMax": {
-                    "x": 50.0,
-                    "y": -325.0
-                }
-            },
-            "Layer": 0
-        },
-        "value60": 2,
-        "value61": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -260,7 +227,7 @@
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
-                    "y": 1.0
+                    "y": 0.949999988079071
                 },
                 "AnchorMax": {
                     "x": 0.5,
@@ -268,11 +235,45 @@
                 },
                 "OffsetMin": {
                     "x": -50.0,
-                    "y": -389.0
+                    "y": -304.0
                 },
                 "OffsetMax": {
                     "x": 50.0,
-                    "y": -289.0
+                    "y": -204.0
+                }
+            },
+            "Layer": 0
+        },
+        "value60": 3,
+        "value61": {
+            "Text": "DialogName",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 24.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.949999988079071
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 1.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -343.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": -243.0
                 }
             },
             "Layer": 0
