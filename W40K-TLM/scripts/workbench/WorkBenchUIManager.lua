@@ -510,8 +510,7 @@ function handle_gun_controls(dt)
     elseif weaponIndex == 4 then
         wIVSelButton.state = 1
     end
-    
-    -- Handle confirm button press
+
     local confirmState = Input.get_button(Input.action.Confirm)
     if confirmState == Input.state.Repeat and not confirmPressed then
         confirmPressed = true
@@ -542,31 +541,38 @@ function handle_gun_controls(dt)
                 end
             end
         elseif weaponIndex == 1 then
-            wISelButton.state = 1
-            -- Select first upgrade
+            wISelButton.state = 1  
+             
             currentUpgradeIndex.weapons = 0
             update_ui()
+            weaponIndex = 0
+            wUpgradeSelButton.state = 1  
         elseif weaponIndex == 2 then
-            wIISelButton.state = 1
-            -- Select second upgrade
+            wIISelButton.state = 1  
+             
             currentUpgradeIndex.weapons = 1
             update_ui()
+            weaponIndex = 0
+            wUpgradeSelButton.state = 1  
         elseif weaponIndex == 3 then
-            wIIISelButton.state = 1
-            -- Select third upgrade
+            wIIISelButton.state = 1  
+             
             currentUpgradeIndex.weapons = 2
             update_ui()
+            weaponIndex = 0
+            wUpgradeSelButton.state = 1  
         elseif weaponIndex == 4 then
-            wIVSelButton.state = 1
-            -- Select fourth upgrade
+            wIVSelButton.state = 1  
+             
             currentUpgradeIndex.weapons = 3
             update_ui()
+            weaponIndex = 0
+            wUpgradeSelButton.state = 1  
         end
     elseif confirmState ~= Input.state.Repeat then
         confirmPressed = false
     end
-    
-    -- Handle vertical navigation
+      -- Handle vertical navigation
     local verticalValue = Input.get_axis(Input.action.UiMoveVertical)
     if (verticalValue ~= 0 and contadorMovimientoBotones > 0.05) then
         contadorMovimientoBotones = 0
@@ -575,6 +581,9 @@ function handle_gun_controls(dt)
             if weaponIndex == 0 then
                 -- If currently on upgrade button, go to the first weapon upgrade button
                 weaponIndex = 1
+                
+                currentUpgradeIndex.weapons = 0  -- First upgrade
+                update_ui()
             else
                 -- If on weapon upgrade buttons, go to main upgrade button
                 weaponIndex = 0
@@ -583,14 +592,16 @@ function handle_gun_controls(dt)
             if weaponIndex == 0 then
                 -- If currently on upgrade button, go to the first weapon upgrade button
                 weaponIndex = 1
+                
+                currentUpgradeIndex.weapons = 0  -- First upgrade
+                update_ui()
             else
                 -- If on weapon upgrade buttons, go to main upgrade button
                 weaponIndex = 0
             end
         end
     end
-    
-    -- Handle horizontal navigation (only when on weapon upgrade buttons)
+      -- Handle horizontal navigation (only when on weapon upgrade buttons)
     local horizontalValue = Input.get_axis(Input.action.UiMoveHorizontal)
     if (horizontalValue ~= 0 and contadorMovimientoBotones > 0.05 and weaponIndex > 0) then
         contadorMovimientoBotones = 0
@@ -600,11 +611,35 @@ function handle_gun_controls(dt)
             if weaponIndex > 4 then
                 weaponIndex = 1  -- Loop back to first upgrade button
             end
+            
+            -- Auto-update upgrade info when navigating horizontally 
+            if weaponIndex == 1 then
+                currentUpgradeIndex.weapons = 0  -- First upgrade
+            elseif weaponIndex == 2 then
+                currentUpgradeIndex.weapons = 1  -- Second upgrade
+            elseif weaponIndex == 3 then
+                currentUpgradeIndex.weapons = 2  -- Third upgrade
+            elseif weaponIndex == 4 then
+                currentUpgradeIndex.weapons = 3  -- Fourth upgrade
+            end
+            update_ui()
         elseif horizontalValue < 0 then  -- Left
             weaponIndex = weaponIndex - 1
             if weaponIndex < 1 then
                 weaponIndex = 4  -- Loop to last upgrade button
             end
+            
+            -- Auto-update upgrade info when navigating horizontally
+            if weaponIndex == 1 then
+                currentUpgradeIndex.weapons = 0  -- First upgrade
+            elseif weaponIndex == 2 then
+                currentUpgradeIndex.weapons = 1  -- Second upgrade
+            elseif weaponIndex == 3 then
+                currentUpgradeIndex.weapons = 2  -- Third upgrade
+            elseif weaponIndex == 4 then
+                currentUpgradeIndex.weapons = 3  -- Fourth upgrade
+            end
+            update_ui()
         end
     end
     
@@ -630,8 +665,7 @@ function handle_character_controls(dt)
     elseif armorIndex == 3 then
         aIIISelButton.state = 1
     end
-    
-    -- Handle confirm button press
+      -- Handle confirm button press
     local confirmState = Input.get_button(Input.action.Confirm)
     if confirmState == Input.state.Repeat and not confirmPressed then
         confirmPressed = true
@@ -661,26 +695,31 @@ function handle_character_controls(dt)
                 end
             end
         elseif armorIndex == 1 then
-            aISelButton.state = 1
-            -- Select first upgrade
+            aISelButton.state = 1  
+             
             currentUpgradeIndex.armor = 0
             update_ui()
+            armorIndex = 0
+            aUpgradeSelButton.state = 1  
         elseif armorIndex == 2 then
-            aIISelButton.state = 1
-            -- Select second upgrade
+            aIISelButton.state = 1  
+             
             currentUpgradeIndex.armor = 1
             update_ui()
+            armorIndex = 0
+            aUpgradeSelButton.state = 1  
         elseif armorIndex == 3 then
-            aIIISelButton.state = 1
-            -- Select third upgrade
+            aIIISelButton.state = 1  
+             
             currentUpgradeIndex.armor = 2
             update_ui()
+            armorIndex = 0
+            aUpgradeSelButton.state = 1  
         end
     elseif confirmState ~= Input.state.Repeat then
         confirmPressed = false
     end
-    
-    -- Handle vertical navigation
+      -- Handle vertical navigation
     local verticalValue = Input.get_axis(Input.action.UiMoveVertical)
     if (verticalValue ~= 0 and contadorMovimientoBotones > 0.05) then
         contadorMovimientoBotones = 0
@@ -689,6 +728,10 @@ function handle_character_controls(dt)
             if armorIndex == 0 then
                 -- If currently on upgrade button, go to the first armor upgrade button
                 armorIndex = 1
+                
+                -- Auto-update displayed upgrade info
+                currentUpgradeIndex.armor = 0  -- First upgrade
+                update_ui()
             else
                 -- If on armor upgrade buttons, go to main upgrade button
                 armorIndex = 0
@@ -697,14 +740,17 @@ function handle_character_controls(dt)
             if armorIndex == 0 then
                 -- If currently on upgrade button, go to the first armor upgrade button
                 armorIndex = 1
+                
+                -- Auto-update displayed upgrade info
+                currentUpgradeIndex.armor = 0  -- First upgrade
+                update_ui()
             else
                 -- If on armor upgrade buttons, go to main upgrade button
                 armorIndex = 0
             end
         end
     end
-    
-    -- Handle horizontal navigation (only when on armor upgrade buttons)
+      -- Handle horizontal navigation (only when on armor upgrade buttons)
     local horizontalValue = Input.get_axis(Input.action.UiMoveHorizontal)
     if (horizontalValue ~= 0 and contadorMovimientoBotones > 0.05 and armorIndex > 0) then
         contadorMovimientoBotones = 0
@@ -714,11 +760,31 @@ function handle_character_controls(dt)
             if armorIndex > 3 then
                 armorIndex = 1  -- Loop back to first upgrade button
             end
+            
+            -- Auto-update upgrade info when navigating horizontally
+            if armorIndex == 1 then
+                currentUpgradeIndex.armor = 0  -- First upgrade
+            elseif armorIndex == 2 then
+                currentUpgradeIndex.armor = 1  -- Second upgrade
+            elseif armorIndex == 3 then
+                currentUpgradeIndex.armor = 2  -- Third upgrade
+            end
+            update_ui()
         elseif horizontalValue < 0 then  -- Left
             armorIndex = armorIndex - 1
             if armorIndex < 1 then
                 armorIndex = 3  -- Loop to last upgrade button
             end
+            
+            -- Auto-update upgrade info when navigating horizontally
+            if armorIndex == 1 then
+                currentUpgradeIndex.armor = 0  -- First upgrade
+            elseif armorIndex == 2 then
+                currentUpgradeIndex.armor = 1  -- Second upgrade
+            elseif armorIndex == 3 then
+                currentUpgradeIndex.armor = 2  -- Third upgrade
+            end
+            update_ui()
         end
     end
     
