@@ -1567,7 +1567,6 @@ function update_combat_state(dt)
         makeDamage = false
     else
         if combatTimer > 0 then
-        if combatTimer > 0 then 
             combatTimer = combatTimer - dt
         end
     end
