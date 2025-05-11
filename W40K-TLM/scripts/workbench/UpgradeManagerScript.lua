@@ -12,12 +12,12 @@ local MULTIPLIERS = {
         fireRateBoost = 0.9      -- 10% faster firing 
     },
     armor = {
-        healthBoost = 20        -- 20% more health
+        healthBoost = 50        -- 50 more health
     }
 }
 
 local BASE_VALUES = {
-    maxHealth = 100,
+    maxHealth = 250,
 
     -- Rifle values
     reloadTimeRifle = 2.5,
@@ -218,7 +218,7 @@ end
 ----------------------------------
 function apply_to_player(player)
     -- Health
-    player.playerHealth = get_max_health(BASE_VALUES.maxHealth)
+    player.maxHealth = get_max_health(BASE_VALUES.maxHealth)
     
     -- Rifle
     rifle.maxReloadTime = get_reload_time(BASE_VALUES.reloadTimeRifle)
