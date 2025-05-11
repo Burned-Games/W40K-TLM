@@ -1217,7 +1217,7 @@ function autoaimUpdate()
     local pos = playerTransf.position
     local origin = Vector3.new(pos.x, pos.y, pos.z)
 
-    origin.y = 1
+    origin.y = 0.5
     local maxDistance = 12.0
 
     if godMode then
