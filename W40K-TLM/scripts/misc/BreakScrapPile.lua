@@ -93,22 +93,11 @@ function give_phisycs()
          scrap:get_component("TransformComponent").position = Vector3.new(randomX, transform.position.y, randomZ)
 
      end
-
-    
-
-
+     self:get_component("RigidbodyComponent").rb:set_position(Vector3.new(-100,-100,-100))
 
 end
 
 function on_update(dt)
-    if Input.is_key_pressed(Input.keycode.J) then
-        if not hasDestroyed then
-            --cameraScript.startShake(0.2,5)
-            give_phisycs()
-            hasDestroyed = true
-        end
-    end
-
     if hasDestroyed and not hasDisappeared then
         disappearCounter = disappearCounter + dt
 

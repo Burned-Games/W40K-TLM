@@ -1,0 +1,98 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "P_Box2_Cube.005",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 14651574600969907385
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.024",
+                        "value": {
+                            "value0": 5459817406928914067
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.015",
+                        "value": {
+                            "value0": 2377171816365543679
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.006",
+                        "value": {
+                            "value0": 3693025801018373093
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.028",
+                        "value": {
+                            "value0": 11911289677742819526
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.011",
+                        "value": {
+                            "value0": 15541705289691529930
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.012",
+                        "value": {
+                            "value0": 1667851811260805543
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.021",
+                        "value": {
+                            "value0": 8851848383423524069
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.030",
+                        "value": {
+                            "value0": 14787309924314741002
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Cube.020",
+                        "value": {
+                            "value0": 1191169139306831647
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material_Mat0",
+                        "value": {
+                            "value0": 5726165792942710783
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 16020041812769833427
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_Box_2/P_Box2.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/16020041812769833427.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

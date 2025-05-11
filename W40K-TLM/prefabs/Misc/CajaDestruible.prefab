@@ -1,0 +1,193 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "CajaDestruible_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 4636351101045922019
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 2,
+        "value1": 2,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 0,
+        "value6": {
+            "cereal_class_version": 0,
+            "Tag": "CajaDestruible"
+        },
+        "value7": 1,
+        "value8": {
+            "Tag": "Normal"
+        },
+        "value9": 2,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value12": 1,
+        "value13": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value14": 2,
+        "value15": 0,
+        "value16": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value17": 1,
+        "value18": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value19": 1,
+        "value20": 1,
+        "value21": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 7727440229893038395
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value22": 1,
+        "value23": 1,
+        "value24": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 10417283291248661010
+            }
+        },
+        "value25": 0,
+        "value26": 1,
+        "value27": 0,
+        "value28": {
+            "cereal_class_version": 0,
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "m_Properties": {
+                            "cereal_class_version": 0,
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": true,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Coffee::BoxCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "cereal_class_version": 0,
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.5,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 0.42000001668930056,
+                                            "y": 0.42000001668930056,
+                                            "z": 0.42000001668930056
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value29": 0,
+        "value30": 0,
+        "value31": 2,
+        "value32": 0,
+        "value33": 1,
+        "value34": 1,
+        "value35": 0,
+        "value36": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/misc/BreakObjectInstance.lua",
+            "Language": 0
+        },
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0
+    }
+}

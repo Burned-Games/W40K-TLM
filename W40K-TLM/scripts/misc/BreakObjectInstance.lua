@@ -4,6 +4,7 @@ local objectNormal = nil
 
 local prefabBarril = "prefabs/Misc/BarrilSeparado.prefab"
 local prefabCaja = "prefabs/Misc/CajaSeparado.prefab"
+local prefabCajaV2 = "prefabs/Misc/CajaSeparadoV2.prefab"
 
 local rbComponent = nil
 
@@ -30,6 +31,8 @@ function on_ready()
     end
 
     rbComponent = self:get_component("RigidbodyComponent");
+    rbComponent.rb:get_collider():set_box_size(Vector3.new(0.8,0.8,0.8))
+
     rbComponent:on_collision_enter(function(entityA, entityB)
 
         local nameA = entityA:get_component("TagComponent").tag
@@ -46,7 +49,6 @@ function on_ready()
 
 
     end)
-    --rbComponent.rb:set_trigger(true)
 
 end
 
@@ -63,6 +65,8 @@ function give_phisycs()
         separate = instantiate_prefab(prefabBarril)
     elseif tag == "CajaDestruible" then
         separate = instantiate_prefab(prefabCaja)
+    elseif tag == "CajaDestruibleV2" then
+        separate = instantiate_prefab(prefabCajaV2)
     end
 
     if separate == nil then return end
@@ -101,15 +105,6 @@ end
 
 function on_update(dt)
     -- Add update code here
-    if Input.is_key_pressed(Input.keycode.J) then
-        if not hasDestroyed then
-            --cameraScript.startShake(0.2,5)
-            give_phisycs()
-            hasDestroyed = true
-            
-        end 
-    end
-
     if hasDestroyed and not hasDisappeared then
        
         disappearCounter = disappearCounter + dt

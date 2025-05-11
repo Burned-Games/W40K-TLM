@@ -1,0 +1,74 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "P_Box1_Destroy_Cube.003",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 9577803704182875904
+                        }
+                    },
+                    {
+                        "key": "P_Box1_Destroy_Cube.065",
+                        "value": {
+                            "value0": 8161216330286022645
+                        }
+                    },
+                    {
+                        "key": "P_Box1_Destroy_Cube.066",
+                        "value": {
+                            "value0": 4568281575588236281
+                        }
+                    },
+                    {
+                        "key": "P_Box1_Destroy_Cube.067",
+                        "value": {
+                            "value0": 10441454984517788687
+                        }
+                    },
+                    {
+                        "key": "P_Box1_Destroy_Cube.068",
+                        "value": {
+                            "value0": 13155351048584078210
+                        }
+                    },
+                    {
+                        "key": "P_Box1_Destroy_Cube.069",
+                        "value": {
+                            "value0": 3659169395359452248
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.002_Mat0",
+                        "value": {
+                            "value0": 12680521167693163775
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 15871978510267863559
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_Box_1/P_Box1_Destroy.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15871978510267863559.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

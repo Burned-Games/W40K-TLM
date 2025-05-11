@@ -1,0 +1,656 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "CajaDestruibleV2_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 8409861507472808993
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 12,
+        "value1": 12,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 8,
+        "value11": 9,
+        "value12": 10,
+        "value13": 11,
+        "value14": 12,
+        "value15": 0,
+        "value16": {
+            "cereal_class_version": 0,
+            "Tag": "CajaDestruibleV2"
+        },
+        "value17": 1,
+        "value18": {
+            "Tag": "Normal"
+        },
+        "value19": 2,
+        "value20": {
+            "Tag": "Cube.004"
+        },
+        "value21": 3,
+        "value22": {
+            "Tag": "Cube.005"
+        },
+        "value23": 4,
+        "value24": {
+            "Tag": "Cube.010"
+        },
+        "value25": 5,
+        "value26": {
+            "Tag": "Cube.011"
+        },
+        "value27": 6,
+        "value28": {
+            "Tag": "Cube.014"
+        },
+        "value29": 7,
+        "value30": {
+            "Tag": "Cube.020"
+        },
+        "value31": 8,
+        "value32": {
+            "Tag": "Cube.023"
+        },
+        "value33": 9,
+        "value34": {
+            "Tag": "Cube.027"
+        },
+        "value35": 10,
+        "value36": {
+            "Tag": "Metales01"
+        },
+        "value37": 11,
+        "value38": {
+            "Tag": "Tablones"
+        },
+        "value39": 12,
+        "value40": 0,
+        "value41": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value42": 1,
+        "value43": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value44": 2,
+        "value45": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value46": 3,
+        "value47": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value48": 4,
+        "value49": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value50": 5,
+        "value51": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value52": 6,
+        "value53": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value54": 7,
+        "value55": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value56": 8,
+        "value57": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value58": 9,
+        "value59": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value60": 10,
+        "value61": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value62": 11,
+        "value63": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value64": 12,
+        "value65": 0,
+        "value66": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value67": 1,
+        "value68": {
+            "Parent": 0,
+            "First": 2,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value69": 2,
+        "value70": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 11,
+            "Prev": 9
+        },
+        "value71": 3,
+        "value72": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value73": 4,
+        "value74": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value75": 5,
+        "value76": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value77": 6,
+        "value78": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value79": 7,
+        "value80": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
+        "value81": 8,
+        "value82": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 7
+        },
+        "value83": 9,
+        "value84": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 8
+        },
+        "value85": 10,
+        "value86": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 9
+        },
+        "value87": 11,
+        "value88": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 10
+        },
+        "value89": 10,
+        "value90": 2,
+        "value91": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 14651574600969907385
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value92": 3,
+        "value93": {
+            "Mesh": {
+                "value0": 3693025801018373093
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value94": 4,
+        "value95": {
+            "Mesh": {
+                "value0": 15541705289691529930
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value96": 5,
+        "value97": {
+            "Mesh": {
+                "value0": 1667851811260805543
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value98": 6,
+        "value99": {
+            "Mesh": {
+                "value0": 2377171816365543679
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value100": 7,
+        "value101": {
+            "Mesh": {
+                "value0": 8851848383423524069
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value102": 8,
+        "value103": {
+            "Mesh": {
+                "value0": 5459817406928914067
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value104": 9,
+        "value105": {
+            "Mesh": {
+                "value0": 11911289677742819526
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value106": 10,
+        "value107": {
+            "Mesh": {
+                "value0": 14787309924314741002
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value108": 11,
+        "value109": {
+            "Mesh": {
+                "value0": 1191169139306831647
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value110": 10,
+        "value111": 2,
+        "value112": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value113": 3,
+        "value114": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value115": 4,
+        "value116": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value117": 5,
+        "value118": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value119": 6,
+        "value120": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value121": 7,
+        "value122": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value123": 8,
+        "value124": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value125": 9,
+        "value126": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value127": 10,
+        "value128": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value129": 11,
+        "value130": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5726165792942710783
+            }
+        },
+        "value131": 0,
+        "value132": 1,
+        "value133": 0,
+        "value134": {
+            "cereal_class_version": 0,
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "m_Properties": {
+                            "cereal_class_version": 0,
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": true,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Coffee::BoxCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "cereal_class_version": 0,
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.5,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 0.46000000834465029,
+                                            "y": 0.46000000834465029,
+                                            "z": 0.46000000834465029
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value135": 0,
+        "value136": 0,
+        "value137": 12,
+        "value138": 0,
+        "value139": 1,
+        "value140": 2,
+        "value141": 3,
+        "value142": 4,
+        "value143": 5,
+        "value144": 6,
+        "value145": 7,
+        "value146": 8,
+        "value147": 9,
+        "value148": 10,
+        "value149": 11,
+        "value150": 1,
+        "value151": 0,
+        "value152": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/misc/BreakObjectInstance.lua",
+            "Language": 0
+        },
+        "value153": 0,
+        "value154": 0,
+        "value155": 0,
+        "value156": 0,
+        "value157": 0,
+        "value158": 0,
+        "value159": 0,
+        "value160": 0,
+        "value161": 0,
+        "value162": 0,
+        "value163": 0,
+        "value164": 0,
+        "value165": 0
+    }
+}

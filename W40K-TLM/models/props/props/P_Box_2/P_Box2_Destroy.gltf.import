@@ -1,0 +1,218 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "P_Box2_Destroy_Cube.004",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 12169702023194667513
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.057",
+                        "value": {
+                            "value0": 17838047656291320507
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.007",
+                        "value": {
+                            "value0": 17558183103445910233
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.008",
+                        "value": {
+                            "value0": 6873687596905930688
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.009",
+                        "value": {
+                            "value0": 3057774842655315632
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.010",
+                        "value": {
+                            "value0": 1529804778938233781
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.013",
+                        "value": {
+                            "value0": 15301024775793573039
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.014",
+                        "value": {
+                            "value0": 1552175452832509201
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.016",
+                        "value": {
+                            "value0": 9485592190866590871
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.017",
+                        "value": {
+                            "value0": 9852556516603570868
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.018",
+                        "value": {
+                            "value0": 16142685913330974786
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.019",
+                        "value": {
+                            "value0": 3799505069851570766
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.022",
+                        "value": {
+                            "value0": 11735890572645684131
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.023",
+                        "value": {
+                            "value0": 12941895756696200555
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.025",
+                        "value": {
+                            "value0": 2722572769472851747
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.026",
+                        "value": {
+                            "value0": 3566006113970913215
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.027",
+                        "value": {
+                            "value0": 14401077900095584230
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.029",
+                        "value": {
+                            "value0": 8270937064353672497
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.031",
+                        "value": {
+                            "value0": 17190028581922059244
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.032",
+                        "value": {
+                            "value0": 880704354812682944
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.044",
+                        "value": {
+                            "value0": 1218034745955533596
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.055",
+                        "value": {
+                            "value0": 4570552216477539950
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.056",
+                        "value": {
+                            "value0": 8547069218890171359
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.058",
+                        "value": {
+                            "value0": 3013494700877649806
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.059",
+                        "value": {
+                            "value0": 14360417358508200994
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.060",
+                        "value": {
+                            "value0": 6014510238312118222
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.061",
+                        "value": {
+                            "value0": 13323876946652783979
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.062",
+                        "value": {
+                            "value0": 1120788356885219046
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.063",
+                        "value": {
+                            "value0": 15771204583900212554
+                        }
+                    },
+                    {
+                        "key": "P_Box2_Destroy_Cube.064",
+                        "value": {
+                            "value0": 10520151383261901925
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material_Mat0",
+                        "value": {
+                            "value0": 5538463296207127206
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 16435104740970692095
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_Box_2/P_Box2_Destroy.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/16435104740970692095.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
