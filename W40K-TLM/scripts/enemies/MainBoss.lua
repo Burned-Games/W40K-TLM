@@ -455,7 +455,6 @@ function on_update(dt)
 
     if main_boss.currentState == main_boss.state.Idle then
         main_boss:idle_state()
-        log("Idle State")
     elseif main_boss.currentState == main_boss.state.Move then
         main_boss:move_state()
     elseif main_boss.currentState == main_boss.state.Attack then
