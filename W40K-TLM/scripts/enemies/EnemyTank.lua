@@ -61,6 +61,7 @@ function on_ready()
     tank.attackTimer = 0.0
     tank.tackleTimer = 0.0
     tank.berserkaTimer = 0.0
+    tank.idleTimer = 0.0
     tank.animDuration = 0.0
     tank.animTimer = 0.0
 
