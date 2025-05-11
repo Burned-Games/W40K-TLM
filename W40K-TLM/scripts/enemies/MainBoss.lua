@@ -201,6 +201,12 @@ function on_ready()
     main_boss.animDuration = 0.0
     main_boss.animTimer = 0.0
 
+    main_boss.fistsDuration = 1.67
+    main_boss.thunderDuration = 2.67
+    main_boss.shieldDuration = 1.33
+    main_boss.rageDuration = 2.33
+    main_boss.ultiDuration = 2.5
+
     -- Provisional Timers
     main_boss.ultiTimer = 0.0
     main_boss.ultiCooldown = 10.0
@@ -492,8 +498,13 @@ end
 
 function main_boss:rage_state()
 
+    if main_boss.currentAnim ~= main_boss.rageAnim then
+        main_boss:play_blocking_animation(main_boss.rageAnim, main_boss.rageDuration)
+    end
+
     if not main_boss.hasMovedToCenter and not main_boss.isReturning then
         log("Boss entering Rage and moving to center of arena")
+
         main_boss:update_path(main_boss.arenaTrasnf)
         main_boss:follow_path()
         main_boss.isReturning = true
@@ -541,7 +552,7 @@ end
 function main_boss:shield_state()
 
     if main_boss.currentAnim ~= main_boss.shieldAnim then
-        main_boss:play_blocking_animation(main_boss.shieldAnim, 1.5)
+        main_boss:play_blocking_animation(main_boss.shieldAnim, main_boss.shieldDuration)
     end
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -601,7 +612,7 @@ function lightning_attack()
     if main_boss.lightningThrown then return end
 
     if main_boss.currentAnim ~= main_boss.meleeAnim then
-        main_boss:play_blocking_animation(main_boss.meleeAnim, 2.2)
+        main_boss:play_blocking_animation(main_boss.meleeAnim, main_boss.thunderDuration)
     end
 
     log("Lightning Attack")
@@ -641,7 +652,7 @@ function fists_attack()
     if main_boss.fistsThrown or main_boss.fistsAttackPending then return end
 
     if main_boss.currentAnim ~= main_boss.rangeAnim then
-        main_boss:play_blocking_animation(main_boss.rangeAnim, 1.2)
+        main_boss:play_blocking_animation(main_boss.rangeAnim, main_boss.fistsDuration)
     end
 
     log("Fists Indicator ")
@@ -717,10 +728,6 @@ end
 
 function ultimate_attack()
 
-    if main_boss.currentAnim ~= main_boss.rageAnim then
-        main_boss:play_blocking_animation(main_boss.rageAnim, 2.8)
-    end
-
     log("Ultimate Attack")
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -745,7 +752,7 @@ end
 function check_ulti_collision()
 
     if main_boss.currentAnim ~= main_boss.ultiAnim then
-        main_boss:play_blocking_animation(main_boss.ultiAnim, 2)
+        main_boss:play_blocking_animation(main_boss.ultiAnim, main_boss.ultiDuration)
     end
 
     local origin = main_boss.ultimateTransf.position

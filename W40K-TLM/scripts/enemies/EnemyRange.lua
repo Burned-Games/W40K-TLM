@@ -96,6 +96,9 @@ function on_ready()
     range.findRangesTimer = 0.0
     range.findRangesInterval = 1.5
     range.invulnerabilityTimer = 0.0
+    range.animTimer = 0.0
+    range.animDuration = 0.0
+    range.detectDuration = 2.33
 
     -- Animations
     range.idleAnim = 5
@@ -116,6 +119,7 @@ function on_ready()
     range.isAlerted = false
     range.hasAlerted = false
     range.hasFoundNearbyEnemies = false
+    range.isPlayingAnimation = false
 
     -- Ints
     range.burstCount = 0
@@ -203,7 +207,6 @@ function on_update(dt)
 
     range.pathUpdateTimer = range.pathUpdateTimer + dt
     range.updateTargetTimer = range.updateTargetTimer + dt
-    if range.playingDetectAnim then range.detectAnimTimer = range.detectAnimTimer + dt end
 
     if range.invulnerable then
 
@@ -230,6 +233,17 @@ function on_update(dt)
     if range.updateTargetTimer >= range.updateTargetInterval then
         range.delayedPlayerPos = Vector3.new(range.playerTransf.position.x, range.playerTransf.position.y, range.playerTransf.position.z)
         range.updateTargetTimer = 0
+    end
+
+    if range.isPlayingAnimation then
+        range.animTimer = range.animTimer + dt
+        range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+        if range.animTimer >= range.animDuration then
+            range.isPlayingAnimation = false
+        else
+            return
+        end
     end
 
     if range.playerDetected then
@@ -269,8 +283,6 @@ function on_update(dt)
 end
 
 function change_state(dt)
-
-    if range.playingDetectAnim then return end
 
     range:enemy_raycast(dt)
     range:check_player_distance()

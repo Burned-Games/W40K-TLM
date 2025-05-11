@@ -241,14 +241,10 @@ function enemy:detect_state(dt)
 
     if self.currentAnim ~= self.detectAnim then
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
-
-        self.playingDetectAnim = true       -- ESTO SE TIENE QUE ARREGLAR
     end
 
     if self.detectAnimTimer >= self.detectAnimDuration and not self.isAlerted then
         self:alert_nearby_enemies(dt)
-
-        self.playingDetectAnim = false      -- ESTO SE TIENE QUE ARREGLAR
     end
 end
 
