@@ -841,14 +841,6 @@ function unitary_direction(x1, x2, z1, z2)
 
 end
 
-function main_boss:play_blocking_animation(animId, duration)
-    main_boss.currentAnim = animId
-    main_boss.animator:set_current_animation(animId)
-    main_boss.isPlayingAnimation = true
-    main_boss.animDuration = duration
-    main_boss.animTimer = 0.0
-end
-
 function on_exit()
 
 end

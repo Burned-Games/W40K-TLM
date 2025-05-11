@@ -102,13 +102,15 @@ function enemy:new(obj)
     obj.zoneSet = false
     obj.isArenaEnemy = false
     obj.playingDieAnim = false
-    obj.playingDetectAnim = false
+    obj.isPlayingAnimation = false
 
     -- Vector3
     obj.enemyInitialPos = Vector3.new(0, 0, 0)
     obj.lastTargetPos = Vector3.new(0, 0, 0)
 
     -- Timers
+    obj.animDuration = 0.0
+    obj.animTimer = 0.0
     obj.pushedTime = 0.3
     obj.pushedTimeCounter = 0.0
     obj.dieTimer = 0.0
@@ -237,19 +239,16 @@ end
 
 function enemy:detect_state(dt)
 
-    if not self.playingDetectAnim then
-        if self.currentAnim ~= self.detectAnim then
-            self.currentAnim = self.detectAnim
-            self.animator:set_current_animation(self.currentAnim)
-        end
+    if self.currentAnim ~= self.detectAnim then
+        self:play_blocking_animation(self.detectAnim, self.detectDuration)
 
-        self.playingDetectAnim = true
+        self.playingDetectAnim = true       -- ESTO SE TIENE QUE ARREGLAR
     end
 
     if self.detectAnimTimer >= self.detectAnimDuration and not self.isAlerted then
         self:alert_nearby_enemies(dt)
 
-        self.playingDetectAnim = false
+        self.playingDetectAnim = false      -- ESTO SE TIENE QUE ARREGLAR
     end
 end
 
@@ -606,6 +605,16 @@ function enemy:set_level()
     else
         self.level = 1
     end
+
+end
+
+function enemy:play_blocking_animation(animId, duration)
+
+    self.currentAnim = animId
+    self.animator:set_current_animation(animId)
+    self.isPlayingAnimation = true
+    self.animDuration = duration
+    self.animTimer = 0.0
 
 end
 

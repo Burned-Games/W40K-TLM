@@ -74,11 +74,18 @@ function on_ready()
     kamikaze.attackDelay = 0.75
     kamikaze.findEnemiesTimer = 0.0
     kamikaze.findEnemiesInterval = 1.5
+    kamikaze.animDuration = 0.0
+    kamikaze.animTimer = 0.0
+    kamikaze.detectDuration = 0.83
+    kamikaze.attackDuration = 1.0
+
 
     -- Animations
-    kamikaze.idleAnim = 3
-    kamikaze.moveAnim = 5
-    kamikaze.attackAnim = 7
+    kamikaze.idleAnim = 4
+    kamikaze.moveAnim = 7
+    kamikaze.attackAnim = 9
+    kamikaze.detectAnim = 1
+    kamikaze.stunAnim = 8
     kamikaze.dieAnim = 0
 
     -- Lists
@@ -90,6 +97,8 @@ function on_ready()
     kamikaze.hasDealtDamage = false
     kamikaze.hasStartedExplosionAnim = false
     kamikaze.isAlerted = false
+    kamikaze.hasAlerted = false
+    kamikaze.hasFoundNearbyEnemies = false
 
     -- Positions
     kamikaze.lastTargetPos = kamikaze.playerTransf.position
@@ -102,11 +111,19 @@ end
 function on_update(dt) 
 
     if kamikaze.isDead then return end
+
     kamikaze:check_effects(dt)
     kamikaze:check_pushed(dt)
+
     if kamikaze.isPushed == true then
         return
     end
+
+    if not kamikaze.hasFoundNearbyEnemies then
+        kamikaze:find_nearby_enemies()
+        kamikaze.hasFoundNearbyEnemies = true
+    end
+
     change_state(dt)
 
     if kamikaze.currentState == kamikaze.state.Idle then return end
@@ -148,15 +165,6 @@ function on_update(dt)
         end
     end
 
-    kamikaze.findEnemiesTimer = kamikaze.findEnemiesTimer + dt
-    if kamikaze.findEnemiesTimer >= kamikaze.findEnemiesInterval then
-        if kamikaze.playerDetected then
-            kamikaze:find_nearby_enemies()
-            kamikaze:alert_nearby_enemies(dt)
-        end
-        kamikaze.findEnemiesTimer = 0
-    end
-
     kamikaze.pathUpdateTimer = kamikaze.pathUpdateTimer + dt
 
     local currentTargetPos = kamikaze.playerTransf.position
@@ -169,6 +177,17 @@ function on_update(dt)
             kamikaze:update_path_position(kamikaze.enemyInitialPos)
         end
         kamikaze.pathUpdateTimer = 0
+    end
+
+    if kamikaze.isPlayingAnimation then
+        kamikaze.animTimer = kamikaze.animTimer + dt
+        kamikaze.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+        if kamikaze.animTimer >= kamikaze.animDuration then
+            kamikaze.isPlayingAnimation = false
+        else
+            return
+        end
     end
 
     if kamikaze.playerDetected then
@@ -184,9 +203,15 @@ function on_update(dt)
         end
     end
 
-    if kamikaze.currentState == kamikaze.state.Idle then
-        kamikaze:idle_state()
+    if kamikaze.currentState == kamikaze.state.Dead then
+        kamikaze:die_state(dt)
         return
+
+    elseif kamikaze.currentState == kamikaze.state.Idle then
+        kamikaze:idle_state()
+
+    elseif kamikaze.currentState == kamikaze.state.Detect then
+        kamikaze:detect_state(dt)
 
     elseif kamikaze.currentState == kamikaze.state.Move then
         kamikaze:move_state()
@@ -202,9 +227,14 @@ function change_state(dt)
     kamikaze:enemy_raycast(dt)
     kamikaze:check_player_distance()
 
+    if kamikaze.playerDetected and kamikaze.currentState ~= kamikaze.state.Detect and not kamikaze.isAlerted and not kamikaze.hasAlerted then
+        kamikaze.currentState = kamikaze.state.Detect
+        kamikaze:avoid_alert_enemies()
+        return
+    end
+
     if kamikaze.playerDetected and kamikaze.playerDistance <= kamikaze.detectionRange then
         kamikaze.currentState = kamikaze.state.Move
-        kamikaze.playerDetected = true
     end
 
     if kamikaze.playerDetected and kamikaze.playerDistance <= kamikaze.attackRange then
@@ -216,12 +246,11 @@ end
 
 function kamikaze:attack_state()
 
-    kamikaze.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-
     if kamikaze.currentAnim ~= kamikaze.attackAnim then
-        kamikaze.currentAnim = kamikaze.attackAnim
-        kamikaze.animator:set_current_animation(kamikaze.currentAnim)
+        kamikaze:play_blocking_animation(kamikaze.attackAnim, kamikaze.attackDuration)
     end
+
+    kamikaze.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
 
     if kamikaze.attackTimer >= kamikaze.attackDelay and not kamikaze.hasDealtDamage then
