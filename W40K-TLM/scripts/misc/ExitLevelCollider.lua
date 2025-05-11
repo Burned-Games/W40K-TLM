@@ -22,6 +22,7 @@ function on_ready()
        
         if (nameA == "Player" or nameB == "Player") and not changeing then
             save_progress("level", 2)
+            save_progress("zonePlayer", 0)
             fadeToBlackScript:DoFade()
             changeing = true
         end

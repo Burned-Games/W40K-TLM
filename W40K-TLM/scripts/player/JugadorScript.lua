@@ -144,7 +144,8 @@ level = 1
 
 enemyDirection = Vector3.new(0,0,0)
 
-local checkpointsPosition = { Vector3.new(-14, 0, -32), Vector3.new(105, 0, -115), Vector3.new(194, 0, -216)}
+local checkpointsPositionLvl1 = { Vector3.new(-14, 0, -32), Vector3.new(105, 0, -115), Vector3.new(194, 0, -216)}
+local checkpointsPositionLvl2 = { Vector3.new(0, 0, 0), Vector3.new(63, 0, -60)}
 
 --animation indexs
 idle = 17 --17
@@ -368,7 +369,12 @@ function on_ready()
     if zonePlayer >= 1 then
         health = load_progress("health", maxHealth)
         if SceneManager:get_scene_name() == "level1.TeaScene" then
-            playerRb:set_position(checkpointsPosition[zonePlayer])
+            playerRb:set_position(checkpointsPositionLvl1[zonePlayer])
+        elseif SceneManager:get_scene_name() == "level2.TeaScene" then
+            if zonePlayer > 2 then
+                zonePlayer = 0
+            end
+            playerRb:set_position(checkpointsPositionLvl2[zonePlayer])
         end
     else
         health = maxHealth
