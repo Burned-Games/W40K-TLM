@@ -198,7 +198,7 @@ function enemy:move_state()
         self.currentAnim = self.moveAnim
         self.animator:set_current_animation(self.currentAnim)
     end
-
+    print("Move")
     self:follow_path()
 
 end

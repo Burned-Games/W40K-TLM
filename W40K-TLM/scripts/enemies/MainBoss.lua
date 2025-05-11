@@ -315,10 +315,13 @@ function on_update(dt)
     end
 
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
-        main_boss:follow_path()
-        if main_boss:get_distance(main_boss.enemyTransf.position, main_boss.arenaTrasnf.position) < 0.5 then
+        main_boss.currentState = main_boss.state.Move
+
+        if main_boss:get_distance(main_boss.enemyTransf.position, main_boss.arenaTrasnf.position) <= 0.5 then
             main_boss.hasMovedToCenter = true
-            main_boss.currentState = main_boss.state.Rage
+            main_boss.isReturning = false
+            main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+            main_boss.currentState = main_boss.state.Idle
         end
     end
 
@@ -423,8 +426,11 @@ function on_update(dt)
         end
     end
 
-    if main_boss.ultimateThrown or main_boss.ultimateCasting then
-        main_boss.currentState = main_boss.state.Idle
+    if main_boss.ultimateThrown and not main_boss.ultimateCasting then
+        if main_boss.currentAnim ~= main_boss.idleAnim then
+            main_boss.currentAnim = main_boss.idleAnim
+            main_boss.animator:set_current_animation(main_boss.currentAnim)
+        end
         main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     end
 
@@ -440,13 +446,16 @@ function on_update(dt)
     end
 
     if main_boss.playerDetected then
-        if not main_boss.isDead or not main_boss.isPlayingAnimation or main_boss.ultimateThrown or main_boss.ultimateCasting then
+        if not main_boss.isDead or not main_boss.isPlayingAnimation or main_boss.ultimateThrown or main_boss.ultimateCasting and not main_boss.isReturning then
             main_boss:rotate_enemy(main_boss.playerTransf.position)
+        elseif main_boss.isReturning then
+            main_boss:rotate_enemy(main_boss.arenaCenter.position)
         end
     end
 
     if main_boss.currentState == main_boss.state.Idle then
         main_boss:idle_state()
+        log("Idle State")
     elseif main_boss.currentState == main_boss.state.Move then
         main_boss:move_state()
     elseif main_boss.currentState == main_boss.state.Attack then
@@ -460,6 +469,8 @@ end
 
 function change_state()
 
+    if main_boss.isReturning then return end
+
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
 
     if not main_boss.isRaging and main_boss.health <= main_boss.rageHealth then
@@ -467,7 +478,10 @@ function change_state()
         return
     end
 
+    if main_boss.isPlayingAnimation then return end
+
     if not main_boss.isAttacking then
+        if main_boss.isReturning then return end
         if main_boss.attackTimer >= main_boss.attackCooldown then
             main_boss.isAttacking = true
         end
@@ -489,7 +503,7 @@ function change_state()
 
     if distance <= main_boss.rangeAttackRange and main_boss.isAttacking then
         main_boss.currentState = main_boss.state.Attack
-    elseif distance <= main_boss.detectionRange then
+    elseif distance <= main_boss.detectionRange and not main_boss.isRaging and not main_boss.hasMovedToCenter then
         main_boss.playerDetected = true
         main_boss.currentState = main_boss.state.Move
     end
@@ -498,15 +512,14 @@ end
 
 function main_boss:rage_state()
 
-    if main_boss.currentAnim ~= main_boss.rageAnim then
-        main_boss:play_blocking_animation(main_boss.rageAnim, main_boss.rageDuration)
-    end
-
     if not main_boss.hasMovedToCenter and not main_boss.isReturning then
         log("Boss entering Rage and moving to center of arena")
+        if main_boss.currentAnim ~= main_boss.rageAnim then
+            main_boss:play_blocking_animation(main_boss.rageAnim, main_boss.rageDuration)
+        end
 
         main_boss:update_path(main_boss.arenaTrasnf)
-        main_boss:follow_path()
+        main_boss.currentState = main_boss.state.Move
         main_boss.isReturning = true
     end
 
@@ -542,14 +555,11 @@ function main_boss:rage_state()
         main_boss.isRaging = true
     end
 
-    if main_boss.currentAnim ~= main_boss.idleAnim then
-        main_boss.currentAnim = main_boss.idleAnim
-        main_boss.animator:set_current_animation(main_boss.currentAnim)
-    end
-
 end
 
 function main_boss:shield_state()
+
+    log("Shield Thrown")
 
     if main_boss.currentAnim ~= main_boss.shieldAnim then
         main_boss:play_blocking_animation(main_boss.shieldAnim, main_boss.shieldDuration)
@@ -559,8 +569,6 @@ function main_boss:shield_state()
 
     main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
     main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
-
-    main_boss.currentState = main_boss.state.Move
 
 end
 
@@ -643,8 +651,6 @@ function lightning_attack()
     main_boss.meleeAttackTimer = 0.0
     main_boss.lightningTimer = 0.0
 
-    main_boss.currentState = main_boss.state.Move
-
 end
 
 function fists_attack()
@@ -674,7 +680,6 @@ function fists_attack()
     end
 
     for i = 1, fistMaxNumbers do
-        log("Indicator: " .. main_boss.fistPositions[i].x .. ", " .. main_boss.fistPositions[i].y .. ", " .. main_boss.fistPositions[i].z)
         if main_boss.fistIndicatorsTransform[i] then
             main_boss.fistIndicatorsTransform[i].position = main_boss.fistPositions[i]
             main_boss.fistIndicatorsTransform[i].position.y = 0.1
@@ -701,7 +706,6 @@ function execute_fists_attack()
         if main_boss.fistRbs[i] and main_boss.fistTransf[i] then
             -- Set initial position
             main_boss.fistRbComponent[i].rb:set_position(main_boss.fistPositions[i])
-            log("Collider: " .. main_boss.fistPositions[i].x .. ", " .. main_boss.fistPositions[i].y .. ", " .. main_boss.fistPositions[i].z)
 
             -- Reset scale
             main_boss.fistTransf[i].scale = Vector3.new(1, 1, 1)
