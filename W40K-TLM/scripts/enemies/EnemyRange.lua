@@ -93,8 +93,6 @@ function on_ready()
     range.stabCooldownTimer = 0.0
     range.stabTimer = 1.0
     range.bulletLifetime = 5.0
-    range.findRangesTimer = 0.0
-    range.findRangesInterval = 1.5
     range.invulnerabilityTimer = 0.0
     range.animTimer = 0.0
     range.animDuration = 0.0
@@ -130,8 +128,8 @@ function on_ready()
     range.dieAnimDuration = 0.90
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
-    range.detectAnimDuration = 2.33
-    range.detectAnimTimer = 0.0
+    --range.detectAnimDuration = 2.33
+    --range.detectAnimTimer = 0.0
 
     -- Lists
     range.nearbyEnemies = {}
@@ -261,6 +259,7 @@ function on_update(dt)
     if range.currentState == range.state.Dead then
         range:die_state(dt)
         return
+
     elseif range.currentState == range.state.Idle then
         range:idle_state()
 
@@ -283,6 +282,8 @@ function on_update(dt)
 end
 
 function change_state(dt)
+
+    if range.isPlayingAnimation then return end
 
     range:enemy_raycast(dt)
     range:check_player_distance()
@@ -549,6 +550,7 @@ function shoot_projectile(targetExplosive)
     end
 
 end
+
 function range:find_nearby_enemies()
     range.nearbyEnemies = {}
 

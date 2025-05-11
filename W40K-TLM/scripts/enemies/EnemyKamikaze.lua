@@ -72,8 +72,6 @@ function on_ready()
     kamikaze.pathUpdateInterval = 0.1
     kamikaze.attackTimer = 0.0
     kamikaze.attackDelay = 0.75
-    kamikaze.findEnemiesTimer = 0.0
-    kamikaze.findEnemiesInterval = 1.5
     kamikaze.animDuration = 0.0
     kamikaze.animTimer = 0.0
     kamikaze.detectDuration = 0.83
@@ -223,6 +221,8 @@ function on_update(dt)
 end
 
 function change_state(dt)
+
+    if kamikaze.isPlayingAnimation then return end
 
     kamikaze:enemy_raycast(dt)
     kamikaze:check_player_distance()
