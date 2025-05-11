@@ -161,3 +161,65 @@ document.addEventListener('DOMContentLoaded', () => {
         if(activeFeatured) activeFeatured.classList.add('active');
     }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const left = document.querySelector(".team-left");
+  const nameElem = document.getElementById("team-name");
+  const descElem = document.getElementById("team-description");
+  const photoElem = document.getElementById("team-photo");
+
+  const departmentsContainer = document.getElementById("team-departments");
+
+
+  const departments = {};
+  teamData.forEach(member => {
+    if (!departments[member.department]) {
+      departments[member.department] = [];
+    }
+    departments[member.department].push(member);
+  });
+
+
+  for (const dept in departments) {
+    const section = document.createElement("div");
+    section.classList.add("department-section");
+
+    const title = document.createElement("h3");
+    title.textContent = dept;
+    section.appendChild(title);
+
+    const avatarContainer = document.createElement("div");
+    avatarContainer.classList.add("avatar-container");
+
+    departments[dept].forEach(member => {
+      const avatarWrapper = document.createElement("div");
+      avatarWrapper.classList.add("avatar-wrapper");
+
+      const img = document.createElement("img");
+      img.src = member.avatar;
+      img.classList.add("avatar");
+
+      const name = document.createElement("div");
+      name.classList.add("avatar-name");
+      name.textContent = member.name;
+
+      avatarWrapper.appendChild(img);
+      avatarWrapper.appendChild(name);
+      avatarContainer.appendChild(avatarWrapper);
+
+      img.addEventListener("click", () => {
+        nameElem.textContent = member.name;
+        descElem.textContent = member.description;
+        photoElem.src = member.avatar;
+        left.style.backgroundImage = `url(${member.background})`;
+      });
+    });
+
+    section.appendChild(avatarContainer);
+    departmentsContainer.appendChild(section);
+  }
+});
+
+

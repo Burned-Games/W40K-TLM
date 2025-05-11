@@ -754,4 +754,104 @@ body {
     transform: scale(1.1); /* Enlarge on hover for better interaction */
 }
 
+/* Team */
+.team-section {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #111;
+  color: #fff;
+}
+
+.team-left {
+  flex: 3; /* 左边占 3/5 宽度 */
+  background-size: 100% 100%; /* 背景图填满容器的宽度和高度 */
+  background-position: center; /* 背景图居中显示 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%; /* 宽度为 100% */
+  height: 100vh; /* 高度为全屏 */
+  overflow: hidden; /* 防止背景图溢出 */
+}
+
+
+
+.team-left .team-info {
+  display: none;
+}
+
+.team-info {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.team-info img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #fff;
+}
+
+.team-right {
+  flex: 2;
+  overflow-y: auto;
+  padding: 2rem;
+  background-color: #222;
+}
+
+.department-section {
+  margin-bottom: 2rem;
+}
+
+.department-section h3 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.5rem;
+  margin-bottom: 10px;
+}
+
+.avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.avatar-wrapper {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  margin: 8px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s, border 0.2s;
+  border: 2px solid transparent;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+  border-color: #00f0ff;
+}
+
+.avatar-name {
+  margin-top: 5px;
+  font-size: 0.9em;
+  text-align: center;
+  color: #fff;
+}
+
 
