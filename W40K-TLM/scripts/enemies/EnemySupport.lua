@@ -4,7 +4,7 @@ local effect = require("scripts/utils/status_effects")
 
 support = enemy:new()
 
-local prefab_path = "prefabs/Shield.prefab"
+local prefab_path = "prefabs/Misc/Shield.prefab"
 
 function on_ready() 
     -- Scene
