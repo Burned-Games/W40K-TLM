@@ -142,33 +142,6 @@ function enemy:new(obj)
 
 end
 
-function enemy:alert_nearby_enemies(dt)  
-    if self.isAlerted then return end
-    local alertedCount = 0
-    for _, enemyData in ipairs(self.nearbyEnemies) do
-        if enemyData.script and not enemyData.alerted then
-            enemyData.script.playerDetected = true
-            enemyData.script.isAlerted = true
-            enemyData.script.alertTimer = 0.0
-            enemyData.alerted = true
-            alertedCount = alertedCount + 1
-        end
-    end
-    self.isAlerted = true
-    self.currentState = self.state.Move
-end
-
-
-function enemy:avoid_alert_enemies(dt)  
-    if self.hasAlerted then return end
-    for _, enemyData in ipairs(self.nearbyEnemies) do
-        if enemyData.script then
-            enemyData.script.hasAlerted = true
-        end
-    end
-    self.hasAlerted = true
-end
-
 
 
 function enemy:check_effects(dt)
@@ -241,9 +214,10 @@ function enemy:detect_state(dt)
 
     if self.currentAnim ~= self.detectAnim then
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
+        print("Detect animation")
     end
 
-    if self.detectAnimTimer >= self.detectAnimDuration and not self.isAlerted then
+    if self.detectTimer >= self.detectDuration and not self.isAlerted then
         self:alert_nearby_enemies(dt)
     end
 end
@@ -542,6 +516,33 @@ function enemy:check_spawn()
         self.zoneNumber = 10
     end
 
+end
+
+function enemy:alert_nearby_enemies(dt)  
+    if self.isAlerted then return end
+    print("Alert nearby Enemies")
+    local alertedCount = 0
+    for _, enemyData in ipairs(self.nearbyEnemies) do
+        if enemyData.script and not enemyData.alerted then
+            enemyData.script.playerDetected = true
+            enemyData.script.isAlerted = true
+            enemyData.script.alertTimer = 0.0
+            enemyData.alerted = true
+            alertedCount = alertedCount + 1
+        end
+    end
+    self.isAlerted = true
+    self.currentState = self.state.Move
+end
+
+function enemy:avoid_alert_enemies(dt)  
+    if self.hasAlerted then return end
+    for _, enemyData in ipairs(self.nearbyEnemies) do
+        if enemyData.script then
+            enemyData.script.hasAlerted = true
+        end
+    end
+    self.hasAlerted = true
 end
 
 
