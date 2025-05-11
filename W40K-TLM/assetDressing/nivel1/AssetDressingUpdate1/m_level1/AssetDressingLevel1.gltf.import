@@ -1,0 +1,1574 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-11",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 379733160075446840
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-29",
+                        "value": {
+                            "value0": 925564462009852812
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.610-2",
+                        "value": {
+                            "value0": 9107017862803308108
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.383",
+                        "value": {
+                            "value0": 7625229506670519632
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-2",
+                        "value": {
+                            "value0": 8804267597500961539
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.610-5",
+                        "value": {
+                            "value0": 17146781739131605551
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-5",
+                        "value": {
+                            "value0": 1025408168397486759
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.384",
+                        "value": {
+                            "value0": 14214053239751779090
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.610-4",
+                        "value": {
+                            "value0": 2859458911798619212
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-4",
+                        "value": {
+                            "value0": 5349052833720118747
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.385",
+                        "value": {
+                            "value0": 3898659760345660604
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-7",
+                        "value": {
+                            "value0": 4695927633104528754
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.386",
+                        "value": {
+                            "value0": 888079283283321092
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-6",
+                        "value": {
+                            "value0": 17393517636473479922
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.387",
+                        "value": {
+                            "value0": 11249690848552557378
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-13",
+                        "value": {
+                            "value0": 15740538875230872580
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-8",
+                        "value": {
+                            "value0": 17674580243776517669
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.610-0",
+                        "value": {
+                            "value0": 18207684710997789777
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-0",
+                        "value": {
+                            "value0": 1730502727368275754
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-12",
+                        "value": {
+                            "value0": 1736785335933319565
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-9",
+                        "value": {
+                            "value0": 17085526462701435003
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.610-1",
+                        "value": {
+                            "value0": 12278623301413590898
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-1",
+                        "value": {
+                            "value0": 7714375259812337649
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-10",
+                        "value": {
+                            "value0": 7790491678373201720
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-28",
+                        "value": {
+                            "value0": 18076567770678199726
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.610-3",
+                        "value": {
+                            "value0": 4716022249367961311
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-3",
+                        "value": {
+                            "value0": 16392929173129981833
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-0",
+                        "value": {
+                            "value0": 61699383020837049
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-23",
+                        "value": {
+                            "value0": 2958562151001435029
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-8",
+                        "value": {
+                            "value0": 17527040922811025283
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-1",
+                        "value": {
+                            "value0": 8816514489455106791
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-22",
+                        "value": {
+                            "value0": 9117672299969780336
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-9",
+                        "value": {
+                            "value0": 11762734091534196718
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-10",
+                        "value": {
+                            "value0": 12691297927407679166
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-11",
+                        "value": {
+                            "value0": 3655629235483090469
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-12",
+                        "value": {
+                            "value0": 13584026609414284056
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6383-13",
+                        "value": {
+                            "value0": 1145456524645972397
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-15",
+                        "value": {
+                            "value0": 15216915854632993736
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-0",
+                        "value": {
+                            "value0": 9640627297895546544
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-14",
+                        "value": {
+                            "value0": 16570185516480977490
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-1",
+                        "value": {
+                            "value0": 15956160829098200808
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-17",
+                        "value": {
+                            "value0": 2978761732585850358
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-2",
+                        "value": {
+                            "value0": 7043657423967908615
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-16",
+                        "value": {
+                            "value0": 18150115102761101993
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-3",
+                        "value": {
+                            "value0": 4066978200466157297
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-11",
+                        "value": {
+                            "value0": 12930179770036138355
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-4",
+                        "value": {
+                            "value0": 9244600267677147044
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-10",
+                        "value": {
+                            "value0": 11977521441769984580
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-5",
+                        "value": {
+                            "value0": 9396424120313915117
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-13",
+                        "value": {
+                            "value0": 15372748807719411234
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-6",
+                        "value": {
+                            "value0": 3388293332000068834
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-12",
+                        "value": {
+                            "value0": 17237007802818119946
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-7",
+                        "value": {
+                            "value0": 17816578968275831391
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-8",
+                        "value": {
+                            "value0": 3992984309724632076
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-9",
+                        "value": {
+                            "value0": 3572817549901987802
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-18",
+                        "value": {
+                            "value0": 4201965671281679130
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6856-19",
+                        "value": {
+                            "value0": 14480635390168759217
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.621-0",
+                        "value": {
+                            "value0": 4759758469560586409
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.621-1",
+                        "value": {
+                            "value0": 13803690332689130812
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.621-2",
+                        "value": {
+                            "value0": 4921614742875779701
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.621-3",
+                        "value": {
+                            "value0": 1540212235026807571
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.621-4",
+                        "value": {
+                            "value0": 9529334333625716208
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-2",
+                        "value": {
+                            "value0": 12252646049355947901
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-3",
+                        "value": {
+                            "value0": 1387101568420966716
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-4",
+                        "value": {
+                            "value0": 17540302794311260282
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-5",
+                        "value": {
+                            "value0": 14804034352920994147
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-6",
+                        "value": {
+                            "value0": 7940417045982646617
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-7",
+                        "value": {
+                            "value0": 5756257061879623463
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-14",
+                        "value": {
+                            "value0": 18322223155325242154
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-15",
+                        "value": {
+                            "value0": 15870787072393980282
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-16",
+                        "value": {
+                            "value0": 753915031158126974
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.6992-17",
+                        "value": {
+                            "value0": 8168018884480974909
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-13",
+                        "value": {
+                            "value0": 5353805532538659743
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.652-0",
+                        "value": {
+                            "value0": 7487862114191699317
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-12",
+                        "value": {
+                            "value0": 12680011805536363564
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.652-1",
+                        "value": {
+                            "value0": 879545402476002662
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-11",
+                        "value": {
+                            "value0": 15658658127953923146
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.652-2",
+                        "value": {
+                            "value0": 16339262818482525
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-10",
+                        "value": {
+                            "value0": 11544737465189371245
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.652-3",
+                        "value": {
+                            "value0": 1147811009110640887
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-17",
+                        "value": {
+                            "value0": 14016375858860993688
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.652-4",
+                        "value": {
+                            "value0": 7403394008525243400
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-16",
+                        "value": {
+                            "value0": 7420394792045997452
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.652-5",
+                        "value": {
+                            "value0": 12673724402038039980
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-0",
+                        "value": {
+                            "value0": 9685560981595571651
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-1",
+                        "value": {
+                            "value0": 5635797470337600857
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-2",
+                        "value": {
+                            "value0": 474354479398822597
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-3",
+                        "value": {
+                            "value0": 4846476773570305169
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-4",
+                        "value": {
+                            "value0": 14685814192826636414
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-5",
+                        "value": {
+                            "value0": 11161625095359561062
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-6",
+                        "value": {
+                            "value0": 4845363716761053160
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-7",
+                        "value": {
+                            "value0": 3222630947989892656
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-8",
+                        "value": {
+                            "value0": 15331653741786328257
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-9",
+                        "value": {
+                            "value0": 15167423561388238299
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-10",
+                        "value": {
+                            "value0": 13470335736552307340
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-4",
+                        "value": {
+                            "value0": 6074366303200831897
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-11",
+                        "value": {
+                            "value0": 17547869569105734007
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-5",
+                        "value": {
+                            "value0": 5795768584117924226
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-12",
+                        "value": {
+                            "value0": 14389991654185084386
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-6",
+                        "value": {
+                            "value0": 6786806887220191143
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-48",
+                        "value": {
+                            "value0": 12697628066106803214
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.9283-13",
+                        "value": {
+                            "value0": 4246975375350777542
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-7",
+                        "value": {
+                            "value0": 14232914782048166851
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.629-4",
+                        "value": {
+                            "value0": 11336492372524285996
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.625-0",
+                        "value": {
+                            "value0": 5183724858596038526
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.625-1",
+                        "value": {
+                            "value0": 14480241063469982982
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.625-2",
+                        "value": {
+                            "value0": 3766032936891802299
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.625-3",
+                        "value": {
+                            "value0": 12097355282542398606
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.629-0",
+                        "value": {
+                            "value0": 12138932123452693181
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.625-4",
+                        "value": {
+                            "value0": 14417492700230727131
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.629-1",
+                        "value": {
+                            "value0": 3263423841123683101
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.625-5",
+                        "value": {
+                            "value0": 8610882694713527003
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-0",
+                        "value": {
+                            "value0": 8917667591129227146
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-17",
+                        "value": {
+                            "value0": 1564770639737511848
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-1",
+                        "value": {
+                            "value0": 11805169899879379148
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-16",
+                        "value": {
+                            "value0": 14889499687618750271
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-2",
+                        "value": {
+                            "value0": 2066130101656332559
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-15",
+                        "value": {
+                            "value0": 16989808196354126576
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-3",
+                        "value": {
+                            "value0": 15654328369098935154
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-14",
+                        "value": {
+                            "value0": 11278918025602603352
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-4",
+                        "value": {
+                            "value0": 873494136903248776
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-13",
+                        "value": {
+                            "value0": 15886794281615372568
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-5",
+                        "value": {
+                            "value0": 4842574485797611750
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-12",
+                        "value": {
+                            "value0": 8849570211198717490
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-6",
+                        "value": {
+                            "value0": 17357142607853528377
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-11",
+                        "value": {
+                            "value0": 12583464846522151531
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-7",
+                        "value": {
+                            "value0": 6367219953139422228
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-10",
+                        "value": {
+                            "value0": 13745299174981695901
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-8",
+                        "value": {
+                            "value0": 16280804532448326129
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10578-4",
+                        "value": {
+                            "value0": 11843619011050368102
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-9",
+                        "value": {
+                            "value0": 9299146191854862069
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-19",
+                        "value": {
+                            "value0": 1305751519549257596
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-10",
+                        "value": {
+                            "value0": 10629569129981841146
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-18",
+                        "value": {
+                            "value0": 8765432789545701461
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-11",
+                        "value": {
+                            "value0": 12803322384400209817
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.663-0",
+                        "value": {
+                            "value0": 2840586796147923296
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-12",
+                        "value": {
+                            "value0": 12674914832364558012
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.663-1",
+                        "value": {
+                            "value0": 173893192397775734
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-13",
+                        "value": {
+                            "value0": 17919181455390796735
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.7424-14",
+                        "value": {
+                            "value0": 765470933262946618
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.629-2",
+                        "value": {
+                            "value0": 13036659703858478468
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.629-3",
+                        "value": {
+                            "value0": 11972595689040142084
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.645-0",
+                        "value": {
+                            "value0": 14932348678017531578
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-0",
+                        "value": {
+                            "value0": 3643311416961982752
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.645-1",
+                        "value": {
+                            "value0": 13118432328515890530
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-1",
+                        "value": {
+                            "value0": 226513976917949757
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.645-2",
+                        "value": {
+                            "value0": 9710648910489621319
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-2",
+                        "value": {
+                            "value0": 13284608265132155616
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.645-3",
+                        "value": {
+                            "value0": 16408889543770942212
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-3",
+                        "value": {
+                            "value0": 14545056080852432893
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Plane.645-4",
+                        "value": {
+                            "value0": 16018513293248654164
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-4",
+                        "value": {
+                            "value0": 3799954034344412672
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-5",
+                        "value": {
+                            "value0": 16133959420659780387
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-6",
+                        "value": {
+                            "value0": 17570218043809273670
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-7",
+                        "value": {
+                            "value0": 5281930914858794851
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-8",
+                        "value": {
+                            "value0": 5657521603186259364
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-9",
+                        "value": {
+                            "value0": 15747484364167352047
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-14",
+                        "value": {
+                            "value0": 18019998073451089991
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10436-15",
+                        "value": {
+                            "value0": 1660971614585592290
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-0",
+                        "value": {
+                            "value0": 15526177243452130099
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-1",
+                        "value": {
+                            "value0": 16583054393414565270
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-2",
+                        "value": {
+                            "value0": 15599467935417786066
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-3",
+                        "value": {
+                            "value0": 8130572074924531319
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-8",
+                        "value": {
+                            "value0": 9347794881872158911
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-46",
+                        "value": {
+                            "value0": 827680225813963257
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-9",
+                        "value": {
+                            "value0": 4026064069326013068
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-47",
+                        "value": {
+                            "value0": 18270772066192362713
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-18",
+                        "value": {
+                            "value0": 13720392388642998456
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10578-3",
+                        "value": {
+                            "value0": 3500461619462212739
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-19",
+                        "value": {
+                            "value0": 10311592854989858277
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10578-2",
+                        "value": {
+                            "value0": 8375466446930493999
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-20",
+                        "value": {
+                            "value0": 6736920663725185029
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-21",
+                        "value": {
+                            "value0": 499557388246660553
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-24",
+                        "value": {
+                            "value0": 15681741491986352950
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-25",
+                        "value": {
+                            "value0": 14615119466868412821
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-26",
+                        "value": {
+                            "value0": 16843125279603408571
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-27",
+                        "value": {
+                            "value0": 3308201893511120290
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-30",
+                        "value": {
+                            "value0": 13499125168879844911
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-31",
+                        "value": {
+                            "value0": 9676583835321853174
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-32",
+                        "value": {
+                            "value0": 404468828721730346
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-33",
+                        "value": {
+                            "value0": 4825595785936497772
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-34",
+                        "value": {
+                            "value0": 8191048935839936624
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-35",
+                        "value": {
+                            "value0": 10297752372715436218
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-36",
+                        "value": {
+                            "value0": 11462652274948387201
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-37",
+                        "value": {
+                            "value0": 6947883781806606361
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-38",
+                        "value": {
+                            "value0": 5827761483718027695
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-39",
+                        "value": {
+                            "value0": 6115983556393379296
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-40",
+                        "value": {
+                            "value0": 15811186984726973423
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-41",
+                        "value": {
+                            "value0": 598350227590609728
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-42",
+                        "value": {
+                            "value0": 2022208316594427088
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-43",
+                        "value": {
+                            "value0": 2112283483064739663
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-44",
+                        "value": {
+                            "value0": 11200964161451885366
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.8166-45",
+                        "value": {
+                            "value0": 1563989489433858997
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10578-0",
+                        "value": {
+                            "value0": 7309777535681878755
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_Cube.10578-1",
+                        "value": {
+                            "value0": 930096042388149729
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Suelo_MAT.001_Mat0",
+                        "value": {
+                            "value0": 17280134708447546902
+                        }
+                    },
+                    {
+                        "key": "dead_Jet_pack_MAT_Mat4",
+                        "value": {
+                            "value0": 14091324342228214717
+                        }
+                    },
+                    {
+                        "key": "rock_MAT_Mat1",
+                        "value": {
+                            "value0": 7722438399960316711
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Mat2",
+                        "value": {
+                            "value0": 14157064188494245142
+                        }
+                    },
+                    {
+                        "key": "standardSurface1_Mat30",
+                        "value": {
+                            "value0": 6101887151055818804
+                        }
+                    },
+                    {
+                        "key": "Dead_Ultramarine_MAT_Mat3",
+                        "value": {
+                            "value0": 1965263863400925886
+                        }
+                    },
+                    {
+                        "key": "barricade2.001_Mat9",
+                        "value": {
+                            "value0": 4401567197306480649
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat5",
+                        "value": {
+                            "value0": 5274143650062046480
+                        }
+                    },
+                    {
+                        "key": "estructura_MAT_Mat7",
+                        "value": {
+                            "value0": 13995744667915572440
+                        }
+                    },
+                    {
+                        "key": "Material.014_Mat44",
+                        "value": {
+                            "value0": 9983139606045636420
+                        }
+                    },
+                    {
+                        "key": "TreeTrunk_Mat6",
+                        "value": {
+                            "value0": 13487448981798333670
+                        }
+                    },
+                    {
+                        "key": "Bones.003_Mat22",
+                        "value": {
+                            "value0": 4390651916719272373
+                        }
+                    },
+                    {
+                        "key": "lambert4_Mat8",
+                        "value": {
+                            "value0": 3898787331662735501
+                        }
+                    },
+                    {
+                        "key": "lambert2_Mat40",
+                        "value": {
+                            "value0": 3770983300858288140
+                        }
+                    },
+                    {
+                        "key": "barricada_Mat10",
+                        "value": {
+                            "value0": 9062462082285604739
+                        }
+                    },
+                    {
+                        "key": "MediumRocks_Mat11",
+                        "value": {
+                            "value0": 5735695223905016806
+                        }
+                    },
+                    {
+                        "key": "Material.009_Mat27",
+                        "value": {
+                            "value0": 14912853396320161052
+                        }
+                    },
+                    {
+                        "key": "Material.004_Mat12",
+                        "value": {
+                            "value0": 7272621083270785613
+                        }
+                    },
+                    {
+                        "key": "Material_Mat18",
+                        "value": {
+                            "value0": 2994557866105298434
+                        }
+                    },
+                    {
+                        "key": "Carriage.001_Mat49",
+                        "value": {
+                            "value0": 14931666315219961362
+                        }
+                    },
+                    {
+                        "key": "Carriage.005_Mat52",
+                        "value": {
+                            "value0": 15430169338377155786
+                        }
+                    },
+                    {
+                        "key": "Diana_Mat13",
+                        "value": {
+                            "value0": 1493831240395110791
+                        }
+                    },
+                    {
+                        "key": "Cables_Mat14",
+                        "value": {
+                            "value0": 2668190143967583946
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat15",
+                        "value": {
+                            "value0": 10916082387510091964
+                        }
+                    },
+                    {
+                        "key": "Decal_mat_Mat16",
+                        "value": {
+                            "value0": 10714535124975941105
+                        }
+                    },
+                    {
+                        "key": "Material.021_Mat17",
+                        "value": {
+                            "value0": 7097444620473312345
+                        }
+                    },
+                    {
+                        "key": "Material.005_Mat19",
+                        "value": {
+                            "value0": 18358987550701412807
+                        }
+                    },
+                    {
+                        "key": "Carriage.008_Mat55",
+                        "value": {
+                            "value0": 3211729130685220896
+                        }
+                    },
+                    {
+                        "key": "Bones.002_Mat20",
+                        "value": {
+                            "value0": 17190817990936147644
+                        }
+                    },
+                    {
+                        "key": "Bones.001_Mat21",
+                        "value": {
+                            "value0": 9762432879620588617
+                        }
+                    },
+                    {
+                        "key": "Bones.004_Mat23",
+                        "value": {
+                            "value0": 5895000549413909827
+                        }
+                    },
+                    {
+                        "key": "Scrap1.002_Mat39",
+                        "value": {
+                            "value0": 12328933238826512258
+                        }
+                    },
+                    {
+                        "key": "Carriage.007_Mat54",
+                        "value": {
+                            "value0": 2451211518344095966
+                        }
+                    },
+                    {
+                        "key": "Bones.005_Mat24",
+                        "value": {
+                            "value0": 6473664394495124467
+                        }
+                    },
+                    {
+                        "key": "Bones.006_Mat25",
+                        "value": {
+                            "value0": 5953840786753378644
+                        }
+                    },
+                    {
+                        "key": "Bones_Mat26",
+                        "value": {
+                            "value0": 86806772539462175
+                        }
+                    },
+                    {
+                        "key": "Material.008_Mat59",
+                        "value": {
+                            "value0": 14572596758484045212
+                        }
+                    },
+                    {
+                        "key": "Material.017_Mat28",
+                        "value": {
+                            "value0": 17909552482744115245
+                        }
+                    },
+                    {
+                        "key": "standardSurface2_Mat29",
+                        "value": {
+                            "value0": 15476596747340858031
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.002_Mat38",
+                        "value": {
+                            "value0": 1701827657252584887
+                        }
+                    },
+                    {
+                        "key": "Carriage.011_Mat58",
+                        "value": {
+                            "value0": 14084638762905480828
+                        }
+                    },
+                    {
+                        "key": "Caseta.001_Mat31",
+                        "value": {
+                            "value0": 10335764065535859860
+                        }
+                    },
+                    {
+                        "key": "Estandarte.001_Mat60",
+                        "value": {
+                            "value0": 12686910122355438169
+                        }
+                    },
+                    {
+                        "key": "Caseta_Mat32",
+                        "value": {
+                            "value0": 6540727772119003733
+                        }
+                    },
+                    {
+                        "key": "Caseta.002_Mat33",
+                        "value": {
+                            "value0": 18118072419944491091
+                        }
+                    },
+                    {
+                        "key": "Material.006_Mat34",
+                        "value": {
+                            "value0": 2374838833092965393
+                        }
+                    },
+                    {
+                        "key": "Carriage.006_Mat53",
+                        "value": {
+                            "value0": 1374148258460670259
+                        }
+                    },
+                    {
+                        "key": "standardSurface2.001_Mat35",
+                        "value": {
+                            "value0": 6746894105197053240
+                        }
+                    },
+                    {
+                        "key": "Carriage.002_Mat50",
+                        "value": {
+                            "value0": 13704190327917541787
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat36",
+                        "value": {
+                            "value0": 17883927904965449274
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.001_Mat37",
+                        "value": {
+                            "value0": 12523583438135351013
+                        }
+                    },
+                    {
+                        "key": "Forge_Mat41",
+                        "value": {
+                            "value0": 1343334488754985085
+                        }
+                    },
+                    {
+                        "key": "Material.012_Mat42",
+                        "value": {
+                            "value0": 12738482012722005086
+                        }
+                    },
+                    {
+                        "key": "Material.013_Mat43",
+                        "value": {
+                            "value0": 9748614991901373509
+                        }
+                    },
+                    {
+                        "key": "Material.015_Mat45",
+                        "value": {
+                            "value0": 7926489038251387333
+                        }
+                    },
+                    {
+                        "key": "Material.011_Mat46",
+                        "value": {
+                            "value0": 8755567226990897360
+                        }
+                    },
+                    {
+                        "key": "Carriage.004_Mat47",
+                        "value": {
+                            "value0": 17713568677031543390
+                        }
+                    },
+                    {
+                        "key": "Carriage_Mat48",
+                        "value": {
+                            "value0": 6948476879804354169
+                        }
+                    },
+                    {
+                        "key": "Carriage.003_Mat51",
+                        "value": {
+                            "value0": 10051292121189173632
+                        }
+                    },
+                    {
+                        "key": "Carriage.009_Mat56",
+                        "value": {
+                            "value0": 11208414910095163355
+                        }
+                    },
+                    {
+                        "key": "Palanca.001_Mat61",
+                        "value": {
+                            "value0": 15468962844726854121
+                        }
+                    },
+                    {
+                        "key": "Carriage.010_Mat57",
+                        "value": {
+                            "value0": 1998860802247716424
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 5340500173356334744
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel1/AssetDressingUpdate1/m_level1/AssetDressingLevel1.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/5340500173356334744.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

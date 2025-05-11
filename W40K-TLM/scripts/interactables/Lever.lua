@@ -70,7 +70,6 @@ function on_update(dt)
         math.abs(playerTransform.position.z - (transform.position.z + parentTransform.position.z))
     )
 
-
     if distance.x < interactionDistance and distance.z < interactionDistance then
         --Icon
         
