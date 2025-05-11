@@ -62,15 +62,15 @@ function on_ready()
     tank.tackleTimer = 0.0
     tank.idleTimer = 0.0
     tank.berserkaTimer = 0.0
-    tank.findEnemiesTimer = 0.0
-    tank.findEnemiesInterval = 1.5
+    tank.animDuration = 0.0
+    tank.animTimer = 0.0
 
     -- Animations
     tank.attackAnim = 0 
     tank.berserkaAnim = 1 
     tank.dieAnim = 3 
     tank.detectAnim = 4 
-    -- tank.hitAnim = 5 
+    tank.hitAnim = 5 
     tank.idleAnim = 7 
     tank.stuneAnim = 9 
     tank.tackleAnim = 10 
@@ -83,8 +83,7 @@ function on_ready()
     tank.berserkaAnimDuration = 2.0
     tank.dieAnimTimer = 0.0
     tank.dieAnimDuration = 0.45
-    tank.detectAnimTimer = 0.0
-    tank.detectAnimDuration = 2.0
+    tank.detectDuration = 2.0
     tank.stuneAnimTimer = 0.0
     tank.stuneAnimDuration = 1.0
     tank.tackleAnimTimer = 0.0
@@ -99,6 +98,7 @@ function on_ready()
     tank.isCharging = false
     tank.canTackle = false
     tank.isAlerted = false
+    tank.hasFoundNearbyEnemies = false
 
     -- Positions
     tank.targetDirection = Vector3.new(0, 0, 0)
@@ -203,6 +203,11 @@ function on_update(dt)
 
     if tank.isPushed == true then return end
 
+    if not tank.hasFoundNearbyEnemies then
+        tank:find_nearby_enemies()
+        tank.hasFoundNearbyEnemies = true
+    end
+
     change_state(dt)
 
     if tank.health <= 0 then
@@ -231,7 +236,6 @@ function on_update(dt)
     end
 
     tank.pathUpdateTimer = tank.pathUpdateTimer + dt
-    if tank.playingDetectAnim then tank.detectAnimTimer = tank.detectAnimTimer + dt end
 
     local currentTargetPos = tank.playerTransf.position
     if tank.pathUpdateTimer >= tank.pathUpdateInterval or tank:get_distance(tank.lastTargetPos, currentTargetPos) > 1.0 then
@@ -267,17 +271,19 @@ function on_update(dt)
         end
     end
 
-    tank.findEnemiesTimer = tank.findEnemiesTimer + dt
-    if tank.findEnemiesTimer >= tank.findEnemiesInterval then
-        if tank.playerDetected then
-            tank:find_nearby_enemies()
-            tank:alert_nearby_enemies(dt)
-        end
-        tank.findEnemiesTimer = 0
-    end
-
     if tank.update_berserka then
         tank:update_berserka(dt)
+    end
+
+    if tank.isPlayingAnimation then
+        tank.animTimer = tank.animTimer + dt
+        tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+        if tank.animTimer >= tank.animDuration then
+            tank.isPlayingAnimation = false
+        else
+            return
+        end
     end
 
     if tank.playerDetected and tank.currentState ~= tank.state.Tackle then
@@ -294,6 +300,9 @@ function on_update(dt)
     if tank.currentState == tank.state.Idle then
         tank:idle_state(dt)
         return
+        
+    elseif tank.currentState == tank.state.Detect then
+        tank:detect_state(dt)
 
     elseif tank.currentState == tank.state.Move then 
         tank:move_state()
@@ -331,13 +340,12 @@ end
 
 function change_state(dt)
 
-    if tank.playingDetectAnim then return end
-
     tank:enemy_raycast(dt)
     tank:check_player_distance()
 
     if tank.playerDetected and not tank.isAlerted then
         tank.currentState = tank.state.Detect
+        tank:avoid_alert_enemies()
         return
     end
 
