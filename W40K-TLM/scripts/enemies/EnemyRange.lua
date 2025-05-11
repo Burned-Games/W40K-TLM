@@ -283,6 +283,8 @@ end
 
 function change_state(dt)
 
+    if range.isPlayingAnimation then return end
+
     range:enemy_raycast(dt)
     range:check_player_distance()
 

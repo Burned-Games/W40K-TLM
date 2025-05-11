@@ -217,7 +217,7 @@ function enemy:detect_state(dt)
         print("Detect animation")
     end
 
-    if self.detectTimer >= self.detectDuration and not self.isAlerted then
+    if self.animTimer >= self.detectDuration and not self.isAlerted then
         self:alert_nearby_enemies(dt)
     end
 end

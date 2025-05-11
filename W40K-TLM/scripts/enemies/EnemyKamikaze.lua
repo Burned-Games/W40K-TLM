@@ -222,6 +222,8 @@ end
 
 function change_state(dt)
 
+    if kamikaze.isPlayingAnimation then return end
+
     kamikaze:enemy_raycast(dt)
     kamikaze:check_player_distance()
 

@@ -340,6 +340,8 @@ end
 
 function change_state(dt)
 
+    if tank.isPlayingAnimation then return end
+
     tank:enemy_raycast(dt)
     tank:check_player_distance()
 
