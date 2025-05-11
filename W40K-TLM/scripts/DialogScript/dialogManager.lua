@@ -257,3 +257,7 @@ function utf8_char_count(s)
     local _, count = s:gsub("[^\128-\191]", "")
     return count
 end
+
+function changeAutoTime(time)
+    autoNextDelay = time
+end
