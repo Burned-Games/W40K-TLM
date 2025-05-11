@@ -7,9 +7,18 @@ local prefabCaja = "prefabs/Misc/CajaSeparado.prefab"
 
 local rbComponent = nil
 
+local separateChildren = nil
+local separate = nil
+
 local hasDestroyed = false
 
 local impulseStrength = 0
+
+local disappearCounter = 0
+local disappearCounterTarget = 5
+local hasDisappeared = false
+local actualSize = 1
+local sizeDisappearSpeed = 3
 
 function on_ready()
     -- Add initialization code here
@@ -21,6 +30,23 @@ function on_ready()
     end
 
     rbComponent = self:get_component("RigidbodyComponent");
+    rbComponent:on_collision_enter(function(entityA, entityB)
+
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+        if nameA == "Sphere1" or nameA == "Sphere2" or nameA == "Sphere3" or nameA == "Sphere4" or nameA == "Sphere5" or nameA == "Sphere6" or nameA == "Sphere7" or nameA == "Sphere8"
+        or nameB == "Sphere1" or nameB == "Sphere2" or nameB == "Sphere3" or nameB == "Sphere4" or nameB == "Sphere5" or nameB == "Sphere6" or nameB == "Sphere7" or nameB == "Sphere8" then
+            if not hasDestroyed then
+                --cameraScript.startShake(0.2,5)
+                give_phisycs()
+                hasDestroyed = true
+            end
+            
+        end
+
+
+    end)
+    --rbComponent.rb:set_trigger(true)
 
 end
 
@@ -29,7 +55,7 @@ function give_phisycs()
     rbComponent.rb:set_trigger(true)
     rbComponent.rb:set_use_gravity(false)
 
-    local separate = nil
+    separate = nil
 
     local tag = self:get_component("TagComponent").tag
 
@@ -44,7 +70,7 @@ function give_phisycs()
     separate:get_component("TransformComponent").position = self:get_component("TransformComponent").position
     separate:get_component("TransformComponent").rotation = self:get_component("TransformComponent").rotation
 
-    local separateChildren = separate:get_children()
+    separateChildren = separate:get_children()
 
     for _, child in ipairs(separateChildren) do
         if child:has_component("RigidbodyComponent") then
@@ -65,6 +91,8 @@ function give_phisycs()
         end
 
     end
+    self:get_component("RigidbodyComponent").rb:set_position(Vector3.new(-100,-100,-100))
+    
 
 
 
@@ -78,10 +106,38 @@ function on_update(dt)
             --cameraScript.startShake(0.2,5)
             give_phisycs()
             hasDestroyed = true
-        end
+            
+        end 
     end
 
+    if hasDestroyed and not hasDisappeared then
+       
+        disappearCounter = disappearCounter + dt
 
+        if disappearCounter >= disappearCounterTarget then
+            actualSize = actualSize - dt * sizeDisappearSpeed
+            
+            if actualSize <= 0 then
+                actualSize = 0
+                hasDisappeared = true
+            end
+            setChildrenSize(actualSize)
+        end
+
+    end
+
+    if hasDisappeared then
+        separate:set_active(false)
+        self:set_active(false)
+    end
+
+end
+
+function setChildrenSize(size)
+    
+    for _, child in ipairs(separateChildren) do
+        child:get_component("TransformComponent").scale = Vector3.new(size,size,size)
+    end
 end
 
 function on_exit()

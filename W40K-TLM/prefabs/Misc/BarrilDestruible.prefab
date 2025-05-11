@@ -1,121 +1,42 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "BarrilDestruible_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 15211934628310813137
-            }
+                "value0": 15165124247614989560
+            },
+            "value4": false
         },
         "RootEntity": 0,
-        "value0": 18,
-        "value1": 18,
+        "value0": 2,
+        "value1": 2,
         "value2": 0,
         "value3": 1,
         "value4": 2,
-        "value5": 3,
-        "value6": 4,
-        "value7": 5,
-        "value8": 6,
-        "value9": 7,
-        "value10": 8,
-        "value11": 9,
-        "value12": 10,
-        "value13": 11,
-        "value14": 12,
-        "value15": 13,
-        "value16": 14,
-        "value17": 15,
-        "value18": 16,
-        "value19": 17,
-        "value20": 18,
-        "value21": 0,
-        "value22": {
+        "value5": 0,
+        "value6": {
             "cereal_class_version": 0,
             "Tag": "BarrilDestruible"
         },
-        "value23": 1,
-        "value24": {
+        "value7": 1,
+        "value8": {
             "Tag": "Normal"
         },
-        "value25": 2,
-        "value26": {
-            "Tag": "Separate"
-        },
-        "value27": 3,
-        "value28": {
-            "Tag": "Tapon pequeño"
-        },
-        "value29": 4,
-        "value30": {
-            "Tag": "Tabla 1"
-        },
-        "value31": 5,
-        "value32": {
-            "Tag": "Tabla 6"
-        },
-        "value33": 6,
-        "value34": {
-            "Tag": "Tabla 7"
-        },
-        "value35": 7,
-        "value36": {
-            "Tag": "Tabla 8"
-        },
-        "value37": 8,
-        "value38": {
-            "Tag": "Cinturon abajo"
-        },
-        "value39": 9,
-        "value40": {
-            "Tag": "Cinturon"
-        },
-        "value41": 10,
-        "value42": {
-            "Tag": "Tapa arriba"
-        },
-        "value43": 11,
-        "value44": {
-            "Tag": "Tabla 5"
-        },
-        "value45": 12,
-        "value46": {
-            "Tag": "Tabla 10"
-        },
-        "value47": 13,
-        "value48": {
-            "Tag": "Tabla 9"
-        },
-        "value49": 14,
-        "value50": {
-            "Tag": "Tabla 3"
-        },
-        "value51": 15,
-        "value52": {
-            "Tag": "Tabla 4"
-        },
-        "value53": 16,
-        "value54": {
-            "Tag": "Tabla 2"
-        },
-        "value55": 17,
-        "value56": {
-            "Tag": "Tapa abajo"
-        },
-        "value57": 18,
-        "value58": 0,
-        "value59": {
+        "value9": 2,
+        "value10": 0,
+        "value11": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "x": 22.20189094543457,
+                "y": 0.16830921173095704,
+                "z": -18.813364028930665
             },
             "Rotation": {
                 "x": 0.0,
@@ -128,8 +49,8 @@
                 "z": 1.0
             }
         },
-        "value60": 1,
-        "value61": {
+        "value12": 1,
+        "value13": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -146,425 +67,25 @@
                 "z": 1.0
             }
         },
-        "value62": 2,
-        "value63": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value64": 3,
-        "value65": {
-            "Position": {
-                "x": 0.46294525265693667,
-                "y": 0.5320428013801575,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value66": 4,
-        "value67": {
-            "Position": {
-                "x": -0.11966124176979065,
-                "y": 0.49936017394065859,
-                "z": 0.368279367685318
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value68": 5,
-        "value69": {
-            "Position": {
-                "x": 0.12045399844646454,
-                "y": 0.49942678213119509,
-                "z": -0.37071919441223147
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value70": 6,
-        "value71": {
-            "Position": {
-                "x": 0.31539881229400637,
-                "y": 0.49935999512672427,
-                "z": -0.22466041147708894
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value72": 7,
-        "value73": {
-            "Position": {
-                "x": 0.38823965191841128,
-                "y": 0.49939313530921938,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value74": 8,
-        "value75": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.3290998041629791,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value76": 9,
-        "value77": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.7104902267456055,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value78": 10,
-        "value79": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.8982487916946411,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value80": 11,
-        "value81": {
-            "Position": {
-                "x": -0.11966124176979065,
-                "y": 0.49936017394065859,
-                "z": -0.368279367685318
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value82": 12,
-        "value83": {
-            "Position": {
-                "x": 0.12045399844646454,
-                "y": 0.49942678213119509,
-                "z": 0.37071919441223147
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value84": 13,
-        "value85": {
-            "Position": {
-                "x": 0.31539881229400637,
-                "y": 0.49935999512672427,
-                "z": 0.22466041147708894
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value86": 14,
-        "value87": {
-            "Position": {
-                "x": -0.38823965191841128,
-                "y": 0.49939313530921938,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value88": 15,
-        "value89": {
-            "Position": {
-                "x": -0.31539881229400637,
-                "y": 0.49935999512672427,
-                "z": -0.22466041147708894
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value90": 16,
-        "value91": {
-            "Position": {
-                "x": -0.31539881229400637,
-                "y": 0.49935999512672427,
-                "z": 0.22466041147708894
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value92": 17,
-        "value93": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.06870733201503754,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value94": 18,
-        "value95": 0,
-        "value96": {
+        "value14": 2,
+        "value15": 0,
+        "value16": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value97": 1,
-        "value98": {
+        "value17": 1,
+        "value18": {
             "Parent": 0,
             "First": 4294967295,
-            "Next": 2,
+            "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value99": 2,
-        "value100": {
-            "Parent": 0,
-            "First": 3,
-            "Next": 4294967295,
-            "Prev": 1
-        },
-        "value101": 3,
-        "value102": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 17,
-            "Prev": 15
-        },
-        "value103": 4,
-        "value104": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 3
-        },
-        "value105": 5,
-        "value106": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4
-        },
-        "value107": 6,
-        "value108": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 5
-        },
-        "value109": 7,
-        "value110": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 6
-        },
-        "value111": 8,
-        "value112": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 7
-        },
-        "value113": 9,
-        "value114": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 8
-        },
-        "value115": 10,
-        "value116": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 9
-        },
-        "value117": 11,
-        "value118": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 10
-        },
-        "value119": 12,
-        "value120": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 11
-        },
-        "value121": 13,
-        "value122": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 12
-        },
-        "value123": 14,
-        "value124": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 13
-        },
-        "value125": 15,
-        "value126": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 14
-        },
-        "value127": 16,
-        "value128": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 15
-        },
-        "value129": 17,
-        "value130": {
-            "Parent": 2,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 16
-        },
-        "value131": 16,
-        "value132": 1,
-        "value133": {
+        "value19": 1,
+        "value20": 1,
+        "value21": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 2057796325646731345
@@ -573,243 +94,20 @@
                 "value0": 0
             }
         },
-        "value134": 3,
-        "value135": {
-            "Mesh": {
-                "value0": 9383725930736127013
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value136": 4,
-        "value137": {
-            "Mesh": {
-                "value0": 13930940665255936028
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value138": 5,
-        "value139": {
-            "Mesh": {
-                "value0": 7679525094135220566
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value140": 6,
-        "value141": {
-            "Mesh": {
-                "value0": 15757631755679541420
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value142": 7,
-        "value143": {
-            "Mesh": {
-                "value0": 2726719220377051975
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value144": 8,
-        "value145": {
-            "Mesh": {
-                "value0": 18150815711235673463
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value146": 9,
-        "value147": {
-            "Mesh": {
-                "value0": 6719309525409332478
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value148": 10,
-        "value149": {
-            "Mesh": {
-                "value0": 10480022458291751873
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value150": 11,
-        "value151": {
-            "Mesh": {
-                "value0": 11326914543719893124
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value152": 12,
-        "value153": {
-            "Mesh": {
-                "value0": 8279631130473309206
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value154": 13,
-        "value155": {
-            "Mesh": {
-                "value0": 6076999846912931496
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value156": 14,
-        "value157": {
-            "Mesh": {
-                "value0": 2222056584157203611
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value158": 15,
-        "value159": {
-            "Mesh": {
-                "value0": 17198391465273915552
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value160": 16,
-        "value161": {
-            "Mesh": {
-                "value0": 96334101364317432
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value162": 17,
-        "value163": {
-            "Mesh": {
-                "value0": 14652242386608799728
-            },
-            "AnimatorUUID": {
-                "value0": 0
-            }
-        },
-        "value164": 16,
-        "value165": 1,
-        "value166": {
-            "cereal_class_version": 0,
-            "Material": {
+        "value22": 1,
+        "value23": 1,
+        "value24": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 15852459792761118709
             }
         },
-        "value167": 3,
-        "value168": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value169": 4,
-        "value170": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value171": 5,
-        "value172": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value173": 6,
-        "value174": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value175": 7,
-        "value176": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value177": 8,
-        "value178": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value179": 9,
-        "value180": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value181": 10,
-        "value182": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value183": 11,
-        "value184": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value185": 12,
-        "value186": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value187": 13,
-        "value188": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value189": 14,
-        "value190": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value191": 15,
-        "value192": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value193": 16,
-        "value194": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value195": 17,
-        "value196": {
-            "Material": {
-                "value0": 14722102627572349509
-            }
-        },
-        "value197": 0,
-        "value198": 1,
-        "value199": 0,
-        "value200": {
+        "value25": 0,
+        "value26": 1,
+        "value27": 0,
+        "value28": {
             "cereal_class_version": 0,
             "RigidBody": true,
             "RigidBodyData": {
@@ -850,13 +148,13 @@
                                         "ShapeType": 0,
                                         "Offset": {
                                             "x": 0.0,
-                                            "y": 0.0,
+                                            "y": 0.5,
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 0.5248799920082092,
-                                            "y": 0.5248799920082092,
-                                            "z": 0.5248799920082092
+                                            "x": 0.36000001430511477,
+                                            "y": 0.36000001430511477,
+                                            "z": 0.36000001430511477
                                         }
                                     }
                                 }
@@ -866,45 +164,30 @@
                 }
             }
         },
-        "value201": 0,
-        "value202": 0,
-        "value203": 18,
-        "value204": 0,
-        "value205": 1,
-        "value206": 2,
-        "value207": 3,
-        "value208": 4,
-        "value209": 5,
-        "value210": 6,
-        "value211": 7,
-        "value212": 8,
-        "value213": 9,
-        "value214": 10,
-        "value215": 11,
-        "value216": 12,
-        "value217": 13,
-        "value218": 14,
-        "value219": 15,
-        "value220": 16,
-        "value221": 17,
-        "value222": 1,
-        "value223": 0,
-        "value224": {
+        "value29": 0,
+        "value30": 0,
+        "value31": 2,
+        "value32": 0,
+        "value33": 1,
+        "value34": 1,
+        "value35": 0,
+        "value36": {
             "cereal_class_version": 0,
-            "ScriptPath": "scripts/misc/BreakObjectUpdate.lua",
+            "ScriptPath": "scripts/misc/BreakObjectInstance.lua",
             "Language": 0
         },
-        "value225": 0,
-        "value226": 0,
-        "value227": 0,
-        "value228": 0,
-        "value229": 0,
-        "value230": 0,
-        "value231": 0,
-        "value232": 0,
-        "value233": 0,
-        "value234": 0,
-        "value235": 0,
-        "value236": 0
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0
     }
 }
