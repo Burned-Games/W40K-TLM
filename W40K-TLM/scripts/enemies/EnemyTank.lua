@@ -60,44 +60,40 @@ function on_ready()
     tank.pathUpdateInterval = 0.1
     tank.attackTimer = 0.0
     tank.tackleTimer = 0.0
-    tank.idleTimer = 0.0
     tank.berserkaTimer = 0.0
     tank.animDuration = 0.0
     tank.animTimer = 0.0
 
     -- Animations
-    tank.attackAnim = 0 
-    tank.berserkaAnim = 1 
-    tank.dieAnim = 3 
-    tank.detectAnim = 4 
+    tank.attackAnim = 0 -- done
+    tank.berserkaAnim = 1 -- done
+    tank.dieAnim = 3 -- falta timers 
+    tank.detectAnim = 4 -- done
     tank.hitAnim = 5 
-    tank.idleAnim = 7 
-    tank.stuneAnim = 9 
-    tank.tackleAnim = 10 
-    tank.moveAnim = 11 
+    tank.idleAnim = 7 -- a medias
+    tank.stuneAnim = 9 -- a medias
+    tank.tackleAnim = 10 --done
+    tank.moveAnim = 11 -- done
 
     -- Animation timers
-    tank.attackAnimTimer = 0.0
-    tank.attackAnimDuration = 3.0
-    tank.berserkaAnimTimer = 0.0
-    tank.berserkaAnimDuration = 2.0
-    tank.dieAnimTimer = 0.0
-    tank.dieAnimDuration = 0.45
+    tank.attackDuration = 3.0 
+    tank.berserkaDuration = 2.0
+    tank.dieDuration = 0.45
     tank.detectDuration = 2.0
-    tank.stuneAnimTimer = 0.0
-    tank.stuneAnimDuration = 1.0
-    tank.tackleAnimTimer = 0.0
-    tank.tackleAnimDuration = 0.83
+    tank.stuneDuration = 1.0
+    tank.tackleDuration = 0.83
 
     -- Lists
     tank.nearbyEnemies = {}
 
     -- Bools
     tank.isBerserkaActive = false 
+    tank.isPlayingBerserkaAnim = false
     tank.collisionWithPlayer = false
     tank.isCharging = false
     tank.canTackle = false
     tank.isAlerted = false
+    tank.isPlayingStuneAnim = false
     tank.hasFoundNearbyEnemies = false
 
     -- Positions
@@ -172,12 +168,6 @@ function on_update(dt)
 
     if tank.isDead then return end
 
-    if tank.playingDieAnim then
-        tank.enemyRb:set_trigger(true)
-        tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        tank.dieTimer = tank.dieTimer + dt
-    end
-
     if tank.zoneSet ~= true then
         tank:check_spawn()
         tank.zoneSet = true
@@ -221,18 +211,11 @@ function on_update(dt)
     if tank.haveShield and tank.enemyShield <= 0 then
         tank.haveShield = false
         tank.shield_destroyed = true
-    end
-
-    if tank.haveShield then
-        tank.stuneAnimTimer = tank.stuneAnimTimer + dt
-        if tank.stuneAnimTimer >= tank.stuneAnimDuration then 
-            if currentAnim ~= tank.stuneAnim then
-                tank.currentAnim = tank.stuneAnim
-                tank.animator:set_current_animation(tank.currentAnim)
-            end
-            tank.stuneAnimTimer = 0.0
-            tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        end 
+        tank.isPlayingStuneAnim = true
+        tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        if tank.currentAnim ~= tank.stuneAnim then
+            tank:play_blocking_animation(tank.stuneAnim, tank.stuneDuration)
+        end
     end
 
     tank.pathUpdateTimer = tank.pathUpdateTimer + dt
@@ -296,10 +279,13 @@ function on_update(dt)
             tank:rotate_enemy(tank.playerTransf.position)
         end
     end
-
-    if tank.currentState == tank.state.Idle then
-        tank:idle_state(dt)
+    
+    if tank.currentState == tank.state.Dead then
+        tank:die_state(dt)
         return
+
+    elseif tank.currentState == tank.state.Idle then
+        tank:idle_state(dt)
         
     elseif tank.currentState == tank.state.Detect then
         tank:detect_state(dt)
@@ -349,6 +335,20 @@ function change_state(dt)
         tank.currentState = tank.state.Detect
         tank:avoid_alert_enemies()
         return
+    end
+
+    if tank.isPlayingBerserkaAnim then 
+        if tank.animTimer >= tank.berserkaDuration then
+            tank.isPlayingBerserkaAnim = false
+        end
+        return 
+    end
+
+    if tank.isPlayingStuneAnim then 
+        if tank.animTimer >= tank.stuneDuration then
+            tank.isPlayingStuneAnim = false
+        end
+        return 
     end
 
     if tank.collisionWithPlayer then
@@ -424,15 +424,7 @@ function tank:attack_state(dt)
     tank:rotate_enemy(tank.playerTransf.position)
 
     if tank.currentAnim ~= tank.attackAnim then
-        tank.attackAnimTimer = tank.attackAnimTimer + dt
-        tank.currentAnim = tank.attackAnim
-        tank.animator:set_current_animation(tank.currentAnim)
-
-        if tank.attackAnimTimer >= tank.attackAnimDuration then
-            tank.attackAnimTimer = 0.0
-            tank.currentAnim = tank.idleAnim
-            tank.animator:set_current_animation(tank.currentAnim)
-        end
+        tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
     end
 
     if tank.attackTimer >= tank.attackCooldown then
@@ -484,6 +476,11 @@ end
 
 function tank:berserka_rage()
     tank.isBerserkaActive = true
+    tank.isPlayingBerserkaAnim = true
+
+    if tank.currentAnim ~= tank.berserkaAnim then
+        tank:play_blocking_animation(tank.berserkaAnim, tank.berserkaDuration)
+    end
 
     tank.originalStats = {
         speed = tank.speed,
