@@ -2,7 +2,7 @@
 local blueTasks = {
     {id = 1, description = "Start moving with [L]"},
     {id = 2, description = "Aim with [R] and shoot with [RT]"},
-    {id = 3, description = "Defeat both Orkz (x/2)"},
+    {id = 3, description = "Defeat the first ork"},
     {id = 4, description = "Finish the Orkz and pull the lever up"},
     {id = 5, description = "Upgrade your equipment with the drop pod supply"},
     {id = 6, description = "Find and get the Bio-Recovery Shot to heal yourself"},
@@ -171,9 +171,9 @@ function getCurrentTask(tasks, index)
     if index > #tasks then return "" end
     local description = tasks[index].description
 
-    if blueTaskIndex == 3 then
-        description = description:gsub("x", tostring(m3_EnemyCount))
-    end
+    --if blueTaskIndex == 3 then
+        --description = description:gsub("x", tostring(m3_EnemyCount))
+    --end
 
     if blueTaskIndex == 9 then
         description = description:gsub("x", tostring(m8_lever))
@@ -193,7 +193,7 @@ function missionBlue_Tutor()
     elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
         --popupScriptComponent.show_popup(false, "[Y] to change weapon")
-    elseif blueTaskIndex == 3 and m3_EnemyCount >= 2 then
+    elseif blueTaskIndex == 3 and m3_EnemyCount >= 1 then
         startAnimation(blueAnimation)
         popupScriptComponent.start_popup_removal_timer()
     elseif blueTaskIndex == 4 and m4_lever and m4_EnemyCount >= 2 then

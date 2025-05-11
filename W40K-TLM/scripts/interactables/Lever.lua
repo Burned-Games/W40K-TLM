@@ -6,7 +6,7 @@ local canInteract = false
 local maxInteractions = 0
 local currentInteractions = 0
 
-local interactionDistance = 2.5;
+local interactionDistance = 5;
 
 playerTransform = nil
 parentTransform = nil
