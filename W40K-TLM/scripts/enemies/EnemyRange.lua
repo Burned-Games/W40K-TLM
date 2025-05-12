@@ -37,7 +37,6 @@ function on_ready()
 
     -- Mision
     range.misionManager = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
-    range.enemyDie = false
 
     -- Particles
     range.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
@@ -125,8 +124,7 @@ function on_ready()
     range.currentBulletIndex = 1
 
     -- Animation Timers
-    range.dieTimer = 0.0
-    range.dieAnimDuration = 0.90
+    range.dieDuration = 0.90
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
     --range.detectAnimDuration = 2.33
@@ -152,13 +150,6 @@ function on_update(dt)
 
     -- If the enemy is dead doesn't enter the on_update function
     if range.isDead then return end
-
-    if range.playingDieAnim then
-        range.enemyRb:set_trigger(true)
-        range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        range.dieTimer = range.dieTimer + dt
-    end
-
 
 
     -- Setting the zone to know if the enemy can spawn
