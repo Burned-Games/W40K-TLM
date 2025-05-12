@@ -665,22 +665,12 @@ function enemy:take_damage(damage, shieldMultiplier)
 end
 
 function enemy:rotate_enemy(targetPosition)
+    local dx = targetPosition.x - self.enemyTransf.position.x
+    local dz = targetPosition.z - self.enemyTransf.position.z
 
-	local dx = targetPosition.x - self.enemyTransf.position.x
-	local dz = targetPosition.z - self.enemyTransf.position.z
+    local targetAngle = math.deg(self:atan2(dx, dz))
 
-    local targetAngle = math.deg(math.atan(dx / dz))
-    if dz < 0 then
-        targetAngle = targetAngle + 180
-    end
-
-    targetAngle = (targetAngle + 180) % 360 - 180
-    local currentAngle = (self.currentRotationY + 180) % 360 - 180
-    local deltaAngle = (targetAngle - currentAngle + 180) % 360 - 180
-
-    self.currentRotationY = currentAngle + deltaAngle * 0.1
-    self.enemyTransf.rotation.y = self.currentRotationY
-
+    self.enemyRb:set_rotation(Vector3.new(0, targetAngle,0))
 end
 
 function enemy:check_player_distance()
@@ -707,6 +697,26 @@ function enemy:get_distance(pos1, pos2)
     local dz = pos2.z - pos1.z
     return math.sqrt(dx * dx + dy * dy + dz * dz)
 
+end
+
+function enemy:atan2(y, x)
+    if x > 0 then
+        return math.atan(y / x)
+    elseif x < 0 then
+        if y >= 0 then
+            return math.atan(y / x) + math.pi
+        else
+            return math.atan(y / x) - math.pi
+        end
+    elseif x == 0 then
+        if y > 0 then
+            return math.pi / 2
+        elseif y < 0 then
+            return -math.pi / 2
+        else
+            return 0 -- indeterminado, pero retornamos 0 por defecto
+        end
+    end
 end
 
 return enemy
