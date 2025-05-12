@@ -1,10 +1,12 @@
 -- dialogSystem.lua
 
 dialogLines = {
-    { name = "Carlos", text = "Hola, bienvenido al mundo", audio = "dia1_audio1" },
-    { name = "Ana", text = "Espero que estés preparado para la aventura.", audio = "dia1_audio2" },
-    { name = "Carlos", text = "Vamos allá", audio = "dia1_audio3" }
+    { name = "Carlos", text = "Hola, bienvenido al mundo" },
+    { name = "Ana", text = "Espero que estés preparado para la aventura." },
+    { name = "Carlos", text = "Vamos allá" }
 }
+
+
 
 -- UI Components
 local nameComponent = nil
@@ -40,15 +42,13 @@ local dialogOpening = true
 local waitingDialogStart = false
 local dialogStartQueued = false
 
--- Audio control
-local currentAudio = nil
-
 -- Initialization
 function on_ready()
     nameComponent = current_scene:get_entity_by_name("DialogName"):get_component("UITextComponent")
     textComponent = current_scene:get_entity_by_name("DialogText"):get_component("UITextComponent")
     dialogImgComponent = current_scene:get_entity_by_name("DialogIMG"):get_component("UIImageComponent")
 
+    -- Set initial hidden state
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, 0))
     nameComponent:set_text(" ")
     textComponent:set_text(" ")
@@ -56,10 +56,18 @@ end
 
 -- Per-frame update
 function on_update(dt)
+    --if Input.is_key_pressed(Input.keycode.M) then
+      --  start_dialog(dialogLines)
+    --end
+    --if Input.is_key_pressed(Input.keycode.N) then
+      --  start_dialog_close_animation()
+    --end
+
     update_dialog_animation(dt)
 
     if not isDialogPlaying then return end
 
+    -- Space key handling
     local spacePressedNow = Input.get_button(Input.action.Cancel) == Input.state.Down
     local spacePressed = spacePressedNow and not spacePressedLastFrame
     spacePressedLastFrame = spacePressedNow
@@ -72,12 +80,6 @@ function on_update(dt)
             waitingForNext = true
             autoNextTimer = 0
         elseif waitingForNext then
-            -- Stop current audio when skipping
-            if currentAudio then
-                currentAudio:stop()
-                currentAudio = nil
-            end
-
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
@@ -85,15 +87,10 @@ function on_update(dt)
         return
     end
 
+    -- Auto-advance logic
     if waitingForNext and autoNextEnabled then
         autoNextTimer = autoNextTimer + dt
         if autoNextTimer >= autoNextDelay then
-            -- Stop current audio when auto-advancing
-            if currentAudio then
-                currentAudio:stop()
-                currentAudio = nil
-            end
-
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
@@ -101,6 +98,7 @@ function on_update(dt)
         return
     end
 
+    -- Typing animation
     if isTyping then
         timer = timer + dt
         if timer >= typeSpeed and textIndex <= #fullText then
@@ -119,6 +117,7 @@ function on_update(dt)
     end
 end
 
+-- Start new dialog sequence
 function start_dialog(lines)
     dialogQueue = lines
     currentDialogIndex = 1
@@ -128,6 +127,7 @@ function start_dialog(lines)
     start_dialog_open_animation()
 end
 
+-- Open dialog animation (using alpha instead of movement)
 function start_dialog_open_animation()
     dialogAnimationTime = 0.0
     dialogAnimating = true
@@ -135,6 +135,7 @@ function start_dialog_open_animation()
     dialogCurrentAlpha = 0.0
 end
 
+-- Close dialog animation (using alpha instead of movement)
 function start_dialog_close_animation()
     dialogAnimationTime = 0.0
     dialogAnimating = true
@@ -142,24 +143,29 @@ function start_dialog_close_animation()
     dialogCurrentAlpha = 1.0
 end
 
+-- Update animation states
 function update_dialog_animation(dt)
     if not dialogAnimating then return end
 
     dialogAnimationTime = dialogAnimationTime + dt
     local t = dialogAnimationTime / dialogAnimationDuration
 
+    -- Adjust alpha value
     if dialogOpening then
         dialogCurrentAlpha = lerp(0, 1, t)
     else
         dialogCurrentAlpha = lerp(1, 0, t)
     end
 
+    -- Apply alpha to components
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, dialogCurrentAlpha))
     nameComponent:set_color(Vector4.new(1, 1, 1, dialogCurrentAlpha))
     textComponent:set_color(Vector4.new(1, 1, 1, dialogCurrentAlpha))
 
+    -- Handle animation completion
     if t >= 1 then
         dialogAnimating = false
+        
         if dialogOpening then
             if waitingDialogStart and dialogStartQueued then
                 waitingDialogStart = false
@@ -176,17 +182,12 @@ function update_dialog_animation(dt)
     end
 end
 
+-- Play current dialog line
 function play_current_line()
     local line = dialogQueue[currentDialogIndex]
     if not line then
         end_dialog()
         return
-    end
-
-    -- Stop previous audio if any
-    if currentAudio then
-        currentAudio:stop()
-        currentAudio = nil
     end
 
     fullText = line.text or " "
@@ -197,16 +198,12 @@ function play_current_line()
     autoNextTimer = 0
     isTyping = true
 
+    -- Update speaker name and text
     nameComponent:set_text(line.name or " ")
     textComponent:set_text(" ")
-
-    -- Play audio if exists
-    if line.audio and _G[line.audio] then
-        currentAudio = _G[line.audio]
-        currentAudio:play()
-    end
 end
 
+-- Advance to next line
 function nextDialogLine()
     currentDialogIndex = currentDialogIndex + 1
     if currentDialogIndex > #dialogQueue then
@@ -216,14 +213,12 @@ function nextDialogLine()
     end
 end
 
+-- End dialog sequence
 function end_dialog()
-    if currentAudio then
-        currentAudio:stop()
-        currentAudio = nil
-    end
     start_dialog_close_animation()
 end
 
+-- Linear interpolation function
 function lerp(a, b, t)
     return a + (b - a) * math.min(math.max(t, 0), 1)
 end
