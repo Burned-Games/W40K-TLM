@@ -114,7 +114,7 @@ function enemy:new(obj)
     obj.pushedTime = 0.3
     obj.pushedTimeCounter = 0.0
     obj.dieTimer = 0.0
-    obj.dieAnimDuration = 0.0
+    obj.dieDuration = 0.0
     obj.detectAnimTimer = 0.0
     obj.detectAnimDuration = 0.0
 
@@ -186,8 +186,7 @@ end
 function enemy:idle_state()
 
     if self.currentAnim ~= self.idleAnim then
-        self.currentAnim = self.idleAnim
-        self.animator:set_current_animation(self.currentAnim)
+        self:play_blocking_animation(self.idleAnim, self.idleDuration)
     end
 
 end
@@ -224,23 +223,13 @@ end
 
 function enemy:die_state(dt)
     
-    if not self.playingDieAnim then
-        if self.currentAnim ~= self.dieAnim then
-            self.currentAnim = self.dieAnim
-            self.animator:set_current_animation(self.currentAnim)
-        end
-        self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        self.currentState = self.state.Dead
-
+    if self.currentAnim ~= self.dieAnim then
+        self:play_blocking_animation(self.dieAnim, self.dieDuration)
         --if self.hurtSFX ~= nil then self.hurtSFX:stop() end
         if self.dyingSFX ~= nil then self.dyingSFX:play() end
-
-        self.playingDieAnim = true
-        self.dieTimer = 0
-        return
     end
 
-    if self.dieTimer >= self.dieAnimDuration then
+    if self.animTimer >= self.dieDuration then
 
         self.playerScript.enemys_targeting = self.playerScript.enemys_targeting - 1 
         self.currentState = self.state.Idle
@@ -263,6 +252,12 @@ function enemy:die_state(dt)
     end
 end
 
+function enemy:stun_state()
+    if self.currentAnim ~= self.stunAnim then
+        self:play_blocking_animation(self.stunAnim, self.stunDuration)
+    end
+    self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+end
 
 
 
