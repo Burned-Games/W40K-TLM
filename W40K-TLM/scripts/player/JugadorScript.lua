@@ -1549,9 +1549,9 @@ function check_effects(dt)
 end
 
 function update_combat_state(dt)
-    if tookDamage or makeDamage then
+    if isHitted or makeDamage then
         combatTimer = 5.0
-        tookDamage = false
+        isHitted = false
         makeDamage = false
     else
         if combatTimer > 0 then
