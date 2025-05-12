@@ -64,11 +64,35 @@ function on_update(dt)
         canInteract = false
     end
 
-    local distance = Vector3.new(
-        math.abs(playerTransform.position.x - (transform.position.x + parentTransform.position.x)),
-        math.abs(playerTransform.position.y - (transform.position.y + parentTransform.position.y)),
-        math.abs(playerTransform.position.z - (transform.position.z + parentTransform.position.z))
-    )
+    local distance = Vector3.new(100,100,100)
+    if not hasInteracted then
+        -- Calcular la posicion del hijo por trigonometria ya que por rotaciones no se puede hacer de otra manera
+        local angle = math.rad(-parentTransform.rotation.y)
+
+        -- Posición local del hijo
+        local lx = transform.position.x
+        local lz = transform.position.z
+
+        -- Rotar el punto local alrededor del origen (aplicando solo rotación Y del padre)
+        local rotatedX = lx * math.cos(angle) - lz * math.sin(angle)
+        local rotatedZ = lx * math.sin(angle) + lz * math.cos(angle)
+
+        -- Sumar la posición del padre para obtener posición global
+        local worldX = parentTransform.position.x + rotatedX
+        local worldY = parentTransform.position.y + transform.position.y
+        local worldZ = parentTransform.position.z + rotatedZ
+
+        -- Resultado como vector
+        local worldPos = Vector3.new(worldX, worldY, worldZ)
+        
+
+        distance = Vector3.new(
+            math.abs(playerTransform.position.x - worldPos.x),
+            math.abs(playerTransform.position.y - worldPos.y),
+            math.abs(playerTransform.position.z - worldPos.z)
+        )
+    end
+    
 
     if distance.x < interactionDistance and distance.z < interactionDistance then
         --Icon
