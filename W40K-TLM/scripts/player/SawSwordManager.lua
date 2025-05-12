@@ -77,18 +77,35 @@ function on_update(dt)
         sawSwordAvailable = false
 
         meleeAttackSFX:play()
+
+        local dashDirection = nil
+
+        if playerScript.isMoving == false then
+            dashDirection = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+        else
+            dashDirection = Vector3.new(playerScript.moveDirectionX, 0, playerScript.moveDirectionY)
+        end
+        local impulse = Vector3.new(dashDirection.x * 6, dashDirection.y * 6, dashDirection.z * 6)
+
+        playerScript.playerRb:apply_impulse(Vector3.new(impulse.x, impulse.y, impulse.z))
+
+        playerScript.meleeImpulseApplied = true
         
     end
 
     if slasheeed == true then
+        if slashCounter == 0 then
+            
+        end
+
         slashCounter = slashCounter + dt
+        
         if slashCounter >= slashTime and slashed == false then
             Slash()
             slashed = true
-
-            
+            playerScript.meleeImpulseApplied = false
         else
-            playerScript.moveSpeed = 1
+            --playerScript.moveSpeed = 1
         end
         
     else
@@ -96,6 +113,7 @@ function on_update(dt)
     end
     
     if sawSwordAvailable == false then
+
         coolDownCounter = coolDownCounter + dt
         if coolDownCounter >= coolDown then
             sawSwordAvailable = true

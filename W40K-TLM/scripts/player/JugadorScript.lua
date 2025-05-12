@@ -5,7 +5,7 @@ local effect = require("scripts/utils/status_effects")
 maxHealth = 250
 health = maxHealth
 playerTransf = nil
-local playerRb = nil
+playerRb = nil
 local lastValidRotation = 0
 --speed
 local normalSpeed = 5
@@ -16,17 +16,23 @@ local currentSpeed = 0
 local acceleration = 10      
 local deceleration = 8
 moveDirection = nil
+moveDirectionY = 0
+moveDirectionX = 0
 local rotationDirection = nil
 angleRotation = 0
 godMode = false
 isMoving = false
 local dashSpeed = 15
 local impulseApplied = false
+meleeImpulseApplied = false
 local dashTimeCounter = 0
 local dashTime = 0.3
 dashColdownCounter = 0
+local dashMeleeColdownCounter = 0
 dashColdown = 3.5
+local dashMeleeColdown = 0.8
 dashAvailable = true
+dashMeleeAvailable = true
 intangibleDash = false
 local intangibleDashTimeCounter = 0
 local intangibleDashTime = 0.15
@@ -490,6 +496,7 @@ function on_update(dt)
     
     if workbenchUIManagerScript.isWorkBenchOpen == false then
         updateDash(dt)
+        updateDashMelee(dt)
     end
 
     updateGodMode(dt)
@@ -558,8 +565,13 @@ function updateDash(dt)
             currentUpAnim = dash
             animator:set_current_animation(currentAnim)
         end
+        local dashDirection = nil
+        if isMoving == false then
+            dashDirection = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
+        else
+            dashDirection = Vector3.new(moveDirectionX, 0, moveDirectionY)
+        end
         
-        local dashDirection = Vector3.new(math.sin(angleRotation), 0, math.cos(angleRotation))
         local impulse = Vector3.new(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed, dashDirection.z * dashSpeed)
         --playerRb:set_trigger(true)
         
@@ -600,6 +612,14 @@ function updateDash(dt)
             intangibleDashTimeCounter = 0
         end
     end
+end
+
+function updateDashMelee(dt)
+    -- Check for dash activation
+    
+
+
+
 end
 
 function updateGodMode(dt)
@@ -774,8 +794,8 @@ function playerMovement(dt)
     local cameraAngle = math.rad(45)
 
     -- Rotate the entry axes to align the with the camera
-    local moveDirectionX = axisX_l * math.cos(cameraAngle) - axisY_l * math.sin(cameraAngle)
-    local moveDirectionY = axisX_l * math.sin(cameraAngle) + axisY_l * math.cos(cameraAngle)
+    moveDirectionX = axisX_l * math.cos(cameraAngle) - axisY_l * math.sin(cameraAngle)
+    moveDirectionY = axisX_l * math.sin(cameraAngle) + axisY_l * math.cos(cameraAngle)
 
     local rotationDirectionX = axisX_r * math.cos(cameraAngle) - axisY_r * math.sin(cameraAngle)
     local rotationDirectionY = axisX_r * math.sin(cameraAngle) + axisY_r * math.cos(cameraAngle)
@@ -850,7 +870,7 @@ function playerMovement(dt)
 
     
 
-    if impulseApplied == false then
+    if impulseApplied == false and meleeImpulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
         notMovingLookingUp = false
         if footstepSFXTimer > footstepSFXDelay then
@@ -1025,9 +1045,9 @@ function playerMovement(dt)
         currentSpeed = math.min(currentSpeed + acceleration * dt, moveSpeed)
     
         local velocity = Vector3.new(moveDirection.x * currentSpeed, 0, moveDirection.z * currentSpeed)
-    
+        
         playerRb:set_velocity(velocity)
-    
+        
         -- Rotate the player with the movement if not aiming
         if axisX_r == 0 and axisY_r == 0 then
             angleRotation = math.atan(moveDirection.x, moveDirection.z)
