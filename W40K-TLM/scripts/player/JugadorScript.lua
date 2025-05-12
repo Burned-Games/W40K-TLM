@@ -414,13 +414,13 @@ function on_update(dt)
         lastTriggerTime = dtColective
     end
 
-    if StimsCounter > 0 and isHealing == false and Input.is_button_pressed(Input.controllercode.DpadRight) then
+    if StimsCounter > 0 and isHealing == false and (Input.is_button_pressed(Input.controllercode.DpadRight) or Input.is_key_pressed(Input.keycode.H)) then
         StimsCounter = StimsCounter - 1
         intervalcheker = dtColective
         intervalChekerDown = intervalcheker - 0.5
         intervalchekerUp = intervalcheker + 0.5
         isHealing = true
-        damageReduction = 1.15
+        damageReduction = 0.8
         if mission_Component.getCurrerTaskIndex(true) == 6 then
             mission_Component.m6_heal = true
         end

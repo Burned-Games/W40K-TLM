@@ -622,7 +622,8 @@ function enemy:make_damage(damage)
     if self.playerScript.isCovering then return end
 
     if self.playerScript.health > 0 then
-        self.playerScript.health = self.playerScript.health - damage
+        local finalDamange = damage * self.playerScript.damageReduction
+        self.playerScript.health = self.playerScript.health - finalDamange
         print(self.playerScript.health)
         self.playerScript.takeHit()
     end
