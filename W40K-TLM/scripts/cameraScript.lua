@@ -101,13 +101,6 @@ local mapPolygonLevel1 = {
     {x = -10,  z = 7}
 }
 
--- local mapPolygonLevel2 = {
---     {x = -1000, z = -1000},
---     {x = 1000, z = -1000},
---     {x = 1000, z = 1000},
---     {x = -1000, z = 1000}
--- }
-
 local mapPolygonLevel2 = {
 
     -- abajo derecha
@@ -234,7 +227,7 @@ function on_update(dt)
         local targetZ = targetPos.z
 
         -- Si está fuera del polígono, buscamos un punto válido cercano
-        if playerScript.godMode and not IsPointInPolygon(targetX, targetZ, actualMapPolygon) then
+        if not playerScript.godMode and not IsPointInPolygon(targetX, targetZ, actualMapPolygon) then
             -- Busca el punto más cercano dentro del polígono
             local closest = GetClosestPointInPolygon(targetX, targetZ, actualMapPolygon)
             targetX = closest.x
