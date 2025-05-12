@@ -108,9 +108,9 @@ local enemy_stats = {
             -- When its in flee state, frequency of the support checking if ther is some enemy wich is able to get a shield
             checkEnemyInterval = 40.0,
 
-            timeBetweenBursts = 2.0,
+            timeBetweenBursts = 5.0,
             -- Minimun time between shots of the same burst
-            burstCooldown = 0.2
+            burstCooldown = 0.5
         },
 
 

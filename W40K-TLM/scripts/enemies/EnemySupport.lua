@@ -98,7 +98,7 @@ function on_ready()
     support.shieldAnimTimer = 0.0
     support.shieldAnimDuration = 3.4
     support.attackAnimTimer = 0.0
-    support.attackAnimDuration = 4.0
+    support.attackAnimDuration = 5.0
     support.findEnemiesTimer = 0.0
     support.findEnemiesInterval = 1.5
     support.pathUpdateTimer = 0.0
@@ -409,8 +409,8 @@ function support:shield_state(dt)
                 support.currentTarget.script.haveShield = true
                 support.canUseShield = false
                 support.shieldCooldownActive = true  
-                support.shieldTimer = 0  -- Fixed variable name (was shieldTimer)
-                support.shieldAnimTimer = 0  -- Fixed variable name (was shieldAnimTimer)
+                support.shieldTimer = 0  
+                support.shieldAnimTimer = 0  
                 support.shieldAssignSFX:play()
 
                 for i, enemyData in ipairs(support.Enemies) do
@@ -441,14 +441,15 @@ function support:shoot_state(dt)
         end
     end
 
+    if support.currentAnim ~= support.attackAnim then
+        support.currentAnim = support.attackAnim
+        support.animator:set_current_animation(support.currentAnim)
+    end
+
     support.attackAnimTimer = support.attackAnimTimer + dt 
     
     if support.attackAnimTimer >= support.attackAnimDuration then
         if support.isShootingBurst then
-            if support.currentAnim ~= support.attackAnim then
-                support.currentAnim = support.attackAnim
-                support.animator:set_current_animation(support.currentAnim)
-            end 
 
             support.timeSinceLastShot = support.timeSinceLastShot + dt
 
@@ -503,6 +504,7 @@ function support:shoot_state(dt)
         end
     end
 end
+
 
 function update_bullets(dt)
     for i, bullet in ipairs(support.bulletPool) do
