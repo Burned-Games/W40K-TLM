@@ -118,6 +118,7 @@ function on_ready()
     range.hasAlerted = false
     range.hasFoundNearbyEnemies = false
     range.isPlayingAnimation = false
+    range.isPlayingMeleeAnim = false
 
     -- Ints
     range.burstCount = 0
@@ -130,6 +131,8 @@ function on_ready()
     range.firstChaseDuration = 0.9
     --range.detectAnimDuration = 2.33
     --range.detectAnimTimer = 0.0
+    range.meleeTimer = 0.0
+    range.meleeAnimDuration = 0.92
 
     -- Lists
     range.nearbyEnemies = {}
@@ -233,6 +236,14 @@ function on_update(dt)
         range.updateTargetTimer = 0
     end
 
+    if range.isPlayingMeleeAnim then
+        range.meleeTimer = range.meleeTimer + dt
+        if range.meleeTimer >= range.meleeAnimDuration then
+            range.isPlayingMeleeAnim = false
+            range.meleeTimer = 0
+        end
+    end
+
     if range.isPlayingAnimation then
         range.animTimer = range.animTimer + dt
         range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -294,19 +305,26 @@ function change_state(dt)
         return
     end
 
-    -- If is Chasing don't return to Shoot or Move
-    if range.isChasing then
-        if range.playerDistance <= range.meleeAttackRange then
-            if range.currentState ~= range.state.Stab then
-                range.currentState = range.state.Stab
-            end
-                
-        elseif range.playerDistance > range.meleeAttackRange and range.currentState == range.state.Stab then
-            range.currentState = range.state.Chase
+    if range.isPlayingMeleeAnim then 
+        if range.meleeTimer >= range.meleeAnimDuration then
+            range.isPlayingMeleeAnim = false
         end
-                
-        return
+        return 
     end
+
+    -- If is Chasing don't return to Shoot or Move
+    -- if range.isChasing then
+    --     if range.playerDistance <= range.meleeAttackRange then
+    --         if range.currentState ~= range.state.Stab then
+    --             range.currentState = range.state.Stab
+    --         end
+                
+    --     elseif range.playerDistance > range.meleeAttackRange and range.currentState == range.state.Stab then
+    --         range.currentState = range.state.Chase
+    --     end
+                
+    --     return
+    -- end
 
     -- **IMPORTANT ORDER** Chase and Stab have to evaluate each other first, otherwise it won't work well !!!
     if range.playerDistance <= range.meleeAttackRange then
@@ -439,6 +457,7 @@ function range:stab_state(dt)
         if range.currentAnim ~= range.idleAnim then
             range.currentAnim = range.idleAnim
             range.animator:set_current_animation(range.currentAnim)
+            range.isPlayingMeleeAnim = true
         end
         return 
     end
