@@ -1,10 +1,51 @@
 local effect = require("scripts/utils/status_effects")
+local zones_data = require("scripts/utils/zones_data")
 local enemy = {}
 
 enemy.state = { Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5}
 enemy.godMode = true
 
 local prefabScrap= "prefabs/Misc/Scrap.prefab"
+
+-- local zones = {
+--     { 
+--         id = 1,
+--         points = {
+--             {x = 8.53, z = -46.89},
+--             {x = -1.51, z = -32.91},
+--             {x = -0.6, z = -25.7},
+--             {x = -7.12, z = -8.08},
+--             {x = -4.1, z = 7.52},
+--             {x = 53.64, z = 1.96},
+--             {x = 54.16, z = -51},
+--             {x = 15.4, z = -51}
+--         } 
+--     },
+
+--     { 
+--         id = 2, 
+--         points = {
+--             { x = -50,  z = -135 },
+--             { x = 65, z = -43 }
+--         }
+--     },
+
+--     { 
+--         id = 3, 
+--         points = {
+--             { x = 88,  z = -185 },
+--             { x = 148, z = -105 }
+--         }
+--     },
+
+--     { 
+--         id = 4, 
+--         points = {
+--             { x = 200, z = -270 },
+--             { x = 270, z = -210 }
+--         }
+--     }
+-- }
 
 function enemy:new(obj)
 
@@ -481,36 +522,41 @@ end
 
 function enemy:check_spawn()
 
-    if self.level == 1 then
-        local pos = self.enemyTransf.position
+    local levelZones = zones_data["level" .. self.level]
+    local pos = self.enemyTransf.position
 
-        local zones = {
-            { id = 1, min = { x = 5, z = -50 }, max = { x = 50, z = -5 } },
-            { id = 2, min = { x = -50,  z = -135 }, max = { x = 65, z = -43 } },
-            { id = 3, min = { x = 88,  z = -185 }, max = { x = 148, z = -105 } },
-            { id = 4, min = { x = 200, z = -270 }, max = { x = 270, z = -210 } }
-        }
-    
-        for _, zone in ipairs(zones) do
-            if pos.x >= zone.min.x and pos.x <= zone.max.x and
-               pos.z >= zone.min.z and pos.z <= zone.max.z then
+    if levelZones then
+        for _, zone in ipairs(levelZones) do
+            if self:is_point_in_polygon(pos, zone.points) then
                 self.zoneNumber = zone.id
                 break
             end
         end
-    
-        if self.zoneNumber < self.playerScript.zonePlayer + 1 then
-            
-            self.currentState = self.state.Idle
-            self.enemyRb:set_position(Vector3.new(-500, 0, 0))
-            self.isDead = true
-        end
-    elseif self.level == 2 then
-        self.zoneNumber = 10
-    elseif self.level == 3 then
-        self.zoneNumber = 10
+    else
+        print("[ZONES] No zones for level:", self.level)
     end
 
+    if self.zoneNumber < self.playerScript.zonePlayer + 1 then
+        self.currentState = self.state.Idle
+        self.enemyRb:set_position(Vector3.new(-500, 0, 0))
+        self.isDead = true
+    end
+
+end
+
+function enemy:is_point_in_polygon(point, polygon)
+    local inside = false
+    local j = #polygon
+    for i = 1, #polygon do
+        local xi, zi = polygon[i].x, polygon[i].z
+        local xj, zj = polygon[j].x, polygon[j].z
+        if ((zi > point.z) ~= (zj > point.z)) and
+           (point.x < (xj - xi) * (point.z - zi) / (zj - zi + 0.0001) + xi) then
+            inside = not inside
+        end
+        j = i
+    end
+    return inside
 end
 
 function enemy:alert_nearby_enemies(dt)  
