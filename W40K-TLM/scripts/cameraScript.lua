@@ -5,7 +5,7 @@ local playerPos
 local playerDirectionX = 0
 local playerDirectionY = 0
 local playerDirectionZ = 0
-local cameraSpeed = 2
+local cameraSpeed = 1.5
 --zoom
 local zoom = -1.5
 local baseZoom = -1.5
