@@ -1525,7 +1525,7 @@ function updateAnims(dt)
     if isHitted then
         hitAnimationCounter = hitAnimationCounter + dt
         if hitAnimationCounter < hitAnimationTime then
-            if currentUpAnim ~= hit and swordScript.slasheeed == false then
+            if currentUpAnim ~= hit and swordScript.slasheeed == false and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false then
                 currentUpAnim = hit
                 animator:set_upper_animation(currentUpAnim)
                 
