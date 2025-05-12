@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 1,
+        "cereal_class_version": 2,
         "value0": 11,
         "value1": 11,
         "value2": 0,
@@ -65,9 +65,9 @@
         "value38": {
             "cereal_class_version": 0,
             "Position": {
-                "x": -0.12393342703580857,
+                "x": 0.0,
                 "y": 4.6118069008116438e-7,
-                "z": 2.4253592491149904
+                "z": 0.0
             },
             "Rotation": {
                 "x": -0.000010780127013276797,
@@ -387,20 +387,26 @@
         "value92": 3,
         "value93": 0,
         "value94": {
-            "cereal_class_version": 0,
-            "Material": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 3367513909543705289
             }
         },
         "value95": 4,
         "value96": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 3367513909543705289
             }
         },
         "value97": 7,
         "value98": {
-            "Material": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 3367513909543705289
             }
         },
@@ -437,7 +443,7 @@
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
-                        "cereal_class_version": 2,
+                        "cereal_class_version": 3,
                         "TransformMatrix": {
                             "m00": 1.0,
                             "m01": -1.824455431176375e-8,
@@ -586,6 +592,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -632,6 +639,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -663,6 +671,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 0.0,
@@ -694,7 +703,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 727.3175659179688,
                         "TextureUUID": {
                             "value0": 4255943527309730858
                         }
@@ -855,6 +863,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -901,6 +910,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -932,6 +942,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 1.744874427001833e-39,
@@ -962,7 +973,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 494.47589111328127,
                         "TextureUUID": {
                             "value0": 3477136904960105160
                         }
@@ -1123,6 +1133,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -1169,6 +1180,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -1200,6 +1212,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 1.744874427001833e-39,
@@ -1230,7 +1243,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 263.47027587890627,
                         "TextureUUID": {
                             "value0": 3477136904960105160
                         }
@@ -1391,6 +1403,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -1437,6 +1450,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -1468,6 +1482,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 0.0,
@@ -1498,7 +1513,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 496.31085205078127,
                         "TextureUUID": {
                             "value0": 4255943527309730858
                         }
@@ -1659,6 +1673,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -1705,6 +1720,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -1736,6 +1752,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 1.744874427001833e-39,
@@ -1766,7 +1783,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 233.20443725585938,
                         "TextureUUID": {
                             "value0": 3477136904960105160
                         }
@@ -1927,6 +1943,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -1973,6 +1990,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -2004,6 +2022,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 0.0,
@@ -2034,7 +2053,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 466.0446472167969,
                         "TextureUUID": {
                             "value0": 4255943527309730858
                         }
@@ -2133,7 +2151,7 @@
                             "y": 0.0,
                             "z": 90.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 1.0,
                         "UseBurst": false,
@@ -2195,6 +2213,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -2249,6 +2268,7 @@
                                 "value1": 0.7799999713897705
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -2280,6 +2300,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": false,
                         "OverLifetimeColor": {
                             "x": 1.7357172217971633e-38,
@@ -2310,7 +2331,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 210.54061889648438,
                         "TextureUUID": {
                             "value0": 1333509653133127485
                         }
@@ -2330,6 +2350,7 @@
         "value138": 0,
         "value139": 0,
         "value140": 0,
-        "value141": 0
+        "value141": 0,
+        "value142": 0
     }
 }

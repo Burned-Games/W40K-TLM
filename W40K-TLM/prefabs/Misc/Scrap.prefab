@@ -1,17 +1,18 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "Scrap_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 6832526251483683090
-            }
+                "value0": 570113760851031498
+            },
+            "value4": false
         },
         "RootEntity": 0,
         "value0": 4,
@@ -43,9 +44,9 @@
         "value17": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 1.8573908805847169,
-                "y": 5.845178634444892e-7,
-                "z": -13.76998519897461
+                "x": 0.0,
+                "y": 4.6118069008116438e-7,
+                "z": 0.0
             },
             "Rotation": {
                 "x": -0.000010780127013276797,
@@ -156,8 +157,10 @@
         "value36": 1,
         "value37": 0,
         "value38": {
-            "cereal_class_version": 0,
-            "Material": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
                 "value0": 3367513909543705289
             }
         },
@@ -171,7 +174,7 @@
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
-                        "cereal_class_version": 2,
+                        "cereal_class_version": 3,
                         "TransformMatrix": {
                             "m00": 1.0,
                             "m01": -1.824455431176375e-8,
@@ -185,9 +188,9 @@
                             "m21": 1.881487037280749e-7,
                             "m22": 1.0,
                             "m23": 0.0,
-                            "m30": 1.8573908805847169,
-                            "m31": 0.6000006198883057,
-                            "m32": -13.76998519897461,
+                            "m30": -0.12393341958522797,
+                            "m31": 0.6000005006790161,
+                            "m32": 2.4253592491149904,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": true,
@@ -320,6 +323,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -366,6 +370,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -397,6 +402,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 0.0,
@@ -428,7 +434,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 1045.9852294921876,
                         "TextureUUID": {
                             "value0": 4255943527309730858
                         }
@@ -455,9 +460,9 @@
                             "m21": 1.881487037280749e-7,
                             "m22": 1.0,
                             "m23": 0.0,
-                            "m30": 1.8573908805847169,
-                            "m31": 0.6000006198883057,
-                            "m32": -13.76998519897461,
+                            "m30": -0.12393341958522797,
+                            "m31": 0.6000005006790161,
+                            "m32": 2.4253592491149904,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": true,
@@ -589,6 +594,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -635,6 +641,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -666,6 +673,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": true,
                         "OverLifetimeColor": {
                             "x": 1.744874427001833e-39,
@@ -696,7 +704,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 813.1400146484375,
                         "TextureUUID": {
                             "value0": 3477136904960105160
                         }
@@ -723,9 +730,9 @@
                             "m21": 1.881487037280749e-7,
                             "m22": 1.0,
                             "m23": 0.0,
-                            "m30": 1.8573908805847169,
-                            "m31": 0.6000006198883057,
-                            "m32": -13.76998519897461,
+                            "m30": -0.12393341958522797,
+                            "m31": 0.6000005006790161,
+                            "m32": 2.4253592491149904,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": false,
@@ -795,7 +802,7 @@
                             "y": 0.0,
                             "z": 90.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 1.0,
                         "UseBurst": false,
@@ -857,6 +864,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -911,6 +919,7 @@
                                 "value1": 0.7799999713897705
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -942,6 +951,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": false,
                         "OverLifetimeColor": {
                             "x": 1.7357172217971633e-38,
@@ -972,7 +982,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 529.2046508789063,
                         "TextureUUID": {
                             "value0": 1333509653133127485
                         }
@@ -1004,6 +1013,7 @@
         "value65": 0,
         "value66": 0,
         "value67": 0,
-        "value68": 0
+        "value68": 0,
+        "value69": 0
     }
 }
