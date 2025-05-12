@@ -280,7 +280,7 @@ end
 function on_update(dt)
 
     if astartesFervorManager.isPlayerInRadius then
-        set_attack_speed_multiplier(1.5)
+        set_attack_speed_multiplier(2.0)
         set_reload_speed_multiplier(1.5)
     else
         set_attack_speed_multiplier(1.5)
