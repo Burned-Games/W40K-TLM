@@ -1,4 +1,3 @@
-local playerInRange = false
 local workbenchUIManagerScript = nil
 local workbenchRB = nil
 local workbenchAreaTrigger = nil
@@ -17,7 +16,9 @@ local ANIM_IDLE_WEAPONS = 3
 local ANIM_LAND = 4
 local ANIM_WEAPONS = 5
 
-local workbenchInGround = false
+workbenchInGround = false
+playerInRange = false 
+
 local idleCycleActive = false
 local landAnimationTimer = 0
 local LAND_ANIMATION_DURATION = 0.5
@@ -26,20 +27,21 @@ local LAND_ANIMATION_DURATION = 0.5
 local idleAnimationTimer = 0
 local idleAnimationState = 0  -- 0: Armor, 1: IdleArmor, 2: Weapons, 3: IdleWeapons
 
--- Time to display each idle animation (in seconds)
+currentUIScreen = "gun"  -- "gun" or "character"
+
 local IDLE_TRANSITION_TIME = 0.8  -- Time for the transition animations (Armor/Weapons)
 local IDLE_DISPLAY_TIME = 1.0     -- Time for the idle animations (IdleArmor/IdleWeapons)
 
 function on_ready()
     workbenchAnimator = self:get_component("AnimatorComponent")
     if not workbenchAnimator then
-        print("Warning: No AnimatorComponent found on workbench")
+        --print("Warning: No AnimatorComponent found on workbench")
     end
 
     -- Ensure the collider is set as a trigger
     workbenchRB = self:get_component("RigidbodyComponent")
     if workbenchRB then
-        -- print("Found RigidBodyComponent on Workbench")
+        -- --print("Found RigidBodyComponent on Workbench")
         workbenchRB.rb:set_trigger(true)
         workbenchRB.rb:set_freeze_y(true)
         workbenchInitialPosition = Vector3.new(workbenchRB.rb:get_position().x, workbenchRB.rb:get_position().y, workbenchRB.rb:get_position().z)
@@ -56,7 +58,7 @@ function on_ready()
 
     local thisEntityName = self:get_component("TagComponent").tag
     workbenchNumber = string.match(thisEntityName, "Workbench(%d+)")
-    -- print("Workbench number: " .. (workbenchNumber or "unknown"))
+    -- --print("Workbench number: " .. (workbenchNumber or "unknown"))
 
     if workbenchNumber then
         -- Find the corresponding WorkbenchAreaTriggerX entity
@@ -64,11 +66,11 @@ function on_ready()
         workbenchAreaTrigger = current_scene:get_entity_by_name(areaTriggerName)
         
         if workbenchAreaTrigger then
-            -- print("Found area trigger: " .. areaTriggerName)
+            -- --print("Found area trigger: " .. areaTriggerName)
             areaTriggerRB = workbenchAreaTrigger:get_component("RigidbodyComponent")
             
             if areaTriggerRB then
-                -- print("Found RigidBodyComponent on " .. areaTriggerName)
+                -- --print("Found RigidBodyComponent on " .. areaTriggerName)
                 -- Configure the area trigger
                 areaTriggerRB.rb:set_trigger(true)
                 areaTriggerRB.rb:set_position(Vector3.new(workbenchInitialPosition.x, workbenchInitialPosition.y, workbenchInitialPosition.z))
@@ -79,14 +81,14 @@ function on_ready()
                     handle_area_collision_exit(entityA, entityB)
                 end)
             else
-                -- print("No RigidBodyComponent found on " .. areaTriggerName)
+                -- --print("No RigidBodyComponent found on " .. areaTriggerName)
             end
         else
-            -- print("Warning: WorkbenchAreaTrigger" .. workbenchNumber .. " not found")
+            -- --print("Warning: WorkbenchAreaTrigger" .. workbenchNumber .. " not found")
         end
     end
 
-    -- print("Workbench position: " .. workbenchRB.rb:get_position().x .. ", " .. workbenchRB.rb:get_position().y .. ", " .. workbenchRB.rb:get_position().z)
+    -- --print("Workbench position: " .. workbenchRB.rb:get_position().x .. ", " .. workbenchRB.rb:get_position().y .. ", " .. workbenchRB.rb:get_position().z)
 
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
@@ -98,14 +100,24 @@ function on_ready()
 end
 
 function on_update(dt)
-    -- Manage idle animation cycle
-    if workbenchInGround then
-        update_idle_animations(dt)
-    else
-        idleCycleActive = false
-    end
+    -- Manage animations based on UI state
+    if workbenchInGround and workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen then
 
-    -- Manage Land animation transition to IdleWeapons
+        if currentUIScreen ~= workbenchUIManagerScript.currentScreen then
+            set_ui_screen(workbenchUIManagerScript.currentScreen)
+        end
+    elseif workbenchInGround then
+        -- Default to idle weapons when not in UI but workbench is in ground
+        if currentAnimation ~= ANIM_IDLE_WEAPONS and 
+           currentAnimation ~= ANIM_LAND and
+           currentAnimation ~= ANIM_WEAPONS then
+            playAnimation(ANIM_IDLE_WEAPONS)
+            idleAnimationState = 3
+        end
+    else
+        -- When workbench is not in ground, no idle animations
+        idleCycleActive = false
+    end    -- Manage Land animation transition
     if currentAnimation == ANIM_LAND then
         landAnimationTimer = landAnimationTimer + dt
         if landAnimationTimer >= LAND_ANIMATION_DURATION then
@@ -116,8 +128,8 @@ function on_update(dt)
         end
     end
 
+    -- Open the workbench UI when the player presses the confirm button
     if playerInRange and Input.get_button(Input.action.Confirm) == Input.state.Down then
-        -- Open the workbench UI
         local workbenchOpen = workbenchUIManagerScript.isWorkBenchOpen
         if workbenchOpen == false then
             workbenchUIManagerScript:show_ui()
@@ -146,7 +158,7 @@ function handle_workbench_collision_stay(entityA, entityB)
 
     if nameA == "Player" or nameB == "Player" then
         playerInRange = true
-        -- print("Player is in range of the workbench")
+        -- --print("Player is in range of the workbench")
     end
 end
 
@@ -162,7 +174,7 @@ function handle_workbench_collision_exit(entityA, entityB)
         else
             playerScript:saveUpgrades()
         end
-        -- print("Player exited the workbench range")
+        -- --print("Player exited the workbench range")
     end
 end
 
@@ -171,7 +183,7 @@ function handle_area_collision_enter(entityA, entityB)
     local nameB = entityB:get_component("TagComponent").tag
 
     if nameA == "Player" or nameB == "Player" then
-        -- print("Player entered area trigger")
+        -- --print("Player entered area trigger")
         workbenchFall()
     end
 end
@@ -181,7 +193,7 @@ function handle_area_collision_exit(entityA, entityB)
     local nameB = entityB:get_component("TagComponent").tag
 
     if nameA == "Player" or nameB == "Player" then
-        -- print("Player exited area trigger")
+        -- --print("Player exited area trigger")
         workbenchRise()
     end
 end
@@ -189,9 +201,15 @@ end
 function workbenchFall()
     if workbenchAnimator and not workbenchInGround then
         playAnimation(ANIM_LAND)
-        print("Playing workbench landing animation")
+        --print("Playing workbench landing animation")
         landAnimationTimer = 0
         workbenchInGround = true
+        
+        -- Update current UI screen if the UI is open
+        if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen then
+            currentUIScreen = workbenchUIManagerScript.currentScreen
+            --print("Workbench UI screen updated")
+        end
     end
     
     if mission_Component.getCurrerTaskIndex(false) == 1 and mission_Component.getCurrerLevel() == 1 then
@@ -203,8 +221,11 @@ function workbenchRise()
     if workbenchAnimator and workbenchInGround then
         playAnimation(ANIM_FLY)
         workbenchInGround = false
+        
+        -- Reset animation states
         idleAnimationTimer = 0
         idleAnimationState = 0
+        currentUIScreen = "gun"
     end
  
     -- Track mission objectives
@@ -238,43 +259,53 @@ function playAnimation(animationIndex)
         currentAnimation = animationIndex
         
         local animNames = {"Armor", "Fly", "IdleArmor", "IdleWeapons", "Land", "Weapons"}
-        -- print("Playing workbench animation: " .. animNames[animationIndex + 1])
+        --print("Playing workbench animation: " .. animNames[animationIndex + 1])
     end
 end
 
 function on_animation_end(animationName)
-    print("Animation ended: " .. animationName)
+    --print("Animation ended: " .. animationName)
     if animationName == "Land" and playerInRange then
+        if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen then
+            if workbenchUIManagerScript.currentScreen == "gun" then
+                playAnimation(ANIM_WEAPONS)
+                idleAnimationState = 2
+            else
+                playAnimation(ANIM_ARMOR)
+                idleAnimationState = 0
+            end
+        else
+            playAnimation(ANIM_IDLE_WEAPONS)
+        end
+    elseif animationName == "Armor" and workbenchInGround then
+        playAnimation(ANIM_IDLE_ARMOR)
+        idleAnimationState = 1
+    elseif animationName == "Weapons" and workbenchInGround then
         playAnimation(ANIM_IDLE_WEAPONS)
+        idleAnimationState = 3
     end
 end
 
-function update_idle_animations(dt)
-    idleAnimationTimer = idleAnimationTimer + dt
-    
-    local timerThreshold = 0
-    if idleAnimationState == 0 then  -- Armor
-        timerThreshold = IDLE_TRANSITION_TIME
-    elseif idleAnimationState == 1 then  -- IdleArmor
-        timerThreshold = IDLE_DISPLAY_TIME
-    elseif idleAnimationState == 2 then  -- Weapons
-        timerThreshold = IDLE_TRANSITION_TIME
-    elseif idleAnimationState == 3 then  -- IdleWeapons
-        timerThreshold = IDLE_DISPLAY_TIME
+-- Function to update workbench animation based on UI screen
+function set_ui_screen(screen)
+    if type(screen) ~= "string" then
+        --print("Warning: Invalid screen parameter type in set_ui_screen: " .. type(screen))
+        return
     end
     
-    if idleAnimationTimer >= timerThreshold then
-        idleAnimationTimer = 0
-        idleAnimationState = (idleAnimationState + 1) % 4
+    if screen ~= "gun" and screen ~= "character" then
+        --print("Warning: Unexpected screen value: " .. screen)
+        return
+    end
+    
+    if screen ~= currentUIScreen and workbenchInGround then
+        currentUIScreen = screen
+        --print("Changing workbench UI screen to: " .. screen)
         
-        if idleAnimationState == 0 then  -- Armor
-            playAnimation(ANIM_ARMOR)
-        elseif idleAnimationState == 1 then  -- IdleArmor
-            playAnimation(ANIM_IDLE_ARMOR)
-        elseif idleAnimationState == 2 then  -- Weapons
+        if screen == "gun" then
             playAnimation(ANIM_WEAPONS)
-        elseif idleAnimationState == 3 then  -- IdleWeapons
-            playAnimation(ANIM_IDLE_WEAPONS)
+        else
+            playAnimation(ANIM_ARMOR)
         end
     end
 end

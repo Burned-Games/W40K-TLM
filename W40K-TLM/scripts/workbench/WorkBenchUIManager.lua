@@ -72,7 +72,7 @@ local rightShoulderPressed = false
 
 -- Workbench state
 isWorkBenchOpen = false
-local currentScreen = "gun" -- "gun" or "character"
+currentScreen = "gun"
 
 -- Cooldown timer for opening the workbench :p
 local openCooldownTimer = 0
@@ -441,6 +441,10 @@ function toggle_screen()
         if gDot1Button then gDot1Button.state = 0 end
         if gDot2Button then gDot2Button.state = 1 end
     end
+    
+    -- Update all workbenches in the scene to match this screen
+    -- Explicitly pass the string to avoid type issues
+    update_workbench_animation(currentScreen)
     
     update_ui()
 end
@@ -812,6 +816,9 @@ function show_ui()
         if gDot2Button then gDot2Button.state = 0 end
     end
     
+    -- Update all workbenches in the scene to match this screen
+    update_workbench_animation(currentScreen)
+    
     find_next_available_upgrade("weapons")
     find_next_available_upgrade("armor")
     update_ui()
@@ -1025,6 +1032,51 @@ end
 
 function is_workbench_open()
     return isWorkBenchOpen
+end
+
+function find_active_workbench()
+    local workbenchEntities = {}
+    for i = 1, 10 do
+        local workbench = current_scene:get_entity_by_name("Workbench" .. i)
+        if workbench then
+            local workbenchScript = workbench:get_component("ScriptComponent")
+            if workbenchScript and workbenchScript.playerInRange then
+                return workbench, workbenchScript
+            end
+        end
+    end
+    return nil, nil
+end
+
+function update_workbench_animation(screen)
+    local screenValue = screen
+    if type(screenValue) ~= "string" then
+        screenValue = currentScreen
+        print("Warning: Non-string value passed to update_workbench_animation, using currentScreen instead")
+    end
+    
+
+    if screenValue ~= "gun" and screenValue ~= "character" then
+        screenValue = "gun"
+        print("Warning: Invalid screen value in update_workbench_animation: " .. tostring(screenValue))
+    end
+    
+    local workbench, workbenchScript = find_active_workbench()
+    if workbench and workbenchScript and workbenchScript.set_ui_screen then
+        workbenchScript:set_ui_screen(screenValue)
+    else
+        -- If no active workbench found, try all workbenches that are in ground state
+        for i = 1, 10 do
+            local workbench = current_scene:get_entity_by_name("Workbench" .. i)
+            if workbench then
+                local workbenchScript = workbench:get_component("ScriptComponent")
+                if workbenchScript and workbenchScript.workbenchInGround then
+                    workbenchScript:set_ui_screen(screenValue)
+                    break
+                end
+            end
+        end
+    end
 end
 
 function on_exit()
