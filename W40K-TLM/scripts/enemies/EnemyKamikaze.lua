@@ -38,10 +38,12 @@ function on_ready()
     kamikaze.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Audio
-    kamikaze.kamikazeDetectionSFX = current_scene:get_entity_by_name("KamikazeDetectionSFX"):get_component("AudioSourceComponent")
-    kamikaze.kamikazeDieSFX = current_scene:get_entity_by_name("KamikazeDieSFX"):get_component("AudioSourceComponent")
+    kamikaze.detectionSFX = current_scene:get_entity_by_name("KamikazeDetectionSFX"):get_component("AudioSourceComponent")
+    if self.detectionSFX ~= nil then print("funciona")
+    else print("niga") end
+    kamikaze.dyingSFX = current_scene:get_entity_by_name("KamikazeDieSFX"):get_component("AudioSourceComponent")
     kamikaze.kamikazeExplosionSFX = current_scene:get_entity_by_name("KamikazeExplosionSFX"):get_component("AudioSourceComponent")
-    kamikaze.kamikazeExplosionSFX = current_scene:get_entity_by_name("KamikazeScreamBoomSFX"):get_component("AudioSourceComponent")
+    kamikaze.kamikazeScreamBoomSFX = current_scene:get_entity_by_name("KamikazeScreamBoomSFX"):get_component("AudioSourceComponent")
 
 
 
@@ -249,6 +251,7 @@ end
 function kamikaze:attack_state()
 
     if kamikaze.currentAnim ~= kamikaze.attackAnim then
+        kamikaze.kamikazeScreamBoomSFX:play()
         kamikaze:play_blocking_animation(kamikaze.attackAnim, kamikaze.attackDuration)
     end
 
@@ -272,6 +275,7 @@ function kamikaze:attack_state()
         kamikaze.hasDealtDamage = true
         kamikaze.health = 0
         kamikaze.hasExploded = true
+        kamikaze.kamikazeExplosionSFX:play()
         kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting - 1
         kamikaze:die_state()
     end

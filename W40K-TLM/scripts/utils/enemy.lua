@@ -125,6 +125,7 @@ function enemy:new(obj)
     obj.hurtSFX = nil
     obj.dyingSFX = nil
     obj.stepSFX = nil
+    obj.detectionSFX = nil
 
     -- Effects
     obj.isNeuralInhibitioning = false
@@ -201,7 +202,6 @@ function enemy:move_state()
         self.currentAnim = self.moveAnim
         self.animator:set_current_animation(self.currentAnim)
     end
-    print("Move")
     self:follow_path()
 
 end
@@ -215,7 +215,8 @@ end
 
 function enemy:detect_state(dt)
 
-    if self.currentAnim ~= self.detectAnim then
+    if self.currentAnim ~= self.detectAnim then 
+        self.detectionSFX:play()
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
         print("Detect animation")
     end

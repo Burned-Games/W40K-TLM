@@ -32,7 +32,7 @@ function on_ready()
 
     -- Audio 
     tank.berserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
-    tank.detectPlayerSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
+    tank.detectionSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
     tank.impactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
     tank.stepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
     tank.dyingSFX = current_scene:get_entity_by_name("TankDeadSFX"):get_component("AudioSourceComponent")
@@ -119,6 +119,7 @@ function on_ready()
                 tank.tackleTimer = 0.0
 
                 if tank.currentState == tank.state.Tackle then
+                    tank.impactPlayerSFX:play()
                     tank.particleSparkTransf.position = tank.playerTransf.position
                     tank.particleSpark:emit(5)
                     tank:make_damage(tank.tackleDamage)
@@ -422,6 +423,7 @@ function tank:attack_state(dt)
         if attackDistance <= tank.meleeAttackRange then
             tank.particleSparkTransf.position = tank.playerTransf.position
             tank.particleSpark:emit(5)
+            tank.impactPlayerSFX:play()
             tank:make_damage(tank.meleeDamage)
         end
 
@@ -468,6 +470,7 @@ function tank:berserka_rage()
     tank.isPlayingBerserkaAnim = true
 
     if tank.currentAnim ~= tank.berserkaAnim then
+        tank.berserkerSFX:play()
         tank:play_blocking_animation(tank.berserkaAnim, tank.berserkaDuration)
     end
 
