@@ -170,7 +170,6 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if (nameA == "FloorCollider" or nameB == "FloorCollider") and throwing then
-            print("qqqqqqqqqqqqqq")
             explodeGranade()
             throwing = false
         end
@@ -659,9 +658,7 @@ function explodeGranade()
                     direction.y = direction.y / distance
                     direction.z = direction.z / distance
                 end
-                print("uuuuuuuuuuuuuuu")
                 if distance < explosionRadius then
-                    print("zzzzzzzzzzzzzzzzzzzz")
                     local enemyTag = nil
                     local enemyScript = nil
                     local enemyInstance = nil
@@ -672,15 +669,12 @@ function explodeGranade()
                     end
 
                     if entity ~= nil then
-                        print("lllllllllllllllllllllll")
                         if enemyScript ~= nil then
                             
                             local enemyTransform = entity:get_component("TransformComponent")
                             local enemyPos = enemyTransform.position
-                            print("xxxxxxxxxxxxxxxxxxxxxxxxxx")
                             -- particle_blood_normal_transform.position = enemyPos --PETA
                             -- particle_blood_spark_transform.position = enemyPos --PETA
-                            print("pppppppppppppppppppppppppp")
                             if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                                 enemyInstance = enemyScript.range
                             elseif enemyTag == "EnemySupport" then
@@ -694,7 +688,6 @@ function explodeGranade()
                             enemyInstance.isNeuralInhibitioning = true
                             
                             playerScript.makeDamage = true
-                            print("iiiiiiiiiiiiiiiiiiii")
                             enemyInstance:take_damage(granadeDamage)
 
                             enemyInstance.isGranadePushed = true
@@ -738,12 +731,10 @@ function explodeGranade()
                 end
             end
         end
-        print("ooooooooooooo")
         rb:set_position(Vector3.new(0, -1000, 0))
         rb:set_velocity(Vector3.new(0, 0, 0))
         rb:set_angular_velocity(Vector3.new(0, 0, 0))
         rb:set_use_gravity(false)
-        print("zzzzzzzzzzzzzzzzzzz")
         throwingGranade = false
         cameraScript.startShake(0.2,5)
         Input.send_rumble(vibrationGranadeExplosionSettings.x, vibrationGranadeExplosionSettings.y, vibrationGranadeExplosionSettings.z)
