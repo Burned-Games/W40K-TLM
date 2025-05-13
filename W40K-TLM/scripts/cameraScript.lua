@@ -211,7 +211,7 @@ function on_ready()
 end
 
 function on_update(dt)
-
+    
     if playerScript and playerScript.moveDirection then
         if playerScript.moveDirection.x ~= 0 and playerScript.moveDirection.z ~= 0 then
             updateEnemyActivation()

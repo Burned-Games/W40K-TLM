@@ -390,6 +390,8 @@ function on_ready()
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
+    --current_scene:get_entity_by_name("Camera"):get_component("TransformComponent").position = playerTransf.Position
+
 end
 
 function on_update(dt)
@@ -441,7 +443,7 @@ function on_update(dt)
     end
     updateEntranceAnimation(dt)
 
-    if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" then
+    if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" and zonePlayer == 0 then
         return
     end
     if healAnimationSecondBool then
@@ -686,7 +688,7 @@ function updateGodMode(dt)
 end
 
 function updateEntranceAnimation(dt)
-    if sceneName == "level1.TeaScene" then
+    if sceneName == "level1.TeaScene"and zonePlayer == 0 then 
             
         if animacionEntradaRealizada == false then
             if(currentAnim ~= drop) then
