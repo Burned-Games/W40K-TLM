@@ -226,10 +226,10 @@ function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
     if redTaskIndex == 1 and mr1_supply then
         startAnimation(redAnimation)
-        dialogScriptComponent.start_dialog(dialogLines2)
+        --dialogScriptComponent.start_dialog(dialogLines2)
     elseif redTaskIndex == 2 and mr2_orkzBase then
         startAnimation(redAnimation)
-        dialogScriptComponent.start_dialog(dialogLines3)
+        --dialogScriptComponent.start_dialog(dialogLines3)
     elseif redTaskIndex == 3 and mr3_breakOut then
         startAnimation(redAnimation)
     end

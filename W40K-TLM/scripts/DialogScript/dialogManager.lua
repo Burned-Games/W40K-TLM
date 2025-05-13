@@ -1,10 +1,6 @@
 -- dialogSystem.lua
 
-dialogLines = {
-    { name = "Carlos", text = "Hola, bienvenido al mundo", audio = "dia1_audio1" },
-    { name = "Ana", text = "Espero que estés preparado para la aventura.", audio = "dia1_audio2" },
-    { name = "Carlos", text = "Vamos allá", audio = "dia1_audio3" }
-}
+
 
 -- UI Components
 local nameComponent = nil
