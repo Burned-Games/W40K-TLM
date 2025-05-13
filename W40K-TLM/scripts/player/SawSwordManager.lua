@@ -165,27 +165,37 @@ function Slash()
             
                         particle_blood_normal_transform.position = enemyPos
                         particle_blood_spark_transform.position = enemyPos
-                        if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
-                            enemyInstance = enemyScript.range
-                        elseif enemyTag == "EnemySupport" then
-                            enemyInstance = enemyScript.support
-                        elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
-                            enemyInstance = enemyScript.tank
-                        elseif enemyTag == "EnemyKamikaze" then
-                            enemyInstance = enemyScript.kamikaze
-                        end
-                        enemyInstance:take_damage(damage)
-                        particle_blood_normal:emit(5)
-                        particle_blood_spark:emit(5)
 
-                        meleeHitSFX:play()
+                        if enemyTag == "BarrilDestruible" or enemyTag == "CajaDestruible" or enemyTag == "CajaDestruibleV2" or enemyTag == "ScrapPile" then 
+                            local script = entity:get_component("ScriptComponent")
+                            script:give_phisycs()
+                            script.hasDestroyed = true
 
-                        if playerScript.health + HpStealed >= playerScript.maxHealth then
-                            playerScript.health = playerScript.maxHealth
+
                         else
-                            playerScript.health = playerScript.health + HpStealed
+                            if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
+                                enemyInstance = enemyScript.range
+                            elseif enemyTag == "EnemySupport" then
+                                enemyInstance = enemyScript.support
+                            elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
+                                enemyInstance = enemyScript.tank
+                            elseif enemyTag == "EnemyKamikaze" then
+                                enemyInstance = enemyScript.kamikaze
+                            end
+                            enemyInstance:take_damage(damage)
+                            particle_blood_normal:emit(5)
+                            particle_blood_spark:emit(5)
+
+                            meleeHitSFX:play()
+
+                        
+                            if playerScript.health + HpStealed >= playerScript.maxHealth then
+                                playerScript.health = playerScript.maxHealth
+                            else
+                                playerScript.health = playerScript.health + HpStealed
+                            end
+                            playerScript.makeDamage = true
                         end
-                        playerScript.makeDamage = true
                         
                         enemyInstance.isPushed = true
                         impulseDirection = Vector3.new(

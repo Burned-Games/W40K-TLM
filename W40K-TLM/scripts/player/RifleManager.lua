@@ -256,6 +256,34 @@ function on_ready()
             makeDisruptorDamage(entityB)
         end
 
+        if nameA == "BarrilDestruible" or nameA == "CajaDestruible" or nameA == "CajaDestruibleV2" or nameA == "ScrapPile" then 
+            local script = entityA:get_component("ScriptComponent")
+            script:give_phisycs()
+            script.hasDestroyed = true
+
+            activateZone = true
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            disruptorBulletRb:set_position(Vector3.new(0,1500,0))
+            disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+
+            bolterSkillExplosionSFX:play()
+            bolterSkillAreaSFX:play()
+        end
+
+        if nameB == "BarrilDestruible" or nameB == "CajaDestruible" or nameB == "CajaDestruibleV2" or nameB == "ScrapPile" then 
+            local script = entityB:get_component("ScriptComponent")
+            script:give_phisycs()
+            script.hasDestroyed = true
+
+            activateZone = true
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            disruptorBulletRb:set_position(Vector3.new(0,1500,0))
+            disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+
+            bolterSkillExplosionSFX:play()
+            bolterSkillAreaSFX:play()
+        end
+
         
 
     end)
@@ -617,6 +645,20 @@ function chargedZoneUpdate(dt)
                             playerScript.makeDamage = true
                         end
                     end
+
+                        if name == "BarrilDestruible" or name == "CajaDestruible" or name == "CajaDestruibleV2" or name == "ScrapPile" then 
+                            local script = entity:get_component("ScriptComponent")
+                            script:give_phisycs()
+                            script.hasDestroyed = true
+
+                            activateZone = true
+                            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                            disruptorBulletRb:set_position(Vector3.new(0,1500,0))
+                            disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
+
+                            bolterSkillExplosionSFX:play()
+                            bolterSkillAreaSFX:play()
+                        end
                 end
             end
         end
@@ -705,6 +747,7 @@ function makeDisruptorDamage(enemy)
                 enemyInstance = enemyScript.main_boss
             end
             enemyInstance:take_damage(disruptorBulletDamage, shieldMultiplier)
+
             playerScript.makeDamage = true
             activateZone = true
             chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))

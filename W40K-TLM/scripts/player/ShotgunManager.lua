@@ -675,29 +675,36 @@ function explodeGranade()
                             local enemyPos = enemyTransform.position
                             -- particle_blood_normal_transform.position = enemyPos --PETA
                             -- particle_blood_spark_transform.position = enemyPos --PETA
-                            if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
-                                enemyInstance = enemyScript.range
-                            elseif enemyTag == "EnemySupport" then
-                                enemyInstance = enemyScript.support
-                            elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
-                                enemyInstance = enemyScript.tank
-                            elseif enemyTag == "EnemyKamikaze" then
-                                enemyInstance = enemyScript.kamikaze
-                            end
-                            
-                            enemyInstance.isNeuralInhibitioning = true
-                            
-                            playerScript.makeDamage = true
-                            enemyInstance:take_damage(granadeDamage)
 
-                            enemyInstance.isGranadePushed = true
-                            local impulseForce = 7
-                            local impulseDirection = Vector3.new(
-                            entityPos.x - explosionPos.x,
-                            entityPos.y - explosionPos.y,
-                            entityPos.z - explosionPos.z)
-                            entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
-                            
+                            if enemyTag == "BarrilDestruible" or enemyTag == "CajaDestruible" or enemyTag == "CajaDestruibleV2" or enemyTag == "ScrapPile" then 
+                                local script = entity:get_component("ScriptComponent")
+                                script:give_phisycs()
+                                script.hasDestroyed = true
+
+                            else
+                                if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
+                                    enemyInstance = enemyScript.range
+                                elseif enemyTag == "EnemySupport" then
+                                    enemyInstance = enemyScript.support
+                                elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
+                                    enemyInstance = enemyScript.tank
+                                elseif enemyTag == "EnemyKamikaze" then
+                                    enemyInstance = enemyScript.kamikaze
+                                end
+                                
+                                enemyInstance.isNeuralInhibitioning = true
+                                
+                                playerScript.makeDamage = true
+                                enemyInstance:take_damage(granadeDamage)
+
+                                enemyInstance.isGranadePushed = true
+                                local impulseForce = 7
+                                local impulseDirection = Vector3.new(
+                                entityPos.x - explosionPos.x,
+                                entityPos.y - explosionPos.y,
+                                entityPos.z - explosionPos.z)
+                                entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                            end
                         end
 
 

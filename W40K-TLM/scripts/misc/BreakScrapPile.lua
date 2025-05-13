@@ -6,7 +6,7 @@ local separate = nil
 
 local separateChildren = nil;
 
-local hasDestroyed = false
+hasDestroyed = false
 
 local rbComponent = nil
 local impulseStrength = 0

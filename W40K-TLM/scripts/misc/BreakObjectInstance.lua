@@ -11,7 +11,7 @@ local rbComponent = nil
 local separateChildren = nil
 local separate = nil
 
-local hasDestroyed = false
+hasDestroyed = false
 
 local impulseStrength = 0
 
