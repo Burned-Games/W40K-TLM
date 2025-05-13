@@ -20,12 +20,16 @@ local interactionSpriteTransitionTimer = 0.0
 local outOfRange = true
 local beforeFrameOutOfRange = true
 
+local leverSFX = nil
+
 function on_ready()
     parentScript = self:get_parent():get_component("ScriptComponent")
     playerTransform = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     parentTransform = self:get_parent():get_component("TransformComponent")
     transform = self:get_component("TransformComponent")
     leverAnimator = self:get_component("AnimatorComponent")
+
+    leverSFX = current_scene:get_entity_by_name("EnviroLeverSFX"):get_component("AudioSourceComponent")
 
 
     local children = self:get_children()
@@ -155,7 +159,7 @@ function interact()
     hasInteracted = true
     currentInteractions = currentInteractions + 1
     leverAnimator:set_current_animation(0)
-    
+    leverSFX:play()
     if isArenaLever then
         parentScript:advanceToNextWave()
     else

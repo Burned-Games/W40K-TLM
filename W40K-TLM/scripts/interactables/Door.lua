@@ -10,7 +10,12 @@ local animator = nil
 local openAnimation = 0
 local closeAnimation = 1
 
+local doorSFX = nil
+
 function on_ready()
+
+    doorSFX = current_scene:get_entity_by_name("EnviroMetaldoorSFX"):get_component("AudioSourceComponent")
+
     rigidBody = self:get_component("RigidbodyComponent").rb
     local children = self:get_children()
     for _, child in ipairs(children) do
@@ -57,6 +62,7 @@ function on_interact()
         end
         rigidBody:set_trigger(true)
         isClosed = false
+        doorSFX:play()
     end
 end
 
