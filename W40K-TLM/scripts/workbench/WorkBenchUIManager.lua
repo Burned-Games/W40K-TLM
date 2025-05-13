@@ -78,6 +78,9 @@ currentScreen = "gun"
 local openCooldownTimer = 0
 local openCooldownDuration = 0.2
 
+local toggleCooldownTimer = 0
+local toggleCooldownDuration = 0.3
+
 -- Current category and upgrade
 local selectedCategory = "weapons"
 local upgradeTypes = {
@@ -418,6 +421,12 @@ function update_char_perk_buttons()
 end
 
 function toggle_screen()
+    if toggleCooldownTimer > 0 then
+        return
+    end
+    
+    toggleCooldownTimer = toggleCooldownDuration
+    
     if currentScreen == "gun" then
         weaponIndex = weaponIndex
         currentScreen = "character"
@@ -458,6 +467,13 @@ function on_update(dt)
     if openCooldownTimer < openCooldownDuration then
         openCooldownTimer = openCooldownTimer + dt
         return
+    end
+    
+    if toggleCooldownTimer > 0 then
+        toggleCooldownTimer = toggleCooldownTimer - dt
+        if toggleCooldownTimer < 0 then
+            toggleCooldownTimer = 0
+        end
     end
     
     local leftShoulderState = Input.get_button(Input.action.Skill2)
