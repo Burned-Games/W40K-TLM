@@ -176,6 +176,7 @@ function on_update(dt)
     range:check_pushed(dt)
 
     if range.isPushed then return end
+    if range.isGranadePushed then return end
         
     update_bullets(dt)
     change_state(dt)

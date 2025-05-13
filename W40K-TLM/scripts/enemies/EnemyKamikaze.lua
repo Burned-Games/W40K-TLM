@@ -117,6 +117,8 @@ function on_update(dt)
         return
     end
 
+    if kamikaze.isGranadePushed then return end
+
     if not kamikaze.hasFoundNearbyEnemies then
         kamikaze:find_nearby_enemies()
         kamikaze.hasFoundNearbyEnemies = true

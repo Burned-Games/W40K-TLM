@@ -698,11 +698,11 @@ function explodeGranade()
                             enemyInstance:take_damage(granadeDamage)
 
                             enemyInstance.isGranadePushed = true
-                            local impulseForce = 5
+                            local impulseForce = 7
                             local impulseDirection = Vector3.new(
-                            entityPos.x - playerTransf.position.x,
-                            entityPos.y - playerTransf.position.y,
-                            entityPos.z - playerTransf.position.z)
+                            entityPos.x - explosionPos.x,
+                            entityPos.y - explosionPos.y,
+                            entityPos.z - explosionPos.z)
                             entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
                             
                         end

@@ -193,6 +193,7 @@ function on_update(dt)
     end
 
     if tank.isPushed == true then return end
+    if tank.isGranadePushed then return end
 
     if not tank.hasFoundNearbyEnemies then
         tank:find_nearby_enemies()

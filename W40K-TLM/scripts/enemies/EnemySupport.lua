@@ -177,6 +177,7 @@ function on_update(dt)
     if support.isPushed == true then
         return
     end
+    if support.isGranadePushed then return end
     
     update_bullets(dt)
     change_state()
