@@ -105,6 +105,7 @@ function enemy:new(obj)
     obj.isArenaEnemy = false
     obj.playingDieAnim = false
     obj.isPlayingAnimation = false
+    obj.playerMissing = false
 
     -- Vector3
     obj.enemyInitialPos = Vector3.new(0, 0, 0)
@@ -269,7 +270,7 @@ end
 function enemy:enemy_raycast(dt)
 
     local direction = Vector3.new(0, 0, 0)
-    local origin = Vector3.new(self.enemyTransf.position.x, 1, self.enemyTransf.position.z)
+    local origin = Vector3.new(self.enemyTransf.position.x, 0.5, self.enemyTransf.position.z)
     local maxDistance = self.detectionRange
 
     self.raycastRotationY = self.enemyTransf.rotation.y
@@ -334,16 +335,19 @@ function enemy:enemy_raycast(dt)
         if self:detect(centerHit, self.player) then
 
             self.playerDetected = true
+            self.playerMissing = false
             self.playerDistance = self:get_distance(origin, centerHit.hitPoint)
     
         elseif self:detect(leftHit, self.player) then
     
             self.playerDetected = true
+            self.playerMissing = false
             self.playerDistance = self:get_distance(origin, leftHit.hitPoint)
     
         elseif self:detect(rightHit, self.player) then
     
             self.playerDetected = true
+            self.playerMissing = false
             self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
     
         end
@@ -353,16 +357,23 @@ function enemy:enemy_raycast(dt)
             if self:detect_by_tag(centerHit, self.playerObjectsTagList[i]) then
     
                 self.playerDetected = true
+                self.playerMissing = false
         
             elseif self:detect_by_tag(leftHit, self.playerObjectsTagList[i]) then
         
                 self.playerDetected = true
+                self.playerMissing = false
         
             elseif self:detect_by_tag(rightHit, self.playerObjectsTagList[i]) then
         
                 self.playerDetected = true
+                self.playerMissing = false
         
             end
+        end
+
+        if self.playerDetected and not (self:detect(centerHit, self.player) or self:detect(leftHit, self.player) or self:detect(rightHit, self.player)) then
+            self.playerMissing = true
         end
     end
 

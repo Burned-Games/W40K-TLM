@@ -110,7 +110,6 @@ function on_ready()
 
     -- Bools
     range.isShootingBurst = false
-    range.isChasing = false
     range.hasDealtDamage = false
     range.isfirstChase = true
     range.isAlerted = false
@@ -303,41 +302,32 @@ function change_state(dt)
         return 
     end
 
-    -- If is Chasing don't return to Shoot or Move
-    -- if range.isChasing then
-    --     if range.playerDistance <= range.meleeAttackRange then
-    --         if range.currentState ~= range.state.Stab then
-    --             range.currentState = range.state.Stab
-    --         end
-                
-    --     elseif range.playerDistance > range.meleeAttackRange and range.currentState == range.state.Stab then
-    --         range.currentState = range.state.Chase
-    --     end
-                
-    --     return
-    -- end
+    if range.playerDetected then
+        if range.playerDistance <= range.meleeAttackRange then
+            if range.currentState ~= range.state.Stab then
+                range.currentState = range.state.Stab
+            end
 
-    -- **IMPORTANT ORDER** Chase and Stab have to evaluate each other first, otherwise it won't work well !!!
-    if range.playerDistance <= range.meleeAttackRange then
-        if range.currentState ~= range.state.Stab then
-            range.currentState = range.state.Stab
-            range.isChasing = true
+        elseif range.playerDistance <= range.rangeAttackRange then
+            if range.currentState ~= range.state.Shoot then
+                range.currentState = range.state.Shoot
+            end
+
+        elseif range.playerDistance <= range.chaseRange then
+            if range.currentState ~= range.state.Chase then
+                range.currentState = range.state.Chase
+            end
+
+        else
+            if range.currentState ~= range.state.Move then
+                range.currentState = range.state.Move
+            end
         end
-                
-    elseif range.playerDistance <= range.chaseRange then
-        if range.currentState ~= range.state.Chase then
-            range.currentState = range.state.Chase
-            range.isChasing = true
-        end
-                
-    elseif range.playerDetected and range.playerDistance <= range.rangeAttackRange then
-        if range.currentState ~= range.state.Shoot then
-            range.currentState = range.state.Shoot
-        end
-                
-    elseif range.playerDetected and range.playerDistance > range.rangeAttackRange then
-        if range.currentState ~= range.state.Move then
-            range.currentState = range.state.Move
+
+        if range.playerMissing then
+            if range.currentState ~= range.state.Move then
+                range.currentState = range.state.Move
+            end
         end
     end
 
