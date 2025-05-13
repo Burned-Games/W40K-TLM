@@ -45,10 +45,9 @@ function on_ready()
     main_boss.bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
     main_boss.bossConeAtackSFX = current_scene:get_entity_by_name("BossConeAtackSFX"):get_component("AudioSourceComponent")
     main_boss.bossFaseTwoChangeSFX = current_scene:get_entity_by_name("BossFaseTwoChangeSFX"):get_component("AudioSourceComponent")
-    main_boss.bossHurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
-    main_boss.bossShieldExplosioneSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
-    main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossSmashDescentSFX"):get_component("AudioSourceComponent")
-    main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
+    main_boss.hurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
+    main_boss.shieldExplosionSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
+    main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossShieldZapsSFX"):get_component("AudioSourceComponent")
     main_boss.bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
     main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
     main_boss.bossUltimateExplosionSFX = current_scene:get_entity_by_name("BossUltimateExplosionSFX"):get_component("AudioSourceComponent")
@@ -326,6 +325,7 @@ function on_update(dt)
     end
 
     if main_boss.ultimateThrown then
+        main_boss.bossChargeUltimateSFX:play()
         main_boss.invulnerable = true
         main_boss.ultiAttackTimer = main_boss.ultiAttackTimer + dt
 
@@ -336,6 +336,7 @@ function on_update(dt)
         if main_boss.ultimateCasting then
             if not main_boss.isUltimateDamaging then
                 main_boss.isUltimateDamaging = true
+                main_boss.bossUltimateExplosionSFX:play()
             end
 
             main_boss.ultiHittingTimer = main_boss.ultiHittingTimer + dt
@@ -395,6 +396,7 @@ function on_update(dt)
         if not main_boss.isLightningDamaging then
             main_boss.meleeAttackTimer = main_boss.meleeAttackTimer + dt
             if main_boss.meleeAttackTimer >= main_boss.meleeAttackDuration then
+                main_boss.bossConeAtackSFX:play()
                 main_boss.isLightningDamaging = true
                 main_boss.lightningTimer = 0.0
             end
@@ -552,6 +554,9 @@ function main_boss:rage_state()
 
         log("New stats setted")
         main_boss.isRaging = true
+
+        main_boss.bossFaseTwoChangeSFX:play()
+
     end
 
 end
@@ -562,6 +567,7 @@ function main_boss:shield_state()
 
     if main_boss.currentAnim ~= main_boss.shieldAnim then
         main_boss:play_blocking_animation(main_boss.shieldAnim, main_boss.shieldDuration)
+        main_boss.bossShieldZapSFX:play()
     end
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))

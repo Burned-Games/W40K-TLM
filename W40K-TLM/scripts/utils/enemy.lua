@@ -126,6 +126,7 @@ function enemy:new(obj)
     obj.dyingSFX = nil
     obj.stepSFX = nil
     obj.detectionSFX = nil
+    obj.shieldExplosionSFX = nil
 
     -- Effects
     obj.isNeuralInhibitioning = false
@@ -664,6 +665,7 @@ function enemy:take_damage(damage, shieldMultiplier)
     end
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
+        if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
         if self.hurtSFX then self.hurtSFX:play() end
         print(self.shieldHealth)
     else

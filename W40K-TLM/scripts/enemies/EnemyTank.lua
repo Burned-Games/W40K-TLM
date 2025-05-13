@@ -37,6 +37,7 @@ function on_ready()
     tank.stepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
     tank.dyingSFX = current_scene:get_entity_by_name("TankDeadSFX"):get_component("AudioSourceComponent")
     tank.hurtSFX = current_scene:get_entity_by_name("TankHurtSFX"):get_component("AudioSourceComponent")
+    tank.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
 
     -- Particles
     tank.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
