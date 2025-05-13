@@ -201,6 +201,14 @@ function on_update(dt)
     range.pathUpdateTimer = range.pathUpdateTimer + dt
     range.updateTargetTimer = range.updateTargetTimer + dt
 
+    if range.playerMissing then
+        range.missingTimer = range.missingTimer + dt
+    end
+
+    if range.hitAnimTimer and range.hitAnimTimer > 0 then
+        range.hitAnimTimer = range.hitAnimTimer - dt
+    end
+
     if range.invulnerable then
 
         range.invulnerabilityTimer = range.invulnerabilityTimer + dt
@@ -326,7 +334,7 @@ function change_state(dt)
             end
         end
 
-        if range.playerMissing then
+        if range.playerLost then
             if range.currentState ~= range.state.Move then
                 range.currentState = range.state.Move
             end

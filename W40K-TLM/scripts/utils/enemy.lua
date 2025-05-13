@@ -106,6 +106,7 @@ function enemy:new(obj)
     obj.playingDieAnim = false
     obj.isPlayingAnimation = false
     obj.playerMissing = false
+    obj.playerLost = false
 
     -- Vector3
     obj.enemyInitialPos = Vector3.new(0, 0, 0)
@@ -120,6 +121,8 @@ function enemy:new(obj)
     obj.dieDuration = 0.0
     obj.detectAnimTimer = 0.0
     obj.detectAnimDuration = 0.0
+    obj.missingTimer = 0.0
+    obj.missingDuration = 1.0
 
     -- Audios
     obj.hurtSFX = nil
@@ -217,7 +220,7 @@ end
 function enemy:detect_state(dt)
 
     if self.currentAnim ~= self.detectAnim then 
-        self.detectionSFX:play()
+        if self.detectionSFX then self.detectionSFX:play() end
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
         print("Detect animation")
     end
@@ -337,45 +340,63 @@ function enemy:enemy_raycast(dt)
         if self:detect(centerHit, self.player) then
 
             self.playerDetected = true
+            self.playerLost = false
             self.playerMissing = false
+            self.missingTimer = 0.0
             self.playerDistance = self:get_distance(origin, centerHit.hitPoint)
     
         elseif self:detect(leftHit, self.player) then
     
             self.playerDetected = true
+            self.playerLost = false
             self.playerMissing = false
+            self.missingTimer = 0.0
             self.playerDistance = self:get_distance(origin, leftHit.hitPoint)
     
         elseif self:detect(rightHit, self.player) then
     
             self.playerDetected = true
+            self.playerLost = false
             self.playerMissing = false
+            self.missingTimer = 0.0
             self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
     
         end
     
         -- Raycast hitting the player objects
-        for i = 1, 11 do
-            if self:detect_by_tag(centerHit, self.playerObjectsTagList[i]) then
-    
-                self.playerDetected = true
-                self.playerMissing = false
+        if not self.playerDetected then
+            for i = 1, 11 do
+                if self:detect_by_tag(centerHit, self.playerObjectsTagList[i]) then
         
-            elseif self:detect_by_tag(leftHit, self.playerObjectsTagList[i]) then
-        
-                self.playerDetected = true
-                self.playerMissing = false
-        
-            elseif self:detect_by_tag(rightHit, self.playerObjectsTagList[i]) then
-        
-                self.playerDetected = true
-                self.playerMissing = false
-        
+                    self.playerDetected = true
+                    self.playerLost = false
+                    self.playerMissing = false
+                    self.missingTimer = 0.0
+            
+                elseif self:detect_by_tag(leftHit, self.playerObjectsTagList[i]) then
+            
+                    self.playerDetected = true
+                    self.playerLost = false
+                    self.playerMissing = false
+                    self.missingTimer = 0.0
+            
+                elseif self:detect_by_tag(rightHit, self.playerObjectsTagList[i]) then
+            
+                    self.playerDetected = true
+                    self.playerLost = false
+                    self.playerMissing = false
+                    self.missingTimer = 0.0
+            
+                end
             end
         end
 
         if self.playerDetected and not (self:detect(centerHit, self.player) or self:detect(leftHit, self.player) or self:detect(rightHit, self.player)) then
             self.playerMissing = true
+
+            if self.missingTimer >= self.missingDuration then
+                self.playerLost = true
+            end
         end
     end
 
