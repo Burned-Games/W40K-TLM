@@ -200,7 +200,6 @@ function on_ready()
         local entityBRB = entityB:get_component("RigidbodyComponent").rb
 
         if entityARB and nameA ~= "Player" and nameA ~= "FloorCollider" then
-            print("aaaaaaaaaaaaaaa")
             if entityARB:get_is_trigger() == false then
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
                 disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
@@ -208,7 +207,7 @@ function on_ready()
         end
 
         if entityBRB and nameB ~= "Player" and nameB ~= "FloorCollider" then
-            print("bbbbbbbbbbbbbbb")
+    
             if entityBRB:get_is_trigger() == false then
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
                 disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
@@ -241,7 +240,6 @@ function on_ready()
         end
 
         if nameA == "EnemyTank" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" then 
-            print("aaaaaaaaaaaaaa")
             makeDisruptorDamage(entityA)
         end
 
@@ -569,7 +567,6 @@ function chargedZoneUpdate(dt)
                     if name== "EnemyRange" or name== "EnemyRange1" or name== "EnemyRange2" or name== "EnemyRange3" or name== "EnemyRange4" or name== "EnemyRange5" or name== "EnemyRange6" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then                          
-                            print("damage")
                             enemyOrkScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
                             playerScript.makeDamage = true
 
@@ -691,7 +688,6 @@ function makeDisruptorDamage(enemy)
 
     if enemy ~= nil then  
         enemyTag = enemy:get_component("TagComponent").tag   
-        print(enemyTag)
         enemyScript = enemy:get_component("ScriptComponent")
         
     end

@@ -28,22 +28,6 @@ function on_ready()
     -- Shield
     --support.prefabShield = current_scene:get_entity_by_name("Shield")
 
-    -- Waypoints
-    support.waypointsParent = current_scene:get_entity_by_name("WaypointsParent")
-    local children = self:get_children()
-    for _, child in ipairs(children) do
-        if child:get_component("TagComponent").tag == "SuppWaypoint1" then
-            support.waypoint1 = child
-            child:set_parent(support.waypointsParent)
-        elseif child:get_component("TagComponent").tag == "SuppWaypoint2" then
-            support.waypoint2 = child
-            child:set_parent(support.waypointsParent)
-        elseif child:get_component("TagComponent").tag == "SuppWaypoint3" then
-            support.waypoint3 = child
-            child:set_parent(support.waypointsParent)
-        end
-    end
-    set_waypoints()
 
     -- Target
     support.currentTarget = nil
@@ -84,7 +68,7 @@ function on_ready()
     support.attackRange = stats.attackRange
     support.rangeAttackRange = stats.rangeAttackRange
     support.supportDamage = stats.supportDamage 
-    support.bulletSpeed = stats.bulletSpeed or 15
+    support.bulletSpeed = stats.bulletSpeed
 
     -- External Timers
     support.shieldCooldown = 5.0
