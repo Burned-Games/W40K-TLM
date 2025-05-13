@@ -1,26 +1,29 @@
-dialogLines = {
-    { name = "Decius Marcellus", text = "This is Decius Marcellus, commander of Guilliman's Fist..." },
-    { name = "Decius Marcellus", text = "Has anyone successfully made planetfall? I repeat: are there any survivors?" },
-    { name = "Decius Marcellus", text = "I think you're the only survivor, Brother Quintus Maxillian. Maintain course toward Martyria Eterna." },
-    { name = "Decius Marcellus", text = "We detect enemies along your path. May the Emperor be with you." }
-}
-
-
- local dialogScriptComponent = nil
+local dia1_audio1 = nil
+local dialogLines = nil
 
 function on_ready()
-     --Mission
-    -- dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    -- log(dialogLines[1].text)
-    -- log(current_scene:get_entity_by_name("DialogManager"):get_component("TagComponent").tag)
-    -- dialogScriptComponent.start_dialog(dialogLines)
+    dia1_audio1 = current_scene:get_entity_by_name("dia1_audio1"):get_component("AudioSourceComponent")
+    dia1_audio2 = current_scene:get_entity_by_name("dia1_audio2"):get_component("AudioSourceComponent")
+    if not dia1_audio1 then
+        print("Error: dia1_audio1 entity or AudioSourceComponent not found!")
+        return
+    end
+
+    dialogLines = {
+        { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio1 },
+         { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio2 }
+    }
+
+    dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+    if dialogScriptComponent then
+        --dialogScriptComponent.start_dialog(dialogLines)
+    else
+        print("Error: DialogManager ScriptComponent not found!")
+    end
 end
 
 function on_update(dt)
-    -- Add update code here
-    --dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    --dialogScriptComponent.start_dialog(dialogLines)
-    --print("sss")
+
 end
 
 function on_exit()

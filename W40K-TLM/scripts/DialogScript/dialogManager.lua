@@ -67,10 +67,15 @@ function on_update(dt)
             isTyping = false
             waitingForNext = true
             autoNextTimer = 0
-        elseif waitingForNext then
-            -- Stop current audio when skipping
+
             if currentAudio then
-                currentAudio:stop()
+                currentAudio:pause()
+                currentAudio = nil
+            end  
+
+        elseif waitingForNext then
+            if currentAudio then
+                currentAudio:pause()
                 currentAudio = nil
             end
 
@@ -86,7 +91,7 @@ function on_update(dt)
         if autoNextTimer >= autoNextDelay then
             -- Stop current audio when auto-advancing
             if currentAudio then
-                currentAudio:stop()
+                currentAudio:pause()
                 currentAudio = nil
             end
 
@@ -179,9 +184,8 @@ function play_current_line()
         return
     end
 
-    -- Stop previous audio if any
     if currentAudio then
-        currentAudio:stop()
+        currentAudio:pause()
         currentAudio = nil
     end
 
@@ -196,9 +200,8 @@ function play_current_line()
     nameComponent:set_text(line.name or " ")
     textComponent:set_text(" ")
 
-    -- Play audio if exists
-    if line.audio and _G[line.audio] then
-        currentAudio = _G[line.audio]
+    if line.audio then
+        currentAudio = line.audio
         currentAudio:play()
     end
 end
@@ -214,7 +217,7 @@ end
 
 function end_dialog()
     if currentAudio then
-        currentAudio:stop()
+        currentAudio:pause()
         currentAudio = nil
     end
     start_dialog_close_animation()
