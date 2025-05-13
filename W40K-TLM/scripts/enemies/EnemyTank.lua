@@ -95,7 +95,6 @@ function on_ready()
     tank.isCharging = false
     tank.canTackle = false
     tank.isAlerted = false
-    tank.isPlayingStuneAnim = false
     tank.hasFoundNearbyEnemies = false
 
     -- Positions
@@ -357,7 +356,8 @@ function change_state(dt)
     end
 
     if tank.playerDetected and tank.canTackle then
-        if not tank:is_other_tank_in_tackle() then
+        local distanceToPlayer = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
+        if not tank:is_other_tank_in_tackle() and distanceToPlayer > tank.minTackleDistance then
             if tank.currentState ~= tank.state.Tackle then
                 tank.currentState = tank.state.Tackle
                 tank.isCharging = true
@@ -431,9 +431,7 @@ function tank:attack_state(dt)
         tank.attackTimer = 0.0
 
         local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
-        if tank.collisionWithPlayer then
-            tank.currentState = tank.state.Idle
-        elseif attackDistance > tank.meleeAttackRange then
+        if attackDistance > tank.meleeAttackRange then
             tank.currentState = tank.state.Move
         end
 
@@ -554,6 +552,7 @@ function tank:set_stats(level)
     tank.meleeAttackRange = stats.meleeAttackRange
     tank.priority = stats.priority
     tank.alertRadius = stats.alertRadius
+    tank.minTackleDistance = stats.meleeAttackRange + 3
 
     -- External Timers
     tank.attackCooldown = stats.attackCooldown
