@@ -100,6 +100,7 @@ function enemy:new(obj)
     obj.invulnerable = false
     obj.isReturning = false
     obj.isPushed = false
+    obj.isGranadePushed = false
     obj.zoneSet = false
     obj.isArenaEnemy = false
     obj.playingDieAnim = false
@@ -167,7 +168,7 @@ end
 
 function enemy:check_pushed(dt)
 
-    if self.isPushed then
+    if self.isPushed or self.isGranadePushed then
         self:update_pushed(dt)
     end
 
@@ -179,6 +180,7 @@ function enemy:update_pushed(dt)
     if self.pushedTimeCounter >= self.pushedTime then
         self.pushedTimeCounter = 0
         self.isPushed = false
+        self.isGranadePushed = false
     end
 
 end

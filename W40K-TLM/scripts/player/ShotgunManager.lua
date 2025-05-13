@@ -35,7 +35,7 @@ local yPositionBullet = 1.5
 
 
 --granadas
-
+local granadeDamage = 100
 granadeCooldown= 12
 timerGranade = granadeCooldown
 local granadeEntity = nil
@@ -51,6 +51,7 @@ dropGranade = false
 granadasSpeed = false
 local granadeNewPos = nil
 local granadeMaxDistance = 9.0
+granadeImpulse = false
 
 -- Animation states
 shootAnimation = false
@@ -169,6 +170,7 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if (nameA == "FloorCollider" or nameB == "FloorCollider") and throwing then
+            print("qqqqqqqqqqqqqq")
             explodeGranade()
             throwing = false
         end
@@ -623,7 +625,7 @@ end
 
 function explodeGranade()
     if granadeEntity ~= nil then
-
+        
         if playerScript.currentAnim ~= -1 then
             playerScript.currentAnim = -1
         end
@@ -657,48 +659,91 @@ function explodeGranade()
                     direction.y = direction.y / distance
                     direction.z = direction.z / distance
                 end
-
+                print("uuuuuuuuuuuuuuu")
                 if distance < explosionRadius then
+                    print("zzzzzzzzzzzzzzzzzzzz")
+                    local enemyTag = nil
+                    local enemyScript = nil
+                    local enemyInstance = nil
 
-                    local enemyTag = entity:get_component("TagComponent").tag
+                    if entity ~= nil then    
+                        enemyTag = entity:get_component("TagComponent").tag           
+                        enemyScript = entity:get_component("ScriptComponent")
+                    end
 
-                    if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" or enemyTag == "EnemySupport" or enemyTag == "EnemyKamikaze" or enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" or enemyTag == "MainBoss" then 
-                        enemyOrkScript = entity:get_component("ScriptComponent")
-                        if enemyOrkScript ~= nil then
-                            enemyOrkScript.range.isNeuralInhibitioning = true
+                    if entity ~= nil then
+                        print("lllllllllllllllllllllll")
+                        if enemyScript ~= nil then
+                            
+                            local enemyTransform = entity:get_component("TransformComponent")
+                            local enemyPos = enemyTransform.position
+                            print("xxxxxxxxxxxxxxxxxxxxxxxxxx")
+                            -- particle_blood_normal_transform.position = enemyPos --PETA
+                            -- particle_blood_spark_transform.position = enemyPos --PETA
+                            print("pppppppppppppppppppppppppp")
+                            if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
+                                enemyInstance = enemyScript.range
+                            elseif enemyTag == "EnemySupport" then
+                                enemyInstance = enemyScript.support
+                            elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
+                                enemyInstance = enemyScript.tank
+                            elseif enemyTag == "EnemyKamikaze" then
+                                enemyInstance = enemyScript.kamikaze
+                            end
+                            
+                            enemyInstance.isNeuralInhibitioning = true
+                            
                             playerScript.makeDamage = true
+                            print("iiiiiiiiiiiiiiiiiiii")
+                            enemyInstance:take_damage(granadeDamage)
+
+                            enemyInstance.isGranadePushed = true
+                            local impulseForce = 5
+                            local impulseDirection = Vector3.new(
+                            entityPos.x - playerTransf.position.x,
+                            entityPos.y - playerTransf.position.y,
+                            entityPos.z - playerTransf.position.z)
+                            entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                            
                         end
-                    else
-                        local forceFactor = (explosionRadius - distance) / explosionRadius
-                        direction.y = direction.y + explosionUpward
+
+
+                    -- if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" or enemyTag == "EnemySupport" or enemyTag == "EnemyKamikaze" or enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" or enemyTag == "MainBoss" then 
+                    --     enemyOrkScript = entity:get_component("ScriptComponent")
+                    --     if enemyOrkScript ~= nil then
+                    --         enemyOrkScript.range.isNeuralInhibitioning = true
+                    --         playerScript.makeDamage = true
+                    --     end
+                    -- else
+                        -- local forceFactor = (explosionRadius - distance) / explosionRadius
+                        -- direction.y = direction.y + explosionUpward
                         
-                        local finalForce = Vector3.new(
-                            direction.x * explosionForce * forceFactor,
-                            direction.y * explosionForce * forceFactor,
-                            direction.z * explosionForce * forceFactor
-                        )
-                        entityRb:apply_impulse(finalForce)
+                        -- local finalForce = Vector3.new(
+                        --     direction.x * explosionForce * forceFactor,
+                        --     direction.y * explosionForce * forceFactor,
+                        --     direction.z * explosionForce * forceFactor
+                        -- )
+                        -- entityRb:apply_impulse(finalForce)
 
-                        local rotationFactor = explosionForce * forceFactor 
-                        local randomRotation = Vector3.new(
-                            (math.random() - 0.5) * rotationFactor,
-                            (math.random() - 0.5) * rotationFactor,
-                            (math.random() - 0.5) * rotationFactor
-                        )
+                        -- local rotationFactor = explosionForce * forceFactor 
+                        -- local randomRotation = Vector3.new(
+                        --     (math.random() - 0.5) * rotationFactor,
+                        --     (math.random() - 0.5) * rotationFactor,
+                        --     (math.random() - 0.5) * rotationFactor
+                        -- )
 
-                        entityRb:set_angular_velocity(randomRotation)
+                        -- entityRb:set_angular_velocity(randomRotation)
                     end
                     
                 end
             end
         end
-        
+        print("ooooooooooooo")
         rb:set_position(Vector3.new(0, -1000, 0))
         rb:set_velocity(Vector3.new(0, 0, 0))
         rb:set_angular_velocity(Vector3.new(0, 0, 0))
         rb:set_use_gravity(false)
-        --escopetaAudioManagerScript:playExplodeGranade()
-        --granadeParticlesExplosion:emit(10)
+        print("zzzzzzzzzzzzzzzzzzz")
         throwingGranade = false
         cameraScript.startShake(0.2,5)
         Input.send_rumble(vibrationGranadeExplosionSettings.x, vibrationGranadeExplosionSettings.y, vibrationGranadeExplosionSettings.z)

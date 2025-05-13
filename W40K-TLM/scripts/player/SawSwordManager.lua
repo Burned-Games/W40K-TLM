@@ -154,7 +154,7 @@ function Slash()
                 local enemyInstance = nil
 
                 if entity ~= nil then    
-                    enemyTag = entity:get_component("TagComponent").tag           
+                    enemyTag = entity:get_component("TagComponent").tag
                     enemyScript = entity:get_component("ScriptComponent")
                 end
 
