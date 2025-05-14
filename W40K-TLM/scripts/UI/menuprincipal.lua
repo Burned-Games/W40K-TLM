@@ -29,7 +29,7 @@ saliendoDeMenu = false
 
 
 local index = 0
-local currentSelectedIndex = 1
+local currentSelectedIndex = 0
 local buttonCooldown = 0
 local buttonCooldownTime = 0.2
 local sceneChanged = false
@@ -42,6 +42,12 @@ local selectedColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
 local changingScene = 0
 local fadeToBlackScript = nil
+
+--Audio
+local indexHoverSFX = nil
+local indexSelectionSFX = nil
+local introSFX = nil
+local outroSFX = nil
 
 function on_ready()
     -- Add initialization code here
@@ -80,7 +86,14 @@ function on_ready()
     level = load_progress("level", 1)
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
+
+    --Audio
+    indexHoverSFX = current_scene:get_entity_by_name("HoverButtonSFX"):get_component("AudioSourceComponent")
+    indexSelectionSFX = current_scene:get_entity_by_name("PressButtonSFX"):get_component("AudioSourceComponent")
+    introSFX = current_scene:get_entity_by_name("IntroSFX"):get_component("AudioSourceComponent")
+    outroSFX = current_scene:get_entity_by_name("OutroSFX"):get_component("AudioSourceComponent")
     
+    outroSFX:play()
 end
 
 function on_update(dt)
@@ -102,6 +115,7 @@ function on_update(dt)
 
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+                indexSelectionSFX:play()
                 if(index == 0) then
                     --button1:set_state("Pressed")
                     --sceneChanged = true
@@ -147,6 +161,7 @@ function on_update(dt)
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+            indexSelectionSFX:play()
             if(index == 1) then
                 --button2:set_state("Pressed")
                 --fadeToBlackScript:DoFade()
@@ -178,6 +193,7 @@ function on_update(dt)
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+            indexSelectionSFX:play()
             --button3:set_state("Pressed")
             if(index == 2) then
                 ajustesOpened = true
@@ -199,6 +215,7 @@ function on_update(dt)
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+            indexSelectionSFX:play()
             --button3:set_state("Pressed")
             if(index == 3) then
                 -- credits screen
@@ -220,6 +237,7 @@ function on_update(dt)
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+            indexSelectionSFX:play()
             --button4:set_state("Pressed")
             if(index == 4) then
                 -- preguntar como cerrar el juego 
@@ -264,6 +282,11 @@ function on_update(dt)
                 changeScene = true
             end
         end
+    
+    if index ~= currentSelectedIndex then
+        indexHoverSFX:play()
+        currentSelectedIndex = index
+    end
 
 end
 

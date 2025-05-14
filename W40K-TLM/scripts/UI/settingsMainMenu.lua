@@ -22,6 +22,9 @@ local defaultColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
 local settingsMainMenu = nil
 
+--Audio
+local settingsSFX = nil
+
 
 function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
@@ -52,8 +55,8 @@ function on_ready()
     set_sfx_volume(savedFXVolume)
 
     
-    --ajustes de audio
-    --explorationMusic = current_scene:get_entity_by_name("MusicExploration"):get_component("AudioSourceComponent")
+    --Audio
+    settingsSFX = current_scene:get_entity_by_name("SettingsSFX"):get_component("AudioSourceComponent")
 
     if currentSelectedSlider == 1 then
         slider1.selected = true
@@ -138,9 +141,8 @@ function on_update(dt)
                 
             elseif currentSelectedSlider == 2 then
                 set_sfx_volume(newValue)
-                
+                settingsSFX:play()
             end
-
             inputCooldown = cooldownTime / 2 
         end
     end
