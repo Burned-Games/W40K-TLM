@@ -4,6 +4,7 @@ local missionManager = nil
 local dialogManager = nil
 local popUpManager = nil
 local pauseMenu = nil
+local chatarraUI = nil
 
 -- Shared UI elements (General)
 local gBackgroundEntity, gBackground
@@ -110,6 +111,7 @@ function on_ready()
     missionManager = current_scene:get_entity_by_name("MisionManager")
     dialogManager = current_scene:get_entity_by_name("DialogManager")
     popUpManager = current_scene:get_entity_by_name("PopUpManager")
+    chatarraUI = current_scene:get_entity_by_name("ChatarraUI")
 
     -- Initialize pause menu
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
@@ -852,6 +854,10 @@ function show_ui()
     if popUpManager then
         popUpManager:set_active(false)
     end
+    if chatarraUI then
+        chatarraUI:set_active(false)
+    end
+
 end
 
 function show_gun_ui()
@@ -978,6 +984,9 @@ function hide_ui()
     end
     if popUpManager then
         popUpManager:set_active(true)
+    end
+    if chatarraUI then
+        chatarraUI:set_active(true)
     end
 end
 
