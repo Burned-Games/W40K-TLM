@@ -22,12 +22,12 @@ local BASE_VALUES = {
     -- Rifle values
     reloadTimeRifle = 2.5,
     shootCoolDownRifle = 1.3,
-    damageRifle = 25,
+    damageRifle = 15,
 
     -- Shotgun values
     reloadTimeShotgun = 2.8,
     shootCoolDownShotgun = 1.5,
-    damageShotgun = 120
+    damageShotgun = 8
 }
 
 -- Upgrade status (true = purchased, false = not purchased)
