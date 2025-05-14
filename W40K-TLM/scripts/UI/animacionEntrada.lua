@@ -47,7 +47,7 @@ function on_ready()
         delayDuration = 0
         save_progress("skipIntroDelay", false) -- Resetea el flag para futuras aperturas
     else
-        delayDuration = 0.5
+        delayDuration = 0
     end
 
     -- Inicializamos el rect de entrada
