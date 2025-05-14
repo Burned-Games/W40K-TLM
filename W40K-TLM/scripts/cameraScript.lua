@@ -29,7 +29,7 @@ local offsetPlayer = offsetPlayerBase
 
 local backOffsetPlayer = 1
 
-local radiusSpawn = 25
+local radiusSpawn = 40
 
 local entities = nil
 
