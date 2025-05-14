@@ -93,7 +93,7 @@ function on_ready()
     introSFX = current_scene:get_entity_by_name("IntroSFX"):get_component("AudioSourceComponent")
     outroSFX = current_scene:get_entity_by_name("OutroSFX"):get_component("AudioSourceComponent")
     
-    outroSFX:play()
+    introSFX:play()
 end
 
 function on_update(dt)
@@ -115,7 +115,7 @@ function on_update(dt)
 
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
-                indexSelectionSFX:play()
+                outroSFX:play()
                 if(index == 0) then
                     --button1:set_state("Pressed")
                     --sceneChanged = true
@@ -161,7 +161,7 @@ function on_update(dt)
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
-            indexSelectionSFX:play()
+            outroSFX:play()
             if(index == 1) then
                 --button2:set_state("Pressed")
                 --fadeToBlackScript:DoFade()
@@ -237,7 +237,7 @@ function on_update(dt)
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
-            indexSelectionSFX:play()
+            outroSFX:play()
             --button4:set_state("Pressed")
             if(index == 4) then
                 -- preguntar como cerrar el juego 
