@@ -24,17 +24,6 @@
             }
         },
         {
-            "key": "Melee",
-            "value": {
-                "KeyPos": 8,
-                "KeyNeg": 0,
-                "ButtonPos": 10,
-                "ButtonNeg": -1,
-                "Axis": -1,
-                "invertedAxis": false
-            }
-        },
-        {
             "key": "Cancel",
             "value": {
                 "KeyPos": 229,
@@ -46,13 +35,24 @@
             }
         },
         {
-            "key": "MoveY",
+            "key": "Melee",
             "value": {
-                "KeyPos": 26,
-                "KeyNeg": 22,
-                "ButtonPos": -1,
+                "KeyPos": 8,
+                "KeyNeg": 0,
+                "ButtonPos": 10,
                 "ButtonNeg": -1,
-                "Axis": 1,
+                "Axis": -1,
+                "invertedAxis": false
+            }
+        },
+        {
+            "key": "Confirm",
+            "value": {
+                "KeyPos": 40,
+                "KeyNeg": 0,
+                "ButtonPos": 0,
+                "ButtonNeg": -1,
+                "Axis": -1,
                 "invertedAxis": false
             }
         },
@@ -68,13 +68,13 @@
             }
         },
         {
-            "key": "Confirm",
+            "key": "MoveY",
             "value": {
-                "KeyPos": 40,
-                "KeyNeg": 0,
-                "ButtonPos": 0,
+                "KeyPos": 26,
+                "KeyNeg": 22,
+                "ButtonPos": -1,
                 "ButtonNeg": -1,
-                "Axis": -1,
+                "Axis": 1,
                 "invertedAxis": false
             }
         },
