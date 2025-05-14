@@ -2,11 +2,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	677390718	Play_PlayerInyector_01			\Default Work Unit\Player\State Effects\Play_PlayerInyector_01	
 	899646374	Play_BannerZone			\Default Work Unit\Player\Banner\Play_BannerZone	
 	910581297	Play_PlayerDeath			\Default Work Unit\Player\Play_PlayerDeath	
+	961908944	Play_PlayerCD			\Default Work Unit\Player\Play_PlayerCD	
 	1613056095	Play_PlayerSwapWeapons			\Default Work Unit\Player\Play_PlayerSwapWeapons	
 	1927031969	Play_PlayerDash			\Default Work Unit\Player\Movement\Play_PlayerDash	
 	3095736289	Play_PlayerBleeding			\Default Work Unit\Player\State Effects\Play_PlayerBleeding	
 	3345812001	Play_PlayerStepsLvl1			\Default Work Unit\Player\Movement\Play_PlayerStepsLvl1	
 	3345812002	Play_PlayerStepsLvl2			\Default Work Unit\Player\Movement\Play_PlayerStepsLvl2	
+	3539308718	Play_PlayerNoAmmo			\Default Work Unit\Player\Play_PlayerNoAmmo	
 	3652542138	Play_PlayerOverloads			\Default Work Unit\Player\State Effects\Play_PlayerOverloads	
 	3842654606	Play_PlayerBurning			\Default Work Unit\Player\State Effects\Play_PlayerBurning	
 	3859629335	Play_BannerFall			\Default Work Unit\Player\Banner\Play_BannerFall	
@@ -16,9 +18,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	177622681	PlayerStep4Lvl1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A9\{A9B9DD32-AAA8-E019-6912-7DC6807C2FC1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep4Lvl1		22118
 	191256656	Bleeding4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\17\{179097AE-A3F6-5AD2-A267-EE8875AF4629}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBleeding\Bleeding4		211212
 	232213544	PlayerDash1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\12\{12D8FC78-75AE-8C51-5F4F-C31E0F59E976}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash1		143520
-	241682433	PlayerSwapWeapons	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F9\{F9396E8E-CFEC-974D-F86B-363AA9849E1B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\PlayerSwapWeapons		74064
+	241682433	PlayerSwapWeapons	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F9\{F9396E8E-CFEC-974D-F86B-363AA9849E1B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSwapWeapons		74064
 	300319314	PlayerStep1Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\0B\{0B6D5797-9382-0B72-6064-00595653ACE4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep1Lvl2		28954
 	393389286	PlayerDeath	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\DE\{DEB088A3-0310-3FE6-4576-E1FF4401EEE8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerDeath		238452
+	453479899	PlayerCD	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8F\{8FF0AAB0-8F85-B8D8-C0D8-FFC7B70809C8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerCD		8630
 	557785712	Burning3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\7F\{7FB929F3-D216-A821-D336-6AF496AA9F37}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning3		278828
 	593561193	PlayerInyector	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\ED\{ED5866C0-5DBC-E466-AA72-2C31A4654D31}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerInyector		331632
 	619122296	Overload1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\72\{72F6092C-34EB-AC57-55A5-9D0181497173}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerOverloads\Overload1		143680
@@ -29,6 +32,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	741537981	PlayerDash3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\95\{955AC31D-7AE4-1771-87A2-32897746BA73}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash3		154900
 	746984909	PlayerStep3Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\29\{29CF1DDB-E98E-52E5-1B6A-F76495B5C838}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep3Lvl2		31358
 	806581019	PlayerStep4Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\E4\{E430325D-E036-AAEF-3B64-DAA577E13562}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep4Lvl2		17892
+	812580125	PlayerNoAmmo	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\92\{920AB1F8-9937-6265-6EC8-651B010A3A4A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerNoAmmo		54460
 	875707202	Burning1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C4\{C41F9D22-4D55-3F16-107D-BC6B1897F9F8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning1		266992
 	881689230	BannerZone	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AA\{AA88D1A0-5717-CCBC-A426-036B150481A3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Banner\BannerZone		193764
 	910878074	Burning2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B2\{B2712022-55F2-D907-1793-C24BDA6BA14A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning2		399788

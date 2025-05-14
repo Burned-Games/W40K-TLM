@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{0907FF5C-589D-EFA6-FE66-EA15697F9290}",
+    "Hash": "{E77E50AB-D7D6-E3A3-896E-A695A542C898}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -70,6 +70,14 @@
       "Location": "Memory",
       "ShortName": "PlayerDeath.wav",
       "CachePath": "DE/{DEB088A3-0310-3FE6-4576-E1FF4401EEE8}.wem"
+     },
+     {
+      "Id": "453479899",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerCD.wav",
+      "CachePath": "8F/{8FF0AAB0-8F85-B8D8-C0D8-FFC7B70809C8}.wem"
      },
      {
       "Id": "557785712",
@@ -150,6 +158,14 @@
       "Location": "Memory",
       "ShortName": "PlayerStep4Lvl2.wav",
       "CachePath": "E4/{E430325D-E036-AAEF-3B64-DAA577E13562}.wem"
+     },
+     {
+      "Id": "812580125",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerNoAmmo.wav",
+      "CachePath": "92/{920AB1F8-9937-6265-6EC8-651B010A3A4A}.wem"
      },
      {
       "Id": "875707202",
@@ -288,6 +304,20 @@
       ]
      },
      {
+      "Id": "961908944",
+      "Name": "Play_PlayerCD",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerCD",
+      "GUID": "{966987ED-140A-4622-A0AC-5950AFFE0F2F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.088895835",
+      "DurationMax": "0.088895835",
+      "MediaRefs": [
+       {
+        "Id": "453479899"
+       }
+      ]
+     },
+     {
       "Id": "1927031969",
       "Name": "Play_PlayerDash",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\Movement\\Play_PlayerDash",
@@ -332,6 +362,20 @@
       "MediaRefs": [
        {
         "Id": "593561193"
+       }
+      ]
+     },
+     {
+      "Id": "3539308718",
+      "Name": "Play_PlayerNoAmmo",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerNoAmmo",
+      "GUID": "{AE4A8F3D-5251-4BF9-AABD-E3EBF4EA03CF}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.30818594",
+      "DurationMax": "0.30818594",
+      "MediaRefs": [
+       {
+        "Id": "812580125"
        }
       ]
      },
@@ -415,6 +459,6 @@
     ]
    }
   ],
-  "FileHash": "{47822969-827A-C789-CC98-7B6712BB6BF2}"
+  "FileHash": "{E6C8D376-5A48-F4A0-0FB8-434BAD0C60BF}"
  }
 }

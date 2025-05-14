@@ -774,6 +774,130 @@
     ]
    },
    {
+    "Id": "1655394148",
+    "Type": "User",
+    "GUID": "{45A4EA0F-F1E1-460F-9A2A-35C1CDE932E8}",
+    "Language": "SFX",
+    "Hash": "{8F1F3EB0-D905-FFF8-999D-46A05B60A696}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\UISFX",
+    "ShortName": "UISFX",
+    "Path": "UISFX.bnk",
+    "Media": [
+     {
+      "Id": "142156323",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuOutro.wav",
+      "CachePath": "23/{2315B096-5A6B-A87F-41A5-8CCF27786458}.wem"
+     },
+     {
+      "Id": "269940286",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuIntro.wav",
+      "CachePath": "27/{2767A0CF-4B83-DBEB-BB0A-B2B0D8175659}.wem"
+     },
+     {
+      "Id": "356355759",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuSettingsSFX.wav",
+      "CachePath": "63/{630F5834-230D-0E86-8656-D9AB15A885F0}.wem"
+     },
+     {
+      "Id": "487154303",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuHoverButton.wav",
+      "CachePath": "62/{62CF02EE-E642-64D1-BC4E-C7FEC183A9E1}.wem"
+     },
+     {
+      "Id": "931857166",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuPressButton.wav",
+      "CachePath": "EF/{EF93C17B-8D7E-096E-3EDB-0B3D13727403}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3863106023",
+      "Name": "Play_MenuHoverButton",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuHoverButton",
+      "GUID": "{7758909D-72AE-4222-9107-2AD35660FEE3}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.23356009",
+      "DurationMax": "0.23356009",
+      "MediaRefs": [
+       {
+        "Id": "487154303"
+       }
+      ]
+     },
+     {
+      "Id": "2741762487",
+      "Name": "Play_MenuIntro",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuIntro",
+      "GUID": "{364020B1-55C1-48E2-BE5F-CF48479D4F51}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.3700228",
+      "DurationMax": "3.3700228",
+      "MediaRefs": [
+       {
+        "Id": "269940286"
+       }
+      ]
+     },
+     {
+      "Id": "2317729388",
+      "Name": "Play_MenuOutro",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuOutro",
+      "GUID": "{880CD1B4-B39A-46D7-9942-BF24BE5E73F4}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.8371882",
+      "DurationMax": "3.8371882",
+      "MediaRefs": [
+       {
+        "Id": "142156323"
+       }
+      ]
+     },
+     {
+      "Id": "1369132676",
+      "Name": "Play_MenuPressButton",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuPressButton",
+      "GUID": "{E3FB1D5C-3283-44EA-9FB9-A3CACA9170D1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.13346939",
+      "DurationMax": "0.13346939",
+      "MediaRefs": [
+       {
+        "Id": "931857166"
+       }
+      ]
+     },
+     {
+      "Id": "3079235105",
+      "Name": "Play_MenuSettingsSFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuSettingsSFX",
+      "GUID": "{574135FA-F9D8-41CE-A8C2-A8D53BF62B2C}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1668254",
+      "DurationMax": "0.1668254",
+      "MediaRefs": [
+       {
+        "Id": "356355759"
+       }
+      ]
+     }
+    ]
+   },
+   {
     "Id": "1734211086",
     "Type": "User",
     "GUID": "{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}",
@@ -2172,7 +2296,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{0907FF5C-589D-EFA6-FE66-EA15697F9290}",
+    "Hash": "{E77E50AB-D7D6-E3A3-896E-A695A542C898}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -2232,6 +2356,14 @@
       "Location": "Memory",
       "ShortName": "PlayerDeath.wav",
       "CachePath": "DE/{DEB088A3-0310-3FE6-4576-E1FF4401EEE8}.wem"
+     },
+     {
+      "Id": "453479899",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerCD.wav",
+      "CachePath": "8F/{8FF0AAB0-8F85-B8D8-C0D8-FFC7B70809C8}.wem"
      },
      {
       "Id": "557785712",
@@ -2312,6 +2444,14 @@
       "Location": "Memory",
       "ShortName": "PlayerStep4Lvl2.wav",
       "CachePath": "E4/{E430325D-E036-AAEF-3B64-DAA577E13562}.wem"
+     },
+     {
+      "Id": "812580125",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerNoAmmo.wav",
+      "CachePath": "92/{920AB1F8-9937-6265-6EC8-651B010A3A4A}.wem"
      },
      {
       "Id": "875707202",
@@ -2450,6 +2590,20 @@
       ]
      },
      {
+      "Id": "961908944",
+      "Name": "Play_PlayerCD",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerCD",
+      "GUID": "{966987ED-140A-4622-A0AC-5950AFFE0F2F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.088895835",
+      "DurationMax": "0.088895835",
+      "MediaRefs": [
+       {
+        "Id": "453479899"
+       }
+      ]
+     },
+     {
       "Id": "1927031969",
       "Name": "Play_PlayerDash",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\Movement\\Play_PlayerDash",
@@ -2494,6 +2648,20 @@
       "MediaRefs": [
        {
         "Id": "593561193"
+       }
+      ]
+     },
+     {
+      "Id": "3539308718",
+      "Name": "Play_PlayerNoAmmo",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Play_PlayerNoAmmo",
+      "GUID": "{AE4A8F3D-5251-4BF9-AABD-E3EBF4EA03CF}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.30818594",
+      "DurationMax": "0.30818594",
+      "MediaRefs": [
+       {
+        "Id": "812580125"
        }
       ]
      },
@@ -2577,6 +2745,6 @@
     ]
    }
   ],
-  "FileHash": "{96195C5B-673B-07A0-0087-4CAC1861DE44}"
+  "FileHash": "{9559AB9C-AD5A-39BD-6BB7-64A46BEDA2DD}"
  }
 }

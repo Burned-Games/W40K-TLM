@@ -138,6 +138,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_PlayerCD" ID="{966987ED-140A-4622-A0AC-5950AFFE0F2F}">
+							<ChildrenList>
+								<Action Name="" ID="{1E705406-F257-4074-8578-30B43E0797EB}" ShortID="988110481">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PlayerCD" ID="{F1F2D305-ED27-4DA1-A34B-3A1CB142E9A4}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_PlayerNoAmmo" ID="{AE4A8F3D-5251-4BF9-AABD-E3EBF4EA03CF}">
+							<ChildrenList>
+								<Action Name="" ID="{9B727E2F-1D3E-49CC-8B7F-959CFECC56F2}" ShortID="846781749">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PlayerNoAmmo" ID="{F33B8725-68B3-4D99-BB30-5867ECD3C0B9}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Weapons" ID="{1F453973-3ECF-482C-BB71-71CA807F87C5}" ShortID="952167920">
@@ -819,6 +841,65 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="metaldoor" ID="{B8D1703E-5B8A-420A-8031-AF8E7E024064}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{ED3C2099-C675-444E-BFBE-CDD23D9A8868}" ShortID="225254929">
+					<ChildrenList>
+						<Event Name="Play_MenuPressButton" ID="{E3FB1D5C-3283-44EA-9FB9-A3CACA9170D1}">
+							<ChildrenList>
+								<Action Name="" ID="{8593EE9A-E64F-46FE-9C0B-7F96B0C98301}" ShortID="390275627">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuPressButton" ID="{804DCAB8-F2AC-422F-ABBA-23477594ECDA}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MenuIntro" ID="{364020B1-55C1-48E2-BE5F-CF48479D4F51}">
+							<ChildrenList>
+								<Action Name="" ID="{9640EA67-E998-4A86-BD27-144CF12490BC}" ShortID="664853090">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuIntro" ID="{029537F0-B3E4-4B7F-984B-62EB972A4D70}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MenuOutro" ID="{880CD1B4-B39A-46D7-9942-BF24BE5E73F4}">
+							<ChildrenList>
+								<Action Name="" ID="{A0E1651F-8EB2-4CCA-A12F-1D3B63907316}" ShortID="485066606">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuOutro" ID="{EB5D8568-34A4-4486-965C-B871AAD0AAA2}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MenuHoverButton" ID="{7758909D-72AE-4222-9107-2AD35660FEE3}">
+							<ChildrenList>
+								<Action Name="" ID="{0DB87158-40AC-4BCA-A6F1-E175682C30BD}" ShortID="759401424">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuHoverButton" ID="{F9F42BB6-5138-4DAB-AEEF-9884AAD50F7C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_MenuSettingsSFX" ID="{574135FA-F9D8-41CE-A8C2-A8D53BF62B2C}">
+							<ChildrenList>
+								<Action Name="" ID="{1AB400A1-06C5-4468-9F96-72AEA8FF9F3F}" ShortID="412190567">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuSettingsSFX" ID="{479A6373-2352-4ED8-BF12-B4A024D618C3}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

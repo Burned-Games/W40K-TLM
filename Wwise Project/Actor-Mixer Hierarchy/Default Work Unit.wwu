@@ -710,6 +710,72 @@
 								<ActiveSource Name="PlayerDeath" ID="{203827FF-3436-4412-B615-D5823779AA95}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="PlayerCD" ID="{F1F2D305-ED27-4DA1-A34B-3A1CB142E9A4}" ShortID="687281137">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PlayerCD" ID="{D116BC63-D822-47C7-AB86-DB19FDB352E3}">
+									<Language>SFX</Language>
+									<AudioFile>PlayerCD.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="453479899"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PlayerCD" ID="{D116BC63-D822-47C7-AB86-DB19FDB352E3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PlayerNoAmmo" ID="{F33B8725-68B3-4D99-BB30-5867ECD3C0B9}" ShortID="245447350">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PlayerNoAmmo" ID="{7499C46C-608D-4E33-9C25-9B00C896AF6B}">
+									<Language>SFX</Language>
+									<AudioFile>PlayerNoAmmo.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="812580125"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PlayerNoAmmo" ID="{7499C46C-608D-4E33-9C25-9B00C896AF6B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PlayerSwapWeapons" ID="{835DF049-0D47-4A1F-B297-932BF884625B}" ShortID="761470193">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PlayerSwapWeapons" ID="{81BF8CCE-547E-4DEE-9513-6C32895F6D62}">
+									<Language>SFX</Language>
+									<AudioFile>PlayerSwapWeapons.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="241682433"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PlayerSwapWeapons" ID="{81BF8CCE-547E-4DEE-9513-6C32895F6D62}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Enemies" ID="{13EEAAA6-7D54-4864-9757-2CD30ABA22B4}" ShortID="839343169">
@@ -2142,28 +2208,6 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
-						<Sound Name="PlayerSwapWeapons" ID="{835DF049-0D47-4A1F-B297-932BF884625B}" ShortID="761470193">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="PlayerSwapWeapons" ID="{81BF8CCE-547E-4DEE-9513-6C32895F6D62}">
-									<Language>SFX</Language>
-									<AudioFile>PlayerSwapWeapons.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="241682433"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="PlayerSwapWeapons" ID="{81BF8CCE-547E-4DEE-9513-6C32895F6D62}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{9DB96B1C-54BB-4898-97CE-9C040708B47E}" ShortID="55872685">
@@ -2553,6 +2597,120 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{A5DCE031-0D31-4CF5-A5BB-42D0DB7CDA9F}" ShortID="961474772">
+					<ChildrenList>
+						<Sound Name="MenuHoverButton" ID="{F9F42BB6-5138-4DAB-AEEF-9884AAD50F7C}" ShortID="751176889">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="MenuHoverButton" ID="{8A0D2F0E-6848-4BCF-AA69-B301AC68BC6B}">
+									<Language>SFX</Language>
+									<AudioFile>MenuHoverButton.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="487154303"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="MenuHoverButton" ID="{8A0D2F0E-6848-4BCF-AA69-B301AC68BC6B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="MenuIntro" ID="{029537F0-B3E4-4B7F-984B-62EB972A4D70}" ShortID="968232427">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="MenuIntro" ID="{CCFD6A2D-4E61-4D21-8241-AD278C02BF11}">
+									<Language>SFX</Language>
+									<AudioFile>MenuIntro.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="269940286"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="MenuIntro" ID="{CCFD6A2D-4E61-4D21-8241-AD278C02BF11}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="MenuOutro" ID="{EB5D8568-34A4-4486-965C-B871AAD0AAA2}" ShortID="801133214">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="MenuOutro" ID="{43421865-A80A-413F-B29A-5A8DA64B5840}">
+									<Language>SFX</Language>
+									<AudioFile>MenuOutro.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="142156323"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="MenuOutro" ID="{43421865-A80A-413F-B29A-5A8DA64B5840}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="MenuSettingsSFX" ID="{479A6373-2352-4ED8-BF12-B4A024D618C3}" ShortID="482730434">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="MenuSettingsSFX" ID="{04EA03B2-298C-439B-A158-0BFEC88DA7BD}">
+									<Language>SFX</Language>
+									<AudioFile>MenuSettingsSFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="356355759"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="MenuSettingsSFX" ID="{04EA03B2-298C-439B-A158-0BFEC88DA7BD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="MenuPressButton" ID="{804DCAB8-F2AC-422F-ABBA-23477594ECDA}" ShortID="365413497">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="MenuPressButton" ID="{2F9781B2-2C94-49DD-BF9A-FC86ADBB14C1}">
+									<Language>SFX</Language>
+									<AudioFile>MenuPressButton.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="931857166"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="MenuPressButton" ID="{2F9781B2-2C94-49DD-BF9A-FC86ADBB14C1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

@@ -1,0 +1,135 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1655394148",
+    "Type": "User",
+    "GUID": "{45A4EA0F-F1E1-460F-9A2A-35C1CDE932E8}",
+    "Language": "SFX",
+    "Hash": "{8F1F3EB0-D905-FFF8-999D-46A05B60A696}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\UISFX",
+    "ShortName": "UISFX",
+    "Path": "UISFX.bnk",
+    "Media": [
+     {
+      "Id": "142156323",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuOutro.wav",
+      "CachePath": "23/{2315B096-5A6B-A87F-41A5-8CCF27786458}.wem"
+     },
+     {
+      "Id": "269940286",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuIntro.wav",
+      "CachePath": "27/{2767A0CF-4B83-DBEB-BB0A-B2B0D8175659}.wem"
+     },
+     {
+      "Id": "356355759",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuSettingsSFX.wav",
+      "CachePath": "63/{630F5834-230D-0E86-8656-D9AB15A885F0}.wem"
+     },
+     {
+      "Id": "487154303",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuHoverButton.wav",
+      "CachePath": "62/{62CF02EE-E642-64D1-BC4E-C7FEC183A9E1}.wem"
+     },
+     {
+      "Id": "931857166",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MenuPressButton.wav",
+      "CachePath": "EF/{EF93C17B-8D7E-096E-3EDB-0B3D13727403}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3863106023",
+      "Name": "Play_MenuHoverButton",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuHoverButton",
+      "GUID": "{7758909D-72AE-4222-9107-2AD35660FEE3}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.23356009",
+      "DurationMax": "0.23356009",
+      "MediaRefs": [
+       {
+        "Id": "487154303"
+       }
+      ]
+     },
+     {
+      "Id": "2741762487",
+      "Name": "Play_MenuIntro",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuIntro",
+      "GUID": "{364020B1-55C1-48E2-BE5F-CF48479D4F51}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.3700228",
+      "DurationMax": "3.3700228",
+      "MediaRefs": [
+       {
+        "Id": "269940286"
+       }
+      ]
+     },
+     {
+      "Id": "2317729388",
+      "Name": "Play_MenuOutro",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuOutro",
+      "GUID": "{880CD1B4-B39A-46D7-9942-BF24BE5E73F4}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.8371882",
+      "DurationMax": "3.8371882",
+      "MediaRefs": [
+       {
+        "Id": "142156323"
+       }
+      ]
+     },
+     {
+      "Id": "1369132676",
+      "Name": "Play_MenuPressButton",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuPressButton",
+      "GUID": "{E3FB1D5C-3283-44EA-9FB9-A3CACA9170D1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.13346939",
+      "DurationMax": "0.13346939",
+      "MediaRefs": [
+       {
+        "Id": "931857166"
+       }
+      ]
+     },
+     {
+      "Id": "3079235105",
+      "Name": "Play_MenuSettingsSFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MenuSettingsSFX",
+      "GUID": "{574135FA-F9D8-41CE-A8C2-A8D53BF62B2C}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1668254",
+      "DurationMax": "0.1668254",
+      "MediaRefs": [
+       {
+        "Id": "356355759"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{03CFF2D4-E80C-6D8A-01A5-480ADA96C5FA}"
+ }
+}
