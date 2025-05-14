@@ -6,6 +6,7 @@ enemy.state = { Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5}
 enemy.godMode = true
 
 local prefabScrap= "prefabs/Misc/Scrap.prefab"
+local enemyAlertPrefab  = "prefabs/Enemies/EnemyAlertedUI.prefab"
 
 function enemy:new(obj)
 
@@ -559,6 +560,7 @@ function enemy:alert_nearby_enemies(dt)
     if self.isAlerted then return end
     print("Alert nearby Enemies")
     local alertedCount = 0
+    
     for _, enemyData in ipairs(self.nearbyEnemies) do
         if enemyData.script and not enemyData.alerted then
             enemyData.script.playerDetected = true
@@ -566,6 +568,16 @@ function enemy:alert_nearby_enemies(dt)
             enemyData.script.alertTimer = 0.0
             enemyData.alerted = true
             alertedCount = alertedCount + 1
+            
+            local alertEnemiesUI = instantiate_prefab(enemyAlertPrefab)
+            local alertEnemiesUITransform = alertEnemiesUI:get_component("TransformComponent")
+            
+            local enemyPos = enemyData.script.enemyTransf.position
+            alertEnemiesUITransform.position = Vector3.new(
+                enemyPos.x,
+                enemyPos.y,
+                enemyPos.z
+            )
         end
     end
     self.isAlerted = true
