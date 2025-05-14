@@ -6,14 +6,14 @@
   "SoundBankVersion": "154",
   "SoundBanks": [
    {
-    "Id": "1163612179",
+    "Id": "3091098345",
     "Type": "User",
-    "GUID": "{BAB19078-95DC-4C2B-868E-8037B0209A03}",
+    "GUID": "{19E3CFCE-5418-4D54-9124-7DBDAE79CBE7}",
     "Language": "SFX",
-    "Hash": "{39A954EC-2C62-023D-B80C-4FA7E4B12FF8}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\BossSFX",
-    "ShortName": "BossSFX",
-    "Path": "BossSFX.bnk",
+    "Hash": "{CEBA709B-4765-F65D-B8E6-5098680FFBFF}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\FinalBossSFX",
+    "ShortName": "FinalBossSFX",
+    "Path": "FinalBossSFX.bnk",
     "Media": [
      {
       "Id": "13375720",
@@ -306,6 +306,6 @@
     ]
    }
   ],
-  "FileHash": "{1A7E623D-F5E5-B9CC-8471-ECE724775DBB}"
+  "FileHash": "{6D2463F8-E41B-72F2-C58B-FE7307497B0E}"
  }
 }

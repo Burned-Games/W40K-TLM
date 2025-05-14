@@ -65,22 +65,6 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
-				<SoundBank Name="BossSFX" ID="{BAB19078-95DC-4C2B-868E-8037B0209A03}">
-					<ObjectInclusionList>
-						<ObjectRef Name="Play_BossFase2Change" ID="{8E7B445A-5244-41A5-81C3-934F63F779BD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossSmashDescend" ID="{559CE15B-1B61-4207-BA50-1DAF57A5B2D2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossUltimateExplosion" ID="{F1ACC66E-6006-4343-97FF-BB6FB5DB50AA}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossConeAtack" ID="{341718C5-E47B-4580-850A-762204DA40F0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossSteps" ID="{4F3A93D6-E7DF-45D2-AC6A-0E3C93F033E0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossChargeUltimate" ID="{920B37F9-CEA4-47A3-AD55-3B6538D26886}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossHurt" ID="{F19B5EBB-EA02-492E-A85F-14C92D906990}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossShieldZap" ID="{110C8EB9-1F48-4B8C-801E-1BF98CF8DF26}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossShieldExplosion" ID="{AAAC3D6A-1472-4F0F-8327-FADB0B24B6D0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_BossSmashImpact" ID="{283BAC8F-1E2B-4FBD-AF7B-A14B94FB836F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
 				<SoundBank Name="SupportSFX" ID="{EC862FA3-57C9-4C57-B979-540D2679AB59}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_SupportShildAssign" ID="{6F6083A4-05D2-47B3-96B8-85D769F21F05}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -134,6 +118,22 @@
 						<ObjectRef Name="Play_firetorch" ID="{812307E1-0975-4903-A4F7-D8A139FF55AD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_howlingwind" ID="{17132D66-47FF-4BBB-B20D-D40AA8128F03}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_lever" ID="{2B52C1AF-181D-4ED1-A394-93635FBC08C4}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="FinalBossSFX" ID="{19E3CFCE-5418-4D54-9124-7DBDAE79CBE7}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_BossFase2Change" ID="{8E7B445A-5244-41A5-81C3-934F63F779BD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossSmashDescend" ID="{559CE15B-1B61-4207-BA50-1DAF57A5B2D2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossUltimateExplosion" ID="{F1ACC66E-6006-4343-97FF-BB6FB5DB50AA}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossConeAtack" ID="{341718C5-E47B-4580-850A-762204DA40F0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossSteps" ID="{4F3A93D6-E7DF-45D2-AC6A-0E3C93F033E0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossChargeUltimate" ID="{920B37F9-CEA4-47A3-AD55-3B6538D26886}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossHurt" ID="{F19B5EBB-EA02-492E-A85F-14C92D906990}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossShieldZap" ID="{110C8EB9-1F48-4B8C-801E-1BF98CF8DF26}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossShieldExplosion" ID="{AAAC3D6A-1472-4F0F-8327-FADB0B24B6D0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossSmashImpact" ID="{283BAC8F-1E2B-4FBD-AF7B-A14B94FB836F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
