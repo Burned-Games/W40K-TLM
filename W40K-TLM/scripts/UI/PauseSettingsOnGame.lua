@@ -24,7 +24,7 @@ local chatarraUI = nil
 isPaused = false
 
 local index = 0
-local currentSelectedIndex = 1
+local currentSelectedIndex = 0
 local buttonCooldown = 0
 local buttonCooldownTime = 0.2
 local sceneChanged = false
@@ -43,6 +43,11 @@ local defaultColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
 musicVolume = 0.0
 fxVolume = 0.0
+
+--Audio
+local settingsSFX = nil
+local indexHoverSFX = nil
+local indexSelectionSFX = nil
 
 function on_ready()
     -- Add initialization code here
@@ -72,6 +77,10 @@ function on_ready()
         slider1.selected = false
     end
 
+    --Audio
+    settingsSFX = current_scene:get_entity_by_name("SettingsSFX"):get_component("AudioSourceComponent")
+    indexHoverSFX = current_scene:get_entity_by_name("HoverButtonSFX"):get_component("AudioSourceComponent")
+    indexSelectionSFX = current_scene:get_entity_by_name("PressButtonSFX"):get_component("AudioSourceComponent")
 
     PauseText = current_scene:get_entity_by_name("PauseText"):get_component("UITextComponent")
     SettingsBaseText = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
@@ -113,6 +122,7 @@ function on_update(dt)
                 workbenchUIManagerScript:hide_ui() 
             end
         end
+        indexSelectionSFX:play()
     end 
 
 
@@ -123,6 +133,7 @@ function on_update(dt)
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+                indexSelectionSFX:play()
                 if(index == 0) then
                     visibilidad1Entity:set_active(false)
                     isPaused = false
@@ -137,6 +148,7 @@ function on_update(dt)
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+                indexSelectionSFX:play()
                 if(index == 1) then
                     --button2:set_state("Pressed")
                     sceneChanged = true
@@ -153,6 +165,7 @@ function on_update(dt)
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+                indexSelectionSFX:play()
                 --button4:set_state("Pressed")
                 if(index == 2) then
                 save_progress("skipIntroDelay", true)
@@ -205,9 +218,12 @@ function on_update(dt)
                 log("Este es el valor del slider ahora: " .. fxVolume)
                
                 set_sfx_volume(fxVolume)
-                
+            
                 fxVolume = fxVolume * 100
                 save_progress("fxVolume", fxVolume)
+                if fxVolume ~= 100 then
+                    settingsSFX:play()
+                end
             end
         end
     end
@@ -258,6 +274,11 @@ function on_update(dt)
             isPaused = false
         end
     end 
+
+    if index ~= currentSelectedIndex then
+        indexHoverSFX:play()
+        currentSelectedIndex = index
+    end
     
 end 
 
