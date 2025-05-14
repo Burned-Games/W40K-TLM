@@ -19,6 +19,7 @@ local PauseText
 local SettingsBaseText
 local BaseTextureBG
 local HUD = nil
+local chatarraUI = nil
 
 isPaused = false
 
@@ -61,7 +62,7 @@ function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
 
-    HUD = current_scene:get_entity_by_name("HUD")
+    chatarraUI = current_scene:get_entity_by_name("ChatarraUI")
 
     if currentSelectedSlider == 1 then
         slider1.selected = true
@@ -101,13 +102,13 @@ function on_update(dt)
             isPaused = false
             visibilidad1Entity:set_active(false)
             visibilidad2Entity:set_active(false)
-            HUD:set_active(true)
+            chatarraUI:set_active(true)
             isOnPauseSettings = false
 
         else
             isPaused = true
             visibilidad1Entity:set_active(true)
-            HUD:set_active(false)
+            chatarraUI:set_active(false)
             if workbenchUIManagerScript.isWorkBenchOpen == true then
                 workbenchUIManagerScript:hide_ui() 
             end
@@ -140,7 +141,6 @@ function on_update(dt)
                     --button2:set_state("Pressed")
                     sceneChanged = true
                     visibilidad2Entity:set_active(true)
-                    visibilidad1Entity:set_active(false)
                     isOnPauseSettings = true
                 end
             end
@@ -246,12 +246,17 @@ function on_update(dt)
 
     value = Input.get_button(Input.action.Cancel)
     if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
-        sceneChanged = true
-        visibilidad1Entity:set_active(false)
-        visibilidad2Entity:set_active(false)
-        HUD:set_active(true)
-        isOnPauseSettings = false
-        isPaused = false
+        if isOnPauseSettings then
+            visibilidad2Entity:set_active(false)
+            isOnPauseSettings = false
+        else
+            
+            sceneChanged = true
+            visibilidad1Entity:set_active(false)
+            visibilidad2Entity:set_active(false)
+            chatarraUI:set_active(true)
+            isPaused = false
+        end
     end 
     
 end 
