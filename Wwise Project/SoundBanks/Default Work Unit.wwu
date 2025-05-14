@@ -5,13 +5,13 @@
 			<ChildrenList>
 				<SoundBank Name="Music" ID="{AD3F8103-0D7F-40E4-A74A-E4083404369B}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_mainMenu_music_container" ID="{C5B70019-4FE9-420C-BDE5-4FCC5537D078}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel2Final" ID="{7591DC39-FC6B-47A0-A99A-2DB75908E2C2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel2Mid" ID="{4256EF60-8548-4A5D-815B-A9A72F52D06B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringColiseum" ID="{ABB2AFD8-4679-4A61-9D33-D25BAF3143EF}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel1Indoor" ID="{784E7D4D-7F8E-4A87-B75D-349F8790352A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel1Outside" ID="{D3D2A23C-8EC5-4E86-92C4-72D4B5A32FC7}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_FightingMusic" ID="{F946DD80-47B3-4EDA-8D65-4F688A251623}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringLevel2Final_container" ID="{B697D3CD-33AD-4052-86A1-11F1336EE255}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringLevel1Indoor_container" ID="{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_mainMenu_music_container" ID="{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_FightingMusic_container" ID="{BD10290A-A00B-4C47-8C5B-DAFDACA2D535}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringLevel2Mid_container" ID="{522DF77E-6496-4DB0-9056-48883FC9A547}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringLevel1Outside_container" ID="{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringColiseum_container" ID="{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
@@ -24,6 +24,7 @@
 						<ObjectRef Name="Play_PlayerInyector_01" ID="{269E66E7-E7D2-43E5-9BCB-57354B75BD27}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BannerZone" ID="{DEDECB13-B051-442B-BE5D-86CF4AD9C106}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerStepsLvl1" ID="{3E7F6F69-6CB5-453D-ABCA-A73B17FAD965}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossChargeUltimate" ID="{920B37F9-CEA4-47A3-AD55-3B6538D26886}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerDeath" ID="{2874B037-12F0-4A50-A1AA-E2E2A998D15F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerBleeding" ID="{1FB8C068-09C3-4B52-A8B2-847B5BFFAE54}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerOverloads" ID="{C45CCF1C-B193-4DA2-BD31-1BC5EDBD19CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -75,6 +76,7 @@
 						<ObjectRef Name="Play_BossChargeUltimate" ID="{920B37F9-CEA4-47A3-AD55-3B6538D26886}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossHurt" ID="{F19B5EBB-EA02-492E-A85F-14C92D906990}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossShieldZap" ID="{110C8EB9-1F48-4B8C-801E-1BF98CF8DF26}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerDash" ID="{C6225427-F94A-4D28-B26A-C88842ECD673}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossShieldExplosion" ID="{AAAC3D6A-1472-4F0F-8327-FADB0B24B6D0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossSmashImpact" ID="{283BAC8F-1E2B-4FBD-AF7B-A14B94FB836F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>

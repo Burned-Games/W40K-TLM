@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{AD3F8103-0D7F-40E4-A74A-E4083404369B}",
     "Language": "SFX",
-    "Hash": "{50E101D6-E401-86BE-19B8-8347AEAEC420}",
+    "Hash": "{C61AE0CA-0BB3-6B16-1958-92FA0D669952}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -74,13 +74,11 @@
     ],
     "Events": [
      {
-      "Id": "986770155",
-      "Name": "Play_ExploringColiseum",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringColiseum",
-      "GUID": "{ABB2AFD8-4679-4A61-9D33-D25BAF3143EF}",
-      "DurationType": "OneShot",
-      "DurationMin": "65.60887",
-      "DurationMax": "65.60887",
+      "Id": "1875411331",
+      "Name": "Play_ExploringColiseum_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringColiseum_container",
+      "GUID": "{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "672104360"
@@ -88,13 +86,11 @@
       ]
      },
      {
-      "Id": "3120347016",
-      "Name": "Play_ExploringLevel1Indoor",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Indoor",
-      "GUID": "{784E7D4D-7F8E-4A87-B75D-349F8790352A}",
-      "DurationType": "OneShot",
-      "DurationMin": "54.652332",
-      "DurationMax": "54.652332",
+      "Id": "2758948520",
+      "Name": "Play_ExploringLevel1Indoor_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Indoor_container",
+      "GUID": "{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "642317731"
@@ -102,13 +98,11 @@
       ]
      },
      {
-      "Id": "3376606354",
-      "Name": "Play_ExploringLevel1Outside",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Outside",
-      "GUID": "{D3D2A23C-8EC5-4E86-92C4-72D4B5A32FC7}",
-      "DurationType": "OneShot",
-      "DurationMin": "66.18785",
-      "DurationMax": "66.18785",
+      "Id": "1921420610",
+      "Name": "Play_ExploringLevel1Outside_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Outside_container",
+      "GUID": "{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "555446988"
@@ -116,13 +110,11 @@
       ]
      },
      {
-      "Id": "3885261454",
-      "Name": "Play_ExploringLevel2Final",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Final",
-      "GUID": "{7591DC39-FC6B-47A0-A99A-2DB75908E2C2}",
-      "DurationType": "OneShot",
-      "DurationMin": "51.342083",
-      "DurationMax": "51.342083",
+      "Id": "4135948942",
+      "Name": "Play_ExploringLevel2Final_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Final_container",
+      "GUID": "{B697D3CD-33AD-4052-86A1-11F1336EE255}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "973688362"
@@ -130,13 +122,11 @@
       ]
      },
      {
-      "Id": "1745649876",
-      "Name": "Play_ExploringLevel2Mid",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Mid",
-      "GUID": "{4256EF60-8548-4A5D-815B-A9A72F52D06B}",
-      "DurationType": "OneShot",
-      "DurationMin": "60.369686",
-      "DurationMax": "60.369686",
+      "Id": "769747940",
+      "Name": "Play_ExploringLevel2Mid_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Mid_container",
+      "GUID": "{522DF77E-6496-4DB0-9056-48883FC9A547}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "49117587"
@@ -144,13 +134,11 @@
       ]
      },
      {
-      "Id": "4051651001",
-      "Name": "Play_FightingMusic",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_FightingMusic",
-      "GUID": "{F946DD80-47B3-4EDA-8D65-4F688A251623}",
-      "DurationType": "OneShot",
-      "DurationMin": "31.92771",
-      "DurationMax": "31.92771",
+      "Id": "2040394609",
+      "Name": "Play_FightingMusic_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_FightingMusic_container",
+      "GUID": "{BD10290A-A00B-4C47-8C5B-DAFDACA2D535}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "745571181"
@@ -161,7 +149,7 @@
       "Id": "2625126948",
       "Name": "Play_mainMenu_music_container",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_mainMenu_music_container",
-      "GUID": "{C5B70019-4FE9-420C-BDE5-4FCC5537D078}",
+      "GUID": "{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -172,6 +160,6 @@
     ]
    }
   ],
-  "FileHash": "{2CDBFC27-861F-7D9F-FD51-B443DA3320C4}"
+  "FileHash": "{9747AC98-F715-CD99-0CEE-9D31C4186B8D}"
  }
 }

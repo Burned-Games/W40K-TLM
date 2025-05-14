@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	224814659	Play_BossShieldExplosion			\Default Work Unit\Enemies\Boss\Play_BossShieldExplosion	
 	600347558	Play_BossSteps			\Default Work Unit\Enemies\Boss\Play_BossSteps	
 	1560622280	Play_BossChargeUltimate			\Default Work Unit\Enemies\Boss\Play_BossChargeUltimate	
+	1927031969	Play_PlayerDash			\Default Work Unit\Player\Movement\Play_PlayerDash	
 	2567408085	Play_BossUltimateExplosion			\Default Work Unit\Enemies\Boss\Play_BossUltimateExplosion	
 	2850559980	Play_BossFase2Change			\Default Work Unit\Enemies\Boss\Play_BossFase2Change	
 	2892469327	Play_BossShieldZap			\Default Work Unit\Enemies\Boss\Play_BossShieldZap	
@@ -13,18 +14,21 @@ Event	ID	Name			Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	13375720	BossConeAtack	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\62\{6233FB4D-4A3D-9565-A099-930F40FE1C0D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossConeAtack		499984
 	166699868	BossStep1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\26\{26D27BE7-8AB0-40DA-EAA0-113AE1D5CFF2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossSteps\BossStep1		36300
+	232213544	PlayerDash1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\12\{12D8FC78-75AE-8C51-5F4F-C31E0F59E976}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash1		143520
 	235862312	BossFase2Change	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\35\{352508DD-AA6D-70CA-55A3-DB91F6BAD18B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossFase2Change		180448
 	260004005	BossShieldZap1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\E1\{E1747AE3-562F-66B4-9937-70B965ED35E5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossShieldZap\BossShieldZap1		71888
 	371829015	BossShieldZap4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\65\{654C6D00-6C59-6019-76D0-F52D4644D4CB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossShieldZap\BossShieldZap4		71888
 	403676809	BossSmashImpact	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AE\{AE1BDFF5-FDDE-8FB0-E117-396F650131E2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossSmashImpact		380592
 	594959049	BossShieldZap2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\BE\{BE994054-8274-A72E-D670-ABA31F2845E5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossShieldZap\BossShieldZap2		59652
 	602668499	BossStep2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\01\{010717C8-A964-A9DB-7F25-4DFCDD63280B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossSteps\BossStep2		66952
+	741537981	PlayerDash3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\95\{955AC31D-7AE4-1771-87A2-32897746BA73}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash3		154900
 	750335857	BossStep3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\38\{381E6752-1847-BB63-F2B9-44CE370AA37C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossSteps\BossStep3		62620
 	821359826	BossChargeUltimate	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\9B\{9B7C1624-84A2-E925-6EEE-CABE013C25C1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossChargeUltimate		764536
 	916895430	BossUltimateExplosion	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AF\{AFBC6862-A3B9-0CD6-99B0-D54F6E4A7E94}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossUltimateExplosion		591984
 	929635064	BossShieldExplosion	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\DC\{DC571229-9C08-2305-A613-079143914070}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossShieldExplosion		143816
 	987094350	BossHurt	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\1E\{1EFD27D9-BD3A-BDA4-A524-643648603D62}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossHurt		65212
 	1019227559	BossStep4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\65\{658392D3-4B93-92F4-CEDC-FBE495F9644E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossSteps\BossStep4		44140
+	1058196675	PlayerDash2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AF\{AF462C20-C7E3-3B97-F1FE-E94614483D99}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash2		180208
 	1061460826	BossShieldZap3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B0\{B0A1F619-D2C4-1590-9DEC-F0CB2B2853AE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossShieldZap\BossShieldZap3		71888
 	1073295311	BossSmashDescend	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\50\{50773E2C-411C-D62B-15B2-4CF3640DB18E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Boss\BossSmashDescend		197200
 

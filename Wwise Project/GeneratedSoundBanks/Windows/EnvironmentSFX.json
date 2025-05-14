@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{7F8BD37C-D211-6D18-59D5-A205AF5EAC0D}",
+    "Hash": "{D4101A5B-EBAB-E191-D2B5-9A4F2C5A840A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -116,7 +116,6 @@
       "Name": "Play_metaldoor",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_metaldoor",
       "GUID": "{ED62D851-4499-4458-AB59-0AAF8975C447}",
-      "MaxAttenuation": "10",
       "DurationType": "OneShot",
       "DurationMin": "6.2363124",
       "DurationMax": "6.2363124",
@@ -129,6 +128,6 @@
     ]
    }
   ],
-  "FileHash": "{FA02186D-17B6-2465-3A1E-E4A182646B73}"
+  "FileHash": "{8A20C9A8-5210-DD63-D5E9-D02639680B62}"
  }
 }
