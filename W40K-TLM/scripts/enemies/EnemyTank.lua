@@ -462,7 +462,6 @@ function tank:tackle_state()
 end
 
 function tank:berserka_rage()
-    print("Berserka activated")
     tank.isBerserkaActive = true
     tank.isPlayingBerserkaAnim = true
 
@@ -557,19 +556,7 @@ function tank:set_stats(level)
     tank.tackleCooldown = stats.tackleCooldown
     tank.idleDuration = stats.idleDuration
     tank.berserkaDuration = stats.berserkaDuration
-    
-     -- Debug prints for berserka state
-     print("Initial stats:")
-     print("Speed:", tank.speed, "Melee Damage:", tank.meleeDamage, "Tackle Speed:", tank.tackleSpeed)
- 
-     if tank.isBerserka then
-         -- Assuming berserka increases speed and melee damage
-         print("Entering berserka state...")
-         tank.speed = tank.speed * 1.5
-         tank.meleeDamage = tank.meleeDamage * 2
-         print("Berserka stats:")
-         print("Speed:", tank.speed, "Melee Damage:", tank.meleeDamage)
-     end
+
 end
 
 function on_exit() end
