@@ -23,7 +23,7 @@ angleRotation = 0
 godMode = false
 isMoving = false
 local dashSpeed = 15
-local impulseApplied = false
+impulseApplied = false
 meleeImpulseApplied = false
 local dashTimeCounter = 0
 local dashTime = 0.3
@@ -561,7 +561,7 @@ end
 
 function updateDash(dt)
     -- Check for dash activation
-    if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true then
+    if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true and swordScript.slasheeed == false then
         if(currentAnim ~= dash) and swordScript.slasheeed == false then
             currentAnim = dash
             currentUpAnim = dash
