@@ -70,7 +70,7 @@ function on_update(dt)
 
     local rightShoulder = Input.get_button(Input.action.Melee)
 
-    if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true then
+    if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true and playerScript.impulseApplied == false then
         
         slasheeed = true
             
