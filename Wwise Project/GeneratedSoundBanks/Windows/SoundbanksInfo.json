@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{BAB19078-95DC-4C2B-868E-8037B0209A03}",
     "Language": "SFX",
-    "Hash": "{DA51B43A-FC9F-04A7-8276-E2E74B1FDCC5}",
+    "Hash": "{39A954EC-2C62-023D-B80C-4FA7E4B12FF8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BossSFX",
     "ShortName": "BossSFX",
     "Path": "BossSFX.bnk",
@@ -38,14 +38,6 @@
       "Location": "Memory",
       "ShortName": "BossStep1.wav",
       "CachePath": "26/{26D27BE7-8AB0-40DA-EAA0-113AE1D5CFF2}.wem"
-     },
-     {
-      "Id": "232213544",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "PlayerDash1.wav",
-      "CachePath": "12/{12D8FC78-75AE-8C51-5F4F-C31E0F59E976}.wem"
      },
      {
       "Id": "235862312",
@@ -96,14 +88,6 @@
       "CachePath": "01/{010717C8-A964-A9DB-7F25-4DFCDD63280B}.wem"
      },
      {
-      "Id": "741537981",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "PlayerDash3.wav",
-      "CachePath": "95/{955AC31D-7AE4-1771-87A2-32897746BA73}.wem"
-     },
-     {
       "Id": "750335857",
       "Language": "SFX",
       "Streaming": "false",
@@ -150,14 +134,6 @@
       "Location": "Memory",
       "ShortName": "BossStep4.wav",
       "CachePath": "65/{658392D3-4B93-92F4-CEDC-FBE495F9644E}.wem"
-     },
-     {
-      "Id": "1058196675",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "PlayerDash2.wav",
-      "CachePath": "AF/{AF462C20-C7E3-3B97-F1FE-E94614483D99}.wem"
      },
      {
       "Id": "1061460826",
@@ -332,26 +308,6 @@
       "MediaRefs": [
        {
         "Id": "916895430"
-       }
-      ]
-     },
-     {
-      "Id": "1927031969",
-      "Name": "Play_PlayerDash",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\Movement\\Play_PlayerDash",
-      "GUID": "{103857FA-0A96-4F55-B60D-EFECA45C96FA}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.81306124",
-      "DurationMax": "1.0210431",
-      "MediaRefs": [
-       {
-        "Id": "232213544"
-       },
-       {
-        "Id": "741537981"
-       },
-       {
-        "Id": "1058196675"
        }
       ]
      }
@@ -2216,7 +2172,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{CD9A3D5F-4B98-20D6-F32C-5E7604EC838D}",
+    "Hash": "{0907FF5C-589D-EFA6-FE66-EA15697F9290}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -2358,14 +2314,6 @@
       "CachePath": "E4/{E430325D-E036-AAEF-3B64-DAA577E13562}.wem"
      },
      {
-      "Id": "821359826",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "BossChargeUltimate.wav",
-      "CachePath": "9B/{9B7C1624-84A2-E925-6EEE-CABE013C25C1}.wem"
-     },
-     {
       "Id": "875707202",
       "Language": "SFX",
       "Streaming": "false",
@@ -2455,20 +2403,6 @@
       "MediaRefs": [
        {
         "Id": "881689230"
-       }
-      ]
-     },
-     {
-      "Id": "1560622280",
-      "Name": "Play_BossChargeUltimate",
-      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossChargeUltimate",
-      "GUID": "{920B37F9-CEA4-47A3-AD55-3B6538D26886}",
-      "DurationType": "OneShot",
-      "DurationMin": "3.9814584",
-      "DurationMax": "3.9814584",
-      "MediaRefs": [
-       {
-        "Id": "821359826"
        }
       ]
      },
@@ -2643,6 +2577,6 @@
     ]
    }
   ],
-  "FileHash": "{C9B10DF2-9ED8-403F-20CF-6CF614BA318C}"
+  "FileHash": "{EA7482F8-6FD6-AC06-70AB-686962DAC479}"
  }
 }
