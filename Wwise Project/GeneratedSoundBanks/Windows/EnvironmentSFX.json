@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{9684A7D9-DAA7-BDDA-1382-D07D994E8553}",
+    "Hash": "{D4101A5B-EBAB-E191-D2B5-9A4F2C5A840A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -37,7 +37,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "fireburn.wav",
-      "CachePath": "91/{914641A6-4C92-4837-0C58-1B88C0B0B2E5}.wem"
+      "CachePath": "9C/{9C08EFBE-96F5-E65F-0058-7550D5CF4FD8}.wem"
      },
      {
       "Id": "657677064",
@@ -53,7 +53,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "firetorch.wav",
-      "CachePath": "E3/{E3663E5C-F768-537D-116C-1E71DFE6178B}.wem"
+      "CachePath": "98/{983392DE-6A15-D3C4-44D7-59C75BD911C9}.wem"
      }
     ],
     "Events": [
@@ -116,7 +116,6 @@
       "Name": "Play_metaldoor",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_metaldoor",
       "GUID": "{ED62D851-4499-4458-AB59-0AAF8975C447}",
-      "MaxAttenuation": "10",
       "DurationType": "OneShot",
       "DurationMin": "6.2363124",
       "DurationMax": "6.2363124",
@@ -129,6 +128,6 @@
     ]
    }
   ],
-  "FileHash": "{81C9587A-B927-20DD-479C-43C7623959F1}"
+  "FileHash": "{8A20C9A8-5210-DD63-D5E9-D02639680B62}"
  }
 }

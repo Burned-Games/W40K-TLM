@@ -1,0 +1,14 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1369132676	Play_MenuPressButton			\Default Work Unit\UI\Play_MenuPressButton	
+	2317729388	Play_MenuOutro			\Default Work Unit\UI\Play_MenuOutro	
+	2741762487	Play_MenuIntro			\Default Work Unit\UI\Play_MenuIntro	
+	3079235105	Play_MenuSettingsSFX			\Default Work Unit\UI\Play_MenuSettingsSFX	
+	3863106023	Play_MenuHoverButton			\Default Work Unit\UI\Play_MenuHoverButton	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	142156323	MenuOutro	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\23\{2315B096-5A6B-A87F-41A5-8CCF27786458}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\MenuOutro		338536
+	269940286	MenuIntro	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\27\{2767A0CF-4B83-DBEB-BB0A-B2B0D8175659}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\MenuIntro		297332
+	356355759	MenuSettingsSFX	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\63\{630F5834-230D-0E86-8656-D9AB15A885F0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\MenuSettingsSFX		14810
+	487154303	MenuHoverButton	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\62\{62CF02EE-E642-64D1-BC4E-C7FEC183A9E1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\MenuHoverButton		20696
+	931857166	MenuPressButton	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\EF\{EF93C17B-8D7E-096E-3EDB-0B3D13727403}.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\MenuPressButton		11868
+

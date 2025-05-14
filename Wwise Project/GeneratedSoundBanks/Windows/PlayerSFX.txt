@@ -1,20 +1,44 @@
 Event	ID	Name			Wwise Object Path	Notes
-	581613120	Play_StepTest			\Default Work Unit\Steps\Play_StepTest	
-	677390718	Play_PlayerInyector_01			\Default Work Unit\Player\New\Play_PlayerInyector_01	
-	899646374	Play_BannerZone			\Default Work Unit\Player\New\Play_BannerZone	
-	910581297	Play_PlayerDeath			\Default Work Unit\Player\New\Play_PlayerDeath	
-	3652542138	Play_PlayerOverloads			\Default Work Unit\Player\New\Play_PlayerOverloads	
-	3859629335	Play_BannerFall			\Default Work Unit\Player\New\Play_BannerFall	
+	677390718	Play_PlayerInyector_01			\Default Work Unit\Player\State Effects\Play_PlayerInyector_01	
+	899646374	Play_BannerZone			\Default Work Unit\Player\Banner\Play_BannerZone	
+	910581297	Play_PlayerDeath			\Default Work Unit\Player\Play_PlayerDeath	
+	961908944	Play_PlayerCD			\Default Work Unit\Player\Play_PlayerCD	
+	1613056095	Play_PlayerSwapWeapons			\Default Work Unit\Player\Play_PlayerSwapWeapons	
+	1927031969	Play_PlayerDash			\Default Work Unit\Player\Movement\Play_PlayerDash	
+	3095736289	Play_PlayerBleeding			\Default Work Unit\Player\State Effects\Play_PlayerBleeding	
+	3345812001	Play_PlayerStepsLvl1			\Default Work Unit\Player\Movement\Play_PlayerStepsLvl1	
+	3345812002	Play_PlayerStepsLvl2			\Default Work Unit\Player\Movement\Play_PlayerStepsLvl2	
+	3539308718	Play_PlayerNoAmmo			\Default Work Unit\Player\Play_PlayerNoAmmo	
+	3652542138	Play_PlayerOverloads			\Default Work Unit\Player\State Effects\Play_PlayerOverloads	
+	3842654606	Play_PlayerBurning			\Default Work Unit\Player\State Effects\Play_PlayerBurning	
+	3859629335	Play_BannerFall			\Default Work Unit\Player\Banner\Play_BannerFall	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	136860020	Overload2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A6\{A60F3294-6C68-883E-7D8B-447D511A4D3D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerOverloads\Overload2		217872
-	174829407	MetalSandStep	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\D9\{D9DD909B-CE89-9E22-DD36-37384062A494}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StepTest\MetalSandStep		18198
-	393389286	PlayerDeath	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\DE\{DEB088A3-0310-3FE6-4576-E1FF4401EEE8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerDeath		238452
-	482606943	BannerZone	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C2\{C2F17ACC-2E9B-D629-A243-5548AC0DC0B5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Banner\BannerZone		193764
+	177622681	PlayerStep4Lvl1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A9\{A9B9DD32-AAA8-E019-6912-7DC6807C2FC1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep4Lvl1		22118
+	191256656	Bleeding4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\17\{179097AE-A3F6-5AD2-A267-EE8875AF4629}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBleeding\Bleeding4		211212
+	232213544	PlayerDash1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\12\{12D8FC78-75AE-8C51-5F4F-C31E0F59E976}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash1		143520
+	241682433	PlayerSwapWeapons	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\F9\{F9396E8E-CFEC-974D-F86B-363AA9849E1B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSwapWeapons		74064
+	300319314	PlayerStep1Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\0B\{0B6D5797-9382-0B72-6064-00595653ACE4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep1Lvl2		28954
+	393389286	PlayerDeath	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\DE\{DEB088A3-0310-3FE6-4576-E1FF4401EEE8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerDeath		238452
+	453479899	PlayerCD	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8F\{8FF0AAB0-8F85-B8D8-C0D8-FFC7B70809C8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerCD		8630
+	557785712	Burning3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\7F\{7FB929F3-D216-A821-D336-6AF496AA9F37}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning3		278828
 	593561193	PlayerInyector	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\ED\{ED5866C0-5DBC-E466-AA72-2C31A4654D31}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerInyector		331632
 	619122296	Overload1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\72\{72F6092C-34EB-AC57-55A5-9D0181497173}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerOverloads\Overload1		143680
 	686019683	BannerFall	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C5\{C5D1CD64-92C9-3600-325B-1B047BCC1B87}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Banner\BannerFall		83040
-	784979147	MetalSandStep3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\6D\{6DC6E29E-3FDC-5540-EE44-AA453B181A14}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StepTest\MetalSandStep3		31358
-	813472966	MetalSandStep4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8E\{8E925B89-F433-A173-CB2C-165B47EAB303}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StepTest\MetalSandStep4		22118
-	1047720961	MetalSandStep2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\6C\{6C6CE1BC-A2F9-5C59-0F80-E4A74F30644D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StepTest\MetalSandStep2		33524
+	703357736	PlayerStep1Lvl1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\99\{99EE0698-60ED-0381-1AF8-1CDB4D6CE445}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep1Lvl1		18198
+	727136075	Bleeding3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\5C\{5C0D67A3-921E-C047-92B9-BC2580E7F2C3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBleeding\Bleeding3		211208
+	738484757	PlayerStep3Lvl1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\56\{567A6EBA-37A1-EF36-C69C-3872ED85C91E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep3Lvl1		31358
+	741537981	PlayerDash3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\95\{955AC31D-7AE4-1771-87A2-32897746BA73}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash3		154900
+	746984909	PlayerStep3Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\29\{29CF1DDB-E98E-52E5-1B6A-F76495B5C838}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep3Lvl2		31358
+	806581019	PlayerStep4Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\E4\{E430325D-E036-AAEF-3B64-DAA577E13562}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep4Lvl2		17892
+	812580125	PlayerNoAmmo	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\92\{920AB1F8-9937-6265-6EC8-651B010A3A4A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerNoAmmo		54460
+	875707202	Burning1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C4\{C41F9D22-4D55-3F16-107D-BC6B1897F9F8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning1		266992
+	881689230	BannerZone	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AA\{AA88D1A0-5717-CCBC-A426-036B150481A3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Banner\BannerZone		193764
+	910878074	Burning2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B2\{B2712022-55F2-D907-1793-C24BDA6BA14A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning2		399788
+	992939692	PlayerStep2Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A7\{A7A67FCE-1135-A5DB-2301-F44D3A16C46B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep2Lvl2		33524
+	1030398999	Bleeding2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\21\{211D9B75-7219-C8FB-D0AA-D142CB1832E9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBleeding\Bleeding2		167396
+	1058196675	PlayerDash2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AF\{AF462C20-C7E3-3B97-F1FE-E94614483D99}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash2		180208
+	1062882520	Bleeding1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\EC\{EC25D7CE-D39B-1A2F-24C0-6985D5A3C6A9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBleeding\Bleeding1		235112
+	1069454603	PlayerStep2Lvl1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8D\{8D26BE68-18A2-6993-3503-71D91E0765B0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep2Lvl1		33524
 

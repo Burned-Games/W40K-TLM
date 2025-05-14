@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}",
     "Language": "SFX",
-    "Hash": "{E08D57E3-B713-5CFD-410D-62B9F29CD77F}",
+    "Hash": "{A0BF667B-B1ED-12AD-F10D-1C253CE8AF15}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\TankSFX",
     "ShortName": "TankSFX",
     "Path": "TankSFX.bnk",
@@ -64,12 +64,28 @@
       "CachePath": "25/{25926324-0EA9-571B-15B2-13740BE12E53}.wem"
      },
      {
+      "Id": "897013924",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankHurt.wav",
+      "CachePath": "B6/{B64BECC4-731C-8CA4-07A1-DDC5999EB3E3}.wem"
+     },
+     {
       "Id": "1018211740",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "TankStep2.wav",
       "CachePath": "8F/{8F5957E4-69A0-D5E2-8D23-89CA17AD62E3}.wem"
+     },
+     {
+      "Id": "1032067657",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "TankDead.wav",
+      "CachePath": "08/{083D6F91-2CA2-054C-79F4-DA467AEB7F86}.wem"
      }
     ],
     "Events": [
@@ -88,6 +104,20 @@
       ]
      },
      {
+      "Id": "539813444",
+      "Name": "Play_TankDead",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankDead",
+      "GUID": "{A6656DAB-80F0-4572-8D02-BC6DACB1A5AC}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1533542",
+      "DurationMax": "1.1533542",
+      "MediaRefs": [
+       {
+        "Id": "1032067657"
+       }
+      ]
+     },
+     {
       "Id": "2751048284",
       "Name": "Play_TankDetectPlayer",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankDetectPlayer",
@@ -98,6 +128,20 @@
       "MediaRefs": [
        {
         "Id": "95396527"
+       }
+      ]
+     },
+     {
+      "Id": "2293944033",
+      "Name": "Play_TankHurt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankHurt",
+      "GUID": "{14B3C5B9-A164-4CD5-977F-D4CF2B7B2C7D}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.1533542",
+      "DurationMax": "1.1533542",
+      "MediaRefs": [
+       {
+        "Id": "897013924"
        }
       ]
      },
@@ -141,6 +185,6 @@
     ]
    }
   ],
-  "FileHash": "{996AF46A-1099-1913-A7B0-383A5FA409EC}"
+  "FileHash": "{85328DDE-F4E1-7EF4-AD21-36DB342EC85D}"
  }
 }
