@@ -101,6 +101,10 @@ local BUTTON_STATES = {
 
 local playerScript = nil
 
+--Audio
+local indexHoverSFX = nil
+local indexSelectionSFX = nil
+
 function on_ready()
     -- Initialize upgrade manager
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
@@ -117,6 +121,10 @@ function on_ready()
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+
+    --Audio
+    indexHoverSFX = current_scene:get_entity_by_name("HoverButtonSFX"):get_component("AudioSourceComponent")
+    indexSelectionSFX = current_scene:get_entity_by_name("PressButtonSFX"):get_component("AudioSourceComponent")
 
     -- Get all workbench UI elements
     local workbenchUIEntity = current_scene:get_entity_by_name("WorkBenchUI2")
