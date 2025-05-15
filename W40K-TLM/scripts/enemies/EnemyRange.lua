@@ -320,15 +320,15 @@ function change_state(dt)
             if range.currentState ~= range.state.Stab then
                 range.currentState = range.state.Stab
             end
+            
+        elseif range.playerDistance <= range.chaseRange then
+            if range.currentState ~= range.state.Chase then
+                range.currentState = range.state.Chase
+            end
 
         elseif range.playerDistance <= range.rangeAttackRange then
             if range.currentState ~= range.state.Shoot then
                 range.currentState = range.state.Shoot
-            end
-
-        elseif range.playerDistance <= range.chaseRange then
-            if range.currentState ~= range.state.Chase then
-                range.currentState = range.state.Chase
             end
 
         else
