@@ -4,6 +4,7 @@ local enemyTransf = nil
 local enemyScript = nil
 local playerTransf = nil
 local lightningTransf = nil
+local bossConeAtackSFX = nil
 
 local lightningTimer = 0.0
 local meleeAttackTimer = 0.0
@@ -65,6 +66,9 @@ function on_ready()
         lightningRbs[i]:set_trigger(true)
     end
 
+    -- Audio
+    bossConeAtackSFX = current_scene:get_entity_by_name("BossConeAtackSFX"):get_component("AudioSourceComponent")
+
 
 
     -- Level
@@ -106,7 +110,7 @@ function on_update(dt)
         if not isLightningDamaging then
             meleeAttackTimer = meleeAttackTimer + dt
             if meleeAttackTimer >= meleeAttackDuration then
-                --bossConeAtackSFX:play()
+                bossConeAtackSFX:play()
                 isLightningDamaging = true
                 lightningTimer = 0.0
             end
