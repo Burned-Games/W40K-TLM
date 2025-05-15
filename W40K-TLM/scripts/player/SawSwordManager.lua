@@ -197,9 +197,10 @@ function Slash()
                                 playerScript.health = playerScript.health + HpStealed
                             end
                             playerScript.makeDamage = true
+                            enemyInstance.isPushed = true
                         end
                         
-                        enemyInstance.isPushed = true
+                        
                         impulseDirection = Vector3.new(
                         entityPos.x - playerTransf.position.x,
                         entityPos.y - playerTransf.position.y,
