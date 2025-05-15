@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 3172598556616526098
+                "value0": 5309687269701886098
             },
             "value4": false
         },
@@ -61,16 +61,22 @@
         "value17": 0,
         "value18": 1,
         "value19": 0,
-        "value20": 0,
+        "value20": 1,
         "value21": 0,
-        "value22": 0,
+        "value22": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/enemies/EnemyAlertUI.lua",
+            "Language": 0
+        },
         "value23": 0,
         "value24": 0,
         "value25": 0,
         "value26": 0,
-        "value27": 1,
+        "value27": 0,
         "value28": 0,
-        "value29": {
+        "value29": 1,
+        "value30": 0,
+        "value31": {
             "cereal_class_version": 0,
             "TextureUUID": {
                 "value0": 618222800157541547
@@ -85,11 +91,11 @@
             "FlipY": false,
             "TilingFactor": 1.0
         },
-        "value30": 0,
-        "value31": 0,
         "value32": 0,
         "value33": 0,
         "value34": 0,
-        "value35": 0
+        "value35": 0,
+        "value36": 0,
+        "value37": 0
     }
 }
