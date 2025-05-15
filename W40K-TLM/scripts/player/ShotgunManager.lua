@@ -112,7 +112,7 @@ local bolterScript = nil
 
 local granadePreview = nil
 
-local granadePreviewPos = nil
+local granadePreviewTransf = nil
 
 
 function on_ready()
@@ -120,7 +120,7 @@ function on_ready()
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     granadePreview = current_scene:get_entity_by_name("GranadePreview")
-    granadePreviewPos = granadePreview:get_component("TransformComponent").position
+    granadePreviewTransf = granadePreview:get_component("TransformComponent")
     if current_scene:get_entity_by_name("BolterManager"):has_component("ScriptComponent") then
 
         bolterScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
@@ -562,17 +562,16 @@ function update_joystick_position()
 end
 
 function handleGranade(dt)
-        granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 1, math.cos(playerScript.angleRotation)))
+        granadeDirection = normalizeVector(Vector3.new(math.sin(playerScript.angleRotation), 0.02, math.cos(playerScript.angleRotation)))
     if granadeDistance < granadeMaxDistance then
         granadeDistance = granadeDistance + granadeSpeed
     end
 
-    granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 1, granadeOrigin.z + granadeDirection.z * granadeDistance)
+    granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 0.02, granadeOrigin.z + granadeDirection.z * granadeDistance)
     finalTargetPos = granadeNewPos
     --rb:set_position(granadeNewPos)
-    granadePreviewPos.x = granadeNewPos.x
-    granadePreviewPos.y = granadeNewPos.y
-    granadePreviewPos.z = granadeNewPos.z
+    granadePreviewTransf.position = Vector3.new(granadeNewPos.x, granadeNewPos.y, granadeNewPos.z)
+
     launched = true
 end
 
@@ -615,7 +614,7 @@ function throwGranade(targetPosition)
 
     local LAUNCH_ANGLE = math.rad(35)   
     local GRAVITY = 10.0                -- Gravedad
-    local SPEED_BOOST = 1.13            -- Aceleración horizontal adicional
+    local SPEED_BOOST = 1.33            -- Aceleración horizontal adicional
 
     -- Aquí agregamos el factor para la velocidad de caída
     local verticalSpeed = math.sqrt(GRAVITY * horizontalDistance * math.tan(LAUNCH_ANGLE))
@@ -762,6 +761,7 @@ function explodeGranade()
         throwingGranade = false
         cameraScript.startShake(0.2,5)
         Input.send_rumble(vibrationGranadeExplosionSettings.x, vibrationGranadeExplosionSettings.y, vibrationGranadeExplosionSettings.z)
+        granadePreviewTransf.position = Vector3.new(0, -230, 0)
     end
 end
 

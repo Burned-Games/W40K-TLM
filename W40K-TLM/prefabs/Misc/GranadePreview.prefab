@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 13341230964280728438
+                "value0": 12527162225719680724
             },
             "value4": false
         },
@@ -40,7 +40,7 @@
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": -230.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -191,9 +191,9 @@
                             "z": 1.0
                         },
                         "StartSize": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 2.0,
+                            "y": 2.0,
+                            "z": 2.0
                         },
                         "UseRandomRotation": false,
                         "StartRotationMin": {
@@ -460,9 +460,9 @@
                             "z": 1.0
                         },
                         "StartSize": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 2.0,
+                            "y": 2.0,
+                            "z": 2.0
                         },
                         "UseRandomRotation": true,
                         "StartRotationMin": {
