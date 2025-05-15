@@ -2020,7 +2020,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{D4101A5B-EBAB-E191-D2B5-9A4F2C5A840A}",
+    "Hash": "{FCAA9AFD-C8AB-556E-A958-22120DAF64B8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -2040,6 +2040,14 @@
       "Location": "Memory",
       "ShortName": "lever.wav",
       "CachePath": "DA/{DA125539-7028-2DD3-384E-D23ED1F30576}.wem"
+     },
+     {
+      "Id": "88020309",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "WorkbenchLand.wav",
+      "CachePath": "C1/{C1AF7F1C-C587-59E2-13C7-062D39EBBBF4}.wem"
      },
      {
       "Id": "641304611",
@@ -2132,6 +2140,20 @@
       "MediaRefs": [
        {
         "Id": "657677064"
+       }
+      ]
+     },
+     {
+      "Id": "3349207590",
+      "Name": "Play_WorkbenchLand",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchLand",
+      "GUID": "{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.3690476",
+      "DurationMax": "2.3690476",
+      "MediaRefs": [
+       {
+        "Id": "88020309"
        }
       ]
      }
@@ -2745,6 +2767,6 @@
     ]
    }
   ],
-  "FileHash": "{7B875051-51C7-E909-6933-6B083FDA9E78}"
+  "FileHash": "{8DD3CFB7-73A0-623F-32E8-9152670130C4}"
  }
 }
