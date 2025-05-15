@@ -110,6 +110,8 @@ local playerInyectorSFX = nil
 local playerOverloadsSFX = nil
 local playerStepsSFX = nil
 local playerSwapWeaponsSFX = nil
+local playerCDSFX = nil
+local playerNoAmmoSFX = nil
 
 -- effects
 isBleeding = false
@@ -251,6 +253,8 @@ function on_ready()
     playerOverloadsSFX = current_scene:get_entity_by_name("PlayerOverloadsSFX"):get_component("AudioSourceComponent")
     playerStepsSFX = current_scene:get_entity_by_name("PlayerStepsSFX"):get_component("AudioSourceComponent")
     playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
+    playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
+    playerNoAmmoSFX = current_scene:get_entity_by_name("PlayerNoAmmoSFX"):get_component("AudioSourceComponent")
 
     local musicVolume = load_progress("musicVolumeGeneral", 1.0)
     explorationMusic:set_volume(musicVolume)
@@ -561,6 +565,10 @@ end
 
 function updateDash(dt)
     -- Check for dash activation
+    if Input.get_button(Input.action.Dash) == Input.state.Down and not dashAvailable then
+        playerCDSFX:play()
+    end
+    
     if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true and swordScript.slasheeed == false then
         if(currentAnim ~= dash) and swordScript.slasheeed == false then
             currentAnim = dash

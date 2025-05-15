@@ -61,7 +61,9 @@ local aUpgradeSelButtonEntity, aUpgradeSelButton
 
 -- Indexes for each screen
 local weaponIndex = 0  -- 0 for upgrade select, 1-4 for individual upgrades
+local prevWeaponIndex = 0
 local armorIndex = 0   -- 0 for upgrade select, 1-3 for individual upgrades
+local prevArmorIndex = 0
 local buttonCooldown = 0
 local buttonCooldownTime = 0.1
 local contadorMovimientoBotones = 0
@@ -104,6 +106,8 @@ local playerScript = nil
 --Audio
 local indexHoverSFX = nil
 local indexSelectionSFX = nil
+local changePageSFX = nil
+local notAvailableSFX = nil
 
 function on_ready()
     -- Initialize upgrade manager
@@ -125,6 +129,8 @@ function on_ready()
     --Audio
     indexHoverSFX = current_scene:get_entity_by_name("HoverButtonSFX"):get_component("AudioSourceComponent")
     indexSelectionSFX = current_scene:get_entity_by_name("PressButtonSFX"):get_component("AudioSourceComponent")
+    changePageSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
+    notAvailableSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
 
     -- Get all workbench UI elements
     local workbenchUIEntity = current_scene:get_entity_by_name("WorkBenchUI2")
@@ -436,7 +442,7 @@ function toggle_screen()
     end
     
     toggleCooldownTimer = toggleCooldownDuration
-    
+    changePageSFX:play()
     if currentScreen == "gun" then
         weaponIndex = weaponIndex
         currentScreen = "character"
@@ -541,10 +547,14 @@ function handle_gun_controls(dt)
         wIVSelButton.state = 1
     end
 
+    if prevWeaponIndex ~= weaponIndex then
+        indexHoverSFX:play()
+        prevWeaponIndex = weaponIndex
+    end
+
     local confirmState = Input.get_button(Input.action.Confirm)
     if confirmState == Input.state.Repeat and not confirmPressed then
         confirmPressed = true
-        
         -- Handle action based on selected index
         if weaponIndex == 0 then
             wUpgradeSelButton.state = 2
@@ -562,13 +572,21 @@ function handle_gun_controls(dt)
                 if success then
                     find_next_available_upgrade("weapons")
                     update_ui()
+                    indexSelectionSFX:play()
+                else
+                    notAvailableSFX:play()
                 end
             elseif currentUpgrade and isPreviousPurchased and currentUpgrade == "reloadReduction" then
                 local success = upgradeManager.buy_upgrade("weapons", "reloadReduction")
                 if success then
                     find_next_available_upgrade("weapons")
                     update_ui()
+                    indexSelectionSFX:play()
+                else
+                    notAvailableSFX:play()
                 end
+            else
+                notAvailableSFX:play()
             end
         elseif weaponIndex == 1 then
             wISelButton.state = 1  
@@ -695,7 +713,13 @@ function handle_character_controls(dt)
     elseif armorIndex == 3 then
         aIIISelButton.state = 1
     end
-      -- Handle confirm button press
+
+    if prevArmorIndex ~= armorIndex then
+        indexHoverSFX:play()
+        prevArmorIndex = armorIndex
+    end
+
+    -- Handle confirm button press
     local confirmState = Input.get_button(Input.action.Confirm)
     if confirmState == Input.state.Repeat and not confirmPressed then
         confirmPressed = true
@@ -716,13 +740,21 @@ function handle_character_controls(dt)
                 if success then
                     find_next_available_upgrade("armor")
                     update_ui()
+                    indexSelectionSFX:play()
+                else
+                    notAvailableSFX:play()
                 end  
             elseif currentUpgrade and isPreviousPurchased and currentUpgrade == "healthBoost" then
                 local success = upgradeManager.buy_upgrade("armor", "healthBoost")
                 if success then
                     find_next_available_upgrade("armor")
                     update_ui()
+                    indexSelectionSFX:play()
+                else
+                    notAvailableSFX:play()
                 end
+            else
+                notAvailableSFX:play()
             end
         elseif armorIndex == 1 then
             aISelButton.state = 1  
