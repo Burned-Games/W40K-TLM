@@ -44,6 +44,7 @@ local bolterSkillChargeSFX = nil
 local bolterSkillExplosionSFX = nil
 local bolterSkillShotSFX = nil
 local bolterBulletImpactSFX = nil
+local playerNoAmmoSFX = nil
 
 local rifle_firerate_count = 0
 
@@ -173,6 +174,7 @@ function on_ready()
     bolterSkillExplosionSFX = current_scene:get_entity_by_name("BolterSkillExplosionSFX"):get_component("AudioSourceComponent")
     bolterSkillShotSFX = current_scene:get_entity_by_name("BolterSkillShotSFX"):get_component("AudioSourceComponent")
     bolterBulletImpactSFX = current_scene:get_entity_by_name("BolterBulletImpactsSFX"):get_component("AudioSourceComponent")
+    playerNoAmmoSFX = current_scene:get_entity_by_name("PlayerNoAmmoSFX"):get_component("AudioSourceComponent")
 
     -- Particles
     particle_cargdisruptor = current_scene:get_entity_by_name("particle_cargdisruptor"):get_component("ParticlesSystemComponent")
@@ -389,8 +391,9 @@ function on_update(dt)
 
             end
 
-
-
+            if rightTrigger == Input.state.Down and (ammo == maxAmmo) then
+                playerNoAmmoSFX:play()
+            end
 
             tripleShootTimer = tripleShootTimer - dt
 

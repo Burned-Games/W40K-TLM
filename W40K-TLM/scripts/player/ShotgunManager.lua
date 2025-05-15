@@ -85,11 +85,12 @@ local throwing = false
 local finalTargetPos = nil
 
 -- Audio
-local shotgunBulletImpactsSFX
-local shotgunGrenadeShotSFX
-local shotgunGrenadeSmokeSFX
-local shotgunReloadSFX
-local shotgunShotSFX
+local shotgunBulletImpactsSFX = nil
+local shotgunGrenadeShotSFX = nil
+local shotgunGrenadeSmokeSFX = nil
+local shotgunReloadSFX = nil
+local shotgunShotSFX = nil
+local playerNoAmmoSFX = nil
 
 --Particles
 local particle_previewG_interior = nil
@@ -124,6 +125,7 @@ function on_ready()
     shotgunGrenadeSmokeSFX = current_scene:get_entity_by_name("ShotgunGrenadeSmokeSFX"):get_component("AudioSourceComponent")
     shotgunReloadSFX = current_scene:get_entity_by_name("ShotgunReloadSFX"):get_component("AudioSourceComponent")
     shotgunShotSFX = current_scene:get_entity_by_name("ShotgunShotSFX"):get_component("AudioSourceComponent")
+    playerNoAmmoSFX = current_scene:get_entity_by_name("PlayerNoAmmoSFX"):get_component("AudioSourceComponent")
     
     --Particles
     particle_previewG_interior = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("ParticlesSystemComponent")
@@ -217,7 +219,7 @@ function on_update(dt)
             granadeOrigin = playerScript.playerTransf.position
             initialize = false
         end
-        
+
         -- Applying multipliers
         local currentShootCoolDownRifle = shotgun_fire_rate * (1 / attackSpeedMultiplier)
         local currentMaxReloadTime = reload_time * (1 / reloadSpeedMultiplier)
@@ -225,6 +227,10 @@ function on_update(dt)
             -- updateTime
             current_time = current_time + dt  
 
+            local rightTrigger = Input.get_button(Input.action.Shoot)
+            if ammo <= 0 and rightTrigger == Input.state.Down then
+                playerNoAmmoSFX:play()
+            end
 
             -- if in reload, check is fishing
             if is_reloading or manualReload then
@@ -255,8 +261,8 @@ function on_update(dt)
                     bolterScript.vfxShootTransf.position.y = vfxShootPosY
                     shoot(dt)
                     next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
-                    
                 end
+            
 
             else
                 if playerScript.currentAnim ~= -1 and shootAnimation == true then
@@ -268,6 +274,8 @@ function on_update(dt)
                 
                 
             end
+
+           
 
             -- reload
             if (ammo == 0 or (Input.is_button_pressed(Input.controllercode.West) and ammo < maxAmmo)) and not is_reloading then

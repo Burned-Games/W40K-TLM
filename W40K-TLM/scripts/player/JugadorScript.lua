@@ -111,7 +111,6 @@ local playerOverloadsSFX = nil
 local playerStepsSFX = nil
 local playerSwapWeaponsSFX = nil
 local playerCDSFX = nil
-local playerNoAmmoSFX = nil
 
 -- effects
 isBleeding = false
@@ -254,7 +253,6 @@ function on_ready()
     playerStepsSFX = current_scene:get_entity_by_name("PlayerStepsSFX"):get_component("AudioSourceComponent")
     playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
-    playerNoAmmoSFX = current_scene:get_entity_by_name("PlayerNoAmmoSFX"):get_component("AudioSourceComponent")
 
     local musicVolume = load_progress("musicVolumeGeneral", 1.0)
     explorationMusic:set_volume(musicVolume)
@@ -717,7 +715,7 @@ end
 end
 
 function handleWeaponSwitch(dt)
-    if Input.get_button(Input.action.Skill1) == Input.state.Down and swordScript.slasheeed == false then
+    if Input.get_button(Input.action.Skill1) == Input.state.Down or Input.is_key_pressed(Input.keycode.O) and swordScript.slasheeed == false then
         if pressedButtonChangeWeapon == false then
             if actualweapon == 0 then
                 actualweapon = 1
