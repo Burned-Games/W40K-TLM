@@ -86,48 +86,9 @@ function on_ready()
 
 
 
-    -- Lightning
-    main_boss.lightingColliders = {}
-    main_boss.lightingRbComponent = {}
-    main_boss.lightningRbs = {}
-
+    -- -- Lightning
     main_boss.lightning = current_scene:get_entity_by_name("Lightning")
-    main_boss.lightningTransf = main_boss.lightning:get_component("TransformComponent")
-
-    local children = main_boss.lightning:get_children()
-    for _, child in ipairs(children) do
-        if child:get_component("TagComponent").tag == "RayCollision1" then
-            main_boss.lightingColliders[1] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision2" then
-            main_boss.lightingColliders[2] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision3" then
-            main_boss.lightingColliders[3] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision4" then
-            main_boss.lightingColliders[4] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision5" then
-            main_boss.lightingColliders[5] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision6" then
-            main_boss.lightingColliders[6] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision7" then
-            main_boss.lightingColliders[7] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision8" then
-            main_boss.lightingColliders[8] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision9" then
-            main_boss.lightingColliders[9] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision10" then
-            main_boss.lightingColliders[10] = child
-        end
-    end
-
-    for i = 1, 10 do
-        main_boss.lightingRbComponent[i] = main_boss.lightingColliders[i]:get_component("RigidbodyComponent")
-        main_boss.lightningRbs[i] = main_boss.lightingRbComponent[i].rb
-        main_boss.lightningRbs[i]:set_trigger(true)
-    end
-
-    -- main_boss.lightningRbComponent = main_boss.lightning:get_component("RigidbodyComponent")
-    -- main_boss.lightningRb = main_boss.lightningRbComponent.rb
-    -- main_boss.lightningRb:set_trigger(true)
+    main_boss.lightningScript = main_boss.lightning:get_component("ScriptComponent")
 
     -- Ultimate
     main_boss.ultimate = current_scene:get_entity_by_name("Ultimate")
@@ -167,7 +128,7 @@ function on_ready()
     main_boss.bossShieldHealth = stats.bossShieldHealth
     main_boss.speed = stats.speed
     main_boss.defaultSpeed = main_boss.speed
-    main_boss.meleeDamage = stats.meleeDamage
+    main_boss.lightningScript.meleeDamage = stats.meleeDamage
     main_boss.rangeDamage = stats.rangeDamage
     main_boss.detectionRange = stats.detectionRange
     main_boss.meleeAttackRange = stats.meleeAttackRange
@@ -175,8 +136,8 @@ function on_ready()
 
     -- External Timers
     main_boss.attackCooldown = stats.attackCooldown
-    main_boss.meleeAttackDuration = stats.meleeAttackDuration
-    main_boss.lightningDuration = stats.lightningDuration
+    main_boss.lightningScript.meleeAttackDuration = stats.meleeAttackDuration
+    main_boss.lightningScript.lightningDuration = stats.lightningDuration
     main_boss.rangeAttackDuration = stats.rangeAttackDuration
     main_boss.fistsDamageCooldown = stats.fistsDamageCooldown
     main_boss.shieldCooldown = stats.shieldCooldown
@@ -187,7 +148,6 @@ function on_ready()
     main_boss.pathUpdateInterval = 0.1
     main_boss.attackTimer = 0.0
     main_boss.meleeAttackTimer = 0.0
-    main_boss.lightningTimer = 0.0
     main_boss.rangeAttackTimer = 0.0
     main_boss.timeSinceLastFistHit = 0.0
     main_boss.shieldTimer = 0.0
@@ -222,9 +182,6 @@ function on_ready()
     -- Bools
     main_boss.isRaging = false
     main_boss.isAttacking = false
-    main_boss.lightningThrown = false
-    main_boss.isLightningDamaging = false
-    main_boss.hasDealtLightningDamage = false
     main_boss.fistsThrown = false
     main_boss.isFistsDamaging = true
     main_boss.ultimateThrown = false
@@ -260,20 +217,6 @@ function on_ready()
             end
         end
     end)
-
-    for i = 1, #main_boss.lightningRbs do
-        main_boss.lightingRbComponent[i]:on_collision_stay(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
-
-            if (nameA == "Player" or nameB == "Player") and main_boss.isLightningDamaging then
-                if not main_boss.hasDealtLightningDamage then
-                    main_boss:make_damage(main_boss.meleeDamage)
-                    main_boss.hasDealtLightningDamage = true
-                end
-            end
-        end)
-    end
 
     for i = 1, fistMaxNumbers do
         main_boss.fistRbComponent[i]:on_collision_stay(function(entityA, entityB)
@@ -389,29 +332,6 @@ function on_update(dt)
             end
         
             main_boss.fistsThrown = false
-        end
-    end
-
-    if main_boss.lightningThrown then
-        if not main_boss.isLightningDamaging then
-            main_boss.meleeAttackTimer = main_boss.meleeAttackTimer + dt
-            if main_boss.meleeAttackTimer >= main_boss.meleeAttackDuration then
-                main_boss.bossConeAtackSFX:play()
-                main_boss.isLightningDamaging = true
-                main_boss.lightningTimer = 0.0
-            end
-        else
-            main_boss.lightningTimer = main_boss.lightningTimer + dt
-            if main_boss.lightningTimer >= main_boss.lightningDuration then
-                main_boss.isLightningDamaging = false
-                main_boss.hasDealtLightningDamage = false
-                main_boss.lightningTransf.position = Vector3.new(-500, 0, -500)
-                for i = 1, #main_boss.lightningRbs do
-                    main_boss.lightningRbs[i]:set_position(Vector3.new(-500, 0, -500))
-                end
-
-                main_boss.lightningThrown = false
-            end
         end
     end
 
@@ -538,7 +458,7 @@ function main_boss:rage_state()
         main_boss.totemHealth = stats.totemHealth
         main_boss.speed = stats.speed
         main_boss.defaultSpeed = main_boss.speed
-        main_boss.meleeDamage = stats.meleeDamage
+        main_boss.lightningScript.meleeDamage = stats.meleeDamage
         main_boss.rangeDamage = stats.rangeDamage
         main_boss.ultimateDamage = stats.ultimateDamage
         main_boss.detectionRange = stats.detectionRange
@@ -622,7 +542,7 @@ end
 
 function lightning_attack()
 
-    if main_boss.lightningThrown then return end
+    if main_boss.lightningScript.lightningThrown then return end
 
     if main_boss.currentAnim ~= main_boss.meleeAnim then
         main_boss:play_blocking_animation(main_boss.meleeAnim, main_boss.thunderDuration)
@@ -630,31 +550,9 @@ function lightning_attack()
 
     log("Lightning Attack")
 
-    local direction = unitary_direction(main_boss.playerTransf.position.x, main_boss.enemyTransf.position.x, main_boss.playerTransf.position.z, main_boss.enemyTransf.position.z)
-    local basePos = Vector3.new(main_boss.enemyTransf.position.x + (direction.x * -12), main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z + (direction.z * -12))
-    local colliderSpacing = 1.1 -- Base distance between colliders
-
-    for i = 1, #main_boss.lightningRbs do
-        local offset = (i - 1) * colliderSpacing
-        local pos = Vector3.new(
-            basePos.x + direction.x * offset,
-            basePos.y,
-            basePos.z - 0.5 + direction.z * offset
-        )
-
-        main_boss.lightningRbs[i]:set_position(pos)
-        main_boss.lightningRbs[i]:set_rotation(Vector3.new(90 + main_boss.angle, 0, 90))
-    end
-
-    main_boss.lightningTransf.position = basePos
-    main_boss.lightningTransf.rotation = Vector3.new(90 + main_boss.angle, 0, 90)
+    main_boss.lightningScript:lightning()
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-
-    main_boss.lightningThrown = true
-    main_boss.isLightningDamaging = false
-    main_boss.meleeAttackTimer = 0.0
-    main_boss.lightningTimer = 0.0
 
 end
 
@@ -841,21 +739,7 @@ function manage_destroyed_pillar()
 
 end
 
-function unitary_direction(x1, x2, z1, z2)
 
-    local dx = x2 - x1
-    local dz = z2 - z1
-    local magnitud = math.sqrt(dx * dx + dz * dz)
-
-    main_boss.angle = math.deg(math.atan(dx, dz))
-
-    if magnitud == 0 then
-        return Vector3.new(0, 0, 0)
-    else
-        return Vector3.new(dx / magnitud, 0, dz / magnitud)
-    end
-
-end
 
 function on_exit()
 
