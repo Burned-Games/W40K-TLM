@@ -1,6 +1,6 @@
 
 
-local radiusAttack = 2.5
+local radiusAttack = 5
 local damage = 65
 local HpStealed = 20
 coolDown = 6
