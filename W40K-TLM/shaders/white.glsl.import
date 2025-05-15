@@ -1,0 +1,28 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ShaderImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 15961038300028318063
+                    },
+                    "type": 6,
+                    "originalPath": {
+                        "value0": "shaders/white.glsl"
+                    },
+                    "cachedPath": {
+                        "value0": ""
+                    },
+                    "cache": false,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
