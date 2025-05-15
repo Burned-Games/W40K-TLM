@@ -110,11 +110,17 @@ local astartesFervorManager = nil
 
 local bolterScript = nil
 
+local granadePreview = nil
+
+local granadePreviewPos = nil
+
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
+    granadePreview = current_scene:get_entity_by_name("GranadePreview")
+    granadePreviewPos = granadePreview:get_component("TransformComponent").position
     if current_scene:get_entity_by_name("BolterManager"):has_component("ScriptComponent") then
 
         bolterScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
@@ -563,7 +569,10 @@ function handleGranade(dt)
 
     granadeNewPos = Vector3.new(granadeOrigin.x + granadeDirection.x * granadeDistance, 1, granadeOrigin.z + granadeDirection.z * granadeDistance)
     finalTargetPos = granadeNewPos
-    rb:set_position(granadeNewPos)
+    --rb:set_position(granadeNewPos)
+    granadePreviewPos.x = granadeNewPos.x
+    granadePreviewPos.y = granadeNewPos.y
+    granadePreviewPos.z = granadeNewPos.z
     launched = true
 end
 
