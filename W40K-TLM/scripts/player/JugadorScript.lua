@@ -1580,6 +1580,12 @@ function update_combat_state(dt)
             combatTimer = combatTimer - dt
         end
     end
+
+    if combatTimer <= 0 then
+        normalSpeed = 7.5
+    else
+        normalSpeed = 5
+    end
 end
 
 function applyStunn()
