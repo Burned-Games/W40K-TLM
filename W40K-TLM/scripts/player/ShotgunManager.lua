@@ -300,6 +300,7 @@ function on_update(dt)
 
                 --particle_previewG_interior:emit(1) --PETA 
                 --particle_previewG_exterior:emit(1) --PETA 
+                granadePreviewTransf.position = Vector3.new(0, -230, 0)
                 granadeDistance = 0
                 launched = false
                 rb:set_use_gravity(true)
@@ -761,7 +762,7 @@ function explodeGranade()
         throwingGranade = false
         cameraScript.startShake(0.2,5)
         Input.send_rumble(vibrationGranadeExplosionSettings.x, vibrationGranadeExplosionSettings.y, vibrationGranadeExplosionSettings.z)
-        granadePreviewTransf.position = Vector3.new(0, -230, 0)
+        
     end
 end
 
