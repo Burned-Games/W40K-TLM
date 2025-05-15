@@ -85,7 +85,7 @@ function on_update(dt)
     end
 
     value = Input.get_button(Input.action.Cancel)
-    if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+    if((value == Input.state.Down)) then
         -- lógica de la actualización del volumen y de fxs
         save_progress("musicVolumeGeneral", slider1.value * 100)
         

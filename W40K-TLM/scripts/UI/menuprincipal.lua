@@ -114,7 +114,7 @@ function on_update(dt)
             text5:set_color(defaultColor) --]]
 
             value = Input.get_button(Input.action.Confirm)
-            if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+            if((value == Input.state.Down and sceneChanged == false)) then
                 outroSFX:play()
                 if(index == 0) then
                     --button1:set_state("Pressed")
@@ -160,7 +160,7 @@ function on_update(dt)
         text5:set_color(defaultColor) --]]
 
         value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+        if((value == Input.state.Down and sceneChanged == false)) then
             outroSFX:play()
             if(index == 1) then
                 --button2:set_state("Pressed")
@@ -192,7 +192,7 @@ function on_update(dt)
 
 
         value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+        if((value == Input.state.Down)) then
             indexSelectionSFX:play()
             --button3:set_state("Pressed")
             if(index == 2) then
@@ -214,7 +214,7 @@ function on_update(dt)
         text5:set_color(defaultColor) --]]
 
         value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+        if((value == Input.state.Down and sceneChanged == false)) then
             indexSelectionSFX:play()
             --button3:set_state("Pressed")
             if(index == 3) then
@@ -236,7 +236,7 @@ function on_update(dt)
         text5:set_color(selectedColor) --]]
 
         value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down and sceneChanged == false) or (Input.is_key_pressed(Input.keycode.K) and sceneChanged == false)) then
+        if((value == Input.state.Down and sceneChanged == false)) then
             outroSFX:play()
             --button4:set_state("Pressed")
             if(index == 4) then

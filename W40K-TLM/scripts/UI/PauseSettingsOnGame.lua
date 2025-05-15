@@ -106,7 +106,7 @@ function on_update(dt)
     -- Add update code here
     
     value = Input.get_button(Input.action.Pause)
-    if ((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+    if ((value == Input.state.Down)) then
         if(isPaused) then
             isPaused = false
             visibilidad1Entity:set_active(false)
@@ -132,7 +132,7 @@ function on_update(dt)
         button4.state = State.Normal
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
-            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+            if((value == Input.state.Down)) then
                 indexSelectionSFX:play()
                 if(index == 0) then
                     visibilidad1Entity:set_active(false)
@@ -147,7 +147,7 @@ function on_update(dt)
         button4.state = State.Normal
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
-            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+            if((value == Input.state.Down)) then
                 indexSelectionSFX:play()
                 if(index == 1) then
                     --button2:set_state("Pressed")
@@ -164,7 +164,7 @@ function on_update(dt)
         button4.state = State.Hover
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
-            if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+            if((value == Input.state.Down)) then
                 indexSelectionSFX:play()
                 --button4:set_state("Pressed")
                 if(index == 2) then
@@ -261,7 +261,7 @@ function on_update(dt)
 
 
     value = Input.get_button(Input.action.Cancel)
-    if((value == Input.state.Down) or (Input.is_key_pressed(Input.keycode.K))) then
+    if((value == Input.state.Down)) then
         if isOnPauseSettings then
             visibilidad2Entity:set_active(false)
             isOnPauseSettings = false
