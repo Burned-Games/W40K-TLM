@@ -38,12 +38,14 @@ local meleeAttackSFX = nil
 -- UpgradeManager
 local workbenchUIManagerScript = nil
 local pauseScript = nil
+local bolterScript = nil
 
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
+    bolterScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
     --Particles
     particle_blood_normal = current_scene:get_entity_by_name("particle_blood_normal"):get_component("ParticlesSystemComponent")
     particle_blood_spark = current_scene:get_entity_by_name("particle_blood_spark"):get_component("ParticlesSystemComponent")

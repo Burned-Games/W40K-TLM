@@ -250,7 +250,7 @@ function on_update(dt)
             local rightTrigger = Input.get_button(Input.action.Shoot)
 
             -- shoot
-            if rightTrigger == Input.state.Repeat then
+            if rightTrigger == Input.state.Repeat and is_reloading == false then
                 if playerScript.currentUpAnim ~= playerScript.shotgun_Pump and shootAnimation == false then
                     playerScript.currentUpAnim = playerScript.shotgun_Pump
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
@@ -258,7 +258,7 @@ function on_update(dt)
                 end
                 if ammo > 0 and current_time >= next_fire_time then
                     ammo = ammo - 1  -- use bullet 
-                    bolterScript.vfxShootTransf.position.y = vfxShootPosY
+                    --bolterScript.vfxShootTransf.position.y = vfxShootPosY
                     shoot(dt)
                     next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
                 end
@@ -268,7 +268,7 @@ function on_update(dt)
                 if playerScript.currentAnim ~= -1 and shootAnimation == true then
                     playerScript.currentAnim = -1
                 end
-                bolterScript.vfxShootTransf.position.y = 830
+                --bolterScript.vfxShootTransf.position.y = 830
                 
                 shootAnimation = false
                 

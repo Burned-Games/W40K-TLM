@@ -748,13 +748,14 @@ function handleWeaponSwitch(dt)
     end
 
     if swordScript.slasheeed == true then
+        shotGunScript.is_reloading = false
+        bolterScript.manualReload = false
+        bolterScript.reloadAnimation = false
         playerTransf.rotation.y = math.deg(angleRotation)
         if swordAnimationTimeCounter == 0 then
-            
-        
-            if currentUpAnim ~= melee then
-                currentUpAnim = melee
-                animator:set_current_animation(currentUpAnim)
+            if currentAnim ~= melee then
+                currentAnim = melee
+                animator:set_current_animation(currentAnim)
             end
             swordUpper:set_active(true)
             shotgunUpper:set_active(false)
@@ -766,7 +767,6 @@ function handleWeaponSwitch(dt)
             swordAnimationTimeCounter = swordAnimationTimeCounter + dt
         else
             currentUpAnim = -1
-            currentAnim = -1
             swordAnimationTimeCounter = 0
             swordUpper:set_active(false)
             shotgunUpper:set_active(true)
@@ -1024,7 +1024,7 @@ function playerMovement(dt)
                     if currentAnim ~= run  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false  then
                         currentAnim = run
                         animator:set_lower_animation(currentAnim)
-                        if currentUpAnim ~= run and bolterScript.shootAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and aimAnimation == false then
+                        if currentUpAnim ~= run and bolterScript.shootAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and aimAnimation == false and swordScript.slasheeed == false then
                             currentUpAnim = run
                             moveSpeed = normalSpeed * speedDebuf
                             animator:set_upper_animation(currentUpAnim)
