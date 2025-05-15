@@ -114,6 +114,9 @@ function on_ready()
     support.currentBulletIndex = 1
     support.key = 0
 
+    -- Floats
+    support.alertDistance = 2.5
+
     -- Lists
     support.Enemies = {}
     support.waypointPos = {}

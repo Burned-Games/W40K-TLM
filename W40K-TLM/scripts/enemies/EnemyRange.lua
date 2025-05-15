@@ -123,6 +123,9 @@ function on_ready()
     range.burstCount = 0
     range.currentBulletIndex = 1
 
+    -- Floats
+    range.alertDistance = 2.5
+
     -- Animation Timers
     range.dieDuration = 0.90
     range.firstChaseTimer = 0.0

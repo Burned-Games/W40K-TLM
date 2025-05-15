@@ -46,6 +46,9 @@ function enemy:new(obj)
     obj.zone2Rb = nil
     obj.zone3Rb = nil
 
+    obj.alertEnemiesUI = nil
+    obj.alertEnemiesUITransform = nil
+
 
     -- Tags
     obj.enemyType = "Nil"
@@ -92,6 +95,9 @@ function enemy:new(obj)
     obj.oscillationAngle = 0
     obj.oscillationSpeed = 2
     obj.zoneNumber = 0
+
+    -- Floats
+    obj.alertDistance = 2.5
 
     -- Bools
     obj.haveShield = false
@@ -225,6 +231,12 @@ function enemy:detect_state(dt)
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
         print("Detect animation")
     end
+            
+    if not self.alertEnemiesUI then
+        self.alertEnemiesUI = instantiate_prefab(enemyAlertPrefab)
+        self.alertEnemiesUITransform = self.alertEnemiesUI:get_component("TransformComponent")
+    end
+    self.alertEnemiesUITransform.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + self.alertDistance, self.enemyTransf.position.z)
 
     if self.animTimer >= self.detectDuration and not self.isAlerted then
         self:alert_nearby_enemies(dt)
@@ -568,16 +580,17 @@ function enemy:alert_nearby_enemies(dt)
             enemyData.script.alertTimer = 0.0
             enemyData.alerted = true
             alertedCount = alertedCount + 1
-            
-            local alertEnemiesUI = instantiate_prefab(enemyAlertPrefab)
-            local alertEnemiesUITransform = alertEnemiesUI:get_component("TransformComponent")
+
+            -- Security check, in case the alertUI is already created
+            if not enemyData.script.alertEnemiesUI then
+                local alertUI = instantiate_prefab(enemyAlertPrefab)
+                local alertUITransform = alertUI:get_component("TransformComponent")
+                enemyData.script.alertEnemiesUI = alertUI
+                enemyData.script.alertEnemiesUITransform = alertUITransform
+            end
             
             local enemyPos = enemyData.script.enemyTransf.position
-            alertEnemiesUITransform.position = Vector3.new(
-                enemyPos.x,
-                enemyPos.y,
-                enemyPos.z
-            )
+            enemyData.script.alertEnemiesUITransform.position = Vector3.new(enemyPos.x, enemyPos.y + enemyData.script.alertDistance, enemyPos.z)
         end
     end
     self.isAlerted = true

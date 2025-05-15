@@ -88,6 +88,9 @@ function on_ready()
     -- Lists
     tank.nearbyEnemies = {}
 
+    -- Floats
+    tank.alertDistance = 3.5
+
     -- Bools
     tank.isBerserkaActive = false 
     tank.isPlayingBerserkaAnim = false

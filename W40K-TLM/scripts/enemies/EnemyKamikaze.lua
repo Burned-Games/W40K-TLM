@@ -88,6 +88,9 @@ function on_ready()
     -- Lists
     kamikaze.nearbyEnemies = {}
 
+    -- Floats
+    kamikaze.alertDistance = 1.8
+
     -- Bools
     kamikaze.isExploding = false
     kamikaze.hasExploded = false
