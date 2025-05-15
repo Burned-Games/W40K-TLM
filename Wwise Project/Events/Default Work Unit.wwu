@@ -846,6 +846,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_WorkbenchLand" ID="{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}">
+							<ChildrenList>
+								<Action Name="" ID="{DED58E63-6A4F-423A-A047-3EAF34E9F19D}" ShortID="545790511">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="WorkbenchLand" ID="{C3291544-B327-4F24-8F6C-01BF18422CD4}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{ED3C2099-C675-444E-BFBE-CDD23D9A8868}" ShortID="225254929">
