@@ -11,7 +11,7 @@ function on_update(dt)
     alertTransf.position = Vector3.new(enemyTransf.position.x, enemyTransf.position.y + alertDistance, enemyTransf.position.z)
 
     alertTimer = alertTimer + dt
-    if alertTimer >= 5 then
+    if alertTimer >= 2.5 then
         current_scene:destroy_entity(self)
     end
 end
