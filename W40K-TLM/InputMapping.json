@@ -39,7 +39,7 @@
             "value": {
                 "KeyPos": 8,
                 "KeyNeg": 0,
-                "ButtonPos": 10,
+                "ButtonPos": 1,
                 "ButtonNeg": -1,
                 "Axis": -1,
                 "invertedAxis": false
@@ -127,9 +127,9 @@
             "value": {
                 "KeyPos": 44,
                 "KeyNeg": 0,
-                "ButtonPos": 1,
+                "ButtonPos": -1,
                 "ButtonNeg": -1,
-                "Axis": -1,
+                "Axis": 4,
                 "invertedAxis": false
             }
         },
@@ -160,7 +160,7 @@
             "value": {
                 "KeyPos": 31,
                 "KeyNeg": 0,
-                "ButtonPos": 9,
+                "ButtonPos": 10,
                 "ButtonNeg": -1,
                 "Axis": -1,
                 "invertedAxis": false
@@ -171,9 +171,9 @@
             "value": {
                 "KeyPos": 32,
                 "KeyNeg": 0,
-                "ButtonPos": -1,
+                "ButtonPos": 9,
                 "ButtonNeg": -1,
-                "Axis": 4,
+                "Axis": -1,
                 "invertedAxis": false
             }
         },
