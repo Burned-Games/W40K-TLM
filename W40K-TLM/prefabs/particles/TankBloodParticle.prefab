@@ -1,0 +1,362 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "TankBloodParticle_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 13095407235585038551
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 1,
+        "value1": 1,
+        "value2": 0,
+        "value3": 1,
+        "value4": 0,
+        "value5": {
+            "cereal_class_version": 0,
+            "Tag": "TankBloodParticle"
+        },
+        "value6": 1,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": -10.0,
+                "y": 1.350000023841858,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value9": 1,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value12": 0,
+        "value13": 0,
+        "value14": 0,
+        "value15": 0,
+        "value16": 1,
+        "value17": 0,
+        "value18": {
+            "cereal_class_version": 0,
+            "ParticleEmitter": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 4,
+                        "TransformMatrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": -10.0,
+                            "m31": 1.350000023841858,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        },
+                        "UseDirectionRandom": true,
+                        "Direction": {
+                            "x": -0.25,
+                            "y": 0.10000000149011612,
+                            "z": -0.25
+                        },
+                        "DirectionRandom": {
+                            "x": 0.25,
+                            "y": 0.75,
+                            "z": 0.25
+                        },
+                        "UseColorRandom": false,
+                        "ColorNormal": {
+                            "x": 0.1411290168762207,
+                            "y": 0.012519505806267262,
+                            "z": 0.012519505806267262,
+                            "w": 1.0
+                        },
+                        "ColorRandom": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0,
+                            "w": 1.0
+                        },
+                        "Amount": 1000,
+                        "Looping": false,
+                        "UseRandomLifeTime": false,
+                        "StartLifeTimeMin": 5.0,
+                        "StartLifeTimeMax": 5.0,
+                        "StartLifeTime": 1.25,
+                        "UseRandomSpeed": false,
+                        "StartSpeedMin": 5.0,
+                        "StartSpeedMax": 5.0,
+                        "StartSpeed": 7.0,
+                        "UseRandomSize": false,
+                        "UseSplitAxesSize": false,
+                        "StartSizeMin": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSizeMax": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSize": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "UseRandomRotation": false,
+                        "StartRotationMin": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotationMax": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "SimulationSpace": 1,
+                        "UseEmission": true,
+                        "RateOverTime": 0.0,
+                        "UseBurst": true,
+                        "Bursts": [
+                            {
+                                "ptr_wrapper": {
+                                    "id": 2147483650,
+                                    "data": {
+                                        "cereal_class_version": 0,
+                                        "initialTime": 0.0,
+                                        "count": 12,
+                                        "interval": 2.0
+                                    }
+                                }
+                            }
+                        ],
+                        "ShapeType": 0,
+                        "MinSpread": {
+                            "x": -0.10000000149011612,
+                            "y": -0.10000000149011612,
+                            "z": -0.10000000149011612
+                        },
+                        "MaxSpread": {
+                            "x": 0.10000000149011612,
+                            "y": 0.10000000149011612,
+                            "z": 0.10000000149011612
+                        },
+                        "UseShape": true,
+                        "ShapeAngle": 0.75,
+                        "ShapeRadius": 1.0,
+                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "GoCenter": false,
+                        "UseVelocityOverLifetime": false,
+                        "VelocitySeparateAxes": false,
+                        "VelocityOverLifeX": [
+                            {
+                                "cereal_class_version": 0,
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityMultiplier": 1.0,
+                        "UseSizeOverLifetime": true,
+                        "SizeSeparateAxes": false,
+                        "SizeOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeMultiplier": 1.75,
+                        "UseRotationOverLifetime": false,
+                        "RotationOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationMultiplier": 1.0,
+                        "UseColorOverLifetime": false,
+                        "OverLifetimeColor": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0,
+                            "w": 0.0
+                        },
+                        "ColorGradientPoints": [
+                            {
+                                "cereal_class_version": 0,
+                                "value0": 0.0,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 1.0,
+                                    "value2": 1.0,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 1.0,
+                                    "value2": 1.0,
+                                    "value3": 1.0
+                                }
+                            }
+                        ],
+                        "UseRenderer": true,
+                        "RenderMode": 0,
+                        "RenderAlignment": 0,
+                        "TextureUUID": {
+                            "value0": 11433126781885437404
+                        }
+                    }
+                }
+            }
+        },
+        "value19": 0,
+        "value20": 1,
+        "value21": 0,
+        "value22": 0,
+        "value23": 0,
+        "value24": 0,
+        "value25": 0,
+        "value26": 0,
+        "value27": 0,
+        "value28": 0,
+        "value29": 0,
+        "value30": 0,
+        "value31": 0,
+        "value32": 0,
+        "value33": 0,
+        "value34": 0,
+        "value35": 0
+    }
+}
