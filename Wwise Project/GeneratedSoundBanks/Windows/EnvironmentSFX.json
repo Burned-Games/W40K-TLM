@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{FCAA9AFD-C8AB-556E-A958-22120DAF64B8}",
+    "Hash": "{514FA858-9167-0E8B-2C89-5F3228848D54}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -37,7 +37,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "WorkbenchLand.wav",
-      "CachePath": "C1/{C1AF7F1C-C587-59E2-13C7-062D39EBBBF4}.wem"
+      "CachePath": "19/{199860DB-A18F-50BB-0017-775BCE6EFD34}.wem"
      },
      {
       "Id": "641304611",
@@ -139,8 +139,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchLand",
       "GUID": "{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}",
       "DurationType": "OneShot",
-      "DurationMin": "2.3690476",
-      "DurationMax": "2.3690476",
+      "DurationMin": "2.369025",
+      "DurationMax": "2.369025",
       "MediaRefs": [
        {
         "Id": "88020309"
@@ -150,6 +150,6 @@
     ]
    }
   ],
-  "FileHash": "{379CC7C2-1DE0-F3A9-F4B6-822EBABFC96D}"
+  "FileHash": "{5ACF02D8-1536-0F84-607A-178F8BAC6E96}"
  }
 }

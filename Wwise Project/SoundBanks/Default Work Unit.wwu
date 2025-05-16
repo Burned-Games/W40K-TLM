@@ -3,19 +3,6 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{4E70B0F6-E452-4621-AC81-274B30AEEE9C}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="Music" ID="{AD3F8103-0D7F-40E4-A74A-E4083404369B}">
-					<ObjectInclusionList>
-						<ObjectRef Name="Play_ExploringLevel2Final_container" ID="{B697D3CD-33AD-4052-86A1-11F1336EE255}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel1Indoor_container" ID="{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_mainMenu_music_container" ID="{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_FightingMusic_container" ID="{BD10290A-A00B-4C47-8C5B-DAFDACA2D535}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel2Mid_container" ID="{522DF77E-6496-4DB0-9056-48883FC9A547}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel1Outside_container" ID="{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringColiseum_container" ID="{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
 				<SoundBank Name="PlayerSFX" ID="{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_PlayerSwapWeapons" ID="{6777580F-49FE-41B6-9A36-ED1C140EB815}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -148,6 +135,19 @@
 						<ObjectRef Name="Play_MenuPressButton" ID="{B7D780AB-C622-48FC-99F4-34FF67854550}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MenuIntro" ID="{35719AA1-4508-49C7-B694-CE16E544AC26}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MenuOutro" ID="{D21C5A7A-085B-4EB8-A987-887B5346F657}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Music" ID="{73659943-6E94-44F4-9F79-1342A4490FD4}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_ExploringLevel2Final_container" ID="{B697D3CD-33AD-4052-86A1-11F1336EE255}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringLevel1Indoor_container" ID="{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_mainMenu_music_container" ID="{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_FightingMusic_container" ID="{BD10290A-A00B-4C47-8C5B-DAFDACA2D535}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringLevel2Mid_container" ID="{522DF77E-6496-4DB0-9056-48883FC9A547}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringLevel1Outside_container" ID="{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploringColiseum_container" ID="{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
