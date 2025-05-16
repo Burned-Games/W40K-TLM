@@ -5,11 +5,8 @@ local effect = require("scripts/utils/status_effects")
 main_boss = enemy:new()
 
 local stats = nil
-local fistMaxNumbers = 4
 
---Prefabs locations
-local fistPrefabLocation = "prefabs/Enemies/BossFist.prefab"
-local fistAttackIndicatorPrefabLocation = "prefabs/Enemies/BossFistIndicator.prefab"
+
 
 function on_ready()
 
@@ -37,55 +34,9 @@ function on_ready()
     main_boss.wrathRb:set_trigger(true)
 
     -- Fists
-    main_boss.fistTransf = {}
-    main_boss.fistRbComponent = {}
-    main_boss.fistRbs = {}
+    main_boss.fistScript = current_scene:get_entity_by_name("FistManager"):get_component("ScriptComponent")
 
-    -- Audio
-    main_boss.bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
-    main_boss.bossFaseTwoChangeSFX = current_scene:get_entity_by_name("BossFaseTwoChangeSFX"):get_component("AudioSourceComponent")
-    main_boss.hurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
-    main_boss.shieldExplosionSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
-    main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossShieldZapsSFX"):get_component("AudioSourceComponent")
-    main_boss.bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
-    main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
-    main_boss.bossUltimateExplosionSFX = current_scene:get_entity_by_name("BossUltimateExplosionSFX"):get_component("AudioSourceComponent")
-
-    for i = 1, fistMaxNumbers do
-
-        --local fistEntity = instantiate_prefab(fistPrefabLocation) --No funcionan las fisicas de los prefabs aun
-
-        local fistEntity = current_scene:get_entity_by_name("Fist" .. i)
-
-        main_boss.fistTransf[i] = fistEntity:get_component("TransformComponent")
-        main_boss.fistRbComponent[i] = fistEntity:get_component("RigidbodyComponent")
-        main_boss.fistRbs[i] = main_boss.fistRbComponent[i].rb
-        main_boss.fistRbs[i]:set_trigger(true)
-    end
-
-
-    --Indicator attacks
-
-    ----Indicator attacks -> Fists
-    main_boss.fistIndicators = {}
-    main_boss.fistIndicatorsScript = {}
-    main_boss.fistIndicatorsTransform = {}
-
-    for i = 1, fistMaxNumbers do
-        local fistIndicator = instantiate_prefab(fistAttackIndicatorPrefabLocation)
-        main_boss.fistIndicators[i] = fistIndicator
-        main_boss.fistIndicatorsScript[i] = main_boss.fistIndicators[i]:get_component("ScriptComponent")
-        main_boss.fistIndicatorsTransform[i] = main_boss.fistIndicators[i]:get_component("TransformComponent")
-        main_boss.fistIndicatorsTransform[i].position = Vector3.new(-1000, 0, -1000)
-        main_boss.fistIndicatorsTransform[i].scale = Vector3.new(4, 0, 4)
-        main_boss.fistIndicatorsScript[i]:on_ready()
-    end
-
-    
-
-
-
-    -- -- Lightning
+    -- Lightning
     main_boss.lightning = current_scene:get_entity_by_name("Lightning")
     main_boss.lightningScript = main_boss.lightning:get_component("ScriptComponent")
 
@@ -100,10 +51,21 @@ function on_ready()
     -- Pilar
     main_boss.pillarToDestroy = nil
 
+    -- Audio
+    main_boss.bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
+    main_boss.bossFaseTwoChangeSFX = current_scene:get_entity_by_name("BossFaseTwoChangeSFX"):get_component("AudioSourceComponent")
+    main_boss.hurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
+    main_boss.shieldExplosionSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
+    main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossShieldZapSFX"):get_component("AudioSourceComponent")
+    main_boss.bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
+    main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
+    main_boss.bossUltimateExplosionSFX = current_scene:get_entity_by_name("BossUltimateExplosionSFX"):get_component("AudioSourceComponent")
+
+    
+
     -- Attack lists
     main_boss.scalingAttacks = {}
     main_boss.attacksToTeleport = {}
-    main_boss.fistPositions = {}
 
 
 
@@ -111,10 +73,7 @@ function on_ready()
     main_boss.enemy_type = "main_boss"
     stats = stats_data[main_boss.enemy_type] and stats_data[main_boss.enemy_type][main_boss.level]
     -- Debug in case is not working
-    if not stats then
-        log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level)
-        return
-    end
+    if not stats then log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level) return end
 
 
 
@@ -137,24 +96,20 @@ function on_ready()
     main_boss.attackCooldown = stats.attackCooldown
     main_boss.lightningScript.meleeAttackDuration = stats.meleeAttackDuration
     main_boss.lightningScript.lightningDuration = stats.lightningDuration
-    main_boss.rangeAttackDuration = stats.rangeAttackDuration
-    main_boss.fistsDamageCooldown = stats.fistsDamageCooldown
+    main_boss.fistScript.rangeAttackDuration = stats.rangeAttackDuration
+    main_boss.fistScript.fistsDamageCooldown = stats.fistsDamageCooldown
     main_boss.shieldCooldown = stats.shieldCooldown
-    main_boss.fistsAttackDelay = 2.0
 
     -- Internal Timers
     main_boss.pathUpdateTimer = 0.0
     main_boss.pathUpdateInterval = 0.1
     main_boss.attackTimer = 0.0
     main_boss.meleeAttackTimer = 0.0
-    main_boss.rangeAttackTimer = 0.0
-    main_boss.timeSinceLastFistHit = 0.0
     main_boss.shieldTimer = 0.0
     main_boss.ultiTimer = 0.0
     main_boss.ultiAttackTimer = 0.0
     main_boss.ultiHittingTimer = 0.0
     main_boss.totemTimer = 0.0
-    main_boss.fistsAttackDelayTimer = 0.0
     main_boss.colliderUpdateInterval = 0.1
     main_boss.animDuration = 0.0
     main_boss.animTimer = 0.0
@@ -181,27 +136,19 @@ function on_ready()
     -- Bools
     main_boss.isRaging = false
     main_boss.isAttacking = false
-    main_boss.fistsThrown = false
-    main_boss.isFistsDamaging = true
     main_boss.ultimateThrown = false
     main_boss.ultimateCasting = false
     main_boss.isUltimateDamaging = false
     main_boss.shieldActive = false
     main_boss.hasMovedToCenter = false
     main_boss.isReturning = false
-    main_boss.fistsAttackPending = false
     main_boss.isPlayingAnimation = false
-
-    -- Ints
-    main_boss.radius = 6
-    main_boss.angle = 0
 
     -- Vector3
     main_boss.ultimateVibration = Vector3.new(1, 1, 200)
 
     -- Positions
     main_boss.lastTargetPos = main_boss.playerTransf.position
-
     main_boss.arenaCenter = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
 
     -- On Collision functions
@@ -216,19 +163,6 @@ function on_ready()
             end
         end
     end)
-
-    for i = 1, fistMaxNumbers do
-        main_boss.fistRbComponent[i]:on_collision_stay(function(entityA, entityB)
-            local nameA = entityA:get_component("TagComponent").tag
-            local nameB = entityB:get_component("TagComponent").tag
-
-            if (nameA == "Player" or nameB == "Player") and main_boss.isFistsDamaging then
-                log("Player in fist")
-                main_boss:make_damage(main_boss.rangeDamage)
-                main_boss.isFistsDamaging = false
-            end
-        end)
-    end
 
 end
 
@@ -303,34 +237,6 @@ function on_update(dt)
                     manage_destroyed_pillar()
                 end
             end
-        end
-    end
-
-    if main_boss.fistsAttackPending then
-        main_boss.fistsAttackDelayTimer = main_boss.fistsAttackDelayTimer + dt
-        if main_boss.fistsAttackDelayTimer >= main_boss.fistsAttackDelay then
-            execute_fists_attack()
-            main_boss.fistsAttackPending = false
-            main_boss.fistsAttackDelayTimer = 0.0
-        end
-    end
-
-    if main_boss.fistsThrown then
-        main_boss.rangeAttackTimer = main_boss.rangeAttackTimer + dt
-
-        if not main_boss.isFistsDamaging then
-            main_boss.timeSinceLastFistHit = main_boss.timeSinceLastFistHit + dt
-            if main_boss.timeSinceLastFistHit > main_boss.fistsDamageCooldown then
-                main_boss.isFistsDamaging = true
-                main_boss.timeSinceLastFistHit = 0.0
-            end
-        elseif main_boss.rangeAttackTimer >= main_boss.rangeAttackDuration then
-            -- Send them back
-            for i = 1, fistMaxNumbers do
-                main_boss.fistRbComponent[i].rb:set_position(Vector3.new(-500, 0, -150))
-            end
-        
-            main_boss.fistsThrown = false
         end
     end
 
@@ -448,10 +354,7 @@ function main_boss:rage_state()
 
         stats = stats_data[main_boss.enemy_type] and stats_data[main_boss.enemy_type][main_boss.level]
         -- Debug in case is not working
-        if not stats then
-            log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level)
-            return
-        end
+        if not stats then log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level) return end
 
         main_boss.bossShieldHealth = stats.bossShieldHealth
         main_boss.totemHealth = stats.totemHealth
@@ -549,86 +452,23 @@ function lightning_attack()
 
     log("Lightning Attack")
 
-    main_boss.lightningScript:lightning()
-
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+    main_boss.lightningScript:lightning()
 
 end
 
 function fists_attack()
 
-    if main_boss.fistsThrown or main_boss.fistsAttackPending then return end
+    if main_boss.fistScript.fistsThrown or main_boss.fistScript.fistsAttackPending then return end
 
     if main_boss.currentAnim ~= main_boss.rangeAnim then
         main_boss:play_blocking_animation(main_boss.rangeAnim, main_boss.fistsDuration)
     end
 
-    log("Fists Indicator ")
+    log("Fists Indicator")
 
-    main_boss.fistsAttackPending = true
-    main_boss.fistsAttackDelayTimer = 0.0
-
-    local playerPos = main_boss.playerTransf.position
-    main_boss.fistPositions = {Vector3.new(playerPos.x, 0, playerPos.z)}
-
-    -- Generate the other positions with some variability
-    for i = 1, fistMaxNumbers - 1 do
-        local angle = math.rad((360 / (fistMaxNumbers - 1)) * (i - 1))
-        local radius = main_boss.radius + math.random() * 5
-        local offsetX = math.cos(angle) * radius + (math.random() * 2 - 1) * 5
-        local offsetZ = math.sin(angle) * radius + (math.random() * 2 - 1) * 5
-
-        table.insert(main_boss.fistPositions, Vector3.new(playerPos.x + offsetX, 0, playerPos.z + offsetZ))
-    end
-
-    for i = 1, fistMaxNumbers do
-        if main_boss.fistIndicatorsTransform[i] then
-            main_boss.fistIndicatorsTransform[i].position = main_boss.fistPositions[i]
-            main_boss.fistIndicatorsTransform[i].position.y = 0.1
-        end
-        if main_boss.fistIndicatorsScript[i] then
-            main_boss.fistIndicatorsScript[i]:startIndicator()
-        end
-    end
-
-end
-
-function execute_fists_attack()
-
-    if main_boss.fistsThrown then return end
-
-    log("Fists Attack")
-    local playerPos = main_boss.playerTransf.position
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-
-    -- Clear previous scaling operations
-    main_boss.scalingAttacks = {}
-
-    for i = 1, fistMaxNumbers do
-        if main_boss.fistRbs[i] and main_boss.fistTransf[i] then
-            -- Set initial position
-            main_boss.fistRbComponent[i].rb:set_position(main_boss.fistPositions[i])
-
-            -- Reset scale
-            main_boss.fistTransf[i].scale = Vector3.new(1, 1, 1)
-            main_boss.fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)
-            main_boss.fistRbComponent[i].rb:set_trigger(true)
-            
-            -- Add to scaling list with reference to the specific fist transform
-            table.insert(main_boss.scalingAttacks, {
-                transform = main_boss.fistTransf[i],
-                transformRb = main_boss.fistRbComponent[i],
-                elapsed = 0,
-                duration = main_boss.rangeAttackDuration,
-                startScale = Vector3.new(1, 1, 1),
-                targetScale = Vector3.new(10, 10, 10),
-                colliderTimer = 0.0
-            })
-        end
-    end
-
-    main_boss.fistsThrown = true
-    main_boss.rangeAttackTimer = 0.0
+    main_boss.fistScript:fist()
 
 end
 

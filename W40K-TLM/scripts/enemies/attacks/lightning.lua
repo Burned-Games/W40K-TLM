@@ -20,8 +20,8 @@ local lightningColliders = {}
 local lightningRbComponent = {}
 local lightningRbs = {}
 
-meleeDamage = nil
-angle = nil
+local angle = 0
+meleeDamage = 120
 
 function on_ready()
 

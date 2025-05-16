@@ -1,5 +1,224 @@
-function on_ready() end
+--Prefabs locations
+local fistPrefab = "prefabs/Enemies/BossFist.prefab"
+local fistIndicatorPrefab = "prefabs/Enemies/BossFistIndicator.prefab"
 
-function on_update(dt) end
+-- Fists
+local fistAttacks = {}
+local fistTransf = {}
+local fistRbComponent = {}
+local fistRbs = {}
+
+-- Fists Indicators
+local fistIndicators = {}
+local fistIndicatorsScript = {}
+local fistIndicatorsTransform = {}
+
+-- Lists
+local fistPositions = {}
+local scalingAttacks = {}
+
+-- Timers
+fistsDamageCooldown = 1.0
+local fistsAttackDelay = 2.0
+local timeSinceLastFistHit = 0.0
+local fistsAttackDelayTimer = 0.0
+local rangeAttackTimer = 0.0
+rangeAttackDuration = 10.0
+local colliderUpdateInterval = 0.1
+
+-- Ints
+local fistMaxNumbers = 4
+local radius = 6
+rangeDamage = 80
+
+-- Bools
+fistsThrown = false
+fistsAttackPending = false
+local isFistsDamaging = true
+
+function on_ready()
+
+    -- Main Boss
+    enemyScript = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent")
+
+    -- Player
+    playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
+
+    -- Fists
+    for i = 1, fistMaxNumbers do
+        local fistEntity = instantiate_prefab(fistPrefab)
+        fistAttacks[i] = fistEntity
+        fistTransf[i] = fistAttacks[i]:get_component("TransformComponent")
+        fistRbComponent[i] = fistAttacks[i]:get_component("RigidbodyComponent")
+        fistRbs[i] = fistRbComponent[i].rb
+        fistRbs[i]:set_position(Vector3.new(-500, 0, -500))
+        fistRbs[i]:set_trigger(true)
+    end
+
+    -- Fists Indicators
+    for i = 1, fistMaxNumbers do
+        local fistIndicator = instantiate_prefab(fistIndicatorPrefab)
+        fistIndicators[i] = fistIndicator
+        fistIndicatorsScript[i] = fistIndicators[i]:get_component("ScriptComponent")
+        fistIndicatorsTransform[i] = fistIndicators[i]:get_component("TransformComponent")
+        fistIndicatorsTransform[i].position = Vector3.new(-1000, 0, -1000)
+        fistIndicatorsTransform[i].scale = Vector3.new(5, 0, 5)
+        fistIndicatorsScript[i]:on_ready()
+    end
+
+    -- Collision
+    for i = 1, fistMaxNumbers do
+        fistRbComponent[i]:on_collision_stay(function(entityA, entityB)
+            local nameA = entityA:get_component("TagComponent").tag
+            local nameB = entityB:get_component("TagComponent").tag
+
+            if (nameA == "Player" or nameB == "Player") and isFistsDamaging then
+                log("Player in fist")
+                enemyScript.main_boss:make_damage(rangeDamage)
+                isFistsDamaging = false
+            end
+        end)
+    end
+
+end
+
+function on_update(dt) 
+    if fistsAttackPending then
+        fistsAttackDelayTimer = fistsAttackDelayTimer + dt
+        if fistsAttackDelayTimer >= fistsAttackDelay then
+            execute_fists_attack()
+            fistsAttackPending = false
+            fistsAttackDelayTimer = 0.0
+        end
+    end
+
+    if fistsThrown then
+        rangeAttackTimer = rangeAttackTimer + dt
+
+        if not isFistsDamaging then
+            timeSinceLastFistHit = timeSinceLastFistHit + dt
+            if timeSinceLastFistHit > fistsDamageCooldown then
+                isFistsDamaging = true
+                timeSinceLastFistHit = 0.0
+            end
+        elseif rangeAttackTimer >= rangeAttackDuration then
+            -- Send them back
+            for i = 1, fistMaxNumbers do
+                fistRbComponent[i].rb:set_position(Vector3.new(-500, 0, -150))
+            end
+        
+            fistsThrown = false
+        end
+    end
+
+    update_scaling_attacks(dt)
+end
+
+function fist()
+
+    if fistsThrown or fistsAttackPending then return end
+
+    fistsAttackPending = true
+    fistsAttackDelayTimer = 0.0
+
+    fistPositions = {Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)}
+
+    -- Generate the other positions with some variability
+    for i = 1, fistMaxNumbers - 1 do
+        local angle = math.rad((360 / (fistMaxNumbers - 1)) * (i - 1))
+        local randRadius = radius + math.random() * 5
+        local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
+        local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
+
+        table.insert(fistPositions, Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ))
+    end
+
+    for i = 1, fistMaxNumbers do
+        if fistIndicatorsTransform[i] then
+            fistIndicatorsTransform[i].position = fistPositions[i]
+            fistIndicatorsTransform[i].position.y = 0.1
+        end
+        if fistIndicatorsScript[i] then
+            fistIndicatorsScript[i]:startIndicator()
+        end
+    end
+end
+
+function execute_fists_attack()
+
+    if fistsThrown then return end
+
+    log("Fists Attack")
+
+    -- Clear previous scaling operations
+    scalingAttacks = {}
+
+    for i = 1, fistMaxNumbers do
+        if fistRbs[i] and fistTransf[i] then
+            -- Set initial position
+            fistRbComponent[i].rb:set_position(fistPositions[i])
+
+            -- Reset scale
+            fistTransf[i].scale = Vector3.new(1, 1, 1)
+            fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)
+            fistRbComponent[i].rb:set_trigger(true)
+            
+            -- Add to scaling list with reference to the specific fist transform
+            table.insert(scalingAttacks, {
+                transform = fistTransf[i],
+                transformRb = fistRbComponent[i],
+                elapsed = 0,
+                duration = rangeAttackDuration,
+                startScale = Vector3.new(1, 1, 1),
+                targetScale = Vector3.new(10, 10, 10),
+                colliderTimer = 0.0
+            })
+        end
+    end
+
+    fistsThrown = true
+    rangeAttackTimer = 0.0
+
+end
+
+function update_scaling_attacks(dt)
+
+    for i = #scalingAttacks, 1, -1 do
+        local data = scalingAttacks[i]
+        data.elapsed = data.elapsed + dt
+        data.colliderTimer = (data.colliderTimer or 0) + dt
+
+        local t = math.min(data.elapsed / data.duration, 1.0)
+        local newScale = Vector3.new(
+            data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
+            data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
+            data.startScale.z + (data.targetScale.z - data.startScale.z) * t
+        )
+
+        if data.transform then
+            data.transform.scale = newScale
+        end
+
+        if data.colliderTimer >= colliderUpdateInterval then
+            if data.transformRb then
+                data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
+                data.transformRb.rb:set_trigger(true)
+            end
+            data.colliderTimer = 0.0
+        end
+
+        if data.elapsed >= data.duration then
+            if data.transform then
+                data.transform.scale = data.targetScale
+            end
+            if data.transformRb then
+                data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
+                data.transformRb.rb:set_trigger(true)
+            end
+            table.remove(scalingAttacks, i)
+        end
+    end
+    
+end
 
 function on_exit() end

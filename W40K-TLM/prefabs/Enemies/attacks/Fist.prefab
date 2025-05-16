@@ -3,14 +3,14 @@
         "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 1,
-            "value0": "BossFist_Prefab",
+            "value0": "Fist_Prefab",
             "value1": {
                 "value0": ""
             },
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 17962713323216276303
+                "value0": 1976407223039429483
             },
             "value4": false
         },
@@ -22,7 +22,7 @@
         "value4": 0,
         "value5": {
             "cereal_class_version": 0,
-            "Tag": "BossFist"
+            "Tag": "Fist"
         },
         "value6": 1,
         "value7": 0,
@@ -31,7 +31,7 @@
             "Position": {
                 "x": -64.4000015258789,
                 "y": 0.0,
-                "z": -49.20000076293945
+                "z": -55.82728576660156
             },
             "Rotation": {
                 "x": 0.0,
@@ -108,24 +108,20 @@
                         },
                         "m_Collider": {
                             "polymorphic_id": 2147483649,
-                            "polymorphic_name": "Coffee::BoxCollider",
+                            "polymorphic_name": "Coffee::SphereCollider",
                             "ptr_wrapper": {
                                 "id": 2147483650,
                                 "data": {
                                     "cereal_class_version": 0,
                                     "value0": {
                                         "cereal_class_version": 0,
-                                        "ShapeType": 0,
+                                        "ShapeType": 8,
                                         "Offset": {
                                             "x": 0.0,
                                             "y": 0.0,
                                             "z": 0.0
                                         },
-                                        "Size": {
-                                            "x": 2.1408302783966066,
-                                            "y": 0.14082950353622437,
-                                            "z": 2.1408302783966066
-                                        }
+                                        "Radius": 1.0
                                     }
                                 }
                             }
