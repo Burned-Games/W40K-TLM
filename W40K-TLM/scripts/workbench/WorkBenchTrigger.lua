@@ -207,7 +207,6 @@ end
 function workbenchFall()
     if workbenchAnimator and not workbenchInGround then
         playAnimation(ANIM_LAND)
-        log("ha caido")
         workbenchFallSFX:play()
         --print("Playing workbench landing animation")
         landAnimationTimer = 0

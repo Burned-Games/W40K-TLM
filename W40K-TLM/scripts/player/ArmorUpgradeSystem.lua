@@ -22,6 +22,11 @@ local pauseMenu = nil
 local hudManager = nil
 isPlayerInRadius = false 
 
+--Audio
+local bannerFallSFX = nil
+local bannerZoneSFX = nil
+local bannerZoneTrans = nil
+
 function on_ready()
     Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
@@ -29,6 +34,12 @@ function on_ready()
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     fervorAniamtor = fervorAstartesStandardEntity:get_component("AnimatorComponent")
     hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
+
+    --Audio
+    bannerFallSFX = current_scene:get_entity_by_name("BannerFallSFX"):get_component("AudioSourceComponent")
+    bannerZoneSFX = current_scene:get_entity_by_name("BannerZoneSFX"):get_component("AudioSourceComponent")
+    bannerZoneTrans = current_scene:get_entity_by_name("BannerZoneSFX"):get_component("TransformComponent")
+
 end
 
 function on_update(dt)
@@ -93,7 +104,7 @@ function handle_fervor_astartes(dt)
         fervorAstartesAvailable = true
     end
 
-    if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesAvailable and not fervorAstartesStandardPlaced then
+    if Input.get_button(Input.action.Skill3) == Input.state.Down or Input.is_key_pressed(Input.keycode.Y) and fervorAstartesAvailable and not fervorAstartesStandardPlaced then
         place_fervor_astartes_standard(playerPosition, standardTransform)
     end
     
@@ -121,10 +132,14 @@ end
 -- Function to place the Fervor Astartes standard
 function place_fervor_astartes_standard(playerPosition, standardTransform)
     if fervorAstartesStandardEntity then
-        fervorAniamtor:set_current_animation(0)
+        fervorAniamtor:set_current_animation(0)  
 
         local posicion = Vector3.new(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z)
         standardTransform.position = posicion
+        
+        bannerZoneTrans.position = posicion
+        bannerFallSFX:play()
+        bannerZoneSFX:play()
 
         fervorAstartesStandardPlaced = true
         fervorAstartesActive = true
@@ -146,6 +161,8 @@ function end_fervor_astartes(standardTransform)
     fervorAstartesStandardPlaced = false
     fervorAstartesTimer = 0
 
+    bannerZoneSFX:pause()
+
     local endingPosition = Vector3.new(0, -100, 0)
     standardTransform.position = endingPosition
 
@@ -154,4 +171,8 @@ function end_fervor_astartes(standardTransform)
     isPlayerInRadius = false
     hudManager.recargaEntity:set_active(false)
     hudManager.velocidadAtaqueEntity:set_active(false)
+end
+
+function on_exit()
+    bannerZoneSFX:pause()
 end
