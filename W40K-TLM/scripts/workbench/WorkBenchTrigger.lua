@@ -32,11 +32,17 @@ currentUIScreen = "gun"  -- "gun" or "character"
 local IDLE_TRANSITION_TIME = 0.8  -- Time for the transition animations (Armor/Weapons)
 local IDLE_DISPLAY_TIME = 1.0     -- Time for the idle animations (IdleArmor/IdleWeapons)
 
+--Audio
+local workbenchFallSFX
+
 function on_ready()
     workbenchAnimator = self:get_component("AnimatorComponent")
     if not workbenchAnimator then
         --print("Warning: No AnimatorComponent found on workbench")
     end
+
+    --Audio
+    workbenchFallSFX = current_scene:get_entity_by_name("WorkbenchFallSFX"):get_component("AudioSourceComponent")
 
     -- Ensure the collider is set as a trigger
     workbenchRB = self:get_component("RigidbodyComponent")
@@ -201,6 +207,8 @@ end
 function workbenchFall()
     if workbenchAnimator and not workbenchInGround then
         playAnimation(ANIM_LAND)
+        log("ha caido")
+        workbenchFallSFX:play()
         --print("Playing workbench landing animation")
         landAnimationTimer = 0
         workbenchInGround = true
