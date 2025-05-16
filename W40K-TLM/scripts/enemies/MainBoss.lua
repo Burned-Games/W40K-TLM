@@ -41,25 +41,19 @@ function on_ready()
     main_boss.lightningScript = main_boss.lightning:get_component("ScriptComponent")
 
     -- Ultimate
-    main_boss.ultimate = current_scene:get_entity_by_name("Ultimate")
-    main_boss.ultimateTransf = main_boss.ultimate:get_component("TransformComponent")
+    main_boss.ultimateScript = current_scene:get_entity_by_name("Ultimate"):get_component("ScriptComponent")
 
     -- Arena
     main_boss.arena = current_scene:get_entity_by_name("ArenaCenter")
     main_boss.arenaTrasnf = main_boss.arena:get_component("TransformComponent")
 
-    -- Pilar
-    main_boss.pillarToDestroy = nil
-
     -- Audio
-    main_boss.bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
     main_boss.bossFaseTwoChangeSFX = current_scene:get_entity_by_name("BossFaseTwoChangeSFX"):get_component("AudioSourceComponent")
     main_boss.hurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
     main_boss.shieldExplosionSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
     main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossShieldZapSFX"):get_component("AudioSourceComponent")
     main_boss.bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
     main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
-    main_boss.bossUltimateExplosionSFX = current_scene:get_entity_by_name("BossUltimateExplosionSFX"):get_component("AudioSourceComponent")
 
     
 
@@ -106,9 +100,6 @@ function on_ready()
     main_boss.attackTimer = 0.0
     main_boss.meleeAttackTimer = 0.0
     main_boss.shieldTimer = 0.0
-    main_boss.ultiTimer = 0.0
-    main_boss.ultiAttackTimer = 0.0
-    main_boss.ultiHittingTimer = 0.0
     main_boss.totemTimer = 0.0
     main_boss.colliderUpdateInterval = 0.1
     main_boss.animDuration = 0.0
@@ -119,10 +110,6 @@ function on_ready()
     main_boss.shieldDuration = 1.33
     main_boss.rageDuration = 2.33
     main_boss.ultiDuration = 2.5
-
-    -- Provisional Timers
-    main_boss.ultiTimer = 0.0
-    main_boss.ultiCooldown = 10.0
 
     -- Animations
     main_boss.idleAnim = 3
@@ -136,16 +123,10 @@ function on_ready()
     -- Bools
     main_boss.isRaging = false
     main_boss.isAttacking = false
-    main_boss.ultimateThrown = false
-    main_boss.ultimateCasting = false
-    main_boss.isUltimateDamaging = false
     main_boss.shieldActive = false
     main_boss.hasMovedToCenter = false
     main_boss.isReturning = false
     main_boss.isPlayingAnimation = false
-
-    -- Vector3
-    main_boss.ultimateVibration = Vector3.new(1, 1, 200)
 
     -- Positions
     main_boss.lastTargetPos = main_boss.playerTransf.position
@@ -184,11 +165,6 @@ function on_update(dt)
     main_boss.shieldTimer = main_boss.shieldTimer + dt
     main_boss.pathUpdateTimer = main_boss.pathUpdateTimer + dt
 
-    if main_boss.isRaging then
-        main_boss.ultiTimer = main_boss.ultiTimer + dt
-        main_boss.totemTimer = main_boss.totemTimer + dt
-    end
-
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
         main_boss.currentState = main_boss.state.Move
 
@@ -196,51 +172,11 @@ function on_update(dt)
             main_boss.hasMovedToCenter = true
             main_boss.isReturning = false
             main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-            main_boss.currentState = main_boss.state.Idle
+            main_boss.playerDetected = true
+            main_boss.isAttacking = false
+            main_boss.currentState = main_boss.state.Move
         end
     end
-
-    if main_boss.ultimateThrown then
-        main_boss.bossChargeUltimateSFX:play()
-        main_boss.invulnerable = true
-        main_boss.ultiAttackTimer = main_boss.ultiAttackTimer + dt
-
-        if main_boss.ultiAttackTimer >= main_boss.ultiAttackDuration then
-            main_boss.ultimateCasting = true
-        end
-
-        if main_boss.ultimateCasting then
-            if not main_boss.isUltimateDamaging then
-                main_boss.isUltimateDamaging = true
-                main_boss.bossUltimateExplosionSFX:play()
-            end
-
-            main_boss.ultiHittingTimer = main_boss.ultiHittingTimer + dt
-
-            check_ulti_collision()
-            Input.send_rumble(main_boss.ultimateVibration.x, main_boss.ultimateVibration.y, main_boss.ultimateVibration.z)
-            
-            if main_boss.ultiHittingTimer >= main_boss.ultiHittingDuration then
-                main_boss.ultimateTransf.position = Vector3.new(-500, 0, -150)
-
-                main_boss.ultimateThrown = false
-                main_boss.ultimateCasting = false
-                main_boss.isUltimateDamaging = false
-                main_boss.invulnerable = false
-                main_boss.ultiAttackTimer = 0.0
-                main_boss.ultiHittingTimer = 0.0
-                main_boss.ultiTimer = 0.0
-
-                check_ulti_collision()
-
-                if main_boss.pillarToDestroy ~= nil then
-                    manage_destroyed_pillar()
-                end
-            end
-        end
-    end
-
-    update_scaling_attacks(dt)
 
     if not main_boss.isRaging then
         local currentTargetPos = main_boss.playerTransf.position
@@ -253,7 +189,7 @@ function on_update(dt)
         end
     end
 
-    if main_boss.ultimateThrown and not main_boss.ultimateCasting then
+    if main_boss.ultimateScript.ultimateThrown and not main_boss.ultimateScript.ultimateCasting then
         if main_boss.currentAnim ~= main_boss.idleAnim then
             main_boss.currentAnim = main_boss.idleAnim
             main_boss.animator:set_current_animation(main_boss.currentAnim)
@@ -273,7 +209,7 @@ function on_update(dt)
     end
 
     if main_boss.playerDetected then
-        if not main_boss.isDead or not main_boss.isPlayingAnimation or main_boss.ultimateThrown or main_boss.ultimateCasting and not main_boss.isReturning then
+        if not main_boss.isDead or not main_boss.isPlayingAnimation or main_boss.ultimateScript.ultimateThrown or main_boss.ultimateScript.ultimateCasting and not main_boss.isReturning then
             main_boss:rotate_enemy(main_boss.playerTransf.position)
         elseif main_boss.isReturning then
             main_boss:rotate_enemy(main_boss.arenaCenter.position)
@@ -362,16 +298,16 @@ function main_boss:rage_state()
         main_boss.defaultSpeed = main_boss.speed
         main_boss.lightningScript.meleeDamage = stats.meleeDamage
         main_boss.rangeDamage = stats.rangeDamage
-        main_boss.ultimateDamage = stats.ultimateDamage
+        main_boss.ultimateScript.ultimateDamage = stats.ultimateDamage
         main_boss.detectionRange = stats.detectionRange
         main_boss.meleeAttackRange = stats.meleeAttackRange
         main_boss.rangeAttackRange = stats.rangeAttackRange
-        main_boss.ultimateRange = stats.ultimateRange
+        main_boss.ultimateScript.ultimateRange = stats.ultimateRange
         main_boss.totemRange = stats.totemRange
 
-        main_boss.ultiCooldown = stats.ultiCooldown
-        main_boss.ultiAttackDuration = stats.ultiAttackDuration
-        main_boss.ultiHittingDuration = stats.ultiHittingDuration
+        main_boss.ultimateScript.ultiCooldown = stats.ultiCooldown
+        main_boss.ultimateScript.ultiAttackDuration = stats.ultiAttackDuration
+        main_boss.ultimateScript.ultiHittingDuration = stats.ultiHittingDuration
         main_boss.totemCooldown = stats.totemCooldown
 
         log("New stats setted")
@@ -403,7 +339,7 @@ function main_boss:attack_state()
 
     if not main_boss.isAttacking then return end
 
-    if main_boss.ultimateThrown or main_boss.ultimateCasting then
+    if main_boss.ultimateScript.ultimateThrown or main_boss.ultimateScript.ultimateCasting then
         main_boss.isAttacking = false
         main_boss.attackTimer = 0.0
         return
@@ -412,7 +348,7 @@ function main_boss:attack_state()
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
     local attackChance = math.random()
 
-    if main_boss.ultiTimer >= main_boss.ultiCooldown then
+    if main_boss.ultimateScript.ultiTimer >= main_boss.ultimateScript.ultiCooldown then
         ultimate_attack()
     elseif attackChance < 0.3 then
         lightning_attack()
@@ -477,104 +413,7 @@ function ultimate_attack()
     log("Ultimate Attack")
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-    main_boss.ultimateTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
-    main_boss.ultimateTransf.scale = Vector3.new(1, 1, 1)
-
-    -- Configurar el escalado
-    table.insert(main_boss.scalingAttacks, {
-        transform = main_boss.ultimateTransf, 
-        elapsed = 0,
-        duration = main_boss.ultiAttackDuration,
-        startScale = Vector3.new(1, 1, 1),
-        targetScale = Vector3.new(20, 20, 20) 
-    })
-
-    main_boss.ultimateThrown = true
-    main_boss.ultiTimer = 0.0
-    main_boss.ultiAttackTimer = 0.0
-
-end
-
-function check_ulti_collision()
-
-    if main_boss.currentAnim ~= main_boss.ultiAnim then
-        main_boss:play_blocking_animation(main_boss.ultiAnim, main_boss.ultiDuration)
-    end
-
-    local origin = main_boss.ultimateTransf.position
-    local direction = Vector3.new(
-        main_boss.playerTransf.position.x - origin.x,
-        0,
-        main_boss.playerTransf.position.z - origin.z
-    )
-    local rayLength = 40
-    local tag = "Pilar"
-
-    local rayHit = Physics.Raycast(origin, direction, rayLength)
-
-    if main_boss:detect(rayHit, main_boss.player) then
-        if main_boss.isUltimateDamaging then
-            log("Player hit with ultimate")
-            main_boss:make_damage(main_boss.ultimateDamage)
-            main_boss.isUltimateDamaging = false
-        end
-    elseif main_boss:detect_by_tag(rayHit, tag) then
-        log("Pillar hit with ultimate")
-        main_boss.pillarToDestroy = rayHit.hitEntity
-    end
-
-    if main_boss.playerScript.godMode then
-        Physics.DebugDrawRaycast(origin, direction, rayLength, Vector4.new(1, 0, 0, 1), Vector4.new(1, 1, 0, 1))
-    end
-
-end
-
-function update_scaling_attacks(dt)
-
-    for i = #main_boss.scalingAttacks, 1, -1 do
-        local data = main_boss.scalingAttacks[i]
-        data.elapsed = data.elapsed + dt
-        data.colliderTimer = (data.colliderTimer or 0) + dt
-
-        local t = math.min(data.elapsed / data.duration, 1.0)
-        local newScale = Vector3.new(
-            data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
-            data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
-            data.startScale.z + (data.targetScale.z - data.startScale.z) * t
-        )
-
-        if data.transform then
-            data.transform.scale = newScale
-        end
-
-        if data.colliderTimer >= main_boss.colliderUpdateInterval then
-            if data.transformRb then
-                data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
-                data.transformRb.rb:set_trigger(true)
-            end
-            data.colliderTimer = 0.0
-        end
-
-        if data.elapsed >= data.duration then
-            if data.transform then
-                data.transform.scale = data.targetScale
-            end
-            if data.transformRb then
-                data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
-                data.transformRb.rb:set_trigger(true)
-            end
-            table.remove(main_boss.scalingAttacks, i)
-        end
-    end
-    
-end
-
-function manage_destroyed_pillar()
-
-    local pillarRb = main_boss.pillarToDestroy:get_component("RigidbodyComponent").rb
-    pillarRb:set_position(Vector3.new(-800, 0, -800))
-
-    main_boss.pillarToDestroy = nil
+    main_boss.ultimateScript:ultimate()
 
 end
 

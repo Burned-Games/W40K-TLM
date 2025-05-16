@@ -1,6 +1,6 @@
 --Prefabs locations
-local fistPrefab = "prefabs/Enemies/BossFist.prefab"
-local fistIndicatorPrefab = "prefabs/Enemies/BossFistIndicator.prefab"
+local fistPrefab = "prefabs/Enemies/attacks/BossFist.prefab"
+local fistIndicatorPrefab = "prefabs/Enemies/attacks/BossFistIndicator.prefab"
 
 -- Fists
 local fistAttacks = {}
