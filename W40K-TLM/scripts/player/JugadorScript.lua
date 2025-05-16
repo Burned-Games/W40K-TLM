@@ -103,7 +103,6 @@ local footstepSFXTimer = 0
 local footstepSFXDelay = 0.5
 
 local playerDeathSFX = nil
-local playerBleedingSFX = nil
 local playerBurningSFX = nil
 local playerDashSFX = nil
 local playerInyectorSFX = nil
@@ -111,6 +110,8 @@ local playerOverloadsSFX = nil
 local playerStepsSFX = nil
 local playerSwapWeaponsSFX = nil
 local playerCDSFX = nil
+
+bleedingSFX = nil
 
 -- effects
 isBleeding = false
@@ -245,7 +246,7 @@ function on_ready()
     combatMusic = current_scene:get_entity_by_name("FightingMusic"):get_component("AudioSourceComponent")
 
     playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
-    playerBleedingSFX = current_scene:get_entity_by_name("PlayerBleedingSFX"):get_component("AudioSourceComponent")
+    bleedingSFX = current_scene:get_entity_by_name("PlayerBleedingSFX"):get_component("AudioSourceComponent")
     playerBurningSFX = current_scene:get_entity_by_name("PlayerBurningSFX"):get_component("AudioSourceComponent")
     playerDashSFX = current_scene:get_entity_by_name("PlayerDashSFX"):get_component("AudioSourceComponent")
     playerInyectorSFX = current_scene:get_entity_by_name("PlayerInyectorSFX"):get_component("AudioSourceComponent")
@@ -1353,7 +1354,6 @@ function handleBleed(dt)
 
     if isBleeding then
         health = effect:bleed(playerScript, health, dt)
-        --playerBleedingSFX:play()
     end
 
 end

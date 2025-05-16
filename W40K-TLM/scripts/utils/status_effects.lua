@@ -20,7 +20,6 @@ function effect:apply_bleed(entityScript)
     entityScript.isBleeding = true
     bleedTimer = bleedDuration
     timeSinceLastBleed = 0
-    playerBleedingSFX:play()
 
 end
 
@@ -32,6 +31,7 @@ function effect:bleed(entityScript,health, dt)
     if timeSinceLastBleed >= bleedInterval then
         if health > 0 then
             health = health - bleedDamage
+            entityScript.playerBleedingSFX:play()
         end
         timeSinceLastBleed = 0
     end

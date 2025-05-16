@@ -39,7 +39,7 @@ function on_ready()
     support.shieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
     support.shieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
     support.dyingSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
-    support.supportShotSFX = current_scene:get_entity_by_name("SupportShotSFX"):get_component("AudioSourceComponent")
+    --support.supportShotSFX = current_scene:get_entity_by_name("SupportShotSFX"):get_component("AudioSourceComponent")
     
     -- Particles
     support.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
