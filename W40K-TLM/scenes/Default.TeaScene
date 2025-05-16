@@ -1,42 +1,47 @@
 {
     "value0": {
-        "cereal_class_version": 2,
-        "value0": 5,
-        "value1": 5,
+        "cereal_class_version": 3,
+        "value0": 6,
+        "value1": 6,
         "value2": 0,
         "value3": 1,
         "value4": 2,
         "value5": 3,
         "value6": 4,
         "value7": 5,
-        "value8": 0,
-        "value9": {
+        "value8": 6,
+        "value9": 0,
+        "value10": {
             "cereal_class_version": 0,
             "Tag": "Background"
         },
-        "value10": 1,
-        "value11": {
+        "value11": 1,
+        "value12": {
             "Tag": "title"
         },
-        "value12": 2,
-        "value13": {
+        "value13": 2,
+        "value14": {
             "Tag": "FadeToBlack"
         },
-        "value14": 3,
-        "value15": {
+        "value15": 3,
+        "value16": {
             "Tag": "logo"
         },
-        "value16": 4,
-        "value17": {
+        "value17": 4,
+        "value18": {
             "Tag": "SplashScreenController"
         },
-        "value18": 5,
-        "value19": 0,
+        "value19": 5,
         "value20": {
+            "Tag": "Camera"
+        },
+        "value21": 6,
+        "value22": 0,
+        "value23": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 455.5,
-                "y": 325.5,
+                "x": 709.5,
+                "y": 362.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -45,16 +50,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 911.0,
-                "y": 651.0,
+                "x": 1419.0,
+                "y": 724.0,
                 "z": 1.0
             }
         },
-        "value21": 1,
-        "value22": {
+        "value24": 1,
+        "value25": {
             "Position": {
-                "x": 455.5,
-                "y": 261.4453125,
+                "x": 709.5,
+                "y": 271.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -63,16 +68,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 47.44793701171875,
-                "y": 47.44793701171875,
+                "x": 67.0369873046875,
+                "y": 67.03704833984375,
                 "z": 1.0
             }
         },
-        "value23": 2,
-        "value24": {
+        "value26": 2,
+        "value27": {
             "Position": {
-                "x": 455.5,
-                "y": 325.5,
+                "x": 709.5,
+                "y": 362.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -81,16 +86,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 911.0,
-                "y": 651.0,
+                "x": 1419.0,
+                "y": 724.0,
                 "z": 1.0
             }
         },
-        "value25": 3,
-        "value26": {
+        "value28": 3,
+        "value29": {
             "Position": {
-                "x": 455.5,
-                "y": 325.5,
+                "x": 709.5,
+                "y": 362.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -99,13 +104,13 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 47.44793701171875,
-                "y": 47.44793701171875,
+                "x": 67.0369873046875,
+                "y": 67.03704833984375,
                 "z": 1.0
             }
         },
-        "value27": 4,
-        "value28": {
+        "value30": 4,
+        "value31": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -122,78 +127,119 @@
                 "z": 1.0
             }
         },
-        "value29": 5,
-        "value30": 0,
-        "value31": {
-            "cereal_class_version": 0,
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value32": 1,
+        "value32": 5,
         "value33": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
         },
-        "value34": 2,
-        "value35": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value36": 3,
-        "value37": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value38": 4,
-        "value39": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value40": 0,
-        "value41": 0,
-        "value42": 0,
-        "value43": 0,
-        "value44": 0,
-        "value45": 2,
-        "value46": 2,
-        "value47": {
+        "value34": 6,
+        "value35": 0,
+        "value36": {
             "cereal_class_version": 0,
-            "ScriptPath": "scripts/misc/FadeToBlack.lua",
-            "Language": 0
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
         },
-        "value48": 4,
+        "value37": 1,
+        "value38": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value39": 2,
+        "value40": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value41": 3,
+        "value42": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value43": 4,
+        "value44": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value45": 5,
+        "value46": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value47": 1,
+        "value48": 5,
         "value49": {
-            "ScriptPath": "scripts/misc/SplashScreenController.lua",
-            "Language": 0
+            "cereal_class_version": 0,
+            "Camera": {
+                "cereal_class_version": 0,
+                "FOV": 45.0,
+                "AspectRatio": 1.7777777910232545,
+                "NearClip": 0.10000000149011612,
+                "FarClip": 1000.0,
+                "ProjectionType": 0,
+                "ViewportWidth": 1280.0,
+                "ViewportHeight": 720.0
+            }
         },
         "value50": 0,
         "value51": 0,
         "value52": 0,
         "value53": 0,
         "value54": 0,
-        "value55": 0,
-        "value56": 0,
-        "value57": 5,
-        "value58": 0,
-        "value59": 1,
-        "value60": 2,
-        "value61": 3,
-        "value62": 4,
+        "value55": 2,
+        "value56": 2,
+        "value57": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/misc/FadeToBlack.lua",
+            "Language": 0
+        },
+        "value58": 4,
+        "value59": {
+            "ScriptPath": "scripts/misc/SplashScreenController.lua",
+            "Language": 0
+        },
+        "value60": 0,
+        "value61": 0,
+        "value62": 0,
         "value63": 0,
         "value64": 0,
-        "value65": 3,
+        "value65": 0,
         "value66": 0,
-        "value67": {
+        "value67": 6,
+        "value68": 0,
+        "value69": 1,
+        "value70": 2,
+        "value71": 3,
+        "value72": 4,
+        "value73": 5,
+        "value74": 0,
+        "value75": 0,
+        "value76": 3,
+        "value77": 0,
+        "value78": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "cereal_class_version": 0,
@@ -232,8 +278,8 @@
             },
             "Layer": 0
         },
-        "value68": 2,
-        "value69": {
+        "value79": 2,
+        "value80": {
             "TextureUUID": {
                 "value0": 6711820436760903955
             },
@@ -269,8 +315,8 @@
             },
             "Layer": 100
         },
-        "value70": 3,
-        "value71": {
+        "value81": 3,
+        "value82": {
             "TextureUUID": {
                 "value0": 497748904080029038
             },
@@ -306,9 +352,9 @@
             },
             "Layer": 13
         },
-        "value72": 1,
-        "value73": 1,
-        "value74": {
+        "value83": 1,
+        "value84": 1,
+        "value85": {
             "cereal_class_version": 0,
             "Text": "BURNED GAMES",
             "FontPath": "",
@@ -342,9 +388,9 @@
             },
             "Layer": 6
         },
-        "value75": 0,
-        "value76": 0,
-        "value77": 0,
-        "value78": 0
+        "value86": 0,
+        "value87": 0,
+        "value88": 0,
+        "value89": 0
     }
 }
