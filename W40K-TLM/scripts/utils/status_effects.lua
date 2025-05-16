@@ -15,14 +15,12 @@ local stunTimer = 0.0
 local stunDuration = 1.5
 
 
-
-
-
 function effect:apply_bleed(entityScript)
 
     entityScript.isBleeding = true
     bleedTimer = bleedDuration
     timeSinceLastBleed = 0
+    playerBleedingSFX:play()
 
 end
 
