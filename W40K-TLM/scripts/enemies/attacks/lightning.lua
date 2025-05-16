@@ -100,6 +100,7 @@ function on_ready()
             end
         end)
     end
+    
 end
 
 
