@@ -174,6 +174,7 @@ function on_update(dt)
             main_boss.hasMovedToCenter = true
             main_boss.isReturning = false
             main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+            main_boss.enemyNavmesh.path = {}
             main_boss.playerDetected = true
             main_boss.isAttacking = false
             main_boss.currentState = main_boss.state.Move
