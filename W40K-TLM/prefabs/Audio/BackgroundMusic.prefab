@@ -1,17 +1,18 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "BackgroundMusic_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 13105264977596209283
-            }
+                "value0": 8056907391635620809
+            },
+            "value4": false
         },
         "RootEntity": 0,
         "value0": 7,
@@ -31,27 +32,27 @@
         },
         "value12": 1,
         "value13": {
-            "Tag": "ColiseumMusic"
+            "Tag": "FightingMusic"
         },
         "value14": 2,
         "value15": {
-            "Tag": "LevelOneIndoorMusic"
+            "Tag": "LevelTwoMidMusic"
         },
         "value16": 3,
         "value17": {
-            "Tag": "LevelOneOutsideMusic"
+            "Tag": "LevelTwoFinalMusic"
         },
         "value18": 4,
         "value19": {
-            "Tag": "LevelTwoFinalMusic"
+            "Tag": "LevelOneOutsideMusic"
         },
         "value20": 5,
         "value21": {
-            "Tag": "LevelTwoMidMusic"
+            "Tag": "LevelOneIndoorMusic"
         },
         "value22": 6,
         "value23": {
-            "Tag": "FightingMusic"
+            "Tag": "ColiseumMusic"
         },
         "value24": 7,
         "value25": 0,
@@ -252,7 +253,7 @@
         "value71": 1,
         "value72": {
             "cereal_class_version": 0,
-            "GameObjectID": 7903331545697927961,
+            "GameObjectID": 4914562327643990715,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -260,19 +261,19 @@
                         "cereal_class_version": 0,
                         "Name": "Music",
                         "Events": [
-                            "Play_ExploringColiseum",
-                            "Play_ExploringLevel1Indoor",
-                            "Play_ExploringLevel1Outside",
-                            "Play_ExploringLevel2Final",
-                            "Play_ExploringLevel2Mid",
-                            "Play_FightingMusic",
+                            "Play_ExploringColiseum_container",
+                            "Play_ExploringLevel1Indoor_container",
+                            "Play_ExploringLevel1Outside_container",
+                            "Play_ExploringLevel2Final_container",
+                            "Play_ExploringLevel2Mid_container",
+                            "Play_FightingMusic_container",
                             "Play_mainMenu_music_container"
                         ]
                     }
                 }
             },
             "AudioBankName": "Music",
-            "EventName": "Play_ExploringColiseum",
+            "EventName": "Play_FightingMusic_container",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -297,14 +298,14 @@
         },
         "value73": 2,
         "value74": {
-            "GameObjectID": 9027503650088535501,
+            "GameObjectID": 13604867195032955467,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "Music",
-            "EventName": "Play_ExploringLevel1Indoor",
+            "EventName": "Play_ExploringLevel2Mid_container",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -329,14 +330,14 @@
         },
         "value75": 3,
         "value76": {
-            "GameObjectID": 14202704320726586930,
+            "GameObjectID": 296869191633484789,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "Music",
-            "EventName": "Play_ExploringLevel1Outside",
+            "EventName": "Play_ExploringLevel2Final_container",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -361,14 +362,14 @@
         },
         "value77": 4,
         "value78": {
-            "GameObjectID": 296869191633484789,
+            "GameObjectID": 14202704320726586930,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "Music",
-            "EventName": "Play_ExploringLevel2Final",
+            "EventName": "Play_ExploringLevel1Outside_container",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -393,14 +394,14 @@
         },
         "value79": 5,
         "value80": {
-            "GameObjectID": 13604867195032955467,
+            "GameObjectID": 9027503650088535501,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "Music",
-            "EventName": "Play_ExploringLevel2Mid",
+            "EventName": "Play_ExploringLevel1Indoor_container",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -425,14 +426,14 @@
         },
         "value81": 6,
         "value82": {
-            "GameObjectID": 4914562327643990715,
+            "GameObjectID": 7903331545697927961,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "Music",
-            "EventName": "Play_FightingMusic",
+            "EventName": "Play_ExploringColiseum_container",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -464,6 +465,7 @@
         "value89": 0,
         "value90": 0,
         "value91": 0,
-        "value92": 0
+        "value92": 0,
+        "value93": 0
     }
 }
