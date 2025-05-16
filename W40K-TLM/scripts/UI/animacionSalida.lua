@@ -19,12 +19,15 @@ local animationFinished = false
 function on_ready()
     imageComponent = self:get_component("UIImageComponent")
     baseImagen = current_scene:get_entity_by_name("Base")
-
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
+    
+    
     rect = Vector4.new(0, 0, spriteWidth / sheetWidth, spriteHeight / sheetHeight)
     imageComponent:set_rect(rect)
-    baseImagen:set_active(false)
+    animationTime = 0
+    animationFinished = false
 
+    baseImagen:set_active(false)
 end
 
 function on_update(dt)
@@ -38,7 +41,6 @@ function on_update(dt)
 
     if spriteIndex >= totalSprites then
         animationFinished = true
-        fadeToBlackScript:DoFade()
         return
     end
 

@@ -17,6 +17,7 @@ local OrderEntity
 local LogoEntity
 local LogoSalidaEntity
 local Ajustes
+local Credits
 
 local botonAnimadoScript
 
@@ -24,6 +25,8 @@ ajustesOpened = false
 local salidaImagen
 local botonSalida1
 local botonSalida2
+local salidaImagenScript = nil
+local mm = nil
 
 saliendoDeMenu = false
 
@@ -49,6 +52,8 @@ local indexSelectionSFX = nil
 local introSFX = nil
 local outroSFX = nil
 
+local creditsPrefab = "prefabs/Credits.prefab"
+
 function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("NuevoJuego"):get_component("UIButtonComponent")
@@ -69,6 +74,7 @@ function on_ready()
     botonAnimadoScript = current_scene:get_entity_by_name("Base"):get_component("ScriptComponent")
 
     salidaImagen = current_scene:get_entity_by_name("Salida")
+    salidaImagenScript = current_scene:get_entity_by_name("Salida"):get_component("ScriptComponent")
 
     BaseEntity = current_scene:get_entity_by_name("Base")
     OrderEntity = current_scene:get_entity_by_name("Order")
@@ -77,11 +83,15 @@ function on_ready()
     botonSalida1 = current_scene:get_entity_by_name("BotonSalidaNewGame")
     botonSalida2 = current_scene:get_entity_by_name("BotonSalidaContinue")
 
+    mm = current_scene:get_entity_by_name("BaseManager")
+
 
     SettingsManager = current_scene:get_entity_by_name("SettingsManager"):get_component("ScriptComponent")
     SettingsEntity = current_scene:get_entity_by_name("SettingsManager")
 
     Ajustes = current_scene:get_entity_by_name("Settings")
+
+    Credits = current_scene:get_entity_by_name("Credits")
 
     level = load_progress("level", 1)
 
@@ -134,11 +144,15 @@ function on_update(dt)
                     saliendoDeMenu = true
                     botonSalida1:set_active(true)
                     salidaImagen:set_active(true)
+                    salidaImagenScript.on_ready()
                     SettingsEntity:set_active(false)
                     BaseEntity:set_active(false)
                     OrderEntity:set_active(false)
                     LogoEntity:set_active(false)
                     LogoSalidaEntity:set_active(true)
+
+                    fadeToBlackScript:DoFade()
+
                     changingScene = 1
                     sceneChanged = true
                 end
@@ -172,6 +186,9 @@ function on_update(dt)
                 OrderEntity:set_active(false)
                 LogoEntity:set_active(false)
                 LogoSalidaEntity:set_active(true)
+
+                fadeToBlackScript:DoFade()
+
                 changingScene = 2
                 sceneChanged = true
             end
@@ -218,7 +235,15 @@ function on_update(dt)
             indexSelectionSFX:play()
             --button3:set_state("Pressed")
             if(index == 3) then
-                -- credits screen
+                salidaImagen:set_active(true)
+                SettingsEntity:set_active(false)
+                Credits:set_active(true)
+                OrderEntity:set_active(false)
+                LogoEntity:set_active(false)
+                LogoSalidaEntity:set_active(true)
+                BaseEntity:set_active(false)
+                mm:set_active(false)
+
             end
         end
 
