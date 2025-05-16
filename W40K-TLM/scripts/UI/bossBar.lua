@@ -19,7 +19,7 @@ function on_ready()
 
     bossBarBase:set_color(Vector4.new(1, 1, 1, 0))
     bossBarLife:set_color(Vector4.new(1, 1, 1, 0))
-    bossName:set_color(Vector4.new(1, 1, 1, 0))
+    bossName:set_color(Vector4.new(0.55, 0, 0, 0))
     
     triggerBossBattle:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
@@ -46,7 +46,7 @@ function on_update(dt)
         end
         bossBarBase:set_color(Vector4.new(1, 1, 1, alpha))
         bossBarLife:set_color(Vector4.new(1, 1, 1, alpha))
-        bossName:set_color(Vector4.new(1, 1, 1, alpha))
+        bossName:set_color(Vector4.new(0.55, 0, 0, alpha))
     end
 
     if vida <= 0 then
