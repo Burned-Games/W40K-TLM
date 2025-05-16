@@ -100,6 +100,7 @@ local particle_previewG_exterior_transform = nil
 
 local pauseMenu = nil
 
+local hudManager = nil
 
 local vibrationNormalSettings = Vector3.new(1, 1, 140)
 local vibrationGranadeExplosionSettings = Vector3.new(1, 1, 500)
@@ -186,7 +187,8 @@ function on_ready()
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
-    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")    
+    hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
 
 end
 
@@ -236,6 +238,11 @@ function on_update(dt)
             local rightTrigger = Input.get_button(Input.action.Shoot)
             if ammo <= 0 and rightTrigger == Input.state.Down then
                 playerNoAmmoSFX:play()
+                hudManager.arma2Texture:set_color(Vector4.new(1, 0, 0, 1))
+                hudManager.ammoTextComponent:set_color(Vector4.new(1, 0, 0, 1))            
+            else
+                hudManager.arma2Texture:set_color(Vector4.new(1, 1, 1, 1))
+                hudManager.ammoTextComponent:set_color(Vector4.new(1, 1, 1, 1))    
             end
 
             -- if in reload, check is fishing

@@ -3,7 +3,7 @@
     local currentAmmoWeapon1 = maxAmmoWeapon1
     local maxAmmoWeapon2 = 30
     local currentAmmoWeapon2 = maxAmmoWeapon2
-    local ammoTextComponent
+    ammoTextComponent = nil
 
     local lifeFullComponent
     local life75Component
@@ -51,8 +51,10 @@
     local skillArma2VisualCooldownTransform
     local skillArma2VisualCooldownStartingPosition
 
-    local arma1
-    local arma2
+    arma1 = nil
+    arma1Texture = nil
+    arma2 = nil
+    arma2Texture = nil
     local currentWeapon = 1
     local weaponSwitchCooldown = 0.2 
     local weaponSwitchTimer = 0
@@ -152,7 +154,9 @@
 
         --Armas
         arma1 = current_scene:get_entity_by_name("Arma1")
+        arma1Texture = arma1:get_component("UIImageComponent")
         arma2 = current_scene:get_entity_by_name("Arma2")
+        arma2Texture = arma2:get_component("UIImageComponent")
         maxAmmoTextComponent = current_scene:get_entity_by_name("BalasMax"):get_component("UITextComponent")
         ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
         

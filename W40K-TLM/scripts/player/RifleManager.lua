@@ -105,6 +105,8 @@ chaaarging = false
 
 local pauseMenu = nil
 
+local hudManager = nil
+
 local vibrationNormalSettings = Vector3.new(1, 0, 20)
 local vibrationDisrruptorShootSettings = Vector3.new(1, 1, 200)
 local vibrationDisrruptorChargeSettings = Vector3.new(0.2, 0.2, 100)
@@ -298,6 +300,8 @@ function on_ready()
 
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
+    hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
+
     if current_scene:get_entity_by_name("SawSwordManager"):has_component("ScriptComponent") then
 
         swordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
@@ -393,6 +397,11 @@ function on_update(dt)
 
             if rightTrigger == Input.state.Down and (ammo == maxAmmo) then
                 playerNoAmmoSFX:play()
+                hudManager.arma1Texture:set_color(Vector4.new(1, 0, 0, 1))
+                hudManager.ammoTextComponent:set_color(Vector4.new(1, 0, 0, 1))            
+            else
+                hudManager.arma1Texture:set_color(Vector4.new(1, 1, 1, 1))
+                hudManager.ammoTextComponent:set_color(Vector4.new(1, 1, 1, 1))    
             end
 
             tripleShootTimer = tripleShootTimer - dt
