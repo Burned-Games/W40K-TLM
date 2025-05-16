@@ -110,6 +110,7 @@ function on_ready()
     main_boss.shieldDuration = 1.33
     main_boss.rageDuration = 2.33
     main_boss.ultiDuration = 2.5
+    main_boss.dieDuration = 1.83
 
     -- Animations
     main_boss.idleAnim = 3
@@ -119,6 +120,7 @@ function on_ready()
     main_boss.shieldAnim = 0
     main_boss.rageAnim = 6
     main_boss.ultiAnim = 7
+    main_boss.dieAnim = 1
 
     -- Bools
     main_boss.isRaging = false
@@ -364,6 +366,18 @@ function main_boss:attack_state()
     main_boss.isAttacking = false
     main_boss.attackTimer = 0.0
 
+end
+
+function main_boss:die_state(dt)
+    
+    if main_boss.currentAnim ~= main_boss.dieAnim then
+        main_boss:play_blocking_animation(main_boss.dieAnim, main_boss.dieDuration)
+        if main_boss.dyingSFX ~= nil then main_boss.dyingSFX:play() end
+    end
+
+    if main_boss.animTimer >= main_boss.dieDuration then
+        SceneManager.change_scene("scenes/credits.TeaScene")
+    end
 end
 
 function move_shield()
