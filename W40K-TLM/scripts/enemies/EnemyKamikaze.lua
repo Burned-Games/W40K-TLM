@@ -16,6 +16,14 @@ function on_ready()
     kamikaze.enemyRbComponent = self:get_component("RigidbodyComponent")
     kamikaze.enemyRb = kamikaze.enemyRbComponent.rb
     kamikaze.enemyNavmesh = self:get_component("NavigationAgentComponent")
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "uña1_low" then
+            kamikaze.enemyMat = child:get_component("MaterialComponent")
+            kamikaze.originalMaterial = kamikaze.enemyMat.material
+            break
+        end
+    end
 
     -- Player
     kamikaze.player = current_scene:get_entity_by_name("Player")
@@ -168,6 +176,9 @@ function on_update(dt)
     end
 
     kamikaze.pathUpdateTimer = kamikaze.pathUpdateTimer + dt
+    if kamikaze.enemyHit then kamikaze.hitTimer = kamikaze.hitTimer + dt end
+
+    kamikaze:reset_material()
 
     local currentTargetPos = kamikaze.playerTransf.position
     if kamikaze.pathUpdateTimer >= kamikaze.pathUpdateInterval or kamikaze:get_distance(kamikaze.lastTargetPos, currentTargetPos) > 1.0 then

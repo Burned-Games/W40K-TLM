@@ -1,10 +1,10 @@
-local imageComponent
+imageComponent = nil
 local imageComponentEntity
-local rect
-local spriteWidth = 1154
-local spriteHeight = 508
-local sheetWidth = 9232
-local sheetHeight = 3048
+rect = nil
+spriteWidth = 1154
+spriteHeight = 508
+sheetWidth = 9232
+sheetHeight = 3048
 local horizontalSprites = sheetWidth / spriteWidth
 local verticalSprites = sheetHeight / spriteHeight
 local animationTime = 0
@@ -17,11 +17,15 @@ local delayDuration = 1.0
 function on_ready()
     imageComponent = self:get_component("UIImageComponent")
     imageComponentEntity = current_scene:get_entity_by_name("Logo")
+    
+    animationTime = 0
+    animationFinished = false
+    delayTimer = 0
+
     rect = Vector4.new(0, 0, spriteWidth / sheetWidth, spriteHeight / sheetHeight)
     imageComponent:set_rect(rect)
-
-    
 end
+
 
 function on_update(dt)
     if animationFinished then

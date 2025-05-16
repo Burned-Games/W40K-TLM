@@ -19,6 +19,14 @@ function on_ready()
     range.enemyRbComponent = self:get_component("RigidbodyComponent")
     range.enemyRb = range.enemyRbComponent.rb
     range.enemyNavmesh = self:get_component("NavigationAgentComponent")
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "Enemy_ranged" then
+            range.enemyMat = child:get_component("MaterialComponent")
+            range.originalMaterial = range.enemyMat.material
+            break
+        end
+    end
 
     -- Player
     range.player = current_scene:get_entity_by_name("Player")
@@ -96,7 +104,6 @@ function on_ready()
     range.invulnerabilityTimer = 0.0
     range.animTimer = 0.0
     range.animDuration = 0.0
-    range.detectDuration = 2.33
 
     -- Animations
     range.idleAnim = 5
@@ -130,8 +137,7 @@ function on_ready()
     range.dieDuration = 0.90
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
-    --range.detectAnimDuration = 2.33
-    --range.detectAnimTimer = 0.0
+    range.detectDuration = 2.33
     range.meleeTimer = 0.0
     range.meleeAnimDuration = 0.92
 
@@ -203,6 +209,9 @@ function on_update(dt)
 
     range.pathUpdateTimer = range.pathUpdateTimer + dt
     range.updateTargetTimer = range.updateTargetTimer + dt
+    if range.enemyHit then range.hitTimer = range.hitTimer + dt end
+
+    range:reset_material()
 
     if range.playerMissing then
         range.missingTimer = range.missingTimer + dt

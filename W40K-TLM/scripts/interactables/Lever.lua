@@ -1,7 +1,6 @@
 local leverAnimator = nil
 local hasInteracted = false
 local transform
-local isArenaLever = false
 local canInteract = false
 local maxInteractions = 0
 local currentInteractions = 0
@@ -42,13 +41,6 @@ function on_ready()
         interactionSprite.tint_color = Vector4.new(1,1,1,0)
     end
 
-    local parentTag = self:get_parent():get_component("TagComponent").tag
-    isArenaLever = parentTag == "ArenaMain"
-
-    if isArenaLever and parentScript then
-        maxInteractions = 3
-    end
-
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")        
 
 
@@ -57,16 +49,6 @@ end
 function on_update(dt)
 
     beforeFrameOutOfRange = outOfRange
-
-    if isArenaLever and not parentScript.waitingForKeyPress then
-        canInteract = false
-    else
-        canInteract = true
-    end
-    
-    if isArenaLever and currentInteractions >= maxInteractions then
-        canInteract = false
-    end
 
     local distance = Vector3.new(100,100,100)
     if not hasInteracted then
@@ -160,11 +142,7 @@ function interact()
     currentInteractions = currentInteractions + 1
     leverAnimator:set_current_animation(0)
     leverSFX:play()
-    if isArenaLever then
-        parentScript:advanceToNextWave()
-    else
-        parentScript:on_interact()
-    end
+    parentScript:on_interact()
 end
 
 function on_exit()

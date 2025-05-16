@@ -18,6 +18,14 @@ function on_ready()
     tank.enemyRbComponent = self:get_component("RigidbodyComponent")
     tank.enemyRb = tank.enemyRbComponent.rb
     tank.enemyNavmesh = self:get_component("NavigationAgentComponent")
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "cuerpo_low" then
+            tank.enemyMat = child:get_component("MaterialComponent")
+            tank.originalMaterial = tank.enemyMat.material
+            break
+        end
+    end
 
     -- Player
     tank.player = current_scene:get_entity_by_name("Player")
@@ -218,6 +226,9 @@ function on_update(dt)
     end
 
     tank.pathUpdateTimer = tank.pathUpdateTimer + dt
+    if tank.enemyHit then tank.hitTimer = tank.hitTimer + dt end
+
+    tank:reset_material()
 
     local currentTargetPos = tank.playerTransf.position
     if tank.pathUpdateTimer >= tank.pathUpdateInterval or tank:get_distance(tank.lastTargetPos, currentTargetPos) > 1.0 then

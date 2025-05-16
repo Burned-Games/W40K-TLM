@@ -16,6 +16,14 @@ function on_ready()
     support.enemyRbComponent = self:get_component("RigidbodyComponent")
     support.enemyRb = support.enemyRbComponent.rb
     support.enemyNavmesh = self:get_component("NavigationAgentComponent")
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "body_low.001" then
+            support.enemyMat = child:get_component("MaterialComponent")
+            support.originalMaterial = support.enemyMat.material
+            break
+        end
+    end
 
     -- Player
     support.player = current_scene:get_entity_by_name("Player")
@@ -171,6 +179,9 @@ function on_update(dt)
 
     support.findEnemiesTimer = support.findEnemiesTimer + dt
     support.updateTargetTimer = support.updateTargetTimer + dt
+    if support.enemyHit then support.hitTimer = support.hitTimer + dt end
+
+    support:reset_material()
 
     if support.updateTargetTimer >= support.updateTargetInterval then
         support.delayedPlayerPos = Vector3.new(support.playerTransf.position.x, support.playerTransf.position.y, support.playerTransf.position.z)

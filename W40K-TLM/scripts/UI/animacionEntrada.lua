@@ -24,12 +24,12 @@ local selectVerticalSprites = selectSheetHeight / selectSpriteHeight
 local selectTotalSprites = 12
 
 -- Variables generales
-local animationTime = 0
+animationTime = 0
 local speed = 1/24
-local currentPhase = "entry" 
-local animationFinished = false
+currentPhase = "entry" 
+animationFinished = false
 
-local delayTimer = 0 
+delayTimer = 0 
 local delayDuration = 0.5
 
 function on_ready()
