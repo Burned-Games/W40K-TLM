@@ -23,6 +23,7 @@ function enemy:new(obj)
     obj.enemyRbComponent = nil
     obj.enemyRb = nil
     obj.enemyNavmesh = nil
+    obj.enemyMat = nil
 
     obj.player = nil
     obj.playerTransf = nil
@@ -50,6 +51,8 @@ function enemy:new(obj)
     obj.alertEnemiesUITransform = nil
     obj.alertUIScript = nil
 
+    obj.originalMaterial = nil
+    obj.damageMaterial = nil
 
     -- Tags
     obj.enemyType = "Nil"
@@ -115,6 +118,7 @@ function enemy:new(obj)
     obj.isPlayingAnimation = false
     obj.playerMissing = false
     obj.playerLost = false
+    obj.enemyHit = false
 
     -- Vector3
     obj.enemyInitialPos = Vector3.new(0, 0, 0)
@@ -131,6 +135,8 @@ function enemy:new(obj)
     obj.detectAnimDuration = 0.0
     obj.missingTimer = 0.0
     obj.missingDuration = 1.0
+    obj.hitTimer = 0.0
+    obj.hitDuration = 0.25
 
     -- Audios
     obj.hurtSFX = nil
@@ -719,6 +725,15 @@ function enemy:take_damage(damage, shieldMultiplier)
         log("Enemy is invulnerable")
         return
     end
+
+    if not self.damageMaterial then
+        self.damageMaterial = PBRMaterial.new()
+        self.damageMaterial.albedo_texture = self.originalMaterial.albedo_texture
+        self.damageMaterial.color = Vector4.new(255/255, 82/255, 102/255, 255/255)
+    end
+    
+    if self.enemyMat then self.enemyMat.material = self.damageMaterial end
+
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
@@ -734,18 +749,33 @@ function enemy:take_damage(damage, shieldMultiplier)
         self:die_state()
     end
 
+    self.enemyHit = true
+
+end
+
+function enemy:reset_material()
+
+    if self.hitTimer >= self.hitDuration then
+        if self.enemyMat then self.enemyMat.material = self.originalMaterial end
+        self.enemyHit = false
+        self.hitTimer = 0.0
+    end
+
 end
 
 function enemy:rotate_enemy(targetPosition)
+
     local dx = targetPosition.x - self.enemyTransf.position.x
     local dz = targetPosition.z - self.enemyTransf.position.z
 
     local targetAngle = math.deg(self:atan2(dx, dz))
 
     self.enemyRb:set_rotation(Vector3.new(0, targetAngle,0))
+
 end
 
 function enemy:check_player_distance()
+
     if self.isReturning then return end
     local distance = self:get_distance(self.enemyTransf.position, self.playerTransf.position)
     if distance <= self.proximityDetectionRadius then
@@ -760,6 +790,7 @@ function enemy:check_player_distance()
             end
         end
     end
+
 end
 
 function enemy:get_distance(pos1, pos2)
