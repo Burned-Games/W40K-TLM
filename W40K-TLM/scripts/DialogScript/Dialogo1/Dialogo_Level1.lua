@@ -32,8 +32,8 @@ function on_ready()
     }
     
     dialogLines5 = {
-        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor’s light guide your hand."},
-        { name = "DeciusMarcellus", text = "We’re detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter."}
+        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand."},
+        { name = "DeciusMarcellus", text = "We're detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter."}
     }
 
     dialogLines8 = {
@@ -43,7 +43,7 @@ function on_ready()
     dialogLines9 = {
         { name = "QuintusMaxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?"},
         { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother."},
-        { name = "DeciusMarcellus", text = "Status report—are you still with us, Brother?"},
+        { name = "DeciusMarcellus", text = "Status report-are you still with us, Brother?"},
         { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?"}
     }
 
@@ -64,6 +64,7 @@ end
 function on_update(dt)
 
     if dialog5 then 
+        print("sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss")
         dialogScriptComponent.start_dialog(dialogLines5)
         dialog5 = false
     end
