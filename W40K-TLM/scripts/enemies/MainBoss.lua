@@ -99,6 +99,7 @@ function on_ready()
     main_boss.rageDuration = 2.33
     main_boss.ultiDuration = 2.5
     main_boss.dieDuration = 1.83
+    main_boss.idleDuration = 2.5
 
     -- Animations
     main_boss.idleAnim = 3
@@ -106,9 +107,10 @@ function on_ready()
     main_boss.meleeAnim = 5
     main_boss.rangeAnim = 4
     main_boss.shieldAnim = 0
-    main_boss.rageAnim = 6
+    main_boss.totemAnim = 6
     main_boss.ultiAnim = 7
     main_boss.dieAnim = 1
+    main_boss.rageAnim = 2
 
     -- Bools
     main_boss.isRaging = false
@@ -165,7 +167,7 @@ function on_update(dt)
             main_boss.enemyNavmesh.path = {}
             main_boss.playerDetected = true
             main_boss.isAttacking = false
-            main_boss.currentState = main_boss.state.Move
+            main_boss.currentState = main_boss.state.Attack
         end
     end
 
@@ -319,6 +321,11 @@ function main_boss:attack_state()
         return
     end
 
+    if main_boss.currentAnim ~= main_boss.idleAnim then
+        main_boss.currentAnim = main_boss.idleAnim
+        main_boss.animator:set_current_animation(main_boss.currentAnim)
+    end
+
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
     local attackChance = math.random()
 
@@ -403,8 +410,10 @@ end
 function set_stats()
 
     -- Stats of the Main Boss
-    main_boss.health = stats.health
-    main_boss.rageHealth = stats.rageHealth
+    if main_boss.level == 1 then
+        main_boss.health = stats.health
+        main_boss.rageHealth = stats.rageHealth
+    end
     main_boss.bossShieldHealth = stats.bossShieldHealth
     main_boss.totemHealth = stats.totemHealth
     main_boss.speed = stats.speed

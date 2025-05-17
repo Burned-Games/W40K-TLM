@@ -762,11 +762,11 @@ function enemy:take_damage(damage, shieldMultiplier)
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
         if self.hurtSFX then self.hurtSFX:play() end
-        log("Enemy: " .. self.enemyType .. "  Shield Health: " .. self.shieldHealth)
+        log("Shield Health: " .. self.shieldHealth)
     else
         self.health = self.health - damage
         if self.hurtSFX then self.hurtSFX:play() end
-        log("Enemy: " .. self.enemyType .. "  Health: " .. self.health)
+        log("Health: " .. self.health)
     end
 
     if self.health <= 0 then
