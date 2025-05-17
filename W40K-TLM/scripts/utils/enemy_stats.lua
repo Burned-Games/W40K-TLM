@@ -7,18 +7,18 @@ local enemy_stats = {
         -- Range Level 1
         [1] = {
             -- Stats
-            health = 100,
+            health = 120,
 
             speed = 5.5,
             bulletSpeed = 15,
 
-            meleeDamage = 10,
-            rangeDamage = 4,
+            meleeDamage = 15,
+            rangeDamage = 6,
 
             detectionRange = 15,
             meleeAttackRange = 1,
             rangeAttackRange = 13,
-            chaseRange = 4,
+            chaseRange = 2,
 
             maxBurstShots = 4,
 
@@ -44,18 +44,18 @@ local enemy_stats = {
         -- Range Level 2
         [2] = {
             -- Stats
-            health = 120,
+            health = 140,
 
             speed = 5.5,
             bulletSpeed = 15,
 
-            meleeDamage = 15,
-            rangeDamage = 6,
+            meleeDamage = 25,
+            rangeDamage = 8,
 
             detectionRange = 15,
             meleeAttackRange = 1,
             rangeAttackRange = 13,
-            chaseRange = 4,
+            chaseRange = 2,
 
             maxBurstShots = 4,
 
@@ -83,7 +83,7 @@ local enemy_stats = {
         -- Support Level 1
         [1] = {
             -- Stats
-            health = 80,
+            health = 100,
 
             speed = 5,
             fleeSpeed = 7,
@@ -104,7 +104,7 @@ local enemy_stats = {
             -- **Timers**
 
             -- Time between throwing a shield and be able to put another
-            shieldCooldown = 4.0,
+            shieldCooldown = 3.0,
             -- When its in flee state, frequency of the support checking if ther is some enemy wich is able to get a shield
             checkEnemyInterval = 40.0,
 
@@ -117,13 +117,13 @@ local enemy_stats = {
         -- Support Level 2
         [2] = {
             -- Stats
-            health = 95,
+            health = 120,
 
             speed = 5,
             fleeSpeed = 7,
             bulletSpeed = 15,
 
-            enemyShield = 70,
+            enemyShield = 60,
 
             supportDamage = 20,
 
@@ -186,16 +186,16 @@ local enemy_stats = {
         -- Tank Level 2
         [2] = {
             -- Stats
-            health = 300,
+            health = 350,
 
             speed = 3,
             tackleSpeed = 12,
 
-            meleeDamage = 60,
-            tackleDamage = 110,
+            meleeDamage = 40,
+            tackleDamage = 120,
 
             detectionRange = 15,
-            meleeAttackRange = 3,
+            meleeAttackRange = 2,
 
             statsIncrement = 1.5,
             statsDecrement = 0.33,
@@ -220,11 +220,11 @@ local enemy_stats = {
         -- Kamikaze Level 1
         [2] = {
             -- Stats
-            health = 55,
+            health = 75,
 
             speed = 7,
 
-            damage = 40,
+            damage = 50,
 
             detectionRange = 15,
             attackRange = 1,
@@ -246,12 +246,12 @@ local enemy_stats = {
             -- Stats
             health = 1000,
             rageHealth = 400,
-            bossShieldHealth = 50,
+            bossShieldHealth = 80,
 
             speed = 2,
 
-            meleeDamage = 120,
-            rangeDamage = 80,
+            meleeDamage = 70,
+            rangeDamage = 50,
 
             detectionRange = 40,
             meleeAttackRange = 10,
@@ -281,13 +281,13 @@ local enemy_stats = {
         -- Main Boss Fase 2
         [2] = {
             -- Stats
-            bossShieldHealth = 70,
+            bossShieldHealth = 80,
             totemHealth = 60,
 
             speed = 4,
 
-            meleeDamage = 130,
-            rangeDamage = 100,
+            meleeDamage = 90,
+            rangeDamage = 60,
             ultimateDamage = 350,
 
             detectionRange = 50,
