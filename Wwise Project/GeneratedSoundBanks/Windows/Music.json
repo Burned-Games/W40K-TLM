@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{35F34732-1674-3D73-64CA-04D315BD4DA5}",
+    "Hash": "{FE61CA18-16E2-59A2-3472-310AAB9F2F13}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -22,6 +22,22 @@
       "Location": "Memory",
       "ShortName": "ExploringLevel2Mid.wav",
       "CachePath": "3A/{3A852E15-EFAC-E847-855C-3F38916AB838}.wem"
+     },
+     {
+      "Id": "98299895",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploreLevel2.wav",
+      "CachePath": "FB/{FB4840E6-7405-2DC7-89B7-605160B12ED4}.wem"
+     },
+     {
+      "Id": "540456228",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploreLevel3.wav",
+      "CachePath": "8A/{8ADD3373-6C6C-6641-2E4F-9E78B40385E0}.wem"
      },
      {
       "Id": "555446988",
@@ -53,7 +69,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "FightingMusic.wav",
-      "CachePath": "AA/{AACD7A1C-4DF1-B312-31B8-3657B1DFABD6}.wem"
+      "CachePath": "0D/{0DE877E2-3221-A0E1-B041-B0CF598F8BE1}.wem"
      },
      {
       "Id": "764091017",
@@ -70,9 +86,73 @@
       "Location": "Memory",
       "ShortName": "ExploringLevel2Final.wav",
       "CachePath": "A3/{A386FDAF-846F-BA1B-B92D-2B40F57DDB6B}.wem"
+     },
+     {
+      "Id": "983085039",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossFightingMusic.wav",
+      "CachePath": "7D/{7D01AD42-4E76-4815-A580-39312707272B}.wem"
+     },
+     {
+      "Id": "1034477356",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploreLevel1.wav",
+      "CachePath": "EC/{EC18E151-FD28-7BBF-3660-5BBABB40D223}.wem"
      }
     ],
     "Events": [
+     {
+      "Id": "1290373784",
+      "Name": "Play_BossFightingMusic_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_BossFightingMusic_container",
+      "GUID": "{0B1CB48B-B516-4A21-90C2-D41941430428}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "983085039"
+       }
+      ]
+     },
+     {
+      "Id": "4067184816",
+      "Name": "Play_ExploreLevel1_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploreLevel1_container",
+      "GUID": "{9163D869-7966-4110-A57C-CFA8A7F4065F}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1034477356"
+       }
+      ]
+     },
+     {
+      "Id": "1826207915",
+      "Name": "Play_ExploreLevel2_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploreLevel2_container",
+      "GUID": "{2F8CE6FA-61CA-43C7-8B8F-10F3D0B8738D}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "98299895"
+       }
+      ]
+     },
+     {
+      "Id": "3329036210",
+      "Name": "Play_ExploreLevel3_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploreLevel3_container",
+      "GUID": "{0DEC85B2-C381-4062-BA6F-5FD750CD6E7C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "540456228"
+       }
+      ]
+     },
      {
       "Id": "1875411331",
       "Name": "Play_ExploringColiseum_container",
@@ -160,6 +240,6 @@
     ]
    }
   ],
-  "FileHash": "{CCD7B1BD-A98C-DBC0-5BDA-9E6244DF1FC5}"
+  "FileHash": "{E180A89A-B69D-744D-7B1D-35850B6C5213}"
  }
 }

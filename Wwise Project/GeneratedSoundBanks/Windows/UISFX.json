@@ -10,11 +10,19 @@
     "Type": "User",
     "GUID": "{45A4EA0F-F1E1-460F-9A2A-35C1CDE932E8}",
     "Language": "SFX",
-    "Hash": "{828E79D7-E633-DF8A-A677-10D67AA5F469}",
+    "Hash": "{6176A584-5205-72F9-E0E8-AE2261D9B45B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\UISFX",
     "ShortName": "UISFX",
     "Path": "UISFX.bnk",
     "Media": [
+     {
+      "Id": "118484090",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PopUpIntroOutro.wav",
+      "CachePath": "2C/{2CC9976F-B40F-2861-CD6C-DCB5971FF8B1}.wem"
+     },
      {
       "Id": "142156323",
       "Language": "SFX",
@@ -30,6 +38,14 @@
       "Location": "Memory",
       "ShortName": "MenuIntro.wav",
       "CachePath": "90/{90F62AA0-1BA8-305B-FDE9-59DD59049B44}.wem"
+     },
+     {
+      "Id": "339493239",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MissionComplete.wav",
+      "CachePath": "C0/{C06D9A49-A090-AA85-913E-C153E3E40B4A}.wem"
      },
      {
       "Id": "356355759",
@@ -126,10 +142,38 @@
         "Id": "356355759"
        }
       ]
+     },
+     {
+      "Id": "280618453",
+      "Name": "Play_MissionComplete",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MissionComplete",
+      "GUID": "{B8584ECC-F882-4EB8-BD67-30DF28F0B7E0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.4",
+      "DurationMax": "0.4",
+      "MediaRefs": [
+       {
+        "Id": "339493239"
+       }
+      ]
+     },
+     {
+      "Id": "4213993779",
+      "Name": "Play_PopUpIntroOutro",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_PopUpIntroOutro",
+      "GUID": "{273E9774-F73C-49A8-A854-881A3311663B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8020862",
+      "DurationMax": "0.8020862",
+      "MediaRefs": [
+       {
+        "Id": "118484090"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{61394DD4-B453-FCBA-C213-A9AF9A9B2BF8}"
+  "FileHash": "{2125DF82-18ED-6375-E802-12E68D19F31B}"
  }
 }

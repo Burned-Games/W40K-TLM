@@ -1,0 +1,641 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1008119741",
+    "Type": "User",
+    "GUID": "{A936EE2F-7F72-46D4-94A1-BABDFCC11C34}",
+    "Language": "SFX",
+    "Hash": "{A4A52940-FE77-1FC7-F8A8-3CAF4E64AF17}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\DialogsSFX",
+    "ShortName": "DialogsSFX",
+    "Path": "DialogsSFX.bnk",
+    "Media": [
+     {
+      "Id": "55221240",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona12.wav",
+      "CachePath": "44/{4488BE62-A4B9-DCE4-33C0-1267720C3EEB}.wem"
+     },
+     {
+      "Id": "75779523",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona18.wav",
+      "CachePath": "F0/{F08B4141-801A-4EB9-A421-BD8B859AA240}.wem"
+     },
+     {
+      "Id": "96383782",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona9.wav",
+      "CachePath": "95/{95087A39-F49C-85D8-4513-08CB188ED35F}.wem"
+     },
+     {
+      "Id": "109074104",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_SalidaZona5.wav",
+      "CachePath": "32/{32799E60-95A2-3DAD-29F5-7DE663843328}.wem"
+     },
+     {
+      "Id": "110288935",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_SalidaZona11.wav",
+      "CachePath": "93/{93C0CAA7-882F-4ED5-9DF0-13647272D9FF}.wem"
+     },
+     {
+      "Id": "164907491",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona16.wav",
+      "CachePath": "EA/{EA10813B-EFCE-932F-93DA-8C7B9ACE707B}.wem"
+     },
+     {
+      "Id": "167008796",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona1_2.wav",
+      "CachePath": "FD/{FD657D3A-2423-D40F-B729-00F2D06D003F}.wem"
+     },
+     {
+      "Id": "201067192",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_CinematicaFinal1.wav",
+      "CachePath": "BD/{BD89E56B-1E63-B766-A6C4-2751AF69D75F}.wem"
+     },
+     {
+      "Id": "202406232",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_CinematicaFinal2.wav",
+      "CachePath": "BE/{BEE9A672-E5A9-F2E2-C72C-CAEC3DDBFE2C}.wem"
+     },
+     {
+      "Id": "230731430",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_Cinematica2.wav",
+      "CachePath": "BB/{BB659F75-3898-76DD-42D3-74EB868EF932}.wem"
+     },
+     {
+      "Id": "245843456",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_ActivacionPalancaZona13.wav",
+      "CachePath": "59/{5910A86C-9D97-B99C-F96B-5EAC8EC72689}.wem"
+     },
+     {
+      "Id": "272688756",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_LlegadaZona15.wav",
+      "CachePath": "CD/{CD5A3873-B7C5-36C3-3DC8-151203C2D510}.wem"
+     },
+     {
+      "Id": "384077487",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona19.wav",
+      "CachePath": "11/{1125CF7B-B551-A60B-4CBA-661DBBCEC724}.wem"
+     },
+     {
+      "Id": "451407930",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_LlegadaZona9.wav",
+      "CachePath": "97/{97D2A125-F124-240F-8C3C-1E93B1DF507B}.wem"
+     },
+     {
+      "Id": "523031469",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_CinematicaFinal1.wav",
+      "CachePath": "7A/{7A9EF539-3CAF-9A74-47D9-5A54368716E8}.wem"
+     },
+     {
+      "Id": "606882035",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona8.wav",
+      "CachePath": "E6/{E6B82C46-040B-90C0-DE1A-20E67A1F7919}.wem"
+     },
+     {
+      "Id": "626303130",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_SalidaZona9.wav",
+      "CachePath": "80/{80831038-B164-F9AF-7163-A68855D77FE9}.wem"
+     },
+     {
+      "Id": "670019284",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_Intro.wav",
+      "CachePath": "DC/{DCBE70B0-FF93-1D78-1667-99B47E0E1190}.wem"
+     },
+     {
+      "Id": "683713677",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_LlegadaZona1.wav",
+      "CachePath": "29/{29566AC2-CFA3-AFBB-FD54-066C95E4E9A4}.wem"
+     },
+     {
+      "Id": "751874081",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona17.wav",
+      "CachePath": "72/{72A521C9-C01D-AB31-8F29-36D3AFED4B22}.wem"
+     },
+     {
+      "Id": "777463675",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona1.wav",
+      "CachePath": "84/{841201EC-FD40-FE7C-D9AD-69A7AEC501F4}.wem"
+     },
+     {
+      "Id": "933454054",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_Cinematica2.wav",
+      "CachePath": "34/{34101C19-726B-EB4A-5479-C5E246D22037}.wem"
+     },
+     {
+      "Id": "940184336",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_SalidaZona9.wav",
+      "CachePath": "D7/{D73CA00D-A223-74C7-0324-8ED123040113}.wem"
+     },
+     {
+      "Id": "947244481",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona5.wav",
+      "CachePath": "A0/{A017AA8E-1DDF-F60E-3316-37EC625DFFE4}.wem"
+     },
+     {
+      "Id": "970792795",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona13.wav",
+      "CachePath": "11/{11A91884-A29E-5F92-F6BB-A143175D13F1}.wem"
+     },
+     {
+      "Id": "977010814",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona14.wav",
+      "CachePath": "4E/{4E0116EE-0B8C-886E-278A-0D0B97651832}.wem"
+     },
+     {
+      "Id": "997464728",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona10.wav",
+      "CachePath": "6F/{6F29E069-D87B-48AE-FD03-78B74FB7CD8F}.wem"
+     },
+     {
+      "Id": "1048970218",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_CinematicaFinal2.wav",
+      "CachePath": "A2/{A239AA5F-3995-F426-A653-D086D52EC1A0}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3979069874",
+      "Name": "Play_DeciusMarcellus_Cinematica2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_Cinematica2",
+      "GUID": "{3E3279C8-48B6-4952-B4A1-584683C475BC}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.161814",
+      "DurationMax": "8.161814",
+      "MediaRefs": [
+       {
+        "Id": "230731430"
+       }
+      ]
+     },
+     {
+      "Id": "1403736441",
+      "Name": "Play_DeciusMarcellus_CinematicaFinal1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_CinematicaFinal1",
+      "GUID": "{6B0CEFB5-72FD-4437-BD76-5BA559C137EA}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.8614964",
+      "DurationMax": "6.8614964",
+      "MediaRefs": [
+       {
+        "Id": "201067192"
+       }
+      ]
+     },
+     {
+      "Id": "1403736442",
+      "Name": "Play_DeciusMarcellus_CinematicaFinal2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_CinematicaFinal2",
+      "GUID": "{8C93C6FB-BB72-4D61-844E-BD436F90A65B}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.7220635",
+      "DurationMax": "6.7220635",
+      "MediaRefs": [
+       {
+        "Id": "202406232"
+       }
+      ]
+     },
+     {
+      "Id": "2424311586",
+      "Name": "Play_DeciusMarcellus_Intro",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_Intro",
+      "GUID": "{CBCE238A-47EA-4CB7-9FD6-075744E81DEC}",
+      "DurationType": "OneShot",
+      "DurationMin": "16.241043",
+      "DurationMax": "16.241043",
+      "MediaRefs": [
+       {
+        "Id": "670019284"
+       }
+      ]
+     },
+     {
+      "Id": "1400486691",
+      "Name": "Play_DeciusMarcellus_LlegadaZona1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona1",
+      "GUID": "{5FCEA7D2-5508-4C95-A7B6-E5F0D1D8B7A3}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.7257595",
+      "DurationMax": "10.7257595",
+      "MediaRefs": [
+       {
+        "Id": "777463675"
+       }
+      ]
+     },
+     {
+      "Id": "2342623273",
+      "Name": "Play_DeciusMarcellus_LlegadaZona10",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona10",
+      "GUID": "{7FBF4C72-092C-4D33-9799-75011CC3535E}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.841066",
+      "DurationMax": "7.841066",
+      "MediaRefs": [
+       {
+        "Id": "997464728"
+       }
+      ]
+     },
+     {
+      "Id": "2342623275",
+      "Name": "Play_DeciusMarcellus_LlegadaZona12",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona12",
+      "GUID": "{42EED8AA-7ABD-481D-8D6D-253187ECF9BB}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.92263",
+      "DurationMax": "8.92263",
+      "MediaRefs": [
+       {
+        "Id": "55221240"
+       }
+      ]
+     },
+     {
+      "Id": "2342623274",
+      "Name": "Play_DeciusMarcellus_LlegadaZona13",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona13",
+      "GUID": "{C25AF1DB-F6C6-4D30-BD49-F2D08C4F62EA}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.196803",
+      "DurationMax": "9.196803",
+      "MediaRefs": [
+       {
+        "Id": "970792795"
+       }
+      ]
+     },
+     {
+      "Id": "2342623277",
+      "Name": "Play_DeciusMarcellus_LlegadaZona14",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona14",
+      "GUID": "{524EEE1A-A118-45DA-AA79-3FCFAE0EB72A}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.928186",
+      "DurationMax": "9.928186",
+      "MediaRefs": [
+       {
+        "Id": "977010814"
+       }
+      ]
+     },
+     {
+      "Id": "2342623279",
+      "Name": "Play_DeciusMarcellus_LlegadaZona16",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona16",
+      "GUID": "{6000AC23-3DEB-4BEF-B44B-748F4FA23D8A}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.838186",
+      "DurationMax": "10.838186",
+      "MediaRefs": [
+       {
+        "Id": "164907491"
+       }
+      ]
+     },
+     {
+      "Id": "2342623278",
+      "Name": "Play_DeciusMarcellus_LlegadaZona17",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona17",
+      "GUID": "{70D8D260-AE78-4C92-A2B7-4D391B5767D2}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.983447",
+      "DurationMax": "9.983447",
+      "MediaRefs": [
+       {
+        "Id": "751874081"
+       }
+      ]
+     },
+     {
+      "Id": "2342623265",
+      "Name": "Play_DeciusMarcellus_LlegadaZona18",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona18",
+      "GUID": "{FA4A33A5-54E1-4632-8032-4504324E5993}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.334558",
+      "DurationMax": "10.334558",
+      "MediaRefs": [
+       {
+        "Id": "75779523"
+       }
+      ]
+     },
+     {
+      "Id": "2342623264",
+      "Name": "Play_DeciusMarcellus_LlegadaZona19",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona19",
+      "GUID": "{84F02844-4D5D-4BA0-BD65-A973936BE238}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.83381",
+      "DurationMax": "10.83381",
+      "MediaRefs": [
+       {
+        "Id": "384077487"
+       }
+      ]
+     },
+     {
+      "Id": "358790656",
+      "Name": "Play_DeciusMarcellus_LlegadaZona1_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona1_2",
+      "GUID": "{A11CB42B-0925-4EB6-954F-DFA698FE0ACB}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.137937",
+      "DurationMax": "9.137937",
+      "MediaRefs": [
+       {
+        "Id": "167008796"
+       }
+      ]
+     },
+     {
+      "Id": "1400486695",
+      "Name": "Play_DeciusMarcellus_LlegadaZona5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona5",
+      "GUID": "{C20E553C-FA04-4BD7-B73D-7AC409452147}",
+      "DurationType": "OneShot",
+      "DurationMin": "11.236122",
+      "DurationMax": "11.236122",
+      "MediaRefs": [
+       {
+        "Id": "947244481"
+       }
+      ]
+     },
+     {
+      "Id": "1400486698",
+      "Name": "Play_DeciusMarcellus_LlegadaZona8",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona8",
+      "GUID": "{645D45DA-0906-4898-9FB3-1B8DD913CF90}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.6526985",
+      "DurationMax": "7.6526985",
+      "MediaRefs": [
+       {
+        "Id": "606882035"
+       }
+      ]
+     },
+     {
+      "Id": "1400486699",
+      "Name": "Play_DeciusMarcellus_LlegadaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona9",
+      "GUID": "{751A2AFD-B474-4968-A192-777E3C940E9E}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.7456236",
+      "DurationMax": "7.7456236",
+      "MediaRefs": [
+       {
+        "Id": "96383782"
+       }
+      ]
+     },
+     {
+      "Id": "333743460",
+      "Name": "Play_DeciusMarcellus_SalidaZona11",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_SalidaZona11",
+      "GUID": "{481EC5BE-CF28-476C-B496-3633C0C6E836}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.452177",
+      "DurationMax": "9.452177",
+      "MediaRefs": [
+       {
+        "Id": "110288935"
+       }
+      ]
+     },
+     {
+      "Id": "2543013491",
+      "Name": "Play_DeciusMarcellus_SalidaZona5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_SalidaZona5",
+      "GUID": "{A9CFC424-981D-4AAF-A0AC-434F00BE5C06}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.428934",
+      "DurationMax": "9.428934",
+      "MediaRefs": [
+       {
+        "Id": "109074104"
+       }
+      ]
+     },
+     {
+      "Id": "2543013503",
+      "Name": "Play_DeciusMarcellus_SalidaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_SalidaZona9",
+      "GUID": "{BB386103-2199-4AF1-9894-A262AE28B2CE}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.9591155",
+      "DurationMax": "4.9591155",
+      "MediaRefs": [
+       {
+        "Id": "940184336"
+       }
+      ]
+     },
+     {
+      "Id": "4081220766",
+      "Name": "Play_QuintusMaxillian_ActivacionPalancaZona13",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_ActivacionPalancaZona13",
+      "GUID": "{E92A7260-350B-449C-AEC3-CA396AB4D6A2}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.4613152",
+      "DurationMax": "2.4613152",
+      "MediaRefs": [
+       {
+        "Id": "245843456"
+       }
+      ]
+     },
+     {
+      "Id": "3412614455",
+      "Name": "Play_QuintusMaxillian_Cinematica2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_Cinematica2",
+      "GUID": "{61B4944C-DC58-43A7-9574-B099B780E952}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.581315",
+      "DurationMax": "7.581315",
+      "MediaRefs": [
+       {
+        "Id": "933454054"
+       }
+      ]
+     },
+     {
+      "Id": "565719238",
+      "Name": "Play_QuintusMaxillian_CinematicaFinal1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_CinematicaFinal1",
+      "GUID": "{7487A628-13EA-417F-B1D2-CD8EB74658CA}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.654059",
+      "DurationMax": "5.654059",
+      "MediaRefs": [
+       {
+        "Id": "523031469"
+       }
+      ]
+     },
+     {
+      "Id": "565719237",
+      "Name": "Play_QuintusMaxillian_CinematicaFinal2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_CinematicaFinal2",
+      "GUID": "{BE24E533-35FF-45BD-B4BD-BE39309074DE}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.916576",
+      "DurationMax": "5.916576",
+      "MediaRefs": [
+       {
+        "Id": "1048970218"
+       }
+      ]
+     },
+     {
+      "Id": "92532500",
+      "Name": "Play_QuintusMaxillian_LlegadaZona1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_LlegadaZona1",
+      "GUID": "{829A25FB-1EF9-4402-868C-E64CB2547252}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.161814",
+      "DurationMax": "8.161814",
+      "MediaRefs": [
+       {
+        "Id": "683713677"
+       }
+      ]
+     },
+     {
+      "Id": "3266403401",
+      "Name": "Play_QuintusMaxillian_LlegadaZona15",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_LlegadaZona15",
+      "GUID": "{EE72E4E0-2728-4DCF-87F8-17AA214DE645}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.5232654",
+      "DurationMax": "7.5232654",
+      "MediaRefs": [
+       {
+        "Id": "272688756"
+       }
+      ]
+     },
+     {
+      "Id": "92532508",
+      "Name": "Play_QuintusMaxillian_LlegadaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_LlegadaZona9",
+      "GUID": "{0101261A-CC4E-42E3-9B25-255CC87C9E7B}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.8181405",
+      "DurationMax": "4.8181405",
+      "MediaRefs": [
+       {
+        "Id": "451407930"
+       }
+      ]
+     },
+     {
+      "Id": "1831651246",
+      "Name": "Play_QuintusMaxillian_SalidaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_SalidaZona9",
+      "GUID": "{03E75A68-4C27-42B9-98F9-BD7252581D23}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.4915195",
+      "DurationMax": "5.4915195",
+      "MediaRefs": [
+       {
+        "Id": "626303130"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{09F423BB-9E7B-0717-DA37-EEA3DD8057C7}"
+ }
+}
