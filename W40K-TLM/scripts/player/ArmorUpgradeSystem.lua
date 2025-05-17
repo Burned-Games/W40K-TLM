@@ -20,6 +20,7 @@ local reloadSpeedBonus = 1.15
 local pauseMenu = nil
 
 local hudManager = nil
+local workbenchUIManager = nil
 isPlayerInRadius = false 
 
 --Audio
@@ -34,6 +35,7 @@ function on_ready()
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     fervorAniamtor = fervorAstartesStandardEntity:get_component("AnimatorComponent")
     hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
+    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
     --Audio
     bannerFallSFX = current_scene:get_entity_by_name("BannerFallSFX"):get_component("AudioSourceComponent")
@@ -43,7 +45,7 @@ function on_ready()
 end
 
 function on_update(dt)
-    if not pauseMenu.isPaused then
+    if not pauseMenu.isPaused and not workbenchUIManagerScript.isWorkBenchOpen then
         update_protection(dt)
         handle_fervor_astartes(dt)
     end
