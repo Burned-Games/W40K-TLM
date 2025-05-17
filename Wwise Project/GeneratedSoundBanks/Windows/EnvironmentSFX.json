@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{514FA858-9167-0E8B-2C89-5F3228848D54}",
+    "Hash": "{2F3FAE39-D6C1-64DB-02B3-665B83591509}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -37,7 +37,23 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "WorkbenchLand.wav",
-      "CachePath": "19/{199860DB-A18F-50BB-0017-775BCE6EFD34}.wem"
+      "CachePath": "C1/{C1AF7F1C-C587-59E2-13C7-062D39EBBBF4}.wem"
+     },
+     {
+      "Id": "433993564",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "InjectorPickUp.wav",
+      "CachePath": "37/{37CDEB2B-2ECA-53A8-0633-F447228A534E}.wem"
+     },
+     {
+      "Id": "452226569",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ScrapPickUp.wav",
+      "CachePath": "C7/{C756A0CD-7BC9-A983-2B08-E756B96FC5D7}.wem"
      },
      {
       "Id": "641304611",
@@ -53,7 +69,31 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "metaldoor.wav",
-      "CachePath": "22/{22E4ACAC-D37E-83B0-92DB-FDC9ECA6E49E}.wem"
+      "CachePath": "03/{03218346-E4FA-9591-CEE8-90ED852844F8}.wem"
+     },
+     {
+      "Id": "704322092",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "WorkbenchBuy.wav",
+      "CachePath": "2F/{2FA66FB0-1D50-6489-6E19-5BAE0A5E0FBD}.wem"
+     },
+     {
+      "Id": "856331249",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ScrapDestroy.wav",
+      "CachePath": "C2/{C2BDDFD7-2B8C-1E0C-1F23-911E509EF4B5}.wem"
+     },
+     {
+      "Id": "912968692",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BoxBarrelDestroy.wav",
+      "CachePath": "D1/{D1A257A5-FCD5-5888-5442-0402464CF333}.wem"
      },
      {
       "Id": "947093863",
@@ -65,6 +105,20 @@
      }
     ],
     "Events": [
+     {
+      "Id": "3986475561",
+      "Name": "Play_BoxBarrelDestroy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_BoxBarrelDestroy",
+      "GUID": "{BA40DC00-5A8B-4B8E-89C6-829B73B49337}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.6105833",
+      "DurationMax": "1.6105833",
+      "MediaRefs": [
+       {
+        "Id": "912968692"
+       }
+      ]
+     },
      {
       "Id": "4070524305",
       "Name": "Play_fireburn",
@@ -106,6 +160,20 @@
       ]
      },
      {
+      "Id": "2917681954",
+      "Name": "Play_InjectorPickUp",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_InjectorPickUp",
+      "GUID": "{3380EF16-A7CD-445A-AEA2-2767D638ABAC}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.4101814",
+      "DurationMax": "1.4101814",
+      "MediaRefs": [
+       {
+        "Id": "433993564"
+       }
+      ]
+     },
+     {
       "Id": "3196500978",
       "Name": "Play_lever",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_lever",
@@ -125,11 +193,53 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_metaldoor",
       "GUID": "{ED62D851-4499-4458-AB59-0AAF8975C447}",
       "DurationType": "OneShot",
-      "DurationMin": "6.2363124",
-      "DurationMax": "6.2363124",
+      "DurationMin": "0.76743764",
+      "DurationMax": "0.76743764",
       "MediaRefs": [
        {
         "Id": "657677064"
+       }
+      ]
+     },
+     {
+      "Id": "1357763601",
+      "Name": "Play_ScrapDestroy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_ScrapDestroy",
+      "GUID": "{7BF1D656-45E9-49E2-B6D3-E11013CEF3FE}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.3249376",
+      "DurationMax": "2.3249376",
+      "MediaRefs": [
+       {
+        "Id": "856331249"
+       }
+      ]
+     },
+     {
+      "Id": "1049053041",
+      "Name": "Play_ScrapPickUp",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_ScrapPickUp",
+      "GUID": "{572BBF3E-7413-487E-BC86-11569920BF2B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.62693876",
+      "DurationMax": "0.62693876",
+      "MediaRefs": [
+       {
+        "Id": "452226569"
+       }
+      ]
+     },
+     {
+      "Id": "1253003887",
+      "Name": "Play_WorkbenchBuy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchBuy",
+      "GUID": "{84BBD9EA-63DB-4216-81C9-14B9DE3A408A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.72291666",
+      "DurationMax": "0.72291666",
+      "MediaRefs": [
+       {
+        "Id": "704322092"
        }
       ]
      },
@@ -139,8 +249,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchLand",
       "GUID": "{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}",
       "DurationType": "OneShot",
-      "DurationMin": "2.369025",
-      "DurationMax": "2.369025",
+      "DurationMin": "2.3690476",
+      "DurationMax": "2.3690476",
       "MediaRefs": [
        {
         "Id": "88020309"
@@ -150,6 +260,6 @@
     ]
    }
   ],
-  "FileHash": "{5ACF02D8-1536-0F84-607A-178F8BAC6E96}"
+  "FileHash": "{D6363533-339E-8576-606B-9B9A19C65D51}"
  }
 }

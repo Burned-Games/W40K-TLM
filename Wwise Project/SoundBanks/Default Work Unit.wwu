@@ -102,9 +102,14 @@
 				</SoundBank>
 				<SoundBank Name="EnvironmentSFX" ID="{590DE83F-02C9-4D44-A80C-89EB32CFFA44}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_WorkbenchBuy" ID="{84BBD9EA-63DB-4216-81C9-14B9DE3A408A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_fireburn" ID="{A89DE179-729A-421B-BD9B-CD336F69964E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_metaldoor" ID="{ED62D851-4499-4458-AB59-0AAF8975C447}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_InjectorPickUp" ID="{3380EF16-A7CD-445A-AEA2-2767D638ABAC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ScrapPickUp" ID="{572BBF3E-7413-487E-BC86-11569920BF2B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_firetorch" ID="{812307E1-0975-4903-A4F7-D8A139FF55AD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ScrapDestroy" ID="{7BF1D656-45E9-49E2-B6D3-E11013CEF3FE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BoxBarrelDestroy" ID="{BA40DC00-5A8B-4B8E-89C6-829B73B49337}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_howlingwind" ID="{17132D66-47FF-4BBB-B20D-D40AA8128F03}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_WorkbenchLand" ID="{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_lever" ID="{2B52C1AF-181D-4ED1-A394-93635FBC08C4}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -133,8 +138,10 @@
 						<ObjectRef Name="Play_MenuSettingsSFX" ID="{87B215DA-77D9-4038-B230-67A9CA7F3FA3}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MenuHoverButton" ID="{49560E41-603A-4639-9D93-10ED084D709A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MenuPressButton" ID="{B7D780AB-C622-48FC-99F4-34FF67854550}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PopUpIntroOutro" ID="{273E9774-F73C-49A8-A854-881A3311663B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MenuIntro" ID="{35719AA1-4508-49C7-B694-CE16E544AC26}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MenuOutro" ID="{D21C5A7A-085B-4EB8-A987-887B5346F657}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_MissionComplete" ID="{B8584ECC-F882-4EB8-BD67-30DF28F0B7E0}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
@@ -142,12 +149,50 @@
 				<SoundBank Name="Music" ID="{73659943-6E94-44F4-9F79-1342A4490FD4}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_ExploringLevel2Final_container" ID="{B697D3CD-33AD-4052-86A1-11F1336EE255}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploreLevel3_container" ID="{0DEC85B2-C381-4062-BA6F-5FD750CD6E7C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploringLevel1Indoor_container" ID="{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploreLevel1_container" ID="{9163D869-7966-4110-A57C-CFA8A7F4065F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_ExploreLevel2_container" ID="{2F8CE6FA-61CA-43C7-8B8F-10F3D0B8738D}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_mainMenu_music_container" ID="{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_BossFightingMusic_container" ID="{0B1CB48B-B516-4A21-90C2-D41941430428}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_FightingMusic_container" ID="{BD10290A-A00B-4C47-8C5B-DAFDACA2D535}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploringLevel2Mid_container" ID="{522DF77E-6496-4DB0-9056-48883FC9A547}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploringLevel1Outside_container" ID="{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploringColiseum_container" ID="{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="DialogsSFX" ID="{A936EE2F-7F72-46D4-94A1-BABDFCC11C34}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_QuintusMaxillian_CinematicaFinal1" ID="{7487A628-13EA-417F-B1D2-CD8EB74658CA}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_QuintusMaxillian_SalidaZona9" ID="{03E75A68-4C27-42B9-98F9-BD7252581D23}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_QuintusMaxillian_LlegadaZona9" ID="{0101261A-CC4E-42E3-9B25-255CC87C9E7B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_QuintusMaxillian_Cinematica2" ID="{61B4944C-DC58-43A7-9574-B099B780E952}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_QuintusMaxillian_LlegadaZona1" ID="{829A25FB-1EF9-4402-868C-E64CB2547252}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_CinematicaFinal1" ID="{6B0CEFB5-72FD-4437-BD76-5BA559C137EA}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_QuintusMaxillian_ActivacionPalancaZona13" ID="{E92A7260-350B-449C-AEC3-CA396AB4D6A2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_QuintusMaxillian_CinematicaFinal2" ID="{BE24E533-35FF-45BD-B4BD-BE39309074DE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona14" ID="{524EEE1A-A118-45DA-AA79-3FCFAE0EB72A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona18" ID="{FA4A33A5-54E1-4632-8032-4504324E5993}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_SalidaZona11" ID="{481EC5BE-CF28-476C-B496-3633C0C6E836}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona12" ID="{42EED8AA-7ABD-481D-8D6D-253187ECF9BB}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona8" ID="{645D45DA-0906-4898-9FB3-1B8DD913CF90}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_Cinematica2" ID="{3E3279C8-48B6-4952-B4A1-584683C475BC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona9" ID="{751A2AFD-B474-4968-A192-777E3C940E9E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_SalidaZona5" ID="{A9CFC424-981D-4AAF-A0AC-434F00BE5C06}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_SalidaZona9" ID="{BB386103-2199-4AF1-9894-A262AE28B2CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona19" ID="{84F02844-4D5D-4BA0-BD65-A973936BE238}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona5" ID="{C20E553C-FA04-4BD7-B73D-7AC409452147}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona16" ID="{6000AC23-3DEB-4BEF-B44B-748F4FA23D8A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona17" ID="{70D8D260-AE78-4C92-A2B7-4D391B5767D2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona1" ID="{5FCEA7D2-5508-4C95-A7B6-E5F0D1D8B7A3}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_Intro" ID="{CBCE238A-47EA-4CB7-9FD6-075744E81DEC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona13" ID="{C25AF1DB-F6C6-4D30-BD49-F2D08C4F62EA}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona10" ID="{7FBF4C72-092C-4D33-9799-75011CC3535E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_CinematicaFinal2" ID="{8C93C6FB-BB72-4D61-844E-BD436F90A65B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_QuintusMaxillian_LlegadaZona15" ID="{EE72E4E0-2728-4DCF-87F8-17AA214DE645}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DeciusMarcellus_LlegadaZona1_2" ID="{A11CB42B-0925-4EB6-954F-DFA698FE0ACB}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

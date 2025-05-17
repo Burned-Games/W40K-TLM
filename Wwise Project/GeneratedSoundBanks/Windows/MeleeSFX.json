@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}",
     "Language": "SFX",
-    "Hash": "{4F4EE2CD-98F6-1DC5-E69A-C926194FFEB1}",
+    "Hash": "{BAFE9768-654E-7049-7763-A659260C593A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\MeleeSFX",
     "ShortName": "MeleeSFX",
     "Path": "MeleeSFX.bnk",
@@ -29,7 +29,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ChainswordAttack.wav",
-      "CachePath": "A4/{A4177D3E-52B3-57A7-4DBB-02A6EBBFF58E}.wem"
+      "CachePath": "40/{40C72493-2EA3-F436-5F64-5D25DA723D55}.wem"
      }
     ],
     "Events": [
@@ -39,8 +39,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Chainsword\\Play_ChainswordAttack",
       "GUID": "{EC25E3E1-5BEE-4895-9DA2-AF06D06C6EB1}",
       "DurationType": "OneShot",
-      "DurationMin": "2.904875",
-      "DurationMax": "2.904875",
+      "DurationMin": "1.634966",
+      "DurationMax": "1.634966",
       "MediaRefs": [
        {
         "Id": "926023896"
@@ -64,6 +64,6 @@
     ]
    }
   ],
-  "FileHash": "{F57F29A7-8B73-C565-304C-0D3836D57A28}"
+  "FileHash": "{F500BC0B-6CE7-A31D-2ACE-2CE67A497ACC}"
  }
 }

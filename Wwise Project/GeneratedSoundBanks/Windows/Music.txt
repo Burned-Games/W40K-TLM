@@ -1,18 +1,26 @@
 Event	ID	Name			Wwise Object Path	Notes
 	769747940	Play_ExploringLevel2Mid_container			\Default Work Unit\Music\Play_ExploringLevel2Mid_container	
+	1290373784	Play_BossFightingMusic_container			\Default Work Unit\Music\Play_BossFightingMusic_container	
+	1826207915	Play_ExploreLevel2_container			\Default Work Unit\Music\Play_ExploreLevel2_container	
 	1875411331	Play_ExploringColiseum_container			\Default Work Unit\Music\Play_ExploringColiseum_container	
 	1921420610	Play_ExploringLevel1Outside_container			\Default Work Unit\Music\Play_ExploringLevel1Outside_container	
 	2040394609	Play_FightingMusic_container			\Default Work Unit\Music\Play_FightingMusic_container	
 	2625126948	Play_mainMenu_music_container			\Default Work Unit\Music\Play_mainMenu_music_container	
 	2758948520	Play_ExploringLevel1Indoor_container			\Default Work Unit\Music\Play_ExploringLevel1Indoor_container	
+	3329036210	Play_ExploreLevel3_container			\Default Work Unit\Music\Play_ExploreLevel3_container	
+	4067184816	Play_ExploreLevel1_container			\Default Work Unit\Music\Play_ExploreLevel1_container	
 	4135948942	Play_ExploringLevel2Final_container			\Default Work Unit\Music\Play_ExploringLevel2Final_container	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	49117587	ExploringLevel2Mid	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\3A\{3A852E15-EFAC-E847-855C-3F38916AB838}.wem		\Interactive Music Hierarchy\Music\ExploringLevel2Mid_container\ExploringLevel2Mid\ExploringLevel2Mid		11591076
+	98299895	ExploreLevel2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\FB\{FB4840E6-7405-2DC7-89B7-605160B12ED4}.wem		\Interactive Music Hierarchy\Music\ExploreLevel2_container\ExploreLevel2\ExploreLevel2		5340392
+	540456228	ExploreLevel3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\8A\{8ADD3373-6C6C-6641-2E4F-9E78B40385E0}.wem		\Interactive Music Hierarchy\Music\ExploreLevel3_container\ExploreLevel3\ExploreLevel3		2952772
 	555446988	ExploringLevel1Outside	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\EF\{EF8F70D0-25E4-17CB-2520-ABA58A2C3243}.wem		\Interactive Music Hierarchy\Music\ExploringLevel1Outside_container\ExploringLevel1Outside\ExploringLevel1Outside		12708164
 	642317731	ExploringLevel1Indoor	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\7C\{7CD2DB66-9CDF-BA3A-5573-4E36679C294D}.wem		\Interactive Music Hierarchy\Music\ExploringLevel1Indoor_container\ExploringLevel1Indoor\ExploringLevel1Indoor		10493344
 	672104360	ExploringColiseum	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\72\{72766DBF-73E6-9CC9-C7F4-F6D20C926F82}.wem		\Interactive Music Hierarchy\Music\ExploringColiseum_container\ExploringColiseum\ExploringColiseum		12597000
-	745571181	FightingMusic	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AA\{AACD7A1C-4DF1-B312-31B8-3657B1DFABD6}.wem		\Interactive Music Hierarchy\Music\FightingMusic_container\FightingMusic\FightingMusic		6130216
+	745571181	FightingMusic	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\0D\{0DE877E2-3221-A0E1-B041-B0CF598F8BE1}.wem		\Interactive Music Hierarchy\Music\FightingMusic_container\FightingMusic\FightingMusic		4172924
 	764091017	mainMenu_music	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\79\{79A2B0EF-C32F-7676-0371-CC5C4F475272}.wem		\Interactive Music Hierarchy\Music\mainMenu_music_container\mainMenu_music\mainMenu_music		23847492
 	973688362	ExploringLevel2Final	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\A3\{A386FDAF-846F-BA1B-B92D-2B40F57DDB6B}.wem		\Interactive Music Hierarchy\Music\ExploringLevel2Final_container\ExploringLevel2Final\ExploringLevel2Final		9857776
+	983085039	BossFightingMusic	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\7D\{7D01AD42-4E76-4815-A580-39312707272B}.wem		\Interactive Music Hierarchy\Music\BossFightingMusic_container\BossFightingMusic\BossFightingMusic		5906416
+	1034477356	ExploreLevel1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\EC\{EC18E151-FD28-7BBF-3660-5BBABB40D223}.wem		\Interactive Music Hierarchy\Music\ExploreLevel1_container\ExploreLevel1\ExploreLevel1		3686676
 

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{447F08BC-7E47-48A7-950A-3E3785307500}",
     "Language": "SFX",
-    "Hash": "{2E0BBB3F-0072-C8DE-86FC-1082EA7295AA}",
+    "Hash": "{E5FDD009-D2EA-ACCB-C2F7-BACB660B2589}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\ShotgunSFX",
     "ShortName": "ShotgunSFX",
     "Path": "ShotgunSFX.bnk",
@@ -53,7 +53,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunGrenadeSmoke.wav",
-      "CachePath": "27/{278DBCF3-BD63-1E34-B93B-3F0DF8F8D5AD}.wem"
+      "CachePath": "8A/{8A2F0EF2-72CB-BB85-C600-A1F9D4EE465F}.wem"
      },
      {
       "Id": "673764349",
@@ -113,8 +113,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunGrenadeSmoke",
       "GUID": "{D03EFB84-96B3-46F9-85C1-B4D72E67008E}",
       "DurationType": "OneShot",
-      "DurationMin": "4.9088664",
-      "DurationMax": "4.9088664",
+      "DurationMin": "1.1678458",
+      "DurationMax": "1.1678458",
       "MediaRefs": [
        {
         "Id": "650160502"
@@ -152,6 +152,6 @@
     ]
    }
   ],
-  "FileHash": "{AA3C4EB0-B89E-8CA8-3F2B-619876944821}"
+  "FileHash": "{07E79F15-43CB-ED90-832A-9C788D50749D}"
  }
 }

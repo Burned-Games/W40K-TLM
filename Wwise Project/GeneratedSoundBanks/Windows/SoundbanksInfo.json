@@ -14,6 +14,636 @@
   "DialogueEvents": [],
   "SoundBanks": [
    {
+    "Id": "1008119741",
+    "Type": "User",
+    "GUID": "{A936EE2F-7F72-46D4-94A1-BABDFCC11C34}",
+    "Language": "SFX",
+    "Hash": "{A4A52940-FE77-1FC7-F8A8-3CAF4E64AF17}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\DialogsSFX",
+    "ShortName": "DialogsSFX",
+    "Path": "DialogsSFX.bnk",
+    "Media": [
+     {
+      "Id": "55221240",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona12.wav",
+      "CachePath": "44/{4488BE62-A4B9-DCE4-33C0-1267720C3EEB}.wem"
+     },
+     {
+      "Id": "75779523",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona18.wav",
+      "CachePath": "F0/{F08B4141-801A-4EB9-A421-BD8B859AA240}.wem"
+     },
+     {
+      "Id": "96383782",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona9.wav",
+      "CachePath": "95/{95087A39-F49C-85D8-4513-08CB188ED35F}.wem"
+     },
+     {
+      "Id": "109074104",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_SalidaZona5.wav",
+      "CachePath": "32/{32799E60-95A2-3DAD-29F5-7DE663843328}.wem"
+     },
+     {
+      "Id": "110288935",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_SalidaZona11.wav",
+      "CachePath": "93/{93C0CAA7-882F-4ED5-9DF0-13647272D9FF}.wem"
+     },
+     {
+      "Id": "164907491",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona16.wav",
+      "CachePath": "EA/{EA10813B-EFCE-932F-93DA-8C7B9ACE707B}.wem"
+     },
+     {
+      "Id": "167008796",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona1_2.wav",
+      "CachePath": "FD/{FD657D3A-2423-D40F-B729-00F2D06D003F}.wem"
+     },
+     {
+      "Id": "201067192",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_CinematicaFinal1.wav",
+      "CachePath": "BD/{BD89E56B-1E63-B766-A6C4-2751AF69D75F}.wem"
+     },
+     {
+      "Id": "202406232",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_CinematicaFinal2.wav",
+      "CachePath": "BE/{BEE9A672-E5A9-F2E2-C72C-CAEC3DDBFE2C}.wem"
+     },
+     {
+      "Id": "230731430",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_Cinematica2.wav",
+      "CachePath": "BB/{BB659F75-3898-76DD-42D3-74EB868EF932}.wem"
+     },
+     {
+      "Id": "245843456",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_ActivacionPalancaZona13.wav",
+      "CachePath": "59/{5910A86C-9D97-B99C-F96B-5EAC8EC72689}.wem"
+     },
+     {
+      "Id": "272688756",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_LlegadaZona15.wav",
+      "CachePath": "CD/{CD5A3873-B7C5-36C3-3DC8-151203C2D510}.wem"
+     },
+     {
+      "Id": "384077487",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona19.wav",
+      "CachePath": "11/{1125CF7B-B551-A60B-4CBA-661DBBCEC724}.wem"
+     },
+     {
+      "Id": "451407930",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_LlegadaZona9.wav",
+      "CachePath": "97/{97D2A125-F124-240F-8C3C-1E93B1DF507B}.wem"
+     },
+     {
+      "Id": "523031469",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_CinematicaFinal1.wav",
+      "CachePath": "7A/{7A9EF539-3CAF-9A74-47D9-5A54368716E8}.wem"
+     },
+     {
+      "Id": "606882035",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona8.wav",
+      "CachePath": "E6/{E6B82C46-040B-90C0-DE1A-20E67A1F7919}.wem"
+     },
+     {
+      "Id": "626303130",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_SalidaZona9.wav",
+      "CachePath": "80/{80831038-B164-F9AF-7163-A68855D77FE9}.wem"
+     },
+     {
+      "Id": "670019284",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_Intro.wav",
+      "CachePath": "DC/{DCBE70B0-FF93-1D78-1667-99B47E0E1190}.wem"
+     },
+     {
+      "Id": "683713677",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_LlegadaZona1.wav",
+      "CachePath": "29/{29566AC2-CFA3-AFBB-FD54-066C95E4E9A4}.wem"
+     },
+     {
+      "Id": "751874081",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona17.wav",
+      "CachePath": "72/{72A521C9-C01D-AB31-8F29-36D3AFED4B22}.wem"
+     },
+     {
+      "Id": "777463675",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona1.wav",
+      "CachePath": "84/{841201EC-FD40-FE7C-D9AD-69A7AEC501F4}.wem"
+     },
+     {
+      "Id": "933454054",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_Cinematica2.wav",
+      "CachePath": "34/{34101C19-726B-EB4A-5479-C5E246D22037}.wem"
+     },
+     {
+      "Id": "940184336",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_SalidaZona9.wav",
+      "CachePath": "D7/{D73CA00D-A223-74C7-0324-8ED123040113}.wem"
+     },
+     {
+      "Id": "947244481",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona5.wav",
+      "CachePath": "A0/{A017AA8E-1DDF-F60E-3316-37EC625DFFE4}.wem"
+     },
+     {
+      "Id": "970792795",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona13.wav",
+      "CachePath": "11/{11A91884-A29E-5F92-F6BB-A143175D13F1}.wem"
+     },
+     {
+      "Id": "977010814",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona14.wav",
+      "CachePath": "4E/{4E0116EE-0B8C-886E-278A-0D0B97651832}.wem"
+     },
+     {
+      "Id": "997464728",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona10.wav",
+      "CachePath": "6F/{6F29E069-D87B-48AE-FD03-78B74FB7CD8F}.wem"
+     },
+     {
+      "Id": "1048970218",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_CinematicaFinal2.wav",
+      "CachePath": "A2/{A239AA5F-3995-F426-A653-D086D52EC1A0}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3979069874",
+      "Name": "Play_DeciusMarcellus_Cinematica2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_Cinematica2",
+      "GUID": "{3E3279C8-48B6-4952-B4A1-584683C475BC}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.161814",
+      "DurationMax": "8.161814",
+      "MediaRefs": [
+       {
+        "Id": "230731430"
+       }
+      ]
+     },
+     {
+      "Id": "1403736441",
+      "Name": "Play_DeciusMarcellus_CinematicaFinal1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_CinematicaFinal1",
+      "GUID": "{6B0CEFB5-72FD-4437-BD76-5BA559C137EA}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.8614964",
+      "DurationMax": "6.8614964",
+      "MediaRefs": [
+       {
+        "Id": "201067192"
+       }
+      ]
+     },
+     {
+      "Id": "1403736442",
+      "Name": "Play_DeciusMarcellus_CinematicaFinal2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_CinematicaFinal2",
+      "GUID": "{8C93C6FB-BB72-4D61-844E-BD436F90A65B}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.7220635",
+      "DurationMax": "6.7220635",
+      "MediaRefs": [
+       {
+        "Id": "202406232"
+       }
+      ]
+     },
+     {
+      "Id": "2424311586",
+      "Name": "Play_DeciusMarcellus_Intro",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_Intro",
+      "GUID": "{CBCE238A-47EA-4CB7-9FD6-075744E81DEC}",
+      "DurationType": "OneShot",
+      "DurationMin": "16.241043",
+      "DurationMax": "16.241043",
+      "MediaRefs": [
+       {
+        "Id": "670019284"
+       }
+      ]
+     },
+     {
+      "Id": "1400486691",
+      "Name": "Play_DeciusMarcellus_LlegadaZona1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona1",
+      "GUID": "{5FCEA7D2-5508-4C95-A7B6-E5F0D1D8B7A3}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.7257595",
+      "DurationMax": "10.7257595",
+      "MediaRefs": [
+       {
+        "Id": "777463675"
+       }
+      ]
+     },
+     {
+      "Id": "2342623273",
+      "Name": "Play_DeciusMarcellus_LlegadaZona10",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona10",
+      "GUID": "{7FBF4C72-092C-4D33-9799-75011CC3535E}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.841066",
+      "DurationMax": "7.841066",
+      "MediaRefs": [
+       {
+        "Id": "997464728"
+       }
+      ]
+     },
+     {
+      "Id": "2342623275",
+      "Name": "Play_DeciusMarcellus_LlegadaZona12",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona12",
+      "GUID": "{42EED8AA-7ABD-481D-8D6D-253187ECF9BB}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.92263",
+      "DurationMax": "8.92263",
+      "MediaRefs": [
+       {
+        "Id": "55221240"
+       }
+      ]
+     },
+     {
+      "Id": "2342623274",
+      "Name": "Play_DeciusMarcellus_LlegadaZona13",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona13",
+      "GUID": "{C25AF1DB-F6C6-4D30-BD49-F2D08C4F62EA}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.196803",
+      "DurationMax": "9.196803",
+      "MediaRefs": [
+       {
+        "Id": "970792795"
+       }
+      ]
+     },
+     {
+      "Id": "2342623277",
+      "Name": "Play_DeciusMarcellus_LlegadaZona14",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona14",
+      "GUID": "{524EEE1A-A118-45DA-AA79-3FCFAE0EB72A}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.928186",
+      "DurationMax": "9.928186",
+      "MediaRefs": [
+       {
+        "Id": "977010814"
+       }
+      ]
+     },
+     {
+      "Id": "2342623279",
+      "Name": "Play_DeciusMarcellus_LlegadaZona16",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona16",
+      "GUID": "{6000AC23-3DEB-4BEF-B44B-748F4FA23D8A}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.838186",
+      "DurationMax": "10.838186",
+      "MediaRefs": [
+       {
+        "Id": "164907491"
+       }
+      ]
+     },
+     {
+      "Id": "2342623278",
+      "Name": "Play_DeciusMarcellus_LlegadaZona17",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona17",
+      "GUID": "{70D8D260-AE78-4C92-A2B7-4D391B5767D2}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.983447",
+      "DurationMax": "9.983447",
+      "MediaRefs": [
+       {
+        "Id": "751874081"
+       }
+      ]
+     },
+     {
+      "Id": "2342623265",
+      "Name": "Play_DeciusMarcellus_LlegadaZona18",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona18",
+      "GUID": "{FA4A33A5-54E1-4632-8032-4504324E5993}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.334558",
+      "DurationMax": "10.334558",
+      "MediaRefs": [
+       {
+        "Id": "75779523"
+       }
+      ]
+     },
+     {
+      "Id": "2342623264",
+      "Name": "Play_DeciusMarcellus_LlegadaZona19",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona19",
+      "GUID": "{84F02844-4D5D-4BA0-BD65-A973936BE238}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.83381",
+      "DurationMax": "10.83381",
+      "MediaRefs": [
+       {
+        "Id": "384077487"
+       }
+      ]
+     },
+     {
+      "Id": "358790656",
+      "Name": "Play_DeciusMarcellus_LlegadaZona1_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona1_2",
+      "GUID": "{A11CB42B-0925-4EB6-954F-DFA698FE0ACB}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.137937",
+      "DurationMax": "9.137937",
+      "MediaRefs": [
+       {
+        "Id": "167008796"
+       }
+      ]
+     },
+     {
+      "Id": "1400486695",
+      "Name": "Play_DeciusMarcellus_LlegadaZona5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona5",
+      "GUID": "{C20E553C-FA04-4BD7-B73D-7AC409452147}",
+      "DurationType": "OneShot",
+      "DurationMin": "11.236122",
+      "DurationMax": "11.236122",
+      "MediaRefs": [
+       {
+        "Id": "947244481"
+       }
+      ]
+     },
+     {
+      "Id": "1400486698",
+      "Name": "Play_DeciusMarcellus_LlegadaZona8",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona8",
+      "GUID": "{645D45DA-0906-4898-9FB3-1B8DD913CF90}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.6526985",
+      "DurationMax": "7.6526985",
+      "MediaRefs": [
+       {
+        "Id": "606882035"
+       }
+      ]
+     },
+     {
+      "Id": "1400486699",
+      "Name": "Play_DeciusMarcellus_LlegadaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_LlegadaZona9",
+      "GUID": "{751A2AFD-B474-4968-A192-777E3C940E9E}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.7456236",
+      "DurationMax": "7.7456236",
+      "MediaRefs": [
+       {
+        "Id": "96383782"
+       }
+      ]
+     },
+     {
+      "Id": "333743460",
+      "Name": "Play_DeciusMarcellus_SalidaZona11",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_SalidaZona11",
+      "GUID": "{481EC5BE-CF28-476C-B496-3633C0C6E836}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.452177",
+      "DurationMax": "9.452177",
+      "MediaRefs": [
+       {
+        "Id": "110288935"
+       }
+      ]
+     },
+     {
+      "Id": "2543013491",
+      "Name": "Play_DeciusMarcellus_SalidaZona5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_SalidaZona5",
+      "GUID": "{A9CFC424-981D-4AAF-A0AC-434F00BE5C06}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.428934",
+      "DurationMax": "9.428934",
+      "MediaRefs": [
+       {
+        "Id": "109074104"
+       }
+      ]
+     },
+     {
+      "Id": "2543013503",
+      "Name": "Play_DeciusMarcellus_SalidaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Decius\\Play_DeciusMarcellus_SalidaZona9",
+      "GUID": "{BB386103-2199-4AF1-9894-A262AE28B2CE}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.9591155",
+      "DurationMax": "4.9591155",
+      "MediaRefs": [
+       {
+        "Id": "940184336"
+       }
+      ]
+     },
+     {
+      "Id": "4081220766",
+      "Name": "Play_QuintusMaxillian_ActivacionPalancaZona13",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_ActivacionPalancaZona13",
+      "GUID": "{E92A7260-350B-449C-AEC3-CA396AB4D6A2}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.4613152",
+      "DurationMax": "2.4613152",
+      "MediaRefs": [
+       {
+        "Id": "245843456"
+       }
+      ]
+     },
+     {
+      "Id": "3412614455",
+      "Name": "Play_QuintusMaxillian_Cinematica2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_Cinematica2",
+      "GUID": "{61B4944C-DC58-43A7-9574-B099B780E952}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.581315",
+      "DurationMax": "7.581315",
+      "MediaRefs": [
+       {
+        "Id": "933454054"
+       }
+      ]
+     },
+     {
+      "Id": "565719238",
+      "Name": "Play_QuintusMaxillian_CinematicaFinal1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_CinematicaFinal1",
+      "GUID": "{7487A628-13EA-417F-B1D2-CD8EB74658CA}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.654059",
+      "DurationMax": "5.654059",
+      "MediaRefs": [
+       {
+        "Id": "523031469"
+       }
+      ]
+     },
+     {
+      "Id": "565719237",
+      "Name": "Play_QuintusMaxillian_CinematicaFinal2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_CinematicaFinal2",
+      "GUID": "{BE24E533-35FF-45BD-B4BD-BE39309074DE}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.916576",
+      "DurationMax": "5.916576",
+      "MediaRefs": [
+       {
+        "Id": "1048970218"
+       }
+      ]
+     },
+     {
+      "Id": "92532500",
+      "Name": "Play_QuintusMaxillian_LlegadaZona1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_LlegadaZona1",
+      "GUID": "{829A25FB-1EF9-4402-868C-E64CB2547252}",
+      "DurationType": "OneShot",
+      "DurationMin": "8.161814",
+      "DurationMax": "8.161814",
+      "MediaRefs": [
+       {
+        "Id": "683713677"
+       }
+      ]
+     },
+     {
+      "Id": "3266403401",
+      "Name": "Play_QuintusMaxillian_LlegadaZona15",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_LlegadaZona15",
+      "GUID": "{EE72E4E0-2728-4DCF-87F8-17AA214DE645}",
+      "DurationType": "OneShot",
+      "DurationMin": "7.5232654",
+      "DurationMax": "7.5232654",
+      "MediaRefs": [
+       {
+        "Id": "272688756"
+       }
+      ]
+     },
+     {
+      "Id": "92532508",
+      "Name": "Play_QuintusMaxillian_LlegadaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_LlegadaZona9",
+      "GUID": "{0101261A-CC4E-42E3-9B25-255CC87C9E7B}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.8181405",
+      "DurationMax": "4.8181405",
+      "MediaRefs": [
+       {
+        "Id": "451407930"
+       }
+      ]
+     },
+     {
+      "Id": "1831651246",
+      "Name": "Play_QuintusMaxillian_SalidaZona9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Quintus\\Play_QuintusMaxillian_SalidaZona9",
+      "GUID": "{03E75A68-4C27-42B9-98F9-BD7252581D23}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.4915195",
+      "DurationMax": "5.4915195",
+      "MediaRefs": [
+       {
+        "Id": "626303130"
+       }
+      ]
+     }
+    ]
+   },
+   {
     "Id": "1355168291",
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
@@ -618,7 +1248,7 @@
     "Type": "User",
     "GUID": "{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}",
     "Language": "SFX",
-    "Hash": "{4F4EE2CD-98F6-1DC5-E69A-C926194FFEB1}",
+    "Hash": "{BAFE9768-654E-7049-7763-A659260C593A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\MeleeSFX",
     "ShortName": "MeleeSFX",
     "Path": "MeleeSFX.bnk",
@@ -637,7 +1267,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ChainswordAttack.wav",
-      "CachePath": "A4/{A4177D3E-52B3-57A7-4DBB-02A6EBBFF58E}.wem"
+      "CachePath": "40/{40C72493-2EA3-F436-5F64-5D25DA723D55}.wem"
      }
     ],
     "Events": [
@@ -647,8 +1277,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Chainsword\\Play_ChainswordAttack",
       "GUID": "{EC25E3E1-5BEE-4895-9DA2-AF06D06C6EB1}",
       "DurationType": "OneShot",
-      "DurationMin": "2.904875",
-      "DurationMax": "2.904875",
+      "DurationMin": "1.634966",
+      "DurationMax": "1.634966",
       "MediaRefs": [
        {
         "Id": "926023896"
@@ -778,11 +1408,19 @@
     "Type": "User",
     "GUID": "{45A4EA0F-F1E1-460F-9A2A-35C1CDE932E8}",
     "Language": "SFX",
-    "Hash": "{828E79D7-E633-DF8A-A677-10D67AA5F469}",
+    "Hash": "{6176A584-5205-72F9-E0E8-AE2261D9B45B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\UISFX",
     "ShortName": "UISFX",
     "Path": "UISFX.bnk",
     "Media": [
+     {
+      "Id": "118484090",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PopUpIntroOutro.wav",
+      "CachePath": "2C/{2CC9976F-B40F-2861-CD6C-DCB5971FF8B1}.wem"
+     },
      {
       "Id": "142156323",
       "Language": "SFX",
@@ -798,6 +1436,14 @@
       "Location": "Memory",
       "ShortName": "MenuIntro.wav",
       "CachePath": "90/{90F62AA0-1BA8-305B-FDE9-59DD59049B44}.wem"
+     },
+     {
+      "Id": "339493239",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "MissionComplete.wav",
+      "CachePath": "C0/{C06D9A49-A090-AA85-913E-C153E3E40B4A}.wem"
      },
      {
       "Id": "356355759",
@@ -892,6 +1538,34 @@
       "MediaRefs": [
        {
         "Id": "356355759"
+       }
+      ]
+     },
+     {
+      "Id": "280618453",
+      "Name": "Play_MissionComplete",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_MissionComplete",
+      "GUID": "{B8584ECC-F882-4EB8-BD67-30DF28F0B7E0}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.4",
+      "DurationMax": "0.4",
+      "MediaRefs": [
+       {
+        "Id": "339493239"
+       }
+      ]
+     },
+     {
+      "Id": "4213993779",
+      "Name": "Play_PopUpIntroOutro",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_PopUpIntroOutro",
+      "GUID": "{273E9774-F73C-49A8-A854-881A3311663B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.8020862",
+      "DurationMax": "0.8020862",
+      "MediaRefs": [
+       {
+        "Id": "118484090"
        }
       ]
      }
@@ -1260,7 +1934,7 @@
     "Type": "User",
     "GUID": "{447F08BC-7E47-48A7-950A-3E3785307500}",
     "Language": "SFX",
-    "Hash": "{2E0BBB3F-0072-C8DE-86FC-1082EA7295AA}",
+    "Hash": "{E5FDD009-D2EA-ACCB-C2F7-BACB660B2589}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\ShotgunSFX",
     "ShortName": "ShotgunSFX",
     "Path": "ShotgunSFX.bnk",
@@ -1303,7 +1977,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunGrenadeSmoke.wav",
-      "CachePath": "27/{278DBCF3-BD63-1E34-B93B-3F0DF8F8D5AD}.wem"
+      "CachePath": "8A/{8A2F0EF2-72CB-BB85-C600-A1F9D4EE465F}.wem"
      },
      {
       "Id": "673764349",
@@ -1363,8 +2037,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunGrenadeSmoke",
       "GUID": "{D03EFB84-96B3-46F9-85C1-B4D72E67008E}",
       "DurationType": "OneShot",
-      "DurationMin": "4.9088664",
-      "DurationMax": "4.9088664",
+      "DurationMin": "1.1678458",
+      "DurationMax": "1.1678458",
       "MediaRefs": [
        {
         "Id": "650160502"
@@ -2020,7 +2694,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{514FA858-9167-0E8B-2C89-5F3228848D54}",
+    "Hash": "{2F3FAE39-D6C1-64DB-02B3-665B83591509}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -2047,7 +2721,23 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "WorkbenchLand.wav",
-      "CachePath": "19/{199860DB-A18F-50BB-0017-775BCE6EFD34}.wem"
+      "CachePath": "C1/{C1AF7F1C-C587-59E2-13C7-062D39EBBBF4}.wem"
+     },
+     {
+      "Id": "433993564",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "InjectorPickUp.wav",
+      "CachePath": "37/{37CDEB2B-2ECA-53A8-0633-F447228A534E}.wem"
+     },
+     {
+      "Id": "452226569",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ScrapPickUp.wav",
+      "CachePath": "C7/{C756A0CD-7BC9-A983-2B08-E756B96FC5D7}.wem"
      },
      {
       "Id": "641304611",
@@ -2063,7 +2753,31 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "metaldoor.wav",
-      "CachePath": "22/{22E4ACAC-D37E-83B0-92DB-FDC9ECA6E49E}.wem"
+      "CachePath": "03/{03218346-E4FA-9591-CEE8-90ED852844F8}.wem"
+     },
+     {
+      "Id": "704322092",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "WorkbenchBuy.wav",
+      "CachePath": "2F/{2FA66FB0-1D50-6489-6E19-5BAE0A5E0FBD}.wem"
+     },
+     {
+      "Id": "856331249",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ScrapDestroy.wav",
+      "CachePath": "C2/{C2BDDFD7-2B8C-1E0C-1F23-911E509EF4B5}.wem"
+     },
+     {
+      "Id": "912968692",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BoxBarrelDestroy.wav",
+      "CachePath": "D1/{D1A257A5-FCD5-5888-5442-0402464CF333}.wem"
      },
      {
       "Id": "947093863",
@@ -2075,6 +2789,20 @@
      }
     ],
     "Events": [
+     {
+      "Id": "3986475561",
+      "Name": "Play_BoxBarrelDestroy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_BoxBarrelDestroy",
+      "GUID": "{BA40DC00-5A8B-4B8E-89C6-829B73B49337}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.6105833",
+      "DurationMax": "1.6105833",
+      "MediaRefs": [
+       {
+        "Id": "912968692"
+       }
+      ]
+     },
      {
       "Id": "4070524305",
       "Name": "Play_fireburn",
@@ -2116,6 +2844,20 @@
       ]
      },
      {
+      "Id": "2917681954",
+      "Name": "Play_InjectorPickUp",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_InjectorPickUp",
+      "GUID": "{3380EF16-A7CD-445A-AEA2-2767D638ABAC}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.4101814",
+      "DurationMax": "1.4101814",
+      "MediaRefs": [
+       {
+        "Id": "433993564"
+       }
+      ]
+     },
+     {
       "Id": "3196500978",
       "Name": "Play_lever",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_lever",
@@ -2135,11 +2877,53 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_metaldoor",
       "GUID": "{ED62D851-4499-4458-AB59-0AAF8975C447}",
       "DurationType": "OneShot",
-      "DurationMin": "6.2363124",
-      "DurationMax": "6.2363124",
+      "DurationMin": "0.76743764",
+      "DurationMax": "0.76743764",
       "MediaRefs": [
        {
         "Id": "657677064"
+       }
+      ]
+     },
+     {
+      "Id": "1357763601",
+      "Name": "Play_ScrapDestroy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_ScrapDestroy",
+      "GUID": "{7BF1D656-45E9-49E2-B6D3-E11013CEF3FE}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.3249376",
+      "DurationMax": "2.3249376",
+      "MediaRefs": [
+       {
+        "Id": "856331249"
+       }
+      ]
+     },
+     {
+      "Id": "1049053041",
+      "Name": "Play_ScrapPickUp",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_ScrapPickUp",
+      "GUID": "{572BBF3E-7413-487E-BC86-11569920BF2B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.62693876",
+      "DurationMax": "0.62693876",
+      "MediaRefs": [
+       {
+        "Id": "452226569"
+       }
+      ]
+     },
+     {
+      "Id": "1253003887",
+      "Name": "Play_WorkbenchBuy",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchBuy",
+      "GUID": "{84BBD9EA-63DB-4216-81C9-14B9DE3A408A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.72291666",
+      "DurationMax": "0.72291666",
+      "MediaRefs": [
+       {
+        "Id": "704322092"
        }
       ]
      },
@@ -2149,8 +2933,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchLand",
       "GUID": "{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}",
       "DurationType": "OneShot",
-      "DurationMin": "2.369025",
-      "DurationMax": "2.369025",
+      "DurationMin": "2.3690476",
+      "DurationMax": "2.3690476",
       "MediaRefs": [
        {
         "Id": "88020309"
@@ -2164,7 +2948,7 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{35F34732-1674-3D73-64CA-04D315BD4DA5}",
+    "Hash": "{FE61CA18-16E2-59A2-3472-310AAB9F2F13}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -2176,6 +2960,22 @@
       "Location": "Memory",
       "ShortName": "ExploringLevel2Mid.wav",
       "CachePath": "3A/{3A852E15-EFAC-E847-855C-3F38916AB838}.wem"
+     },
+     {
+      "Id": "98299895",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploreLevel2.wav",
+      "CachePath": "FB/{FB4840E6-7405-2DC7-89B7-605160B12ED4}.wem"
+     },
+     {
+      "Id": "540456228",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploreLevel3.wav",
+      "CachePath": "8A/{8ADD3373-6C6C-6641-2E4F-9E78B40385E0}.wem"
      },
      {
       "Id": "555446988",
@@ -2207,7 +3007,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "FightingMusic.wav",
-      "CachePath": "AA/{AACD7A1C-4DF1-B312-31B8-3657B1DFABD6}.wem"
+      "CachePath": "0D/{0DE877E2-3221-A0E1-B041-B0CF598F8BE1}.wem"
      },
      {
       "Id": "764091017",
@@ -2224,9 +3024,73 @@
       "Location": "Memory",
       "ShortName": "ExploringLevel2Final.wav",
       "CachePath": "A3/{A386FDAF-846F-BA1B-B92D-2B40F57DDB6B}.wem"
+     },
+     {
+      "Id": "983085039",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BossFightingMusic.wav",
+      "CachePath": "7D/{7D01AD42-4E76-4815-A580-39312707272B}.wem"
+     },
+     {
+      "Id": "1034477356",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExploreLevel1.wav",
+      "CachePath": "EC/{EC18E151-FD28-7BBF-3660-5BBABB40D223}.wem"
      }
     ],
     "Events": [
+     {
+      "Id": "1290373784",
+      "Name": "Play_BossFightingMusic_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_BossFightingMusic_container",
+      "GUID": "{0B1CB48B-B516-4A21-90C2-D41941430428}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "983085039"
+       }
+      ]
+     },
+     {
+      "Id": "4067184816",
+      "Name": "Play_ExploreLevel1_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploreLevel1_container",
+      "GUID": "{9163D869-7966-4110-A57C-CFA8A7F4065F}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1034477356"
+       }
+      ]
+     },
+     {
+      "Id": "1826207915",
+      "Name": "Play_ExploreLevel2_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploreLevel2_container",
+      "GUID": "{2F8CE6FA-61CA-43C7-8B8F-10F3D0B8738D}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "98299895"
+       }
+      ]
+     },
+     {
+      "Id": "3329036210",
+      "Name": "Play_ExploreLevel3_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploreLevel3_container",
+      "GUID": "{0DEC85B2-C381-4062-BA6F-5FD750CD6E7C}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "540456228"
+       }
+      ]
+     },
      {
       "Id": "1875411331",
       "Name": "Play_ExploringColiseum_container",
@@ -2767,6 +3631,6 @@
     ]
    }
   ],
-  "FileHash": "{07740F7C-B30A-4EE4-A395-0DBEBC3641B6}"
+  "FileHash": "{F4468735-F1A0-B1E2-3E2E-E851E6D4B135}"
  }
 }

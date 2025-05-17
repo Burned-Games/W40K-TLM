@@ -787,6 +787,50 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_ExploreLevel1_container" ID="{9163D869-7966-4110-A57C-CFA8A7F4065F}">
+							<ChildrenList>
+								<Action Name="" ID="{F6419782-678E-4188-A01E-E0486897458F}" ShortID="576475565">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploreLevel1_container" ID="{D58322FF-4B18-484B-87B7-531EA7381354}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExploreLevel2_container" ID="{2F8CE6FA-61CA-43C7-8B8F-10F3D0B8738D}">
+							<ChildrenList>
+								<Action Name="" ID="{B6C6425B-C66B-4548-98B4-85DB126E32EC}" ShortID="290797534">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploreLevel2_container" ID="{1E25537C-61BE-4587-8881-000D595B1CF4}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BossFightingMusic_container" ID="{0B1CB48B-B516-4A21-90C2-D41941430428}">
+							<ChildrenList>
+								<Action Name="" ID="{4357AFEC-6B7A-4AFD-AC71-4C07DE940C79}" ShortID="259462391">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BossFightingMusic_container" ID="{F0FF9645-1516-4EDC-A208-97A85E2A0C13}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ExploreLevel3_container" ID="{0DEC85B2-C381-4062-BA6F-5FD750CD6E7C}">
+							<ChildrenList>
+								<Action Name="" ID="{1338D166-FDC7-4600-8BCB-F724A7AF3A76}" ShortID="988120234">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ExploreLevel3_container" ID="{7307D3A8-4FBC-4720-ADD4-489134F03E31}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{AF3C98AC-A6E2-440A-BE4F-8443810E4890}" ShortID="183007794">
@@ -857,6 +901,61 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_ScrapDestroy" ID="{7BF1D656-45E9-49E2-B6D3-E11013CEF3FE}">
+							<ChildrenList>
+								<Action Name="" ID="{221D3724-2DC9-4486-B986-F0D6834E7A29}" ShortID="48735388">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ScrapDestroy" ID="{C3D90051-9031-4FBC-B53A-9A8904959285}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ScrapPickUp" ID="{572BBF3E-7413-487E-BC86-11569920BF2B}">
+							<ChildrenList>
+								<Action Name="" ID="{279E9991-3E22-4D06-BEEC-F308637812C5}" ShortID="19381992">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ScrapPickUp" ID="{64C312BF-511D-4C8D-A664-04BA41278C34}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_WorkbenchBuy" ID="{84BBD9EA-63DB-4216-81C9-14B9DE3A408A}">
+							<ChildrenList>
+								<Action Name="" ID="{2072EAC6-FB18-458C-A8EB-491DC76FB088}" ShortID="388932000">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="WorkbenchBuy" ID="{55F71684-D555-4E3B-805C-8784B6C5141B}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_InjectorPickUp" ID="{3380EF16-A7CD-445A-AEA2-2767D638ABAC}">
+							<ChildrenList>
+								<Action Name="" ID="{BC54FCE9-F027-469C-9229-5D1933FE6C82}" ShortID="177615973">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="InjectorPickUp" ID="{4828B075-6149-449D-99FF-D2E2F5C1DA56}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BoxBarrelDestroy" ID="{BA40DC00-5A8B-4B8E-89C6-829B73B49337}">
+							<ChildrenList>
+								<Action Name="" ID="{036F6F4B-6BEC-4D27-AC2D-CE85C7E95B91}" ShortID="49600428">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BoxBarrelDestroy" ID="{230A9FA1-021A-4DEC-B040-D9B317B451D1}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{ED3C2099-C675-444E-BFBE-CDD23D9A8868}" ShortID="225254929">
@@ -916,6 +1015,348 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_MissionComplete" ID="{B8584ECC-F882-4EB8-BD67-30DF28F0B7E0}">
+							<ChildrenList>
+								<Action Name="" ID="{850EA7EF-24AE-4528-9796-254FEAA435AF}" ShortID="439695028">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MissionComplete" ID="{491A3A49-0CAB-4F8C-8B31-48148E43EE13}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_PopUpIntroOutro" ID="{273E9774-F73C-49A8-A854-881A3311663B}">
+							<ChildrenList>
+								<Action Name="" ID="{B19A9EDC-D861-4532-99B5-21BD9A8417E7}" ShortID="180284018">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PopUpIntroOutro" ID="{93A24357-D34A-4DC0-A802-45A80BAF1B7D}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Dialogs" ID="{6D2EBF3B-A187-4299-87EC-AD17B45B9C62}" ShortID="495837356">
+					<ChildrenList>
+						<Folder Name="Decius" ID="{B9D0A17E-32AA-4C8B-8F9D-52297EEFE60F}" ShortID="656102740">
+							<ChildrenList>
+								<Event Name="Play_DeciusMarcellus_CinematicaFinal2" ID="{8C93C6FB-BB72-4D61-844E-BD436F90A65B}">
+									<ChildrenList>
+										<Action Name="" ID="{43978C52-7365-4D5F-AF30-FDCB84CF228A}" ShortID="721639834">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_CinematicaFinal2" ID="{3BC0C1A4-9DC2-4936-BF67-187EA2794248}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona1_2" ID="{A11CB42B-0925-4EB6-954F-DFA698FE0ACB}">
+									<ChildrenList>
+										<Action Name="" ID="{1262D477-2A52-4291-B877-8B4DD14C7EE4}" ShortID="101397706">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona1_2" ID="{25A95C1C-1E46-4056-9542-E029F007D7F8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona8" ID="{645D45DA-0906-4898-9FB3-1B8DD913CF90}">
+									<ChildrenList>
+										<Action Name="" ID="{1D39A9B1-7531-4FC1-BD98-8B44CC9CAD1F}" ShortID="329985877">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona8" ID="{4D280102-5D6A-404B-B77F-C7797E463B29}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona12" ID="{42EED8AA-7ABD-481D-8D6D-253187ECF9BB}">
+									<ChildrenList>
+										<Action Name="" ID="{0E4EF8DA-7F51-4FCA-B12E-872170239EB7}" ShortID="461076752">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona12" ID="{0166F156-BD04-4AEA-A0A3-29BFAFD3AE05}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona16" ID="{6000AC23-3DEB-4BEF-B44B-748F4FA23D8A}">
+									<ChildrenList>
+										<Action Name="" ID="{2F853663-3BB6-4E0F-85FB-8A3AC2B9CC0E}" ShortID="220051396">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona16" ID="{5B73831B-7540-42BF-8DEF-1E7F281DBED8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona13" ID="{C25AF1DB-F6C6-4D30-BD49-F2D08C4F62EA}">
+									<ChildrenList>
+										<Action Name="" ID="{507EF3A7-9C75-42FF-AD35-BA5BB883AB42}" ShortID="856058348">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona13" ID="{E696A9BA-9ACD-40F9-A577-E93736324D3F}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_Intro" ID="{CBCE238A-47EA-4CB7-9FD6-075744E81DEC}">
+									<ChildrenList>
+										<Action Name="" ID="{14494957-6448-40B3-BCD5-056D62B12752}" ShortID="371584058">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_Intro" ID="{3459EE13-EF0E-4C85-9525-A32D84173FE0}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_CinematicaFinal1" ID="{6B0CEFB5-72FD-4437-BD76-5BA559C137EA}">
+									<ChildrenList>
+										<Action Name="" ID="{1F6F30D9-A7DD-43BC-8924-423F49EB958E}" ShortID="1034977845">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_CinematicaFinal1" ID="{B6F52F6E-27C1-450F-883D-1AFCA4D65AB8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona9" ID="{751A2AFD-B474-4968-A192-777E3C940E9E}">
+									<ChildrenList>
+										<Action Name="" ID="{659315A8-E591-499E-A8E3-EDE2583A4765}" ShortID="230076699">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona9" ID="{79E75E6F-75D5-40B8-A691-25B68A0196F7}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona5" ID="{C20E553C-FA04-4BD7-B73D-7AC409452147}">
+									<ChildrenList>
+										<Action Name="" ID="{0C9B4DB0-0359-412A-8F04-064938171ACB}" ShortID="604196277">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona5" ID="{74ECA1A5-823A-4106-9C72-20BAF29672F5}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_Cinematica2" ID="{3E3279C8-48B6-4952-B4A1-584683C475BC}">
+									<ChildrenList>
+										<Action Name="" ID="{A254E731-9F59-494E-8DEE-CDDA18197988}" ShortID="199696135">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_Cinematica2" ID="{BC476D57-69BE-48D8-8531-9F48F258B02E}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona1" ID="{5FCEA7D2-5508-4C95-A7B6-E5F0D1D8B7A3}">
+									<ChildrenList>
+										<Action Name="" ID="{4CA4FC89-7F47-46A1-A092-6849DA994C2D}" ShortID="701752065">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona1" ID="{A52FB77F-D104-4E17-9883-3B571DB73103}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona10" ID="{7FBF4C72-092C-4D33-9799-75011CC3535E}">
+									<ChildrenList>
+										<Action Name="" ID="{CC01FB66-E25D-4C24-9F8E-275A727B9857}" ShortID="294406521">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona10" ID="{75E7CE6B-6950-4C84-87D3-51106E81085C}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona14" ID="{524EEE1A-A118-45DA-AA79-3FCFAE0EB72A}">
+									<ChildrenList>
+										<Action Name="" ID="{09AF5C64-CB4B-4A05-895B-2C3E790BF61A}" ShortID="546519112">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona14" ID="{1A08E95F-22B8-4D08-94E2-DE9C593D3CCE}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona17" ID="{70D8D260-AE78-4C92-A2B7-4D391B5767D2}">
+									<ChildrenList>
+										<Action Name="" ID="{8917AE6D-AD13-42B5-B928-E223E7C90A0B}" ShortID="348014229">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona17" ID="{4C13D318-5151-4BC5-8265-9A1C88289893}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona18" ID="{FA4A33A5-54E1-4632-8032-4504324E5993}">
+									<ChildrenList>
+										<Action Name="" ID="{107DFB39-5936-4FBF-8301-049EE6353218}" ShortID="918786609">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona18" ID="{1E9E1958-0A1F-4939-B240-D54763178ADD}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_SalidaZona5" ID="{A9CFC424-981D-4AAF-A0AC-434F00BE5C06}">
+									<ChildrenList>
+										<Action Name="" ID="{00AEEFD9-AA48-4528-9666-E2EAEE45156B}" ShortID="965069756">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_SalidaZona5" ID="{CFF70697-98DC-4A79-B135-62ED2AF1650E}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_LlegadaZona19" ID="{84F02844-4D5D-4BA0-BD65-A973936BE238}">
+									<ChildrenList>
+										<Action Name="" ID="{F23930FA-5071-4446-9191-54BF5F2B8556}" ShortID="21339616">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_LlegadaZona19" ID="{C0014EBF-874D-4E2E-91A4-C0EE27F32E7E}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_SalidaZona9" ID="{BB386103-2199-4AF1-9894-A262AE28B2CE}">
+									<ChildrenList>
+										<Action Name="" ID="{AFF30290-FD2D-4C39-A7BB-F200D8C4FA1B}" ShortID="651888524">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_SalidaZona9" ID="{94240603-FBAD-4120-B484-C8F2A3F2776A}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_DeciusMarcellus_SalidaZona11" ID="{481EC5BE-CF28-476C-B496-3633C0C6E836}">
+									<ChildrenList>
+										<Action Name="" ID="{22863AC9-F2E9-4A24-B47D-A061E0B9CD6A}" ShortID="844751653">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DeciusMarcellus_SalidaZona11" ID="{8618713F-D5E9-4D96-A1E7-7E230EC501BD}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Quintus" ID="{9D479DAE-7E82-41A9-B404-039D4D062B3D}" ShortID="969597868">
+							<ChildrenList>
+								<Event Name="Play_QuintusMaxillian_Cinematica2" ID="{61B4944C-DC58-43A7-9574-B099B780E952}">
+									<ChildrenList>
+										<Action Name="" ID="{1125896F-9F22-4811-85E7-D49FF9996474}" ShortID="680358347">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_Cinematica2" ID="{8638C668-3D78-4A5D-9F2D-8CD443616422}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_QuintusMaxillian_ActivacionPalancaZona13" ID="{E92A7260-350B-449C-AEC3-CA396AB4D6A2}">
+									<ChildrenList>
+										<Action Name="" ID="{D64DBB87-967B-49E6-8CAD-5FAA9512523E}" ShortID="464818380">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_ActivacionPalancaZona13" ID="{D958C96D-9BF2-4947-92A6-39153EB8661E}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_QuintusMaxillian_CinematicaFinal1" ID="{7487A628-13EA-417F-B1D2-CD8EB74658CA}">
+									<ChildrenList>
+										<Action Name="" ID="{F99DD419-9C4E-4613-AF52-6FC6130C06C4}" ShortID="674010882">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_CinematicaFinal1" ID="{149C0373-6130-4048-A9C2-E2D564EBEE90}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_QuintusMaxillian_CinematicaFinal2" ID="{BE24E533-35FF-45BD-B4BD-BE39309074DE}">
+									<ChildrenList>
+										<Action Name="" ID="{93D3D2F4-369E-4912-BDF1-12AF901599AA}" ShortID="433887457">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_CinematicaFinal2" ID="{5E525A1F-EA06-49BF-9C32-78A1D6DB387D}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_QuintusMaxillian_LlegadaZona1" ID="{829A25FB-1EF9-4402-868C-E64CB2547252}">
+									<ChildrenList>
+										<Action Name="" ID="{A2DD4D0A-4087-49F0-A639-8508DF1F5A5F}" ShortID="114775595">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_LlegadaZona1" ID="{F4A66C5B-58F2-46A2-893D-80BFC4F34AB2}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_QuintusMaxillian_LlegadaZona9" ID="{0101261A-CC4E-42E3-9B25-255CC87C9E7B}">
+									<ChildrenList>
+										<Action Name="" ID="{59722019-F92A-455A-8B26-4E8EBD15E60B}" ShortID="98056737">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_LlegadaZona9" ID="{4077E7F0-9B07-47A0-9581-E3C6B37F415E}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_QuintusMaxillian_LlegadaZona15" ID="{EE72E4E0-2728-4DCF-87F8-17AA214DE645}">
+									<ChildrenList>
+										<Action Name="" ID="{0DF16239-0F7F-433E-9121-6B9FC3067ED4}" ShortID="857224054">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_LlegadaZona15" ID="{49800F74-9D5C-4BB6-83F6-ED8BA33A91F8}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_QuintusMaxillian_SalidaZona9" ID="{03E75A68-4C27-42B9-98F9-BD7252581D23}">
+									<ChildrenList>
+										<Action Name="" ID="{5F92A13F-BFBB-40D2-ACAA-B269906FF674}" ShortID="614567348">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="QuintusMaxillian_SalidaZona9" ID="{71E9C5FF-334D-4663-8566-9AC5D18CF954}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

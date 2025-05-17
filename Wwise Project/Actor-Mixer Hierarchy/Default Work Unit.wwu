@@ -2619,6 +2619,116 @@
 								<ActiveSource Name="WorkbenchLand" ID="{BF159768-7E7C-4CD2-9369-C267071F4464}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="ScrapPickUp" ID="{64C312BF-511D-4C8D-A664-04BA41278C34}" ShortID="983294419">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ScrapPickUp" ID="{1E072A6F-4938-4257-9E33-5B5BFB0308D8}">
+									<Language>SFX</Language>
+									<AudioFile>ScrapPickUp.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="452226569"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ScrapPickUp" ID="{1E072A6F-4938-4257-9E33-5B5BFB0308D8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="WorkbenchBuy" ID="{55F71684-D555-4E3B-805C-8784B6C5141B}" ShortID="376372768">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="WorkbenchBuy" ID="{6EC260D4-D316-4AAE-AB21-4F8825D63F29}">
+									<Language>SFX</Language>
+									<AudioFile>WorkbenchBuy.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="704322092"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="WorkbenchBuy" ID="{6EC260D4-D316-4AAE-AB21-4F8825D63F29}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ScrapDestroy" ID="{C3D90051-9031-4FBC-B53A-9A8904959285}" ShortID="91108500">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ScrapDestroy" ID="{319B67CA-2672-4FC6-9325-1BDBD3BDBD5C}">
+									<Language>SFX</Language>
+									<AudioFile>ScrapDestroy.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="856331249"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ScrapDestroy" ID="{319B67CA-2672-4FC6-9325-1BDBD3BDBD5C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="InjectorPickUp" ID="{4828B075-6149-449D-99FF-D2E2F5C1DA56}" ShortID="348934588">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="InjectorPickUp" ID="{7C5FD0EF-2CEF-4687-BF29-C9570E0E23F7}">
+									<Language>SFX</Language>
+									<AudioFile>InjectorPickUp.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="433993564"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="InjectorPickUp" ID="{7C5FD0EF-2CEF-4687-BF29-C9570E0E23F7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BoxBarrelDestroy" ID="{230A9FA1-021A-4DEC-B040-D9B317B451D1}" ShortID="575463469">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BoxBarrelDestroy" ID="{718E6AC8-D30F-4E73-9B97-FF96BD889633}">
+									<Language>SFX</Language>
+									<AudioFile>BoxBarrelDestroy.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="912968692"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BoxBarrelDestroy" ID="{718E6AC8-D30F-4E73-9B97-FF96BD889633}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{A5DCE031-0D31-4CF5-A5BB-42D0DB7CDA9F}" ShortID="961474772">
@@ -2735,6 +2845,678 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Dialogs" ID="{1FB14B1F-C8E6-45E8-9D76-7299EA5554BE}" ShortID="846416756">
+					<ChildrenList>
+						<Folder Name="Decius" ID="{B4125C1D-F45E-4B66-A042-8E2F54EE778B}" ShortID="59735453">
+							<ChildrenList>
+								<Sound Name="DeciusMarcellus_Cinematica2" ID="{BC476D57-69BE-48D8-8531-9F48F258B02E}" ShortID="364864454">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_Cinematica2" ID="{8CEAE437-E7F4-4574-BF80-2A81A34E5337}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_Cinematica2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="230731430"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_Cinematica2" ID="{8CEAE437-E7F4-4574-BF80-2A81A34E5337}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_CinematicaFinal1" ID="{B6F52F6E-27C1-450F-883D-1AFCA4D65AB8}" ShortID="341499910">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_CinematicaFinal1" ID="{67BCD1FD-C473-43C3-800C-C11D17B6E5C8}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_CinematicaFinal1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="201067192"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_CinematicaFinal1" ID="{67BCD1FD-C473-43C3-800C-C11D17B6E5C8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_CinematicaFinal2" ID="{3BC0C1A4-9DC2-4936-BF67-187EA2794248}" ShortID="371327672">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_CinematicaFinal2" ID="{4E430F18-E6B8-48B9-8284-A4A974E822C5}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_CinematicaFinal2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="202406232"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_CinematicaFinal2" ID="{4E430F18-E6B8-48B9-8284-A4A974E822C5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_Intro" ID="{3459EE13-EF0E-4C85-9525-A32D84173FE0}" ShortID="424496103">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_Intro" ID="{3AA00116-689D-4B2B-A586-98464849F319}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_Intro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="670019284"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_Intro" ID="{3AA00116-689D-4B2B-A586-98464849F319}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona1" ID="{A52FB77F-D104-4E17-9883-3B571DB73103}" ShortID="516802682">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona1" ID="{F3875906-9BE1-498D-9457-DC6E7174188A}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="777463675"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona1" ID="{F3875906-9BE1-498D-9457-DC6E7174188A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona10" ID="{75E7CE6B-6950-4C84-87D3-51106E81085C}" ShortID="714399695">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona10" ID="{B0808FF2-5A38-4CEC-ACE3-28FB069E03BD}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona10.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="997464728"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona10" ID="{B0808FF2-5A38-4CEC-ACE3-28FB069E03BD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona12" ID="{0166F156-BD04-4AEA-A0A3-29BFAFD3AE05}" ShortID="597503305">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona12" ID="{71B5FFF6-8A99-48AD-BC93-22F7AE9DB3B5}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona12.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="55221240"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona12" ID="{71B5FFF6-8A99-48AD-BC93-22F7AE9DB3B5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona13" ID="{E696A9BA-9ACD-40F9-A577-E93736324D3F}" ShortID="1010599959">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona13" ID="{1738F5FB-295E-4697-B9B2-6AD39296CECB}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona13.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="970792795"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona13" ID="{1738F5FB-295E-4697-B9B2-6AD39296CECB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona14" ID="{1A08E95F-22B8-4D08-94E2-DE9C593D3CCE}" ShortID="589629792">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona14" ID="{AF584CE6-7B97-4996-B9B4-836BFB14752A}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona14.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="977010814"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona14" ID="{AF584CE6-7B97-4996-B9B4-836BFB14752A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona16" ID="{5B73831B-7540-42BF-8DEF-1E7F281DBED8}" ShortID="157994000">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona16" ID="{CA1D3AE1-3E17-4A8D-BB31-4DAF14662127}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona16.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="164907491"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona16" ID="{CA1D3AE1-3E17-4A8D-BB31-4DAF14662127}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona17" ID="{4C13D318-5151-4BC5-8265-9A1C88289893}" ShortID="132958449">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona17" ID="{718466E4-F172-4B84-8B91-C9790AFCFE73}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona17.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="751874081"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona17" ID="{718466E4-F172-4B84-8B91-C9790AFCFE73}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona18" ID="{1E9E1958-0A1F-4939-B240-D54763178ADD}" ShortID="585721770">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona18" ID="{DD6A6287-0874-4DC6-8431-DA584B4109FE}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona18.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="75779523"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona18" ID="{DD6A6287-0874-4DC6-8431-DA584B4109FE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona19" ID="{C0014EBF-874D-4E2E-91A4-C0EE27F32E7E}" ShortID="956452634">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona19" ID="{0D1C7282-9B9A-40AE-B002-A99C5937D2F4}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona19.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="384077487"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona19" ID="{0D1C7282-9B9A-40AE-B002-A99C5937D2F4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona1_2" ID="{25A95C1C-1E46-4056-9542-E029F007D7F8}" ShortID="535373151">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona1_2" ID="{B220617C-6DB9-46C6-A97A-271FFA47BF15}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona1_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="167008796"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona1_2" ID="{B220617C-6DB9-46C6-A97A-271FFA47BF15}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona5" ID="{74ECA1A5-823A-4106-9C72-20BAF29672F5}" ShortID="858558636">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona5" ID="{B89177B7-5675-492D-9391-5C2019A0031E}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona5.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="947244481"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona5" ID="{B89177B7-5675-492D-9391-5C2019A0031E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona8" ID="{4D280102-5D6A-404B-B77F-C7797E463B29}" ShortID="149450250">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona8" ID="{653121C2-11C6-4299-B46E-9902DB4E953A}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona8.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="606882035"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona8" ID="{653121C2-11C6-4299-B46E-9902DB4E953A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_LlegadaZona9" ID="{79E75E6F-75D5-40B8-A691-25B68A0196F7}" ShortID="967413197">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_LlegadaZona9" ID="{D05CBFA1-3358-4B18-B058-14AE22568780}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_LlegadaZona9.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="96383782"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_LlegadaZona9" ID="{D05CBFA1-3358-4B18-B058-14AE22568780}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_SalidaZona11" ID="{8618713F-D5E9-4D96-A1E7-7E230EC501BD}" ShortID="152491686">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_SalidaZona11" ID="{C2DFF444-D692-4572-B0DF-32DD1D5876CA}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_SalidaZona11.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="110288935"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_SalidaZona11" ID="{C2DFF444-D692-4572-B0DF-32DD1D5876CA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_SalidaZona5" ID="{CFF70697-98DC-4A79-B135-62ED2AF1650E}" ShortID="586573719">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_SalidaZona5" ID="{15EAE084-A6DC-4F82-BA5C-5B193A0B7490}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_SalidaZona5.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="109074104"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_SalidaZona5" ID="{15EAE084-A6DC-4F82-BA5C-5B193A0B7490}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DeciusMarcellus_SalidaZona9" ID="{94240603-FBAD-4120-B484-C8F2A3F2776A}" ShortID="906346881">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DeciusMarcellus_SalidaZona9" ID="{E04F8885-6DFB-4F72-91B9-63C30719E5DF}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Decius Wav\DeciusMarcellus_SalidaZona9.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="940184336"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="DeciusMarcellus_SalidaZona9" ID="{E04F8885-6DFB-4F72-91B9-63C30719E5DF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Quintus" ID="{B678AFAF-2D20-4288-A725-4F584AFC69A2}" ShortID="108402265">
+							<ChildrenList>
+								<Sound Name="QuintusMaxillian_ActivacionPalancaZona13" ID="{D958C96D-9BF2-4947-92A6-39153EB8661E}" ShortID="167831286">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_ActivacionPalancaZona13" ID="{25A51659-1609-4CCC-81A0-09141698321F}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_ActivacionPalancaZona13.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="245843456"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_ActivacionPalancaZona13" ID="{25A51659-1609-4CCC-81A0-09141698321F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="QuintusMaxillian_Cinematica2" ID="{8638C668-3D78-4A5D-9F2D-8CD443616422}" ShortID="452529216">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_Cinematica2" ID="{FC856E41-5067-470E-B027-57F47D2B101B}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_Cinematica2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="933454054"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_Cinematica2" ID="{FC856E41-5067-470E-B027-57F47D2B101B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="QuintusMaxillian_CinematicaFinal1" ID="{149C0373-6130-4048-A9C2-E2D564EBEE90}" ShortID="791098702">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_CinematicaFinal1" ID="{60A7B688-6ECE-4886-8DF4-38EC1E908626}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_CinematicaFinal1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="523031469"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_CinematicaFinal1" ID="{60A7B688-6ECE-4886-8DF4-38EC1E908626}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="QuintusMaxillian_CinematicaFinal2" ID="{5E525A1F-EA06-49BF-9C32-78A1D6DB387D}" ShortID="111960023">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_CinematicaFinal2" ID="{2402C36B-CD83-43B7-9F08-6641FE6698B8}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_CinematicaFinal2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1048970218"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_CinematicaFinal2" ID="{2402C36B-CD83-43B7-9F08-6641FE6698B8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="QuintusMaxillian_LlegadaZona1" ID="{F4A66C5B-58F2-46A2-893D-80BFC4F34AB2}" ShortID="197842427">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_LlegadaZona1" ID="{57363E07-A14B-4533-A1D9-B4A2F738A289}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_LlegadaZona1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="683713677"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_LlegadaZona1" ID="{57363E07-A14B-4533-A1D9-B4A2F738A289}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="QuintusMaxillian_LlegadaZona15" ID="{49800F74-9D5C-4BB6-83F6-ED8BA33A91F8}" ShortID="867354426">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_LlegadaZona15" ID="{C36C2AC9-A774-4B4E-9178-3A6A10CC43CA}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_LlegadaZona15.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="272688756"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_LlegadaZona15" ID="{C36C2AC9-A774-4B4E-9178-3A6A10CC43CA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="QuintusMaxillian_LlegadaZona9" ID="{4077E7F0-9B07-47A0-9581-E3C6B37F415E}" ShortID="352081905">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_LlegadaZona9" ID="{9E88E72B-0EEC-472E-AFC0-3E36BFCF641C}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_LlegadaZona9.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="451407930"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_LlegadaZona9" ID="{9E88E72B-0EEC-472E-AFC0-3E36BFCF641C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="QuintusMaxillian_SalidaZona9" ID="{71E9C5FF-334D-4663-8566-9AC5D18CF954}" ShortID="832176859">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="QuintusMaxillian_SalidaZona9" ID="{5574FF53-BC64-4908-A750-E21AFCC08749}">
+											<Language>SFX</Language>
+											<AudioFile>DIÁLOGOS\Quintus Wav\QuintusMaxillian_SalidaZona9.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="626303130"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="QuintusMaxillian_SalidaZona9" ID="{5574FF53-BC64-4908-A750-E21AFCC08749}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Sound Name="MissionComplete" ID="{491A3A49-0CAB-4F8C-8B31-48148E43EE13}" ShortID="600160982">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="MissionComplete" ID="{554FD684-F709-42DF-8A93-3128B7CE9700}">
+							<Language>SFX</Language>
+							<AudioFile>MissionComplete.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="339493239"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="MissionComplete" ID="{554FD684-F709-42DF-8A93-3128B7CE9700}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="PopUpIntroOutro" ID="{93A24357-D34A-4DC0-A802-45A80BAF1B7D}" ShortID="223294914">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="PopUpIntroOutro" ID="{1925F8E6-2344-4E78-BC0E-DF2ADE3F66B7}">
+							<Language>SFX</Language>
+							<AudioFile>PopUpIntroOutro.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="118484090"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="PopUpIntroOutro" ID="{1925F8E6-2344-4E78-BC0E-DF2ADE3F66B7}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
