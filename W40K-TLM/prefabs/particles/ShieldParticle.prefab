@@ -2,16 +2,17 @@
     "value0": {
         "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "Shield_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 9873128137879155273
-            }
+                "value0": 1690145666022738375
+            },
+            "value4": false
         },
         "RootEntity": 0,
         "value0": 1,
@@ -64,7 +65,7 @@
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
-                        "cereal_class_version": 2,
+                        "cereal_class_version": 4,
                         "TransformMatrix": {
                             "m00": 1.0,
                             "m01": 0.0,
@@ -150,7 +151,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 1.0,
                         "UseBurst": false,
@@ -170,6 +171,7 @@
                         "ShapeAngle": 45.0,
                         "ShapeRadius": 1.0,
                         "ShapeRadiusThickness": 0.10000000149011612,
+                        "GoCenter": false,
                         "UseVelocityOverLifetime": false,
                         "VelocitySeparateAxes": false,
                         "VelocityOverLifeX": [
@@ -213,6 +215,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "VelocityMultiplier": 1.0,
                         "UseSizeOverLifetime": false,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -255,6 +258,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "SizeMultiplier": 1.0,
                         "UseRotationOverLifetime": false,
                         "RotationOverLifeX": [
                             {
@@ -286,6 +290,7 @@
                                 "value1": 0.5
                             }
                         ],
+                        "RotationMultiplier": 1.0,
                         "UseColorOverLifetime": false,
                         "OverLifetimeColor": {
                             "x": 7.370829922348538e-43,
@@ -317,7 +322,6 @@
                         "UseRenderer": true,
                         "RenderMode": 0,
                         "RenderAlignment": 0,
-                        "ElapsedTime": 324.60260009765627,
                         "TextureUUID": {
                             "value0": 17847465092735393937
                         }
