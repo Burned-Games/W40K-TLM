@@ -1,5 +1,7 @@
 --Audio
---local dia1_audio1 = nil
+local dia1_audio1 = nil
+local dia1_audio2 = nil
+local dia1_audio3 = nil
 
 --Dialogo
 local dialogLines1 = nil
@@ -21,18 +23,22 @@ dialog10 = false
 dialog11 = false
 
 function on_ready()
-    --dia1_audio1 = current_scene:get_entity_by_name("dia1_audio1"):get_component("AudioSourceComponent")
-    --dia1_audio2 = current_scene:get_entity_by_name("dia1_audio2"):get_component("AudioSourceComponent")
+
+    --Audio
+    dia1_audio1 = current_scene:get_entity_by_name("dia1_audio1"):get_component("AudioSourceComponent")
+    dia1_audio2 = current_scene:get_entity_by_name("dia1_audio2"):get_component("AudioSourceComponent")
+    dia1_audio3 = current_scene:get_entity_by_name("dia1_audio3"):get_component("AudioSourceComponent")
 
     -- dialogLines = {
     --     { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio1 },
     --      { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio2 }
     -- }
 
+    --Dialogo
     dialogLines1 = {
-        { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?"},
-        { name = "DeciusMarcellus", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left."},
-        { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother."}
+        { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?", audio = dia1_audio1},
+        { name = "DeciusMarcellus", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", audio = dia1_audio2},
+        { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", audio = dia1_audio3}
     }
     
     dialogLines5L = {
