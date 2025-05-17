@@ -885,9 +885,10 @@ function playerMovement(dt)
         if footstepSFXTimer > footstepSFXDelay then
             footstepSFXTimer = 0
             playerStepsSFX:play()
+            particle_lvl1_run:emit(20)
         end
         isMoving = true
-        particle_lvl1_run:emit(1)
+        
         -- Animacion walk
         
         if rotationDirection.x ~= 0 or rotationDirection.y ~= 0 then
