@@ -8,6 +8,15 @@ local workbenchNumber = nil
 local workbenchAnimator = nil
 local currentAnimation = nil
 
+local workbenchTransform = nil
+
+local interactionIconTransform = nil
+local interactionIconSprite = nil
+
+local interactionSpriteTransitionTimerTarget = 0.4
+local interactionSpriteTransitionTimer = 0.0
+local beforeFrameOutOfRange = false
+
 -- Animation indices
 local ANIM_ARMOR = 0
 local ANIM_FLY = 1
@@ -103,6 +112,12 @@ function on_ready()
     if workbenchAnimator then
         playAnimation(ANIM_FLY)
     end
+
+    workbenchTransform = self:get_component("TransformComponent")
+
+    interactionIconTransform = current_scene:get_entity_by_name("WorkbenchInteractionIcon"):get_component("TransformComponent")
+    interactionIconSprite = current_scene:get_entity_by_name("WorkbenchInteractionIcon"):get_component("SpriteComponent")
+
 end
 
 function on_update(dt)
@@ -141,12 +156,32 @@ function on_update(dt)
             workbenchUIManagerScript:show_ui()
         end
     end
+
+    -- Manage indicator
+    if playerInRange ~= beforeFrameOutOfRange then
+        interactionSpriteTransitionTimer = 0
+    end
+
+
+    if not playerInRange then
+        if interactionIconSprite and interactionSpriteTransitionTimer <= interactionSpriteTransitionTimerTarget then
+            log(interactionSpriteTransitionTimer .. " target: " .. interactionSpriteTransitionTimerTarget)
+            FadeToTransparent(dt)
+        end
+    else 
+        if interactionIconSprite then
+            interactionIconTransform.position = Vector3.new(workbenchTransform.position.x, 4.5, workbenchTransform.position.z)
+            FadeToBlack(dt)
+        end
+    end
+
 end
 
 function handle_collision_stay(entityA, entityB)
     local nameA = entityA:get_component("TagComponent").tag
     local nameB = entityB:get_component("TagComponent").tag
 
+    beforeFrameOutOfRange = playerInRange
     if nameA == "Player" or nameB == "Player" then
         if not playerInRange then
             playerInRange = true
@@ -162,6 +197,7 @@ function handle_workbench_collision_stay(entityA, entityB)
     local nameA = entityA:get_component("TagComponent").tag
     local nameB = entityB:get_component("TagComponent").tag
 
+    beforeFrameOutOfRange = playerInRange
     if nameA == "Player" or nameB == "Player" then
         playerInRange = true
         -- --print("Player is in range of the workbench")
@@ -172,6 +208,7 @@ function handle_workbench_collision_exit(entityA, entityB)
     local nameA = entityA:get_component("TagComponent").tag
     local nameB = entityB:get_component("TagComponent").tag
 
+    beforeFrameOutOfRange = playerInRange
     if nameA == "Player" or nameB == "Player" then
         playerInRange = false
 
@@ -314,5 +351,27 @@ function set_ui_screen(screen)
         else
             playAnimation(ANIM_ARMOR)
         end
+    end
+end
+
+function FadeToTransparent(dt)
+    interactionSpriteTransitionTimer = interactionSpriteTransitionTimer + dt
+    local alpha = math.min(interactionSpriteTransitionTimer / interactionSpriteTransitionTimerTarget, 1.0)
+    alpha = 1.0 - alpha -- invertir
+    interactionIconSprite.tint_color = Vector4.new(1,1,1,alpha)
+    if (interactionSpriteTransitionTimer > interactionSpriteTransitionTimerTarget) then
+        interactionIconSprite.tint_color = Vector4.new(1,1,1,0)
+    end
+end
+
+function FadeToBlack(dt)
+    log("IN")
+    interactionSpriteTransitionTimer = interactionSpriteTransitionTimer + dt
+    
+    local alpha = math.min(interactionSpriteTransitionTimer / interactionSpriteTransitionTimerTarget, 1.0)
+   
+    interactionIconSprite.tint_color = Vector4.new(1,1,1,alpha)
+    if (interactionSpriteTransitionTimer > interactionSpriteTransitionTimerTarget) then
+        interactionIconSprite.tint_color = Vector4.new(1,1,1,1)
     end
 end

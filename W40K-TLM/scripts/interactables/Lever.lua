@@ -12,8 +12,6 @@ parentTransform = nil
 parentScript = nil
 
 local interactionSprite = nil
-local interactionSpriteAlphaDirection = true --True = to visible, False = to invisible
-local interactionSpriteActualAlpha = 0
 local interactionSpriteTransitionTimerTarget = 0.4
 local interactionSpriteTransitionTimer = 0.0
 local outOfRange = true
