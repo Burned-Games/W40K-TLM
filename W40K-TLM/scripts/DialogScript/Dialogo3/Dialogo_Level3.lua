@@ -34,7 +34,7 @@ function on_ready()
 
     
     dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    dialogScriptComponent.start_dialog(dialogLines12)
+    --dialogScriptComponent.start_dialog(dialogLines12)
 
 
 end
