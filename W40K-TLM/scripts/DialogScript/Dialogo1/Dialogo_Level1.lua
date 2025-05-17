@@ -2,7 +2,15 @@
 local dia1_audio1 = nil
 local dia1_audio2 = nil
 local dia1_audio3 = nil
-
+local dia5L_audio1 = nil
+local dia5S_audio1 = nil
+local dia8_audio1 = nil
+local dia9L_audio1 = nil
+local dia9L_audio2 = nil
+local dia9S_audio1 = nil
+local dia9S_audio2 = nil
+local dia10_audio1 = nil
+local dia11_audio1 = nil
 --Dialogo
 local dialogLines1 = nil
 local dialogLines5L = nil
@@ -29,6 +37,16 @@ function on_ready()
     dia1_audio2 = current_scene:get_entity_by_name("dia1_audio2"):get_component("AudioSourceComponent")
     dia1_audio3 = current_scene:get_entity_by_name("dia1_audio3"):get_component("AudioSourceComponent")
 
+    dia5L_audio1 = current_scene:get_entity_by_name("dia5L_audio1"):get_component("AudioSourceComponent")
+    dia5S_audio1 = current_scene:get_entity_by_name("dia5S_audio1"):get_component("AudioSourceComponent")
+    dia8_audio1 = current_scene:get_entity_by_name("dia8_audio1"):get_component("AudioSourceComponent")
+    dia9L_audio1 = current_scene:get_entity_by_name("dia9L_audio1"):get_component("AudioSourceComponent")
+    dia9L_audio2 = current_scene:get_entity_by_name("dia9L_audio2"):get_component("AudioSourceComponent")
+    dia9S_audio1 = current_scene:get_entity_by_name("dia9S_audio1"):get_component("AudioSourceComponent")
+    dia9S_audio2 = current_scene:get_entity_by_name("dia9S_audio2"):get_component("AudioSourceComponent")
+    dia10_audio1 = current_scene:get_entity_by_name("dia10_audio1"):get_component("AudioSourceComponent")
+    dia11_audio1 = current_scene:get_entity_by_name("dia11_audio1"):get_component("AudioSourceComponent")
+
     -- dialogLines = {
     --     { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio1 },
     --      { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio2 }
@@ -42,33 +60,33 @@ function on_ready()
     }
     
     dialogLines5L = {
-        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand."}
+        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand.", audio = dia5L_audio1}
     }
 
     dialogLines5S = {
-        { name = "DeciusMarcellus", text = "We're detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter."}
+        { name = "DeciusMarcellus", text = "We're detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter.", audio = dia5S_audio1}
     }
 
     dialogLines8 = {
-        { name = "QuintusMaxillian", text = "Brother, the scanner reveals heavy Ork presence. Enter their stronghold and purge them all."}
+        { name = "QuintusMaxillian", text = "Brother, the scanner reveals heavy Ork presence. Enter their stronghold and purge them all.", audio = dia8_audio1}
     }
 
     dialogLines9L = {
-        { name = "QuintusMaxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?"},
-        { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother."}
+        { name = "QuintusMaxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?", audio = dia9L_audio1},
+        { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother.", audio = dia9L_audio2}
     }
 
     dialogLines9S = {
-        { name = "DeciusMarcellus", text = "Status report-are you still with us, Brother?"},
-        { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?"}
+        { name = "DeciusMarcellus", text = "Status report-are you still with us, Brother?", audio = dia9S_audio1},
+        { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?", audio = dia9S_audio2}
     }
 
     dialogLines10 = {
-        { name = "DeciusMarcellus", text = "Nothing more brother, few enemies left. Go ahead brother, clean this place and proceed with the mission."}
+        { name = "DeciusMarcellus", text = "Nothing more brother, few enemies left. Go ahead brother, clean this place and proceed with the mission.", audio = dia10_audio1}
     }
 
     dialogLines11 = {
-        { name = "DeciusMarcellus", text = "Little resistance remains. Once you clear the path ahead, proceed directly to Martyria Eterna. Finish this, Brother."}
+        { name = "DeciusMarcellus", text = "Little resistance remains. Once you clear the path ahead, proceed directly to Martyria Eterna. Finish this, Brother.", audio = dia11_audio1}
     }
     
     dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
