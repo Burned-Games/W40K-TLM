@@ -224,28 +224,22 @@ function on_update(dt)
 
     if support.currentState == support.state.Dead then
         support:die_state(dt)
-        print("Die")
         return
 
     elseif support.currentState == support.state.Idle then
         support:idle_state()
-        print("Idle")
 
     elseif support.currentState == support.state.Move then
         support:move_state(dt)
-        print("Move")
 
     elseif support.currentState == support.state.Attack then
         support:attack_state()
-        print("Attack")
 
     elseif support.currentState == support.state.Shoot then
         support:shoot_state(dt)
-        print("Shoot")
 
     elseif support.currentState == support.state.Shield then
         support:shield_state(dt)
-        print("Shield")
     end
 end
 
