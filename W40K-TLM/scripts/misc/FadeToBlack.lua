@@ -11,6 +11,7 @@ local fading = false
 fadeToBlackDoned = false
 
 local all_text_component = {}
+local all_text_original_colors = {}
 
 local targetSFXVolume = nil
 local targetMusicVolume = nil
@@ -30,7 +31,9 @@ function on_ready()
     for _, entity in ipairs(allEntities) do 
         if entity:has_component("UITextComponent") then
             local textComponent = entity:get_component("UITextComponent")
-            textComponent:set_color(Vector4.new(1,1,1, 0))
+            local textColor = textComponent:get_color()
+            table.insert(all_text_original_colors, textColor)
+            textComponent:set_color(Vector4.new(textColor.x,textColor.y,textColor.z, 0))
             table.insert(all_text_component, textComponent)
         end 
     end
@@ -75,14 +78,14 @@ function FadeToTransparent(dt)
         starting = false;
         fadeToBlackImage:set_color(Vector4.new(1,1,1, 0))
 
-        for _, textComponent in ipairs(all_text_component) do  
-            textComponent:set_color(Vector4.new(1,1,1,1))
+        for i, textComponent in ipairs(all_text_component) do  
+            textComponent:set_color(Vector4.new(all_text_original_colors[i].x, all_text_original_colors[i].y, all_text_original_colors[i].z, 1))
         end
 
     else
         fadeToBlackImage:set_color(Vector4.new(1,1,1, alpha))
-        for _, textComponent in ipairs(all_text_component) do  
-            textComponent:set_color(Vector4.new(1,1,1, 1.0 - alpha))
+        for i, textComponent in ipairs(all_text_component) do  
+            textComponent:set_color(Vector4.new(all_text_original_colors[i].x, all_text_original_colors[i].y, all_text_original_colors[i].z, 1.0 - alpha))
         end
     end
 end
@@ -97,14 +100,14 @@ function FadeToBlack(dt)
     if (contador > fadeToBlackTimer) then
         fading = false;
         fadeToBlackImage:set_color(Vector4.new(1,1,1, 1))
-        for _, textComponent in ipairs(all_text_component) do  
-            textComponent:set_color(Vector4.new(1,1,1,0))
+        for i, textComponent in ipairs(all_text_component) do  
+            textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z,0))
         end
         fadeToBlackDoned = true
     else 
         fadeToBlackImage:set_color(Vector4.new(1,1,1, alpha))
-        for _, textComponent in ipairs(all_text_component) do  
-            textComponent:set_color(Vector4.new(1,1,1,1.0 - alpha))
+        for i, textComponent in ipairs(all_text_component) do  
+            textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z,1.0 - alpha))
         end
 
     end
