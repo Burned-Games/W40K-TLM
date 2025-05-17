@@ -1,5 +1,6 @@
 local enemy = require("scripts/utils/enemy")
 local stats_data = require("scripts/utils/enemy_stats")
+local effect = require("scripts/utils/status_effects")
 
 kamikaze = enemy:new()
 
@@ -281,6 +282,7 @@ function kamikaze:attack_state()
             kamikaze.particleKamikazeTransf.position = explosionPos
             kamikaze.particleKamikaze:emit(2)
             kamikaze:make_damage(kamikaze.damage)
+            effect:apply_bleed(kamikaze.playerScript)
         end
 
         kamikaze.hasDealtDamage = true
