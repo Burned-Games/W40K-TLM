@@ -211,7 +211,6 @@ function on_update(dt)
     end
 
     if support.isPlayingAnimation then
-        print("AAAAAAA")
         support.animTimer = support.animTimer + dt
         support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
