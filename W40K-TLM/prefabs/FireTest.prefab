@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 6721256723532432698
+                "value0": 16571354047524117851
             },
             "value4": false
         },
@@ -29,9 +29,9 @@
         "value8": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "x": -3.566196918487549,
+                "y": 0.21524062752723695,
+                "z": -4.723355770111084
             },
             "Rotation": {
                 "x": 0.0,
@@ -65,7 +65,7 @@
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
-                        "cereal_class_version": 3,
+                        "cereal_class_version": 4,
                         "TransformMatrix": {
                             "m00": 0.9999999403953552,
                             "m01": 0.0,
@@ -79,9 +79,9 @@
                             "m21": 0.0,
                             "m22": 1.0,
                             "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
+                            "m30": -3.566196918487549,
+                            "m31": 0.21524062752723695,
+                            "m32": -4.723355770111084,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": false,
@@ -117,7 +117,7 @@
                         "UseRandomSpeed": false,
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.099999904632568,
-                        "StartSpeed": 4.699999809265137,
+                        "StartSpeed": 11.0,
                         "UseRandomSize": false,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
@@ -131,9 +131,9 @@
                             "z": 1.5
                         },
                         "StartSize": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 1.2999999523162842,
+                            "y": 1.2999999523162842,
+                            "z": 1.2999999523162842
                         },
                         "UseRandomRotation": false,
                         "StartRotationMin": {
@@ -153,14 +153,14 @@
                         },
                         "SimulationSpace": 1,
                         "UseEmission": true,
-                        "RateOverTime": 10.5,
+                        "RateOverTime": 11.300000190734864,
                         "UseBurst": false,
                         "Bursts": [],
                         "ShapeType": 2,
                         "MinSpread": {
-                            "x": -0.20000000298023225,
+                            "x": -0.10000000149011612,
                             "y": -0.10000000149011612,
-                            "z": 0.20000000298023225
+                            "z": 0.10000000149011612
                         },
                         "MaxSpread": {
                             "x": 0.10000000149011612,
@@ -171,6 +171,7 @@
                         "ShapeAngle": 0.75,
                         "ShapeRadius": 1.0,
                         "ShapeRadiusThickness": 0.10000000149011612,
+                        "GoCenter": false,
                         "UseVelocityOverLifetime": true,
                         "VelocitySeparateAxes": false,
                         "VelocityOverLifeX": [
@@ -206,15 +207,15 @@
                         ],
                         "VelocityOverLifeGeneral": [
                             {
-                                "value0": 0.10000000149011612,
+                                "value0": 0.09000000357627869,
                                 "value1": 1.0
                             },
                             {
                                 "value0": 1.0,
-                                "value1": 0.7400000095367432
+                                "value1": 0.6800000071525574
                             }
                         ],
-                        "VelocityMultiplier": 0.4000000059604645,
+                        "VelocityMultiplier": 0.30000001192092898,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -254,10 +255,10 @@
                             },
                             {
                                 "value0": 1.0,
-                                "value1": 0.5600000023841858
+                                "value1": 0.5399999618530273
                             }
                         ],
-                        "SizeMultiplier": 1.2000000476837159,
+                        "SizeMultiplier": 1.100000023841858,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
@@ -309,6 +310,24 @@
                                 }
                             },
                             {
+                                "value0": 0.0035714285913854839,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 0.0,
+                                    "value2": 0.0,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
+                                "value0": 0.8285714387893677,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 0.5701357126235962,
+                                    "value2": 0.0,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
                                 "value0": 1.0,
                                 "value1": {
                                     "value0": 1.0,
@@ -322,7 +341,7 @@
                         "RenderMode": 0,
                         "RenderAlignment": 0,
                         "TextureUUID": {
-                            "value0": 10822418198812290083
+                            "value0": 5108660922888521590
                         }
                     }
                 }

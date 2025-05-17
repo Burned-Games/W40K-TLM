@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 8117479469847349826
+                "value0": 8092803221592854575
             },
             "value4": false
         },
@@ -29,9 +29,9 @@
         "value8": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.0,
-                "y": 0.20167258381843568,
-                "z": 0.9132363796234131
+                "x": -0.12066888809204102,
+                "y": -0.028493165969848634,
+                "z": -14.342793464660645
             },
             "Rotation": {
                 "x": 0.0,
@@ -79,9 +79,9 @@
                             "m21": 0.0,
                             "m22": 1.0,
                             "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.20167258381843568,
-                            "m32": 0.9132363796234131,
+                            "m30": -0.12066888809204102,
+                            "m31": -0.028493165969848634,
+                            "m32": -14.342793464660645,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": false,
@@ -111,7 +111,7 @@
                         "Amount": 1000,
                         "Looping": true,
                         "UseRandomLifeTime": true,
-                        "StartLifeTimeMin": 1.0,
+                        "StartLifeTimeMin": 7.0,
                         "StartLifeTimeMax": 7.0,
                         "StartLifeTime": 5.0,
                         "UseRandomSpeed": false,
@@ -153,7 +153,7 @@
                         },
                         "SimulationSpace": 1,
                         "UseEmission": true,
-                        "RateOverTime": 6.099999904632568,
+                        "RateOverTime": 12.100000381469727,
                         "UseBurst": false,
                         "Bursts": [],
                         "ShapeType": 2,
@@ -215,7 +215,7 @@
                                 "value1": 1.0
                             }
                         ],
-                        "VelocityMultiplier": 0.4000000059604645,
+                        "VelocityMultiplier": 0.699999988079071,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -254,8 +254,8 @@
                                 "value1": 1.0
                             },
                             {
-                                "value0": 0.9150000214576721,
-                                "value1": 0.7599999904632568
+                                "value0": 0.9300000071525574,
+                                "value1": 0.5600000023841858
                             }
                         ],
                         "SizeMultiplier": 1.2000000476837159,
@@ -303,19 +303,19 @@
                                 "cereal_class_version": 0,
                                 "value0": 0.0,
                                 "value1": {
-                                    "value0": 0.0,
-                                    "value1": 0.0,
-                                    "value2": 0.0,
+                                    "value0": 0.06334841251373291,
+                                    "value1": 0.06334841251373291,
+                                    "value2": 0.06334841251373291,
                                     "value3": 1.0
                                 }
                             },
                             {
                                 "value0": 1.0,
                                 "value1": {
-                                    "value0": 0.2895927429199219,
-                                    "value1": 0.2895927429199219,
-                                    "value2": 0.2895927429199219,
-                                    "value3": 1.0
+                                    "value0": 0.40723979473114016,
+                                    "value1": 0.40723979473114016,
+                                    "value2": 0.40723979473114016,
+                                    "value3": 0.0
                                 }
                             }
                         ],

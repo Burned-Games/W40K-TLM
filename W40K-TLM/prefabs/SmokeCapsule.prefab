@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 7309076429362504469
+                "value0": 2021794418599525387
             },
             "value4": false
         },
@@ -111,13 +111,13 @@
                         "Amount": 1000,
                         "Looping": true,
                         "UseRandomLifeTime": true,
-                        "StartLifeTimeMin": 1.0,
-                        "StartLifeTimeMax": 4.599999904632568,
+                        "StartLifeTimeMin": 2.5999999046325685,
+                        "StartLifeTimeMax": 2.700000047683716,
                         "StartLifeTime": 5.0,
                         "UseRandomSpeed": false,
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
-                        "StartSpeed": 3.5,
+                        "StartSpeed": 4.199999809265137,
                         "UseRandomSize": false,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
@@ -131,9 +131,9 @@
                             "z": 1.600000023841858
                         },
                         "StartSize": {
-                            "x": 2.200000047683716,
-                            "y": 2.200000047683716,
-                            "z": 2.200000047683716
+                            "x": 1.899999976158142,
+                            "y": 1.899999976158142,
+                            "z": 1.899999976158142
                         },
                         "UseRandomRotation": false,
                         "StartRotationMin": {
@@ -255,7 +255,7 @@
                             },
                             {
                                 "value0": 1.0,
-                                "value1": 0.6599999666213989
+                                "value1": 0.5399999618530273
                             }
                         ],
                         "SizeMultiplier": 1.2000000476837159,
