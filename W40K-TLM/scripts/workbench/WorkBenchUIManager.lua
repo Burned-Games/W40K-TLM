@@ -81,6 +81,11 @@ currentScreen = "gun"
 local openCooldownTimer = 0
 local openCooldownDuration = 0.2
 
+-- Cooldown timer for closing the workbench
+local closeCooldownTimer = 0
+local closeCooldownDuration = 0.2
+local isClosing = false
+
 local toggleCooldownTimer = 0
 local toggleCooldownDuration = 0.3
 
@@ -475,8 +480,16 @@ function toggle_screen()
 end
 
 function on_update(dt)
-    if not isWorkBenchOpen then
+    if not isWorkBenchOpen and not isClosing then
         return
+    end
+    
+    if isClosing then
+        closeCooldownTimer = closeCooldownTimer + dt
+        if closeCooldownTimer >= closeCooldownDuration then
+            finalize_hide_ui()
+            return
+        end
     end
     
     -- Timer for opening the workbench (fix for input bug)
@@ -521,7 +534,7 @@ function on_update(dt)
 
 
     local cancelState = Input.get_button(Input.action.Cancel)
-    if cancelState == Input.state.Down and isWorkBenchOpen then
+    if cancelState == Input.state.Down and isWorkBenchOpen and not isClosing then
         hide_ui()
     end
 end
@@ -1013,7 +1026,13 @@ function hide_ui()
     gDot2ButtonEntity:set_active(false)
     gScrapTxtEntity:set_active(false)
     
+    isClosing = true
+    closeCooldownTimer = 0
+end
+
+function finalize_hide_ui()
     isWorkBenchOpen = false
+    isClosing = false
 
     hud:set_active(true)
     if missionManager then
