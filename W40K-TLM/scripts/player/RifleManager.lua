@@ -30,7 +30,7 @@ local playerScript = nil
 
 local shooted = true
 
-damage = 15
+damage = 12
 
 local yPositionBullet = 1.5
 
@@ -67,11 +67,11 @@ local particle_blood_spark_transform = nil
     local disruptorBulletRbComponent = nil
     local disruptorBulletRb = nil
 
-    local disruptorBulletDamage = 75
+    local disruptorBulletDamage = 125
 
     local shieldMultiplier = 0.3
 
-    cooldownDisruptorBulletTime = 18
+    cooldownDisruptorBulletTime = 8
     cooldownDisruptorBulletTimeCounter = cooldownDisruptorBulletTime
     disruptorShooted = true
     local disruptorShooted2 = false
@@ -86,7 +86,7 @@ local particle_blood_spark_transform = nil
     local chargeZoneRb = nil
 
     local zoneRadius = 4
-    local chargeZoneDamagePerSecond = 12
+    local chargeZoneDamagePerSecond = 15
     local chargeZoneDuration = 5
     local secondCounter = 0
     local secondCounterTimes = 0

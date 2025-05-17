@@ -36,7 +36,7 @@ local yPositionBullet = 1.5
 
 --granadas
 local granadeDamage = 100
-granadeCooldown= 12
+granadeCooldown= 6
 timerGranade = granadeCooldown
 local granadeEntity = nil
 local granadeInitialSpeed = 12
