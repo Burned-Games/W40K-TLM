@@ -7,8 +7,7 @@ local first = true
 
 -- Initialization
 function on_ready()
-    --Get PopupManager(not modify)
-    --dialogoScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+    dialogoScriptComponent = current_scene:get_entity_by_name("Dialogo_Level1System"):get_component("ScriptComponent")
 
     --Here is collider, if u want u can change name (popup Example RigidBody Component to u want)
     RigidBodyComponent = self:get_component("RigidbodyComponent")
@@ -31,10 +30,10 @@ end
 function on_update(dt)
     -- Add update code here
 
-    -- if detect and first then
-    --     dialogoScriptComponent.dialog5 = true
-    --     first = false
-    -- end
+    if detect and first then
+        dialogoScriptComponent.dialog5 = true
+        first = false
+    end
 end
 
 function on_exit()

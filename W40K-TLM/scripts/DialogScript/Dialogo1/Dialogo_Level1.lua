@@ -63,8 +63,8 @@ end
 
 function on_update(dt)
 
-    if dialog5 then 
-        print("sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss")
+
+    if dialog5 == true then 
         dialogScriptComponent.start_dialog(dialogLines5)
         dialog5 = false
     end
