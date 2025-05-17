@@ -710,67 +710,12 @@
 				</Folder>
 				<Folder Name="Music" ID="{53CC031F-7E69-4E79-814E-88FA81125024}" ShortID="1041993489">
 					<ChildrenList>
-						<Event Name="Play_ExploringColiseum_container" ID="{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}">
-							<ChildrenList>
-								<Action Name="" ID="{F119FF78-3876-44EC-ABC1-E19428302E4B}" ShortID="724891774">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="ExploringColiseum_container" ID="{31DB00B4-1CA6-450C-8DB4-5570A20433E7}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_ExploringLevel2Final_container" ID="{B697D3CD-33AD-4052-86A1-11F1336EE255}">
-							<ChildrenList>
-								<Action Name="" ID="{68F9B64B-CA28-49EA-A947-C9EA5E8D4280}" ShortID="1025309869">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="ExploringLevel2Final_container" ID="{E024EDEE-43B2-4FC9-A016-6DAA5E016D55}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_mainMenu_music_container" ID="{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}">
 							<ChildrenList>
 								<Action Name="" ID="{1C1D771C-05D6-416C-AC40-E74AF2291ECE}" ShortID="932978822">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="mainMenu_music_container" ID="{3745C2F9-9A36-41F4-8EE8-C97D16976430}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_ExploringLevel2Mid_container" ID="{522DF77E-6496-4DB0-9056-48883FC9A547}">
-							<ChildrenList>
-								<Action Name="" ID="{395EFE20-9D79-4548-822C-1F4D9ABD5DEC}" ShortID="690046240">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="ExploringLevel2Mid_container" ID="{56F16F2F-45CD-42CD-8616-E6B25D57244D}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_ExploringLevel1Indoor_container" ID="{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}">
-							<ChildrenList>
-								<Action Name="" ID="{32272391-2ED4-4907-AE67-1FE726618B51}" ShortID="566569346">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="ExploringLevel1Indoor_container" ID="{2E3B4156-4680-49D1-B7C4-EB016DC912C1}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_ExploringLevel1Outside_container" ID="{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}">
-							<ChildrenList>
-								<Action Name="" ID="{025CF527-9C6D-4100-A5FD-46A0A185F474}" ShortID="53616768">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="ExploringLevel1Outside_container" ID="{0DE47278-4E11-41A0-8CAC-D4B3A57E5385}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

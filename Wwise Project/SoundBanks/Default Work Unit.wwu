@@ -148,22 +148,17 @@
 				</SoundBank>
 				<SoundBank Name="Music" ID="{73659943-6E94-44F4-9F79-1342A4490FD4}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_ExploringLevel2Final_container" ID="{B697D3CD-33AD-4052-86A1-11F1336EE255}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploreLevel3_container" ID="{0DEC85B2-C381-4062-BA6F-5FD750CD6E7C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel1Indoor_container" ID="{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploreLevel1_container" ID="{9163D869-7966-4110-A57C-CFA8A7F4065F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploreLevel2_container" ID="{2F8CE6FA-61CA-43C7-8B8F-10F3D0B8738D}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_mainMenu_music_container" ID="{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossFightingMusic_container" ID="{0B1CB48B-B516-4A21-90C2-D41941430428}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_FightingMusic_container" ID="{BD10290A-A00B-4C47-8C5B-DAFDACA2D535}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel2Mid_container" ID="{522DF77E-6496-4DB0-9056-48883FC9A547}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringLevel1Outside_container" ID="{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_ExploringColiseum_container" ID="{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
-				<SoundBank Name="DialogsSFX" ID="{A936EE2F-7F72-46D4-94A1-BABDFCC11C34}">
+				<SoundBank Name="Dialogs" ID="{179A6250-3F23-44B9-A9AF-461B907637F3}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_QuintusMaxillian_CinematicaFinal1" ID="{7487A628-13EA-417F-B1D2-CD8EB74658CA}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_QuintusMaxillian_SalidaZona9" ID="{03E75A68-4C27-42B9-98F9-BD7252581D23}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
