@@ -21,6 +21,9 @@ local hasDisappeared = false
 local actualSize = 1
 local sizeDisappearSpeed = 3
 
+--Audio
+local boxBarrelDestroySFX = nil
+
 function on_ready()
     -- Add initialization code here
     local children = self:get_children()
@@ -29,6 +32,9 @@ function on_ready()
             objectNormal = child
         end
     end
+
+    --Audio
+    boxBarrelDestroySFX = current_scene:get_entity_by_name("BoxBarrelDestroySFX"):get_component("AudioSourceComponent")
 
     rbComponent = self:get_component("RigidbodyComponent");
     rbComponent.rb:get_collider():set_box_size(Vector3.new(0.8,0.8,0.8))
@@ -43,6 +49,7 @@ function on_ready()
                 --cameraScript.startShake(0.2,5)
                 give_phisycs()
                 hasDestroyed = true
+                boxBarrelDestroySFX:play()
             end
             
         end

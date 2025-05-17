@@ -1,0 +1,365 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "PickUpDestroyAudio_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 6015484592449622919
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 5,
+        "value1": 5,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 0,
+        "value9": {
+            "cereal_class_version": 0,
+            "Tag": "PickUpDestroyAudio"
+        },
+        "value10": 1,
+        "value11": {
+            "Tag": "ScrapPickUpSFX"
+        },
+        "value12": 2,
+        "value13": {
+            "Tag": "InjectorPickUpSFX"
+        },
+        "value14": 3,
+        "value15": {
+            "Tag": "ScrapDestroySFX"
+        },
+        "value16": 4,
+        "value17": {
+            "Tag": "BoxBarrelDestroySFX"
+        },
+        "value18": 5,
+        "value19": 0,
+        "value20": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value21": 1,
+        "value22": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value23": 2,
+        "value24": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value25": 3,
+        "value26": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value27": 4,
+        "value28": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 5,
+        "value30": 0,
+        "value31": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value32": 1,
+        "value33": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4,
+            "Prev": 2
+        },
+        "value34": 2,
+        "value35": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value36": 3,
+        "value37": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value38": 4,
+        "value39": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 5,
+        "value47": 0,
+        "value48": 1,
+        "value49": 2,
+        "value50": 3,
+        "value51": 4,
+        "value52": 0,
+        "value53": 0,
+        "value54": 4,
+        "value55": 1,
+        "value56": {
+            "cereal_class_version": 0,
+            "GameObjectID": 8484362463256515062,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "Name": "EnvironmentSFX",
+                        "Events": [
+                            "Play_BoxBarrelDestroy",
+                            "Play_fireburn",
+                            "Play_firetorch",
+                            "Play_howlingwind",
+                            "Play_InjectorPickUp",
+                            "Play_lever",
+                            "Play_metaldoor",
+                            "Play_ScrapDestroy",
+                            "Play_ScrapPickUp",
+                            "Play_WorkbenchBuy",
+                            "Play_WorkbenchLand"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_ScrapPickUp",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value57": 2,
+        "value58": {
+            "GameObjectID": 3137721937101478823,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_InjectorPickUp",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value59": 3,
+        "value60": {
+            "GameObjectID": 14181057689949229267,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "Name": "EnvironmentSFX",
+                        "Events": [
+                            "Play_BoxBarrelDestroy",
+                            "Play_fireburn",
+                            "Play_firetorch",
+                            "Play_howlingwind",
+                            "Play_InjectorPickUp",
+                            "Play_lever",
+                            "Play_metaldoor",
+                            "Play_ScrapDestroy",
+                            "Play_ScrapPickUp",
+                            "Play_WorkbenchBuy",
+                            "Play_WorkbenchLand"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_ScrapDestroy",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value61": 4,
+        "value62": {
+            "GameObjectID": 7347808653716592387,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_BoxBarrelDestroy",
+            "Volume": 0.1679999977350235,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value63": 0,
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 0,
+        "value68": 0,
+        "value69": 0,
+        "value70": 0,
+        "value71": 0,
+        "value72": 0,
+        "value73": 0
+    }
+}

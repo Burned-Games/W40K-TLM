@@ -26,6 +26,9 @@ local transform = nil
 
 local scrapSpawnArea = 4;
 
+--Audio
+local scrapDestroySFX = nil
+
 function on_ready()
     -- Add initialization code here
 
@@ -37,6 +40,8 @@ function on_ready()
         end
     end
 
+     --Audio
+     scrapDestroySFX = current_scene:get_entity_by_name("ScrapDestroySFX"):get_component("AudioSourceComponent")
 
     rbComponent = self:get_component("RigidbodyComponent");
     rbComponent:on_collision_enter(function(entityA, entityB)
@@ -49,6 +54,7 @@ function on_ready()
                 --cameraScript.startShake(0.2,5)
                 give_phisycs()
                 hasDestroyed = true
+                scrapDestroySFX:play()
             end
             
         end
