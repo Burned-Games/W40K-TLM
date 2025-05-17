@@ -6,7 +6,7 @@ main_boss = enemy:new()
 
 local stats = nil
 
-
+local shieldPrefab = "prefabs/particles/ShieldParticle.prefab"
 
 function on_ready()
 
@@ -23,8 +23,9 @@ function on_ready()
     main_boss.playerScript = main_boss.player:get_component("ScriptComponent")
 
     -- Shield
-    main_boss.shield = current_scene:get_entity_by_name("ShieldBoss")
+    main_boss.shield = instantiate_prefab(shieldPrefab)
     main_boss.shieldTransf = main_boss.shield:get_component("TransformComponent")
+    main_boss.shieldTransf.position = Vector3.new(-500, 0, -200)
 
     -- Wrath
     main_boss.wrath = current_scene:get_entity_by_name("Wrath")
@@ -72,31 +73,12 @@ function on_ready()
     stats = stats_data[main_boss.enemy_type] and stats_data[main_boss.enemy_type][main_boss.level]
     -- Debug in case is not working
     if not stats then log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level) return end
+    set_stats()
 
 
 
     -- States
     main_boss.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shield = 5, Rage = 6}
-
-    -- Stats of the Main Boss
-    main_boss.health = stats.health
-    main_boss.rageHealth = stats.rageHealth
-    main_boss.bossShieldHealth = stats.bossShieldHealth
-    main_boss.speed = stats.speed
-    main_boss.defaultSpeed = main_boss.speed
-    main_boss.lightningScript.meleeDamage = stats.meleeDamage
-    main_boss.rangeDamage = stats.rangeDamage
-    main_boss.detectionRange = stats.detectionRange
-    main_boss.meleeAttackRange = stats.meleeAttackRange
-    main_boss.rangeAttackRange = stats.rangeAttackRange
-
-    -- External Timers
-    main_boss.attackCooldown = stats.attackCooldown
-    main_boss.lightningScript.meleeAttackDuration = stats.meleeAttackDuration
-    main_boss.lightningScript.lightningDuration = stats.lightningDuration
-    main_boss.fistScript.rangeAttackDuration = stats.rangeAttackDuration
-    main_boss.fistScript.fistsDamageCooldown = stats.fistsDamageCooldown
-    main_boss.shieldCooldown = stats.shieldCooldown
 
     -- Internal Timers
     main_boss.pathUpdateTimer = 0.0
@@ -298,24 +280,7 @@ function main_boss:rage_state()
         stats = stats_data[main_boss.enemy_type] and stats_data[main_boss.enemy_type][main_boss.level]
         -- Debug in case is not working
         if not stats then log("No stats for type: " .. main_boss.enemy_type .. " level: " .. main_boss.level) return end
-
-        main_boss.bossShieldHealth = stats.bossShieldHealth
-        main_boss.totemHealth = stats.totemHealth
-        main_boss.speed = stats.speed
-        main_boss.defaultSpeed = main_boss.speed
-        main_boss.lightningScript.meleeDamage = stats.meleeDamage
-        main_boss.rangeDamage = stats.rangeDamage
-        main_boss.ultimateScript.ultimateDamage = stats.ultimateDamage
-        main_boss.detectionRange = stats.detectionRange
-        main_boss.meleeAttackRange = stats.meleeAttackRange
-        main_boss.rangeAttackRange = stats.rangeAttackRange
-        main_boss.ultimateScript.ultimateRange = stats.ultimateRange
-        main_boss.totemRange = stats.totemRange
-
-        main_boss.ultimateScript.ultiCooldown = stats.ultiCooldown
-        main_boss.ultimateScript.ultiAttackDuration = stats.ultiAttackDuration
-        main_boss.ultimateScript.ultiHittingDuration = stats.ultiHittingDuration
-        main_boss.totemCooldown = stats.totemCooldown
+        set_stats()
 
         log("New stats setted")
         main_boss.isRaging = true
@@ -337,7 +302,7 @@ function main_boss:shield_state()
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
-    main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
+    main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y + 3, main_boss.enemyTransf.position.z)
     main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
 
 end
@@ -355,7 +320,7 @@ function main_boss:attack_state()
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
     local attackChance = math.random()
 
-    if main_boss.ultimateScript.ultiTimer >= main_boss.ultimateScript.ultiCooldown then
+    if main_boss.isRaging and main_boss.ultimateScript.ultiTimer >= main_boss.ultiCooldown then
         ultimate_attack()
     elseif attackChance < 0.3 then
         lightning_attack()
@@ -388,11 +353,11 @@ end
 function move_shield()
 
     if main_boss.shieldActive then
-        main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
+        main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y + 3, main_boss.enemyTransf.position.z)
         main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
     else
-        main_boss.shieldTransf.position = Vector3.new(-500, 10, -200)
-        main_boss.wrathRb:set_position(Vector3.new(-500, 10, -200))
+        main_boss.shieldTransf.position = Vector3.new(-500, 0, -200)
+        main_boss.wrathRb:set_position(Vector3.new(-500, 0, -200))
     end
 
 end
@@ -433,6 +398,37 @@ function ultimate_attack()
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     main_boss.ultimateScript:ultimate()
+
+end
+
+function set_stats()
+
+    -- Stats of the Main Boss
+    main_boss.health = stats.health
+    main_boss.rageHealth = stats.rageHealth
+    main_boss.bossShieldHealth = stats.bossShieldHealth
+    main_boss.totemHealth = stats.totemHealth
+    main_boss.speed = stats.speed
+    main_boss.defaultSpeed = main_boss.speed
+    main_boss.lightningScript.meleeDamage = stats.meleeDamage
+    main_boss.fistScript.rangeDamage = stats.rangeDamage
+    main_boss.ultimateScript.ultimateDamage = stats.ultimateDamage
+    main_boss.detectionRange = stats.detectionRange
+    main_boss.meleeAttackRange = stats.meleeAttackRange
+    main_boss.rangeAttackRange = stats.rangeAttackRange
+    main_boss.totemRange = stats.totemRange
+
+    -- External Timers
+    main_boss.attackCooldown = stats.attackCooldown
+    main_boss.lightningScript.meleeAttackDuration = stats.meleeAttackDuration
+    main_boss.lightningScript.lightningDuration = stats.lightningDuration
+    main_boss.fistScript.rangeAttackDuration = stats.rangeAttackDuration
+    main_boss.fistScript.fistsDamageCooldown = stats.fistsDamageCooldown
+    main_boss.shieldCooldown = stats.shieldCooldown
+    main_boss.ultiCooldown = stats.ultiCooldown
+    main_boss.ultimateScript.ultiAttackDuration = stats.ultiAttackDuration
+    main_boss.ultimateScript.ultiHittingDuration = stats.ultiHittingDuration
+    main_boss.totemCooldown = stats.totemCooldown
 
 end
 

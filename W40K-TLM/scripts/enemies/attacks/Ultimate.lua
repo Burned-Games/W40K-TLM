@@ -1,3 +1,5 @@
+local stats_data = require("scripts/utils/enemy_stats")
+
 local enemyTransf = nil
 local enemyScript = nil
 local player = nil
@@ -12,7 +14,6 @@ local pillarToDestroy = nil
 local ultiAttackTimer = 0.0
 local ultiHittingTimer = 0.0
 ultiTimer = 0.0
-ultiCooldown = 10.0
 local colliderUpdateInterval = 0.1
 
 -- Bools
@@ -23,11 +24,9 @@ local isUltimateDamaging = false
 -- Vector3
 local ultimateVibration = Vector3.new(1, 1, 200)
 
-ultimateDamage = 350
-ultimateRange = 15
-ultiCooldown = 15.0
-ultiAttackDuration = 15.0
-ultiHittingDuration = 2.5
+ultimateDamage = 0
+ultiAttackDuration = 0.0
+ultiHittingDuration = 0.0
 
 -- Lists
 local scalingAttacks = {}
@@ -49,6 +48,17 @@ function on_ready()
     -- Audio
     bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
     bossUltimateExplosionSFX = current_scene:get_entity_by_name("BossUltimateExplosionSFX"):get_component("AudioSourceComponent")
+
+    -- Level
+    local enemy_type = "main_boss"
+    local level = 1
+    stats = stats_data[enemy_type] and stats_data[enemy_type][level]
+    -- Debug in case is not working
+    if not stats then log("No stats for type: " .. enemy_type .. " level: " .. level) return end
+
+    ultimateDamage = stats.ultimateDamage
+    ultiAttackDuration = stats.ultiAttackDuration
+    ultiHittingDuration = stats.ultiHittingDuration
 
 end
 

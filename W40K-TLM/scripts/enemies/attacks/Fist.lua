@@ -1,3 +1,5 @@
+local stats_data = require("scripts/utils/enemy_stats")
+
 --Prefabs locations
 local fistPrefab = "prefabs/Enemies/attacks/BossFist.prefab"
 local fistIndicatorPrefab = "prefabs/Enemies/attacks/BossFistIndicator.prefab"
@@ -18,18 +20,18 @@ local fistPositions = {}
 local scalingAttacks = {}
 
 -- Timers
-fistsDamageCooldown = 1.0
+fistsDamageCooldown = 0.0
 local fistsAttackDelay = 2.0
 local timeSinceLastFistHit = 0.0
 local fistsAttackDelayTimer = 0.0
 local rangeAttackTimer = 0.0
-rangeAttackDuration = 10.0
+rangeAttackDuration = 0.0
 local colliderUpdateInterval = 0.1
 
 -- Ints
 local fistMaxNumbers = 4
 local radius = 6
-rangeDamage = 80
+rangeDamage = 0
 
 -- Bools
 fistsThrown = false
@@ -65,6 +67,18 @@ function on_ready()
         fistIndicatorsTransform[i].scale = Vector3.new(5, 0, 5)
         fistIndicatorsScript[i]:on_ready()
     end
+
+    -- Level
+    local enemy_type = "main_boss"
+    local level = 1
+    stats = stats_data[enemy_type] and stats_data[enemy_type][level]
+    -- Debug in case is not working
+    if not stats then log("No stats for type: " .. enemy_type .. " level: " .. level) return end
+
+    fistsDamageCooldown = stats.fistsDamageCooldown
+    rangeAttackDuration = stats.rangeAttackDuration
+    rangeDamage = stats.rangeDamage
+
 
     -- Collision
     for i = 1, fistMaxNumbers do

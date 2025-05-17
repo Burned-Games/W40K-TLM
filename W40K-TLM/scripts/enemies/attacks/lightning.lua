@@ -8,8 +8,8 @@ local bossConeAtackSFX = nil
 
 local lightningTimer = 0.0
 local meleeAttackTimer = 0.0
-lightningDuration = 0.5
-meleeAttackDuration = 2.0
+lightningDuration = 0.0
+meleeAttackDuration = 0.0
 
 
 local lightningThrown = false
@@ -21,7 +21,7 @@ local lightningRbComponent = {}
 local lightningRbs = {}
 
 local angle = 0
-meleeDamage = 120
+meleeDamage = 0
 
 function on_ready()
 
@@ -76,12 +76,11 @@ function on_ready()
     local level = 1
     stats = stats_data[enemy_type] and stats_data[enemy_type][level]
     -- Debug in case is not working
-    if not stats then
-        log("No stats for type: " .. enemy_type .. " level: " .. level)
-        return
-    end
+    if not stats then log("No stats for type: " .. enemy_type .. " level: " .. level) return end
 
     lightningDuration = stats.lightningDuration
+    meleeAttackDuration = stats.meleeAttackDuration
+    meleeDamage = stats.meleeDamage
 
 
 
