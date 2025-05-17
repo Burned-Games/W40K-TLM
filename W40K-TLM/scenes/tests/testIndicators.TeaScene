@@ -1,0 +1,341 @@
+{
+    "value0": {
+        "cereal_class_version": 3,
+        "value0": 7,
+        "value1": 7,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Tag": "BossFistIndicator"
+        },
+        "value12": 1,
+        "value13": {
+            "Tag": "Indicator"
+        },
+        "value14": 2,
+        "value15": {
+            "Tag": "Background"
+        },
+        "value16": 3,
+        "value17": {
+            "Tag": "Camera"
+        },
+        "value18": 4,
+        "value19": {
+            "Tag": "TackleIndicator"
+        },
+        "value20": 5,
+        "value21": {
+            "Tag": "Background"
+        },
+        "value22": 6,
+        "value23": {
+            "Tag": "Indicator"
+        },
+        "value24": 7,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value27": 1,
+        "value28": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0010000000474974514,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": -90.0,
+                "y": 0.10000001639127732,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 0.9999901056289673,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 2,
+        "value30": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": -90.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value31": 3,
+        "value32": {
+            "Position": {
+                "x": 0.0,
+                "y": 1.0664620399475098,
+                "z": 3.114020347595215
+            },
+            "Rotation": {
+                "x": -24.329492568969728,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value33": 4,
+        "value34": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 4.0,
+                "y": 1.0,
+                "z": 4.0
+            }
+        },
+        "value35": 5,
+        "value36": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": -90.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value37": 6,
+        "value38": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": -90.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 7,
+        "value40": 0,
+        "value41": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value42": 1,
+        "value43": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 2,
+            "Prev": 4294967295
+        },
+        "value44": 2,
+        "value45": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value46": 3,
+        "value47": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value48": 4,
+        "value49": {
+            "Parent": 4294967295,
+            "First": 5,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value50": 5,
+        "value51": {
+            "Parent": 4,
+            "First": 4294967295,
+            "Next": 6,
+            "Prev": 4294967295
+        },
+        "value52": 6,
+        "value53": {
+            "Parent": 4,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value54": 1,
+        "value55": 3,
+        "value56": {
+            "cereal_class_version": 0,
+            "Camera": {
+                "cereal_class_version": 0,
+                "FOV": 45.0,
+                "AspectRatio": 1.7777777910232545,
+                "NearClip": 0.10000000149011612,
+                "FarClip": 1000.0,
+                "ProjectionType": 0,
+                "ViewportWidth": 1280.0,
+                "ViewportHeight": 720.0
+            }
+        },
+        "value57": 0,
+        "value58": 0,
+        "value59": 0,
+        "value60": 0,
+        "value61": 0,
+        "value62": 2,
+        "value63": 0,
+        "value64": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/enemies/attackIndicators/BossFistAttackIndicator.lua",
+            "Language": 0
+        },
+        "value65": 4,
+        "value66": {
+            "ScriptPath": "scripts/enemies/attackIndicators/TankTackleAttackIndicator.lua",
+            "Language": 0
+        },
+        "value67": 0,
+        "value68": 0,
+        "value69": 0,
+        "value70": 0,
+        "value71": 0,
+        "value72": 0,
+        "value73": 0,
+        "value74": 7,
+        "value75": 0,
+        "value76": 1,
+        "value77": 2,
+        "value78": 3,
+        "value79": 4,
+        "value80": 5,
+        "value81": 6,
+        "value82": 1,
+        "value83": 6,
+        "value84": 4,
+        "value85": 1,
+        "value86": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "cereal_class_version": 0,
+                "value0": 11207266288950129154
+            },
+            "TintColor": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.5882353186607361
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value87": 2,
+        "value88": {
+            "TextureUUID": {
+                "value0": 15560184852541283880
+            },
+            "TintColor": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.4117647111415863
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value89": 5,
+        "value90": {
+            "TextureUUID": {
+                "value0": 13877718722463717334
+            },
+            "TintColor": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.4117647111415863
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value91": 6,
+        "value92": {
+            "TextureUUID": {
+                "value0": 16333139077797575903
+            },
+            "TintColor": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.5882353186607361
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value93": 0,
+        "value94": 0,
+        "value95": 0,
+        "value96": 0,
+        "value97": 0,
+        "value98": 0
+    }
+}
