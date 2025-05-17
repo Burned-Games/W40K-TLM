@@ -233,6 +233,11 @@ local aimAnimation = false
 
 playerScript = nil
 
+local playerMatsComponents = {}
+local playerMatsOriginals = {}
+local playerMatsDamages = {}
+
+
 function on_ready()
     sceneName = SceneManager:get_scene_name()
 
@@ -394,6 +399,25 @@ function on_ready()
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
     --current_scene:get_entity_by_name("Camera"):get_component("TransformComponent").position = playerTransf.Position
+
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        local tag = child:get_component("TagComponent").tag
+        if tag == "Ultramarine_low" or tag == "Jetpack_lv1" or tag == "Jetpack_lv2" or tag == "Casco_lv1" or tag == "Casco_lvl_2" or tag == "Shotgun_upper" 
+        or tag == "Shotgun_lower" or tag == "ChainSword_Upper" or tag == "ChainSword_Lower" or tag == "Bolter_upper" or tag == "Bolter_Lower" then
+            local component = child:get_component("MaterialComponent")
+            table.insert(playerMatsComponents,component)
+            table.insert(playerMatsOriginals,component.material)
+            local damageMat = PBRMaterial.new()
+            damageMat.albedo_texture = component.material.albedo_texture
+            damageMat.color = Vector4.new(255/255, 0/255, 0/255, 255/255)
+            table.insert(playerMatsDamages,damageMat)
+            
+        end
+    end
+    
+    
+    
 
 end
 
@@ -1528,10 +1552,15 @@ end
 function takeHit()
     currentAnim = hit
     isHitted = true
+
 end
 
 function updateAnims(dt)
     if isHitted then
+        for i, component in ipairs(playerMatsComponents) do 
+            component.material = playerMatsDamages[i]
+        end
+        
         hitAnimationCounter = hitAnimationCounter + dt
         if hitAnimationCounter < hitAnimationTime then
             if currentUpAnim ~= hit and swordScript.slasheeed == false and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false then
@@ -1546,6 +1575,9 @@ function updateAnims(dt)
         end
     else
         hitAnimationCounter = 0
+        for i, component in ipairs(playerMatsComponents) do 
+            component.material = playerMatsOriginals[i]
+        end
     end
 
 
@@ -1580,7 +1612,7 @@ end
 function update_combat_state(dt)
     if isHitted or makeDamage then
         combatTimer = 5.0
-        isHitted = false
+        --isHitted = false
         makeDamage = false
     else
         if combatTimer > 0 then
