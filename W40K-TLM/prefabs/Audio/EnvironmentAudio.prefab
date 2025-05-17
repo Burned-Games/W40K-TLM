@@ -1,21 +1,22 @@
 {
     "value0": {
-        "cereal_class_version": 0,
+        "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "EnvironmentAudio_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 3963854275248383538
-            }
+                "value0": 2630599156765710243
+            },
+            "value4": false
         },
         "RootEntity": 0,
-        "value0": 6,
-        "value1": 6,
+        "value0": 8,
+        "value1": 8,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -23,34 +24,44 @@
         "value6": 4,
         "value7": 5,
         "value8": 6,
-        "value9": 0,
-        "value10": {
+        "value9": 7,
+        "value10": 8,
+        "value11": 0,
+        "value12": {
             "cereal_class_version": 0,
             "Tag": "EnvironmentAudio"
         },
-        "value11": 1,
-        "value12": {
-            "Tag": "EnviroFireburnSFX"
-        },
-        "value13": 2,
+        "value13": 1,
         "value14": {
-            "Tag": "EnviroFiretorchSFX"
-        },
-        "value15": 3,
-        "value16": {
-            "Tag": "EnviroHowlingwindSFX"
-        },
-        "value17": 4,
-        "value18": {
-            "Tag": "EnviroLeverSFX"
-        },
-        "value19": 5,
-        "value20": {
             "Tag": "EnviroMetaldoorSFX"
         },
-        "value21": 6,
-        "value22": 0,
-        "value23": {
+        "value15": 2,
+        "value16": {
+            "Tag": "EnviroLeverSFX"
+        },
+        "value17": 3,
+        "value18": {
+            "Tag": "EnviroHowlingwindSFX"
+        },
+        "value19": 4,
+        "value20": {
+            "Tag": "EnviroFiretorchSFX"
+        },
+        "value21": 5,
+        "value22": {
+            "Tag": "EnviroFireburnSFX"
+        },
+        "value23": 6,
+        "value24": {
+            "Tag": "WorkbenchFallSFX"
+        },
+        "value25": 7,
+        "value26": {
+            "Tag": "WorkbenchBuySFX"
+        },
+        "value27": 8,
+        "value28": 0,
+        "value29": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
@@ -68,61 +79,7 @@
                 "z": 1.0
             }
         },
-        "value24": 1,
-        "value25": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value26": 2,
-        "value27": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value28": 3,
-        "value29": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value30": 4,
+        "value30": 1,
         "value31": {
             "Position": {
                 "x": 0.0,
@@ -140,7 +97,7 @@
                 "z": 1.0
             }
         },
-        "value32": 5,
+        "value32": 2,
         "value33": {
             "Position": {
                 "x": 0.0,
@@ -158,70 +115,176 @@
                 "z": 1.0
             }
         },
-        "value34": 6,
-        "value35": 0,
-        "value36": {
+        "value34": 3,
+        "value35": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value36": 4,
+        "value37": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value38": 5,
+        "value39": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value40": 6,
+        "value41": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value42": 7,
+        "value43": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value44": 8,
+        "value45": 0,
+        "value46": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value37": 1,
-        "value38": {
+        "value47": 1,
+        "value48": {
             "Parent": 0,
             "First": 4294967295,
-            "Next": 5,
-            "Prev": 3
+            "Next": 7,
+            "Prev": 5
         },
-        "value39": 2,
-        "value40": {
+        "value49": 2,
+        "value50": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1
         },
-        "value41": 3,
-        "value42": {
+        "value51": 3,
+        "value52": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2
         },
-        "value43": 4,
-        "value44": {
+        "value53": 4,
+        "value54": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 3
         },
-        "value45": 5,
-        "value46": {
+        "value55": 5,
+        "value56": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4
         },
-        "value47": 0,
-        "value48": 0,
-        "value49": 0,
-        "value50": 0,
-        "value51": 0,
-        "value52": 0,
-        "value53": 6,
-        "value54": 0,
-        "value55": 1,
-        "value56": 2,
-        "value57": 3,
-        "value58": 4,
-        "value59": 5,
-        "value60": 0,
+        "value57": 6,
+        "value58": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value59": 7,
+        "value60": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
         "value61": 0,
-        "value62": 5,
-        "value63": 1,
-        "value64": {
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 8,
+        "value68": 0,
+        "value69": 1,
+        "value70": 2,
+        "value71": 3,
+        "value72": 4,
+        "value73": 5,
+        "value74": 6,
+        "value75": 7,
+        "value76": 0,
+        "value77": 0,
+        "value78": 7,
+        "value79": 1,
+        "value80": {
             "cereal_class_version": 0,
-            "GameObjectID": 14117121882567661418,
+            "GameObjectID": 12664331012498956643,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -239,7 +302,7 @@
                 }
             },
             "AudioBankName": "EnvironmentSFX",
-            "EventName": "Play_fireburn",
+            "EventName": "Play_metaldoor",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -262,72 +325,8 @@
                 "m33": 1.0
             }
         },
-        "value65": 2,
-        "value66": {
-            "GameObjectID": 14925218931112278693,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "EnvironmentSFX",
-            "EventName": "Play_firetorch",
-            "Volume": 1.0,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value67": 3,
-        "value68": {
-            "GameObjectID": 10832790872822842713,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "EnvironmentSFX",
-            "EventName": "Play_howlingwind",
-            "Volume": 1.0,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value69": 4,
-        "value70": {
+        "value81": 2,
+        "value82": {
             "GameObjectID": 2328355643387981287,
             "AudioBank": {
                 "ptr_wrapper": {
@@ -358,16 +357,16 @@
                 "m33": 1.0
             }
         },
-        "value71": 5,
-        "value72": {
-            "GameObjectID": 12664331012498956643,
+        "value83": 3,
+        "value84": {
+            "GameObjectID": 10832790872822842713,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "EnvironmentSFX",
-            "EventName": "Play_metaldoor",
+            "EventName": "Play_howlingwind",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
@@ -390,15 +389,171 @@
                 "m33": 1.0
             }
         },
-        "value73": 0,
-        "value74": 0,
-        "value75": 0,
-        "value76": 0,
-        "value77": 0,
-        "value78": 0,
-        "value79": 0,
-        "value80": 0,
-        "value81": 0,
-        "value82": 0
+        "value85": 4,
+        "value86": {
+            "GameObjectID": 14925218931112278693,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_firetorch",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value87": 5,
+        "value88": {
+            "GameObjectID": 14117121882567661418,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_fireburn",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value89": 6,
+        "value90": {
+            "GameObjectID": 775897819181342142,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "Name": "EnvironmentSFX",
+                        "Events": [
+                            "Play_fireburn",
+                            "Play_firetorch",
+                            "Play_howlingwind",
+                            "Play_lever",
+                            "Play_metaldoor",
+                            "Play_WorkbenchLand"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_WorkbenchLand",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value91": 7,
+        "value92": {
+            "GameObjectID": 11483092151109102087,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "Name": "EnvironmentSFX",
+                        "Events": [
+                            "Play_BoxBarrelDestroy",
+                            "Play_fireburn",
+                            "Play_firetorch",
+                            "Play_howlingwind",
+                            "Play_InjectorPickUp",
+                            "Play_lever",
+                            "Play_metaldoor",
+                            "Play_ScrapDestroy",
+                            "Play_ScrapPickUp",
+                            "Play_WorkbenchBuy",
+                            "Play_WorkbenchLand"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "EnvironmentSFX",
+            "EventName": "Play_WorkbenchBuy",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value93": 0,
+        "value94": 0,
+        "value95": 0,
+        "value96": 0,
+        "value97": 0,
+        "value98": 0,
+        "value99": 0,
+        "value100": 0,
+        "value101": 0,
+        "value102": 0,
+        "value103": 0
     }
 }

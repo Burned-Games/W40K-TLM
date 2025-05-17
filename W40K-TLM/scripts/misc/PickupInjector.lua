@@ -25,21 +25,26 @@ local playerScript
 
 local pickUpRange = 5
 
+--Audio
+local injectorPickUpSFX = nil
+
 
 function on_ready()
     -- Add initialization code here
-        -- Add initialization code here
-        transform = self:get_component("TransformComponent")
-        transform.rotation = Vector3.new(0, actualYRotation, 0)
-        transform.scale = actualSize
-        initialYPosition = transform.position.y
-    
-        local player = current_scene:get_entity_by_name("Player")
-        playerTrans = player:get_component("TransformComponent")
-        playerScript = player:get_component("ScriptComponent")
-    
-    
-        onReadyDoned = true
+    transform = self:get_component("TransformComponent")
+    transform.rotation = Vector3.new(0, actualYRotation, 0)
+    transform.scale = actualSize
+    initialYPosition = transform.position.y
+
+    local player = current_scene:get_entity_by_name("Player")
+    playerTrans = player:get_component("TransformComponent")
+    playerScript = player:get_component("ScriptComponent")
+
+
+    onReadyDoned = true
+
+    --Audio
+    injectorPickUpSFX = current_scene:get_entity_by_name("InjectorPickUpSFX"):get_component("AudioSourceComponent")
 end
 
 function on_update(dt)
@@ -67,7 +72,6 @@ function on_update(dt)
     if playerTrans then
         updatePosition(dt) 
     end
-
 
 end
 
@@ -115,7 +119,8 @@ function updatePosition(dt)
         if proximity.x < 2 and proximity.y < 2 and proximity.z < 2 then
             self:set_active(false)
             scrapCollected = true
-            playerScript.StimsCounter =  playerScript.StimsCounter + 1        
+            playerScript.StimsCounter =  playerScript.StimsCounter + 1
+            injectorPickUpSFX:play()        
         end
     end
 end

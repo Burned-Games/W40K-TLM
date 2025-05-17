@@ -110,9 +110,9 @@ local playerScript = nil
 
 --Audio
 local indexHoverSFX = nil
-local indexSelectionSFX = nil
 local changePageSFX = nil
 local notAvailableSFX = nil
+local buySFX = nil
 
 function on_ready()
     -- Initialize upgrade manager
@@ -133,9 +133,9 @@ function on_ready()
 
     --Audio
     indexHoverSFX = current_scene:get_entity_by_name("HoverButtonSFX"):get_component("AudioSourceComponent")
-    indexSelectionSFX = current_scene:get_entity_by_name("PressButtonSFX"):get_component("AudioSourceComponent")
     changePageSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
     notAvailableSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
+    buySFX = current_scene:get_entity_by_name("WorkbenchBuySFX"):get_component("AudioSourceComponent")
 
     -- Get all workbench UI elements
     local workbenchUIEntity = current_scene:get_entity_by_name("WorkBenchUI2")
@@ -585,7 +585,7 @@ function handle_gun_controls(dt)
                 if success then
                     find_next_available_upgrade("weapons")
                     update_ui()
-                    indexSelectionSFX:play()
+                    buySFX:play()
                 else
                     notAvailableSFX:play()
                 end
@@ -594,7 +594,7 @@ function handle_gun_controls(dt)
                 if success then
                     find_next_available_upgrade("weapons")
                     update_ui()
-                    indexSelectionSFX:play()
+                    buySFX:play()
                 else
                     notAvailableSFX:play()
                 end
@@ -753,7 +753,7 @@ function handle_character_controls(dt)
                 if success then
                     find_next_available_upgrade("armor")
                     update_ui()
-                    indexSelectionSFX:play()
+                    buySFX:play()
                 else
                     notAvailableSFX:play()
                 end  
@@ -762,7 +762,7 @@ function handle_character_controls(dt)
                 if success then
                     find_next_available_upgrade("armor")
                     update_ui()
-                    indexSelectionSFX:play()
+                    buySFX:play()
                 else
                     notAvailableSFX:play()
                 end

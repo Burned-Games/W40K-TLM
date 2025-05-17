@@ -54,9 +54,9 @@ function on_ready()
 
     --Dialogo
     dialogLines1 = {
-        { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?", audio = dia1_audio1},
-        { name = "DeciusMarcellus", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", audio = dia1_audio2},
-        { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", audio = dia1_audio3}
+        { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?", audio = dia1_audio1, time = 10.72},
+        { name = "DeciusMarcellus", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", audio = dia1_audio2, time = 8,162},
+        { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", audio = dia1_audio3, time = 9.138}
     }
     
     dialogLines5L = {

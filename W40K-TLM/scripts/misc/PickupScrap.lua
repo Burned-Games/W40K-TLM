@@ -25,6 +25,9 @@ local playerScript
 
 local pickUpRange = 5
 
+--Audio
+local scrapPickUpSFX = nil
+
 
 function on_ready()
     -- Add initialization code here
@@ -39,6 +42,9 @@ function on_ready()
 
 
     onReadyDoned = true
+
+    --Audio
+    scrapPickUpSFX = current_scene:get_entity_by_name("ScrapPickUpSFX"):get_component("AudioSourceComponent")
 
 end
 
@@ -115,7 +121,7 @@ function updatePosition(dt)
             self:set_active(false)
             scrapCollected = true
             playerScript.scrapCounter = playerScript.scrapCounter + 23
-        
+            scrapPickUpSFX:play()
         end
     end
 end
