@@ -10,19 +10,11 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{FE61CA18-16E2-59A2-3472-310AAB9F2F13}",
+    "Hash": "{A87E53CB-6C92-3D56-E5BE-BEAF0282CEB9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
     "Media": [
-     {
-      "Id": "49117587",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "ExploringLevel2Mid.wav",
-      "CachePath": "3A/{3A852E15-EFAC-E847-855C-3F38916AB838}.wem"
-     },
      {
       "Id": "98299895",
       "Language": "SFX",
@@ -40,30 +32,6 @@
       "CachePath": "8A/{8ADD3373-6C6C-6641-2E4F-9E78B40385E0}.wem"
      },
      {
-      "Id": "555446988",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "ExploringLevel1Outside.wav",
-      "CachePath": "EF/{EF8F70D0-25E4-17CB-2520-ABA58A2C3243}.wem"
-     },
-     {
-      "Id": "642317731",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "ExploringLevel1Indoor.wav",
-      "CachePath": "7C/{7CD2DB66-9CDF-BA3A-5573-4E36679C294D}.wem"
-     },
-     {
-      "Id": "672104360",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "ExploringColiseum.wav",
-      "CachePath": "72/{72766DBF-73E6-9CC9-C7F4-F6D20C926F82}.wem"
-     },
-     {
       "Id": "745571181",
       "Language": "SFX",
       "Streaming": "false",
@@ -78,14 +46,6 @@
       "Location": "Memory",
       "ShortName": "mainMenu_music.wav",
       "CachePath": "79/{79A2B0EF-C32F-7676-0371-CC5C4F475272}.wem"
-     },
-     {
-      "Id": "973688362",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "ExploringLevel2Final.wav",
-      "CachePath": "A3/{A386FDAF-846F-BA1B-B92D-2B40F57DDB6B}.wem"
      },
      {
       "Id": "983085039",
@@ -154,66 +114,6 @@
       ]
      },
      {
-      "Id": "1875411331",
-      "Name": "Play_ExploringColiseum_container",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringColiseum_container",
-      "GUID": "{6FE8B31F-5BD7-4E2E-BB9B-C3A2C23ED27E}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "672104360"
-       }
-      ]
-     },
-     {
-      "Id": "2758948520",
-      "Name": "Play_ExploringLevel1Indoor_container",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Indoor_container",
-      "GUID": "{07A43FBB-FF6B-4088-B7A1-8CF783E6D1DE}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "642317731"
-       }
-      ]
-     },
-     {
-      "Id": "1921420610",
-      "Name": "Play_ExploringLevel1Outside_container",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel1Outside_container",
-      "GUID": "{59440096-2EBD-4DB1-9F92-B19F4C51E5CE}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "555446988"
-       }
-      ]
-     },
-     {
-      "Id": "4135948942",
-      "Name": "Play_ExploringLevel2Final_container",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Final_container",
-      "GUID": "{B697D3CD-33AD-4052-86A1-11F1336EE255}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "973688362"
-       }
-      ]
-     },
-     {
-      "Id": "769747940",
-      "Name": "Play_ExploringLevel2Mid_container",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_ExploringLevel2Mid_container",
-      "GUID": "{522DF77E-6496-4DB0-9056-48883FC9A547}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "49117587"
-       }
-      ]
-     },
-     {
       "Id": "2040394609",
       "Name": "Play_FightingMusic_container",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_FightingMusic_container",
@@ -240,6 +140,6 @@
     ]
    }
   ],
-  "FileHash": "{E180A89A-B69D-744D-7B1D-35850B6C5213}"
+  "FileHash": "{699526AE-BE08-FDD7-9B60-8BF2E1D9486D}"
  }
 }
