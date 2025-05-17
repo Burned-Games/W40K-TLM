@@ -343,7 +343,6 @@ function on_update(dt)
                 if playerScript.currentUpAnim ~= playerScript.reload_Bolter and reloadAnimation == false then
                     playReload()
                     playerScript.currentUpAnim = playerScript.reload_Bolter
-                    
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     reloadAnimation = true
                 end
@@ -493,7 +492,7 @@ function shoot(dt, bulletNum)
 
     shootCoolDownTimer = shootCoolDown
     Input.send_rumble(vibrationNormalSettings.x, vibrationNormalSettings.y, vibrationNormalSettings.z)
-
+    print(bulletNum)
 
     local playerPosition = playerTransf.position
     local playerRotation = playerTransf.rotation
@@ -506,8 +505,10 @@ function shoot(dt, bulletNum)
         forwardVector = playerScript.enemyDirection
         playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
     else
-        forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
+        forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+        
     end
+    
     
     local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , yPositionBullet  , (forwardVector.z+ playerPosition.z) )
 
@@ -565,7 +566,7 @@ function chargedZoneUpdate(dt)
      if secondCounterTimes < 5 then
             
         secondCounter = secondCounter + dt
-         ----print("secondCounter", secondCounter)
+
      else
         chargeZoneRb:set_position(Vector3.new(0,-100,0))
         activateZone = false
@@ -601,7 +602,7 @@ function chargedZoneUpdate(dt)
                 end
 
                 if distance < zoneRadius then
-                --print("closeeeee")
+
                     local name = entity:get_component("TagComponent").tag
 
                     if name== "EnemyRange" or name== "EnemyRange1" or name== "EnemyRange2" or name== "EnemyRange3" or name== "EnemyRange4" or name== "EnemyRange5" or name== "EnemyRange6" then  

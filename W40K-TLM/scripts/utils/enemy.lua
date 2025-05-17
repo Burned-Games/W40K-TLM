@@ -713,7 +713,7 @@ function enemy:make_damage(damage)
         log("Player Health: " .. self.playerScript.health)
 
         if self.sparkParticle then
-            self.sparkParticleTransf.position = self.playerTransf.position
+            self.sparkParticleTransf.position = Vector3.new(self.playerTransf.position.x,self.playerTransf.position.y + 1,self.playerTransf.position.z)
             self.sparkParticle:emit(5)
         end
 
