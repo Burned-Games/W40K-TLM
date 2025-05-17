@@ -56,7 +56,7 @@ function on_update(dt)
 
     if not isDialogPlaying then return end
 
-    local spacePressedNow = Input.get_button(Input.action.Cancel) == Input.state.Down
+    local spacePressedNow = Input.get_button(Input.action.Interact) == Input.state.Down
     local spacePressed = spacePressedNow and not spacePressedLastFrame
     spacePressedLastFrame = spacePressedNow
 
