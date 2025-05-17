@@ -49,6 +49,8 @@ local settingsSFX = nil
 local indexHoverSFX = nil
 local indexSelectionSFX = nil
 
+local fadeToBlackScript = nil
+
 function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
@@ -99,6 +101,8 @@ function on_ready()
 
     visibilidad1Entity:set_active(false)
     visibilidad2Entity:set_active(false)
+
+    fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
 end
 
@@ -169,7 +173,8 @@ function on_update(dt)
                 --button4:set_state("Pressed")
                 if(index == 2) then
                 save_progress("skipIntroDelay", true)
-                SceneManager.change_scene("Default.TeaScene")
+                fadeToBlackScript:DoFade()
+                SceneManager.change_scene("scenes/mainMenu.TeaScene")
                 end
             end
         end
