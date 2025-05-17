@@ -664,7 +664,7 @@ function updateGodMode(dt)
         end
         if Input.is_key_pressed(Input.keycode.F5) then
             log ("cambio 4")
-            SceneManager.change_scene("scenes/Default.TeaScene")
+            SceneManager.change_scene("Default.TeaScene")
         end
         if Input.is_key_pressed(Input.keycode.F6) then
             scrapCounter = scrapCounter + 1000

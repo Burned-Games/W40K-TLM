@@ -169,7 +169,7 @@ function on_update(dt)
                 --button4:set_state("Pressed")
                 if(index == 2) then
                 save_progress("skipIntroDelay", true)
-                SceneManager.change_scene("scenes/Default.TeaScene")
+                SceneManager.change_scene("Default.TeaScene")
                 end
             end
         end
