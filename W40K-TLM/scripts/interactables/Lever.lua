@@ -1,7 +1,7 @@
 local leverAnimator = nil
 local hasInteracted = false
 local transform
-local canInteract = false
+local canInteract = true
 local maxInteractions = 0
 local currentInteractions = 0
 
