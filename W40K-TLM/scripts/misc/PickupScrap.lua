@@ -4,7 +4,7 @@ local playerTrans = nil
 local rotationSpeed = 100
 
 local actualSize = Vector3.new(0, 0, 0)
-local sizeSpeed = 1
+local sizeSpeed = 2
 
 local attractionSpeed = 2
 
