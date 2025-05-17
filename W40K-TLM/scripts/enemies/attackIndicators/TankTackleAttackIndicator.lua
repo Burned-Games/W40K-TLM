@@ -16,13 +16,12 @@ local actualSize = 0
 local actualAlpha = 0;
 local speedIndicator = 0.6
 
+
+
+
 function on_ready()
     -- Add initialization code here
-
     transform = self:get_component("TransformComponent")
-
-    
-
     local children = self:get_children()
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "Indicator" then
@@ -33,12 +32,10 @@ function on_ready()
         end
     end
     indicatorTransform = indicator:get_component("TransformComponent")
-    indicatorTransform.scale = Vector3.new(0,0,0)
+    indicatorTransform.scale = Vector3.new(1,0,1)
 
     backgroundSprite = background:get_component("SpriteComponent")
     indicatorSprite = indicator:get_component("SpriteComponent")
-
-    
 
     backgroundColor = backgroundSprite.tint_color
     indicatorColor = indicatorSprite.tint_color
@@ -47,20 +44,19 @@ function on_ready()
     indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, 0)
 
 
-end
 
+
+end
 
 function startIndicator()
     isRunning = true;
-    indicatorTransform.scale = Vector3.new(0,0,0)
+    indicatorTransform.scale = Vector3.new(1,0,1)
     backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, actualAlpha)
     indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, actualAlpha)
 
     actualAlpha = 0
     actualSize = 0
 end
-
-
 
 function on_update(dt)
     -- Add update code here
@@ -79,12 +75,8 @@ function on_update(dt)
         if actualAlpha >= 1 then
             actualAlpha = 1
         end
-
-
-
         backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, actualAlpha)
         indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, actualAlpha)
-
 
         actualSize = actualSize + (dt * speedIndicator)
         if(actualSize >= 1) then
@@ -94,7 +86,7 @@ function on_update(dt)
             indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, 0)
             
         end
-        indicatorTransform.scale = Vector3.new(actualSize,actualSize,actualSize)
+        indicatorTransform.scale = Vector3.new(1,actualSize,1)
     end
 
 end
