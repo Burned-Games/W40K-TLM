@@ -3,27 +3,31 @@
 
 --Dialogo
 local dialogLines1 = nil
-local dialogLines5 = nil
+local dialogLines5L = nil
+local dialogLines5S = nil
 local dialogLines8 = nil
-local dialogLines9 = nil
+local dialogLines9L = nil
+local dialogLines9S = nil
 local dialogLines10 = nil
 local dialogLines11 = nil
 
 
-dialog5 = false
+dialog5L = false
+dialog5S = false
 dialog8 = false
-dialog9 = false
+dialog9L = false
+dialog9S = false
 dialog10 = false
 dialog11 = false
 
 function on_ready()
     --dia1_audio1 = current_scene:get_entity_by_name("dia1_audio1"):get_component("AudioSourceComponent")
     --dia1_audio2 = current_scene:get_entity_by_name("dia1_audio2"):get_component("AudioSourceComponent")
+
     -- dialogLines = {
     --     { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio1 },
     --      { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio2 }
     -- }
-
 
     dialogLines1 = {
         { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?"},
@@ -31,18 +35,24 @@ function on_ready()
         { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother."}
     }
     
-    dialogLines5 = {
-        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand."},
+    dialogLines5L = {
+        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand."}
+    }
+
+    dialogLines5S = {
         { name = "DeciusMarcellus", text = "We're detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter."}
     }
 
     dialogLines8 = {
-        { name = "Brother, the scanner reveals heavy Ork presence. Enter their stronghold and purge them all."}
+        { name = "QuintusMaxillian", text = "Brother, the scanner reveals heavy Ork presence. Enter their stronghold and purge them all."}
     }
 
-    dialogLines9 = {
+    dialogLines9L = {
         { name = "QuintusMaxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?"},
-        { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother."},
+        { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother."}
+    }
+
+    dialogLines9S = {
         { name = "DeciusMarcellus", text = "Status report-are you still with us, Brother?"},
         { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?"}
     }
@@ -64,9 +74,14 @@ end
 function on_update(dt)
 
 
-    if dialog5 == true then 
-        dialogScriptComponent.start_dialog(dialogLines5)
-        dialog5 = false
+    if dialog5L then 
+        dialogScriptComponent.start_dialog(dialogLines5L)
+        dialog5L = false
+    end
+
+    if dialog5S then 
+        dialogScriptComponent.start_dialog(dialogLines5S)
+        dialog5S = false
     end
 
     if dialog8 then 
@@ -74,7 +89,12 @@ function on_update(dt)
         dialog8 = false
     end
 
-    if dialog9 then 
+    if dialog9L then 
+        dialogScriptComponent.start_dialog(dialogLines9)
+        dialog9 = false
+    end
+
+    if dialog9S then 
         dialogScriptComponent.start_dialog(dialogLines9)
         dialog9 = false
     end
