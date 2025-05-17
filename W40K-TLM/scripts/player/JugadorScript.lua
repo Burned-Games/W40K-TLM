@@ -43,7 +43,7 @@ local deathAnimationSetted = false
 local workbenchUIManagerScript = nil
 local pauseScript = nil
 
-local animacionEntradaRealizada = false
+animacionEntradaRealizada = false
 local timerAnimacionEntrada = 0
 
 --Healing sistem

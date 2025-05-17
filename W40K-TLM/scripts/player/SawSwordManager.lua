@@ -66,7 +66,7 @@ end
 
 function on_update(dt)
 
-    if playerScript.health <= 0 or workbenchUIManagerScript.isWorkBenchOpen or pauseScript.isPaused then
+    if playerScript.health <= 0 or workbenchUIManagerScript.isWorkBenchOpen or pauseScript.isPaused or playerScript.animacionEntradaRealizada == false then
         return
     end
 
