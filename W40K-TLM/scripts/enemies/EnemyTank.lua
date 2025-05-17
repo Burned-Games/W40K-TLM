@@ -79,15 +79,15 @@ function on_ready()
     tank.animTimer = 0.0
 
     -- Animations
-    tank.attackAnim = 0 -- done
-    tank.berserkaAnim = 1 -- done
-    tank.dieAnim = 3 -- done
-    tank.detectAnim = 4 -- done
-    tank.hitAnim = 5 
-    tank.idleAnim = 7 -- done
-    tank.stunAnim = 9 -- a medias
-    tank.tackleAnim = 10 --done
-    tank.moveAnim = 11 -- done
+    tank.attackAnim = 0 
+    tank.berserkaAnim = 1 
+    tank.dieAnim = 3
+    tank.detectAnim = 4 
+    --tank.hitAnim = 5 
+    tank.idleAnim = 7 
+    tank.stunAnim = 9 
+    tank.tackleAnim = 10 
+    tank.moveAnim = 11 
 
     -- Animation timers
     tank.attackDuration = 3.0 
@@ -427,23 +427,24 @@ function tank:attack_state(dt)
     tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     tank:rotate_enemy(tank.playerTransf.position)
 
-    if tank.currentAnim ~= tank.attackAnim then
-        tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
-    end
-
     if tank.attackTimer >= tank.attackCooldown then
 
-        local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
-        if attackDistance <= tank.meleeAttackRange then
-            tank.impactPlayerSFX:play()
-            tank:make_damage(tank.meleeDamage)
+        if tank.currentAnim ~= tank.attackAnim then
+            tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
         end
 
-        tank.attackTimer = 0.0
-
-        local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
-        if attackDistance > tank.meleeAttackRange then
-            tank.currentState = tank.state.Move
+        if tank.animTimer >= tank.attackDuration then
+            local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
+            if attackDistance <= tank.meleeAttackRange then
+                tank.impactPlayerSFX:play()
+                tank:make_damage(tank.meleeDamage)
+                print("melee damage: " .. tank.meleeDamage)
+                print("player health: " .. tank.playerScript.health)
+            else
+                tank.currentState = tank.state.Move
+            end
+            tank.attackTimer = 0.0
+            print("timer reset")
         end
 
     end
