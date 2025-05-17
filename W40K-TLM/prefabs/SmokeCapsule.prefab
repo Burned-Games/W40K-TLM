@@ -3,14 +3,14 @@
         "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 1,
-            "value0": "SmokeTest_Prefab",
+            "value0": "SmokeCapsule_Prefab",
             "value1": {
                 "value0": ""
             },
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 8117479469847349826
+                "value0": 7309076429362504469
             },
             "value4": false
         },
@@ -22,19 +22,19 @@
         "value4": 0,
         "value5": {
             "cereal_class_version": 0,
-            "Tag": "SmokeTest"
+            "Tag": "SmokeCapsule"
         },
         "value6": 1,
         "value7": 0,
         "value8": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.0,
-                "y": 0.20167258381843568,
-                "z": 0.9132363796234131
+                "x": 0.08395159244537354,
+                "y": 0.38458967208862307,
+                "z": -6.333460330963135
             },
             "Rotation": {
-                "x": 0.0,
+                "x": 23.67906951904297,
                 "y": -0.0,
                 "z": 0.0
             },
@@ -72,16 +72,16 @@
                             "m02": 0.0,
                             "m03": 0.0,
                             "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
+                            "m11": 0.9158093929290772,
+                            "m12": 0.4016132354736328,
                             "m13": 0.0,
                             "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
+                            "m21": -0.4016132354736328,
+                            "m22": 0.9158093929290772,
                             "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.20167258381843568,
-                            "m32": 0.9132363796234131,
+                            "m30": 0.08395159244537354,
+                            "m31": 0.38458967208862307,
+                            "m32": -6.333460330963135,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": false,
@@ -112,12 +112,12 @@
                         "Looping": true,
                         "UseRandomLifeTime": true,
                         "StartLifeTimeMin": 1.0,
-                        "StartLifeTimeMax": 7.0,
+                        "StartLifeTimeMax": 4.599999904632568,
                         "StartLifeTime": 5.0,
                         "UseRandomSpeed": false,
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
-                        "StartSpeed": 5.599999904632568,
+                        "StartSpeed": 3.5,
                         "UseRandomSize": false,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
@@ -131,9 +131,9 @@
                             "z": 1.600000023841858
                         },
                         "StartSize": {
-                            "x": 1.600000023841858,
-                            "y": 1.600000023841858,
-                            "z": 1.600000023841858
+                            "x": 2.200000047683716,
+                            "y": 2.200000047683716,
+                            "z": 2.200000047683716
                         },
                         "UseRandomRotation": false,
                         "StartRotationMin": {
@@ -153,7 +153,7 @@
                         },
                         "SimulationSpace": 1,
                         "UseEmission": true,
-                        "RateOverTime": 6.099999904632568,
+                        "RateOverTime": 6.400000095367432,
                         "UseBurst": false,
                         "Bursts": [],
                         "ShapeType": 2,
@@ -207,15 +207,15 @@
                         ],
                         "VelocityOverLifeGeneral": [
                             {
-                                "value0": 0.07000000029802323,
-                                "value1": 0.7400000095367432
+                                "value0": 0.029999999329447748,
+                                "value1": 1.0
                             },
                             {
                                 "value0": 1.0,
-                                "value1": 1.0
+                                "value1": 0.6599999666213989
                             }
                         ],
-                        "VelocityMultiplier": 0.4000000059604645,
+                        "VelocityMultiplier": 0.5,
                         "UseSizeOverLifetime": true,
                         "SizeSeparateAxes": false,
                         "SizeOverLifeX": [
@@ -250,19 +250,19 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
+                                "value0": 0.054999999701976779,
                                 "value1": 1.0
                             },
                             {
-                                "value0": 0.9150000214576721,
-                                "value1": 0.7599999904632568
+                                "value0": 1.0,
+                                "value1": 0.6599999666213989
                             }
                         ],
                         "SizeMultiplier": 1.2000000476837159,
                         "UseRotationOverLifetime": true,
                         "RotationOverLifeX": [
                             {
-                                "value0": 0.10999999940395355,
+                                "value0": 0.12999999523162843,
                                 "value1": 1.0
                             },
                             {
@@ -272,7 +272,7 @@
                         ],
                         "RotationOverLifeY": [
                             {
-                                "value0": 0.10999999940395355,
+                                "value0": 0.12999999523162843,
                                 "value1": 1.0
                             },
                             {
@@ -282,7 +282,7 @@
                         ],
                         "RotationOverLifeZ": [
                             {
-                                "value0": 0.10999999940395355,
+                                "value0": 0.12999999523162843,
                                 "value1": 1.0
                             },
                             {
@@ -303,18 +303,18 @@
                                 "cereal_class_version": 0,
                                 "value0": 0.0,
                                 "value1": {
-                                    "value0": 0.0,
-                                    "value1": 0.0,
-                                    "value2": 0.0,
+                                    "value0": 0.9457013607025147,
+                                    "value1": 0.9457013607025147,
+                                    "value2": 0.9457013607025147,
                                     "value3": 1.0
                                 }
                             },
                             {
                                 "value0": 1.0,
                                 "value1": {
-                                    "value0": 0.2895927429199219,
-                                    "value1": 0.2895927429199219,
-                                    "value2": 0.2895927429199219,
+                                    "value0": 1.0,
+                                    "value1": 1.0,
+                                    "value2": 1.0,
                                     "value3": 1.0
                                 }
                             }
@@ -329,9 +329,9 @@
                 }
             }
         },
-        "value19": 1,
-        "value20": 0,
-        "value21": 1,
+        "value19": 0,
+        "value20": 1,
+        "value21": 0,
         "value22": 0,
         "value23": 0,
         "value24": 0,
@@ -345,7 +345,6 @@
         "value32": 0,
         "value33": 0,
         "value34": 0,
-        "value35": 0,
-        "value36": 0
+        "value35": 0
     }
 }
