@@ -90,18 +90,18 @@ function on_update(dt)
     end
 
     if dialog9L then 
-        dialogScriptComponent.start_dialog(dialogLines9)
-        dialog9 = false
+        dialogScriptComponent.start_dialog(dialogLines9L)
+        dialog9L = false
     end
 
     if dialog9S then 
-        dialogScriptComponent.start_dialog(dialogLines9)
-        dialog9 = false
+        dialogScriptComponent.start_dialog(dialogLines9S)
+        dialog9S = false
     end
 
     if dialog10 then 
         dialogScriptComponent.start_dialog(dialogLines10)
-        dialog = false
+        dialog10 = false
     end
 
     if dialog11 then 
