@@ -152,9 +152,9 @@ function on_ready()
 
     -- Positions
     support.lastTargetPos = Vector3.new(0, 0, 0)
-    support.waypointPos[1] = support.wp1Transf.position
-    support.waypointPos[2] = support.wp2Transf.position
-    support.waypointPos[3] = support.wp3Transf.position
+    -- support.waypointPos[1] = support.wp1Transf.position
+    -- support.waypointPos[2] = support.wp2Transf.position
+    -- support.waypointPos[3] = support.wp3Transf.position
     support.delayedPlayerPos = support.playerTransf.position
     support.bulletLifetime = 5.0
 end
@@ -577,35 +577,35 @@ function shoot_projectile(targetExplosive)
 
 end
 
-function set_waypoints()
-    -- Obtener componentes Transform de los waypoints
-    support.wp1Transf = support.waypoint1:get_component("TransformComponent")
-    support.wp2Transf = support.waypoint2:get_component("TransformComponent")
-    support.wp3Transf = support.waypoint3:get_component("TransformComponent")
+-- function set_waypoints()
+--     -- Obtener componentes Transform de los waypoints
+--     support.wp1Transf = support.waypoint1:get_component("TransformComponent")
+--     support.wp2Transf = support.waypoint2:get_component("TransformComponent")
+--     support.wp3Transf = support.waypoint3:get_component("TransformComponent")
 
-    local suppPos = support.enemyTransf.position
-    local radius = 8.0  -- Radio alrededor del support
+--     local suppPos = support.enemyTransf.position
+--     local radius = 8.0  -- Radio alrededor del support
     
-    -- Generar posiciones aleatorias para cada waypoint
-    local waypointTransforms = {
-        support.wp1Transf,
-        support.wp2Transf,
-        support.wp3Transf
-    }
+--     -- Generar posiciones aleatorias para cada waypoint
+--     local waypointTransforms = {
+--         support.wp1Transf,
+--         support.wp2Transf,
+--         support.wp3Transf
+--     }
 
-    for _, wpTransf in ipairs(waypointTransforms) do
-        -- Generar ángulo aleatorio en radianes (0 a 2π)
-        local randomAngle = math.random() * 2 * math.pi
+--     for _, wpTransf in ipairs(waypointTransforms) do
+--         -- Generar ángulo aleatorio en radianes (0 a 2π)
+--         local randomAngle = math.random() * 2 * math.pi
         
-        -- Calcular posición alrededor del support
-        local x = suppPos.x + radius * math.cos(randomAngle)
-        local z = suppPos.z + radius * math.sin(randomAngle)
-        local newPos = Vector3.new(x, 0, z)
+--         -- Calcular posición alrededor del support
+--         local x = suppPos.x + radius * math.cos(randomAngle)
+--         local z = suppPos.z + radius * math.sin(randomAngle)
+--         local newPos = Vector3.new(x, 0, z)
         
-        -- Asignar nueva posición al waypoint
-        wpTransf.position = newPos
-    end
-end
+--         -- Asignar nueva posición al waypoint
+--         wpTransf.position = newPos
+--     end
+-- end
 
 function find_all_enemies()
     -- Reset all enemy tables
