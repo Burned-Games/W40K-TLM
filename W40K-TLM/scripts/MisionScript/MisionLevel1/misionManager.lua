@@ -135,8 +135,8 @@ function on_ready()
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
 
-    dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    dialogScriptComponent.start_dialog(dialogLines)
+    --dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+    --dialogScriptComponent.start_dialog(dialogLines)
 
     popupScriptComponent = current_scene:get_entity_by_name("PopUpManager"):get_component("ScriptComponent")
 
