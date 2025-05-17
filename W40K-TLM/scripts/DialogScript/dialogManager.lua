@@ -184,12 +184,23 @@ function play_current_line()
         return
     end
 
+
+    fullText = line.text or " "
+    local text_length = utf8_char_count(fullText)
+    
+
+    if line.time and text_length > 0 then
+        typeSpeed = math.max(line.time / text_length, 0.01) 
+    else
+        typeSpeed = 0.04  
+    end
+
+
     if currentAudio then
         currentAudio:pause()
         currentAudio = nil
     end
 
-    fullText = line.text or " "
     visibleText = " "
     textIndex = 1
     timer = 0
