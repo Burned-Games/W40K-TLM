@@ -100,6 +100,12 @@ function on_ready()
     support.burstCooldownTimer = 0.0
     support.updateTargetTimer = 0.0
     support.updateTargetInterval = 0.5
+    support.animTimer = 0.0
+    support.animDuration = 0.0
+
+    -- Animation Timers
+    support.dieDuration = 2.5
+    support.idleDuration = 2.5
 
     -- Animation
     support.idleAnim = 3
@@ -115,6 +121,7 @@ function on_ready()
     support.canUseShield = true
     support.allShielded = true
     support.isShootingBurst = false
+    support.isPlayingAnimation = false
 
     -- Ints
     support.currentWaypoint = 1
@@ -152,20 +159,18 @@ function on_ready()
 
     -- Positions
     support.lastTargetPos = Vector3.new(0, 0, 0)
-    -- support.waypointPos[1] = support.wp1Transf.position
-    -- support.waypointPos[2] = support.wp2Transf.position
-    -- support.waypointPos[3] = support.wp3Transf.position
     support.delayedPlayerPos = support.playerTransf.position
     support.bulletLifetime = 5.0
 end
 
 function on_update(dt)
+
+    if support.isDead then return end
+
     if support.zoneSet ~= true then
         support:check_spawn()
         support.zoneSet = true
     end
-
-    if support.isDead then return end
 
     support:check_effects(dt)
     support:check_pushed(dt)
@@ -180,6 +185,15 @@ function on_update(dt)
     support.findEnemiesTimer = support.findEnemiesTimer + dt
     support.updateTargetTimer = support.updateTargetTimer + dt
     if support.enemyHit then support.hitTimer = support.hitTimer + dt end
+
+    if support.health <= 0 then
+        if support.key ~= 0 then
+            
+            support.playerScript.enemys_targeting = support.playerScript.enemys_targeting - 1
+            support.key = 0
+        end
+        support.currentState = support.state.Dead
+    end
 
     support:reset_material()
 
@@ -196,21 +210,42 @@ function on_update(dt)
         end
     end
 
-    if support.currentState == support.state.Idle then
-        support:idle_state()
+    if support.isPlayingAnimation then
+        print("AAAAAAA")
+        support.animTimer = support.animTimer + dt
+        support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+        if support.animTimer >= support.animDuration then
+            support.isPlayingAnimation = false
+        else
+            return
+        end
+    end
+
+    if support.currentState == support.state.Dead then
+        support:die_state(dt)
+        print("Die")
         return
+
+    elseif support.currentState == support.state.Idle then
+        support:idle_state()
+        print("Idle")
 
     elseif support.currentState == support.state.Move then
         support:move_state(dt)
+        print("Move")
 
     elseif support.currentState == support.state.Attack then
         support:attack_state()
+        print("Attack")
 
     elseif support.currentState == support.state.Shoot then
         support:shoot_state(dt)
+        print("Shoot")
 
     elseif support.currentState == support.state.Shield then
         support:shield_state(dt)
+        print("Shield")
     end
 end
 
