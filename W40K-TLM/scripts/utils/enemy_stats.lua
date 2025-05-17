@@ -253,9 +253,11 @@ local enemy_stats = {
             meleeDamage = 120,
             rangeDamage = 80,
 
-            detectionRange = 20,
+            detectionRange = 40,
             meleeAttackRange = 10,
-            rangeAttackRange = 15,
+            rangeAttackRange = 30,
+
+            fistTargetScale = 3,
 
 
 
@@ -293,13 +295,15 @@ local enemy_stats = {
             rangeAttackRange = 30,
             totemRange = 2,
 
+            fistTargetScale = 3,
+
 
 
             -- **Timers**
             attackCooldown = 0.5,
             meleeAttackDuration = 2.0,
             lightningDuration = 0.5,
-            rangeAttackDuration = 10.0,
+            rangeAttackDuration = 2.0,
             fistsDamageCooldown = 1.0,
             shieldCooldown = 8.0,
             -- Time between ultimates

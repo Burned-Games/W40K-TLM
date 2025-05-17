@@ -32,6 +32,7 @@ local colliderUpdateInterval = 0.1
 local fistMaxNumbers = 4
 local radius = 6
 rangeDamage = 0
+fistTargetScale = 0
 
 -- Bools
 fistsThrown = false
@@ -78,6 +79,7 @@ function on_ready()
     fistsDamageCooldown = stats.fistsDamageCooldown
     rangeAttackDuration = stats.rangeAttackDuration
     rangeDamage = stats.rangeDamage
+    fistTargetScale = stats.fistTargetScale
 
 
     -- Collision
@@ -184,7 +186,7 @@ function execute_fists_attack()
                 elapsed = 0,
                 duration = rangeAttackDuration,
                 startScale = Vector3.new(1, 1, 1),
-                targetScale = Vector3.new(10, 10, 10),
+                targetScale = Vector3.new(fistTargetScale, fistTargetScale, fistTargetScale),
                 colliderTimer = 0.0
             })
         end
@@ -215,7 +217,7 @@ function update_scaling_attacks(dt)
 
         if data.colliderTimer >= colliderUpdateInterval then
             if data.transformRb then
-                data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
+                data.transformRb.rb:get_collider():set_sphere_radius(newScale.x)
                 data.transformRb.rb:set_trigger(true)
             end
             data.colliderTimer = 0.0
@@ -226,7 +228,7 @@ function update_scaling_attacks(dt)
                 data.transform.scale = data.targetScale
             end
             if data.transformRb then
-                data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
+                data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x)
                 data.transformRb.rb:set_trigger(true)
             end
             table.remove(scalingAttacks, i)

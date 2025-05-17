@@ -322,9 +322,6 @@ function main_boss:attack_state()
 
     if main_boss.isRaging and main_boss.ultimateScript.ultiTimer >= main_boss.ultiCooldown then
         ultimate_attack()
-    elseif attackChance < 0.3 then
-        lightning_attack()
-        fists_attack()
     else
         if distance <= main_boss.meleeAttackRange then
             lightning_attack()
