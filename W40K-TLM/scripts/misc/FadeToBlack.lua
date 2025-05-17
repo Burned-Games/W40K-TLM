@@ -12,6 +12,12 @@ fadeToBlackDoned = false
 
 local all_text_component = {}
 
+local targetSFXVolume = nil
+local targetMusicVolume = nil
+
+local actualSFXVolume = 0
+local actualMusicVolume = 0
+
 function on_ready()
     -- Add initialization code here
     fadeToBlackImage = self:get_component("UIImageComponent")
@@ -28,6 +34,9 @@ function on_ready()
             table.insert(all_text_component, textComponent)
         end 
     end
+
+    targetMusicVolume = load_progress("musicVolumeGeneral", 50.0) / 100
+    targetSFXVolume = load_progress("fxVolume", 50.0) / 100
 
 
 end
@@ -50,16 +59,17 @@ function DoFade()
     fading = true;
     fadeToBlackImage:set_color(Vector4.new(1,1,1, 0))
     contador = 0;
+    targetMusicVolume = load_progress("musicVolumeGeneral", 50.0) / 100
+    targetSFXVolume = load_progress("fxVolume", 50.0) / 100
 end
 
 function FadeToTransparent(dt)
     contador = contador + dt
     local alpha = math.min(contador / fadeToBlackTimer, 1.0)
     alpha = 1.0 - alpha -- invertir
-    
 
-
-    
+    set_music_volume((1.0 - alpha) * targetMusicVolume)
+    set_sfx_volume((1.0 - alpha) * targetSFXVolume)
 
     if (contador > fadeToBlackTimer) then
         starting = false;
@@ -81,6 +91,8 @@ function FadeToBlack(dt)
     contador = contador + dt
     local alpha = math.min(contador / fadeToBlackTimer, 1.0)
    
+    set_music_volume((1.0 - alpha) * targetMusicVolume)
+    set_sfx_volume((1.0 - alpha) * targetSFXVolume)
 
     if (contador > fadeToBlackTimer) then
         fading = false;
