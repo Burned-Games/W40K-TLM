@@ -56,6 +56,11 @@ function enemy:new(obj)
     obj.originalMaterial = nil
     obj.damageMaterial = nil
 
+    obj.sparkParticle = nil
+    obj.bloodParticle = nil
+    obj.sparkParticleTransf = nil
+    obj.bloodParticleTransf = nil
+
     -- Tags
     obj.enemyType = "Nil"
     obj.playerObjectsTagList = {"Sphere1", "Sphere2", "Sphere3", "Sphere4", "Sphere5", "Sphere6", "Sphere7", "Sphere8", "DisruptorBullet", "Granade", "ChargeZone"} 
@@ -238,7 +243,7 @@ function enemy:detect_state(dt)
     if self.currentAnim ~= self.detectAnim then 
         if self.detectionSFX then self.detectionSFX:play() end
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
-        print("Detect animation")
+        log("Detect animation")
     end
             
     if not self.alertEnemiesUI then
@@ -554,7 +559,7 @@ function enemy:check_spawn()
             end
         end
     else
-        print("[ZONES] No zones for level:", self.level)
+        log("[ZONES] No zones for level:", self.level)
     end
     
     if self.zoneNumber < self.playerScript.zonePlayer + 1 and self.entityName ~= "EnemyTank1" then
@@ -582,7 +587,7 @@ end
 
 function enemy:alert_nearby_enemies(dt)  
     if self.isAlerted then return end
-    print("Alert nearby Enemies")
+    log("Alert nearby Enemies")
     local alertedCount = 0
     
     for _, enemyData in ipairs(self.nearbyEnemies) do
@@ -702,10 +707,18 @@ function enemy:make_damage(damage)
     if self.playerScript.isCovering then return end
 
     if self.playerScript.health > 0 then
+
         local finalDamange = damage * self.playerScript.damageReduction
         self.playerScript.health = self.playerScript.health - finalDamange
-        print(self.playerScript.health)
+        log("Player Health: " .. self.playerScript.health)
+
+        if self.sparkParticle then
+            self.sparkParticleTransf.position = self.playerTransf.position
+            self.sparkParticle:emit(5)
+        end
+
         self.playerScript.takeHit()
+
     end
 
 end
@@ -740,11 +753,11 @@ function enemy:take_damage(damage, shieldMultiplier)
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
         if self.hurtSFX then self.hurtSFX:play() end
-        print(self.shieldHealth)
+        log("Enemy: " .. self.enemyType .. "  Shield Health: " .. self.shieldHealth)
     else
         self.health = self.health - damage
         if self.hurtSFX then self.hurtSFX:play() end
-        print(self.health)
+        log("Enemy: " .. self.enemyType .. "  Health: " .. self.health)
     end
 
     if self.health <= 0 then

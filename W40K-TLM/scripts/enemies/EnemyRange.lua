@@ -47,8 +47,8 @@ function on_ready()
     range.misionManager = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
     -- Particles
-    range.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    range.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    range.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    range.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Audio
     range.dyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
@@ -474,9 +474,6 @@ function range:stab_state(dt)
         end
 
         if not range.hasDealtDamage then
-            range.particleSparkTransf.position = range.playerTransf.position
-            range.particleSpark:emit(5)
-
             range.meleeImpactSFX:play()
             range:make_damage(range.meleeDamage)
             if range.level ~= 1 then
@@ -557,8 +554,6 @@ function shoot_projectile(targetExplosive)
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            range.particleSparkTransf.position = range.playerTransf.position
-            range.particleSpark:emit(5) 
             range:make_damage(range.rangeDamage) 
         end
         

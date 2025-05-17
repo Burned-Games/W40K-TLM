@@ -49,8 +49,8 @@ function on_ready()
     tank.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
 
     -- Particles
-    tank.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    tank.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    tank.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    tank.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
 
 
@@ -135,8 +135,6 @@ function on_ready()
 
                 if tank.currentState == tank.state.Tackle then
                     tank.impactPlayerSFX:play()
-                    tank.particleSparkTransf.position = tank.playerTransf.position
-                    tank.particleSpark:emit(5)
                     tank:make_damage(tank.tackleDamage)
                     tank.playerScript.applyStunn()
                     
@@ -437,8 +435,6 @@ function tank:attack_state(dt)
 
         local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
         if attackDistance <= tank.meleeAttackRange then
-            tank.particleSparkTransf.position = tank.playerTransf.position
-            tank.particleSpark:emit(5)
             tank.impactPlayerSFX:play()
             tank:make_damage(tank.meleeDamage)
         end

@@ -42,8 +42,8 @@ function on_ready()
     -- Particle
     kamikaze.particleKamikaze = current_scene:get_entity_by_name("particle_kamikaze"):get_component("ParticlesSystemComponent")
     kamikaze.particleKamikazeTransf = current_scene:get_entity_by_name("particle_kamikaze"):get_component("TransformComponent")
-    kamikaze.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    kamikaze.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Audio
     kamikaze.detectionSFX = current_scene:get_entity_by_name("KamikazeDetectionSFX"):get_component("AudioSourceComponent")

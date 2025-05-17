@@ -50,8 +50,8 @@ function on_ready()
     --support.supportShotSFX = current_scene:get_entity_by_name("SupportShotSFX"):get_component("AudioSourceComponent")
     
     -- Particles
-    support.particleSpark = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    support.particleSparkTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    support.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
+    support.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
 
     -- Level
     support.enemyType = "support"
@@ -563,8 +563,6 @@ function shoot_projectile(targetExplosive)
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-            support.particleSparkTransf.position = support.playerTransf.position
-            support.particleSpark:emit(5) 
             support:make_damage(support.supportDamage) 
         end
         
