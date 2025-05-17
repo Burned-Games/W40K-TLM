@@ -165,7 +165,6 @@ function on_update(dt)
 
     if not playerInRange then
         if interactionIconSprite and interactionSpriteTransitionTimer <= interactionSpriteTransitionTimerTarget then
-            log(interactionSpriteTransitionTimer .. " target: " .. interactionSpriteTransitionTimerTarget)
             FadeToTransparent(dt)
         end
     else 
@@ -365,7 +364,6 @@ function FadeToTransparent(dt)
 end
 
 function FadeToBlack(dt)
-    log("IN")
     interactionSpriteTransitionTimer = interactionSpriteTransitionTimer + dt
     
     local alpha = math.min(interactionSpriteTransitionTimer / interactionSpriteTransitionTimerTarget, 1.0)

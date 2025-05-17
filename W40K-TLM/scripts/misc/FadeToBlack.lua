@@ -23,7 +23,6 @@ function on_ready()
     local allEntities = current_scene:get_all_entities()
     for _, entity in ipairs(allEntities) do 
         if entity:has_component("UITextComponent") then
-            log("found!" .. entity:get_component("TagComponent").tag)
             local textComponent = entity:get_component("UITextComponent")
             textComponent:set_color(Vector4.new(1,1,1, 0))
             table.insert(all_text_component, textComponent)
