@@ -6,7 +6,7 @@ local HpStealed = 20
 coolDown = 6
 coolDownCounter = 6
 local impulseDirection = nil
-local impulseForce = 15
+local impulseForce = 10
 
 local player = nil
 local playerTransf = nil

@@ -7,9 +7,9 @@ local player = nil
 -- Multipliers 
 local MULTIPLIERS = {
     weapons = {
-        reloadReduction = 0.8,   -- 20% less reload time
+        reloadReduction = 0.7,   -- 30% less reload time
         damageBoost = 1.15,      -- 15% more damage
-        fireRateBoost = 0.9      -- 10% faster firing 
+        fireRateBoost = 0.8      -- 20% faster firing 
     },
     armor = {
         healthBoost = 50        -- 50 more health
@@ -22,7 +22,7 @@ local BASE_VALUES = {
     -- Rifle values
     reloadTimeRifle = 2.5,
     shootCoolDownRifle = 1.3,
-    damageRifle = 15,
+    damageRifle = 12,
 
     -- Shotgun values
     reloadTimeShotgun = 2.8,
@@ -90,9 +90,9 @@ upgradeNames = {
 
 upgradeDescriptions = {
     weapons = {
-        reloadReduction = "Effect: -20% reload time",
+        reloadReduction = "Effect: -30% reload time",
         damageBoost = "+15% damage base",
-        fireRateBoost = "+10% fire rate",
+        fireRateBoost = "+20% fire rate",
         specialAbility = "Unlock \n  - Disruptor Charge \n  - Neuroinhibitor Grenade"
     },
     armor = {
