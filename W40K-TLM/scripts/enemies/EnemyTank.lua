@@ -9,6 +9,7 @@ local stats = nil
 
 function on_ready()
 
+    tank.entityName = self:get_component("TagComponent").tag
     -- Scene
     tank.sceneName = SceneManager:get_scene_name()
 
@@ -57,6 +58,9 @@ function on_ready()
     tank.enemyType = "tank"
     tank:set_level()
 
+    if tankName == "EnemyTank1" then
+        tank.level = 2
+    end
     tank:set_stats(tank.level)
 
     

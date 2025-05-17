@@ -18,6 +18,8 @@ function enemy:new(obj)
     -- Reference to the components of the entity
     obj.sceneName = nil
 
+    obj.entityName = nil
+
     obj.enemyTransf = nil
     obj.animator = nil
     obj.enemyRbComponent = nil
@@ -554,8 +556,8 @@ function enemy:check_spawn()
     else
         print("[ZONES] No zones for level:", self.level)
     end
-
-    if self.zoneNumber < self.playerScript.zonePlayer + 1 then
+    
+    if self.zoneNumber < self.playerScript.zonePlayer + 1 and self.entityName ~= "EnemyTank1" then
         self.currentState = self.state.Idle
         self.enemyRb:set_position(Vector3.new(-500, 0, 0))
         self.isDead = true
