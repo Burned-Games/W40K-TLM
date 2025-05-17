@@ -52,6 +52,8 @@ function on_ready()
     -- Particles
     support.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     support.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    support.bloodParticle = current_scene:get_entity_by_name("SupportBloodParticle"):get_component("ParticlesSystemComponent")
+    support.bloodParticleTransf = current_scene:get_entity_by_name("SupportBloodParticle"):get_component("TransformComponent")
 
     -- Level
     support.enemyType = "support"

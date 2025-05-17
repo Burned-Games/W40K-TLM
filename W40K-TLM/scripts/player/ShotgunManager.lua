@@ -694,12 +694,6 @@ function explodeGranade()
 
                     if entity ~= nil then
                         if enemyScript ~= nil then
-                            
-                            local enemyTransform = entity:get_component("TransformComponent")
-                            local enemyPos = enemyTransform.position
-                            -- particle_blood_normal_transform.position = enemyPos --PETA
-                            -- particle_blood_spark_transform.position = enemyPos --PETA
-
                             if enemyTag == "BarrilDestruible" or enemyTag == "CajaDestruible" or enemyTag == "CajaDestruibleV2" or enemyTag == "ScrapPile" then 
                                 local script = entity:get_component("ScriptComponent")
                                 script:give_phisycs()

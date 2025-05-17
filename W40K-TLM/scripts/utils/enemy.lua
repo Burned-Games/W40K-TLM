@@ -53,12 +53,16 @@ function enemy:new(obj)
     obj.alertEnemiesUITransform = nil
     obj.alertUIScript = nil
 
+    -- Materials
     obj.originalMaterial = nil
     obj.damageMaterial = nil
 
+    -- Particles
     obj.sparkParticle = nil
     obj.bloodParticle = nil
     obj.sparkParticleTransf = nil
+    obj.bloodParticleTransf = nil
+    obj.bloodParticle = nil
     obj.bloodParticleTransf = nil
 
     -- Tags
@@ -748,6 +752,11 @@ function enemy:take_damage(damage, shieldMultiplier)
     end
     
     if self.enemyMat then self.enemyMat.material = self.damageMaterial end
+
+    if self.bloodParticle then
+        self.bloodParticleTransf.position = Vector3.new(self.enemyTransf.position.x,self.enemyTransf.position.y + 1,self.enemyTransf.position.z)
+        self.bloodParticle:emit(5)
+    end
 
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)

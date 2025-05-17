@@ -24,11 +24,6 @@ slasheeed = false
 
 sawSwordAvailable = true
 
---Particles
-local particle_blood_normal = nil
-local particle_blood_spark = nil
-local particle_blood_normal_transform = nil
-local particle_blood_spark_transform = nil
 local cameraScript = nil
 
 -- Audio
@@ -46,11 +41,6 @@ function on_ready()
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
     bolterScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
-    --Particles
-    particle_blood_normal = current_scene:get_entity_by_name("particle_blood_normal"):get_component("ParticlesSystemComponent")
-    particle_blood_spark = current_scene:get_entity_by_name("particle_blood_spark"):get_component("ParticlesSystemComponent")
-    particle_blood_normal_transform = current_scene:get_entity_by_name("particle_blood_normal"):get_component("TransformComponent")
-    particle_blood_spark_transform = current_scene:get_entity_by_name("particle_blood_spark"):get_component("TransformComponent")
 
     -- Audio
     meleeHitSFX = current_scene:get_entity_by_name("MeleeHit"):get_component("AudioSourceComponent")
@@ -162,12 +152,6 @@ function Slash()
 
                 if entity ~= nil then
                     if enemyScript ~= nil then
-                        local enemyTransform = entity:get_component("TransformComponent")
-                        local enemyPos = enemyTransform.position
-            
-                        particle_blood_normal_transform.position = enemyPos
-                        particle_blood_spark_transform.position = enemyPos
-
                         if enemyTag == "BarrilDestruible" or enemyTag == "CajaDestruible" or enemyTag == "CajaDestruibleV2" or enemyTag == "ScrapPile" then 
                             local script = entity:get_component("ScriptComponent")
                             script:give_phisycs()
@@ -185,8 +169,6 @@ function Slash()
                                 enemyInstance = enemyScript.kamikaze
                             end
                             enemyInstance:take_damage(damage)
-                            particle_blood_normal:emit(5)
-                            particle_blood_spark:emit(5)
 
                             meleeHitSFX:play()
 

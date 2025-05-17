@@ -49,6 +49,8 @@ function on_ready()
     -- Particles
     range.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     range.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    range.bloodParticle = current_scene:get_entity_by_name("RangedBloodParticle"):get_component("ParticlesSystemComponent")
+    range.bloodParticleTransf = current_scene:get_entity_by_name("RangedBloodParticle"):get_component("TransformComponent")
 
     -- Audio
     range.dyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
@@ -204,7 +206,7 @@ function on_update(dt)
 
     if range.haveShield and range.enemyShield <= 0 then
         range.haveShield = false
-        range.shieldDestroyed=true
+        range.shieldDestroyed = true
     end
 
     range.pathUpdateTimer = range.pathUpdateTimer + dt

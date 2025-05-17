@@ -188,8 +188,6 @@ local entities
 
 -- particles
 local particle_lvl1_run = nil
-local particle_blood_normal = nil
-local particle_blood_spark = nil
 local particle_fire = nil
 local particle_smoke = nil
 local neuralInParticle = nil
@@ -268,12 +266,8 @@ function on_ready()
 
     -- Particles 
     -- en la posicion de caida de la granada-> 
-    -- cuando los enemigos reciben daño (en la posicion del enemigo) -> particle_blood_normal:emit(1)  particle_blood_spark:emit(1)
-    -- al recibir daño (en la posicion del jugador) --> particle_spark:emit(1)
     -- 
     particle_lvl1_run = current_scene:get_entity_by_name("particle_lvl1_run"):get_component("ParticlesSystemComponent")
-    particle_blood_normal = current_scene:get_entity_by_name("particle_blood_normal"):get_component("ParticlesSystemComponent")
-    particle_blood_spark = current_scene:get_entity_by_name("particle_blood_spark"):get_component("ParticlesSystemComponent")
     particle_fire = current_scene:get_entity_by_name("particle_fire"):get_component("ParticlesSystemComponent")
     particle_smoke = current_scene:get_entity_by_name("particle_smoke"):get_component("ParticlesSystemComponent")
     

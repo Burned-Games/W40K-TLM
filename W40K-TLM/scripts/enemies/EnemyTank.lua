@@ -51,6 +51,8 @@ function on_ready()
     -- Particles
     tank.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     tank.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    tank.bloodParticle = current_scene:get_entity_by_name("TankBloodParticle"):get_component("ParticlesSystemComponent")
+    tank.bloodParticleTransf = current_scene:get_entity_by_name("TankBloodParticle"):get_component("TransformComponent")
 
 
 
