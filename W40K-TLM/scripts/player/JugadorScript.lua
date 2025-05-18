@@ -99,6 +99,8 @@ local exploreMusicVolume = 0.05
 local prevBackgroundMusicToPlay = -1
 backgroundMusicToPlay = 0 -- 0 exploration 1 fight
 
+local howlingWindSFX = nil
+
 local footstepSFXTimer = 0
 local footstepSFXDelay = 0.5
 
@@ -248,6 +250,8 @@ function on_ready()
     exploreMusic = current_scene:get_entity_by_name("ExploreMusic"):get_component("AudioSourceComponent")
     fightingMusic = current_scene:get_entity_by_name("FightingMusic"):get_component("AudioSourceComponent")
 
+    howlingWindSFX = current_scene:get_entity_by_name("HowlingWindSFX"):get_component("AudioSourceComponent")
+
     playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
     bleedingSFX = current_scene:get_entity_by_name("PlayerBleedingSFX"):get_component("AudioSourceComponent")
     playerBurningSFX = current_scene:get_entity_by_name("PlayerBurningSFX"):get_component("AudioSourceComponent")
@@ -263,6 +267,8 @@ function on_ready()
     exploreMusic:play()
     fightingMusic:set_volume(0)
     fightingMusic:play() 
+
+    howlingWindSFX:play()
 
    entities = current_scene:get_all_entities()
 
@@ -545,7 +551,7 @@ end
 function on_exit()
     fightingMusic:pause()
     exploreMusic:pause()
-    -- Add cleanup code here
+    howlingWindSFX:pause()
 end
 
 
