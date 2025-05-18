@@ -32,9 +32,11 @@ function on_ready()
         if entity:has_component("UITextComponent") then
             local textComponent = entity:get_component("UITextComponent")
             local textColor = textComponent:get_color()
-            table.insert(all_text_original_colors, textColor)
-            textComponent:set_color(Vector4.new(textColor.x,textColor.y,textColor.z, 0))
-            table.insert(all_text_component, textComponent)
+            if textColor.x ~= 0 then
+                table.insert(all_text_original_colors, textColor)
+                textComponent:set_color(Vector4.new(textColor.x,textColor.y,textColor.z, 0))
+                table.insert(all_text_component, textComponent)
+            end
         end 
     end
 
@@ -107,12 +109,7 @@ function FadeToBlack(dt)
     else 
         fadeToBlackImage:set_color(Vector4.new(1,1,1, alpha))
         for i, textComponent in ipairs(all_text_component) do  
-            if textComponent:get_color().w == 0 then
-                textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z, 0))
-            else
-                textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z,1.0 - alpha))
-            end
-            
+            textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z,1.0 - alpha))
         end
 
     end

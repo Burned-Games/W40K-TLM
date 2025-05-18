@@ -1,6 +1,6 @@
 {
     "value0": {
-        "cereal_class_version": 2,
+        "cereal_class_version": 3,
         "value0": 6,
         "value1": 6,
         "value2": 0,
@@ -40,8 +40,8 @@
         "value23": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 455.5,
-                "y": 279.5,
+                "x": 355.5,
+                "y": 337.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -50,16 +50,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 911.0,
-                "y": 559.0,
+                "x": 711.0,
+                "y": 675.0,
                 "z": 1.0
             }
         },
         "value24": 1,
         "value25": {
             "Position": {
-                "x": 893.4442749023438,
-                "y": 11.861978530883789,
+                "x": 697.2984619140625,
+                "y": 9.2578125,
                 "z": 0.0
             },
             "Rotation": {
@@ -68,8 +68,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 47.4478759765625,
-                "y": 47.44791793823242,
+                "x": 37.03125,
+                "y": 37.03125,
                 "z": 1.0
             }
         },
@@ -94,8 +94,8 @@
         "value28": 3,
         "value29": {
             "Position": {
-                "x": 455.5,
-                "y": 279.5,
+                "x": 355.5,
+                "y": 337.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -104,16 +104,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 911.0,
-                "y": 559.0,
+                "x": 711.0,
+                "y": 675.0,
                 "z": 1.0
             }
         },
         "value30": 4,
         "value31": {
             "Position": {
-                "x": 455.5,
-                "y": 540.9697875976563,
+                "x": 355.5,
+                "y": 660.9281005859375,
                 "z": 0.0
             },
             "Rotation": {
@@ -122,8 +122,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 47.44793701171875,
-                "y": 47.4478759765625,
+                "x": 37.03125,
+                "y": 37.03125,
                 "z": 1.0
             }
         },
@@ -208,37 +208,38 @@
         "value51": 0,
         "value52": 0,
         "value53": 0,
-        "value54": 2,
-        "value55": 3,
-        "value56": {
+        "value54": 0,
+        "value55": 2,
+        "value56": 3,
+        "value57": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/FadeToBlack.lua",
             "Language": 0
         },
-        "value57": 2,
-        "value58": {
+        "value58": 2,
+        "value59": {
             "ScriptPath": "scripts/misc/LoadingScreenManager.lua",
             "Language": 0
         },
-        "value59": 0,
         "value60": 0,
         "value61": 0,
         "value62": 0,
         "value63": 0,
         "value64": 0,
         "value65": 0,
-        "value66": 6,
-        "value67": 0,
-        "value68": 1,
-        "value69": 2,
-        "value70": 3,
-        "value71": 4,
-        "value72": 5,
-        "value73": 0,
+        "value66": 0,
+        "value67": 6,
+        "value68": 0,
+        "value69": 1,
+        "value70": 2,
+        "value71": 3,
+        "value72": 4,
+        "value73": 5,
         "value74": 0,
-        "value75": 3,
-        "value76": 0,
-        "value77": {
+        "value75": 0,
+        "value76": 3,
+        "value77": 0,
+        "value78": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "cereal_class_version": 0,
@@ -277,8 +278,8 @@
             },
             "Layer": 0
         },
-        "value78": 1,
-        "value79": {
+        "value79": 1,
+        "value80": {
             "TextureUUID": {
                 "value0": 7007679982425309919
             },
@@ -314,8 +315,8 @@
             },
             "Layer": 2
         },
-        "value80": 3,
-        "value81": {
+        "value81": 3,
+        "value82": {
             "TextureUUID": {
                 "value0": 6711820436760903955
             },
@@ -351,9 +352,9 @@
             },
             "Layer": 25
         },
-        "value82": 1,
-        "value83": 4,
-        "value84": {
+        "value83": 1,
+        "value84": 4,
+        "value85": {
             "cereal_class_version": 0,
             "Text": "Textdwadawdwaa",
             "FontPath": "",
@@ -387,9 +388,9 @@
             },
             "Layer": 3
         },
-        "value85": 0,
         "value86": 0,
         "value87": 0,
-        "value88": 0
+        "value88": 0,
+        "value89": 0
     }
 }

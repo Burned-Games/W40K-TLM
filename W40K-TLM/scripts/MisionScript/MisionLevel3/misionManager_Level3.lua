@@ -1,7 +1,7 @@
 -- Task list split by color
 local blueTasks = {
     {id = 1, description = "Destroy Boss"},
-    {id = 2, description = "Find and use the lever to open the East Door"},
+    {id = 2, description = "Destroy Boss"},
     {id = 3, description = "Make your way through the city"},
     {id = 4, description = "Explore and exit the Hive City Central Square"},
     {id = 5, description = "Upgrade your equipment before fighting in the Great Bridge"},
@@ -10,14 +10,11 @@ local blueTasks = {
     {id = 8, description = "Enter the Great Bridge Elevator"}
 }
 
-
-
 local redTasks = {
     {id = 1, description = "Destroy Boss"},
-    {id = 2, description = "Fight your way to the elevator of the Hive City"},
-    {id = 3, description = "Fight and defeat (name)"}
+    {id = 2, description = "Destroy Boss"},
+    {id = 3, description = "Destroy Boss"}
 }
-
 
 local dialogLines = {
     { name = "Decius Marcellus", text = "Brother Quintus... this is where your path ends-or where legends are born." },
@@ -68,34 +65,24 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
-local current_Level = 2
+local current_Level = 3
 
---MisionBlue
---M1
-m1_Upgrade = false
---M2
-m2_lever = false
---M3
-m3_throughCity = false
---M4
-m4_exitCity = false
---M5
-m5_Upgrade = false
---M6
-m6_lever = false
---M7
-m7_lever = 0
---M8
-m8_Elevator = false
+-- MisionBlue flags
+m1_Upgrade = false     -- M1
+m2_lever = false       -- M2
+m3_throughCity = false -- M3
+m4_exitCity = false    -- M4
+m5_Upgrade = false     -- M5
+m6_lever = false       -- M6
+m7_lever = 0           -- M7
+m8_Elevator = false    -- M8
 
+BossDie = false
 
---MisionRed
---MR1
-mr1_Check = false
---MR2
-mr2_Check = false
---MR3
-mr3_Check = false
+-- MisionRed flags
+mr1_Check = false  -- MR1
+mr2_Check = false  -- MR2
+mr3_Check = false  -- MR3
 
 -- Trigger variables
 enemyDieCounttest = 2
@@ -105,15 +92,17 @@ enemyDie_M10 = 1
 M5_WorkBrech = false
 M9_WorkBrech = false
 
-local actualAlpha = 1
+local actualAlpha = 0  
 
---local dialogScriptComponent = nil
+
+local delayTimer = 0.0
+local initialDelay = 3.0
+local initialDelayDone = false
 
 --Audio
 local missionCompleteSFX = nil
 
 function on_ready()
-   
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
     textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
@@ -128,39 +117,59 @@ function on_ready()
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
 
-    -- dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    --dialogScriptComponent.start_dialog(dialogLines)
 
+    imgBlueUI:set_color(Vector4.new(1, 1, 1, 0))
+    imgRedUI:set_color(Vector4.new(1, 1, 1, 0))
+    textBlueComponent:set_color(Vector4.new(1, 1, 1, 0))
+    textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
+
+
+    -- dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+    -- dialogScriptComponent.start_dialog(dialogLines)
 end
 
 function on_update(dt)
-    --updateText()
+    if not initialDelayDone then
+        delayTimer = delayTimer + dt
+        if delayTimer >= initialDelay then
+            initialDelayDone = true
+            blueAnimation.closing = true
+            blueAnimation.start = true
+            blueAnimation.playing = true
+
+            redAnimation.closing = true
+            redAnimation.start = true
+            redAnimation.playing = true
+        end
+        return
+    end
+
+    updateText()
     missionBlue_Tutor()
     missionRed_Tutor()
 
     processAnimation(dt, blueAnimation, imgBlueUI, textBlueComponent, function()
         blueTaskIndex = blueTaskIndex + 1
-        if blueTaskIndex > #blueTasks then blueTaskIndex = #blueTasks + 1 end
+        if blueTaskIndex > #blueTasks then 
+            blueTaskIndex = #blueTasks + 1 
+        end
     end)
     processAnimation(dt, redAnimation, imgRedUI, textRedComponent, function()
         redTaskIndex = redTaskIndex + 1
-        if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
+        if redTaskIndex > #redTasks then 
+            redTaskIndex = #redTasks + 1 
+        end
     end)
 
-
     if Input.is_key_pressed(Input.keycode.I) then
-       if getCurrerTaskIndex(true) == 2 then
-        m2_lever = true
+        if getCurrerTaskIndex(true) == 2 then
+            m2_lever = true
         elseif getCurrerTaskIndex(true) == 6 then
             m6_lever = true
         elseif getCurrerTaskIndex(true) == 7 then
             m7_lever = m7_lever + 1
-       end
+        end
     end
-
-
-
-
 end
 
 function updateText()
@@ -171,7 +180,9 @@ function updateText()
 end
 
 function getCurrentTask(tasks, index)
-    if index > #tasks then return "" end
+    if index > #tasks then 
+        return ""
+    end
     local description = tasks[index].description
 
     if blueTaskIndex == 7 then
@@ -181,13 +192,9 @@ function getCurrentTask(tasks, index)
     return insert_line_breaks(description, 23)
 end
 
-
-
-
-
 function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
-    if blueTaskIndex == 1 and m1_Upgrade then
+    if blueTaskIndex == 1 and BossDie then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 2 and m2_lever then
         startAnimation(blueAnimation)
@@ -208,12 +215,12 @@ end
 
 function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
-    if redTaskIndex == 1 and mr1_Check then
+    if redTaskIndex == 1 and BossDie then
         startAnimation(redAnimation)
-        --dialogScriptComponent.start_dialog(dialogLines2)
+        -- dialogScriptComponent.start_dialog(dialogLines2)
     elseif redTaskIndex == 2 and mr2_Check then
         startAnimation(redAnimation)
-        --dialogScriptComponent.start_dialog(dialogLines3)
+        -- dialogScriptComponent.start_dialog(dialogLines3)
     elseif redTaskIndex == 3 and mr3_Check then
         startAnimation(redAnimation)
     end
@@ -238,23 +245,21 @@ function processAnimation(dt, anim, img, text, onComplete)
     local tDes = anim.closing and textPosDes or textPosOri
 
     anim.lerpTime = anim.lerpTime + (dt * 0.1)
-    --img.position.x = lerp(ori, des, anim.lerpTime)
-    --text.position.x = lerp(tOri, tDes, anim.lerpTime)
+    -- img.position.x = lerp(ori, des, anim.lerpTime)
+    -- text.position.x = lerp(tOri, tDes, anim.lerpTime)
     
     if anim.lerpTime >= 0.1 then
         if anim.closing then
-     
             anim.closing = false
             anim.lerpTime = 0.0
             onComplete()
         else
-           
             anim.start = false
             anim.playing = false
             anim.lerpTime = 0.0
         end
     end
-    
+
     if anim.closing then
         actualAlpha = lerp(actualAlpha, 0.0, anim.lerpTime)
     elseif anim.start then
@@ -288,21 +293,19 @@ function insert_line_breaks(text, max_chars_per_line)
     return table.concat(result, "\n")
 end
 
-function getCurrerTaskIndex(type)
-    if type == true then
+function getCurrerTaskIndex(isBlue)
+    if isBlue then
         return blueTaskIndex
     else
         return redTaskIndex
     end
 end 
 
-
 function utf8_char_count(s)
     local _, count = s:gsub("[^\128-\191]", "")
     return count
 end
 
-function getCurrerLevel()
-   
+function getCurrerLevel()  
     return current_Level
-end 
+end
