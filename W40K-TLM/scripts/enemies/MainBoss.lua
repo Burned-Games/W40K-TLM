@@ -7,6 +7,7 @@ main_boss = enemy:new()
 local stats = nil
 
 local shieldPrefab = "prefabs/Enemies/shields/BossShield.prefab"
+local wrathPrefab = "prefabs/Enemies/attacks/WrathBoss.prefab"
 
 function on_ready()
 
@@ -28,10 +29,11 @@ function on_ready()
     main_boss.shieldTransf.position = Vector3.new(-500, 0, -200)
 
     -- Wrath
-    main_boss.wrath = current_scene:get_entity_by_name("Wrath")
+    main_boss.wrath = instantiate_prefab(wrathPrefab)
     main_boss.wrathTransf = main_boss.wrath:get_component("TransformComponent")
     main_boss.wrathRbComponent = main_boss.wrath:get_component("RigidbodyComponent")
     main_boss.wrathRb = main_boss.wrathRbComponent.rb
+    main_boss.wrathRb:set_position(Vector3.new(-500, 0, -500))
     main_boss.wrathRb:set_trigger(true)
 
     -- Fists

@@ -26,7 +26,7 @@ function on_update(dt)
     
 
     alertTimer = alertTimer + dt
-    if alertTimer >= 2.5 then
+    if alertTimer >= 10 then
         current_scene:destroy_entity(self)
     end
 end
