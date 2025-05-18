@@ -802,7 +802,12 @@ function enemy:rotate_enemy(targetPosition)
 
     local targetAngle = math.deg(self:atan2(dx, dz))
 
-    self.enemyRb:set_rotation(Vector3.new(0, targetAngle,0))
+    targetAngle = (targetAngle + 180) % 360 - 180
+    local currentAngle = (self.currentRotationY + 180) % 360 - 180
+    local deltaAngle = (targetAngle - currentAngle + 180) % 360 - 180
+
+    self.currentRotationY = currentAngle + deltaAngle * 0.1
+    self.enemyRb:set_rotation(Vector3.new(0, self.currentRotationY, 0))
 
 end
 
