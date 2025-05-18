@@ -16,9 +16,10 @@ local enemy_stats = {
             rangeDamage = 6,
 
             detectionRange = 15,
-            meleeAttackRange = 1,
+            meleeAttackRange = 2,
+            meleeDamageRange = 4,
             rangeAttackRange = 13,
-            chaseRange = 2,
+            chaseRange = 4,
 
             maxBurstShots = 4,
 
@@ -53,9 +54,10 @@ local enemy_stats = {
             rangeDamage = 8,
 
             detectionRange = 15,
-            meleeAttackRange = 1,
+            meleeAttackRange = 2,
+            meleeDamageRange = 4,
             rangeAttackRange = 13,
-            chaseRange = 2,
+            chaseRange = 4,
 
             maxBurstShots = 4,
 

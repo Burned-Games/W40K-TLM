@@ -126,7 +126,7 @@ function on_ready()
     range.hasAlerted = false
     range.hasFoundNearbyEnemies = false
     range.isPlayingAnimation = false
-    range.isPlayingMeleeAnim = false
+    range.isStabing = false
 
     -- Ints
     range.burstCount = 0
@@ -140,8 +140,8 @@ function on_ready()
     range.firstChaseTimer = 0.0
     range.firstChaseDuration = 0.9
     range.detectDuration = 2.33
-    range.meleeTimer = 0.0
     range.meleeAnimDuration = 0.92
+    range.idleDuration = 1.33
 
     -- Lists
     range.nearbyEnemies = {}
@@ -250,14 +250,6 @@ function on_update(dt)
         range.updateTargetTimer = 0
     end
 
-    if range.isPlayingMeleeAnim then
-        range.meleeTimer = range.meleeTimer + dt
-        if range.meleeTimer >= range.meleeAnimDuration then
-            range.isPlayingMeleeAnim = false
-            range.meleeTimer = 0
-        end
-    end
-
     if range.isPlayingAnimation then
         range.animTimer = range.animTimer + dt
         range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
@@ -319,13 +311,6 @@ function change_state(dt)
         return
     end
 
-    if range.isPlayingMeleeAnim then 
-        if range.meleeTimer >= range.meleeAnimDuration then
-            range.isPlayingMeleeAnim = false
-        end
-        return 
-    end
-
     if range.playerDetected then
         if range.playerDistance <= range.meleeAttackRange then
             if range.currentState ~= range.state.Stab then
@@ -342,7 +327,7 @@ function change_state(dt)
                 range.currentState = range.state.Shoot
             end
 
-        else
+        elseif not range.isStabing then
             if range.currentState ~= range.state.Move then
                 range.currentState = range.state.Move
             end
@@ -457,25 +442,20 @@ function range:stab_state(dt)
 
     range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     
-    if range.stabCooldownTimer > 0 then
-        range.stabCooldownTimer = range.stabCooldownTimer - dt
-        if range.currentAnim ~= range.idleAnim then
-            range.currentAnim = range.idleAnim
-            range.animator:set_current_animation(range.currentAnim)
-            range.isPlayingMeleeAnim = true
-        end
-        return 
+    if range.currentAnim ~= range.idleAnim and not range.isStabing then
+        range.currentAnim = range.idleAnim
+        range.animator:set_current_animation(range.currentAnim)
+        range.isStabing = true
     end
 
-        range.timeSinceLastStab = range.timeSinceLastStab + dt
+    range.timeSinceLastStab = range.timeSinceLastStab + dt
 
     if range.timeSinceLastStab < range.stabTimer then
         if range.currentAnim ~= range.meleeAttackAnim then
-            range.currentAnim = range.meleeAttackAnim
-            range.animator:set_current_animation(range.currentAnim)
+            range:play_blocking_animation(range.meleeAttackAnim, range.meleeAnimDuration)
         end
 
-        if not range.hasDealtDamage then
+        if not range.hasDealtDamage and range.playerDistance <= range.meleeDamageRange then
             range.meleeImpactSFX:play()
             range:make_damage(range.meleeDamage)
             if range.level ~= 1 then
@@ -489,6 +469,7 @@ function range:stab_state(dt)
         range.timeSinceLastStab = 0
         range.stabCooldownTimer = range.stabCooldown 
         range.hasDealtDamage = false
+        range.isStabing = false
     end
 
 end
@@ -617,6 +598,7 @@ function range:set_stats(level)
     range.rangeDamage = stats.rangeDamage
     range.detectionRange = stats.detectionRange
     range.meleeAttackRange = stats.meleeAttackRange
+    range.meleeDamageRange = stats.meleeDamageRange
     range.rangeAttackRange = stats.rangeAttackRange
     range.chaseRange = stats.chaseRange
     range.maxBurstShots = stats.maxBurstShots
