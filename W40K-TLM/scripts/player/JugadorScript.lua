@@ -8,7 +8,7 @@ playerTransf = nil
 playerRb = nil
 local lastValidRotation = 0
 --speed
-local normalSpeed = 5
+normalSpeed = 5
 moveSpeed = 5
 local speedDebuf = 1
 local godModeSpeed = 12
