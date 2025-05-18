@@ -1,8 +1,8 @@
 {
     "value0": {
         "cereal_class_version": 3,
-        "value0": 13,
-        "value1": 13,
+        "value0": 14,
+        "value1": 14,
         "value2": 3,
         "value3": 2097152,
         "value4": 2097153,
@@ -17,62 +17,67 @@
         "value13": 11,
         "value14": 12,
         "value15": 13,
-        "value16": 3,
-        "value17": {
+        "value16": 14,
+        "value17": 3,
+        "value18": {
             "cereal_class_version": 0,
             "Tag": "Camera"
         },
-        "value18": 2097152,
-        "value19": {
+        "value19": 2097152,
+        "value20": {
             "Tag": "prop_droppod_v01.gltf"
         },
-        "value20": 2097153,
-        "value21": {
+        "value21": 2097153,
+        "value22": {
             "Tag": "Drop_pod_final"
         },
-        "value22": 2097154,
-        "value23": {
+        "value23": 2097154,
+        "value24": {
             "Tag": "Root"
         },
-        "value24": 4,
-        "value25": {
+        "value25": 4,
+        "value26": {
             "Tag": "ChispasPS"
         },
-        "value26": 5,
-        "value27": {
+        "value27": 5,
+        "value28": {
             "Tag": "cinematicController"
         },
-        "value28": 6,
-        "value29": {
+        "value29": 6,
+        "value30": {
             "Tag": "FadeToBlack"
         },
-        "value30": 7,
-        "value31": {
+        "value31": 7,
+        "value32": {
             "Tag": "DialogManager"
         },
-        "value32": 8,
-        "value33": {
+        "value33": 8,
+        "value34": {
             "Tag": "DialogName"
         },
-        "value34": 9,
-        "value35": {
+        "value35": 9,
+        "value36": {
             "Tag": "DialogText"
         },
-        "value36": 10,
-        "value37": {
+        "value37": 10,
+        "value38": {
             "Tag": "DialogIMG"
         },
-        "value38": 11,
-        "value39": {
-            "Tag": "Entity"
+        "value39": 11,
+        "value40": {
+            "Tag": "DialogoCineSystem"
         },
-        "value40": 12,
-        "value41": {
+        "value41": 12,
+        "value42": {
             "Tag": "UI_SKIP_Indicator"
         },
-        "value42": 13,
-        "value43": 3,
+        "value43": 13,
         "value44": {
+            "Tag": "diaCine"
+        },
+        "value45": 14,
+        "value46": 3,
+        "value47": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.5447572469711304,
@@ -90,8 +95,8 @@
                 "z": 1.0
             }
         },
-        "value45": 2097152,
-        "value46": {
+        "value48": 2097152,
+        "value49": {
             "Position": {
                 "x": 0.0,
                 "y": -0.1110360398888588,
@@ -108,8 +113,8 @@
                 "z": 1.0
             }
         },
-        "value47": 2097153,
-        "value48": {
+        "value50": 2097153,
+        "value51": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -126,8 +131,8 @@
                 "z": 1.0
             }
         },
-        "value49": 2097154,
-        "value50": {
+        "value52": 2097154,
+        "value53": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -144,8 +149,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value51": 4,
-        "value52": {
+        "value54": 4,
+        "value55": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -162,8 +167,8 @@
                 "z": 1.0
             }
         },
-        "value53": 5,
-        "value54": {
+        "value56": 5,
+        "value57": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -180,11 +185,11 @@
                 "z": 1.0
             }
         },
-        "value55": 6,
-        "value56": {
+        "value58": 6,
+        "value59": {
             "Position": {
-                "x": 428.5,
-                "y": 316.0,
+                "x": 549.5,
+                "y": 410.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -193,15 +198,15 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 857.0,
-                "y": 632.0,
+                "x": 1099.0,
+                "y": 820.0,
                 "z": 1.0
             }
         },
-        "value57": 7,
-        "value58": {
+        "value60": 7,
+        "value61": {
             "Position": {
-                "x": -0.5000000596046448,
+                "x": 13262860058624.0,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -216,11 +221,11 @@
                 "z": 1.0
             }
         },
-        "value59": 8,
-        "value60": {
+        "value62": 8,
+        "value63": {
             "Position": {
-                "x": 428.5,
-                "y": 479.3924255371094,
+                "x": 549.5,
+                "y": 624.0606689453125,
                 "z": 0.0
             },
             "Rotation": {
@@ -229,16 +234,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 44.63543701171875,
-                "y": 88.28704833984375,
+                "x": 57.2396240234375,
+                "y": 113.6943359375,
                 "z": 1.0
             }
         },
-        "value61": 9,
-        "value62": {
+        "value64": 9,
+        "value65": {
             "Position": {
-                "x": 428.5,
-                "y": 498.1392822265625,
+                "x": 549.5,
+                "y": 648.101318359375,
                 "z": 0.0
             },
             "Rotation": {
@@ -247,16 +252,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 44.63543701171875,
-                "y": 85.60888671875,
+                "x": 57.2396240234375,
+                "y": 110.25994873046875,
                 "z": 1.0
             }
         },
-        "value63": 10,
-        "value64": {
+        "value66": 10,
+        "value67": {
             "Position": {
-                "x": 428.5,
-                "y": 509.6989440917969,
+                "x": 549.5,
+                "y": 663.16357421875,
                 "z": 0.0
             },
             "Rotation": {
@@ -265,13 +270,13 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 267.8125,
-                "y": 84.80731201171875,
+                "x": 343.4375,
+                "y": 108.75518798828125,
                 "z": 1.0
             }
         },
-        "value65": 11,
-        "value66": {
+        "value68": 11,
+        "value69": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -288,120 +293,145 @@
                 "z": 1.0
             }
         },
-        "value67": 12,
-        "value68": {
-            "Position": {
-                "x": -865.9271850585938,
-                "y": 624.8583374023438,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1714.0001220703126,
-                "y": 14.2833251953125,
-                "z": 1.0
-            }
-        },
-        "value69": 13,
-        "value70": 3,
+        "value70": 12,
         "value71": {
+            "Position": {
+                "x": -1110.447998046875,
+                "y": 810.8416748046875,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 2198.0,
+                "y": 18.316650390625,
+                "z": 1.0
+            }
+        },
+        "value72": 13,
+        "value73": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value74": 14,
+        "value75": 3,
+        "value76": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value72": 2097152,
-        "value73": {
+        "value77": 2097152,
+        "value78": {
             "Parent": 4294967295,
             "First": 2097153,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value74": 2097153,
-        "value75": {
+        "value79": 2097153,
+        "value80": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 2097154,
             "Prev": 4294967295
         },
-        "value76": 2097154,
-        "value77": {
+        "value81": 2097154,
+        "value82": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2097153
         },
-        "value78": 4,
-        "value79": {
+        "value83": 4,
+        "value84": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value80": 5,
-        "value81": {
+        "value85": 5,
+        "value86": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value82": 6,
-        "value83": {
+        "value87": 6,
+        "value88": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value84": 7,
-        "value85": {
+        "value89": 7,
+        "value90": {
             "Parent": 4294967295,
             "First": 8,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value86": 8,
-        "value87": {
+        "value91": 8,
+        "value92": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 9,
             "Prev": 4294967295
         },
-        "value88": 9,
-        "value89": {
+        "value93": 9,
+        "value94": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 10,
             "Prev": 8
         },
-        "value90": 10,
-        "value91": {
+        "value95": 10,
+        "value96": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 9
         },
-        "value92": 11,
-        "value93": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value94": 12,
-        "value95": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value96": 1,
-        "value97": 3,
+        "value97": 11,
         "value98": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value99": 12,
+        "value100": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value101": 13,
+        "value102": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value103": 1,
+        "value104": 3,
+        "value105": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -414,9 +444,9 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value99": 1,
-        "value100": 2097153,
-        "value101": {
+        "value106": 1,
+        "value107": 2097153,
+        "value108": {
             "cereal_class_version": 0,
             "Mesh": {
                 "cereal_class_version": 0,
@@ -426,9 +456,9 @@
                 "value0": 13022089739303106082
             }
         },
-        "value102": 1,
-        "value103": 2097153,
-        "value104": {
+        "value109": 1,
+        "value110": 2097153,
+        "value111": {
             "cereal_class_version": 1,
             "IsEmbedded": false,
             "Type": 8,
@@ -436,36 +466,36 @@
                 "value0": 13321323325830636168
             }
         },
-        "value105": 0,
-        "value106": 0,
-        "value107": 0,
-        "value108": 4,
-        "value109": 5,
-        "value110": {
+        "value112": 0,
+        "value113": 0,
+        "value114": 0,
+        "value115": 4,
+        "value116": 5,
+        "value117": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/CinematicOneController.lua",
             "Language": 0
         },
-        "value111": 6,
-        "value112": {
+        "value118": 6,
+        "value119": {
             "ScriptPath": "scripts/misc/FadeToBlack.lua",
             "Language": 0
         },
-        "value113": 11,
-        "value114": {
+        "value120": 11,
+        "value121": {
             "ScriptPath": "scripts/Cinematic/CinematicDialogo.lua",
             "Language": 0
         },
-        "value115": 7,
-        "value116": {
+        "value122": 7,
+        "value123": {
             "ScriptPath": "scripts/DialogScript/dialogManager.lua",
             "Language": 0
         },
-        "value117": 0,
-        "value118": 0,
-        "value119": 1,
-        "value120": 2097152,
-        "value121": {
+        "value124": 0,
+        "value125": 0,
+        "value126": 1,
+        "value127": 2097152,
+        "value128": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -498,16 +528,106 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value122": 0,
-        "value123": 0,
-        "value124": 0,
-        "value125": 1,
-        "value126": 4,
-        "value127": {
+        "value129": 1,
+        "value130": 13,
+        "value131": {
+            "cereal_class_version": 0,
+            "GameObjectID": 7232288590300033459,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "Name": "Dialogs",
+                        "Events": [
+                            "Play_DeciusMarcellus_Cinematica2",
+                            "Play_DeciusMarcellus_CinematicaFinal1",
+                            "Play_DeciusMarcellus_CinematicaFinal2",
+                            "Play_DeciusMarcellus_Intro",
+                            "Play_DeciusMarcellus_LlegadaZona1",
+                            "Play_DeciusMarcellus_LlegadaZona10",
+                            "Play_DeciusMarcellus_LlegadaZona12",
+                            "Play_DeciusMarcellus_LlegadaZona13",
+                            "Play_DeciusMarcellus_LlegadaZona14",
+                            "Play_DeciusMarcellus_LlegadaZona16",
+                            "Play_DeciusMarcellus_LlegadaZona17",
+                            "Play_DeciusMarcellus_LlegadaZona18",
+                            "Play_DeciusMarcellus_LlegadaZona19",
+                            "Play_DeciusMarcellus_LlegadaZona1_2",
+                            "Play_DeciusMarcellus_LlegadaZona5",
+                            "Play_DeciusMarcellus_LlegadaZona8",
+                            "Play_DeciusMarcellus_LlegadaZona9",
+                            "Play_DeciusMarcellus_SalidaZona11",
+                            "Play_DeciusMarcellus_SalidaZona5",
+                            "Play_DeciusMarcellus_SalidaZona9",
+                            "Play_QuintusMaxillian_ActivacionPalancaZona13",
+                            "Play_QuintusMaxillian_Cinematica2",
+                            "Play_QuintusMaxillian_CinematicaFinal1",
+                            "Play_QuintusMaxillian_CinematicaFinal2",
+                            "Play_QuintusMaxillian_LlegadaZona1",
+                            "Play_QuintusMaxillian_LlegadaZona15",
+                            "Play_QuintusMaxillian_LlegadaZona9",
+                            "Play_QuintusMaxillian_SalidaZona9"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "Dialogs",
+            "EventName": "Play_DeciusMarcellus_Intro",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value132": 1,
+        "value133": 3,
+        "value134": {
+            "cereal_class_version": 0,
+            "GameObjectID": 12323991616038735456,
+            "Transform": {
+                "m00": 0.9736266136169434,
+                "m01": -0.22814258933067323,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.22814258933067323,
+                "m11": 0.9736266136169434,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.5447572469711304,
+                "m31": 2.3248209953308107,
+                "m32": 16.78585433959961,
+                "m33": 1.0
+            }
+        },
+        "value135": 0,
+        "value136": 1,
+        "value137": 4,
+        "value138": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483651,
+                    "id": 2147483652,
                     "data": {
                         "cereal_class_version": 4,
                         "TransformMatrix": {
@@ -785,25 +905,26 @@
                 }
             }
         },
-        "value128": 13,
-        "value129": 3,
-        "value130": 4,
-        "value131": 2097152,
-        "value132": 2097153,
-        "value133": 2097154,
-        "value134": 5,
-        "value135": 6,
-        "value136": 7,
-        "value137": 8,
-        "value138": 9,
-        "value139": 10,
-        "value140": 11,
-        "value141": 12,
-        "value142": 0,
-        "value143": 0,
-        "value144": 3,
-        "value145": 6,
-        "value146": {
+        "value139": 14,
+        "value140": 3,
+        "value141": 4,
+        "value142": 2097152,
+        "value143": 2097153,
+        "value144": 2097154,
+        "value145": 5,
+        "value146": 6,
+        "value147": 7,
+        "value148": 8,
+        "value149": 9,
+        "value150": 10,
+        "value151": 11,
+        "value152": 12,
+        "value153": 13,
+        "value154": 0,
+        "value155": 0,
+        "value156": 3,
+        "value157": 6,
+        "value158": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 6711820436760903955
@@ -841,8 +962,8 @@
             },
             "Layer": 25
         },
-        "value147": 10,
-        "value148": {
+        "value159": 10,
+        "value160": {
             "TextureUUID": {
                 "value0": 18293614392373388477
             },
@@ -878,8 +999,8 @@
             },
             "Layer": 100
         },
-        "value149": 12,
-        "value150": {
+        "value161": 12,
+        "value162": {
             "TextureUUID": {
                 "value0": 13093128426387816779
             },
@@ -915,9 +1036,9 @@
             },
             "Layer": 0
         },
-        "value151": 2,
-        "value152": 8,
-        "value153": {
+        "value163": 2,
+        "value164": 8,
+        "value165": {
             "cereal_class_version": 0,
             "Text": "DialogName",
             "FontPath": "",
@@ -951,8 +1072,8 @@
             },
             "Layer": 0
         },
-        "value154": 9,
-        "value155": {
+        "value166": 9,
+        "value167": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -985,12 +1106,12 @@
             },
             "Layer": 0
         },
-        "value156": 0,
-        "value157": 0,
-        "value158": 0,
-        "value159": 1,
-        "value160": 7,
-        "value161": {
+        "value168": 0,
+        "value169": 0,
+        "value170": 0,
+        "value171": 1,
+        "value172": 7,
+        "value173": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {

@@ -1,20 +1,13 @@
-    local maxAmmoWeapon1 = 15
     local maxAmmoTextComponent
-    local currentAmmoWeapon1 = maxAmmoWeapon1
-    local maxAmmoWeapon2 = 30
-    local currentAmmoWeapon2 = maxAmmoWeapon2
     ammoTextComponent = nil
 
     local lifeFullComponent
-    local life75Component
     local lifeTextComponent
-    local lifeFullTransform
+    local originalLifeColor = nil
 
     local skill1
     local skill1VisualCooldownEntity
     local skill1VisualCooldown
-    local skill1VisualCooldownTransform
-    local skill1VisualCooldownStartingPosition
     local skill1TextCooldownEntity
     local skill1TextCooldown
     local skill1Cooldown = false
@@ -25,16 +18,12 @@
     local skill2Button
     local skill2VisualCooldownEntity
     local skill2VisualCooldown
-    local skill2VisualCooldownTransform
-    local skill2VisualCooldownStartingPosition
     local skill2Cooldown = false
     local skill2Timer = 0
 
     local skill3
     local skill3Button    
     local skill3VisualCooldown
-    local skill3VisualCooldownTransform
-    local skill3VisualCooldownStartingPosition
     local skill3Cooldown = false
     local skill3Timer = 0
 
@@ -46,10 +35,6 @@
     local skillsArmasCooldown = false
     local skillsArmasTimer = 0
     local skillsArmasBoton
-    local skillArma1VisualCooldownTransform
-    local skillArma1VisualCooldownStartingPosition
-    local skillArma2VisualCooldownTransform
-    local skillArma2VisualCooldownStartingPosition
 
     arma1 = nil
     arma1Texture = nil
@@ -64,9 +49,6 @@
     local currentChatarra = 0
 
     local chatarraTextComponent
-    local chatarraBarComponent
-    local chatarraTransform
-    local chatarraStartingPosition
 
     local player = nil
     local playerScript = nil
@@ -108,8 +90,6 @@
         --Vida
         lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
         lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
-        lifeFullTransform = current_scene:get_entity_by_name("VidaFull"):get_component("TransformComponent")
-        lifeFullStartingPosition = Vector3.new(lifeFullTransform.position.x, lifeFullTransform.position.y + 49, lifeFullTransform.position.z)
 
         --Habilidades
         skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
@@ -223,6 +203,8 @@
         proteccionEntity:set_active(false)
         recargaEntity:set_active(false)
         velocidadAtaqueEntity:set_active(false)
+
+        originalLifeColor = lifeFullComponent:get_color()
 
     end
 
@@ -465,39 +447,56 @@
     end
 
     function buff_debuff_manager()
-
-        local damagaeFeedback = current_scene:get_entity_by_name("SangradoUI")
-        if playerScript.isHitted or playerScript.isBleeding then 
-            damagaeFeedback:set_active(true)
-        else 
-            damagaeFeedback:set_active(false)
-        end 
+        local viggneteFeedback = current_scene:get_entity_by_name("SangradoUI")
+        local feedbackColor = viggneteFeedback:get_component("UIImageComponent")
+        local damageColor = Vector4.new(0.6, 0.0, 0.0, 1)
+        
+        -- Primero desactivamos la viñeta por defecto
+        local shouldActivateVignette = false
+        local vignetteFinalColor = damageColor
+        
+        -- Comprobamos todos los estados y configuramos el color adecuado
+        if playerScript.isHitted then 
+            shouldActivateVignette = true
+            vignetteFinalColor = damageColor
+        end
+        
         if playerScript.isBleeding then
             sangradoEntity:set_active(true)
+            shouldActivateVignette = true
+            vignetteFinalColor = Vector4.new(1.0, 0.0, 0.0, 1)
         else
             sangradoEntity:set_active(false)
         end
         
         if playerScript.isStunned then
             aturdidoEntity:set_active(true)
+            shouldActivateVignette = true
+            vignetteFinalColor = Vector4.new(1.0, 0.85, 0.2, 1) 
         else
             aturdidoEntity:set_active(false)
         end
-
+        
         if playerScript.isNeuralInhibitioning then
             ralentizadoEntity:set_active(true)
+            shouldActivateVignette = true
+            vignetteFinalColor = Vector4.new(0.6, 0.4, 0.1, 1) 
         else
             ralentizadoEntity:set_active(false)
         end
-
         
-        local colorHealing = Vector4.new(0, 1, 0.2, 1)
+        viggneteFeedback:set_active(shouldActivateVignette)
+        if shouldActivateVignette then
+            feedbackColor:set_color(vignetteFinalColor)
+        end
+        
+        local colorHealing = Vector4.new(0, 1, 0.031, 1)
         if playerScript.isHealing then
             lifeFullComponent:set_color(colorHealing)
         else
-            lifeFullComponent:set_color(Vector4.new(1, 0.2, 0.2, 1))
+            lifeFullComponent:set_color(originalLifeColor)
         end
-
+        
         quemadoEntity:set_active(false)
         silenciadoEntity:set_active(false)
     end

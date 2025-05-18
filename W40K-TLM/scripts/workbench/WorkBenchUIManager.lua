@@ -506,7 +506,7 @@ function on_update(dt)
     end
     
     local leftShoulderState = Input.get_button(Input.action.Skill2)
-    local rightShoulderState = Input.get_button(Input.action.Melee)
+    local rightShoulderState = Input.get_button(Input.action.Skill3)
     
     if (leftShoulderState == Input.state.Down and not leftShoulderPressed) or 
        (rightShoulderState == Input.state.Down and not rightShoulderPressed)  then

@@ -218,7 +218,7 @@ local enemy_stats = {
     kamikaze = {
 
         -- Kamikaze Level 1
-        [2] = {
+        [1] = {
             -- Stats
             health = 75,
 
@@ -234,6 +234,25 @@ local enemy_stats = {
             
             alertRadius = 20.0,
         },
+
+
+        -- Kamikaze Level 2
+        [2] = {
+            -- Stats
+            health = 75,
+
+            speed = 7,
+
+            damage = 50,
+
+            detectionRange = 15,
+            attackRange = 3,
+            explosionRange = 6,
+
+            priority = 3,
+            
+            alertRadius = 20.0,
+        }
 
     },
 

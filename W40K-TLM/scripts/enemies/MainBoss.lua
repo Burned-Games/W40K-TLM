@@ -6,7 +6,7 @@ main_boss = enemy:new()
 
 local stats = nil
 
-local shieldPrefab = "prefabs/particles/ShieldParticle.prefab"
+local shieldPrefab = "prefabs/Enemies/shields/BossShield.prefab"
 
 function on_ready()
 
