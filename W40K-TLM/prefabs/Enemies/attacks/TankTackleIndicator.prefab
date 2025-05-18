@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 10997532171642577068
+                "value0": 1488094089989970488
             },
             "value4": false
         },
@@ -28,11 +28,11 @@
         },
         "value8": 1,
         "value9": {
-            "Tag": "Background"
+            "Tag": "Indicator"
         },
         "value10": 2,
         "value11": {
-            "Tag": "Indicator"
+            "Tag": "Background"
         },
         "value12": 3,
         "value13": 0,
@@ -45,7 +45,7 @@
             },
             "Rotation": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": 180.0,
                 "z": 0.0
             },
             "Scale": {
@@ -63,7 +63,7 @@
             },
             "Rotation": {
                 "x": -90.0,
-                "y": 0.0,
+                "y": -0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -81,7 +81,7 @@
             },
             "Rotation": {
                 "x": -90.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -119,7 +119,7 @@
         "value29": 0,
         "value30": 0,
         "value31": 1,
-        "value32": 2,
+        "value32": 1,
         "value33": 3,
         "value34": 0,
         "value35": 1,
@@ -142,13 +142,13 @@
         "value48": {
             "cereal_class_version": 0,
             "TextureUUID": {
-                "value0": 13877718722463717334
+                "value0": 16333139077797575903
             },
             "TintColor": {
                 "x": 1.0,
                 "y": 0.0,
                 "z": 0.0,
-                "w": 0.4117647111415863
+                "w": 0.5882353186607361
             },
             "FlipX": false,
             "FlipY": false,
@@ -157,13 +157,13 @@
         "value49": 2,
         "value50": {
             "TextureUUID": {
-                "value0": 16333139077797575903
+                "value0": 13877718722463717334
             },
             "TintColor": {
                 "x": 1.0,
                 "y": 0.0,
                 "z": 0.0,
-                "w": 0.5882353186607361
+                "w": 0.4117647111415863
             },
             "FlipX": false,
             "FlipY": false,

@@ -5,6 +5,7 @@ tank = enemy:new()
 
 local stats = nil
 
+local tackleIndicatorPrefab = "prefabs/Enemies/attacks/TankTackleIndicator.prefab"
 
 
 function on_ready()
@@ -54,6 +55,13 @@ function on_ready()
     tank.bloodParticle = current_scene:get_entity_by_name("TankBloodParticle"):get_component("ParticlesSystemComponent")
     tank.bloodParticleTransf = current_scene:get_entity_by_name("TankBloodParticle"):get_component("TransformComponent")
 
+    if not tank.tackleIndicator then
+        tank.tackleIndicator = instantiate_prefab(tackleIndicatorPrefab)
+        tank.tackleIndicatorScript = tank.tackleIndicator:get_component("ScriptComponent")
+        tank.tackleIndicatorScript:on_ready()
+        tank.tackleIndicator:set_parent(self)
+    end
+    --tank.tackleIndicatorScript:startIndicator()
 
 
     -- Level
