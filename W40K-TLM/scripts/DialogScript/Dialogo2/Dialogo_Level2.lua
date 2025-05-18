@@ -46,7 +46,7 @@ function on_ready()
 
     --DialogoText
     dialogLines12 = {
-        { name = "DeciusMarcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Garrosh to end this invasion.", audio = dia12_audio1, time = 8}
+        { name = "DeciusMarcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Garrosh to end this invasion.", audio = dia12_audio1, time = 7.5}
     }
     
     dialogLines13 = {
@@ -54,29 +54,29 @@ function on_ready()
     }
 
     dialogLines13Ac = {
-        { name = "QuintusMaxillian", text = "Lever engaged, moving forward.", audio = dia13Ac_audio1, time = 8}
+        { name = "QuintusMaxillian", text = "Lever engaged, moving forward.", audio = dia13Ac_audio1, time = 2}
     }
 
     dialogLines14 = {
-        { name = "DeciusMarcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", audio = dia14_audio1, time = 8}
+        { name = "DeciusMarcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", audio = dia14_audio1, time = 8.5}
     }
 
     dialogLines15 = {
-        { name = "QuintusMaxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", audio = dia15_audio1, time = 8}
+        { name = "QuintusMaxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", audio = dia15_audio1, time = 7}
     }
     
     dialogLines16 = {
-        { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", audio = dia16_audio1, time = 8}
+        { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", audio = dia16_audio1, time = 9}
     }
     dialogLines17 = {
-        { name = "DeciusMarcellus", text = "You're approaching the Great Bridge-but the access gate is sealed. Search the area for a lever. Force the passage open.", audio = dia17_audio1, time = 8}
+        { name = "DeciusMarcellus", text = "You're approaching the Great Bridge-but the access gate is sealed. Search the area for a lever. Force the passage open.", audio = dia17_audio1, time = 8.5}
     }
     dialogLines18 = {
-        { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", audio = dia18_audio1, time = 8}
+        { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", audio = dia18_audio1, time = 9}
     }
     
     dialogLines19 = {
-        { name = "DeciusMarcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", audio = dia19_audio1, time = 8}
+        { name = "DeciusMarcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", audio = dia19_audio1, time = 9}
     }
    
     
