@@ -4,6 +4,7 @@
 --Dialogo
 local dialogLines12 = nil
 local dialogLines13 = nil
+local dialogLines13Ac = nil
 local dialogLines14 = nil
 local dialogLines15 = nil
 local dialogLines16 = nil
@@ -13,6 +14,7 @@ local dialogLines19 = nil
 
 dialog12 = false
 dialog13 = false
+dialog13Ac = false
 dialog14 = false
 dialog15 = false
 dialog16 = false
@@ -34,7 +36,10 @@ function on_ready()
     }
     
     dialogLines13 = {
-        { name = "DeciusMarcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother."},
+        { name = "DeciusMarcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother."}
+    }
+
+    dialogLines13Ac = {
         { name = "QuintusMaxillian", text = "Lever engaged, moving forward."}
     }
 
@@ -50,7 +55,7 @@ function on_ready()
         { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes."}
     }
     dialogLines17 = {
-        { name = "DeciusMarcellus", text = "You’re approaching the Great Bridge—but the access gate is sealed. Search the area for a lever. Force the passage open."}
+        { name = "DeciusMarcellus", text = "You're approaching the Great Bridge-but the access gate is sealed. Search the area for a lever. Force the passage open."}
     }
     dialogLines18 = {
         { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance."}
@@ -76,7 +81,12 @@ function on_update(dt)
 
     if dialog13 then 
         dialogScriptComponent.start_dialog(dialogLines13)
-        dialog14 = false
+        dialog13 = false
+    end
+
+    if dialog13Ac then 
+        dialogScriptComponent.start_dialog(dialogLines13Ac)
+        dialog13Ac = false
     end
 
     if dialog14 then 
