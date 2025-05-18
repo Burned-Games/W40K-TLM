@@ -472,7 +472,7 @@ function on_update(dt)
     end
     updateEntranceAnimation(dt)
 
-    if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" and zonePlayer == 0 then
+    if (animacionEntradaRealizada == false and sceneName == "level1.TeaScene" and zonePlayer == 0) then
         locked = true
         return
     end
@@ -595,7 +595,7 @@ function updateDash(dt)
         playerCDSFX:play()
     end
     
-    if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true and swordScript.slasheeed == false then
+    if Input.get_button(Input.action.Dash) == Input.state.Down and dashAvailable == true and swordScript.slasheeed == false and bolterScript.chaaarging == false then
         if(currentAnim ~= dash) and swordScript.slasheeed == false then
             currentAnim = dash
             currentUpAnim = dash

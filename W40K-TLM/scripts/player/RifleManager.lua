@@ -433,7 +433,7 @@ function on_update(dt)
 
                     if chaaarging == false then bolterSkillChargeSFX:play() end
 
-                    playerScript.moveSpeed = 1
+                    playerScript.moveSpeed = 0
                     chaaarging = true
                     particleCharging:emit(1)
                     if playerScript.currentAnim ~= playerScript.h1_Bolter then
@@ -500,10 +500,8 @@ function shoot(dt, bulletNum)
     if playerScript.enemyDirection ~= nil then
         forwardVector = playerScript.enemyDirection
         playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
-        print("aaaaaaaaaaaaaaaaaa")
     else
         forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
-        print("mmmmmmmmmmmmmmmmm")
     end
     
     
