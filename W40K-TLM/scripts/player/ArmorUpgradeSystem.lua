@@ -106,7 +106,7 @@ function handle_fervor_astartes(dt)
         fervorAstartesAvailable = true
     end
 
-    if Input.get_button(Input.action.Skill3) == Input.state.Down or Input.is_key_pressed(Input.keycode.Y) and fervorAstartesAvailable and not fervorAstartesStandardPlaced then
+    if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesAvailable and not fervorAstartesStandardPlaced or Input.is_key_pressed(Input.keycode.Y) and fervorAstartesAvailable and not fervorAstartesStandardPlaced then
         place_fervor_astartes_standard(playerPosition, standardTransform)
     end
     
