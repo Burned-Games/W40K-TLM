@@ -148,6 +148,7 @@ function enemy:new(obj)
     obj.missingDuration = 1.0
     obj.hitTimer = 0.0
     obj.hitDuration = 0.25
+    obj.hitAudioTimer = 0.0
 
     -- Audios
     obj.hurtSFX = nil
@@ -769,7 +770,11 @@ function enemy:take_damage(damage, shieldMultiplier)
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
-        if self.hurtSFX then self.hurtSFX:play() end
+        if self.hitAudioTimer >= 2 then
+            print("A")
+            if self.hurtSFX then self.hurtSFX:play() end
+            self.hitAudioTimer = 0.0
+        end
         log("Shield Health: " .. self.shieldHealth)
     else
         self.health = self.health - damage

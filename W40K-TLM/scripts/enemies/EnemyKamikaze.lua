@@ -179,7 +179,10 @@ function on_update(dt)
     end
 
     kamikaze.pathUpdateTimer = kamikaze.pathUpdateTimer + dt
-    if kamikaze.enemyHit then kamikaze.hitTimer = kamikaze.hitTimer + dt end
+    if kamikaze.enemyHit then
+        kamikaze.hitTimer = kamikaze.hitTimer + dt 
+        kamikaze.hitAudioTimer = kamikaze.hitAudioTimer + dt
+    end
 
     kamikaze:reset_material()
 
