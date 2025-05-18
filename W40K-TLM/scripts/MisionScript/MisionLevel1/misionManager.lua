@@ -20,8 +20,8 @@ local redTasks = {
     {id = 3, description = "Break out of the orkz base to the Hive City"}
 }
 
-local blueTaskIndex = 1
-local redTaskIndex = 1
+blueTaskIndex = 1
+redTaskIndex = 1
 
 local textBlueComponent = nil
 local textRedComponent = nil
@@ -100,6 +100,9 @@ function on_ready()
     imgRedUI:set_color(Vector4.new(1, 1, 1, 0))
     textBlueComponent:set_color(Vector4.new(1, 1, 1, 0))
     textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
+
+    blueTaskIndex = load_progress("bluemision",1)
+    redTaskIndex = load_progress("redmision",1)
 end
 
 function on_update(dt)
