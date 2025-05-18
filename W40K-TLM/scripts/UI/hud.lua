@@ -1,21 +1,13 @@
-    local maxAmmoWeapon1 = 15
     local maxAmmoTextComponent
-    local currentAmmoWeapon1 = maxAmmoWeapon1
-    local maxAmmoWeapon2 = 30
-    local currentAmmoWeapon2 = maxAmmoWeapon2
     ammoTextComponent = nil
 
     local lifeFullComponent
-    local life75Component
     local lifeTextComponent
-    local lifeFullTransform
     local originalLifeColor = nil
 
     local skill1
     local skill1VisualCooldownEntity
     local skill1VisualCooldown
-    local skill1VisualCooldownTransform
-    local skill1VisualCooldownStartingPosition
     local skill1TextCooldownEntity
     local skill1TextCooldown
     local skill1Cooldown = false
@@ -26,16 +18,12 @@
     local skill2Button
     local skill2VisualCooldownEntity
     local skill2VisualCooldown
-    local skill2VisualCooldownTransform
-    local skill2VisualCooldownStartingPosition
     local skill2Cooldown = false
     local skill2Timer = 0
 
     local skill3
     local skill3Button    
     local skill3VisualCooldown
-    local skill3VisualCooldownTransform
-    local skill3VisualCooldownStartingPosition
     local skill3Cooldown = false
     local skill3Timer = 0
 
@@ -47,10 +35,6 @@
     local skillsArmasCooldown = false
     local skillsArmasTimer = 0
     local skillsArmasBoton
-    local skillArma1VisualCooldownTransform
-    local skillArma1VisualCooldownStartingPosition
-    local skillArma2VisualCooldownTransform
-    local skillArma2VisualCooldownStartingPosition
 
     arma1 = nil
     arma1Texture = nil
@@ -65,9 +49,6 @@
     local currentChatarra = 0
 
     local chatarraTextComponent
-    local chatarraBarComponent
-    local chatarraTransform
-    local chatarraStartingPosition
 
     local player = nil
     local playerScript = nil
