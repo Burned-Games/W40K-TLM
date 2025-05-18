@@ -107,7 +107,12 @@ function FadeToBlack(dt)
     else 
         fadeToBlackImage:set_color(Vector4.new(1,1,1, alpha))
         for i, textComponent in ipairs(all_text_component) do  
-            textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z,1.0 - alpha))
+            if textComponent:get_color().w == 0 then
+                textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z, 0))
+            else
+                textComponent:set_color(Vector4.new(all_text_original_colors[i].x,all_text_original_colors[i].y,all_text_original_colors[i].z,1.0 - alpha))
+            end
+            
         end
 
     end
