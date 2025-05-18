@@ -232,7 +232,10 @@ function apply_to_player(player)
     
     --print("Upgrades applied to player")
     --print("Max health: " .. player.playerHealth)
-    handle_visuals()
+    
+    if jetpacklvl1 ~= nil and jetpacklvl2 ~= nil and helmetlvl1 ~= nil and helmetlvl2 ~= nil then
+        handle_visuals()
+    end
     return player
 end
 
