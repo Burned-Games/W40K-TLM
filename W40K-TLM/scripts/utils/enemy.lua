@@ -608,6 +608,7 @@ function enemy:alert_nearby_enemies(dt)
                 local alertUI = instantiate_prefab(enemyAlertPrefab)
                 local alertUITransform = alertUI:get_component("TransformComponent")
                 local alertUIScript = alertUI:get_component("ScriptComponent")
+                alertUIScript:on_ready()
                 
                 enemyData.script.alertEnemiesUI = alertUI
                 enemyData.script.alertEnemiesUITransform = alertUITransform
