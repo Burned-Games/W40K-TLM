@@ -253,6 +253,7 @@ function enemy:detect_state(dt)
     if not self.alertEnemiesUI then
         self.alertEnemiesUI = instantiate_prefab(enemyAlertPrefab)
         self.alertUIScript = self.alertEnemiesUI:get_component("ScriptComponent")
+        self.alertUIScript:on_ready()
         self.alertUIScript.enemyTransf = self.enemyTransf
         self.alertUIScript.alertDistance = self.alertDistance
         self.alertEnemiesUITransform = self.alertEnemiesUI:get_component("TransformComponent")
