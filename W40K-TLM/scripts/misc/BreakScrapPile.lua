@@ -32,7 +32,7 @@ local cameraScript = nil
 
 local originalMaterial = nil
 local actualRGBA = Vector4.new(1,1,1,1)
-local targetColor = Vector4.new(0.5,0.5,0.5,1)
+local targetColor = Vector4.new(255/255,99/255,36/255,1)
 local changeColorSpeed = 300
 local colorDirection = 0 -- 0 = To target | 1 = To actual
 
@@ -150,34 +150,48 @@ function setChildrenSize(size)
 end
 
 function changeColor(dt)
+    local step = (dt / 255) * changeColorSpeed
 
     if colorDirection == 0 then
-        if actualRGBA.x > targetColor.x then
-            local value = actualRGBA.x-((dt/255) * changeColorSpeed)
-            actualRGBA = Vector4.new(value, 1, 1, 1)
-        else
-            actualRGBA = Vector4.new(targetColor.x, 1, 1, 1)
+        -- Ir hacia el targetColor
+        local r = math.max(actualRGBA.x - step, targetColor.x)
+        local g = math.max(actualRGBA.y - step, targetColor.y)
+        local b = math.max(actualRGBA.z - step, targetColor.z)
+        local a = math.max(actualRGBA.w - step, targetColor.w)
+
+        actualRGBA = Vector4.new(r, g, b, a)
+
+        -- Si ya llegamos al target en todos los canales, cambiamos dirección
+        if actualRGBA.x == targetColor.x and
+           actualRGBA.y == targetColor.y and
+           actualRGBA.z == targetColor.z and
+           actualRGBA.w == targetColor.w then
             colorDirection = 1
         end
-    end
 
-    if colorDirection == 1 then
-        if actualRGBA.x < 1 then
-            local value = actualRGBA.x+((dt/255) * changeColorSpeed)
-            actualRGBA = Vector4.new(value, 1, 1, 1)
-        else
-            actualRGBA = Vector4.new(1, 1, 1, 1)
+    else
+        -- Volver a blanco (1,1,1,1)
+        local r = math.min(actualRGBA.x + step, 1)
+        local g = math.min(actualRGBA.y + step, 1)
+        local b = math.min(actualRGBA.z + step, 1)
+        local a = math.min(actualRGBA.w + step, 1)
+
+        actualRGBA = Vector4.new(r, g, b, a)
+
+        -- Si ya llegamos a blanco, cambiamos dirección
+        if actualRGBA.x == 1 and
+           actualRGBA.y == 1 and
+           actualRGBA.z == 1 and
+           actualRGBA.w == 1 then
             colorDirection = 0
         end
     end
-    
 
-    log(actualRGBA.x)
     if originalMaterial then
         originalMaterial.color = actualRGBA
     end
-
 end
+
 
 function on_exit()
     -- Add cleanup code here
