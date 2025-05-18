@@ -137,6 +137,12 @@ function on_update(dt)
         kamikaze.hasFoundNearbyEnemies = true
     end
 
+    if kamikaze.isExploding then
+        kamikaze.attackTimer = kamikaze.attackTimer + dt
+        kamikaze:attack_state()
+        return
+    end
+
     change_state(dt)
 
     if kamikaze.currentState == kamikaze.state.Idle then return end
@@ -162,12 +168,6 @@ function on_update(dt)
     if kamikaze.haveShield and kamikaze.enemyShield <= 0 then
         kamikaze.haveShield = false
         kamikaze.shieldDestroyed = true
-    end
-
-    if kamikaze.isExploding then
-        kamikaze.attackTimer = kamikaze.attackTimer + dt
-        kamikaze:attack_state()
-        return
     end
 
     if isAlerted then
