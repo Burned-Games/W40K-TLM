@@ -1,6 +1,6 @@
 
 
-local timeToTransition = 10
+local timeToTransition = 18
 
 
 

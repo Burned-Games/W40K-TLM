@@ -10,7 +10,7 @@ local dialogScriptComponent = nil
 function on_ready()
 
     --Audio
-    --dia1_audio1 = current_scene:get_entity_by_name("dia1_audio1"):get_component("AudioSourceComponent")
+    diaCine = current_scene:get_entity_by_name("diaCine"):get_component("AudioSourceComponent")
     --dia1_audio2 = current_scene:get_entity_by_name("dia1_audio2"):get_component("AudioSourceComponent")
     -- dialogLines = {
     --     { name = "Carlos", text = "Hola, bienvenido al mundo", audio = dia1_audio1 },
@@ -19,7 +19,7 @@ function on_ready()
 
     --Dialogo
     dialogLines = {
-        { name = "DeciusMarcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around, the way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects."}
+        { name = "DeciusMarcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around, the way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects.", audio = diaCine ,time = 14.8}
     }
 
    
