@@ -241,7 +241,10 @@ function on_update(dt)
     end
 
     tank.pathUpdateTimer = tank.pathUpdateTimer + dt
-    if tank.enemyHit then tank.hitTimer = tank.hitTimer + dt end
+    if tank.enemyHit then
+        tank.hitTimer = tank.hitTimer + dt 
+        tank.hitAudioTimer = tank.hitAudioTimer + dt
+    end
 
     tank:reset_material()
 

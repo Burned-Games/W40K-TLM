@@ -186,7 +186,10 @@ function on_update(dt)
 
     support.findEnemiesTimer = support.findEnemiesTimer + dt
     support.updateTargetTimer = support.updateTargetTimer + dt
-    if support.enemyHit then support.hitTimer = support.hitTimer + dt end
+    if support.enemyHit then
+        support.hitTimer = support.hitTimer + dt 
+        support.hitAudioTimer = support.hitAudioTimer + dt
+    end
 
     if support.health <= 0 then
         if support.key ~= 0 then

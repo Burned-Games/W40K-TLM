@@ -13,8 +13,8 @@ local changed = false
 function on_ready()
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
-    ContinueButton = current_scene:get_entity_by_name("ContinueButton"):get_component("UIButtonComponent")
-    ExitButton = current_scene:get_entity_by_name("ExitButton"):get_component("UIButtonComponent")
+    ContinueButton = current_scene:get_entity_by_name("NewContinueButton"):get_component("UIButtonComponent")
+    ExitButton = current_scene:get_entity_by_name("NewQuitButton"):get_component("UIButtonComponent")
 
     levelToLoad = load_progress("level", 1) 
 end
@@ -50,7 +50,7 @@ function on_update(dt)
         changed = true
     end
 
-    local value = Input.get_direction("UiY")
+    local value = Input.get_direction("UiX")
     if (value ~= 0 and contadorMovimientoBotones > 0.2) then
         contadorMovimientoBotones = 0
 

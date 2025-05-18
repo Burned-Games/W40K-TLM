@@ -211,7 +211,10 @@ function on_update(dt)
 
     range.pathUpdateTimer = range.pathUpdateTimer + dt
     range.updateTargetTimer = range.updateTargetTimer + dt
-    if range.enemyHit then range.hitTimer = range.hitTimer + dt end
+    if range.enemyHit then
+        range.hitTimer = range.hitTimer + dt 
+        range.hitAudioTimer = range.hitAudioTimer + dt
+    end
 
     range:reset_material()
 
