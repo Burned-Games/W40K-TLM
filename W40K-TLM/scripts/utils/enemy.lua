@@ -220,9 +220,9 @@ end
 function enemy:idle_state()
 
     if self.currentAnim ~= self.idleAnim then
-        self:play_blocking_animation(self.idleAnim, self.idleDuration)
+        self.currentAnim = self.idleAnim
+        self.animator:set_current_animation(self.currentAnim)
     end
-
 end
 
 function enemy:move_state()
@@ -379,25 +379,25 @@ function enemy:enemy_raycast(dt)
             self.playerMissing = false
             self.missingTimer = 0.0
             self.playerDistance = self:get_distance(origin, centerHit.hitPoint)
-    
+
         elseif self:detect(leftHit, self.player) then
-    
+
             self.playerDetected = true
             self.playerLost = false
             self.playerMissing = false
             self.missingTimer = 0.0
             self.playerDistance = self:get_distance(origin, leftHit.hitPoint)
-    
+
         elseif self:detect(rightHit, self.player) then
-    
+
             self.playerDetected = true
             self.playerLost = false
             self.playerMissing = false
             self.missingTimer = 0.0
             self.playerDistance = self:get_distance(origin, rightHit.hitPoint)
-    
+
         end
-    
+
         -- Raycast hitting the player objects
         if not self.playerDetected then
             for i = 1, 11 do
@@ -425,15 +425,16 @@ function enemy:enemy_raycast(dt)
                 end
             end
         end
+    end
 
-        if self.playerDetected and not (self:detect(centerHit, self.player) or self:detect(leftHit, self.player) or self:detect(rightHit, self.player)) then
-            self.playerMissing = true
+    if self.playerDetected and not (self:detect(centerHit, self.player) or self:detect(leftHit, self.player) or self:detect(rightHit, self.player)) then
+        self.playerMissing = true
 
-            if self.missingTimer >= self.missingDuration then
-                self.playerLost = true
-            end
+        if self.missingTimer >= self.missingDuration then
+            self.playerLost = true
         end
     end
+    
 
     -- Raycast hitting the explosive
     if self:detect(centerHit, self.explosive) then
@@ -672,16 +673,21 @@ function enemy:check_initial_distance()
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
     if distance > 30 then
         self.playerDetected = false
-        self.currentState = self.state.Move
+        --self.currentState = self.state.Move
         self.isReturning = true
         self.health = self.defaultHealth
+        self.isAlerted = false
+        self.hasAlerted = false
     elseif self.isReturning and distance < 0.5 then
-        self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-        self.currentState = self.state.Idle
         self.isReturning = false
+        self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         self.health = self.defaultHealth
+        self.playerLost = false
+        self.playerMissing = false
+        self.missingTimer = 0.0
+        self.currentState = self.state.Idle
+        self:rotate_enemy(self.playerTransf.position)
     end
-
 end
 
 function enemy:set_level()
