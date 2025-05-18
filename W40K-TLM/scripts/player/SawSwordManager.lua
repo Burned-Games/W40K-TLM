@@ -167,9 +167,10 @@ function Slash()
                                 enemyInstance = enemyScript.tank
                             elseif enemyTag == "EnemyKamikaze" then
                                 enemyInstance = enemyScript.kamikaze
+                            elseif enemyTag == "MainBoss" then
+                                enemyInstance = enemyScript.main_boss
                             end
                             enemyInstance:take_damage(damage)
-
                             meleeHitSFX:play()
 
                         
