@@ -139,6 +139,11 @@ function on_update(dt)
         changeColor(dt)
     end
 
+    if hasDisappeared then
+        separate:set_active(false)
+        self:set_active(false)
+    end
+
 
 end
 
