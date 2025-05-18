@@ -147,7 +147,7 @@ local mapPolygonOthers= {
 
 local actualMapPolygon = nil
 
-
+local firstTime = false
 
 
 function on_ready()
@@ -176,12 +176,7 @@ function on_ready()
 
     
 
-    local zoomOffSet = Vector3.new(baseOffset.x * (1 + zoom * 0.2), baseOffset.y * (1 + zoom * 0.2), baseOffset.z * (1 + zoom * 0.2)) 
-
     
-    local targetPos = Vector3.new(playerPos.x + zoomOffSet.x, playerPos.y + zoomOffSet.y, playerPos.z + zoomOffSet.z) 
-
-    cameraTransform.position = targetPos 
 
     entities = current_scene:get_all_entities() 
 
@@ -196,7 +191,6 @@ function on_ready()
         end
     end
 
-    log(SceneManager:get_scene_name())
 
     if SceneManager:get_scene_name() == "level1.TeaScene" then
         actualMapPolygon = mapPolygonLevel1
@@ -212,6 +206,16 @@ end
 
 function on_update(dt)
     
+    if firstTime == false then
+        firstTime = true
+
+        local zoomOffSet = Vector3.new(baseOffset.x * (1 + zoom * 0.2), baseOffset.y * (1 + zoom * 0.2), baseOffset.z * (1 + zoom * 0.2)) 
+
+    
+        local targetPos = Vector3.new(playerPos.x + zoomOffSet.x, playerPos.y + zoomOffSet.y, playerPos.z + zoomOffSet.z) 
+
+    cameraTransform.position = targetPos 
+    end
     if playerScript and playerScript.moveDirection then
         if playerScript.moveDirection.x ~= 0 and playerScript.moveDirection.z ~= 0 then
             updateEnemyActivation()
