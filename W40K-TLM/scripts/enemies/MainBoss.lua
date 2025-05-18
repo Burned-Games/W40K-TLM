@@ -55,8 +55,7 @@ function on_ready()
     main_boss.hurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
     main_boss.shieldExplosionSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
     main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossShieldZapSFX"):get_component("AudioSourceComponent")
-    main_boss.bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
-    main_boss.bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
+    main_boss.bossStepsSFX = current_scene:get_entity_by_name("BossStepsSFX"):get_component("AudioSourceComponent")
 
     -- Particle
     main_boss.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")

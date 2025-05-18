@@ -43,6 +43,10 @@ local isFistsDamaging = true
 -- Animation
 local currentAnim = 0
 
+-- Audio
+local bossSmashDescendSFX = nil
+local bossSmashImpactSFX = nil
+
 function on_ready()
 
     -- Main Boss
@@ -50,6 +54,10 @@ function on_ready()
 
     -- Player
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
+
+    -- Audio
+    bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
+    bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
 
     -- Fists
     for i = 1, fistMaxNumbers do
@@ -122,6 +130,8 @@ function on_update(dt)
                 for i = 1, fistMaxNumbers do
                     fistAnimator[i]:set_current_animation(currentAnim)
                 end
+                bossSmashDescendSFX:pause()
+                bossSmashImpactSFX:play()
             end
         end
 
@@ -189,6 +199,8 @@ function execute_fists_attack()
             fistRbComponent[i].rb:set_position(fistPositions[i])
             currentAnim = 1
             fistAnimator[i]:set_current_animation(currentAnim)
+
+            bossSmashDescendSFX:play()
 
             -- Reset scale
             fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)

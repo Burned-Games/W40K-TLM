@@ -4,6 +4,8 @@ local enemyTransf = nil
 local enemyScript = nil
 local playerTransf = nil
 local lightningTransf = nil
+
+-- Audio
 local bossConeAtackSFX = nil
 
 local lightningTimer = 0.0
@@ -68,8 +70,6 @@ function on_ready()
 
     -- Audio
     bossConeAtackSFX = current_scene:get_entity_by_name("BossConeAtackSFX"):get_component("AudioSourceComponent")
-
-
 
     -- Level
     local enemy_type = "main_boss"

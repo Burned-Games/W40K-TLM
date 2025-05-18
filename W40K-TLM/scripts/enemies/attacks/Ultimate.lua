@@ -6,9 +6,11 @@ local player = nil
 local playerTransf = nil
 local playerScript = nil
 local ultimateTransf = nil
+local pillarToDestroy = nil
+
+-- Audio
 local bossChargeUltimateSFX = nil
 local bossUltimateExplosionSFX = nil
-local pillarToDestroy = nil
 
 -- Timers
 local ultiAttackTimer = 0.0
