@@ -44,11 +44,17 @@ local IDLE_DISPLAY_TIME = 1.0     -- Time for the idle animations (IdleArmor/Idl
 --Audio
 local workbenchFallSFX
 
+--Pause
+local pauseMenu = nil
+
 function on_ready()
     workbenchAnimator = self:get_component("AnimatorComponent")
     if not workbenchAnimator then
         --print("Warning: No AnimatorComponent found on workbench")
     end
+
+    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
+
 
     --Audio
     workbenchFallSFX = current_scene:get_entity_by_name("WorkbenchFallSFX"):get_component("AudioSourceComponent")
@@ -150,7 +156,7 @@ function on_update(dt)
     end
 
     -- Open the workbench UI when the player presses the confirm button
-    if playerInRange and Input.get_button(Input.action.Confirm) == Input.state.Down then
+    if playerInRange and Input.get_button(Input.action.Confirm) == Input.state.Down and not pauseMenu.isPaused then
         local workbenchOpen = workbenchUIManagerScript.isWorkBenchOpen
         if workbenchOpen == false then
             workbenchUIManagerScript:show_ui()
