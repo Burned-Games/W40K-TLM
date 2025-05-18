@@ -356,7 +356,7 @@ function on_update(dt)
             end
 
             if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false then
-                
+                playerScript.activateAutoAim = true
                 if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
                     playerScript.currentUpAnim = playerScript.attack
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
@@ -364,6 +364,7 @@ function on_update(dt)
                 end
                 
                 if shootCoolDown >= currentShootCoolDownRifle then
+                    
                     tripleShoot()
                     vfxShootTransf.position.y = vfxShootPosY
                     --shootParticlesComponent:emit(6)
@@ -376,7 +377,7 @@ function on_update(dt)
                 end
 
             else
-                
+                playerScript.activateAutoAim = false
                 vfxShootTransf.position.y = 830
                 if disruptorShooted2 == false then
                     playerScript.activateAutoAim = false
@@ -400,7 +401,7 @@ function on_update(dt)
             tripleShootTimer = tripleShootTimer - dt
 
             if tripleShootCount > 0 and tripleShootTimer <= 0 then
-                playerScript.activateAutoAim = true
+                
                 shoot(dt, tripleShootCount)
                 tripleShootCount = tripleShootCount - 1
                 tripleShootTimer = tripleShootInterval
@@ -499,9 +500,10 @@ function shoot(dt, bulletNum)
     if playerScript.enemyDirection ~= nil then
         forwardVector = playerScript.enemyDirection
         playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
+        print("aaaaaaaaaaaaaaaaaa")
     else
         forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
-        
+        print("mmmmmmmmmmmmmmmmm")
     end
     
     
@@ -540,7 +542,7 @@ function disruptiveCharge()
     local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
 
     particle_cargdisruptor_transform.position = newPosition
-    particle_cargdisruptor:emit(1)
+    --particle_cargdisruptor:emit(1)
     
 
     disruptorBulletTransf.position = newPosition

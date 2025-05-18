@@ -1276,7 +1276,7 @@ function autoaimUpdate()
     local origin = Vector3.new(pos.x, pos.y, pos.z)
 
     origin.y = 0.5
-    local maxDistance = 12.0
+    local maxDistance = 20.0
 
     if godMode then
         Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
