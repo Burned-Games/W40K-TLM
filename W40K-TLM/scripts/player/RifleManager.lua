@@ -120,6 +120,8 @@ vfxShootTransf = nil
 
 vfxShootPosY =  1.533
 
+local particleCharging = nil
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -129,6 +131,8 @@ function on_ready()
 
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
+
+    particleCharging = current_scene:get_entity_by_name("ChargingDisruptorChargeParticle"):get_component("ParticlesSystemComponent")
 
     -- sphere1 = current_scene:get_entity_by_name("Sphere1")
     -- transformSphere1 = sphere1:get_component("TransformComponent")
@@ -430,6 +434,7 @@ function on_update(dt)
 
                     playerScript.moveSpeed = 1
                     chaaarging = true
+                    particleCharging:emit(1)
                     if playerScript.currentAnim ~= playerScript.h1_Bolter then
                         playerScript.currentAnim = playerScript.h1_Bolter
                         playerScript.currentUpAnim = playerScript.h1_Bolter
