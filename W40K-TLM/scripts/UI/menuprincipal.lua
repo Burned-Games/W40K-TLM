@@ -140,6 +140,10 @@ function on_update(dt)
                     save_progress("armorHealthBoost", false)
                     save_progress("armorProtection", false)
                     save_progress("armorSpecialAbility", false)
+
+                    save_progress("scrap", 0)
+                    save_progress("health", 250)
+                    save_progress("stims", 2)
                     
                     saliendoDeMenu = true
                     botonSalida1:set_active(true)
