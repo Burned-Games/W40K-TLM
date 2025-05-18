@@ -6,6 +6,8 @@ local tankManager = nil
 local playerManager = nil
 local alpha = 0
 local fadeActive = false
+local arenaIn = nil
+local arenaOut = nil
 
 function on_ready()
     tankBar = current_scene:get_entity_by_name("TankBar")
@@ -14,6 +16,13 @@ function on_ready()
     tankNam = current_scene:get_entity_by_name("TankName"):get_component("UITextComponent")
     tankManager = current_scene:get_entity_by_name("EnemyTank1"):get_component("ScriptComponent")
     playerManager = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+    
+    arenaIn = current_scene:get_entity_by_name("ArenaEnter")
+    arenaOut = current_scene:get_entity_by_name("ArenaExit")
+
+    -- Initially set arena barriers to inactive
+    arenaIn:set_active(false)
+    arenaOut:set_active(false)
     
     triggerArenaBattle = current_scene:get_entity_by_name("TankBattleTrigger"):get_component("RigidbodyComponent")
 
@@ -27,6 +36,8 @@ function on_ready()
 
         if nameA == "Player" or nameB == "Player" then
            tankBar:set_active(true)
+           arenaIn:set_active(true) 
+           arenaOut:set_active(true)
            alpha = 0
            fadeActive = true
         end
@@ -51,6 +62,8 @@ function on_update(dt)
 
     if vida <= 0 then
         tankBar:set_active(false)
+        arenaIn:set_active(false)
+        arenaOut:set_active(false)
     end
 
     local healthPercentage = vida / maxHealth
