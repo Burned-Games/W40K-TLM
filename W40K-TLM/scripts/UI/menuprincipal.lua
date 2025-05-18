@@ -104,7 +104,7 @@ function on_ready()
     
     introSFX:play()
 
-    local savedLevel = load_progress("level", -1)
+    local savedLevel = load_progress("level",-1)
 
     if savedLevel == -1 then
         print("No hay nivel guardado")
