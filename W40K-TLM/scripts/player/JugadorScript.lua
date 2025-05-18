@@ -258,9 +258,11 @@ function on_ready()
     playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
 
-    local musicVolume = load_progress("musicVolumeGeneral", 1.0)
+    local musicVolume = load_progress("musicVolumeGeneral", 50.0) / 100
     exploreMusic:set_volume(musicVolume)
-    fightingMusic:set_volume(musicVolume)
+    exploreMusic:play()
+    fightingMusic:set_volume(0)
+    fightingMusic:play() 
 
    entities = current_scene:get_all_entities()
 
@@ -405,16 +407,17 @@ function on_ready()
             
         end
     end
-    
-    
-    exploreMusic:play()
-    fightingMusic:play() 
-
 end
 
 function on_update(dt)
 
-
+    updateMusic(dt)
+    if combatTimer <= 0 then   
+        backgroundMusicToPlay = 0
+    else
+        backgroundMusicToPlay = 1
+    end
+    
     footstepSFXTimer = footstepSFXTimer + dt
     
     if pauseScript.isPaused or workbenchUIManagerScript.isWorkBenchOpen then
@@ -512,12 +515,7 @@ function on_update(dt)
         return
     end
 
-    updateMusic(dt)
-    if combatTimer <= 0 then   
-        backgroundMusicToPlay = 0
-    else
-        backgroundMusicToPlay = 1
-    end
+    
     
     if workbenchUIManagerScript.isWorkBenchOpen == false then
         updateDash(dt)
