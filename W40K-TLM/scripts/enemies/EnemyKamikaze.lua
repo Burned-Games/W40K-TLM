@@ -41,8 +41,8 @@ function on_ready()
     kamikaze.explosiveBarrelRb = current_scene:get_entity_by_name("Explosive"):get_component("RigidbodyComponent").rb
 
     -- Particle
-    kamikaze.particleKamikaze = current_scene:get_entity_by_name("particle_kamikaze"):get_component("ParticlesSystemComponent")
-    kamikaze.particleKamikazeTransf = current_scene:get_entity_by_name("particle_kamikaze"):get_component("TransformComponent")
+    kamikaze.explosionParticle = current_scene:get_entity_by_name("particle_kamikaze"):get_component("ParticlesSystemComponent")
+    kamikaze.explosionParticleTransf = current_scene:get_entity_by_name("particle_kamikaze"):get_component("TransformComponent")
     kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
     kamikaze.bloodParticle = current_scene:get_entity_by_name("KamikazeBloodParticle"):get_component("ParticlesSystemComponent")
@@ -278,11 +278,12 @@ function kamikaze:attack_state()
         local playerPos = kamikaze.playerTransf.position
         local distance = kamikaze:get_distance(explosionPos, playerPos)
 
-        kamikaze.particleKamikazeTransf.position = kamikaze.enemyTransf.position
+        if kamikaze.explosionParticle then
+            kamikaze.explosionParticleTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y + 0.5, kamikaze.enemyTransf.position.z)
+            kamikaze.explosionParticle:emit(2)
+        end
         
         if distance < kamikaze.explosionRange then
-            kamikaze.particleKamikazeTransf.position = explosionPos
-            kamikaze.particleKamikaze:emit(2)
             kamikaze:make_damage(kamikaze.damage)
             effect:apply_bleed(kamikaze.playerScript)
         end
