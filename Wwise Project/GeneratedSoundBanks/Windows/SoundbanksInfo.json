@@ -2064,18 +2064,26 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{006984B9-281D-A5B8-43A7-3775F439A9C9}",
+    "Hash": "{39D9B8B5-8FE4-42F2-30B7-2FED3490C86D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
     "Media": [
+     {
+      "Id": "6401055",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "howlingwind2.wav",
+      "CachePath": "FA/{FA4CFD18-0AC6-DF74-251F-2A9394CB3D2C}.wem"
+     },
      {
       "Id": "18056239",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "howlingwind.wav",
-      "CachePath": "BA/{BAE3B01E-9885-1088-6F32-24FC62601207}.wem"
+      "CachePath": "85/{85E5456D-4044-C786-B61C-C792B895D320}.wem"
      },
      {
       "Id": "20568913",
@@ -2092,6 +2100,14 @@
       "Location": "Memory",
       "ShortName": "WorkbenchLand.wav",
       "CachePath": "C1/{C1AF7F1C-C587-59E2-13C7-062D39EBBBF4}.wem"
+     },
+     {
+      "Id": "432911897",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "howlingwind3.wav",
+      "CachePath": "98/{981DBCEA-4383-D132-3EFA-81E5E9DD57F7}.wem"
      },
      {
       "Id": "433993564",
@@ -2207,7 +2223,13 @@
       "DurationType": "Infinite",
       "MediaRefs": [
        {
+        "Id": "6401055"
+       },
+       {
         "Id": "18056239"
+       },
+       {
+        "Id": "432911897"
        }
       ]
      },
@@ -3529,6 +3551,6 @@
     ]
    }
   ],
-  "FileHash": "{B4B73E6C-51C2-6BAC-169B-4EEE58FB283A}"
+  "FileHash": "{F1C993B0-8060-AA79-E8E2-AB2312F16059}"
  }
 }

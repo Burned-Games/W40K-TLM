@@ -2548,7 +2548,7 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="15">
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="30">
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{6A8672B0-05CA-48A1-A94B-E802CE5FC83E}">
@@ -2593,6 +2593,50 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="howlingwind" ID="{1F5CE9FF-C28A-4DDB-8481-88F7E25E5F9C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="howlingwind2" ID="{062E2342-E970-4200-BFAB-E09DC8CC73F9}" ShortID="353979419">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="howlingwind2" ID="{389AF6D3-5B8D-45E0-AFFA-85019925961A}">
+											<Language>SFX</Language>
+											<AudioFile>howlingwind2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="6401055"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="howlingwind2" ID="{389AF6D3-5B8D-45E0-AFFA-85019925961A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="howlingwind3" ID="{0DFF37EC-60F4-47BB-904F-0617673245BB}" ShortID="920138803">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="howlingwind3" ID="{2F7ADAA7-3F73-4407-B408-3D92F0DFB875}">
+											<Language>SFX</Language>
+											<AudioFile>howlingwind3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="432911897"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="howlingwind3" ID="{2F7ADAA7-3F73-4407-B408-3D92F0DFB875}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
