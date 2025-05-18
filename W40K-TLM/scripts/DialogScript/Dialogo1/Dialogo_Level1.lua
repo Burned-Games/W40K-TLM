@@ -54,39 +54,39 @@ function on_ready()
 
     --Dialogo
     dialogLines1 = {
-        { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?", audio = dia1_audio1, time = 10.72},
-        { name = "DeciusMarcellus", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", audio = dia1_audio2, time = 8,162},
-        { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", audio = dia1_audio3, time = 9.138}
+        { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?", audio = dia1_audio1, time =9.6},
+        { name = "DeciusMarcellus", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", audio = dia1_audio2, time = 7.5},
+        { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", audio = dia1_audio3, time = 8}
     }
     
     dialogLines5L = {
-        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand.", audio = dia5L_audio1}
+        { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand.", audio = dia5L_audio1, time = 9}
     }
 
     dialogLines5S = {
-        { name = "DeciusMarcellus", text = "We're detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter.", audio = dia5S_audio1}
+        { name = "DeciusMarcellus", text = "We're detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter.", audio = dia5S_audio1, time = 7.8}
     }
 
     dialogLines8 = {
-        { name = "QuintusMaxillian", text = "Brother, the scanner reveals heavy Ork presence. Enter their stronghold and purge them all.", audio = dia8_audio1}
+        { name = "QuintusMaxillian", text = "Brother, the scanner reveals heavy Ork presence. Enter their stronghold and purge them all.", audio = dia8_audio1, time = 6}
     }
 
     dialogLines9L = {
-        { name = "QuintusMaxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?", audio = dia9L_audio1},
-        { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother.", audio = dia9L_audio2}
+        { name = "QuintusMaxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?", audio = dia9L_audio1, time = 4},
+        { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother.", audio = dia9L_audio2, time = 6}
     }
 
     dialogLines9S = {
-        { name = "DeciusMarcellus", text = "Status report-are you still with us, Brother?", audio = dia9S_audio1},
-        { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?", audio = dia9S_audio2}
+        { name = "DeciusMarcellus", text = "Status report-are you still with us, Brother?", audio = dia9S_audio1, time = 4},
+        { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?", audio = dia9S_audio2, time = 5}
     }
 
     dialogLines10 = {
-        { name = "DeciusMarcellus", text = "Nothing more brother, few enemies left. Go ahead brother, clean this place and proceed with the mission.", audio = dia10_audio1}
+        { name = "DeciusMarcellus", text = "Nothing more brother, few enemies left. Go ahead brother, clean this place and proceed with the mission.", audio = dia10_audio1, time = 6.5}
     }
 
     dialogLines11 = {
-        { name = "DeciusMarcellus", text = "Little resistance remains. Once you clear the path ahead, proceed directly to Martyria Eterna. Finish this, Brother.", audio = dia11_audio1}
+        { name = "DeciusMarcellus", text = "Little resistance remains. Once you clear the path ahead, proceed directly to Martyria Eterna. Finish this, Brother.", audio = dia11_audio1, time = 8}
     }
     
     dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
