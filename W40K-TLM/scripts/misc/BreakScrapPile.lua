@@ -26,6 +26,16 @@ local transform = nil
 
 local scrapSpawnArea = 4;
 
+local camera = nil
+local cameraScript = nil
+
+
+local originalMaterial = nil
+local actualRGBA = Vector4.new(1,1,1,1)
+local targetColor = Vector4.new(0.5,0.5,0.5,1)
+local changeColorSpeed = 300
+local colorDirection = 0 -- 0 = To target | 1 = To actual
+
 --Audio
 local scrapDestroySFX = nil
 
@@ -34,16 +44,22 @@ function on_ready()
 
     local children = self:get_children()
 
+    camera = current_scene:get_entity_by_name("Camera")
+    cameraScript = camera:get_component("ScriptComponent")
+
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "Normal" then
             objectNormal = child
         end
     end
 
+    originalMaterial = objectNormal:get_component("MaterialComponent").material
+
      --Audio
      scrapDestroySFX = current_scene:get_entity_by_name("ScrapDestroySFX"):get_component("AudioSourceComponent")
 
     rbComponent = self:get_component("RigidbodyComponent");
+    rbComponent.rb:get_collider():set_box_size(Vector3.new(2.5,3.0,2.6))
     rbComponent:on_collision_enter(function(entityA, entityB)
 
         local nameA = entityA:get_component("TagComponent").tag
@@ -51,7 +67,7 @@ function on_ready()
         if nameA == "Sphere1" or nameA == "Sphere2" or nameA == "Sphere3" or nameA == "Sphere4" or nameA == "Sphere5" or nameA == "Sphere6" or nameA == "Sphere7" or nameA == "Sphere8"
         or nameB == "Sphere1" or nameB == "Sphere2" or nameB == "Sphere3" or nameB == "Sphere4" or nameB == "Sphere5" or nameB == "Sphere6" or nameB == "Sphere7" or nameB == "Sphere8" then
             if not hasDestroyed then
-                --cameraScript.startShake(0.2,5)
+                cameraScript.startShake(0.1,3)
                 give_phisycs()
                 hasDestroyed = true
                 scrapDestroySFX:play()
@@ -118,6 +134,12 @@ function on_update(dt)
         end
 
     end
+
+    if not hasDestroyed then
+        changeColor(dt)
+    end
+
+
 end
 
 function setChildrenSize(size)
@@ -125,6 +147,36 @@ function setChildrenSize(size)
     for _, child in ipairs(separateChildren) do
         child:get_component("TransformComponent").scale = Vector3.new(size,size,size)
     end
+end
+
+function changeColor(dt)
+
+    if colorDirection == 0 then
+        if actualRGBA.x > targetColor.x then
+            local value = actualRGBA.x-((dt/255) * changeColorSpeed)
+            actualRGBA = Vector4.new(value, 1, 1, 1)
+        else
+            actualRGBA = Vector4.new(targetColor.x, 1, 1, 1)
+            colorDirection = 1
+        end
+    end
+
+    if colorDirection == 1 then
+        if actualRGBA.x < 1 then
+            local value = actualRGBA.x+((dt/255) * changeColorSpeed)
+            actualRGBA = Vector4.new(value, 1, 1, 1)
+        else
+            actualRGBA = Vector4.new(1, 1, 1, 1)
+            colorDirection = 0
+        end
+    end
+    
+
+    log(actualRGBA.x)
+    if originalMaterial then
+        originalMaterial.color = actualRGBA
+    end
+
 end
 
 function on_exit()

@@ -21,6 +21,9 @@ local hasDisappeared = false
 local actualSize = 1
 local sizeDisappearSpeed = 3
 
+local camera = nil
+local cameraScript = nil
+
 --Audio
 local boxBarrelDestroySFX = nil
 
@@ -32,6 +35,9 @@ function on_ready()
             objectNormal = child
         end
     end
+
+    camera = current_scene:get_entity_by_name("Camera")
+    cameraScript = camera:get_component("ScriptComponent")
 
     --Audio
     boxBarrelDestroySFX = current_scene:get_entity_by_name("BoxBarrelDestroySFX"):get_component("AudioSourceComponent")
@@ -46,7 +52,7 @@ function on_ready()
         if nameA == "Sphere1" or nameA == "Sphere2" or nameA == "Sphere3" or nameA == "Sphere4" or nameA == "Sphere5" or nameA == "Sphere6" or nameA == "Sphere7" or nameA == "Sphere8"
         or nameB == "Sphere1" or nameB == "Sphere2" or nameB == "Sphere3" or nameB == "Sphere4" or nameB == "Sphere5" or nameB == "Sphere6" or nameB == "Sphere7" or nameB == "Sphere8" then
             if not hasDestroyed then
-                --cameraScript.startShake(0.2,5)
+                cameraScript.startShake(0.05,2)
                 give_phisycs()
                 hasDestroyed = true
                 boxBarrelDestroySFX:play()
