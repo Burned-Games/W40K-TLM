@@ -237,6 +237,8 @@ local playerMatsComponents = {}
 local playerMatsOriginals = {}
 local playerMatsDamages = {}
 
+locked = false 
+
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -471,6 +473,7 @@ function on_update(dt)
     updateEntranceAnimation(dt)
 
     if animacionEntradaRealizada == false and sceneName == "level1.TeaScene" and zonePlayer == 0 then
+        locked = true
         return
     end
     if healAnimationSecondBool then
@@ -730,6 +733,7 @@ function updateEntranceAnimation(dt)
             if(timerAnimacionEntrada > 3.6 )then
                 playerTransf.rotation.y = 0
                 animacionEntradaRealizada = true
+                locked = false
                 currentAnim = idle
                 animator:set_current_animation(currentAnim)
             end
