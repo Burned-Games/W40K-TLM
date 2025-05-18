@@ -19,6 +19,7 @@ function on_ready()
     tank.animator = self:get_component("AnimatorComponent")
     tank.enemyRbComponent = self:get_component("RigidbodyComponent")
     tank.enemyRb = tank.enemyRbComponent.rb
+    tank.enemyRb:set_rotation(Vector3.new(tank.enemyTransf.rotation.x, tank.enemyTransf.rotation.y, tank.enemyTransf.rotation.z))
     tank.enemyNavmesh = self:get_component("NavigationAgentComponent")
     local children = self:get_children()
     for _, child in ipairs(children) do
