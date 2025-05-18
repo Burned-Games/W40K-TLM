@@ -158,6 +158,10 @@ function on_update(dt)
     main_boss.attackTimer = main_boss.attackTimer + dt
     main_boss.shieldTimer = main_boss.shieldTimer + dt
     main_boss.pathUpdateTimer = main_boss.pathUpdateTimer + dt
+    if main_boss.enemyHit then
+        main_boss.hitTimer = main_boss.hitTimer + dt 
+        main_boss.hitAudioTimer = main_boss.hitAudioTimer + dt
+    end
 
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
         main_boss.currentState = main_boss.state.Move
