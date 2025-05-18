@@ -1,0 +1,302 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "TankBar_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 6923565775788118211
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 4,
+        "value1": 4,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Tag": "TankBar"
+        },
+        "value9": 1,
+        "value10": {
+            "Tag": "TankBarBase"
+        },
+        "value11": 2,
+        "value12": {
+            "Tag": "TankLifeUI"
+        },
+        "value13": 3,
+        "value14": {
+            "Tag": "TankName"
+        },
+        "value15": 4,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 1.0
+            }
+        },
+        "value18": 1,
+        "value19": {
+            "Position": {
+                "x": 387.5,
+                "y": 70.63802337646485,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 241.78387451171876,
+                "y": 13.3203125,
+                "z": 1.0
+            }
+        },
+        "value20": 2,
+        "value21": {
+            "Position": {
+                "x": 387.5,
+                "y": 70.63802337646485,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 233.7109375,
+                "y": 5.2473907470703129,
+                "z": 1.0
+            }
+        },
+        "value22": 3,
+        "value23": {
+            "Position": {
+                "x": 387.5,
+                "y": 58.528648376464847,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 40.36456298828125,
+                "y": 40.36458206176758,
+                "z": 1.0
+            }
+        },
+        "value24": 4,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value27": 1,
+        "value28": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 3,
+            "Prev": 1
+        },
+        "value29": 2,
+        "value30": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value31": 3,
+        "value32": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value33": 0,
+        "value34": 0,
+        "value35": 0,
+        "value36": 0,
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 2,
+        "value49": 1,
+        "value50": {
+            "cereal_class_version": 1,
+            "TextureUUID": {
+                "value0": 7526500424450752319
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "cereal_class_version": 0,
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -299.5,
+                    "y": 158.5
+                },
+                "OffsetMax": {
+                    "x": 299.5,
+                    "y": 191.5
+                }
+            },
+            "Layer": 0
+        },
+        "value51": 2,
+        "value52": {
+            "TextureUUID": {
+                "value0": 14225009616145662508
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -289.5,
+                    "y": 168.5
+                },
+                "OffsetMax": {
+                    "x": 289.5,
+                    "y": 181.5
+                }
+            },
+            "Layer": 1
+        },
+        "value53": 1,
+        "value54": 3,
+        "value55": {
+            "cereal_class_version": 0,
+            "Text": "Wild Boyz",
+            "FontPath": "",
+            "Color": {
+                "x": 0.5529412031173706,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 72.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": 95.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 195.0
+                }
+            },
+            "Layer": 0
+        },
+        "value56": 0,
+        "value57": 0,
+        "value58": 0,
+        "value59": 1,
+        "value60": 0,
+        "value61": {
+            "cereal_class_version": 0,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -0.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 100.0
+                }
+            },
+            "Layer": 0
+        }
+    }
+}
