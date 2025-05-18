@@ -20,8 +20,10 @@ function on_update(dt)
         alertTransf.position = Vector3.new(enemyTransf.position.x, enemyTransf.position.y + alertDistance, enemyTransf.position.z)
     end
     
-
-    changeAlpha(dt)
+    if alertSprite then
+        changeAlpha(dt)
+    end
+    
 
     alertTimer = alertTimer + dt
     if alertTimer >= 2.5 then
