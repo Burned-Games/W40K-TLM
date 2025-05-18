@@ -10,55 +10,228 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 16867134180674831181
+                "value0": 10962829790609959468
             },
             "value4": false
         },
         "RootEntity": 0,
-        "value0": 1,
-        "value1": 1,
+        "value0": 5,
+        "value1": 5,
         "value2": 0,
         "value3": 1,
-        "value4": 0,
-        "value5": {
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 0,
+        "value9": {
             "cereal_class_version": 0,
             "Tag": "BossFist"
         },
-        "value6": 1,
-        "value7": 0,
-        "value8": {
+        "value10": 1,
+        "value11": {
+            "Tag": "Puño"
+        },
+        "value12": 2,
+        "value13": {
+            "Tag": "Suelo"
+        },
+        "value14": 3,
+        "value15": {
+            "Tag": "Trail"
+        },
+        "value16": 4,
+        "value17": {
+            "Tag": "Root"
+        },
+        "value18": 5,
+        "value19": 0,
+        "value20": {
             "cereal_class_version": 0,
             "Position": {
-                "x": -64.4000015258789,
-                "y": 0.0,
-                "z": -49.20000076293945
+                "x": -1.6631838083267213,
+                "y": -0.000073912953666877,
+                "z": 0.030057549476623536
             },
             "Rotation": {
-                "x": -90.0,
+                "x": 0.0,
                 "y": -0.0,
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.25,
-                "y": 1.25,
+                "x": 1.5,
+                "y": 1.5,
+                "z": 1.5
+            }
+        },
+        "value21": 1,
+        "value22": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
                 "z": 1.0
             }
         },
-        "value9": 1,
-        "value10": 0,
-        "value11": {
+        "value23": 2,
+        "value24": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value25": 3,
+        "value26": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value27": 4,
+        "value28": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": -170.5376739501953,
+                "y": 89.98021697998047,
+                "z": 9.462318420410157
+            },
+            "Scale": {
+                "x": 0.9999998807907105,
+                "y": 0.9999998211860657,
+                "z": 0.9999998211860657
+            }
+        },
+        "value29": 5,
+        "value30": 0,
+        "value31": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
-            "First": 4294967295,
+            "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value12": 0,
-        "value13": 0,
-        "value14": 0,
-        "value15": 1,
-        "value16": 0,
-        "value17": {
+        "value32": 1,
+        "value33": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4,
+            "Prev": 2
+        },
+        "value34": 2,
+        "value35": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value36": 3,
+        "value37": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value38": 4,
+        "value39": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value40": 3,
+        "value41": 1,
+        "value42": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 9957108880703536403
+            },
+            "AnimatorUUID": {
+                "value0": 3739329807979750391
+            }
+        },
+        "value43": 2,
+        "value44": {
+            "Mesh": {
+                "value0": 15440181861076131561
+            },
+            "AnimatorUUID": {
+                "value0": 3739329807979750391
+            }
+        },
+        "value45": 3,
+        "value46": {
+            "Mesh": {
+                "value0": 17699818474381009351
+            },
+            "AnimatorUUID": {
+                "value0": 3739329807979750391
+            }
+        },
+        "value47": 3,
+        "value48": 1,
+        "value49": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 13012154686191373644
+            }
+        },
+        "value50": 2,
+        "value51": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 13012154686191373644
+            }
+        },
+        "value52": 3,
+        "value53": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 13012154686191373644
+            }
+        },
+        "value54": 0,
+        "value55": 1,
+        "value56": 0,
+        "value57": {
             "cereal_class_version": 0,
             "RigidBody": true,
             "RigidBodyData": {
@@ -72,11 +245,11 @@
                             "mass": 1.0,
                             "useGravity": false,
                             "freezeX": false,
-                            "freezeY": true,
+                            "freezeY": false,
                             "freezeZ": false,
-                            "freezeRotX": true,
-                            "freezeRotY": true,
-                            "freezeRotZ": true,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
                             "isTrigger": false,
                             "velocity": {
                                 "x": 0.0,
@@ -102,7 +275,7 @@
                                             "y": 0.0,
                                             "z": 0.0
                                         },
-                                        "Radius": 0.5
+                                        "Radius": 0.75
                                     }
                                 }
                             }
@@ -111,39 +284,61 @@
                 }
             }
         },
-        "value18": 0,
-        "value19": 0,
-        "value20": 1,
-        "value21": 0,
-        "value22": 0,
-        "value23": 0,
-        "value24": 0,
-        "value25": 0,
-        "value26": 0,
-        "value27": 0,
-        "value28": 0,
-        "value29": 1,
-        "value30": 0,
-        "value31": {
+        "value58": 0,
+        "value59": 0,
+        "value60": 5,
+        "value61": 0,
+        "value62": 1,
+        "value63": 2,
+        "value64": 3,
+        "value65": 4,
+        "value66": 0,
+        "value67": 1,
+        "value68": 0,
+        "value69": {
             "cereal_class_version": 0,
-            "TextureUUID": {
-                "value0": 10465071026567610325
+            "BlendDuration": 0.0,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 3194712487924231071
             },
-            "TintColor": {
-                "x": 1.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
+            "AnimatorUUID": {
+                "value0": 3739329807979750391
             },
-            "FlipX": false,
-            "FlipY": false,
-            "TilingFactor": 1.0
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "CurrentAnimation": 1
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483652,
+                    "data": {
+                        "CurrentAnimation": 1
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
         },
-        "value32": 0,
-        "value33": 0,
-        "value34": 0,
-        "value35": 0,
-        "value36": 0,
-        "value37": 0
+        "value70": 0,
+        "value71": 0,
+        "value72": 0,
+        "value73": 0,
+        "value74": 0,
+        "value75": 0,
+        "value76": 0,
+        "value77": 0,
+        "value78": 0,
+        "value79": 0,
+        "value80": 0,
+        "value81": 0
     }
 }

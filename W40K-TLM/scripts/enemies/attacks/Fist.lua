@@ -6,6 +6,7 @@ local fistIndicatorPrefab = "prefabs/Enemies/attacks/BossFistIndicator.prefab"
 
 -- Fists
 local fistAttacks = {}
+local fistAnimator = {}
 local fistTransf = {}
 local fistRbComponent = {}
 local fistRbs = {}
@@ -39,6 +40,9 @@ fistsThrown = false
 fistsAttackPending = false
 local isFistsDamaging = true
 
+-- Animation
+local currentAnim = 0
+
 function on_ready()
 
     -- Main Boss
@@ -51,6 +55,7 @@ function on_ready()
     for i = 1, fistMaxNumbers do
         local fistEntity = instantiate_prefab(fistPrefab)
         fistAttacks[i] = fistEntity
+        fistAnimator[i] = fistAttacks[i]:get_component("AnimatorComponent")
         fistTransf[i] = fistAttacks[i]:get_component("TransformComponent")
         fistRbComponent[i] = fistAttacks[i]:get_component("RigidbodyComponent")
         fistRbs[i] = fistRbComponent[i].rb
@@ -110,6 +115,15 @@ function on_update(dt)
 
     if fistsThrown then
         rangeAttackTimer = rangeAttackTimer + dt
+
+        if rangeAttackTimer >= 0.5 then
+            if currentAnim ~= 0 then
+                currentAnim = 0
+                for i = 1, fistMaxNumbers do
+                    fistAnimator[i]:set_current_animation(currentAnim)
+                end
+            end
+        end
 
         if not isFistsDamaging then
             timeSinceLastFistHit = timeSinceLastFistHit + dt
@@ -173,19 +187,19 @@ function execute_fists_attack()
         if fistRbs[i] and fistTransf[i] then
             -- Set initial position
             fistRbComponent[i].rb:set_position(fistPositions[i])
+            currentAnim = 1
+            fistAnimator[i]:set_current_animation(currentAnim)
 
             -- Reset scale
-            fistTransf[i].scale = Vector3.new(1.25, 1.25, 1.25)
             fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)
             fistRbComponent[i].rb:set_trigger(true)
             
             -- Add to scaling list with reference to the specific fist transform
             table.insert(scalingAttacks, {
-                transform = fistTransf[i],
                 transformRb = fistRbComponent[i],
                 elapsed = 0,
                 duration = rangeAttackDuration,
-                startScale = Vector3.new(1.25, 1.25, 1.25),
+                startScale = Vector3.new(1.5, 1.5, 1.5),
                 targetScale = Vector3.new(fistTargetScale, fistTargetScale, fistTargetScale),
                 colliderTimer = 0.0
             })
@@ -211,10 +225,6 @@ function update_scaling_attacks(dt)
             data.startScale.z + (data.targetScale.z - data.startScale.z) * t
         )
 
-        if data.transform then
-            data.transform.scale = newScale
-        end
-
         if data.colliderTimer >= colliderUpdateInterval then
             if data.transformRb then
                 data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
@@ -224,9 +234,6 @@ function update_scaling_attacks(dt)
         end
 
         if data.elapsed >= data.duration then
-            if data.transform then
-                data.transform.scale = data.targetScale
-            end
             if data.transformRb then
                 data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
                 data.transformRb.rb:set_trigger(true)

@@ -1,0 +1,56 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "VFX_Smash_male_zbrush",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 9957108880703536403
+                        }
+                    },
+                    {
+                        "key": "VFX_Smash_Plane.002",
+                        "value": {
+                            "value0": 15440181861076131561
+                        }
+                    },
+                    {
+                        "key": "VFX_Smash_Sphere",
+                        "value": {
+                            "value0": 17699818474381009351
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.001_Mat0",
+                        "value": {
+                            "value0": 13012154686191373644
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 3194712487924231071
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/VFX_Smash/VFX_Smash.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/3194712487924231071.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
