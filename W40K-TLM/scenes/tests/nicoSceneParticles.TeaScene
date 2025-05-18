@@ -481,7 +481,7 @@
         },
         "value289": 94,
         "value290": {
-            "Tag": "ParticleSystem"
+            "Tag": "ChargingDisruptorChargeParticle"
         },
         "value291": 95,
         "value292": 69,
@@ -6062,7 +6062,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 0.0,
                         "UseBurst": true,
