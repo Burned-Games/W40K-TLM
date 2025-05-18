@@ -144,6 +144,9 @@ function on_update(dt)
                     save_progress("scrap", 0)
                     save_progress("health", 250)
                     save_progress("stims", 2)
+
+                    save_progress("bluemision",1)
+                    save_progress("redmision",1)
                     
                     saliendoDeMenu = true
                     botonSalida1:set_active(true)

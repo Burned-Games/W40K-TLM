@@ -33,8 +33,8 @@ local dialogLines3 = {
     { name = "Decius Marcellus", text = "May the Emperor's light guide you, for Ultramar!" }
 }
 
-local blueTaskIndex = 1
-local redTaskIndex = 1
+    blueTaskIndex = 1
+    redTaskIndex = 1
 
 -- UI Components
 local textBlueComponent = nil
@@ -101,9 +101,9 @@ enemyDie_M10 = 1
 M5_WorkBrech = false
 M9_WorkBrech = false
 
-local actualAlpha = 0  -- 初始设为 0，任务界面隐藏
+local actualAlpha = 0  
 
--- 延迟变量，用来控制 3 秒后显示任务
+
 local delayTimer = 0.0
 local initialDelay = 3.0
 local initialDelayDone = false
@@ -126,24 +126,24 @@ function on_ready()
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
     
-    -- 开始时隐藏任务 UI
+
     imgBlueUI:set_color(Vector4.new(1, 1, 1, 0))
     imgRedUI:set_color(Vector4.new(1, 1, 1, 0))
     textBlueComponent:set_color(Vector4.new(1, 1, 1, 0))
     textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
     
-    -- 如果需要对话功能，可取消下面注释
-    -- dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    -- dialogScriptComponent.start_dialog(dialogLines)
+
+
+    blueTaskIndex = load_progress("bluemision",1)
+    redTaskIndex = load_progress("redmision",1)
 end
 
 function on_update(dt)
-    -- 延迟流程：3秒后开始显示任务
+
     if not initialDelayDone then
         delayTimer = delayTimer + dt
         if delayTimer >= initialDelay then
             initialDelayDone = true
-            -- 触发蓝色和红色任务的淡入动画
             blueAnimation.closing = true
             blueAnimation.start = true
             blueAnimation.playing = true
@@ -228,7 +228,7 @@ function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
     if redTaskIndex == 1 and mr1_Check then
         startAnimation(redAnimation)
-        -- 如需对话，可取消下面注释
+
         -- dialogScriptComponent.start_dialog(dialogLines2)
     elseif redTaskIndex == 2 and mr2_Check then
         startAnimation(redAnimation)
@@ -255,7 +255,7 @@ function processAnimation(dt, anim, img, text, onComplete)
     local tDes = anim.closing and textPosDes or textPosOri
 
     anim.lerpTime = anim.lerpTime + (dt * 0.1)
-    -- 此处可以根据需要修改位置动画：
+
     -- img.position.x = lerp(ori, des, anim.lerpTime)
     -- text.position.x = lerp(tOri, tDes, anim.lerpTime)
     
