@@ -9,6 +9,7 @@
     local life75Component
     local lifeTextComponent
     local lifeFullTransform
+    local originalLifeColor = nil
 
     local skill1
     local skill1VisualCooldownEntity
@@ -108,8 +109,6 @@
         --Vida
         lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
         lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
-        lifeFullTransform = current_scene:get_entity_by_name("VidaFull"):get_component("TransformComponent")
-        lifeFullStartingPosition = Vector3.new(lifeFullTransform.position.x, lifeFullTransform.position.y + 49, lifeFullTransform.position.z)
 
         --Habilidades
         skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
@@ -223,6 +222,8 @@
         proteccionEntity:set_active(false)
         recargaEntity:set_active(false)
         velocidadAtaqueEntity:set_active(false)
+
+        originalLifeColor = lifeFullComponent:get_color()
 
     end
 
@@ -491,11 +492,11 @@
         end
 
         
-        local colorHealing = Vector4.new(0, 1, 0.2, 1)
+        local colorHealing = Vector4.new(0, 1, 0.031, 1)
         if playerScript.isHealing then
             lifeFullComponent:set_color(colorHealing)
         else
-            lifeFullComponent:set_color(Vector4.new(1, 0.2, 0.2, 1))
+            lifeFullComponent:set_color(originalLifeColor)
         end
 
         quemadoEntity:set_active(false)
