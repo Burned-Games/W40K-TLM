@@ -25,11 +25,17 @@ local isPersistentActive = false
 local popupTimer = 0
 local popupShouldRemove = false
 
+--Audio
+local popupIntroOutroSFX = nil
+
 -- Initialization
 function on_ready()
     popupNormal = current_scene:get_entity_by_name("PopUpNewZoneIMG"):get_component("UIImageComponent")
     popupBoss = current_scene:get_entity_by_name("PopUpBossZoneIMG"):get_component("UIImageComponent")
     popupText = current_scene:get_entity_by_name("PopUpText"):get_component("UITextComponent")
+
+    --Audio
+    popupIntroOutroSFX = current_scene:get_entity_by_name("PopupIntroOutroSFX"):get_component("AudioSourceComponent")
 
     set_popup_alpha_Start(0)
 end
@@ -102,6 +108,8 @@ function start_popup(isBoss, message)
     if popupText then
         popupText:set_text(message or " ")
     end
+
+    popupIntroOutroSFX:play()
 end
 
 -- Manually remove persistent popup
@@ -153,8 +161,7 @@ function update_popup(dt)
         -- Normal popup: Countdown until exit
         popupTimer = popupTimer + dt
         if popupTimer >= popupDuration then
-            popupState = "exit"
-        end
+            popupState = "exit"        end
 
     elseif popupState == "exit" then
         actualAlpha = lerp(actualAlpha, 0.0, dt * popupSpeed)

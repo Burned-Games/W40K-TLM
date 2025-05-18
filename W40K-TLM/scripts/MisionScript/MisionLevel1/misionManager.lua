@@ -76,11 +76,17 @@ local mission10Complet = false
     initialDelay = 3.0
     initialDelayDone = false
 
+    --Audio
+    local missionCompleteSFX = nil
+
 function on_ready()
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
     textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
     textRedTransform = current_scene:get_entity_by_name("MisionTextRed"):get_component("TransformComponent")
+
+    --Audio
+    missionCompleteSFX = current_scene:get_entity_by_name("MissionCompleteSFX"):get_component("AudioSourceComponent")
 
     imgBlue = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
     imgRed = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
@@ -210,6 +216,7 @@ function startAnimation(anim)
         anim.playing = true
         anim.phase = "closing"
         anim.lerpTime = 0.0
+        missionCompleteSFX:play()
     end
 end
 
@@ -228,7 +235,7 @@ function processAnimation(dt, anim, img, text, onComplete)
     if anim.lerpTime >= 1.0 then
         anim.lerpTime = 0.0
         if anim.phase == "closing" then
-            onComplete()       
+            onComplete()
             anim.phase = "opening"
             anim.start = true  
         else
