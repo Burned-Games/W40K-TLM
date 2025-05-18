@@ -57,11 +57,11 @@ function on_ready()
 
     if not tank.tackleIndicator then
         tank.tackleIndicator = instantiate_prefab(tackleIndicatorPrefab)
-        tank.tackleIndicatorScript = tank.tackleIndicator:get_component("ScriptComponent")
-        tank.tackleIndicatorScript:on_ready()
+        tank.tackleIndicatorSprite = tank.tackleIndicator:get_component("SpriteComponent")
+        tank.tackleIndicatorTransf = tank.tackleIndicator:get_component("TransformComponent")
         tank.tackleIndicator:set_parent(self)
+        tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
     end
-    --tank.tackleIndicatorScript:startIndicator()
 
 
     -- Level
@@ -138,6 +138,7 @@ function on_ready()
         if (nameA == "Player" or nameB == "Player") then
             tank.collisionWithPlayer = true
             if tank.currentState == tank.state.Tackle or tank.currentState == tank.state.Move then
+                tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
                 tank.isCharging = false
                 tank.canTackle = false
@@ -166,6 +167,7 @@ function on_ready()
                 nameB ==  "DisruptorBullet" or nameB == "ChargeZone"
 
             if not isSphereOrGranade and tank.currentState == tank.state.Tackle then
+                tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
                 tank.isCharging = false
                 tank.canTackle = false
@@ -468,6 +470,8 @@ function tank:tackle_state()
     end
 
     if tank.isCharging and tank.targetDirection then
+        tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 1)
+
         local velocity = Vector3.new(
             tank.targetDirection.x * tank.tackleSpeed,
             0,

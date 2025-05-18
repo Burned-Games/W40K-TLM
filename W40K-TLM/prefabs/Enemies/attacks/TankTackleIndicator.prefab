@@ -10,170 +10,86 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 1488094089989970488
+                "value0": 16107668305046629495
             },
             "value4": false
         },
         "RootEntity": 0,
-        "value0": 3,
-        "value1": 3,
+        "value0": 1,
+        "value1": 1,
         "value2": 0,
         "value3": 1,
-        "value4": 2,
-        "value5": 3,
-        "value6": 0,
-        "value7": {
+        "value4": 0,
+        "value5": {
             "cereal_class_version": 0,
             "Tag": "TankTackleIndicator"
         },
-        "value8": 1,
-        "value9": {
-            "Tag": "Indicator"
-        },
-        "value10": 2,
-        "value11": {
-            "Tag": "Background"
-        },
-        "value12": 3,
-        "value13": 0,
-        "value14": {
+        "value6": 1,
+        "value7": 0,
+        "value8": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "y": 0.10000000149011612,
+                "z": 0.800000011920929
             },
             "Rotation": {
-                "x": 0.0,
+                "x": -90.0,
                 "y": 180.0,
                 "z": 0.0
             },
             "Scale": {
-                "x": 4.0,
-                "y": 1.0,
-                "z": 4.0
+                "x": 3.0,
+                "y": 3.0,
+                "z": 3.0
             }
         },
-        "value15": 1,
-        "value16": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": -90.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value17": 2,
-        "value18": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": -90.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value19": 3,
-        "value20": 0,
-        "value21": {
+        "value9": 1,
+        "value10": 0,
+        "value11": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
-            "First": 1,
+            "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value22": 1,
-        "value23": {
-            "Parent": 0,
-            "First": 4294967295,
-            "Next": 2,
-            "Prev": 4294967295
-        },
-        "value24": 2,
-        "value25": {
-            "Parent": 0,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 1
-        },
+        "value12": 0,
+        "value13": 0,
+        "value14": 0,
+        "value15": 0,
+        "value16": 0,
+        "value17": 0,
+        "value18": 1,
+        "value19": 0,
+        "value20": 0,
+        "value21": 0,
+        "value22": 0,
+        "value23": 0,
+        "value24": 0,
+        "value25": 0,
         "value26": 0,
-        "value27": 0,
+        "value27": 1,
         "value28": 0,
-        "value29": 0,
+        "value29": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "value0": 15209486572644888797
+            },
+            "TintColor": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.37254902720451357
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
         "value30": 0,
-        "value31": 1,
-        "value32": 1,
-        "value33": 3,
+        "value31": 0,
+        "value32": 0,
+        "value33": 0,
         "value34": 0,
-        "value35": 1,
-        "value36": 2,
-        "value37": 1,
-        "value38": 0,
-        "value39": {
-            "cereal_class_version": 0,
-            "ScriptPath": "scripts/enemies/attackIndicators/TankTackleAttackIndicator.lua",
-            "Language": 0
-        },
-        "value40": 0,
-        "value41": 0,
-        "value42": 0,
-        "value43": 0,
-        "value44": 0,
-        "value45": 0,
-        "value46": 2,
-        "value47": 1,
-        "value48": {
-            "cereal_class_version": 0,
-            "TextureUUID": {
-                "value0": 16333139077797575903
-            },
-            "TintColor": {
-                "x": 1.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.5882353186607361
-            },
-            "FlipX": false,
-            "FlipY": false,
-            "TilingFactor": 1.0
-        },
-        "value49": 2,
-        "value50": {
-            "TextureUUID": {
-                "value0": 13877718722463717334
-            },
-            "TintColor": {
-                "x": 1.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.4117647111415863
-            },
-            "FlipX": false,
-            "FlipY": false,
-            "TilingFactor": 1.0
-        },
-        "value51": 0,
-        "value52": 0,
-        "value53": 0,
-        "value54": 0,
-        "value55": 0,
-        "value56": 0
+        "value35": 0
     }
 }
