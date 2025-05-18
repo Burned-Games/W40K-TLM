@@ -771,7 +771,6 @@ function enemy:take_damage(damage, shieldMultiplier)
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
         if self.hitAudioTimer >= 2 then
-            print("A")
             if self.hurtSFX then self.hurtSFX:play() end
             self.hitAudioTimer = 0.0
         end
