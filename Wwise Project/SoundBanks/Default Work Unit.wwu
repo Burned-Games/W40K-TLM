@@ -102,6 +102,7 @@
 				</SoundBank>
 				<SoundBank Name="EnvironmentSFX" ID="{590DE83F-02C9-4D44-A80C-89EB32CFFA44}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_howlingwind" ID="{079E687F-B205-4038-9C60-ED7BB0246047}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_WorkbenchBuy" ID="{84BBD9EA-63DB-4216-81C9-14B9DE3A408A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_fireburn" ID="{A89DE179-729A-421B-BD9B-CD336F69964E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_metaldoor" ID="{ED62D851-4499-4458-AB59-0AAF8975C447}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -110,7 +111,6 @@
 						<ObjectRef Name="Play_firetorch" ID="{812307E1-0975-4903-A4F7-D8A139FF55AD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ScrapDestroy" ID="{7BF1D656-45E9-49E2-B6D3-E11013CEF3FE}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BoxBarrelDestroy" ID="{BA40DC00-5A8B-4B8E-89C6-829B73B49337}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Play_howlingwind" ID="{17132D66-47FF-4BBB-B20D-D40AA8128F03}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_WorkbenchLand" ID="{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_lever" ID="{2B52C1AF-181D-4ED1-A394-93635FBC08C4}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>

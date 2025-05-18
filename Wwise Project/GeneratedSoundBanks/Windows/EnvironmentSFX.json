@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{2F3FAE39-D6C1-64DB-02B3-665B83591509}",
+    "Hash": "{006984B9-281D-A5B8-43A7-3775F439A9C9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -149,10 +149,8 @@
       "Id": "3210990662",
       "Name": "Play_howlingwind",
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_howlingwind",
-      "GUID": "{17132D66-47FF-4BBB-B20D-D40AA8128F03}",
-      "DurationType": "OneShot",
-      "DurationMin": "59.943436",
-      "DurationMax": "59.943436",
+      "GUID": "{079E687F-B205-4038-9C60-ED7BB0246047}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "18056239"
@@ -260,6 +258,6 @@
     ]
    }
   ],
-  "FileHash": "{D6363533-339E-8576-606B-9B9A19C65D51}"
+  "FileHash": "{263C0B5B-87FC-C088-719D-BC0AA8A03F56}"
  }
 }
