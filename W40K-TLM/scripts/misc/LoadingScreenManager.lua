@@ -1,3 +1,11 @@
+
+
+
+-- loading timing
+local loadingTime = 4
+
+
+-- other things
 local fadeToBlackScript = nil
 local textLoading = nil
 
@@ -59,7 +67,7 @@ function on_update(dt)
     handle_loading_gif(dt)
 
     counterLoading = counterLoading + dt
-    if counterLoading >= 6 and not changeing then
+    if counterLoading >= loadingTime and not changeing then
         changeing = true
         fadeToBlackScript:DoFade()
     end
