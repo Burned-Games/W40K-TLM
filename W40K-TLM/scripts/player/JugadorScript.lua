@@ -90,14 +90,14 @@ local swordAnimationTimeCounter = 0
 -- Audio
 local playerListener = nil
 
-local explorationMusic = nil
-local combatMusic = nil
+local exploreMusic = nil
+local fightingMusic = nil
 
-local combatMusicVolume = 0
-local explorationMusicVolume = 0.05
+local fightingMusicVolume = 0
+local exploreMusicVolume = 0.05
 
 local prevBackgroundMusicToPlay = -1
-backgroundMusicToPlay = 0 -- 0 exploration 1 combat
+backgroundMusicToPlay = 0 -- 0 exploration 1 fight
 
 local footstepSFXTimer = 0
 local footstepSFXDelay = 0.5
@@ -245,8 +245,8 @@ function on_ready()
 
     playerListener = current_scene:get_entity_by_name("Listener"):get_component("TransformComponent")
 
-    explorationMusic = current_scene:get_entity_by_name("LevelOneIndoorMusic"):get_component("AudioSourceComponent")
-    combatMusic = current_scene:get_entity_by_name("FightingMusic"):get_component("AudioSourceComponent")
+    exploreMusic = current_scene:get_entity_by_name("ExploreMusic"):get_component("AudioSourceComponent")
+    fightingMusic = current_scene:get_entity_by_name("FightingMusic"):get_component("AudioSourceComponent")
 
     playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
     bleedingSFX = current_scene:get_entity_by_name("PlayerBleedingSFX"):get_component("AudioSourceComponent")
@@ -259,8 +259,8 @@ function on_ready()
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
 
     local musicVolume = load_progress("musicVolumeGeneral", 1.0)
-    explorationMusic:set_volume(musicVolume)
-    combatMusic:set_volume(musicVolume)
+    exploreMusic:set_volume(musicVolume)
+    fightingMusic:set_volume(musicVolume)
 
    entities = current_scene:get_all_entities()
 
@@ -322,10 +322,6 @@ function on_ready()
     if self:has_component("AnimatorComponent") then
         animator = self:get_component("AnimatorComponent")
     end
-  
-    combatMusic:play() 
-    explorationMusic:play()
-
     
     self:get_component("RigidbodyComponent"):on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
@@ -411,7 +407,8 @@ function on_ready()
     end
     
     
-    
+    exploreMusic:play()
+    fightingMusic:play() 
 
 end
 
@@ -516,6 +513,11 @@ function on_update(dt)
     end
 
     updateMusic(dt)
+    if combatTimer <= 0 then   
+        backgroundMusicToPlay = 0
+    else
+        backgroundMusicToPlay = 1
+    end
     
     if workbenchUIManagerScript.isWorkBenchOpen == false then
         updateDash(dt)
@@ -536,15 +538,15 @@ function on_update(dt)
 
     handleCover()
     
-    backgroundMusicToPlay = 0
+    
 
     -- Listener Position
     playerListener.position = playerTransf.position
 end
 
 function on_exit()
-    combatMusic:pause()
-    explorationMusic:pause()
+    fightingMusic:pause()
+    exploreMusic:pause()
     -- Add cleanup code here
 end
 
@@ -552,30 +554,30 @@ end
 
 function updateMusic(dt)
     if backgroundMusicToPlay == 0 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
-        if explorationMusicVolume >= 0.05 then
-            explorationMusicVolume = 0.05
-            combatMusicVolume = 0
-            explorationMusic:set_volume(explorationMusicVolume) 
-            combatMusic:set_volume(combatMusicVolume)
+        if exploreMusicVolume >= 0.05 then
+            exploreMusicVolume = 0.05
+            fightingMusicVolume = 0
+            exploreMusic:set_volume(exploreMusicVolume) 
+            fightingMusic:set_volume(fightingMusicVolume)
             prevBackgroundMusicToPlay = 0
         else 
-            explorationMusicVolume = explorationMusicVolume + dt * 0.05
-            combatMusicVolume = combatMusicVolume - dt  * 0.05
-            explorationMusic:set_volume(explorationMusicVolume) 
-            combatMusic:set_volume(combatMusicVolume) 
+            exploreMusicVolume = exploreMusicVolume + dt * 0.05
+            fightingMusicVolume = fightingMusicVolume - dt  * 0.05
+            exploreMusic:set_volume(exploreMusicVolume) 
+            fightingMusic:set_volume(fightingMusicVolume) 
         end
     elseif backgroundMusicToPlay == 1 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
-        if combatMusicVolume >= 0.05 then
-            combatMusicVolume = 0.05
-            explorationMusicVolume = 0
-            combatMusic:set_volume(combatMusicVolume)
-            explorationMusic:set_volume(explorationMusicVolume)
+        if fightingMusicVolume >= 0.05 then
+            fightingMusicVolume = 0.05
+            exploreMusicVolume = 0
+            fightingMusic:set_volume(fightingMusicVolume)
+            exploreMusic:set_volume(exploreMusicVolume)
             prevBackgroundMusicToPlay = 1
         else 
-            explorationMusicVolume = explorationMusicVolume - dt * 0.05
-            combatMusicVolume = combatMusicVolume + dt * 0.05
-            explorationMusic:set_volume(explorationMusicVolume)
-            combatMusic:set_volume(combatMusicVolume)
+            exploreMusicVolume = exploreMusicVolume - dt * 0.05
+            fightingMusicVolume = fightingMusicVolume + dt * 0.05
+            exploreMusic:set_volume(exploreMusicVolume)
+            fightingMusic:set_volume(fightingMusicVolume)
         end
     end
 end
