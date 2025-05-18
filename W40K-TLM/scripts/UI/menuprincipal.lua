@@ -93,7 +93,6 @@ function on_ready()
 
     Credits = current_scene:get_entity_by_name("Credits")
 
-    level = load_progress("level", 1)
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
@@ -104,6 +103,14 @@ function on_ready()
     outroSFX = current_scene:get_entity_by_name("OutroSFX"):get_component("AudioSourceComponent")
     
     introSFX:play()
+
+    local savedLevel = load_progress("level", -1)
+
+    if savedLevel == -1 then
+        print("No hay nivel guardado")
+        --button2.interactable = false
+        button2.state = State.Disabled
+    end
 end
 
 function on_update(dt)
@@ -116,22 +123,11 @@ function on_update(dt)
             button4.state = State.Normal
             button5.state = State.Normal
 
-            --[[
-            text1:set_color(selectedColor)
-            text2:set_color(defaultColor)
-            text3:set_color(defaultColor)
-            text4:set_color(defaultColor)
-            text5:set_color(defaultColor) --]]
-
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down and sceneChanged == false)) then
                 outroSFX:play()
                 if(index == 0) then
-                    --button1:set_state("Pressed")
-                    --sceneChanged = true
-                    --save_progress("zonePlayer", 0)
                     save_progress("level", 0)
-                    --SceneManager.change_scene("scenes/level1.TeaScene")
 
                     save_progress("weaponsReloadReduction", false)
                     save_progress("weaponsDamageBoost", false)
@@ -173,19 +169,10 @@ function on_update(dt)
         button4.state = State.Normal
         button5.state = State.Normal
 
-        --[[
-        text1:set_color(defaultColor)
-       text2:set_color(selectedColor)
-        text3:set_color(defaultColor)
-        text4:set_color(defaultColor)
-        text5:set_color(defaultColor) --]]
-
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false)) then
             outroSFX:play()
             if(index == 1) then
-                --button2:set_state("Pressed")
-                --fadeToBlackScript:DoFade()
                 botonSalida2:set_active(true)
                 salidaImagen:set_active(true)
                 SettingsEntity:set_active(false)
@@ -207,18 +194,10 @@ function on_update(dt)
         button3.state = State.Hover
         button4.state = State.Normal
         button5.state = State.Normal
-        --[[
-        text1:set_color(defaultColor)
-        text2:set_color(defaultColor)
-        text3:set_color(selectedColor)
-        text4:set_color(defaultColor)
-        text5:set_color(defaultColor) --]]
-
 
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down)) then
             indexSelectionSFX:play()
-            --button3:set_state("Pressed")
             if(index == 2) then
                 ajustesOpened = true
             end
@@ -231,16 +210,9 @@ function on_update(dt)
         button4.state = State.Hover
         button5.state = State.Normal
 
-       --[[ text1:set_color(defaultColor)
-       text2:set_color(defaultColor)
-        text3:set_color(defaultColor)
-        text4:set_color(selectedColor)
-        text5:set_color(defaultColor) --]]
-
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false)) then
             indexSelectionSFX:play()
-            --button3:set_state("Pressed")
             if(index == 3) then
                 salidaImagen:set_active(true)
                 SettingsEntity:set_active(false)
@@ -261,19 +233,10 @@ function on_update(dt)
         button4.state = State.Normal
         button5.state = State.Hover
 
-       --[[ text1:set_color(defaultColor)
-        text2:set_color(defaultColor)
-        text3:set_color(defaultColor)
-        text4:set_color(defaultColor)
-        text5:set_color(selectedColor) --]]
-
         value = Input.get_button(Input.action.Confirm)
         if((value == Input.state.Down and sceneChanged == false)) then
             outroSFX:play()
-            --button4:set_state("Pressed")
             if(index == 4) then
-                -- preguntar como cerrar el juego 
-                --print("Exiting game...")
                 App.quit()
             end
         end
