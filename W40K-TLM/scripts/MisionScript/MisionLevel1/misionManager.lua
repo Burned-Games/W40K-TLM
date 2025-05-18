@@ -14,36 +14,15 @@ local blueTasks = {
     {id = 12, description = "Find a way to get to the Hive City"}
 }
 
-
-
 local redTasks = {
     {id = 1, description = "Find the drop pod supply"},
     {id = 2, description = "Make your way to the orkz base"},
     {id = 3, description = "Break out of the orkz base to the Hive City"}
 }
 
-
-dialogLines = {
-    { name = "Decius Marcellus", text = "This is Decius Marcellus, commander of Guilliman's Fist..." },
-    { name = "Decius Marcellus", text = "Has anyone successfully made planetfall? I repeat: are there any survivors?" },
-    { name = "Decius Marcellus", text = "I think you're the only survivor, Brother Quintus Maxillian. Maintain course toward Martyria Eterna." },
-    { name = "Decius Marcellus", text = "We detect enemies along your path. May the Emperor be with you." }
-}
-
-dialogLines2 = {
-    { name = "Decius Marcellus", text = "Brother Quintus, that is an upgrade station. With it, you can enhance your equipment to continue the xenos purge." },
-    { name = "Decius Marcellus", text = "Search for them in the field-they could make a huge difference in how the battle unfolds." }
-}
-
-dialogLines3 = {
-    { name = "Decius Marcellus", text = "Brother Quintus, it's an ambush! Hold out until the enemies are eliminated." },
-    { name = "Decius Marcellus", text = "May the Emperor's light guide you, for Ultramar!" }
-}
-
 local blueTaskIndex = 1
 local redTaskIndex = 1
 
--- Components
 local textBlueComponent = nil
 local textRedComponent = nil
 local textBlueTransform = nil
@@ -53,17 +32,15 @@ local imgRed = nil
 local imgBlueUI = nil
 local imgRedUI = nil
 
--- Animation control
-local blueAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
-local redAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
 
--- Position control
+local blueAnimation = {start = false, playing = false, lerpTime = 0.0, phase = ""}
+local redAnimation = {start = false, playing = false, lerpTime = 0.0, phase = ""}
+
 local imgPosOri = -123
 local imgPosDes = 124
 local textPosOri = -27
 local textPosDes = 220
 
--- Other components
 local mission4Component = nil
 local mission5Component = nil
 local mission6Component = nil
@@ -72,58 +49,34 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
-local current_Level = 1
---MisionBlue
---M3
-m3_EnemyCount = 0
---M4
-m4_lever = false
-m4_EnemyCount = 0
-m4_showLeverPop = false
---M5
-m5_Upgrade = false
---M6
-m6_heal  = false
-
---M7Espercial
-m7_Defeate = false
-
---M7
-m7_Upgrade = false
---m8
-m8_lever = 0
---M9
-m9_EnemyCount = 0
---M10
-m10_Upgrade = false
---M11
-m11_NewZone = false
-
---MisionRed
---MR1
-mr1_supply = false
---MR2
-mr2_orkzBase = false
---MR3
-mr3_breakOut = false
-
--- Trigger variables
-enemyDieCounttest = 2
-enemyDieCount = 0
-enemyDie_M7 = 1
-enemyDie_M10 = 1
-M5_WorkBrech = false
-M9_WorkBrech = false
-
-local actualAlpha = 1
+    current_Level = 1
+    m3_EnemyCount = 0
+    m4_lever = false
+    m4_EnemyCount = 0
+    m4_showLeverPop = false
+    m5_Upgrade = false
+    m6_heal  = false
+    m7_Defeate = false
+    m7_Upgrade = false
+    m8_lever = 0
+    m9_EnemyCount = 0
+    m10_Upgrade = false
+    m11_NewZone = false
+    mr1_supply = false
+    mr2_orkzBase = false
+    mr3_breakOut = false
+    enemyDieCounttest = 2
+    enemyDieCount = 0
+    enemyDie_M7 = 1
+    enemyDie_M10 = 1
+    M5_WorkBrech = false
+    M9_WorkBrech = false
+    actualAlpha = 0
+    delayTimer = 0
+    initialDelay = 3.0
+    initialDelayDone = false
 
 function on_ready()
-    --mission4Component = current_scene:get_entity_by_name("Mission4Collider"):get_component("ScriptComponent")
-    --mission5Component = current_scene:get_entity_by_name("Mission5Mesa"):get_component("ScriptComponent")
-    --mission6Component = current_scene:get_entity_by_name("Mission6Collider"):get_component("ScriptComponent")
-    --mission8Component = current_scene:get_entity_by_name("Mission8Collider"):get_component("ScriptComponent")
-    --mission9Component = current_scene:get_entity_by_name("Mission9Collider"):get_component("ScriptComponent")
-
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
     textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
@@ -135,29 +88,48 @@ function on_ready()
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
 
-    --dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    --dialogScriptComponent.start_dialog(dialogLines)
-
     popupScriptComponent = current_scene:get_entity_by_name("PopUpManager"):get_component("ScriptComponent")
-
+    
+    imgBlueUI:set_color(Vector4.new(1, 1, 1, 0))
+    imgRedUI:set_color(Vector4.new(1, 1, 1, 0))
+    textBlueComponent:set_color(Vector4.new(1, 1, 1, 0))
+    textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
 end
 
 function on_update(dt)
+    if not initialDelayDone then
+        delayTimer = delayTimer + dt
+        if delayTimer >= initialDelay then
+            initialDelayDone = true
+            blueAnimation.phase = "opening"
+            blueAnimation.start = true
+            blueAnimation.playing = true
+
+            redAnimation.phase = "opening"
+            redAnimation.start = true
+            redAnimation.playing = true
+        end
+        return
+    end
+
     updateText()
     missionBlue_Tutor()
     missionRed_Tutor()
 
     processAnimation(dt, blueAnimation, imgBlueUI, textBlueComponent, function()
+
         blueTaskIndex = blueTaskIndex + 1
-        if blueTaskIndex > #blueTasks then blueTaskIndex = #blueTasks + 1 end
+        if blueTaskIndex > #blueTasks then 
+            blueTaskIndex = #blueTasks + 1
+        end
     end)
+    
     processAnimation(dt, redAnimation, imgRedUI, textRedComponent, function()
         redTaskIndex = redTaskIndex + 1
-        if redTaskIndex > #redTasks then redTaskIndex = #redTasks + 1 end
+        if redTaskIndex > #redTasks then 
+            redTaskIndex = #redTasks + 1
+        end
     end)
-
-
-  
 end
 
 function updateText()
@@ -168,12 +140,10 @@ function updateText()
 end
 
 function getCurrentTask(tasks, index)
-    if index > #tasks then return "" end
+    if index > #tasks then 
+        return ""
+    end
     local description = tasks[index].description
-
-    --if blueTaskIndex == 3 then
-        --description = description:gsub("x", tostring(m3_EnemyCount))
-    --end
 
     if blueTaskIndex == 9 then
         description = description:gsub("x", tostring(m8_lever))
@@ -183,16 +153,16 @@ function getCurrentTask(tasks, index)
         description = description:gsub("x", tostring(m9_EnemyCount))
     end
 
-    return insert_line_breaks(description, 31)
+    return insert_line_breaks(description, 28)
 end
 
 function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
+
     if blueTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
-        --popupScriptComponent.show_popup(false, "[Y] to change weapon")
     elseif blueTaskIndex == 3 and m3_EnemyCount >= 1 then
         startAnimation(blueAnimation)
         popupScriptComponent.start_popup_removal_timer()
@@ -200,7 +170,6 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)
-        --popupScriptComponent.show_popup(false, "[B] to dash")
     elseif blueTaskIndex == 6 and m6_heal then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 7 and m7_Defeate then
@@ -224,63 +193,56 @@ end
 
 function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
+
     if redTaskIndex == 1 and mr1_supply then
         startAnimation(redAnimation)
-        --dialogScriptComponent.start_dialog(dialogLines2)
     elseif redTaskIndex == 2 and mr2_orkzBase then
         startAnimation(redAnimation)
-        --dialogScriptComponent.start_dialog(dialogLines3)
     elseif redTaskIndex == 3 and mr3_breakOut then
         startAnimation(redAnimation)
     end
 end
 
+
 function startAnimation(anim)
     if not anim.start and not anim.playing then
         anim.start = true
         anim.playing = true
-        anim.closing = true
+        anim.phase = "closing"
         anim.lerpTime = 0.0
     end
 end
 
+
 function processAnimation(dt, anim, img, text, onComplete)
     if not anim.start then return end
 
-    local ori = anim.closing and imgPosOri or imgPosDes
-    local des = anim.closing and imgPosDes or imgPosOri
-    local tOri = anim.closing and textPosOri or textPosDes
-    local tDes = anim.closing and textPosDes or textPosOri
-
-    anim.lerpTime = anim.lerpTime + (dt * 0.1)
-    --img.position.x = lerp(ori, des, anim.lerpTime)
-    --text.position.x = lerp(tOri, tDes, anim.lerpTime)
+    anim.lerpTime = anim.lerpTime + (dt * 2.0)
     
-    if anim.lerpTime >= 0.1 then
-        if anim.closing then
-     
-            anim.closing = false
-            anim.lerpTime = 0.0
-            onComplete()
+    if anim.phase == "opening" then
+        actualAlpha = lerp(0.0, 1.0, anim.lerpTime)
+    else 
+        actualAlpha = lerp(1.0, 0.0, anim.lerpTime)
+    end
+
+    if anim.lerpTime >= 1.0 then
+        anim.lerpTime = 0.0
+        if anim.phase == "closing" then
+            onComplete()       
+            anim.phase = "opening"
+            anim.start = true  
         else
-           
             anim.start = false
             anim.playing = false
-            anim.lerpTime = 0.0
         end
     end
-    
-    if anim.closing then
-        actualAlpha = lerp(actualAlpha, 0.0, anim.lerpTime)
-    elseif anim.start then
-        actualAlpha = lerp(actualAlpha, 1.0, anim.lerpTime)
-    end
+
     img:set_color(Vector4.new(1, 1, 1, actualAlpha))
     text:set_color(Vector4.new(1, 1, 1, actualAlpha))
 end
 
 function lerp(a, b, t)
-    return a + (b - a) * t
+    return a + (b - a) * math.min(t, 1.0)
 end
 
 function insert_line_breaks(text, max_chars_per_line)
@@ -313,14 +275,13 @@ function insert_line_breaks(text, max_chars_per_line)
     return table.concat(result, "\n")
 end
 
-function getCurrerTaskIndex(type)
-    if type == true then
+function getCurrerTaskIndex(isBlue)
+    if isBlue then
         return blueTaskIndex
     else
         return redTaskIndex
     end
 end 
-
 
 function utf8_char_count(s)
     local _, count = s:gsub("[^\128-\191]", "")
@@ -328,6 +289,5 @@ function utf8_char_count(s)
 end
 
 function getCurrerLevel()
-   
     return current_Level
-end 
+end
