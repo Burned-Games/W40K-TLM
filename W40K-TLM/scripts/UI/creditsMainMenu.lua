@@ -6,7 +6,7 @@ local fondo = nil
 local fadeToBlackScript = nil
 
 -- NUEVAS VARIABLES
-local tiempoParaActivarFondo = 2.5 
+local tiempoParaActivarFondo = 2.5
 local temporizadorFondo = 0
 local fondoActivado = false
 
