@@ -355,7 +355,7 @@ function on_update(dt)
                 shootCoolDown = shootCoolDown + dt
             end
 
-            if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false then
+            if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false and reloadAnimation == false then
                 playerScript.activateAutoAim = true
                 if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
                     playerScript.currentUpAnim = playerScript.attack
