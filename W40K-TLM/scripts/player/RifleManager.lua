@@ -434,6 +434,7 @@ function on_update(dt)
                     if chaaarging == false then bolterSkillChargeSFX:play() end
 
                     playerScript.moveSpeed = 0
+                    playerScript.playerRb:set_velocity(Vector3.new(0, 0, 0))
                     chaaarging = true
                     particleCharging:emit(1)
                     if playerScript.currentAnim ~= playerScript.h1_Bolter then
