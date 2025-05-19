@@ -30,7 +30,7 @@ local playerScript = nil
 
 local shooted = true
 
-damage = 12
+damage = 15
 
 local yPositionBullet = 1.5
 

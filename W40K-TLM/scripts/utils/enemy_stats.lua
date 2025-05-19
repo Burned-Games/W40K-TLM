@@ -7,7 +7,7 @@ local enemy_stats = {
         -- Range Level 1
         [1] = {
             -- Stats
-            health = 120,
+            health = 110,
 
             speed = 5.5,
             bulletSpeed = 15,
@@ -19,11 +19,11 @@ local enemy_stats = {
             meleeAttackRange = 2,
             meleeDamageRange = 4,
             rangeAttackRange = 13,
-            chaseRange = 4,
+            chaseRange = 5,
 
             maxBurstShots = 4,
 
-            alertRadius = 15,
+            alertRadius = 10,
 
             priority = 1,
 
@@ -45,7 +45,7 @@ local enemy_stats = {
         -- Range Level 2
         [2] = {
             -- Stats
-            health = 140,
+            health = 130,
 
             speed = 5.5,
             bulletSpeed = 15,
@@ -57,11 +57,11 @@ local enemy_stats = {
             meleeAttackRange = 2,
             meleeDamageRange = 4,
             rangeAttackRange = 13,
-            chaseRange = 4,
+            chaseRange = 5,
 
             maxBurstShots = 4,
 
-            alertRadius = 15.0,
+            alertRadius = 10.0,
 
             priority = 1,
 
@@ -85,7 +85,7 @@ local enemy_stats = {
         -- Support Level 1
         [1] = {
             -- Stats
-            health = 100,
+            health = 90,
 
             speed = 5,
             fleeSpeed = 7,
@@ -93,11 +93,11 @@ local enemy_stats = {
 
             enemyShield = 50,
 
-            supportDamage = 10,
+            supportDamage = 4,
 
             maxBurstShots = 4,
 
-            detectionRange = 15,
+            detectionRange = 10,
             shieldRange = 5,
             attackRange = 0,
 
@@ -119,7 +119,7 @@ local enemy_stats = {
         -- Support Level 2
         [2] = {
             -- Stats
-            health = 120,
+            health = 110,
 
             speed = 5,
             fleeSpeed = 7,
@@ -131,7 +131,7 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
-            detectionRange = 15,
+            detectionRange = 10,
             shieldRange = 5,
             attackRange = 10,
 
@@ -156,8 +156,8 @@ local enemy_stats = {
             -- Stats
             health = 250,
 
-            speed = 3,
-            tackleSpeed = 12,
+            speed = 4,
+            tackleSpeed = 13,
 
             meleeDamage = 30,
             tackleDamage = 65,
@@ -170,14 +170,14 @@ local enemy_stats = {
 
             priority = 2,
 
-            alertRadius = 20.0,
+            alertRadius = 10.0,
 
             -- **Timers**
 
             -- Time between melee attacks
             attackCooldown = 2.0,
             -- Time between tackles
-            tackleCooldown = 6.0,
+            tackleCooldown = 4.0,
             -- Idle time before going after the player again
             idleDuration = 1.0,
             -- Total duration of Berserk mode
@@ -190,13 +190,13 @@ local enemy_stats = {
             -- Stats
             health = 350,
 
-            speed = 3,
+            speed = 4.5,
             tackleSpeed = 12,
 
             meleeDamage = 40,
             tackleDamage = 120,
 
-            detectionRange = 15,
+            detectionRange = 20,
             meleeAttackRange = 2,
 
             statsIncrement = 1.5,
@@ -204,11 +204,11 @@ local enemy_stats = {
 
             priority = 2,
 
-            alertRadius = 20.0,
+            alertRadius = 10.0,
 
             -- **Timers**
             attackCooldown = 2.0,
-            tackleCooldown = 6.0,
+            tackleCooldown = 4.0,
             idleDuration = 1.0,
             berserkaDuration = 10.0
         }
@@ -224,7 +224,7 @@ local enemy_stats = {
             -- Stats
             health = 75,
 
-            speed = 7,
+            speed = 8,
 
             damage = 50,
 
@@ -234,7 +234,7 @@ local enemy_stats = {
 
             priority = 3,
             
-            alertRadius = 20.0,
+            alertRadius = 10.0,
         },
 
 
@@ -253,7 +253,7 @@ local enemy_stats = {
 
             priority = 3,
             
-            alertRadius = 20.0,
+            alertRadius = 10.0,
         }
 
     },
