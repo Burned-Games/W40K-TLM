@@ -78,7 +78,7 @@ function on_update(dt)
             dashDirection = Vector3.new(playerScript.moveDirectionX, 0, playerScript.moveDirectionY)
         end
         local impulse = Vector3.new(dashDirection.x * 6, dashDirection.y * 6, dashDirection.z * 6)
-
+        playerScript.playerRb:set_velocity(Vector3.new(0,0,0))
         playerScript.playerRb:apply_impulse(Vector3.new(impulse.x, impulse.y, impulse.z))
 
         playerScript.meleeImpulseApplied = true
