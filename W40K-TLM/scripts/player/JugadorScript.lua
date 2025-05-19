@@ -193,6 +193,7 @@ local particle_lvl1_run = nil
 local particle_fire = nil
 local particle_smoke = nil
 local neuralInParticle = nil
+local particle_spark = nil
 
 
 local dtColective = 0
@@ -280,6 +281,7 @@ function on_ready()
     particle_lvl1_run = current_scene:get_entity_by_name("particle_lvl1_run"):get_component("ParticlesSystemComponent")
     particle_fire = current_scene:get_entity_by_name("particle_fire"):get_component("ParticlesSystemComponent")
     particle_smoke = current_scene:get_entity_by_name("particle_smoke"):get_component("ParticlesSystemComponent")
+    particle_spark = current_scene:get_entity_by_name("SparkParticle"):get_component("ParticlesSystemComponent")
     
     
     --UpgradeManager START
@@ -1567,6 +1569,7 @@ function updateAnims(dt)
             component.material = playerMatsDamages[i]
         end
         
+        particle_spark:emit(2)
         hitAnimationCounter = hitAnimationCounter + dt
         if hitAnimationCounter < hitAnimationTime then
             if currentUpAnim ~= hit and swordScript.slasheeed == false and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false then
