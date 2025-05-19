@@ -29,7 +29,7 @@ local spreadAngle = 7.5  -- Bullet angle
 
 local shootParticlesComponent
 local bulletDamageParticleComponent
-damage = 8
+damage = 10
 local knockbackForce = 3000  -- force
 local yPositionBullet = 1.5
 

@@ -4,6 +4,7 @@ local order
 local rect
 local BaseEntity
 local baseScript
+local BaseEntityManager
 
 -- Datos de la animación de entrada
 local entrySpriteWidth = 579
@@ -38,6 +39,7 @@ function on_ready()
     buttonComponent = buttonEntity:get_component("UIImageComponent")
     BaseEntity = current_scene:get_entity_by_name("Base")
     baseScript = current_scene:get_entity_by_name("BaseManager"):get_component("ScriptComponent")
+    BaseEntityManager = current_scene:get_entity_by_name("BaseManager")
 
     order = current_scene:get_entity_by_name("Order")
 
@@ -110,6 +112,7 @@ function on_update(dt)
     elseif currentPhase == "select" then
         if spriteIndex >= selectTotalSprites then
             animationFinished = true
+            BaseEntityManager:set_active(true)
             order:set_active(true)
             baseScript.index = 0
             buttonEntity:set_active(false)

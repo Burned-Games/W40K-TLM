@@ -1,0 +1,256 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "PuertaSalidaColiseo_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 10007661390511820181
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 5,
+        "value1": 5,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 0,
+        "value9": {
+            "cereal_class_version": 0,
+            "Tag": "PuertaSalidaColiseo"
+        },
+        "value10": 1,
+        "value11": {
+            "Tag": "Door1"
+        },
+        "value12": 2,
+        "value13": {
+            "Tag": "Bone"
+        },
+        "value14": 3,
+        "value15": {
+            "Tag": "Bone.001"
+        },
+        "value16": 4,
+        "value17": {
+            "Tag": "Bone.002"
+        },
+        "value18": 5,
+        "value19": 0,
+        "value20": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 182.51290893554688,
+                "y": -0.5428392887115479,
+                "z": -201.5580596923828
+            },
+            "Rotation": {
+                "x": 180.0,
+                "y": 60.39999008178711,
+                "z": 180.0
+            },
+            "Scale": {
+                "x": 0.9999997615814209,
+                "y": 1.0,
+                "z": 0.9999997615814209
+            }
+        },
+        "value21": 1,
+        "value22": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value23": 2,
+        "value24": {
+            "Position": {
+                "x": 2.384185791015625e-7,
+                "y": -0.017011241987347604,
+                "z": 0.5679330229759216
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value25": 3,
+        "value26": {
+            "Position": {
+                "x": 1.4969900846481324,
+                "y": 2.9996509552001955,
+                "z": 0.6246271729469299
+            },
+            "Rotation": {
+                "x": 3.970757234128541e-8,
+                "y": -0.000007190946689661359,
+                "z": 90.63574981689453
+            },
+            "Scale": {
+                "x": 0.9999997615814209,
+                "y": 0.9999997615814209,
+                "z": 0.9999998807907105
+            }
+        },
+        "value27": 4,
+        "value28": {
+            "Position": {
+                "x": -1.52001953125,
+                "y": 2.9959402084350588,
+                "z": 0.55426025390625
+            },
+            "Rotation": {
+                "x": 0.00003780067345360294,
+                "y": 0.000009017375305120368,
+                "z": -90.27491760253906
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 5,
+        "value30": 0,
+        "value31": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value32": 1,
+        "value33": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4,
+            "Prev": 2
+        },
+        "value34": 2,
+        "value35": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value36": 3,
+        "value37": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value38": 4,
+        "value39": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value40": 1,
+        "value41": 1,
+        "value42": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 9943230438645894683
+            },
+            "AnimatorUUID": {
+                "value0": 1026421760633092187
+            }
+        },
+        "value43": 1,
+        "value44": 1,
+        "value45": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 3348283484358912413
+            }
+        },
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 5,
+        "value51": 0,
+        "value52": 1,
+        "value53": 2,
+        "value54": 3,
+        "value55": 4,
+        "value56": 0,
+        "value57": 1,
+        "value58": 0,
+        "value59": {
+            "cereal_class_version": 0,
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": false,
+            "ModelUUID": {
+                "value0": 9865192456057850520
+            },
+            "AnimatorUUID": {
+                "value0": 1026421760633092187
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "CurrentAnimation": 1
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "CurrentAnimation": 1
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value60": 0,
+        "value61": 0,
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 0,
+        "value68": 0,
+        "value69": 0,
+        "value70": 0,
+        "value71": 0
+    }
+}
