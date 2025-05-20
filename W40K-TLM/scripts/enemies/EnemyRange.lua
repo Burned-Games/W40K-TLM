@@ -524,6 +524,9 @@ function shoot_projectile(targetExplosive)
     -- Calculate normalized direction
     local dx = targetPos.x - startPos.x
     local dz = targetPos.z - startPos.z
+
+    local targetAngle = math.deg(range:atan2(dx, dz))
+    bullet.rb:set_rotation(Vector3.new(0, targetAngle, 0))
     
     -- Set velocity and activate bullet
     bullet.rb:set_velocity(Vector3.new(
