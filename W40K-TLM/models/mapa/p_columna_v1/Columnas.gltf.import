@@ -1,0 +1,380 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Columnas_Cylinder.049_cell.001",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 3612071560247830605
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.002",
+                        "value": {
+                            "value0": 13993263397781856911
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.003",
+                        "value": {
+                            "value0": 16485308838865311980
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.004",
+                        "value": {
+                            "value0": 18386224630284677109
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.039",
+                        "value": {
+                            "value0": 14253275415146228842
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.005",
+                        "value": {
+                            "value0": 17043923066198213694
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.038",
+                        "value": {
+                            "value0": 1644212266955031428
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.006",
+                        "value": {
+                            "value0": 15744638316562006831
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.007",
+                        "value": {
+                            "value0": 8225968704144452752
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.008",
+                        "value": {
+                            "value0": 12014808532786367560
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.035",
+                        "value": {
+                            "value0": 4794366715214272289
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.009",
+                        "value": {
+                            "value0": 12453167644204265001
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.034",
+                        "value": {
+                            "value0": 2498993773034965807
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.010",
+                        "value": {
+                            "value0": 2618467992990504301
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.043",
+                        "value": {
+                            "value0": 6458631215259007951
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.011",
+                        "value": {
+                            "value0": 3789049090414251618
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.042",
+                        "value": {
+                            "value0": 4351538355128633424
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.012",
+                        "value": {
+                            "value0": 1206359112250561139
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.041",
+                        "value": {
+                            "value0": 17165423947707664867
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.013",
+                        "value": {
+                            "value0": 16960293651269967316
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.040",
+                        "value": {
+                            "value0": 2168378553511089377
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.014",
+                        "value": {
+                            "value0": 16156856246373359206
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.047",
+                        "value": {
+                            "value0": 9843708493082973628
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.015",
+                        "value": {
+                            "value0": 2490508567181848531
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.046",
+                        "value": {
+                            "value0": 15937748458794768084
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.016",
+                        "value": {
+                            "value0": 5591224797715237783
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.045",
+                        "value": {
+                            "value0": 7876548600296353387
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.017",
+                        "value": {
+                            "value0": 11577221420782682675
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.044",
+                        "value": {
+                            "value0": 4943204652174043936
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.018",
+                        "value": {
+                            "value0": 17218798147899989108
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.019",
+                        "value": {
+                            "value0": 3267108206653494215
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.020",
+                        "value": {
+                            "value0": 16181054517214612944
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.021",
+                        "value": {
+                            "value0": 7131585838612671376
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.022",
+                        "value": {
+                            "value0": 7680923898875110316
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.023",
+                        "value": {
+                            "value0": 6694679237728269461
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.024",
+                        "value": {
+                            "value0": 2151311367983916958
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.025",
+                        "value": {
+                            "value0": 15081953484561928989
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.026",
+                        "value": {
+                            "value0": 1378278818260091906
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.027",
+                        "value": {
+                            "value0": 11788180718805266904
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.028",
+                        "value": {
+                            "value0": 721243078744281784
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.029",
+                        "value": {
+                            "value0": 15136623372561812849
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.030",
+                        "value": {
+                            "value0": 2273073842761288990
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.031",
+                        "value": {
+                            "value0": 17585498178632127147
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.032",
+                        "value": {
+                            "value0": 16747273651379467992
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.033",
+                        "value": {
+                            "value0": 6480566259955131883
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.036",
+                        "value": {
+                            "value0": 12286517960154609989
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.037",
+                        "value": {
+                            "value0": 13614144166292894219
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.048",
+                        "value": {
+                            "value0": 13477883349406679428
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.049",
+                        "value": {
+                            "value0": 4754472440954560694
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.050",
+                        "value": {
+                            "value0": 6834178143523825999
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.051",
+                        "value": {
+                            "value0": 14234993590952605267
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.052",
+                        "value": {
+                            "value0": 3108235240188753837
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.053",
+                        "value": {
+                            "value0": 10157829146582288704
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.054",
+                        "value": {
+                            "value0": 3486582062272154446
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.055",
+                        "value": {
+                            "value0": 3592702573278854155
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.056",
+                        "value": {
+                            "value0": 7866140165273392073
+                        }
+                    },
+                    {
+                        "key": "Columnas_Cylinder.049_cell.057",
+                        "value": {
+                            "value0": 13492999725283906874
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Columna_MAT_Mat0",
+                        "value": {
+                            "value0": 321841720552226052
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 10194900197396358600
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/mapa/p_columna_v1/Columnas.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10194900197396358600.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

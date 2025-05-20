@@ -205,9 +205,9 @@ end
 
 function manage_destroyed_pillar()
 
-    local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
-    pillarRb:set_position(Vector3.new(-800, 0, -800))
-
+    --local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
+    --pillarRb:set_position(Vector3.new(-800, 0, -800))
+    pillarToDestroy:get_component("ScriptComponent"):give_phisycs()
     pillarToDestroy = nil
 
 end
