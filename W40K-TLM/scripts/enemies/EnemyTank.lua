@@ -74,8 +74,9 @@ function on_ready()
     tank:set_level()
 
     if tankName == "EnemyTank1" then
-        tank.level = 2
+        tank.level = 3
     end
+
     tank:set_stats(tank.level)
 
     
