@@ -1,0 +1,152 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "ChargeZone_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 8604935758370162680
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 1,
+        "value1": 1,
+        "value2": 0,
+        "value3": 1,
+        "value4": 0,
+        "value5": {
+            "cereal_class_version": 0,
+            "Tag": "ChargeZone"
+        },
+        "value6": 1,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": -19.292200088500978,
+                "y": 0.2952998876571655,
+                "z": -3.346386432647705
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 3.247999668121338,
+                "y": 3.4963207244873049,
+                "z": 3.247999668121338
+            }
+        },
+        "value9": 1,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value12": 1,
+        "value13": 0,
+        "value14": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 6928970319868000635
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value15": 1,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 10834636859107458743
+            }
+        },
+        "value18": 0,
+        "value19": 1,
+        "value20": 0,
+        "value21": {
+            "cereal_class_version": 0,
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "m_Properties": {
+                            "cereal_class_version": 0,
+                            "type": 1,
+                            "mass": 4.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Coffee::SphereCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "cereal_class_version": 0,
+                                        "ShapeType": 8,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Radius": 0.5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value22": 0,
+        "value23": 0,
+        "value24": 1,
+        "value25": 0,
+        "value26": 0,
+        "value27": 0,
+        "value28": 0,
+        "value29": 0,
+        "value30": 0,
+        "value31": 0,
+        "value32": 0,
+        "value33": 0,
+        "value34": 0,
+        "value35": 0,
+        "value36": 0,
+        "value37": 0,
+        "value38": 0,
+        "value39": 0
+    }
+}
