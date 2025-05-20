@@ -31,6 +31,8 @@ dialog17 = false
 dialog18 = false
 dialog19 = false
 
+firstCallDialogo = true
+openDialog = false
 function on_ready()
     --Audio
     dia12_audio1 = current_scene:get_entity_by_name("dia12_audio1"):get_component("AudioSourceComponent")
@@ -81,12 +83,21 @@ function on_ready()
    
     
     dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    dialogScriptComponent.start_dialog(dialogLines12)
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")    
 
 
 end
 
 function on_update(dt)
+
+    if mission_Component.blueTaskIndex == 1 and firstCallDialogo then
+        firstCallDialogo = false
+        openDialog = true
+    end
+    if openDialog then
+        dialogScriptComponent.start_dialog(dialogLines12)
+        openDialog = false
+    end
 
     if dialog12 then 
         dialogScriptComponent.start_dialog(dialogLines12)

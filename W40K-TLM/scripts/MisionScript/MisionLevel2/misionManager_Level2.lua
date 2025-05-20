@@ -11,9 +11,9 @@ local blueTasks = {
 }
 
 local redTasks = {
-    {id = 4, description = "Get to the Great Bridge of the Hive City"},
-    {id = 5, description = "Fight your way to the elevator of the Hive City"},
-    {id = 6, description = "Fight and defeat (name)"}
+    {id = 1, description = "Get to the Great Bridge of the Hive City"},
+    {id = 2, description = "Fight your way to the elevator of the Hive City"},
+    {id = 3, description = "Fight and defeat (name)"}
 }
 
 local dialogLines = {
