@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{71E0FA9C-9470-49F3-B98A-14CA86EAB718}",
     "Language": "SFX",
-    "Hash": "{E6B05BC6-F219-84D9-5546-2C834DEA830D}",
+    "Hash": "{EAF89355-846E-0370-3B7F-9758D3FB488A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\KamikazeSFX",
     "ShortName": "KamikazeSFX",
     "Path": "KamikazeSFX.bnk",
@@ -21,7 +21,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "KamikazeExplosion.wav",
-      "CachePath": "69/{69C7CD0F-F7CF-2DB0-ADFC-1FBF4CFAF750}.wem"
+      "CachePath": "56/{567F2A5C-76DE-DFD7-8505-ED70DD902D03}.wem"
      },
      {
       "Id": "533092848",
@@ -29,7 +29,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "KamikazeDetection.wav",
-      "CachePath": "7D/{7D320030-B531-5C20-A630-045203F1E5A9}.wem"
+      "CachePath": "78/{7807BA8D-E910-E688-C1F8-B1A69F021E03}.wem"
      },
      {
       "Id": "678176295",
@@ -37,7 +37,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "KamikazeDie.wav",
-      "CachePath": "3B/{3B88A84C-836A-6A92-79FE-1E3EAE1349B6}.wem"
+      "CachePath": "5B/{5BCC2DF4-08EC-01F7-DC2B-29DB4EA2B36F}.wem"
      },
      {
       "Id": "1021658998",
@@ -45,7 +45,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "KamikazeScreamBoom.wav",
-      "CachePath": "98/{989F531D-3B23-18D8-F0A7-79B0F8211896}.wem"
+      "CachePath": "47/{475F0C5D-EE15-812B-6A17-854ABBD7B876}.wem"
      }
     ],
     "Events": [
@@ -108,6 +108,6 @@
     ]
    }
   ],
-  "FileHash": "{94B22C68-3EDC-7F0F-A847-544654DD631C}"
+  "FileHash": "{6055B004-7B18-4D39-6D19-C7C2D073AC47}"
  }
 }

@@ -4,6 +4,13 @@
 		<WorkUnit Name="Default Work Unit" ID="{4E70B0F6-E452-4621-AC81-274B30AEEE9C}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="PlayerSFX" ID="{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_PlayerSwapWeapons" ID="{6777580F-49FE-41B6-9A36-ED1C140EB815}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerBurning" ID="{9D266046-B679-4230-AC9E-F644D83867C7}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -23,6 +30,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="BolterSFX" ID="{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_BolterRifleSkillShot" ID="{B1E167EC-1578-44CD-8073-C6D47F8E1210}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BolterRifleSkillCharge" ID="{1C2C88D6-CE1D-44E3-97C5-D4A240EF65C6}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -36,6 +50,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="ShotgunSFX" ID="{447F08BC-7E47-48A7-950A-3E3785307500}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_ShotgunGrenadeShot" ID="{D2C1C73E-6626-406B-9ACC-EB79C9CCBA0B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ShotgunBulletImpacts" ID="{EA8B16AF-4E83-46CF-A389-5087D20883D2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -47,6 +68,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="MeleeSFX" ID="{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_ChainswordHit" ID="{72C328AE-A9BA-4571-9C76-B364F224321F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ChainswordAttack" ID="{EC25E3E1-5BEE-4895-9DA2-AF06D06C6EB1}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -55,6 +83,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="SupportSFX" ID="{EC862FA3-57C9-4C57-B979-540D2679AB59}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_SupportShildAssign" ID="{6F6083A4-05D2-47B3-96B8-85D769F21F05}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_SupportShieldZaps" ID="{DBDF949C-FC70-4807-A840-47E792F627A7}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -67,6 +102,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="TankSFX" ID="{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_TankImpactPlayer" ID="{FF818698-ACA9-400F-B2D2-04D383885E98}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_TankSteps" ID="{4E6B420D-4274-4372-A03B-1601527A2A04}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -79,6 +121,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="KamikazeSFX" ID="{71E0FA9C-9470-49F3-B98A-14CA86EAB718}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_KamikazeDetection" ID="{B6B2F285-8908-402D-A7AE-5387361BBA59}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_KamikazeScreamBoom" ID="{5D9748DB-65A7-468B-A62C-0A5406FAE7CD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -89,6 +138,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="RangedSFX" ID="{A77C30E7-2E40-4F54-B987-0389FB5ECE98}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_RangedDying" ID="{A5948277-BC2C-4286-A07C-10286CCFE06B}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_RangedShot" ID="{A9A37324-8A19-42EF-B040-420E7B4ED031}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -101,6 +157,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="EnvironmentSFX" ID="{590DE83F-02C9-4D44-A80C-89EB32CFFA44}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_howlingwind" ID="{079E687F-B205-4038-9C60-ED7BB0246047}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_WorkbenchBuy" ID="{84BBD9EA-63DB-4216-81C9-14B9DE3A408A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -118,6 +181,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="FinalBossSFX" ID="{19E3CFCE-5418-4D54-9124-7DBDAE79CBE7}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_BossFase2Change" ID="{8E7B445A-5244-41A5-81C3-934F63F779BD}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossSmashDescend" ID="{559CE15B-1B61-4207-BA50-1DAF57A5B2D2}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -134,6 +204,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="UISFX" ID="{45A4EA0F-F1E1-460F-9A2A-35C1CDE932E8}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_MenuSettingsSFX" ID="{87B215DA-77D9-4038-B230-67A9CA7F3FA3}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_MenuHoverButton" ID="{49560E41-603A-4639-9D93-10ED084D709A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -147,6 +224,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Music" ID="{73659943-6E94-44F4-9F79-1342A4490FD4}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_ExploreLevel3_container" ID="{0DEC85B2-C381-4062-BA6F-5FD750CD6E7C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploreLevel1_container" ID="{9163D869-7966-4110-A57C-CFA8A7F4065F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -159,6 +243,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Dialogs" ID="{179A6250-3F23-44B9-A9AF-461B907637F3}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>9500000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_QuintusMaxillian_CinematicaFinal1" ID="{7487A628-13EA-417F-B1D2-CD8EB74658CA}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_QuintusMaxillian_SalidaZona9" ID="{03E75A68-4C27-42B9-98F9-BD7252581D23}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>

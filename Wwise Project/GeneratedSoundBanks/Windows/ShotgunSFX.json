@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{447F08BC-7E47-48A7-950A-3E3785307500}",
     "Language": "SFX",
-    "Hash": "{E5FDD009-D2EA-ACCB-C2F7-BACB660B2589}",
+    "Hash": "{09D90E35-E90D-B5C0-FC70-57C65F5D62E0}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\ShotgunSFX",
     "ShortName": "ShotgunSFX",
     "Path": "ShotgunSFX.bnk",
@@ -21,7 +21,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunReload.wav",
-      "CachePath": "70/{704C056D-613E-5BAD-2E19-26025CDBBD19}.wem"
+      "CachePath": "6C/{6C3048E8-018D-E348-31F5-B20E97036FBF}.wem"
      },
      {
       "Id": "68810511",
@@ -29,7 +29,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunShot.wav",
-      "CachePath": "47/{47FFC1E8-A2C2-7293-9628-914E32393910}.wem"
+      "CachePath": "40/{406CF988-1C4D-AED6-D09C-5AC822E1A594}.wem"
      },
      {
       "Id": "167782189",
@@ -37,7 +37,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunBulletImpact1.wav",
-      "CachePath": "F8/{F86BEF7F-42B5-7413-8A26-1ECA5EC55B75}.wem"
+      "CachePath": "BA/{BA55653C-EF28-A7F8-A16A-16E7E73A3ACD}.wem"
      },
      {
       "Id": "450875083",
@@ -45,7 +45,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunGrenadeShot.wav",
-      "CachePath": "7B/{7BC80F85-11D4-D799-A29F-BCE51C883FE9}.wem"
+      "CachePath": "60/{60948855-A377-558F-C8D2-680E1CB69313}.wem"
      },
      {
       "Id": "650160502",
@@ -53,7 +53,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunGrenadeSmoke.wav",
-      "CachePath": "8A/{8A2F0EF2-72CB-BB85-C600-A1F9D4EE465F}.wem"
+      "CachePath": "85/{85EA7DB7-C567-5545-BEE2-F4608DDBB956}.wem"
      },
      {
       "Id": "673764349",
@@ -61,7 +61,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunBulletImpact3.wav",
-      "CachePath": "5E/{5E52B2A9-2D67-4D2B-4108-E8F1711A4647}.wem"
+      "CachePath": "B9/{B9CDD94C-7D6A-2C65-E181-EF293208C018}.wem"
      },
      {
       "Id": "806517487",
@@ -69,7 +69,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "ShotgunBulletImpact2.wav",
-      "CachePath": "FA/{FAA72769-74A9-770D-05CF-2092F716D32D}.wem"
+      "CachePath": "96/{96194518-D494-C343-4675-4B2EBB3D7ABF}.wem"
      }
     ],
     "Events": [
@@ -152,6 +152,6 @@
     ]
    }
   ],
-  "FileHash": "{07E79F15-43CB-ED90-832A-9C788D50749D}"
+  "FileHash": "{896226CF-3A74-C007-18C3-32338C6AB033}"
  }
 }
