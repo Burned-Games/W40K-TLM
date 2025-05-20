@@ -2,7 +2,7 @@
     "value0": {
         "cereal_class_version": 3,
         "value0": 20,
-        "value1": 20,
+        "value1": 19,
         "value2": 3,
         "value3": 2097152,
         "value4": 2097153,
@@ -17,13 +17,13 @@
         "value13": 11,
         "value14": 12,
         "value15": 13,
-        "value16": 14,
-        "value17": 15,
-        "value18": 16,
-        "value19": 17,
-        "value20": 18,
-        "value21": 19,
-        "value22": 20,
+        "value16": 1048590,
+        "value17": 1048595,
+        "value18": 1048594,
+        "value19": 1048593,
+        "value20": 1048592,
+        "value21": 1048591,
+        "value22": 19,
         "value23": 3,
         "value24": {
             "cereal_class_version": 0,
@@ -81,33 +81,29 @@
         "value50": {
             "Tag": "diaCine"
         },
-        "value51": 14,
+        "value51": 1048590,
         "value52": {
             "Tag": "DroppodVFX.gltf"
         },
-        "value53": 15,
+        "value53": 1048595,
         "value54": {
-            "Tag": "Cylinder1"
+            "Tag": "VFXDroppod"
         },
-        "value55": 16,
+        "value55": 1048594,
         "value56": {
-            "Tag": "Cylinder2"
+            "Tag": "DroppodVFX_Cylinder-0"
         },
-        "value57": 17,
+        "value57": 1048593,
         "value58": {
-            "Tag": "Plane"
+            "Tag": "DroppodVFX_Cylinder-1"
         },
-        "value59": 18,
+        "value59": 1048592,
         "value60": {
-            "Tag": "Plane.001"
-        },
-        "value61": 19,
-        "value62": {
             "Tag": "Root"
         },
-        "value63": 20,
-        "value64": 3,
-        "value65": {
+        "value61": 19,
+        "value62": 3,
+        "value63": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.5447572469711304,
@@ -125,8 +121,8 @@
                 "z": 1.0
             }
         },
-        "value66": 2097152,
-        "value67": {
+        "value64": 2097152,
+        "value65": {
             "Position": {
                 "x": 0.0,
                 "y": -0.1110360398888588,
@@ -143,8 +139,8 @@
                 "z": 1.0
             }
         },
-        "value68": 2097153,
-        "value69": {
+        "value66": 2097153,
+        "value67": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -161,8 +157,8 @@
                 "z": 1.0
             }
         },
-        "value70": 2097154,
-        "value71": {
+        "value68": 2097154,
+        "value69": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -179,8 +175,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value72": 4,
-        "value73": {
+        "value70": 4,
+        "value71": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -197,8 +193,8 @@
                 "z": 1.0
             }
         },
-        "value74": 5,
-        "value75": {
+        "value72": 5,
+        "value73": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -215,11 +211,11 @@
                 "z": 1.0
             }
         },
-        "value76": 6,
-        "value77": {
+        "value74": 6,
+        "value75": {
             "Position": {
-                "x": 549.5,
-                "y": 245.5,
+                "x": 500.5,
+                "y": 283.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -228,13 +224,13 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1099.0,
-                "y": 491.0,
+                "x": 1001.0,
+                "y": 566.0,
                 "z": 1.0
             }
         },
-        "value78": 7,
-        "value79": {
+        "value76": 7,
+        "value77": {
             "Position": {
                 "x": -0.5000000596046448,
                 "y": 0.0,
@@ -251,11 +247,29 @@
                 "z": 1.0
             }
         },
-        "value80": 8,
+        "value78": 8,
+        "value79": {
+            "Position": {
+                "x": 500.5,
+                "y": 392.0549621582031,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 52.135406494140628,
+                "y": 94.511962890625,
+                "z": 1.0
+            }
+        },
+        "value80": 9,
         "value81": {
             "Position": {
-                "x": 549.5,
-                "y": 339.3809814453125,
+                "x": 500.5,
+                "y": 413.95184326171877,
                 "z": 0.0
             },
             "Rotation": {
@@ -264,16 +278,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 45.4630126953125,
-                "y": 82.28799438476563,
+                "x": 52.135406494140628,
+                "y": 91.38381958007813,
                 "z": 1.0
             }
         },
-        "value82": 9,
+        "value82": 10,
         "value83": {
             "Position": {
-                "x": 549.5,
-                "y": 358.4754638671875,
+                "x": 500.5,
+                "y": 423.1489562988281,
                 "z": 0.0
             },
             "Rotation": {
@@ -282,16 +296,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 45.4630126953125,
-                "y": 79.5601806640625,
+                "x": 312.8125,
+                "y": 99.05731201171875,
                 "z": 1.0
             }
         },
-        "value84": 10,
+        "value84": 11,
         "value85": {
             "Position": {
-                "x": 549.5,
-                "y": 366.4314880371094,
+                "x": 0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -300,16 +314,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 272.7778015136719,
-                "y": 86.379638671875,
+                "x": 1.0,
+                "y": 1.0,
                 "z": 1.0
             }
         },
-        "value86": 11,
+        "value86": 12,
         "value87": {
             "Position": {
-                "x": 0.0,
-                "y": 0.0,
+                "x": -1011.427001953125,
+                "y": 557.6583251953125,
                 "z": 0.0
             },
             "Rotation": {
@@ -318,32 +332,14 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 2002.0,
+                "y": 16.68328857421875,
                 "z": 1.0
             }
         },
-        "value88": 12,
+        "value88": 13,
         "value89": {
             "Position": {
-                "x": -768.9259033203125,
-                "y": 483.7259521484375,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1745.777587890625,
-                "y": 14.548126220703125,
-                "z": 1.0
-            }
-        },
-        "value90": 13,
-        "value91": {
-            "Position": {
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
@@ -359,11 +355,29 @@
                 "z": 1.0
             }
         },
-        "value92": 14,
+        "value90": 1048590,
+        "value91": {
+            "Position": {
+                "x": -0.08920800685882569,
+                "y": -0.7193628549575806,
+                "z": 0.6797146797180176
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.100000023841858,
+                "y": 1.100000023841858,
+                "z": 1.100000023841858
+            }
+        },
+        "value92": 1048595,
         "value93": {
             "Position": {
-                "x": -0.30229222774505618,
-                "y": -0.768913745880127,
+                "x": 0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -377,7 +391,7 @@
                 "z": 1.0
             }
         },
-        "value94": 15,
+        "value94": 1048594,
         "value95": {
             "Position": {
                 "x": 0.0,
@@ -386,7 +400,7 @@
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -395,7 +409,7 @@
                 "z": 1.0
             }
         },
-        "value96": 16,
+        "value96": 1048593,
         "value97": {
             "Position": {
                 "x": 0.0,
@@ -404,7 +418,7 @@
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -413,44 +427,8 @@
                 "z": 1.0
             }
         },
-        "value98": 17,
+        "value98": 1048592,
         "value99": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value100": 18,
-        "value101": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value102": 19,
-        "value103": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -467,151 +445,144 @@
                 "z": 1.0
             }
         },
-        "value104": 20,
-        "value105": 3,
-        "value106": {
+        "value100": 19,
+        "value101": 3,
+        "value102": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value107": 2097152,
-        "value108": {
+        "value103": 2097152,
+        "value104": {
             "Parent": 4294967295,
             "First": 2097153,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value109": 2097153,
-        "value110": {
+        "value105": 2097153,
+        "value106": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 2097154,
             "Prev": 4294967295
         },
-        "value111": 2097154,
-        "value112": {
+        "value107": 2097154,
+        "value108": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2097153
         },
-        "value113": 4,
+        "value109": 4,
+        "value110": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value111": 5,
+        "value112": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value113": 6,
         "value114": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value115": 5,
+        "value115": 7,
         "value116": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value117": 6,
-        "value118": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value119": 7,
-        "value120": {
             "Parent": 4294967295,
             "First": 8,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value121": 8,
-        "value122": {
+        "value117": 8,
+        "value118": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 9,
             "Prev": 4294967295
         },
-        "value123": 9,
-        "value124": {
+        "value119": 9,
+        "value120": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 10,
             "Prev": 8
         },
-        "value125": 10,
-        "value126": {
+        "value121": 10,
+        "value122": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 9
         },
-        "value127": 11,
+        "value123": 11,
+        "value124": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value125": 12,
+        "value126": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value127": 13,
         "value128": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value129": 12,
+        "value129": 1048590,
         "value130": {
             "Parent": 4294967295,
-            "First": 4294967295,
+            "First": 1048595,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value131": 13,
+        "value131": 1048595,
         "value132": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
+            "Parent": 1048590,
+            "First": 1048594,
+            "Next": 1048592,
             "Prev": 4294967295
         },
-        "value133": 14,
+        "value133": 1048594,
         "value134": {
-            "Parent": 4294967295,
-            "First": 15,
-            "Next": 4294967295,
+            "Parent": 1048595,
+            "First": 4294967295,
+            "Next": 1048593,
             "Prev": 4294967295
         },
-        "value135": 15,
+        "value135": 1048593,
         "value136": {
-            "Parent": 14,
-            "First": 4294967295,
-            "Next": 16,
-            "Prev": 4294967295
-        },
-        "value137": 16,
-        "value138": {
-            "Parent": 14,
-            "First": 4294967295,
-            "Next": 17,
-            "Prev": 15
-        },
-        "value139": 17,
-        "value140": {
-            "Parent": 14,
-            "First": 4294967295,
-            "Next": 18,
-            "Prev": 16
-        },
-        "value141": 18,
-        "value142": {
-            "Parent": 14,
-            "First": 4294967295,
-            "Next": 19,
-            "Prev": 17
-        },
-        "value143": 19,
-        "value144": {
-            "Parent": 14,
+            "Parent": 1048595,
             "First": 4294967295,
             "Next": 4294967295,
-            "Prev": 18
+            "Prev": 1048594
         },
-        "value145": 1,
-        "value146": 3,
-        "value147": {
+        "value137": 1048592,
+        "value138": {
+            "Parent": 1048590,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1048595
+        },
+        "value139": 1,
+        "value140": 3,
+        "value141": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -624,9 +595,9 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value148": 3,
-        "value149": 2097153,
-        "value150": {
+        "value142": 3,
+        "value143": 2097153,
+        "value144": {
             "cereal_class_version": 0,
             "Mesh": {
                 "cereal_class_version": 0,
@@ -636,27 +607,27 @@
                 "value0": 13022089739303106082
             }
         },
-        "value151": 17,
-        "value152": {
+        "value145": 1048594,
+        "value146": {
             "Mesh": {
-                "value0": 17898253213838692866
+                "value0": 16799669742104821266
             },
             "AnimatorUUID": {
-                "value0": 14934610827954393061
+                "value0": 47948228206143597
             }
         },
-        "value153": 18,
-        "value154": {
+        "value147": 1048593,
+        "value148": {
             "Mesh": {
-                "value0": 4948018602823700554
+                "value0": 8346362907713799744
             },
             "AnimatorUUID": {
-                "value0": 14934610827954393061
+                "value0": 47948228206143597
             }
         },
-        "value155": 3,
-        "value156": 2097153,
-        "value157": {
+        "value149": 3,
+        "value150": 2097153,
+        "value151": {
             "cereal_class_version": 1,
             "IsEmbedded": false,
             "Type": 8,
@@ -664,8 +635,8 @@
                 "value0": 13321323325830636168
             }
         },
-        "value158": 17,
-        "value159": {
+        "value152": 1048594,
+        "value153": {
             "IsEmbedded": true,
             "Material": {
                 "polymorphic_id": 2147483649,
@@ -675,7 +646,7 @@
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
-                                "value0": 6193675935535350257
+                                "value0": 13594740730520054364
                             },
                             "NormalUUID": {
                                 "value0": 0
@@ -690,7 +661,7 @@
                                 "value0": 0
                             },
                             "EmissiveUUID": {
-                                "value0": 6193675935535350257
+                                "value0": 13594740730520054364
                             }
                         },
                         "TextureFlags": {
@@ -720,13 +691,13 @@
                         "value0": {
                             "value0": {
                                 "cereal_class_version": 1,
-                                "value0": "Material.003_Mat1",
+                                "value0": "Material.002_Mat0",
                                 "value1": {
                                     "value0": ""
                                 },
                                 "value2": 8,
                                 "value3": {
-                                    "value0": 2570711470204229055
+                                    "value0": 11539467409648243128
                                 },
                                 "value4": true
                             },
@@ -744,46 +715,114 @@
                 }
             }
         },
-        "value160": 18,
-        "value161": {
+        "value154": 1048593,
+        "value155": {
             "IsEmbedded": true,
             "Material": {
                 "polymorphic_id": 1,
                 "ptr_wrapper": {
-                    "id": 1
+                    "id": 2147483650,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 13594740730520054364
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 13594740730520054364
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.003_Mat1",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 13180161044031113153
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 2,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
                 }
             }
         },
-        "value162": 0,
-        "value163": 0,
-        "value164": 0,
-        "value165": 4,
-        "value166": 5,
-        "value167": {
+        "value156": 0,
+        "value157": 0,
+        "value158": 0,
+        "value159": 4,
+        "value160": 5,
+        "value161": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/CinematicOneController.lua",
             "Language": 0
         },
-        "value168": 6,
-        "value169": {
+        "value162": 6,
+        "value163": {
             "ScriptPath": "scripts/misc/FadeToBlack.lua",
             "Language": 0
         },
-        "value170": 11,
-        "value171": {
+        "value164": 11,
+        "value165": {
             "ScriptPath": "scripts/Cinematic/CinematicDialogo.lua",
             "Language": 0
         },
-        "value172": 7,
-        "value173": {
+        "value166": 7,
+        "value167": {
             "ScriptPath": "scripts/DialogScript/dialogManager.lua",
             "Language": 0
         },
-        "value174": 0,
-        "value175": 0,
-        "value176": 2,
-        "value177": 2097152,
-        "value178": {
+        "value168": 0,
+        "value169": 0,
+        "value170": 2,
+        "value171": 2097152,
+        "value172": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -796,7 +835,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483650,
+                    "id": 2147483651,
                     "data": {
                         "cereal_class_version": 0,
                         "CurrentAnimation": 1
@@ -805,41 +844,41 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483651,
-                    "data": {
-                        "CurrentAnimation": 1
-                    }
-                }
-            },
-            "PartialBlendThreshold": 0.009999999776482582,
-            "UpperBodyWeight": 1.0,
-            "LowerBodyWeight": 1.0,
-            "UpperBodyRootJoint": 0
-        },
-        "value179": 14,
-        "value180": {
-            "BlendDuration": 0.25,
-            "AnimationSpeed": 1.0,
-            "Loop": true,
-            "ModelUUID": {
-                "value0": 13469811801211003385
-            },
-            "AnimatorUUID": {
-                "value0": 14934610827954393061
-            },
-            "UpperAnimation": {
-                "ptr_wrapper": {
                     "id": 2147483652,
                     "data": {
                         "CurrentAnimation": 1
                     }
                 }
             },
-            "LowerAnimation": {
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value173": 1048590,
+        "value174": {
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 8861568480822771748
+            },
+            "AnimatorUUID": {
+                "value0": 47948228206143597
+            },
+            "UpperAnimation": {
                 "ptr_wrapper": {
                     "id": 2147483653,
                     "data": {
-                        "CurrentAnimation": 1
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483654,
+                    "data": {
+                        "CurrentAnimation": 0
                     }
                 }
             },
@@ -848,14 +887,14 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value181": 1,
-        "value182": 13,
-        "value183": {
+        "value175": 1,
+        "value176": 13,
+        "value177": {
             "cereal_class_version": 0,
             "GameObjectID": 7232288590300033459,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483654,
+                    "id": 2147483655,
                     "data": {
                         "cereal_class_version": 0,
                         "Name": "Dialogs",
@@ -916,9 +955,9 @@
                 "m33": 1.0
             }
         },
-        "value184": 1,
-        "value185": 3,
-        "value186": {
+        "value178": 1,
+        "value179": 3,
+        "value180": {
             "cereal_class_version": 0,
             "GameObjectID": 12323991616038735456,
             "Transform": {
@@ -940,14 +979,14 @@
                 "m33": 1.0
             }
         },
-        "value187": 0,
-        "value188": 1,
-        "value189": 4,
-        "value190": {
+        "value181": 0,
+        "value182": 1,
+        "value183": 4,
+        "value184": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483655,
+                    "id": 2147483656,
                     "data": {
                         "cereal_class_version": 4,
                         "TransformMatrix": {
@@ -1225,32 +1264,31 @@
                 }
             }
         },
-        "value191": 20,
-        "value192": 3,
-        "value193": 4,
-        "value194": 2097152,
-        "value195": 2097153,
-        "value196": 2097154,
-        "value197": 5,
-        "value198": 6,
-        "value199": 7,
-        "value200": 8,
-        "value201": 9,
-        "value202": 10,
-        "value203": 11,
-        "value204": 12,
-        "value205": 13,
-        "value206": 14,
-        "value207": 15,
-        "value208": 16,
-        "value209": 17,
-        "value210": 18,
-        "value211": 19,
-        "value212": 0,
-        "value213": 0,
-        "value214": 3,
-        "value215": 6,
-        "value216": {
+        "value185": 19,
+        "value186": 3,
+        "value187": 4,
+        "value188": 2097152,
+        "value189": 2097153,
+        "value190": 2097154,
+        "value191": 5,
+        "value192": 6,
+        "value193": 7,
+        "value194": 8,
+        "value195": 9,
+        "value196": 10,
+        "value197": 11,
+        "value198": 12,
+        "value199": 13,
+        "value200": 1048590,
+        "value201": 1048595,
+        "value202": 1048594,
+        "value203": 1048593,
+        "value204": 1048592,
+        "value205": 0,
+        "value206": 0,
+        "value207": 3,
+        "value208": 6,
+        "value209": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 6711820436760903955
@@ -1288,8 +1326,8 @@
             },
             "Layer": 25
         },
-        "value217": 10,
-        "value218": {
+        "value210": 10,
+        "value211": {
             "TextureUUID": {
                 "value0": 18293614392373388477
             },
@@ -1325,8 +1363,8 @@
             },
             "Layer": 100
         },
-        "value219": 12,
-        "value220": {
+        "value212": 12,
+        "value213": {
             "TextureUUID": {
                 "value0": 13093128426387816779
             },
@@ -1362,9 +1400,9 @@
             },
             "Layer": 0
         },
-        "value221": 2,
-        "value222": 8,
-        "value223": {
+        "value214": 2,
+        "value215": 8,
+        "value216": {
             "cereal_class_version": 0,
             "Text": "DialogName",
             "FontPath": "",
@@ -1398,8 +1436,8 @@
             },
             "Layer": 0
         },
-        "value224": 9,
-        "value225": {
+        "value217": 9,
+        "value218": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -1432,12 +1470,12 @@
             },
             "Layer": 0
         },
-        "value226": 0,
-        "value227": 0,
-        "value228": 0,
-        "value229": 1,
-        "value230": 7,
-        "value231": {
+        "value219": 0,
+        "value220": 0,
+        "value221": 0,
+        "value222": 1,
+        "value223": 7,
+        "value224": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {
