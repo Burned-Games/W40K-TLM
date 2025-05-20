@@ -112,6 +112,9 @@ function on_ready()
 end
 
 function on_update(dt) 
+
+    if enemyScript.main_boss.isDead then return end
+
     if fistsAttackPending then
         fistsAttackDelayTimer = fistsAttackDelayTimer + dt
         if fistsAttackDelayTimer >= fistsAttackDelay then

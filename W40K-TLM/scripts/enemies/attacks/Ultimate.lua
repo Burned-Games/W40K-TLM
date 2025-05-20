@@ -66,6 +66,8 @@ end
 
 function on_update(dt)
 
+    if enemyScript.main_boss.isDead then return end
+
     if enemyScript.main_boss.isRaging then
         ultiTimer = ultiTimer + dt
     end
