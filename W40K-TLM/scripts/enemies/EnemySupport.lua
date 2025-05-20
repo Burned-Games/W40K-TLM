@@ -141,7 +141,7 @@ function on_ready()
     support.bulletTimers = {}
 
     -- Create bullet pool
-    for i = 1, 5 do
+    for i = 1, 3 do
         local bulletEntity = current_scene:get_entity_by_name("SupportBullet" .. i)
         
         local bullet = {
