@@ -11,6 +11,8 @@ playerTransform = nil
 parentTransform = nil
 parentScript = nil
 
+local playerScript = nil
+
 local interactionSprite = nil
 local interactionSpriteTransitionTimerTarget = 0.4
 local interactionSpriteTransitionTimer = 0.0
@@ -22,6 +24,7 @@ local leverSFX = nil
 function on_ready()
     parentScript = self:get_parent():get_component("ScriptComponent")
     playerTransform = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
+    playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     parentTransform = self:get_parent():get_component("TransformComponent")
     transform = self:get_component("TransformComponent")
     leverAnimator = self:get_component("AnimatorComponent")
@@ -78,7 +81,7 @@ function on_update(dt)
     end
     
 
-    if distance.x < interactionDistance and distance.z < interactionDistance then
+    if distance.x < interactionDistance and distance.z < interactionDistance and playerScript.combatTimer <= 0 then
         --Icon
         
         if  Input.get_button(Input.action.Confirm) == Input.state.Down then
