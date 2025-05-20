@@ -1,0 +1,50 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "DroppodVFX_Plane.001",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 17898253213838692866
+                        }
+                    },
+                    {
+                        "key": "DroppodVFX_Plane.002",
+                        "value": {
+                            "value0": 4948018602823700554
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.003_Mat1",
+                        "value": {
+                            "value0": 2570711470204229055
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 13469811801211003385
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/VFX_droppod/DroppodVFX.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13469811801211003385.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
