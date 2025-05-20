@@ -1,0 +1,141 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "BodyIndicator_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 5187582774717306328
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 2,
+        "value1": 2,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 0,
+        "value6": {
+            "cereal_class_version": 0,
+            "Tag": "BodyIndicator"
+        },
+        "value7": 1,
+        "value8": {
+            "Tag": "MovementPlayerIndicator"
+        },
+        "value9": 2,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.10000598430633545,
+                "z": 1.0
+            },
+            "Rotation": {
+                "x": 90.00022888183594,
+                "y": 2.108381986618042,
+                "z": -180.0
+            },
+            "Scale": {
+                "x": 2.000000238418579,
+                "y": 4.0,
+                "z": 1.0
+            }
+        },
+        "value12": 1,
+        "value13": {
+            "Position": {
+                "x": 0.000024780631065368654,
+                "y": -0.001058831810951233,
+                "z": 0.000004813075065612793
+            },
+            "Rotation": {
+                "x": 7.27433473457495e-8,
+                "y": -0.0000050068861128238499,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 0.9999579787254334,
+                "y": 1.000035047531128,
+                "z": 1.0
+            }
+        },
+        "value14": 2,
+        "value15": 0,
+        "value16": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value17": 1,
+        "value18": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value19": 0,
+        "value20": 0,
+        "value21": 0,
+        "value22": 0,
+        "value23": 0,
+        "value24": 0,
+        "value25": 2,
+        "value26": 0,
+        "value27": 1,
+        "value28": 0,
+        "value29": 0,
+        "value30": 0,
+        "value31": 0,
+        "value32": 0,
+        "value33": 0,
+        "value34": 0,
+        "value35": 2,
+        "value36": 0,
+        "value37": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "value0": 14140380573434282294
+            },
+            "TintColor": {
+                "x": 0.0,
+                "y": 0.7450980544090271,
+                "z": 1.0,
+                "w": 0.16470588743686677
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value38": 1,
+        "value39": {
+            "TextureUUID": {
+                "value0": 5517261345337856122
+            },
+            "TintColor": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.7450980544090271,
+                "w": 0.16470588743686677
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0
+    }
+}

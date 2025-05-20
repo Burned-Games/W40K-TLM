@@ -1222,11 +1222,11 @@ function playerMovement(dt)
     end
 
     if aimingIndicator == true and shootingIndicator == true then
-        movementIndicatorTransf.scale.y = 5.0
+        movementIndicatorTransf.scale.y = 4.0
     elseif (aimingIndicator == true and shootingIndicator == false) or (aimingIndicator == false and shootingIndicator == true) then
-        movementIndicatorTransf.scale.y = 3.5
+        movementIndicatorTransf.scale.y = 2.5
     else   
-        movementIndicatorTransf.scale.y = 2
+        movementIndicatorTransf.scale.y = 1
     end
 end
 

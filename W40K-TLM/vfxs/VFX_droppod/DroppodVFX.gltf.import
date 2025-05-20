@@ -8,38 +8,44 @@
                 "cereal_class_version": 0,
                 "meshUUIDs": [
                     {
-                        "key": "DroppodVFX_Plane.001",
+                        "key": "DroppodVFX_Cylinder-0",
                         "value": {
                             "cereal_class_version": 0,
-                            "value0": 17898253213838692866
+                            "value0": 16799669742104821266
                         }
                     },
                     {
-                        "key": "DroppodVFX_Plane.002",
+                        "key": "DroppodVFX_Cylinder-1",
                         "value": {
-                            "value0": 4948018602823700554
+                            "value0": 8346362907713799744
                         }
                     }
                 ],
                 "materialUUIDs": [
                     {
+                        "key": "Material.002_Mat0",
+                        "value": {
+                            "value0": 11539467409648243128
+                        }
+                    },
+                    {
                         "key": "Material.003_Mat1",
                         "value": {
-                            "value0": 2570711470204229055
+                            "value0": 13180161044031113153
                         }
                     }
                 ],
                 "value0": {
                     "cereal_class_version": 0,
                     "uuid": {
-                        "value0": 13469811801211003385
+                        "value0": 8861568480822771748
                     },
                     "type": 4,
                     "originalPath": {
                         "value0": "vfxs/VFX_droppod/DroppodVFX.gltf"
                     },
                     "cachedPath": {
-                        "value0": ".CoffeeEngine/Cache/13469811801211003385.model"
+                        "value0": ".CoffeeEngine/Cache/8861568480822771748.model"
                     },
                     "cache": true,
                     "internal": false
