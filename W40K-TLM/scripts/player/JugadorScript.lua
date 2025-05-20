@@ -1570,7 +1570,7 @@ function updateAnims(dt)
         end
         
         if particle_spark then
-           particle_spark:emit(2) 
+           particle_spark:emit(1) 
         end
         
         hitAnimationCounter = hitAnimationCounter + dt
