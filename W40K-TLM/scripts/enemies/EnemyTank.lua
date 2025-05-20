@@ -73,7 +73,7 @@ function on_ready()
     tank.enemyType = "tank"
     tank:set_level()
 
-    if tankName == "EnemyTank1" then
+    if self:get_component("TagComponent").tag == "EnemyTank1" then
         tank.level = 3
     end
 
