@@ -177,7 +177,7 @@ local enemy_stats = {
             -- Time between melee attacks
             attackCooldown = 2.0,
             -- Time between tackles
-            tackleCooldown = 4.0,
+            tackleCooldown = 2.5,
             -- Idle time before going after the player again
             idleDuration = 1.0,
             -- Total duration of Berserk mode
