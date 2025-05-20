@@ -65,9 +65,6 @@ function on_ready()
 
     -- Fade To Black
     main_boss.fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
-
-    -- Arena
-    main_boss.triggerBossBattle = current_scene:get_entity_by_name("TriggerBossBattle"):get_component("RigidbodyComponent")
     
 
 
@@ -146,15 +143,6 @@ function on_ready()
             if not main_boss.playerScript.isNeuralInhibitioning then
                 main_boss.playerScript.isNeuralInhibitioning = true
             end
-        end
-    end)
-
-    main_boss.triggerBossBattle:on_collision_enter(function(entityA, entityB)
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag
-
-        if nameA == "Player" or nameB == "Player" then
-            main_boss.battleStart = true
         end
     end)
 
