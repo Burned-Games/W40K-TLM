@@ -1,4 +1,4 @@
-local distanceShow = 2.0
+local distanceShow = 3.0
 
 
 
@@ -8,12 +8,12 @@ local transform = nil
 
 local spriteComponent = nil
 
-local interactionSprite = nil
 local interactionSpriteTransitionTimerTarget = 0.4
 local interactionSpriteTransitionTimer = 0.0
 local outOfRange = true
 local beforeFrameOutOfRange = true
 local hasBeenHidden = false
+
 
 function on_ready()
     -- Add initialization code 
@@ -34,7 +34,7 @@ function on_update(dt)
             math.abs(playerTransform.position.z - transform.position.z)
     )
 
-    
+    log(distance.x)
 
     if distance.x < distanceShow and distance.z < distanceShow then
         if not hasBeenHidden then
@@ -42,8 +42,11 @@ function on_update(dt)
         end
         
     else
+        if not outOfRange then
+            hasBeenHidden = true
+        end
         outOfRange = true
-        hasBeenHidden = true
+        
     end
 
     if outOfRange ~= beforeFrameOutOfRange then
