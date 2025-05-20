@@ -581,7 +581,7 @@ function shoot_projectile(targetExplosive)
     local dx = targetPos.x - startPos.x
     local dz = targetPos.z - startPos.z
 
-    local targetAngle = math.deg(range:atan2(dx, dz))
+    local targetAngle = math.deg(support:atan2(dx, dz))
     bullet.rb:set_rotation(Vector3.new(0, targetAngle, 0))
     
     -- Set velocity and activate bullet
