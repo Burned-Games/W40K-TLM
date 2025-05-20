@@ -16,6 +16,7 @@ function on_ready()
     playerManager = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
     triggerBossBattle = current_scene:get_entity_by_name("TriggerBossBattle"):get_component("RigidbodyComponent")
+    triggerBossBattle.rb:set_trigger(true)
 
     bossBarBase:set_color(Vector4.new(1, 1, 1, 0))
     bossBarLife:set_color(Vector4.new(1, 1, 1, 0))

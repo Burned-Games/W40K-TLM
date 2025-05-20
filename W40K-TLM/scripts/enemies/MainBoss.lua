@@ -65,6 +65,9 @@ function on_ready()
 
     -- Fade To Black
     main_boss.fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
+
+    -- Arena
+    main_boss.triggerBossBattle = current_scene:get_entity_by_name("TriggerBossBattle"):get_component("RigidbodyComponent")
     
 
 
@@ -119,6 +122,7 @@ function on_ready()
     main_boss.rageAnim = 2
 
     -- Bools
+    main_boss.battleStart = false
     main_boss.isRaging = false
     main_boss.isAttacking = false
     main_boss.shieldActive = false
@@ -145,9 +149,20 @@ function on_ready()
         end
     end)
 
+    main_boss.triggerBossBattle:on_collision_enter(function(entityA, entityB)
+        local nameA = entityA:get_component("TagComponent").tag
+        local nameB = entityB:get_component("TagComponent").tag
+
+        if nameA == "Player" or nameB == "Player" then
+            main_boss.battleStart = true
+        end
+    end)
+
 end
 
 function on_update(dt)
+
+    if not main_boss.battleStart then return end
 
     main_boss:check_effects(dt)
 
