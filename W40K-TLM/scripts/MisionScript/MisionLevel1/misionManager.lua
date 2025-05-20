@@ -32,6 +32,10 @@ local imgRed = nil
 local imgBlueUI = nil
 local imgRedUI = nil
 
+local bcgBlueUI = nil
+local bcgRedUI = nil
+local bck = false
+local actualAlphaBackground = 0
 
 local blueAnimation = {start = false, playing = false, lerpTime = 0.0, phase = ""}
 local redAnimation = {start = false, playing = false, lerpTime = 0.0, phase = ""}
@@ -94,12 +98,18 @@ function on_ready()
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
 
+    bcgBlueUI = current_scene:get_entity_by_name("MisionBackgroundRed"):get_component("UIImageComponent")
+    bcgRedUI = current_scene:get_entity_by_name("MisionBackgroundBlue"):get_component("UIImageComponent")
+
     popupScriptComponent = current_scene:get_entity_by_name("PopUpManager"):get_component("ScriptComponent")
     
     imgBlueUI:set_color(Vector4.new(1, 1, 1, 0))
     imgRedUI:set_color(Vector4.new(1, 1, 1, 0))
     textBlueComponent:set_color(Vector4.new(1, 1, 1, 0))
     textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
+
+    bcgBlueUI:set_color(Vector4.new(0, 0, 0, 0))
+    bcgRedUI:set_color(Vector4.new(0, 0, 0, 0))
 
     blueTaskIndex = load_progress("bluemision",1)
     redTaskIndex = load_progress("redmision",1)
@@ -117,6 +127,8 @@ function on_update(dt)
             redAnimation.phase = "opening"
             redAnimation.start = true
             redAnimation.playing = true
+
+            bck = true
         end
         return
     end
@@ -235,6 +247,11 @@ function processAnimation(dt, anim, img, text, onComplete)
         actualAlpha = lerp(1.0, 0.0, anim.lerpTime)
     end
 
+    if bck and actualAlphaBackground < 0.5 then
+        actualAlphaBackground = lerp(0.0, 0.5, anim.lerpTime)
+    end
+
+
     if anim.lerpTime >= 1.0 then
         anim.lerpTime = 0.0
         if anim.phase == "closing" then
@@ -249,6 +266,8 @@ function processAnimation(dt, anim, img, text, onComplete)
 
     img:set_color(Vector4.new(1, 1, 1, actualAlpha))
     text:set_color(Vector4.new(1, 1, 1, actualAlpha))
+    bcgBlueUI:set_color(Vector4.new(0, 0, 0, actualAlphaBackground))
+    bcgRedUI:set_color(Vector4.new(0, 0, 0, actualAlphaBackground))
 end
 
 function lerp(a, b, t)

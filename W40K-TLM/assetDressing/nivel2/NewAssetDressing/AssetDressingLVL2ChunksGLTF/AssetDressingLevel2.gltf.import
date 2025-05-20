@@ -1,0 +1,728 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "AssetDressingLevel2_Circle.024",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 4327978957433915192
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.003-0",
+                        "value": {
+                            "value0": 14929213709384420403
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-2",
+                        "value": {
+                            "value0": 9253993045193341398
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-26",
+                        "value": {
+                            "value0": 7355550335920701592
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-17",
+                        "value": {
+                            "value0": 17753877107638633270
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-6",
+                        "value": {
+                            "value0": 12483163175317447489
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.003-1",
+                        "value": {
+                            "value0": 3567817657828576876
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-1",
+                        "value": {
+                            "value0": 6291511220844370930
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-25",
+                        "value": {
+                            "value0": 559616792946571239
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-14",
+                        "value": {
+                            "value0": 17998082576083608142
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-5",
+                        "value": {
+                            "value0": 813192505278566308
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.003-2",
+                        "value": {
+                            "value0": 4274615505291371423
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-0",
+                        "value": {
+                            "value0": 9795118144367888817
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-24",
+                        "value": {
+                            "value0": 13699082778881511673
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-15",
+                        "value": {
+                            "value0": 7826123289948651953
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-4",
+                        "value": {
+                            "value0": 12294873651162149736
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.003-3",
+                        "value": {
+                            "value0": 9321300817007722436
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-3",
+                        "value": {
+                            "value0": 15659522139481542084
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-27",
+                        "value": {
+                            "value0": 4043981330098523702
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-16",
+                        "value": {
+                            "value0": 14663793033878345617
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-7",
+                        "value": {
+                            "value0": 13185370452856812823
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-4",
+                        "value": {
+                            "value0": 7298224116058916487
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-20",
+                        "value": {
+                            "value0": 4954016425654378284
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-11",
+                        "value": {
+                            "value0": 10917407964223823347
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-0",
+                        "value": {
+                            "value0": 13552774013754722489
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-5",
+                        "value": {
+                            "value0": 8167720985527955355
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-21",
+                        "value": {
+                            "value0": 4327775317267627306
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-10",
+                        "value": {
+                            "value0": 9468515948518522622
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-1",
+                        "value": {
+                            "value0": 8630672256666265922
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-6",
+                        "value": {
+                            "value0": 4766317143699200174
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-22",
+                        "value": {
+                            "value0": 15307700500589023508
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-13",
+                        "value": {
+                            "value0": 2993765270638789060
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-2",
+                        "value": {
+                            "value0": 2616557754064770246
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.008-1",
+                        "value": {
+                            "value0": 13722773310062924970
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-7",
+                        "value": {
+                            "value0": 9347910199287804467
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-23",
+                        "value": {
+                            "value0": 949824178946072672
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-12",
+                        "value": {
+                            "value0": 11384880834135218627
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-3",
+                        "value": {
+                            "value0": 9823342579945647951
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.008-0",
+                        "value": {
+                            "value0": 4736000362477296825
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-8",
+                        "value": {
+                            "value0": 13513767462746891054
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-20",
+                        "value": {
+                            "value0": 15399933754101515513
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-9",
+                        "value": {
+                            "value0": 3122790579531602839
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-21",
+                        "value": {
+                            "value0": 15680378862969907412
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-29",
+                        "value": {
+                            "value0": 8822225399553630099
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-25",
+                        "value": {
+                            "value0": 1181255249784704536
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-18",
+                        "value": {
+                            "value0": 16200444939332913209
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-9",
+                        "value": {
+                            "value0": 9726270754953789759
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-28",
+                        "value": {
+                            "value0": 2797066731339993530
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-24",
+                        "value": {
+                            "value0": 3927977699834100650
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-19",
+                        "value": {
+                            "value0": 10809541360369576244
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-8",
+                        "value": {
+                            "value0": 17721281229392978872
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-22",
+                        "value": {
+                            "value0": 10748201109843464413
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-23",
+                        "value": {
+                            "value0": 2182975476028347718
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane",
+                        "value": {
+                            "value0": 14015464955477460293
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-26",
+                        "value": {
+                            "value0": 12825634615060872760
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Cube.008-27",
+                        "value": {
+                            "value0": 17136819026612515176
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-10",
+                        "value": {
+                            "value0": 259091559821457900
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-11",
+                        "value": {
+                            "value0": 2395861575054788693
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-12",
+                        "value": {
+                            "value0": 17296396148054363270
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-13",
+                        "value": {
+                            "value0": 9886324470925376613
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-14",
+                        "value": {
+                            "value0": 5253121814827687315
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-15",
+                        "value": {
+                            "value0": 13029521433129356394
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-16",
+                        "value": {
+                            "value0": 18291964634397481284
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-17",
+                        "value": {
+                            "value0": 16009801391268147345
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-18",
+                        "value": {
+                            "value0": 16028201884247578316
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-19",
+                        "value": {
+                            "value0": 1214087445693836728
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-30",
+                        "value": {
+                            "value0": 839359167221582333
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-31",
+                        "value": {
+                            "value0": 17329331201418434233
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-32",
+                        "value": {
+                            "value0": 16577661440878010988
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-33",
+                        "value": {
+                            "value0": 17238771059937181257
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-34",
+                        "value": {
+                            "value0": 3794288426977262670
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-35",
+                        "value": {
+                            "value0": 15353476121086158930
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel2_Plane.029-36",
+                        "value": {
+                            "value0": 15903897188488749706
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "vallas.001_Mat0",
+                        "value": {
+                            "value0": 4204279485455309660
+                        }
+                    },
+                    {
+                        "key": "Scrap1.002_Mat1",
+                        "value": {
+                            "value0": 2791147204175584022
+                        }
+                    },
+                    {
+                        "key": "lambert2.001_Mat41",
+                        "value": {
+                            "value0": 8872828753138172261
+                        }
+                    },
+                    {
+                        "key": "Tuberia_Mat7",
+                        "value": {
+                            "value0": 13249429956540468434
+                        }
+                    },
+                    {
+                        "key": "Material_Mat2",
+                        "value": {
+                            "value0": 16204160461019573366
+                        }
+                    },
+                    {
+                        "key": "standardSurface2_Mat30",
+                        "value": {
+                            "value0": 2290958249287468086
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.001_Mat3",
+                        "value": {
+                            "value0": 14021178919185025904
+                        }
+                    },
+                    {
+                        "key": "Ventana3.001_Mat12",
+                        "value": {
+                            "value0": 4327681269657616474
+                        }
+                    },
+                    {
+                        "key": "Contenedor.001_Mat13",
+                        "value": {
+                            "value0": 15055100036270246930
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat26",
+                        "value": {
+                            "value0": 11620258353259981505
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat4",
+                        "value": {
+                            "value0": 4896555913187560537
+                        }
+                    },
+                    {
+                        "key": "vallas.002_Mat6",
+                        "value": {
+                            "value0": 2374532248756417903
+                        }
+                    },
+                    {
+                        "key": "Contenedor.005_Mat5",
+                        "value": {
+                            "value0": 5330215696019157965
+                        }
+                    },
+                    {
+                        "key": "Contenedor.003_Mat14",
+                        "value": {
+                            "value0": 242826193830097970
+                        }
+                    },
+                    {
+                        "key": "Contenedor_Mat20",
+                        "value": {
+                            "value0": 9522951533918838911
+                        }
+                    },
+                    {
+                        "key": "Tuberia.001_Mat8",
+                        "value": {
+                            "value0": 13554282161524655925
+                        }
+                    },
+                    {
+                        "key": "Material.012_Mat9",
+                        "value": {
+                            "value0": 4653096540703734757
+                        }
+                    },
+                    {
+                        "key": "Contenedor.004_Mat19",
+                        "value": {
+                            "value0": 15801904595298747517
+                        }
+                    },
+                    {
+                        "key": "Material.014_Mat10",
+                        "value": {
+                            "value0": 468612099081545371
+                        }
+                    },
+                    {
+                        "key": "Material.015_Mat11",
+                        "value": {
+                            "value0": 4873722879661822050
+                        }
+                    },
+                    {
+                        "key": "Wall1Tileable_Mat15",
+                        "value": {
+                            "value0": 3744260462259062712
+                        }
+                    },
+                    {
+                        "key": "tanque.001_Mat16",
+                        "value": {
+                            "value0": 16699262130410128548
+                        }
+                    },
+                    {
+                        "key": "StreetLamp.002_Mat17",
+                        "value": {
+                            "value0": 12615029535067273828
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.003_Mat18",
+                        "value": {
+                            "value0": 7126708939331282325
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.005_Mat21",
+                        "value": {
+                            "value0": 2173640606732262127
+                        }
+                    },
+                    {
+                        "key": "TorretaF_Mat31",
+                        "value": {
+                            "value0": 11731026607786620815
+                        }
+                    },
+                    {
+                        "key": "lambert1_Mat22",
+                        "value": {
+                            "value0": 16847199586506565405
+                        }
+                    },
+                    {
+                        "key": "Material.016_Mat23",
+                        "value": {
+                            "value0": 14447450817482151045
+                        }
+                    },
+                    {
+                        "key": "Wall_MAT_Mat42",
+                        "value": {
+                            "value0": 13518992551628729276
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.002_Mat24",
+                        "value": {
+                            "value0": 15811908889974113845
+                        }
+                    },
+                    {
+                        "key": "Ventana3_Mat32",
+                        "value": {
+                            "value0": 6192021026779427710
+                        }
+                    },
+                    {
+                        "key": "Jetpack_MAT_Mat25",
+                        "value": {
+                            "value0": 9155923174333227942
+                        }
+                    },
+                    {
+                        "key": "StreetLamp.001_Mat40",
+                        "value": {
+                            "value0": 8149948390634535292
+                        }
+                    },
+                    {
+                        "key": "Material.004_Mat27",
+                        "value": {
+                            "value0": 5590767175624074563
+                        }
+                    },
+                    {
+                        "key": "Espada_Mat28",
+                        "value": {
+                            "value0": 5490644290090802439
+                        }
+                    },
+                    {
+                        "key": "Material.006_Mat34",
+                        "value": {
+                            "value0": 14215183076750462631
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_MAT_Mat29",
+                        "value": {
+                            "value0": 8622072781985572463
+                        }
+                    },
+                    {
+                        "key": "Ventana2_Mat33",
+                        "value": {
+                            "value0": 332354834881983488
+                        }
+                    },
+                    {
+                        "key": "barras_low_Mat35",
+                        "value": {
+                            "value0": 3733099386289744284
+                        }
+                    },
+                    {
+                        "key": "Contenedor.002_Mat36",
+                        "value": {
+                            "value0": 11581643138993249451
+                        }
+                    },
+                    {
+                        "key": "Suelo_MAT.001_Mat37",
+                        "value": {
+                            "value0": 17205069452276878370
+                        }
+                    },
+                    {
+                        "key": "Bridge_Mat38",
+                        "value": {
+                            "value0": 2078784013381717548
+                        }
+                    },
+                    {
+                        "key": "StreetLamp_Mat39",
+                        "value": {
+                            "value0": 1163652962200345250
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 12187323453981345462
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel2/NewAssetDressing/AssetDressingLVL2ChunksGLTF/AssetDressingLevel2.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/12187323453981345462.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

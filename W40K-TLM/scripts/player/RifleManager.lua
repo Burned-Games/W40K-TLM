@@ -30,7 +30,7 @@ local playerScript = nil
 
 local shooted = true
 
-damage = 12
+damage = 15
 
 local yPositionBullet = 1.5
 
@@ -355,7 +355,7 @@ function on_update(dt)
                 shootCoolDown = shootCoolDown + dt
             end
 
-            if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false then
+            if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false and reloadAnimation == false then
                 playerScript.activateAutoAim = true
                 if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
                     playerScript.currentUpAnim = playerScript.attack
@@ -434,6 +434,7 @@ function on_update(dt)
                     if chaaarging == false then bolterSkillChargeSFX:play() end
 
                     playerScript.moveSpeed = 0
+                    playerScript.playerRb:set_velocity(Vector3.new(0, 0, 0))
                     chaaarging = true
                     particleCharging:emit(1)
                     if playerScript.currentAnim ~= playerScript.h1_Bolter then

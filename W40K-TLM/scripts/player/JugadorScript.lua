@@ -8,7 +8,7 @@ playerTransf = nil
 playerRb = nil
 local lastValidRotation = 0
 --speed
-local normalSpeed = 5
+normalSpeed = 5
 moveSpeed = 5
 local speedDebuf = 1
 local godModeSpeed = 12
@@ -193,6 +193,7 @@ local particle_lvl1_run = nil
 local particle_fire = nil
 local particle_smoke = nil
 local neuralInParticle = nil
+local particle_spark = nil
 
 
 local dtColective = 0
@@ -280,6 +281,7 @@ function on_ready()
     particle_lvl1_run = current_scene:get_entity_by_name("particle_lvl1_run"):get_component("ParticlesSystemComponent")
     particle_fire = current_scene:get_entity_by_name("particle_fire"):get_component("ParticlesSystemComponent")
     particle_smoke = current_scene:get_entity_by_name("particle_smoke"):get_component("ParticlesSystemComponent")
+    particle_spark = current_scene:get_entity_by_name("SparkParticle"):get_component("ParticlesSystemComponent")
     
     
     --UpgradeManager START
@@ -1565,6 +1567,10 @@ function updateAnims(dt)
     if isHitted then
         for i, component in ipairs(playerMatsComponents) do 
             component.material = playerMatsDamages[i]
+        end
+        
+        if particle_spark then
+           particle_spark:emit(1) 
         end
         
         hitAnimationCounter = hitAnimationCounter + dt

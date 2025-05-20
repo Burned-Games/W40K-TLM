@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 16571354047524117851
+                "value0": 1564141915607594336
             },
             "value4": false
         },
@@ -29,9 +29,9 @@
         "value8": {
             "cereal_class_version": 0,
             "Position": {
-                "x": -3.566196918487549,
-                "y": 0.21524062752723695,
-                "z": -4.723355770111084
+                "x": 1.237957239151001,
+                "y": 1.6566917896270753,
+                "z": -13.579044342041016
             },
             "Rotation": {
                 "x": 0.0,
@@ -79,9 +79,9 @@
                             "m21": 0.0,
                             "m22": 1.0,
                             "m23": 0.0,
-                            "m30": -3.566196918487549,
-                            "m31": 0.21524062752723695,
-                            "m32": -4.723355770111084,
+                            "m30": 1.237957239151001,
+                            "m31": 1.6566917896270753,
+                            "m32": -13.579044342041016,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": false,
@@ -153,10 +153,10 @@
                         },
                         "SimulationSpace": 1,
                         "UseEmission": true,
-                        "RateOverTime": 11.300000190734864,
+                        "RateOverTime": 40.0,
                         "UseBurst": false,
                         "Bursts": [],
-                        "ShapeType": 2,
+                        "ShapeType": 1,
                         "MinSpread": {
                             "x": -0.10000000149011612,
                             "y": -0.10000000149011612,
@@ -168,8 +168,8 @@
                             "z": 0.10000000149011612
                         },
                         "UseShape": true,
-                        "ShapeAngle": 0.75,
-                        "ShapeRadius": 1.0,
+                        "ShapeAngle": 0.25600001215934756,
+                        "ShapeRadius": 0.09000000357627869,
                         "ShapeRadiusThickness": 0.10000000149011612,
                         "GoCenter": false,
                         "UseVelocityOverLifetime": true,

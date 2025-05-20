@@ -46,6 +46,11 @@ local imgRed = nil
 local imgBlueUI = nil
 local imgRedUI = nil
 
+local bcgBlueUI = nil
+local bcgRedUI = nil
+local bck = false
+local actualAlphaBackground = 0
+
 -- Animation control
 local blueAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
 local redAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
@@ -117,11 +122,16 @@ function on_ready()
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
 
+    bcgBlueUI = current_scene:get_entity_by_name("MisionBackgroundRed"):get_component("UIImageComponent")
+    bcgRedUI = current_scene:get_entity_by_name("MisionBackgroundBlue"):get_component("UIImageComponent")
+
 
     imgBlueUI:set_color(Vector4.new(1, 1, 1, 0))
     imgRedUI:set_color(Vector4.new(1, 1, 1, 0))
     textBlueComponent:set_color(Vector4.new(1, 1, 1, 0))
     textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
+    bcgBlueUI:set_color(Vector4.new(0, 0, 0, 0))
+    bcgRedUI:set_color(Vector4.new(0, 0, 0, 0))
 
 
     -- dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
@@ -133,13 +143,15 @@ function on_update(dt)
         delayTimer = delayTimer + dt
         if delayTimer >= initialDelay then
             initialDelayDone = true
-            blueAnimation.closing = true
+            blueAnimation.phase = "opening"
             blueAnimation.start = true
             blueAnimation.playing = true
 
-            redAnimation.closing = true
+            redAnimation.phase = "opening"
             redAnimation.start = true
             redAnimation.playing = true
+
+            bck = true
         end
         return
     end
@@ -149,27 +161,19 @@ function on_update(dt)
     missionRed_Tutor()
 
     processAnimation(dt, blueAnimation, imgBlueUI, textBlueComponent, function()
+
         blueTaskIndex = blueTaskIndex + 1
         if blueTaskIndex > #blueTasks then 
-            blueTaskIndex = #blueTasks + 1 
+            blueTaskIndex = #blueTasks + 1
         end
     end)
+    
     processAnimation(dt, redAnimation, imgRedUI, textRedComponent, function()
         redTaskIndex = redTaskIndex + 1
         if redTaskIndex > #redTasks then 
-            redTaskIndex = #redTasks + 1 
+            redTaskIndex = #redTasks + 1
         end
     end)
-
-    if Input.is_key_pressed(Input.keycode.I) then
-        if getCurrerTaskIndex(true) == 2 then
-            m2_lever = true
-        elseif getCurrerTaskIndex(true) == 6 then
-            m6_lever = true
-        elseif getCurrerTaskIndex(true) == 7 then
-            m7_lever = m7_lever + 1
-        end
-    end
 end
 
 function updateText()
@@ -230,43 +234,45 @@ function startAnimation(anim)
     if not anim.start and not anim.playing then
         anim.start = true
         anim.playing = true
-        anim.closing = true
+        anim.phase = "closing"
         anim.lerpTime = 0.0
         missionCompleteSFX:play()
     end
 end
 
+
 function processAnimation(dt, anim, img, text, onComplete)
     if not anim.start then return end
 
-    local ori = anim.closing and imgPosOri or imgPosDes
-    local des = anim.closing and imgPosDes or imgPosOri
-    local tOri = anim.closing and textPosOri or textPosDes
-    local tDes = anim.closing and textPosDes or textPosOri
-
-    anim.lerpTime = anim.lerpTime + (dt * 0.1)
-    -- img.position.x = lerp(ori, des, anim.lerpTime)
-    -- text.position.x = lerp(tOri, tDes, anim.lerpTime)
+    anim.lerpTime = anim.lerpTime + (dt * 2.0)
     
-    if anim.lerpTime >= 0.1 then
-        if anim.closing then
-            anim.closing = false
-            anim.lerpTime = 0.0
+    if anim.phase == "opening" then
+        actualAlpha = lerp(0.0, 1.0, anim.lerpTime)
+    else 
+        actualAlpha = lerp(1.0, 0.0, anim.lerpTime)
+    end
+
+    if bck and actualAlphaBackground < 0.5 then
+        actualAlphaBackground = lerp(0.0, 0.5, anim.lerpTime)
+    end
+
+
+    if anim.lerpTime >= 1.0 then
+        anim.lerpTime = 0.0
+        if anim.phase == "closing" then
             onComplete()
+            anim.phase = "opening"
+            anim.start = true  
         else
             anim.start = false
             anim.playing = false
-            anim.lerpTime = 0.0
         end
     end
 
-    if anim.closing then
-        actualAlpha = lerp(actualAlpha, 0.0, anim.lerpTime)
-    elseif anim.start then
-        actualAlpha = lerp(actualAlpha, 1.0, anim.lerpTime)
-    end
     img:set_color(Vector4.new(1, 1, 1, actualAlpha))
     text:set_color(Vector4.new(1, 1, 1, actualAlpha))
+    bcgBlueUI:set_color(Vector4.new(0, 0, 0, actualAlphaBackground))
+    bcgRedUI:set_color(Vector4.new(0, 0, 0, actualAlphaBackground))
 end
 
 function lerp(a, b, t)
@@ -274,22 +280,32 @@ function lerp(a, b, t)
 end
 
 function insert_line_breaks(text, max_chars_per_line)
-    local result, current_line, current_length = {}, "", 0
+    local result = {}
+    local current_line = ""
+    local current_length = 0
+
     for word in text:gmatch("%S+") do
         local word_length = utf8_char_count(word)
+
         if current_length + word_length > max_chars_per_line then
             table.insert(result, current_line)
-            current_line, current_length = word, word_length
+            current_line = word
+            current_length = word_length
         else
             if current_line ~= "" then
                 current_line = current_line .. " " .. word
                 current_length = current_length + 1 + word_length
             else
-                current_line, current_length = word, word_length
+                current_line = word
+                current_length = word_length
             end
         end
     end
-    if current_line ~= "" then table.insert(result, current_line) end
+
+    if current_line ~= "" then
+        table.insert(result, current_line)
+    end
+
     return table.concat(result, "\n")
 end
 
