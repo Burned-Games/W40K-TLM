@@ -376,7 +376,7 @@ function on_update(dt)
                 else
                     
                 end
-
+                playerScript.shootingIndicator = true
             else
                 playerScript.activateAutoAim = false
                 vfxShootTransf.position.y = 830
@@ -388,6 +388,7 @@ function on_update(dt)
                 end
                 shootAnimation = false
 
+                playerScript.shootingIndicator = false
             end
 
             if rightTrigger == Input.state.Down and (ammo == maxAmmo) then

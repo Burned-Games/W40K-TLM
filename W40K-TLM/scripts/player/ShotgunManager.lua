@@ -275,7 +275,7 @@ function on_update(dt)
                     shoot(dt)
                     next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
                 end
-            
+                playerScript.shootingIndicator = true
 
             else
                 if playerScript.currentAnim ~= -1 and shootAnimation == true then
@@ -285,7 +285,7 @@ function on_update(dt)
                 
                 shootAnimation = false
                 
-                
+                playerScript.shootingIndicator = false
             end
 
            
