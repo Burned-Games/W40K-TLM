@@ -1569,7 +1569,10 @@ function updateAnims(dt)
             component.material = playerMatsDamages[i]
         end
         
-        particle_spark:emit(2)
+        if particle_spark then
+           particle_spark:emit(2) 
+        end
+        
         hitAnimationCounter = hitAnimationCounter + dt
         if hitAnimationCounter < hitAnimationTime then
             if currentUpAnim ~= hit and swordScript.slasheeed == false and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false then
