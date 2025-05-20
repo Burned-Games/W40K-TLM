@@ -1,3 +1,4 @@
+local bossScript = nil
 local bossBar = nil
 local bossBarBase = nil 
 local bossBarLife = nil
@@ -8,6 +9,7 @@ local alpha = 0
 local fadeActive = false
 
 function on_ready()
+    bossScript = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent")
     bossBar = current_scene:get_entity_by_name("BossBar")
     bossBarBase = current_scene:get_entity_by_name("BossBarBase"):get_component("UIImageComponent")
     bossBarLife = current_scene:get_entity_by_name("BossLifeUI"):get_component("UIImageComponent")
@@ -27,9 +29,10 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if nameA == "Player" or nameB == "Player" then
-           bossBar:set_active(true)
-           alpha = 0
-           fadeActive = true
+            bossScript.main_boss.battleStart = true
+            bossBar:set_active(true)
+            alpha = 0
+            fadeActive = true
         end
     end)
 end
