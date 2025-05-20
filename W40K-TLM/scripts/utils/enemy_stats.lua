@@ -211,6 +211,35 @@ local enemy_stats = {
             tackleCooldown = 4.0,
             idleDuration = 1.0,
             berserkaDuration = 10.0
+        },
+
+
+        -- Coliseum Tank
+        [3] = {
+            -- Stats
+            health = 700,
+
+            speed = 4.5,
+            tackleSpeed = 12,
+
+            meleeDamage = 40,
+            tackleDamage = 120,
+
+            detectionRange = 20,
+            meleeAttackRange = 2,
+
+            statsIncrement = 1.5,
+            statsDecrement = 0.33,
+
+            priority = 2,
+
+            alertRadius = 10.0,
+
+            -- **Timers**
+            attackCooldown = 2.0,
+            tackleCooldown = 4.0,
+            idleDuration = 1.0,
+            berserkaDuration = 10.0
         }
 
     },
