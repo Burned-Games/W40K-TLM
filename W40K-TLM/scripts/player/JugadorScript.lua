@@ -154,7 +154,7 @@ level = 1
 
 enemyDirection = nil
 
-local checkpointsPositionLvl1 = { Vector3.new(-14, 0, -32), Vector3.new(105, 0, -115), Vector3.new(194, 0, -216)}
+local checkpointsPositionLvl1 = { Vector3.new(-14, 0, -32), Vector3.new(105, 0, -115), Vector3.new(131, 0, -186), Vector3.new(194, 0, -216)}
 local checkpointsPositionLvl2 = { Vector3.new(0, 0, 0), Vector3.new(63, 0, -60)}
 
 --animation indexs
