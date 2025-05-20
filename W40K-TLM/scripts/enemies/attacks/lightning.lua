@@ -106,6 +106,8 @@ end
 
 function on_update(dt)
 
+    if enemyScript.main_boss.isDead then return end
+
     if lightningThrown then
         if not isLightningDamaging then
             meleeAttackTimer = meleeAttackTimer + dt

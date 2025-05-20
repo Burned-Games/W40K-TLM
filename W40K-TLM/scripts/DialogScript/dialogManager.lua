@@ -278,5 +278,5 @@ function changeAutoTime(time)
 end
 
 function on_exit()
-    currentAudio:pause()
+    if currentAudio then currentAudio:pause() end
 end
