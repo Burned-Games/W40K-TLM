@@ -9,7 +9,7 @@ local blueTasks = {
     {id = 7, description = "Continue going East while defeating enemy orkz"},
     {id = 8, description = "Upgrade your equipment for the big fight"},
     {id = 9, description = "Pull both levers to get to the Orkz base (x/2)"},
-    {id = 10, description = "Be the last standing on the Orkz Colliseum (x/3)"},
+    {id = 10, description = "Be the last standing on the Orkz Colliseum"},
     {id = 11, description = "Upgrade your equipment before leaving the Orkz base"},
     {id = 12, description = "Find a way to get to the Hive City"}
 }
@@ -63,7 +63,7 @@ local mission10Complet = false
     m7_Defeate = false
     m7_Upgrade = false
     m8_lever = 0
-    m9_EnemyCount = 0
+    m9_EnemyCount = false
     m10_Upgrade = false
     m11_NewZone = false
     mr1_supply = false
@@ -170,11 +170,8 @@ function getCurrentTask(tasks, index)
         description = description:gsub("x", tostring(m8_lever))
     end
 
-    if blueTaskIndex == 10 then
-        description = description:gsub("x", tostring(m9_EnemyCount))
-    end
 
-    return insert_line_breaks(description, 28)
+    return insert_line_breaks(description, 27)
 end
 
 function missionBlue_Tutor()
@@ -202,7 +199,7 @@ function missionBlue_Tutor()
         startAnimation(blueAnimation)
         popupScriptComponent.start_popup_removal_timer()
         popupScriptComponent.remove_persistent_popup()
-    elseif blueTaskIndex == 10 and m9_EnemyCount == 3 then
+    elseif blueTaskIndex == 10 and m9_EnemyCount == true then
         startAnimation(blueAnimation)
         popupScriptComponent.remove_persistent_popup()
     elseif blueTaskIndex == 11 and m10_Upgrade then

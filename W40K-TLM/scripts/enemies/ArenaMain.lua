@@ -63,7 +63,7 @@ function on_ready()
         registerEnemy("supp", i, "EnemySupport" .. i)
     end
 
-    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+    --mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
     configureBattleTrigger()
 end
@@ -101,9 +101,9 @@ function advanceToNextWave()
         spawnLogic()
     end
     
-    if mission_Component.getCurrerTaskIndex(true) == 10 then
-        mission_Component.m9_EnemyCount = mission_Component.m9_EnemyCount + 1
-    end
+    --if mission_Component.getCurrerTaskIndex(true) == 10 then
+    --    mission_Component.m9_EnemyCount = mission_Component.m9_EnemyCount + 1
+    --end
 end
 
 function checkEnemyStatus()

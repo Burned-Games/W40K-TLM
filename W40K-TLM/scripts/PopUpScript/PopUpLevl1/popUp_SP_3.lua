@@ -48,9 +48,9 @@ function on_update(dt)
 
     if isPersistentActive and closUpdate then
         popupScriptComponent.update_persistent_popup_text(description)
-        if mission_Component.m9_EnemyCount >= 2 then
-            closUpdate = false
-        end
+        --if mission_Component.m9_EnemyCount >= 2 then
+            --closUpdate = false
+        --end
     end
 
     

@@ -10,6 +10,7 @@ local tackleIndicatorPrefab = "prefabs/Enemies/attacks/TankTackleIndicator.prefa
 
 function on_ready()
 
+    
     tank.entityName = self:get_component("TagComponent").tag
     -- Scene
     tank.sceneName = SceneManager:get_scene_name()
@@ -29,6 +30,9 @@ function on_ready()
             break
         end
     end
+
+    --Mision
+    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
     -- Player
     tank.player = current_scene:get_entity_by_name("Player")
@@ -309,6 +313,10 @@ function on_update(dt)
     end
     
     if tank.currentState == tank.state.Dead then
+        if self:get_component("TagComponent").tag == "EnemyTank1" then
+            mission_Component.m9_EnemyCount = true
+        end
+
         tank:die_state(dt)
         return
 
