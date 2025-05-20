@@ -34,8 +34,6 @@ function on_update(dt)
             math.abs(playerTransform.position.z - transform.position.z)
     )
 
-    log(distance.x)
-
     if distance.x < distanceShow and distance.z < distanceShow then
         if not hasBeenHidden then
             outOfRange = false
@@ -56,12 +54,10 @@ function on_update(dt)
     if outOfRange then
         if spriteComponent then
             FadeToTransparent(dt)
-            log("fade to transparent")
         end
     else 
         if spriteComponent then
             FadeToBlack(dt)
-            log("fade to black")
         end
     end
 
