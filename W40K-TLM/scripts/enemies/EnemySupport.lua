@@ -607,7 +607,7 @@ function shoot_projectile(targetExplosive)
 
     -- Update bullet index
     support.currentBulletIndex = support.currentBulletIndex + 1
-    if support.currentBulletIndex > 5 then
+    if support.currentBulletIndex > 3 then
         support.currentBulletIndex = 1
     end
 
