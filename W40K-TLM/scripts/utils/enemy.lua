@@ -679,8 +679,10 @@ function enemy:check_initial_distance()
         self.health = self.defaultHealth
         self.isAlerted = false
         self.hasAlerted = false
-    elseif self.isReturning and distance < 0.5 then
+    elseif self.isReturning and distance < 0.7 then
         self.isReturning = false
+        self.isAlerted = false
+        self.hasAlerted = false
         self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         self.health = self.defaultHealth
         self.playerLost = false
