@@ -286,7 +286,7 @@ function on_ready()
 
     end)
 
-    chargeZone = current_scene:get_entity_by_name("DisruptorZone")
+    chargeZone = current_scene:get_entity_by_name("ChargeZone")
     chargeZoneTransf = chargeZone:get_component("TransformComponent")
     chargeZoneRbComponent = chargeZone:get_component("RigidbodyComponent")
     chargeZoneRb = chargeZoneRbComponent.rb
