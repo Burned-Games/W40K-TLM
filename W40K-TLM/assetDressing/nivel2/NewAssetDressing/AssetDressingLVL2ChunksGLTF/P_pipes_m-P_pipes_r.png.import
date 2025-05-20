@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 13216705676942844702
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel2/NewAssetDressing/AssetDressingLVL2ChunksGLTF/P_pipes_m-P_pipes_r.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13216705676942844702.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": false
+            }
+        }
+    }
+}
