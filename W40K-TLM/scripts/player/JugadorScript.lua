@@ -240,6 +240,10 @@ local playerMatsDamages = {}
 
 locked = false 
 
+local movementIndicatorTransf = nil
+shootingIndicator = false
+local aimingIndicator = false
+
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -249,6 +253,8 @@ function on_ready()
     -- Audio
 
     playerListener = current_scene:get_entity_by_name("Listener"):get_component("TransformComponent")
+
+    movementIndicatorTransf = current_scene:get_entity_by_name("MovementPlayerIndicator"):get_component("TransformComponent")
 
     exploreMusic = current_scene:get_entity_by_name("ExploreMusic"):get_component("AudioSourceComponent")
     fightingMusic = current_scene:get_entity_by_name("FightingMusic"):get_component("AudioSourceComponent")
@@ -1179,8 +1185,11 @@ function playerMovement(dt)
 
     if rotationDirectionX ~= 0 or rotationDirectionY ~= 0 then
         notMovingnotLooking = false
+        aimingIndicator = true
         if currentUpAnim ~= aim and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false and bolterScript.chaaarging == false then
             currentUpAnim = aim
+            
+            
             animator:set_upper_animation(currentUpAnim)
             aimAnimation = true
         end
@@ -1189,15 +1198,19 @@ function playerMovement(dt)
         playerTransf.rotation.y = math.deg(lastValidRotation)  
         isAiming = true
     elseif moveDirectionX ~= 0 or moveDirectionY ~= 0 then
+        aimingIndicator = false
         notMovingnotLooking = false
         if currentAnim ~= -1 and aimAnimation == true then
             currentAnim = -1
         end
         aimAnimation = false
+        movementIndicatorTransf.scale.y = 2
         lastValidRotation = math.atan(moveDirection.x, moveDirection.z)
         angleRotation = lastValidRotation
         playerTransf.rotation.y = math.deg(lastValidRotation)
     else
+        aimingIndicator = false
+        movementIndicatorTransf.scale.y = 2
         notMovingnotLooking = true
         if currentAnim ~= -1 and aimAnimation == true then
             currentAnim = -1
@@ -1206,6 +1219,14 @@ function playerMovement(dt)
         playerTransf.rotation.y = math.deg(lastValidRotation)
         angleRotation = lastValidRotation
         isAiming = false
+    end
+
+    if aimingIndicator == true and shootingIndicator == true then
+        movementIndicatorTransf.scale.y = 5.0
+    elseif (aimingIndicator == true and shootingIndicator == false) or (aimingIndicator == false and shootingIndicator == true) then
+        movementIndicatorTransf.scale.y = 3.5
+    else   
+        movementIndicatorTransf.scale.y = 2
     end
 end
 
