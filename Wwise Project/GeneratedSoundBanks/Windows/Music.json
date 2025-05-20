@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{A87E53CB-6C92-3D56-E5BE-BEAF0282CEB9}",
+    "Hash": "{D1A3AB26-CF57-A263-EB26-4295E64EDE55}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -18,49 +18,55 @@
      {
       "Id": "98299895",
       "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
+      "Streaming": "true",
+      "Location": "Loose",
       "ShortName": "ExploreLevel2.wav",
+      "Path": "Media/98299895.wem",
       "CachePath": "FB/{FB4840E6-7405-2DC7-89B7-605160B12ED4}.wem"
      },
      {
       "Id": "540456228",
       "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
+      "Streaming": "true",
+      "Location": "Loose",
       "ShortName": "ExploreLevel3.wav",
+      "Path": "Media/540456228.wem",
       "CachePath": "8A/{8ADD3373-6C6C-6641-2E4F-9E78B40385E0}.wem"
      },
      {
       "Id": "745571181",
       "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
+      "Streaming": "true",
+      "Location": "Loose",
       "ShortName": "FightingMusic.wav",
+      "Path": "Media/745571181.wem",
       "CachePath": "0D/{0DE877E2-3221-A0E1-B041-B0CF598F8BE1}.wem"
      },
      {
       "Id": "764091017",
       "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
+      "Streaming": "true",
+      "Location": "Loose",
       "ShortName": "mainMenu_music.wav",
+      "Path": "Media/764091017.wem",
       "CachePath": "79/{79A2B0EF-C32F-7676-0371-CC5C4F475272}.wem"
      },
      {
       "Id": "983085039",
       "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
+      "Streaming": "true",
+      "Location": "Loose",
       "ShortName": "BossFightingMusic.wav",
+      "Path": "Media/983085039.wem",
       "CachePath": "7D/{7D01AD42-4E76-4815-A580-39312707272B}.wem"
      },
      {
       "Id": "1034477356",
       "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
+      "Streaming": "true",
+      "Location": "Loose",
       "ShortName": "ExploreLevel1.wav",
+      "Path": "Media/1034477356.wem",
       "CachePath": "EC/{EC18E151-FD28-7BBF-3660-5BBABB40D223}.wem"
      }
     ],
@@ -140,6 +146,6 @@
     ]
    }
   ],
-  "FileHash": "{699526AE-BE08-FDD7-9B60-8BF2E1D9486D}"
+  "FileHash": "{27B0B1D0-B4DA-EB93-D93A-49B4F7E9C8C0}"
  }
 }
