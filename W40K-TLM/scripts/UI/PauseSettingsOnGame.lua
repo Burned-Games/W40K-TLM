@@ -4,6 +4,7 @@ local button3
 local button4
 local visibilidad1Entity
 local visibilidad2Entity
+local visibilidad3Entity
 local hudVisibility
 local slider1
 local slider2
@@ -33,6 +34,7 @@ local currentSelectedSlider = 1
 local inputCooldown = 0 
 local cooldownTime = 0.15 
 local isOnPauseSettings = false
+local isOnControls = false
 
 local visibilidadtotal
 
@@ -55,6 +57,7 @@ function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
     button2 = current_scene:get_entity_by_name("SettingsButton"):get_component("UIButtonComponent")
+    button3 = current_scene:get_entity_by_name("Controls"):get_component("UIButtonComponent")
     button4 = current_scene:get_entity_by_name("Exit"):get_component("UIButtonComponent")
 
     text1 = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
@@ -62,6 +65,7 @@ function on_ready()
 
     visibilidad1Entity = current_scene:get_entity_by_name("Pause")
     visibilidad2Entity = current_scene:get_entity_by_name("Settings")
+    visibilidad3Entity = current_scene:get_entity_by_name("ControlsBase")
 
     VolumeText = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
     FXText = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
@@ -70,6 +74,8 @@ function on_ready()
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
 
     chatarraUI = current_scene:get_entity_by_name("ChatarraUI")
+
+
 
     if currentSelectedSlider == 1 then
         slider1.selected = true
@@ -101,6 +107,7 @@ function on_ready()
 
     visibilidad1Entity:set_active(false)
     visibilidad2Entity:set_active(false)
+    visibilidad3Entity:set_active(false)
 
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
@@ -115,6 +122,7 @@ function on_update(dt)
             isPaused = false
             visibilidad1Entity:set_active(false)
             visibilidad2Entity:set_active(false)
+            visibilidad3Entity:set_active(false)
             chatarraUI:set_active(true)
             isOnPauseSettings = false
 
@@ -132,6 +140,7 @@ function on_update(dt)
 
     if index == 0 then
         button1.state = State.Hover
+        button3.state = State.Normal
         button2.state = State.Normal
         button4.state = State.Normal
         if isPaused then
@@ -147,13 +156,31 @@ function on_update(dt)
 
     elseif index == 1 then
         button1.state = State.Normal
-        button2.state = State.Hover
+        button3.state = State.Hover
+        button2.state = State.Normal
         button4.state = State.Normal
         if isPaused then
             value = Input.get_button(Input.action.Confirm)
             if((value == Input.state.Down)) then
                 indexSelectionSFX:play()
                 if(index == 1) then
+                    --button2:set_state("Pressed")
+                    sceneChanged = true
+                    visibilidad3Entity:set_active(true)
+                    isOnControls = true
+                end
+            end
+        end
+    elseif index == 2 then
+        button1.state = State.Normal
+        button3.state = State.Normal
+        button2.state = State.Hover
+        button4.state = State.Normal
+        if isPaused then
+            value = Input.get_button(Input.action.Confirm)
+            if((value == Input.state.Down)) then
+                indexSelectionSFX:play()
+                if(index == 2) then
                     --button2:set_state("Pressed")
                     sceneChanged = true
                     visibilidad2Entity:set_active(true)
@@ -164,6 +191,7 @@ function on_update(dt)
         
     else
         button1.state = State.Normal
+        button3.state = State.Normal
         button2.state = State.Normal
         button4.state = State.Hover
         if isPaused then
@@ -171,7 +199,7 @@ function on_update(dt)
             if((value == Input.state.Down)) then
                 indexSelectionSFX:play()
                 --button4:set_state("Pressed")
-                if(index == 2) then
+                if(index == 3) then
                 save_progress("skipIntroDelay", true)
                 fadeToBlackScript:DoFade()
                 SceneManager.change_scene("scenes/mainMenu.TeaScene")
@@ -188,13 +216,13 @@ function on_update(dt)
             if value < 0 then
                 index = index - 1;
                 if index < 0 then
-                    index = 2
+                    index = 3
                 end
             end
             
             if value > 0 then
                 index = index + 1
-                if index > 2 then
+                if index > 3 then
                     index = 0
                 end
             end
@@ -270,11 +298,15 @@ function on_update(dt)
         if isOnPauseSettings then
             visibilidad2Entity:set_active(false)
             isOnPauseSettings = false
+        elseif isOnControls then
+            visibilidad3Entity:set_active(false)
+            isOnControls = false
         else
             
             sceneChanged = true
             visibilidad1Entity:set_active(false)
             visibilidad2Entity:set_active(false)
+            visibilidad3Entity:set_active(false)
             chatarraUI:set_active(true)
             isPaused = false
         end

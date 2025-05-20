@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 1182273551607010963
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "ui/Pause/Controls.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/1182273551607010963.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
