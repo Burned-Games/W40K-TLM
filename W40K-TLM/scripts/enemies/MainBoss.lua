@@ -63,9 +63,6 @@ function on_ready()
     main_boss.bloodParticle = current_scene:get_entity_by_name("BossBloodParticle"):get_component("ParticlesSystemComponent")
     main_boss.bloodParticleTransf = current_scene:get_entity_by_name("BossBloodParticle"):get_component("TransformComponent")
 
-    -- Fade To Black
-    main_boss.fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
-
     
 
     -- Attack lists
@@ -96,8 +93,6 @@ function on_ready()
     main_boss.colliderUpdateInterval = 0.1
     main_boss.animDuration = 0.0
     main_boss.animTimer = 0.0
-    main_boss.contador = 0.0
-    main_boss.timeToTransition = 5.0
 
     main_boss.fistsDuration = 1.67
     main_boss.thunderDuration = 2.67
@@ -125,8 +120,6 @@ function on_ready()
     main_boss.hasMovedToCenter = false
     main_boss.isReturning = false
     main_boss.isPlayingAnimation = false
-    main_boss.changeing = false
-    main_boss.fadeToBlack = false
 
     -- Positions
     main_boss.lastTargetPos = main_boss.playerTransf.position
@@ -149,6 +142,8 @@ end
 
 function on_update(dt)
 
+    if main_boss.isDead then return end
+
     main_boss:check_effects(dt)
 
     change_state()
@@ -166,7 +161,6 @@ function on_update(dt)
         main_boss.hitTimer = main_boss.hitTimer + dt 
         main_boss.hitAudioTimer = main_boss.hitAudioTimer + dt
     end
-    if main_boss.fadeToBlack then main_boss.contador = main_boss.contador + dt end
 
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
         main_boss.currentState = main_boss.state.Move
@@ -362,21 +356,8 @@ function main_boss:die_state(dt)
         if main_boss.dyingSFX ~= nil then main_boss.dyingSFX:play() end
     end
 
-    if not main_boss.isDead then
-        main_boss.fadeToBlack = true
-        main_boss.isDead = true
-    end
-
-    if  not main_boss.changeing and main_boss.contador > main_boss.timeToTransition then
-        main_boss.changeing = true
-        main_boss.fadeToBlackScript:DoFade()
-    end
-
-
-    if main_boss.changeing then
-        if main_boss.fadeToBlackScript.fadeToBlackDoned then
-            SceneManager.change_scene("scenes/credits.TeaScene")
-        end
+    if main_boss.animTimer >= main_boss.dieDuration then
+        SceneManager.change_scene("scenes/credits.TeaScene")
     end
 end
 
