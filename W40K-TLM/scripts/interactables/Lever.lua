@@ -81,7 +81,7 @@ function on_update(dt)
     end
     
 
-    if distance.x < interactionDistance and distance.z < interactionDistance and playerScript.combatTimer <= 0 then
+    if distance.x < interactionDistance and distance.z < interactionDistance and playerScript.combatTimer <= 3 then
         --Icon
         
         if  Input.get_button(Input.action.Confirm) == Input.state.Down then
