@@ -33,6 +33,7 @@ local shooted = true
 damage = 15
 
 local yPositionBullet = 1.5
+local yPositionDisruptorBullet = 1
 
 --Audio
 local rifle_firerate = 0.8
@@ -538,7 +539,14 @@ function disruptiveCharge()
         forwardVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
     end
     
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , (forwardVector.y+ playerPosition.y)  , (forwardVector.z+ playerPosition.z) )
+    local offsetDistance = 2.5 -- Puedes ajustar esto al gusto
+    local offsetPosition = Vector3.new(forwardVector.x * offsetDistance, 0, forwardVector.z * offsetDistance)
+    local newPosition = Vector3.new(
+    playerPosition.x + offsetPosition.x,
+    playerPosition.y + offsetPosition.y,
+    playerPosition.z + offsetPosition.z
+)
+    newPosition.y = yPositionDisruptorBullet
 
     particle_cargdisruptor_transform.position = newPosition
     --particle_cargdisruptor:emit(1)
@@ -547,7 +555,7 @@ function disruptiveCharge()
     disruptorBulletTransf.position = newPosition
     disruptorBulletTransf.rotation = Vector3.new(0,math.deg(playerScript.angleRotation),0)
 
-    disruptorBulletRb:set_position(newPosition)
+    disruptorBulletRb:set_position(Vector3.new(newPosition.x, newPosition.y, newPosition.z ))
 
     disruptorBulletRb:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
 
