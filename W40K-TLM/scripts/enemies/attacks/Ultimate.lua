@@ -123,7 +123,7 @@ function ultimate()
         elapsed = 0,
         duration = ultiAttackDuration,
         startScale = Vector3.new(1, 1, 1),
-        targetScale = Vector3.new(20, 20, 20) 
+        targetScale = Vector3.new(24, 24, 24) 
     })
 
     ultimateThrown = true
@@ -133,9 +133,9 @@ end
 
 function check_ulti_collision()
 
-    -- if main_boss.currentAnim ~= main_boss.ultiAnim then
-    --     main_boss:play_blocking_animation(main_boss.ultiAnim, main_boss.ultiDuration)
-    -- end
+    if enemyScript.main_boss.currentAnim ~= enemyScript.main_boss.ultiAnim then
+        enemyScript.main_boss:play_blocking_animation(enemyScript.main_boss.ultiAnim, enemyScript.main_boss.ultiDuration)
+    end
 
     local origin = ultimateTransf.position
     local direction = Vector3.new(playerTransf.position.x - origin.x, 0, playerTransf.position.z - origin.z)

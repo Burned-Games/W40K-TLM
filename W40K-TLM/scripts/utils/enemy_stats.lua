@@ -330,7 +330,7 @@ local enemy_stats = {
             -- Time between ultimates
             ultiCooldown = 15.0,
             -- Time before the ultimate starts making damage
-            ultiAttackDuration = 15.0,
+            ultiAttackDuration = 5.0,
             -- Time of the ultimate active and making damage
             ultiHittingDuration = 2.5,
             -- Time befor throwing a totem
