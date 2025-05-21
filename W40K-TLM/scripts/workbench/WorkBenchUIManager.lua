@@ -487,6 +487,7 @@ function on_update(dt)
     if isClosing then
         closeCooldownTimer = closeCooldownTimer + dt
         if closeCooldownTimer >= closeCooldownDuration then
+            hide_ui()
             finalize_hide_ui()
             return
         end
