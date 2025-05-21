@@ -10,7 +10,7 @@ local enemy_stats = {
             health = 110,
 
             speed = 5.5,
-            bulletSpeed = 15,
+            bulletSpeed = 5,
 
             meleeDamage = 15,
             rangeDamage = 6,
@@ -48,7 +48,7 @@ local enemy_stats = {
             health = 130,
 
             speed = 5.5,
-            bulletSpeed = 15,
+            bulletSpeed = 5,
 
             meleeDamage = 25,
             rangeDamage = 8,
