@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{19E3CFCE-5418-4D54-9124-7DBDAE79CBE7}",
     "Language": "SFX",
-    "Hash": "{A71A3B68-D765-09B0-0390-F2DCFE17E23A}",
+    "Hash": "{834FAD39-4147-95E6-B821-D527CA733E9D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\FinalBossSFX",
     "ShortName": "FinalBossSFX",
     "Path": "FinalBossSFX.bnk",
@@ -271,9 +271,10 @@
       "Name": "Play_BossSteps",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossSteps",
       "GUID": "{4F3A93D6-E7DF-45D2-AC6A-0E3C93F033E0}",
+      "MaxAttenuation": "48",
       "DurationType": "OneShot",
-      "DurationMin": "0.1885625",
-      "DurationMax": "0.34820834",
+      "DurationMin": "0.2561004",
+      "DurationMax": "1.1577759",
       "MediaRefs": [
        {
         "Id": "166699868"
@@ -306,6 +307,6 @@
     ]
    }
   ],
-  "FileHash": "{F2CF63A3-A570-7547-EA66-A4F71121D6AD}"
+  "FileHash": "{2667A38B-BAB0-15F2-04BC-84A33B296FB0}"
  }
 }
