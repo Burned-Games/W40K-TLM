@@ -184,12 +184,13 @@ function on_update(dt)
     update_bullets(dt)
     change_state()
 
+    support.moveAudioTimer = support.moveAudioTimer + dt
     support.findEnemiesTimer = support.findEnemiesTimer + dt
     support.updateTargetTimer = support.updateTargetTimer + dt
     if support.enemyHit then
         support.hitTimer = support.hitTimer + dt 
-        support.hitAudioTimer = support.hitAudioTimer + dt
     end
+    support.hitAudioTimer = support.hitAudioTimer + dt
 
     if support.health <= 0 then
         if support.key ~= 0 then

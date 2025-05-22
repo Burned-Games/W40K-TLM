@@ -5,8 +5,8 @@ local enemyScript = nil
 local player = nil
 local playerTransf = nil
 local playerScript = nil
-local ultimateTransf = nil
-local pillarToDestroy = nil
+ultimateTransf = nil
+pillarToDestroy = nil
 
 -- Audio
 local bossChargeUltimateSFX = nil
@@ -21,7 +21,9 @@ local colliderUpdateInterval = 0.1
 -- Bools
 ultimateThrown = false
 ultimateCasting = false
-local isUltimateDamaging = false
+isUltimateDamaging = false
+local ultimateThrownSound = false
+local ultimateCastingSound = false
 
 -- Vector3
 local ultimateVibration = Vector3.new(1, 1, 200)
@@ -73,7 +75,10 @@ function on_update(dt)
     end
 
     if ultimateThrown then
-        bossChargeUltimateSFX:play()
+        if not ultimateThrownSound then
+            bossChargeUltimateSFX:play()
+            ultimateThrownSound = true
+        end
         enemyScript.main_boss.invulnerable = true
         ultiAttackTimer = ultiAttackTimer + dt
 
@@ -84,12 +89,16 @@ function on_update(dt)
         if ultimateCasting then
             if not isUltimateDamaging then
                 isUltimateDamaging = true
+            end
+
+            if not ultimateCastingSound then
                 bossUltimateExplosionSFX:play()
+                ultimateCastingSound = true
             end
 
             ultiHittingTimer = ultiHittingTimer + dt
 
-            check_ulti_collision()
+            --check_ulti_collision()
             Input.send_rumble(ultimateVibration.x, ultimateVibration.y, ultimateVibration.z)
             
             if ultiHittingTimer >= ultiHittingDuration then
@@ -99,11 +108,13 @@ function on_update(dt)
                 ultimateCasting = false
                 isUltimateDamaging = false
                 enemyScript.main_boss.invulnerable = false
+                ultimateThrownSound = false
+                ultimateCastingSound = false
                 ultiAttackTimer = 0.0
                 ultiHittingTimer = 0.0
                 ultiTimer = 0.0
 
-                check_ulti_collision()
+                --check_ulti_collision()
 
                 if pillarToDestroy ~= nil then
                     manage_destroyed_pillar()
@@ -131,36 +142,6 @@ function ultimate()
     ultimateThrown = true
     ultiTimer = 0.0
     ultiAttackTimer = 0.0
-end
-
-function check_ulti_collision()
-
-    if enemyScript.main_boss.currentAnim ~= enemyScript.main_boss.ultiAnim then
-        enemyScript.main_boss:play_blocking_animation(enemyScript.main_boss.ultiAnim, enemyScript.main_boss.ultiDuration)
-    end
-
-    local origin = ultimateTransf.position
-    local direction = Vector3.new(playerTransf.position.x - origin.x, 0, playerTransf.position.z - origin.z)
-    local rayLength = 40
-    local tag = "Pilar"
-
-    local rayHit = Physics.Raycast(origin, direction, rayLength)
-
-    if enemyScript.main_boss:detect(rayHit, player) then
-        if isUltimateDamaging then
-            log("Player hit with ultimate")
-            enemyScript.main_boss:make_damage(ultimateDamage)
-            isUltimateDamaging = false
-        end
-    elseif enemyScript.main_boss:detect_by_tag(rayHit, tag) then
-        log("Pillar hit with ultimate")
-        pillarToDestroy = rayHit.hitEntity
-    end
-
-    if playerScript.godMode then
-        Physics.DebugDrawRaycast(origin, direction, rayLength, Vector4.new(1, 0, 0, 1), Vector4.new(1, 1, 0, 1))
-    end
-
 end
 
 function update_scaling_attacks(dt)
@@ -203,11 +184,41 @@ function update_scaling_attacks(dt)
     
 end
 
+function check_ulti_collision()
+
+    if main_boss.currentAnim ~= main_boss.ultiAnim then
+        main_boss:play_blocking_animation(main_boss.ultiAnim, main_boss.ultiDuration)
+    end
+
+    local origin = main_boss.ultimateScript.ultimateTransf.position
+    local direction = Vector3.new(main_boss.playerTransf.position.x - origin.x, 0, main_boss.playerTransf.position.z - origin.z)
+    local rayLength = 40
+    local tag = "Pilar"
+
+    local rayHit = Physics.Raycast(origin, direction, rayLength)
+
+    if main_boss:detect(rayHit, main_boss.player) then
+        if main_boss.ultimateScript.isUltimateDamaging then
+            log("Player hit with ultimate")
+            main_boss:make_damage(main_boss.ultimateDamage)
+            main_boss.ultimateScript.isUltimateDamaging = false
+        end
+    elseif main_boss:detect_by_tag(rayHit, tag) then
+        log("Pillar hit with ultimate")
+        main_boss.ultimateScript.pillarToDestroy = rayHit.hitEntity
+    end
+
+    if main_boss.playerScript.godMode then
+        Physics.DebugDrawRaycast(origin, direction, rayLength, Vector4.new(1, 0, 0, 1), Vector4.new(1, 1, 0, 1))
+    end
+
+end
+
 function manage_destroyed_pillar()
 
-    --local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
-    --pillarRb:set_position(Vector3.new(-800, 0, -800))
-    pillarToDestroy:get_component("ScriptComponent"):give_phisycs()
+    local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
+    pillarRb:set_position(Vector3.new(-800, 0, -800))
+    --pillarToDestroy:get_component("ScriptComponent"):give_phisycs()
     pillarToDestroy = nil
 
 end

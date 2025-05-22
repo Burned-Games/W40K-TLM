@@ -93,6 +93,7 @@ function on_ready()
     tank.idleTimer = 0.0
     tank.animDuration = 0.0
     tank.animTimer = 0.0
+    tank.moveAudioDuration = 1
 
     -- Animations
     tank.attackAnim = 0 
@@ -245,11 +246,12 @@ function on_update(dt)
         tank.currentState = tank.state.Stun
     end
 
+    tank.moveAudioTimer = tank.moveAudioTimer + dt
     tank.pathUpdateTimer = tank.pathUpdateTimer + dt
     if tank.enemyHit then
         tank.hitTimer = tank.hitTimer + dt 
-        tank.hitAudioTimer = tank.hitAudioTimer + dt
     end
+    tank.hitAudioTimer = tank.hitAudioTimer + dt
 
     tank:reset_material()
 

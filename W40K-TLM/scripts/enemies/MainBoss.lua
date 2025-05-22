@@ -55,7 +55,7 @@ function on_ready()
     main_boss.hurtSFX = current_scene:get_entity_by_name("BossHurtSFX"):get_component("AudioSourceComponent")
     main_boss.shieldExplosionSFX = current_scene:get_entity_by_name("BossShieldExplosionSFX"):get_component("AudioSourceComponent")
     main_boss.bossShieldZapSFX = current_scene:get_entity_by_name("BossShieldZapSFX"):get_component("AudioSourceComponent")
-    main_boss.bossStepsSFX = current_scene:get_entity_by_name("BossStepsSFX"):get_component("AudioSourceComponent")
+    main_boss.stepsSFX = current_scene:get_entity_by_name("BossStepsSFX"):get_component("AudioSourceComponent")
 
     -- Particle
     main_boss.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
@@ -98,6 +98,8 @@ function on_ready()
     main_boss.animTimer = 0.0
     main_boss.contador = 0.0
     main_boss.timeToTransition = 5.0
+    main_boss.hitAudioDuration = 1
+    main_boss.moveAudioDuration = 0.75
 
     main_boss.fistsDuration = 1.67
     main_boss.thunderDuration = 2.67
@@ -162,13 +164,14 @@ function on_update(dt)
         main_boss:die_state()
     end
 
+    main_boss.moveAudioTimer = main_boss.moveAudioTimer + dt
     main_boss.attackTimer = main_boss.attackTimer + dt
     main_boss.shieldTimer = main_boss.shieldTimer + dt
     main_boss.pathUpdateTimer = main_boss.pathUpdateTimer + dt
     if main_boss.enemyHit then
         main_boss.hitTimer = main_boss.hitTimer + dt 
-        main_boss.hitAudioTimer = main_boss.hitAudioTimer + dt
     end
+    main_boss.hitAudioTimer = main_boss.hitAudioTimer + dt
     if main_boss.isDead then main_boss.contador = main_boss.contador + dt end
 
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
@@ -446,7 +449,7 @@ function set_stats()
     main_boss.defaultSpeed = main_boss.speed
     main_boss.lightningScript.meleeDamage = stats.meleeDamage
     main_boss.fistScript.rangeDamage = stats.rangeDamage
-    main_boss.ultimateScript.ultimateDamage = stats.ultimateDamage
+    main_boss.ultimateDamage = stats.ultimateDamage
     main_boss.detectionRange = stats.detectionRange
     main_boss.meleeAttackRange = stats.meleeAttackRange
     main_boss.rangeAttackRange = stats.rangeAttackRange

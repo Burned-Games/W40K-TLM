@@ -149,11 +149,14 @@ function enemy:new(obj)
     obj.hitTimer = 0.0
     obj.hitDuration = 0.25
     obj.hitAudioTimer = 0.0
+    obj.hitAudioDuration = 1
+    obj.moveAudioTimer = 0.0
+    obj.moveAudioDuration = 0.75
 
     -- Audios
     obj.hurtSFX = nil
     obj.dyingSFX = nil
-    obj.stepSFX = nil
+    obj.stepsSFX = nil
     obj.detectionSFX = nil
     obj.shieldExplosionSFX = nil
 
@@ -233,6 +236,11 @@ function enemy:move_state()
         self.animator:set_current_animation(self.currentAnim)
     end
     self:follow_path()
+
+    if self.moveAudioTimer >= self.moveAudioDuration then
+        if self.stepsSFX then self.stepsSFX:play() end
+        self.moveAudioTimer = 0.0
+    end
 
 end
 
@@ -772,14 +780,17 @@ function enemy:take_damage(damage, shieldMultiplier)
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
-        if self.hitAudioTimer >= 2 then
+        if self.hitAudioTimer >= self.hitAudioDuration then
             if self.hurtSFX then self.hurtSFX:play() end
             self.hitAudioTimer = 0.0
         end
         log("Shield Health: " .. self.shieldHealth)
     else
         self.health = self.health - damage
-        if self.hurtSFX then self.hurtSFX:play() end
+        if self.hitAudioTimer >= self.hitAudioDuration then
+            if self.hurtSFX then self.hurtSFX:play() end
+            self.hitAudioTimer = 0.0
+        end
         log("Health: " .. self.health)
     end
 
