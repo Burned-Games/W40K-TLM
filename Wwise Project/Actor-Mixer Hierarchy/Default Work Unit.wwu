@@ -1850,7 +1850,7 @@
 								</Sound>
 								<RandomSequenceContainer Name="BossSteps" ID="{6136CF73-CBB8-42E7-B15B-5CBD0EF8CF73}" ShortID="592819593">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="AttenuationDistanceScaling" Type="Real32" Value="1.2"/>
 										<Property Name="Pitch" Type="int32">
 											<ValueList>
