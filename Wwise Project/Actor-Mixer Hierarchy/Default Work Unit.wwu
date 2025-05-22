@@ -1850,6 +1850,7 @@
 								</Sound>
 								<RandomSequenceContainer Name="BossSteps" ID="{6136CF73-CBB8-42E7-B15B-5CBD0EF8CF73}" ShortID="592819593">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="AttenuationDistanceScaling" Type="Real32" Value="1.2"/>
 										<Property Name="Pitch" Type="int32">
 											<ValueList>
@@ -1873,7 +1874,7 @@
 											<Custom>
 												<Attenuation Name="Attenuation (Custom)" ID="{74DA5D77-AE67-4575-AAC4-CAEB0BACE7D5}" ShortID="434740454">
 													<PropertyList>
-														<Property Name="RadiusMax" Type="Real64" Value="110"/>
+														<Property Name="RadiusMax" Type="Real64" Value="70"/>
 													</PropertyList>
 													<CurveUsageInfoList>
 														<VolumeDryUsage>
@@ -1889,13 +1890,8 @@
 																			<Flags>5</Flags>
 																		</Point>
 																		<Point>
-																			<XPos>94.9825038461539</XPos>
-																			<YPos>-1.4043</YPos>
-																			<Flags>0</Flags>
-																		</Point>
-																		<Point>
-																			<XPos>110</XPos>
-																			<YPos>-13.82183</YPos>
+																			<XPos>70</XPos>
+																			<YPos>-15.19336</YPos>
 																			<Flags>37</Flags>
 																		</Point>
 																	</PointList>
