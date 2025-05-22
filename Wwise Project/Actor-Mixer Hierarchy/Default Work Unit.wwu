@@ -1868,7 +1868,8 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
-										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="65"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="80"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -2090,6 +2091,9 @@
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{BEE57264-07E4-403E-88A9-71513E354655}"/>
+									</PositioningInfo>
 								</RandomSequenceContainer>
 								<Sound Name="BossUltimateExplosion" ID="{F4C51B78-2EAA-4D1F-985C-EC14F1BF7098}" ShortID="1057826936">
 									<PropertyList>
