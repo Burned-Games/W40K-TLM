@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{19E3CFCE-5418-4D54-9124-7DBDAE79CBE7}",
     "Language": "SFX",
-    "Hash": "{340E737A-23E8-1F9C-C932-6D5D79BFF69D}",
+    "Hash": "{A71A3B68-D765-09B0-0390-F2DCFE17E23A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\FinalBossSFX",
     "ShortName": "FinalBossSFX",
     "Path": "FinalBossSFX.bnk",
@@ -165,8 +165,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossConeAtack",
       "GUID": "{341718C5-E47B-4580-850A-762204DA40F0}",
       "DurationType": "OneShot",
-      "DurationMin": "2.6035833",
-      "DurationMax": "2.6035833",
+      "DurationMin": "2.319529",
+      "DurationMax": "2.964931",
       "MediaRefs": [
        {
         "Id": "13375720"
@@ -194,7 +194,7 @@
       "GUID": "{F19B5EBB-EA02-492E-A85F-14C92D906990}",
       "DurationType": "OneShot",
       "DurationMin": "0.6782917",
-      "DurationMax": "0.6782917",
+      "DurationMax": "0.89243007",
       "MediaRefs": [
        {
         "Id": "987094350"
@@ -207,8 +207,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossShieldExplosion",
       "GUID": "{AAAC3D6A-1472-4F0F-8327-FADB0B24B6D0}",
       "DurationType": "OneShot",
-      "DurationMin": "0.74854165",
-      "DurationMax": "0.74854165",
+      "DurationMin": "0.67657477",
+      "DurationMax": "0.90311885",
       "MediaRefs": [
        {
         "Id": "929635064"
@@ -244,8 +244,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossSmashDescend",
       "GUID": "{559CE15B-1B61-4207-BA50-1DAF57A5B2D2}",
       "DurationType": "OneShot",
-      "DurationMin": "1.0265833",
-      "DurationMax": "1.0265833",
+      "DurationMin": "0.9145817",
+      "DurationMax": "1.256593",
       "MediaRefs": [
        {
         "Id": "1073295311"
@@ -258,8 +258,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossSmashImpact",
       "GUID": "{283BAC8F-1E2B-4FBD-AF7B-A14B94FB836F}",
       "DurationType": "OneShot",
-      "DurationMin": "1.98175",
-      "DurationMax": "1.98175",
+      "DurationMin": "1.791219",
+      "DurationMax": "2.2896202",
       "MediaRefs": [
        {
         "Id": "403676809"
@@ -306,6 +306,6 @@
     ]
    }
   ],
-  "FileHash": "{A072B498-1A8E-B830-61A2-4D29FE4E3778}"
+  "FileHash": "{F2CF63A3-A570-7547-EA66-A4F71121D6AD}"
  }
 }
