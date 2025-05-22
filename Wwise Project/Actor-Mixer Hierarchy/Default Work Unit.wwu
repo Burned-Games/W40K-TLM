@@ -1868,6 +1868,7 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
+										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="65"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
