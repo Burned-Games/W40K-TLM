@@ -152,6 +152,10 @@ end
 
 function on_update(dt)
 
+    if Input.is_key_pressed(Input.keycode.K) then
+        main_boss.health = 400
+    end
+
     if not main_boss.battleStart then return end
 
     main_boss:check_effects(dt)
@@ -449,7 +453,7 @@ function set_stats()
     main_boss.defaultSpeed = main_boss.speed
     main_boss.lightningScript.meleeDamage = stats.meleeDamage
     main_boss.fistScript.rangeDamage = stats.rangeDamage
-    main_boss.ultimateDamage = stats.ultimateDamage
+    main_boss.ultimateScript.ultimateDamage = stats.ultimateDamage
     main_boss.detectionRange = stats.detectionRange
     main_boss.meleeAttackRange = stats.meleeAttackRange
     main_boss.rangeAttackRange = stats.rangeAttackRange
