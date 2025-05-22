@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}",
     "Language": "SFX",
-    "Hash": "{975A3C17-D8F6-2E07-23A0-B0E012FAFA1D}",
+    "Hash": "{50D8C376-D242-A5DC-F21A-065A0F274903}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\TankSFX",
     "ShortName": "TankSFX",
     "Path": "TankSFX.bnk",
@@ -110,7 +110,7 @@
       "GUID": "{A6656DAB-80F0-4572-8D02-BC6DACB1A5AC}",
       "DurationType": "OneShot",
       "DurationMin": "1.1533542",
-      "DurationMax": "1.1533542",
+      "DurationMax": "1.6310891",
       "MediaRefs": [
        {
         "Id": "1032067657"
@@ -137,8 +137,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankHurt",
       "GUID": "{14B3C5B9-A164-4CD5-977F-D4CF2B7B2C7D}",
       "DurationType": "OneShot",
-      "DurationMin": "1.1533542",
-      "DurationMax": "1.1533542",
+      "DurationMin": "0.9839582",
+      "DurationMax": "1.4957154",
       "MediaRefs": [
        {
         "Id": "897013924"
@@ -151,8 +151,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankImpactPlayer",
       "GUID": "{FF818698-ACA9-400F-B2D2-04D383885E98}",
       "DurationType": "OneShot",
-      "DurationMin": "0.49335417",
-      "DurationMax": "0.49335417",
+      "DurationMin": "0.40304953",
+      "DurationMax": "0.6126757",
       "MediaRefs": [
        {
         "Id": "82750228"
@@ -185,6 +185,6 @@
     ]
    }
   ],
-  "FileHash": "{9D7B73B9-C34A-0889-AC39-113C15140740}"
+  "FileHash": "{D5467B54-AB0D-24A1-F8D7-534F45BDF95F}"
  }
 }

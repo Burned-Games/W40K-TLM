@@ -86,6 +86,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<RandomSequenceContainer Name="PlayerBleeding" ID="{A24983BA-EF29-468A-8B2F-5DAE5959C8B6}" ShortID="666767591">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{9C07F38A-D978-46B6-87E4-A621126B30F0}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="225"/>
+															<Property Name="Min" Type="Real64" Value="-325"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -783,6 +798,20 @@
 						<Folder Name="Ranged" ID="{3F1138C0-5A0E-41F4-88F8-31A9CABD0A36}" ShortID="628205867">
 							<ChildrenList>
 								<Sound Name="RangedHurt" ID="{BA32BE4E-ADCE-4BF7-B562-9C8666A141A5}" ShortID="487881280">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{EB95B784-7827-4740-869F-4B87AFFFED64}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="325"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -805,6 +834,20 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RangedDying" ID="{E11B8D3F-6536-45F2-B063-37F7FDCF8F0E}" ShortID="543906753">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{1952427D-D01E-47A3-96F5-C8FB8C734FC4}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-250"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -827,6 +870,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RangedImpactoBalasPlayer" ID="{98E806E0-7B70-434D-A58D-3AE60B1AF53E}" ShortID="610011159">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{361307D2-9900-417C-BBC7-000C8747A65F}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -849,6 +907,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RangedImpactoCaCPlayer" ID="{7AF922D8-6341-4F23-8ED0-2026F4BB77E4}" ShortID="367421686">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{73BB44B0-2489-419F-806A-16513F57B34C}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="425"/>
+															<Property Name="Min" Type="Real64" Value="-275"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -871,6 +944,28 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RangedShot" ID="{D3F19992-AEB7-4BB3-9E0D-4A12B1CECE49}" ShortID="662336041">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{7C9F3BA1-9B65-4DF8-B38B-AA43F9DA7EE6}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{8DB182AF-635E-49EE-8C95-32F5615DA72E}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="250"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -893,6 +988,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RangedStomp" ID="{F0F6CF0C-3DED-44B6-BF43-824F8A763AC0}" ShortID="977951787">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{783E4602-66E5-438E-988A-6416E8ED6D9A}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -919,6 +1023,21 @@
 						<Folder Name="Support" ID="{3469BFB9-E469-4DF4-BF70-F9D876B22AD0}" ShortID="459502792">
 							<ChildrenList>
 								<Sound Name="SupportShildAssign" ID="{9D7A8067-BF3D-411C-8314-21A2EE813797}" ShortID="851158743">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{0B613A0E-11C6-4060-AB46-398585987FA3}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="175"/>
+															<Property Name="Min" Type="Real64" Value="-375"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -941,6 +1060,20 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SuppportDead" ID="{1E94597E-9C9A-45E4-82DE-46FA75486D53}" ShortID="675237555">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{0FBBDB8F-1E7D-47AF-84AE-A031BCBF0F6A}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-375"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -963,6 +1096,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SupportAtack" ID="{CA4C9569-1F3C-42F0-AB45-22CB279E730B}" ShortID="3927718">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{9C7D8BE1-B08A-4A3B-8012-15BE6B9FE09E}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -985,6 +1127,23 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SupportHurt" ID="{6E39D1FA-633A-4006-A037-0DBC9CE6B477}" ShortID="267528768">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-300</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A9C68782-CAAF-43FF-AC5C-FCA819F947A5}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-725"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1007,6 +1166,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="SupportShieldExplosion" ID="{A9FA3977-F9F1-46E7-85F7-1C8CDA984510}" ShortID="325356004">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{EDE373A6-B66C-4DE0-842E-62AE5255EEBB}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="275"/>
+															<Property Name="Min" Type="Real64" Value="-225"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1029,6 +1203,20 @@
 									</ActiveSourceList>
 								</Sound>
 								<RandomSequenceContainer Name="SupportShieldZaps" ID="{F578D49A-483C-47FE-848C-A016B822D16D}" ShortID="837117462">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{24FB8A8E-AD09-4F32-95C4-0BC209A33FFB}">
+														<PropertyList>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1111,6 +1299,15 @@
 						<Folder Name="Kamikaze" ID="{A47E69D9-8662-486D-94E3-EDBFA52B2420}" ShortID="202575890">
 							<ChildrenList>
 								<Sound Name="KamikazeDetection" ID="{F4EF39DA-6337-451D-8C5D-6973E847FAC7}" ShortID="782818145">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{8795F800-F0B9-40C2-9EBB-4BF2D5190B5F}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1133,6 +1330,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="KamikazeScreamBoom" ID="{5C0C18BA-409C-413D-A63F-4F84727B0606}" ShortID="97400202">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E00862C6-9041-4AB0-A4E4-47913ACB70F3}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1155,6 +1361,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="KamikazeDie" ID="{63BACE1F-C3AD-4AD5-9A47-B4883EB1C7C7}" ShortID="57370457">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E9EE8183-DC97-4204-943E-DEC2153F63B6}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1177,6 +1392,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="KamikazeExplosion" ID="{86776100-688C-404A-B434-31A3F09BD8E6}" ShortID="509480616">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{9D8CF9F2-43AA-47D7-98DA-748B20968379}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="250"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1203,6 +1433,15 @@
 						<Folder Name="Tank" ID="{5742F577-E7A6-4E95-BD67-4FA94F301C11}" ShortID="697615566">
 							<ChildrenList>
 								<Sound Name="TankBerserker" ID="{2DCA753C-E8A6-416E-B0B0-0EF9B71179A9}" ShortID="487192324">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{7810E024-7035-4F60-8580-2005A9B13EF2}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1225,6 +1464,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="TankDetectPlayer" ID="{504CF140-1211-47B5-A954-B980AC2CCD22}" ShortID="929857282">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{55A0912B-6CF7-42F7-9402-3088D5B41D23}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1247,6 +1495,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="TankImpactPlayer" ID="{D020814A-D36E-4614-BB5D-608A026165D8}" ShortID="803544686">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{5757D376-3ECE-43C1-B87C-F1A654039683}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="350"/>
+															<Property Name="Min" Type="Real64" Value="-375"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1269,6 +1532,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<RandomSequenceContainer Name="TankSteps" ID="{4BDF92B1-65F7-4B74-AC7C-AB00F386D5B4}" ShortID="793638362">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DC2BD40A-FEF0-4FBA-8A89-C6BC81717696}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1369,6 +1641,20 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<Sound Name="TankDead" ID="{BF57FC36-63EE-4FD1-B76F-A36569A4F802}" ShortID="730480104">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{B3E071DE-4A09-44E3-85C7-37F194850728}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Min" Type="Real64" Value="-600"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1391,6 +1677,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="TankHurt" ID="{6327A6A6-DA78-4270-8687-571F1C9F4D95}" ShortID="465493492">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{6C13A306-7094-4237-9B4E-1986C3728491}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="275"/>
+															<Property Name="Min" Type="Real64" Value="-450"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1801,6 +2102,21 @@
 						<Folder Name="Shotgun" ID="{329ACAC4-CF87-41E8-BF97-EF8B466FF53A}" ShortID="528408890">
 							<ChildrenList>
 								<Sound Name="ShotgunGrenadeSmoke" ID="{F67A8D34-663B-4D8A-BF9A-A704A0D461FF}" ShortID="426103419">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A5811157-4622-42CB-94F2-13A00B2CE07D}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-225"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1823,6 +2139,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ShotgunGrenadeShot" ID="{B812A137-02A6-4AD2-9BE6-1D2F22446C9C}" ShortID="380195758">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{233DA6B7-D65F-418E-9FEB-8BF8340B160E}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1845,6 +2170,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ShotgunShot" ID="{C4040764-DE0A-4497-BE67-9089D779A648}" ShortID="508805893">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E9691E26-EF15-4581-ACC3-DAF0DAB412DA}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1867,6 +2207,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<RandomSequenceContainer Name="ShotgunBulletImpacts" ID="{C25D8DA9-E4E5-4DEE-BF86-588E90EFA277}" ShortID="910113195">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{94D78839-BD8A-49AB-AC5F-699E9F333331}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-450"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1945,6 +2300,15 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<Sound Name="ShotgunReload" ID="{9B64D230-EE68-414F-8AAE-412A044E7263}" ShortID="298608139">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{2014D885-C204-4AAE-842A-53F173935B3C}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1971,6 +2335,21 @@
 						<Folder Name="Bolter" ID="{B060CC37-138A-42BD-A489-EA64B7B25008}" ShortID="516406130">
 							<ChildrenList>
 								<Sound Name="BolterShot" ID="{701368FD-FD8D-406B-B3DA-90BF537179F1}" ShortID="292187238">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{CD5DEB6F-671D-4D45-97B2-F4450352BD71}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="175"/>
+															<Property Name="Min" Type="Real64" Value="-150"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -1993,6 +2372,21 @@
 									</ActiveSourceList>
 								</Sound>
 								<RandomSequenceContainer Name="BolterBulletImpacts" ID="{77F45A58-91E7-45D1-AEC8-50F5B5C0E7F0}" ShortID="294477520">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{FD1E6F99-7A85-4085-8072-368DC35CB05C}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-250"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2049,6 +2443,15 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<Sound Name="BolterRifleReload" ID="{D3FA5924-DE1C-4807-BCAB-0AC9AADA0348}" ShortID="664010104">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{BFB44A25-E376-4F66-81E7-EBD7CDEF9D04}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2071,6 +2474,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="BolterRifleSkillShot" ID="{C7AB4AEC-7559-445C-899E-C9035333672E}" ShortID="566173453">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A85C06BC-875E-4C47-B3A6-A5AAACBC904E}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2093,6 +2505,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="BolterRifleSkillCharge" ID="{8B0E4141-3140-4A1D-BC0B-68EFFC4C4034}" ShortID="704178797">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D3923887-0541-46EB-BDEA-15278E738904}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2115,6 +2536,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="BolterRifleSkillArea" ID="{416822BE-354A-4F04-8D3B-9713F9DE207A}" ShortID="635087818">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E7A47DA4-2B8C-49FC-831B-5C8F1690D2D1}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2163,6 +2593,21 @@
 						<Folder Name="Chainsword" ID="{8C90459A-A73E-4FF0-B6C3-F5CEE9D2808C}" ShortID="905014854">
 							<ChildrenList>
 								<Sound Name="ChainswordHit" ID="{AE077392-62A6-4F00-8CFB-3B869805CC25}" ShortID="748815117">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{86D7CD9B-4820-4192-8BB8-FE01AB85A072}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-500"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2185,6 +2630,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="ChainswordAttack" ID="{BCB2211A-1049-4852-A17A-C9570DAC82D9}" ShortID="759992412">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D8F3451B-B9BA-4853-9EF4-29926F8F04AD}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2241,6 +2695,13 @@
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="1"/>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{5360D8D5-9F83-4A35-8241-5F1FD7E94E7C}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -2406,6 +2867,13 @@
 						<Sound Name="lever" ID="{89D93889-B0D5-4128-8F96-3EE0365687BB}" ShortID="1066407072">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{BBBFA304-4E7C-4C05-AA24-0D8CBBA5E98B}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2432,6 +2900,13 @@
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="1"/>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{0152C8C2-329C-4D25-B3F5-5306855775F5}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -2686,6 +3161,20 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="WorkbenchBuy" ID="{55F71684-D555-4E3B-805C-8784B6C5141B}" ShortID="376372768">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9F4C34EC-AAB3-48E0-B86E-D849F408EA4A}">
+												<PropertyList>
+													<Property Name="Max" Type="Real64" Value="350"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2708,6 +3197,21 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="ScrapDestroy" ID="{C3D90051-9031-4FBC-B53A-9A8904959285}" ShortID="91108500">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{8C0D8E39-DA0E-411D-BE05-A30EDB7BE0BA}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="200"/>
+													<Property Name="Min" Type="Real64" Value="-200"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2730,6 +3234,15 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="InjectorPickUp" ID="{4828B075-6149-449D-99FF-D2E2F5C1DA56}" ShortID="348934588">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{0FA2C0EA-4318-4235-B0FC-F71EA6D54B1F}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -2752,6 +3265,28 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="BoxBarrelDestroy" ID="{230A9FA1-021A-4DEC-B040-D9B317B451D1}" ShortID="575463469">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-330</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{CBAD0F3A-4EC3-4A52-A23B-ACC30F8F7946}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-375"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -3518,6 +4053,15 @@
 					</ChildrenList>
 				</Folder>
 				<Sound Name="MissionComplete" ID="{491A3A49-0CAB-4F8C-8B31-48148E43EE13}" ShortID="600160982">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{4808CD71-ADDC-4F3F-844C-B2EBA4532502}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -3540,6 +4084,15 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="PopUpIntroOutro" ID="{93A24357-D34A-4DC0-A802-45A80BAF1B7D}" ShortID="223294914">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{93391D8F-CED0-4F9F-9165-859E08D6096E}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>

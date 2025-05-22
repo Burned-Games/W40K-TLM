@@ -618,7 +618,7 @@
     "Type": "User",
     "GUID": "{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}",
     "Language": "SFX",
-    "Hash": "{83127527-2683-E0F8-8FD0-930D50904F6E}",
+    "Hash": "{A7B0A2F5-F991-341B-C48F-7988204331E9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\MeleeSFX",
     "ShortName": "MeleeSFX",
     "Path": "MeleeSFX.bnk",
@@ -661,8 +661,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Chainsword\\Play_ChainswordHit",
       "GUID": "{72C328AE-A9BA-4571-9C76-B364F224321F}",
       "DurationType": "OneShot",
-      "DurationMin": "0.98595834",
-      "DurationMax": "0.98595834",
+      "DurationMin": "0.82908887",
+      "DurationMax": "1.3160964",
       "MediaRefs": [
        {
         "Id": "408420617"
@@ -676,7 +676,7 @@
     "Type": "User",
     "GUID": "{71E0FA9C-9470-49F3-B98A-14CA86EAB718}",
     "Language": "SFX",
-    "Hash": "{EAF89355-846E-0370-3B7F-9758D3FB488A}",
+    "Hash": "{6ED2AC58-4603-552C-C9D4-A72A3DE38D56}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\KamikazeSFX",
     "ShortName": "KamikazeSFX",
     "Path": "KamikazeSFX.bnk",
@@ -749,8 +749,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Kamikaze\\Play_KamikazeExplosion",
       "GUID": "{F201364D-E70E-4E7C-AC6B-FA7250E9EE63}",
       "DurationType": "OneShot",
-      "DurationMin": "0.838875",
-      "DurationMax": "0.838875",
+      "DurationMin": "0.72607696",
+      "DurationMax": "0.9416053",
       "MediaRefs": [
        {
         "Id": "329079499"
@@ -946,7 +946,7 @@
     "Type": "User",
     "GUID": "{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}",
     "Language": "SFX",
-    "Hash": "{103B9A5B-9EA2-D1F3-847F-897EEA6A51A0}",
+    "Hash": "{30055FAA-408F-5429-AF8C-71D439FB0A68}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BolterSFX",
     "ShortName": "BolterSFX",
     "Path": "BolterSFX.bnk",
@@ -1023,8 +1023,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Bolter\\Play_BolterBulletImpacts",
       "GUID": "{7B56CB6A-7B8D-4C60-8C63-B232FC377916}",
       "DurationType": "OneShot",
-      "DurationMin": "0.5228958",
-      "DurationMax": "0.5462083",
+      "DurationMin": "0.4658472",
+      "DurationMax": "0.6310633",
       "MediaRefs": [
        {
         "Id": "429273542"
@@ -1110,8 +1110,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Bolter\\Play_BolterShot",
       "GUID": "{511D3FFC-C4E8-49F4-92DB-FAD3398864DC}",
       "DurationType": "OneShot",
-      "DurationMin": "0.98777777",
-      "DurationMax": "0.98777777",
+      "DurationMin": "0.89281005",
+      "DurationMax": "1.0771793",
       "MediaRefs": [
        {
         "Id": "33122431"
@@ -1125,7 +1125,7 @@
     "Type": "User",
     "GUID": "{DCC18B72-8BF3-44E0-B6AD-EE5AA33DB930}",
     "Language": "SFX",
-    "Hash": "{975A3C17-D8F6-2E07-23A0-B0E012FAFA1D}",
+    "Hash": "{50D8C376-D242-A5DC-F21A-065A0F274903}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\TankSFX",
     "ShortName": "TankSFX",
     "Path": "TankSFX.bnk",
@@ -1225,7 +1225,7 @@
       "GUID": "{A6656DAB-80F0-4572-8D02-BC6DACB1A5AC}",
       "DurationType": "OneShot",
       "DurationMin": "1.1533542",
-      "DurationMax": "1.1533542",
+      "DurationMax": "1.6310891",
       "MediaRefs": [
        {
         "Id": "1032067657"
@@ -1252,8 +1252,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankHurt",
       "GUID": "{14B3C5B9-A164-4CD5-977F-D4CF2B7B2C7D}",
       "DurationType": "OneShot",
-      "DurationMin": "1.1533542",
-      "DurationMax": "1.1533542",
+      "DurationMin": "0.9839582",
+      "DurationMax": "1.4957154",
       "MediaRefs": [
        {
         "Id": "897013924"
@@ -1266,8 +1266,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Tank\\Play_TankImpactPlayer",
       "GUID": "{FF818698-ACA9-400F-B2D2-04D383885E98}",
       "DurationType": "OneShot",
-      "DurationMin": "0.49335417",
-      "DurationMax": "0.49335417",
+      "DurationMin": "0.40304953",
+      "DurationMax": "0.6126757",
       "MediaRefs": [
        {
         "Id": "82750228"
@@ -1304,7 +1304,7 @@
     "Type": "User",
     "GUID": "{447F08BC-7E47-48A7-950A-3E3785307500}",
     "Language": "SFX",
-    "Hash": "{09D90E35-E90D-B5C0-FC70-57C65F5D62E0}",
+    "Hash": "{F2B927A9-20EB-E6DA-823D-07DFB7A82CCD}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\ShotgunSFX",
     "ShortName": "ShotgunSFX",
     "Path": "ShotgunSFX.bnk",
@@ -1373,8 +1373,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunBulletImpacts",
       "GUID": "{EA8B16AF-4E83-46CF-A389-5087D20883D2}",
       "DurationType": "OneShot",
-      "DurationMin": "0.58710414",
-      "DurationMax": "0.63341665",
+      "DurationMin": "0.5541525",
+      "DurationMax": "0.8214398",
       "MediaRefs": [
        {
         "Id": "167782189"
@@ -1407,8 +1407,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunGrenadeSmoke",
       "GUID": "{D03EFB84-96B3-46F9-85C1-B4D72E67008E}",
       "DurationType": "OneShot",
-      "DurationMin": "1.1678458",
-      "DurationMax": "1.1678458",
+      "DurationMin": "1.1022996",
+      "DurationMax": "1.3299295",
       "MediaRefs": [
        {
         "Id": "650160502"
@@ -1435,8 +1435,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunShot",
       "GUID": "{43A970BB-C4E0-4C43-98DD-AEF3CB194769}",
       "DurationType": "OneShot",
-      "DurationMin": "1.2639909",
-      "DurationMax": "1.2639909",
+      "DurationMin": "1.1930485",
+      "DurationMax": "1.3391517",
       "MediaRefs": [
        {
         "Id": "68810511"
@@ -1450,7 +1450,7 @@
     "Type": "User",
     "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
     "Language": "SFX",
-    "Hash": "{37F38473-3292-FC39-CAE1-2BA29E4A99E0}",
+    "Hash": "{F957AFC7-6901-0116-E70F-C49463DD8E2C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\RangedSFX",
     "ShortName": "RangedSFX",
     "Path": "RangedSFX.bnk",
@@ -1512,7 +1512,7 @@
       "GUID": "{A5948277-BC2C-4286-A07C-10286CCFE06B}",
       "DurationType": "OneShot",
       "DurationMin": "1.1576667",
-      "DurationMax": "1.1576667",
+      "DurationMax": "1.3375133",
       "MediaRefs": [
        {
         "Id": "125515982"
@@ -1525,7 +1525,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedHurt",
       "GUID": "{931BE3FE-D681-4ECF-967C-ECA782005723}",
       "DurationType": "OneShot",
-      "DurationMin": "0.5438125",
+      "DurationMin": "0.4507339",
       "DurationMax": "0.5438125",
       "MediaRefs": [
        {
@@ -1539,8 +1539,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoBalasPlayer",
       "GUID": "{29AD9E24-EC2D-4D4E-BB5E-E2535AFCAB1C}",
       "DurationType": "OneShot",
-      "DurationMin": "0.36539584",
-      "DurationMax": "0.36539584",
+      "DurationMin": "0.29001486",
+      "DurationMax": "0.4603699",
       "MediaRefs": [
        {
         "Id": "752406354"
@@ -1553,8 +1553,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoCaCPlayer",
       "GUID": "{A1E60988-FEDD-4AEE-B3C9-F86FF9F838DB}",
       "DurationType": "OneShot",
-      "DurationMin": "0.40491667",
-      "DurationMax": "0.40491667",
+      "DurationMin": "0.31677496",
+      "DurationMax": "0.47462618",
       "MediaRefs": [
        {
         "Id": "298949231"
@@ -1567,8 +1567,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedShot",
       "GUID": "{A9A37324-8A19-42EF-B040-420E7B4ED031}",
       "DurationType": "OneShot",
-      "DurationMin": "0.33412698",
-      "DurationMax": "0.33412698",
+      "DurationMin": "0.2891991",
+      "DurationMax": "0.42097363",
       "MediaRefs": [
        {
         "Id": "774323198"
@@ -1896,7 +1896,7 @@
     "Type": "User",
     "GUID": "{EC862FA3-57C9-4C57-B979-540D2679AB59}",
     "Language": "SFX",
-    "Hash": "{29100D63-1659-A94C-C9C0-0E5A8CA45874}",
+    "Hash": "{288A48C3-9A56-EFFD-0D9B-4C72A8870386}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SupportSFX",
     "ShortName": "SupportSFX",
     "Path": "SupportSFX.bnk",
@@ -1987,8 +1987,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportHurt",
       "GUID": "{BD4DAC2D-EA4B-4DE4-874A-127ECD1DCAE8}",
       "DurationType": "OneShot",
-      "DurationMin": "0.5438125",
-      "DurationMax": "0.5438125",
+      "DurationMin": "0.6467057",
+      "DurationMax": "0.9830577",
       "MediaRefs": [
        {
         "Id": "992701158"
@@ -2001,8 +2001,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShieldExplosion",
       "GUID": "{3F9D6DAB-A46A-4D02-98CD-5DBD31732A42}",
       "DurationType": "OneShot",
-      "DurationMin": "0.74854165",
-      "DurationMax": "0.74854165",
+      "DurationMin": "0.6386015",
+      "DurationMax": "0.8524307",
       "MediaRefs": [
        {
         "Id": "919733591"
@@ -2035,8 +2035,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShildAssign",
       "GUID": "{6F6083A4-05D2-47B3-96B8-85D769F21F05}",
       "DurationType": "OneShot",
-      "DurationMin": "0.75025",
-      "DurationMax": "0.75025",
+      "DurationMin": "0.6781188",
+      "DurationMax": "0.93170375",
       "MediaRefs": [
        {
         "Id": "508964794"
@@ -2050,7 +2050,7 @@
       "GUID": "{F44D33BC-FF27-496D-9B66-74AA99ED3DE0}",
       "DurationType": "OneShot",
       "DurationMin": "0.8879375",
-      "DurationMax": "0.8879375",
+      "DurationMax": "1.102692",
       "MediaRefs": [
        {
         "Id": "103142292"
@@ -2064,7 +2064,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{89FA5381-7C8C-AB7C-A18A-358441AB4FCD}",
+    "Hash": "{58EFDB83-12D3-52AC-52DD-9A9DFD88E792}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -2181,8 +2181,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_BoxBarrelDestroy",
       "GUID": "{BA40DC00-5A8B-4B8E-89C6-829B73B49337}",
       "DurationType": "OneShot",
-      "DurationMin": "1.6105833",
-      "DurationMax": "1.6105833",
+      "DurationMin": "1.9487963",
+      "DurationMax": "2.4201276",
       "MediaRefs": [
        {
         "Id": "912968692"
@@ -2281,8 +2281,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_ScrapDestroy",
       "GUID": "{7BF1D656-45E9-49E2-B6D3-E11013CEF3FE}",
       "DurationType": "OneShot",
-      "DurationMin": "2.3249376",
-      "DurationMax": "2.3249376",
+      "DurationMin": "2.0712838",
+      "DurationMax": "2.6096542",
       "MediaRefs": [
        {
         "Id": "856331249"
@@ -3108,7 +3108,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{58B59FE7-7377-F305-A151-0873E2564FB8}",
+    "Hash": "{9A3AB2AE-E5A9-34CC-73B2-A9BCCEDD783B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -3364,8 +3364,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerBleeding",
       "GUID": "{1FB8C068-09C3-4B52-A8B2-847B5BFFAE54}",
       "DurationType": "OneShot",
-      "DurationMin": "0.87135416",
-      "DurationMax": "1.2240417",
+      "DurationMin": "0.7651589",
+      "DurationMax": "1.4768118",
       "MediaRefs": [
        {
         "Id": "191256656"
@@ -3557,6 +3557,6 @@
     ]
    }
   ],
-  "FileHash": "{1130CD6D-9642-D74A-0540-93B987478CB3}"
+  "FileHash": "{B4D49544-E2BD-0664-79EB-A9956ED9B118}"
  }
 }

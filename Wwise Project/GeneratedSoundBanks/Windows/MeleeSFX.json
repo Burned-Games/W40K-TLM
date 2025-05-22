@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{8050497F-3CF8-48FE-BD9E-E8C4BB5D8C86}",
     "Language": "SFX",
-    "Hash": "{83127527-2683-E0F8-8FD0-930D50904F6E}",
+    "Hash": "{A7B0A2F5-F991-341B-C48F-7988204331E9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\MeleeSFX",
     "ShortName": "MeleeSFX",
     "Path": "MeleeSFX.bnk",
@@ -53,8 +53,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Chainsword\\Play_ChainswordHit",
       "GUID": "{72C328AE-A9BA-4571-9C76-B364F224321F}",
       "DurationType": "OneShot",
-      "DurationMin": "0.98595834",
-      "DurationMax": "0.98595834",
+      "DurationMin": "0.82908887",
+      "DurationMax": "1.3160964",
       "MediaRefs": [
        {
         "Id": "408420617"
@@ -64,6 +64,6 @@
     ]
    }
   ],
-  "FileHash": "{10FAA830-630F-67C8-830B-A73D2B6A5115}"
+  "FileHash": "{5864259B-4432-8EE4-B19D-AE2200071252}"
  }
 }

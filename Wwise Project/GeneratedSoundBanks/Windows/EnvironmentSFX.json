@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{89FA5381-7C8C-AB7C-A18A-358441AB4FCD}",
+    "Hash": "{58EFDB83-12D3-52AC-52DD-9A9DFD88E792}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -127,8 +127,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_BoxBarrelDestroy",
       "GUID": "{BA40DC00-5A8B-4B8E-89C6-829B73B49337}",
       "DurationType": "OneShot",
-      "DurationMin": "1.6105833",
-      "DurationMax": "1.6105833",
+      "DurationMin": "1.9487963",
+      "DurationMax": "2.4201276",
       "MediaRefs": [
        {
         "Id": "912968692"
@@ -227,8 +227,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_ScrapDestroy",
       "GUID": "{7BF1D656-45E9-49E2-B6D3-E11013CEF3FE}",
       "DurationType": "OneShot",
-      "DurationMin": "2.3249376",
-      "DurationMax": "2.3249376",
+      "DurationMin": "2.0712838",
+      "DurationMax": "2.6096542",
       "MediaRefs": [
        {
         "Id": "856331249"
@@ -280,6 +280,6 @@
     ]
    }
   ],
-  "FileHash": "{2FCE0AF3-ACA6-B31C-CCBA-7C198AC70365}"
+  "FileHash": "{513AC5B0-7E6D-AF0B-300B-23111D4A0846}"
  }
 }

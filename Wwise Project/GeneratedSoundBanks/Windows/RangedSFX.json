@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
     "Language": "SFX",
-    "Hash": "{37F38473-3292-FC39-CAE1-2BA29E4A99E0}",
+    "Hash": "{F957AFC7-6901-0116-E70F-C49463DD8E2C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\RangedSFX",
     "ShortName": "RangedSFX",
     "Path": "RangedSFX.bnk",
@@ -72,7 +72,7 @@
       "GUID": "{A5948277-BC2C-4286-A07C-10286CCFE06B}",
       "DurationType": "OneShot",
       "DurationMin": "1.1576667",
-      "DurationMax": "1.1576667",
+      "DurationMax": "1.3375133",
       "MediaRefs": [
        {
         "Id": "125515982"
@@ -85,7 +85,7 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedHurt",
       "GUID": "{931BE3FE-D681-4ECF-967C-ECA782005723}",
       "DurationType": "OneShot",
-      "DurationMin": "0.5438125",
+      "DurationMin": "0.4507339",
       "DurationMax": "0.5438125",
       "MediaRefs": [
        {
@@ -99,8 +99,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoBalasPlayer",
       "GUID": "{29AD9E24-EC2D-4D4E-BB5E-E2535AFCAB1C}",
       "DurationType": "OneShot",
-      "DurationMin": "0.36539584",
-      "DurationMax": "0.36539584",
+      "DurationMin": "0.29001486",
+      "DurationMax": "0.4603699",
       "MediaRefs": [
        {
         "Id": "752406354"
@@ -113,8 +113,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoCaCPlayer",
       "GUID": "{A1E60988-FEDD-4AEE-B3C9-F86FF9F838DB}",
       "DurationType": "OneShot",
-      "DurationMin": "0.40491667",
-      "DurationMax": "0.40491667",
+      "DurationMin": "0.31677496",
+      "DurationMax": "0.47462618",
       "MediaRefs": [
        {
         "Id": "298949231"
@@ -127,8 +127,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedShot",
       "GUID": "{A9A37324-8A19-42EF-B040-420E7B4ED031}",
       "DurationType": "OneShot",
-      "DurationMin": "0.33412698",
-      "DurationMax": "0.33412698",
+      "DurationMin": "0.2891991",
+      "DurationMax": "0.42097363",
       "MediaRefs": [
        {
         "Id": "774323198"
@@ -152,6 +152,6 @@
     ]
    }
   ],
-  "FileHash": "{1E1AA4D4-77D6-DB96-47F6-78F4CBBCCA76}"
+  "FileHash": "{8B572AB3-D860-7DDA-D588-9085E78E751E}"
  }
 }

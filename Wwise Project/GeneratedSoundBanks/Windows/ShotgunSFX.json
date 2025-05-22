@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{447F08BC-7E47-48A7-950A-3E3785307500}",
     "Language": "SFX",
-    "Hash": "{09D90E35-E90D-B5C0-FC70-57C65F5D62E0}",
+    "Hash": "{F2B927A9-20EB-E6DA-823D-07DFB7A82CCD}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\ShotgunSFX",
     "ShortName": "ShotgunSFX",
     "Path": "ShotgunSFX.bnk",
@@ -79,8 +79,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunBulletImpacts",
       "GUID": "{EA8B16AF-4E83-46CF-A389-5087D20883D2}",
       "DurationType": "OneShot",
-      "DurationMin": "0.58710414",
-      "DurationMax": "0.63341665",
+      "DurationMin": "0.5541525",
+      "DurationMax": "0.8214398",
       "MediaRefs": [
        {
         "Id": "167782189"
@@ -113,8 +113,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunGrenadeSmoke",
       "GUID": "{D03EFB84-96B3-46F9-85C1-B4D72E67008E}",
       "DurationType": "OneShot",
-      "DurationMin": "1.1678458",
-      "DurationMax": "1.1678458",
+      "DurationMin": "1.1022996",
+      "DurationMax": "1.3299295",
       "MediaRefs": [
        {
         "Id": "650160502"
@@ -141,8 +141,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Shotgun\\Play_ShotgunShot",
       "GUID": "{43A970BB-C4E0-4C43-98DD-AEF3CB194769}",
       "DurationType": "OneShot",
-      "DurationMin": "1.2639909",
-      "DurationMax": "1.2639909",
+      "DurationMin": "1.1930485",
+      "DurationMax": "1.3391517",
       "MediaRefs": [
        {
         "Id": "68810511"
@@ -152,6 +152,6 @@
     ]
    }
   ],
-  "FileHash": "{896226CF-3A74-C007-18C3-32338C6AB033}"
+  "FileHash": "{DFA0ADE1-1940-3B4E-539C-2394B5C24C2E}"
  }
 }

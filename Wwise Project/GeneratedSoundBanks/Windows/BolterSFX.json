@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{0F863CDE-8C51-4BBB-8C17-3A0D3BD59591}",
     "Language": "SFX",
-    "Hash": "{103B9A5B-9EA2-D1F3-847F-897EEA6A51A0}",
+    "Hash": "{30055FAA-408F-5429-AF8C-71D439FB0A68}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BolterSFX",
     "ShortName": "BolterSFX",
     "Path": "BolterSFX.bnk",
@@ -87,8 +87,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Bolter\\Play_BolterBulletImpacts",
       "GUID": "{7B56CB6A-7B8D-4C60-8C63-B232FC377916}",
       "DurationType": "OneShot",
-      "DurationMin": "0.5228958",
-      "DurationMax": "0.5462083",
+      "DurationMin": "0.4658472",
+      "DurationMax": "0.6310633",
       "MediaRefs": [
        {
         "Id": "429273542"
@@ -174,8 +174,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Weapons\\Bolter\\Play_BolterShot",
       "GUID": "{511D3FFC-C4E8-49F4-92DB-FAD3398864DC}",
       "DurationType": "OneShot",
-      "DurationMin": "0.98777777",
-      "DurationMax": "0.98777777",
+      "DurationMin": "0.89281005",
+      "DurationMax": "1.0771793",
       "MediaRefs": [
        {
         "Id": "33122431"
@@ -185,6 +185,6 @@
     ]
    }
   ],
-  "FileHash": "{38302A7D-54D6-3B8E-2379-CFD08B0216D5}"
+  "FileHash": "{C21BBA06-BA93-572C-D2DB-BC2FCB00C581}"
  }
 }
