@@ -1,4 +1,3 @@
-    local maxAmmoTextComponent
     ammoTextComponent = nil
 
     local lifeFullComponent
@@ -138,7 +137,6 @@
         arma1Texture = arma1:get_component("UIImageComponent")
         arma2 = current_scene:get_entity_by_name("Arma2")
         arma2Texture = arma2:get_component("UIImageComponent")
-        maxAmmoTextComponent = current_scene:get_entity_by_name("BalasMax"):get_component("UITextComponent")
         ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
         weaponChangerToggle = current_scene:get_entity_by_name("BotonCambioArmas"):get_component("UIToggleComponent")
         

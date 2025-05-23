@@ -7,7 +7,7 @@ local pauseMenu = nil
 local chatarraUI = nil
 
 -- Shared UI elements (General)
-local gBackgroundEntity, gBackground
+local gBackgroundEntity
 local gDot1ButtonEntity, gDot1Button
 local gDot2ButtonEntity, gDot2Button
 local gScrapTxtEntity, gScrapTxt
@@ -142,7 +142,6 @@ function on_ready()
     if workbenchUIEntity then
         -- General UI elements
         gBackgroundEntity = current_scene:get_entity_by_name("GBackground")
-        gBackground = gBackgroundEntity:get_component("UIButtonComponent")
         
         gDot1ButtonEntity = current_scene:get_entity_by_name("GDot1BUTTON")
         gDot1Button = gDot1ButtonEntity:get_component("UIButtonComponent")
