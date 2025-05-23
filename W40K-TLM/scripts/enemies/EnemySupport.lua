@@ -176,9 +176,7 @@ function on_update(dt)
 
     support:check_effects(dt)
     support:check_pushed(dt)
-    if support.isPushed == true then
-        return
-    end
+    if support.isPushed then return end
     if support.isGranadePushed then return end
     
     update_bullets(dt)

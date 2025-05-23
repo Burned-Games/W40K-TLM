@@ -170,6 +170,7 @@ function Slash()
                             elseif enemyTag == "MainBoss" then
                                 enemyInstance = enemyScript.main_boss
                             end
+                            print(enemyTag)
                             enemyInstance:take_damage(damage)
                             meleeHitSFX:play()
 
@@ -180,15 +181,19 @@ function Slash()
                                 playerScript.health = playerScript.health + HpStealed
                             end
                             playerScript.makeDamage = true
-                            enemyInstance.isPushed = true
+                            if enemyTag ~= "EnemyTank" and enemyTag ~= "EnemyTank1" and enemyTag ~= "EnemyTank2" and enemyTag ~= "EnemyTank3" and enemyTag ~= "EnemyTank4" and enemyTag ~= "EnemyTank5" and enemyTag ~= "EnemyTank6" then
+                                print(enemyTag)
+                                enemyInstance.isPushed = true
+                                impulseDirection = Vector3.new(
+                                entityPos.x - playerTransf.position.x,
+                                entityPos.y - playerTransf.position.y,
+                                entityPos.z - playerTransf.position.z)
+                                entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                            end
                         end
                         
                         
-                        impulseDirection = Vector3.new(
-                        entityPos.x - playerTransf.position.x,
-                        entityPos.y - playerTransf.position.y,
-                        entityPos.z - playerTransf.position.z)
-                        entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                        
 
                     end
                 end

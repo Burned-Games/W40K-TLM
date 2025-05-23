@@ -184,7 +184,7 @@ function on_ready()
 
     for _, entity in ipairs(entities) do 
         local tag = entity:get_component("TagComponent").tag 
-        if tag == "EnemyRange" or tag == "EnemySupp" or tag == "EnemyKamikaze" or tag == "EnemyTank" or tag== "EnemyRange1" or tag== "EnemyRange2" or tag== "EnemyRange3" or tag== "EnemyRange4" or tag== "EnemyRange5" or tag== "EnemyRange6" or tag == "EnemyTank1" or tag == "EnemyTank2"
+        if tag == "EnemyRange" or tag == "EnemySupport" or tag == "EnemyKamikaze" or tag == "EnemyTank" or tag== "EnemyRange1" or tag== "EnemyRange2" or tag== "EnemyRange3" or tag== "EnemyRange4" or tag== "EnemyRange5" or tag== "EnemyRange6" or tag == "EnemyTank1" or tag == "EnemyTank2"
          or tag == "EnemyTank3" or tag == "EnemyTank4" or tag == "EnemyTank5" or tag == "EnemyTank6" or tag == "MainBoss" or tag == "BarrilDestruible" or tag == "CajaDestruible" or tag == "CajaDestruibleV2" or tag == "ScrapPile"then 
             table.insert(enemies, entity)
             entity:set_active(false) 
