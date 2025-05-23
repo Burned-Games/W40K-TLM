@@ -17,6 +17,7 @@ function on_ready()
 
     -- Enemy
     tank.enemyTransf = self:get_component("TransformComponent")
+    tank.enemyTag = self:get_component("TagComponent").tag
     tank.animator = self:get_component("AnimatorComponent")
     tank.enemyRbComponent = self:get_component("RigidbodyComponent")
     tank.enemyRb = tank.enemyRbComponent.rb

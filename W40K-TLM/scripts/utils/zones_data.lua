@@ -54,7 +54,7 @@ local zones_data = {
 
     level2 = {
                 {
-            id = 1,
+            id = 6,
             points = {
                 {x = 10, z = 19},
                 {x = 10, z = -50},
@@ -63,7 +63,7 @@ local zones_data = {
             }
         },
                 {
-            id = 2,
+            id = 7,
             points = {
                 {x = 10, z = -8},
                 {x = 53, z = -8},
@@ -72,7 +72,7 @@ local zones_data = {
             }
         },
                 {
-            id = 3,
+            id = 8,
             points = {
                 {x = 48, z = -57},
                 {x = 86, z = -16},

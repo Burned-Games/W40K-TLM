@@ -13,6 +13,7 @@ function on_ready()
 
     -- Enemy
     kamikaze.enemyTransf = self:get_component("TransformComponent")
+    kamikaze.enemyTag = self:get_component("TagComponent").tag
     kamikaze.animator = self:get_component("AnimatorComponent")
     kamikaze.enemyRbComponent = self:get_component("RigidbodyComponent")
     kamikaze.enemyRb = kamikaze.enemyRbComponent.rb

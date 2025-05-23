@@ -13,6 +13,7 @@ function on_ready()
 
     -- Enemy
     main_boss.enemyTransf = self:get_component("TransformComponent")
+    main_boss.enemyTag = self:get_component("TagComponent").tag
     main_boss.animator = self:get_component("AnimatorComponent")
     main_boss.enemyRbComponent = self:get_component("RigidbodyComponent")
     main_boss.enemyRb = main_boss.enemyRbComponent.rb

@@ -21,6 +21,7 @@ function enemy:new(obj)
     obj.entityName = nil
 
     obj.enemyTransf = nil
+    obj.enemyTag = nil
     obj.animator = nil
     obj.enemyRbComponent = nil
     obj.enemyRb = nil
@@ -570,11 +571,12 @@ function enemy:check_spawn()
         for _, zone in ipairs(levelZones) do
             if self:is_point_in_polygon(pos, zone.points) then
                 self.zoneNumber = zone.id
+                log("[ZONES] EnemyTag: " .. self.enemyTag .. "  SpawnZone: " .. self.zoneNumber)
                 break
             end
         end
     else
-        log("[ZONES] No zones for level:", self.level)
+        log("[ZONES] No zones for: " .. self.enemyTag .. "  Level:", self.level)
     end
     
     if self.zoneNumber < self.playerScript.zonePlayer + 1 and self.entityName ~= "EnemyTank1" then
