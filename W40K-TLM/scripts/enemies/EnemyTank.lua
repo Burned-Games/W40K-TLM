@@ -96,15 +96,15 @@ function on_ready()
     tank.moveAudioDuration = 1
 
     -- Animations
-    tank.attackAnim = 0 
-    tank.berserkaAnim = 1 
-    tank.dieAnim = 3
-    tank.detectAnim = 4 
+    tank.attackAnim = 1
+    tank.berserkaAnim = 3
+    tank.dieAnim = 5
+    tank.detectAnim = 6
     --tank.hitAnim = 5 
-    tank.idleAnim = 7 
-    tank.stunAnim = 9 
-    tank.tackleAnim = 10 
-    tank.moveAnim = 11 
+    tank.idleAnim = 9
+    tank.stunAnim = 12
+    tank.tackleAnim = 13
+    tank.moveAnim = 14
 
     -- Animation timers
     tank.attackDuration = 3.0 
