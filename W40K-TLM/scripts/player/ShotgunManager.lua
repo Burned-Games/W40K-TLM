@@ -1,7 +1,7 @@
 using = false
 -- Time
 local current_time = 0  
-shotgun_fire_rate = 1.5 
+shotgun_fire_rate = 1
 next_fire_time = 0 
 
 -- ammo
