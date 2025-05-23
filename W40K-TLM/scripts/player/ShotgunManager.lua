@@ -214,7 +214,7 @@ function on_update(dt)
         if bulletTimers[i] ~= 0 then
             bulletTimers[i] = bulletTimers[i] + dt
 
-            if bulletTimers[i] > 0.5 then
+            if bulletTimers[i] > 0.4 then
                 bullets[i].rigidBody:set_position(Vector3.new(0,-150,0))
                 bulletTimers[i] = 0
             end
