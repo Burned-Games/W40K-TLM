@@ -115,6 +115,8 @@ local granadePreview = nil
 
 local granadePreviewTransf = nil
 
+local bulletTimers = nil
+
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -141,7 +143,7 @@ function on_ready()
     particle_previewG_interior_transform = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("TransformComponent")
 
     astartesFervorManager = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
-
+    bulletTimers = {}
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
         local bullet = {}
@@ -153,7 +155,7 @@ function on_ready()
         bullet.rigidBody:set_trigger(true)
         
         table.insert(bullets, bullet)  -- save to table
-
+        bulletTimers[i] = 0
         bullet.rigidBodyComponent:on_collision_enter(function(entityA, entityB)
             handle_bullet_collision(entityA, entityB)
         end)
@@ -206,6 +208,23 @@ function normalizeVector(v)
 end
 
 function on_update(dt)
+
+    for i = 1, bulletCount do
+
+        if bulletTimers[i] ~= 0 then
+            bulletTimers[i] = bulletTimers[i] + dt
+
+            if bulletTimers[i] > 0.5 then
+                bullets[i].rigidBody:set_position(Vector3.new(0,-150,0))
+                bulletTimers[i] = 0
+            end
+        end
+
+
+
+
+        
+    end
 
     if astartesFervorManager.isPlayerInRadius then
         set_attack_speed_multiplier(2.0)
@@ -377,6 +396,7 @@ function shoot(dt)
         
         local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
         bullet.rigidBody:set_velocity(velocity)
+        bulletTimers[i] = 0.1
     end
     shotgunShotSFX:play()
     Input.send_rumble(vibrationNormalSettings.x, vibrationNormalSettings.y, vibrationNormalSettings.z)

@@ -123,6 +123,10 @@ vfxShootPosY =  1.533
 
 local particleCharging = nil
 
+local bulletTimers = nil
+
+local bulletPool = nil
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -151,6 +155,8 @@ function on_ready()
     -- end
     vfxShootTransf = current_scene:get_entity_by_name("vfxShoot"):get_component("TransformComponent")
     vfxShootTransf.position.y = -83
+    bulletTimers = {}
+    bulletPool = {}
     for i = 1, bulletCount do
         local bulletName = "Sphere" .. i  
         local bullet = {}
@@ -162,7 +168,8 @@ function on_ready()
         bullet.rigidBody:set_trigger(true)
         
         table.insert(bullets, bullet)  -- save to table
-
+        bulletPool[i] = bullet
+        bulletTimers[i] = 0
         bullet.rigidBodyComponent:on_collision_enter(function(entityA, entityB)
             handle_bullet_collision(entityA, entityB)
         end)
@@ -305,6 +312,23 @@ function on_ready()
 end
 
 function on_update(dt)
+
+    for i = 1, bulletCount do
+
+        if bulletTimers[i] ~= 0 then
+            bulletTimers[i] = bulletTimers[i] + dt
+
+            if bulletTimers[i] > 0.5 then
+                bullets[i].rigidBody:set_position(Vector3.new(0,-150,0))
+                bulletTimers[i] = 0
+            end
+        end
+
+
+
+
+        
+    end
 
     if astartesFervorManager.isPlayerInRadius then
         set_attack_speed_multiplier(2.0)
@@ -470,6 +494,8 @@ function on_update(dt)
             chargedZoneUpdate(dt)
         end
     end
+
+
 end
 
 -- multiplyer of the armor ability
@@ -516,7 +542,7 @@ function shoot(dt, bulletNum)
 
     local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
     bullets[bulletNum].rigidBody:set_velocity(velocity)
-
+    bulletTimers[bulletNum] = 0.1
 
 
     
