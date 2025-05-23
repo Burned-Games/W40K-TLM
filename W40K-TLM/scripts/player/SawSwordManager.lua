@@ -171,7 +171,7 @@ function Slash()
                                 enemyInstance = enemyScript.main_boss
                             end
                             print(enemyTag)
-                            enemyInstance:take_damage(damage)
+                            enemyInstance:take_damage(damage, nil, true)
                             meleeHitSFX:play()
 
                         

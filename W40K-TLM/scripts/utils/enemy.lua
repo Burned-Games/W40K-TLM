@@ -7,6 +7,7 @@ enemy.godMode = true
 
 local prefabScrap= "prefabs/Misc/Scrap.prefab"
 local enemyAlertPrefab  = "prefabs/Enemies/EnemyAlertedUI.prefab"
+local SwordHealPrefab = "prefabs/particles/SwordHealParticle.prefab"
 
 function enemy:new(obj)
 
@@ -748,7 +749,7 @@ function enemy:make_damage(damage)
 
 end
 
-function enemy:take_damage(damage, shieldMultiplier)
+function enemy:take_damage(damage, shieldMultiplier, sword)
     
     -- if self.hitAnim ~= -1 then
     --     if self.currentAnim ~= self.hitAnim then
@@ -760,10 +761,22 @@ function enemy:take_damage(damage, shieldMultiplier)
     if shieldMultiplier == nil then
         shieldMultiplier = 1
     end
+    if sword == nil then
+        sword = false
+    end
+    
 
     if self.invulnerable then
         log("Enemy is invulnerable")
         return
+    end
+
+    if sword then
+        local SwordHeal = instantiate_prefab(SwordHealPrefab)
+        local SwordHealParticle = SwordHeal:get_component("ParticlesSystemComponent")
+        local SwordHealTransf = SwordHeal:get_component("TransformComponent")
+        SwordHealTransf.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + 1, self.enemyTransf.position.z )
+        SwordHealParticle:emit(30)
     end
 
     if not self.damageMaterial then
@@ -801,6 +814,7 @@ function enemy:take_damage(damage, shieldMultiplier)
     end
 
     self.enemyHit = true
+    
 
 end
 
