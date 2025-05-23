@@ -32,6 +32,8 @@ dialog11 = false
 
 firstCallDialogo = true
 openDialog = false
+local timer = 0
+local isTimerStarted = false
 
 function on_ready()
 
@@ -100,9 +102,20 @@ end
 
 function on_update(dt)
     if mission_Component.blueTaskIndex == 1 and firstCallDialogo then
-        firstCallDialogo = false
-        openDialog = true
+        firstCallDialogo = false    
+        isTimerStarted = true      
+        timer = 0                  
     end
+
+
+    if isTimerStarted then
+        timer = timer + dt        
+        if timer >= 4 then          
+            isTimerStarted = false  
+            openDialog = true     
+        end
+    end
+
     if openDialog then
         dialogScriptComponent.start_dialog(dialogLines1)
         openDialog = false
