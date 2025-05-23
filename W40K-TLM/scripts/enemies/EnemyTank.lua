@@ -218,13 +218,6 @@ function on_update(dt)
         tank:check_effects(dt)
     end
 
-    if tank.currentState ~= tank.state.Tackle then
-        tank:check_pushed(dt)
-    end
-
-    if tank.isPushed == true then return end
-    if tank.isGranadePushed then return end
-
     if not tank.hasFoundNearbyEnemies then
         tank:find_nearby_enemies()
         tank.hasFoundNearbyEnemies = true
