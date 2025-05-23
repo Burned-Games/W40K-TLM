@@ -1,0 +1,28 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::CubemapImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 13973414752024689985
+                    },
+                    "type": 3,
+                    "originalPath": {
+                        "value0": "HDR/level1.hdr"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13973414752024689985.cubemap"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
