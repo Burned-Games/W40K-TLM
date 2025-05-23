@@ -10,7 +10,7 @@ local enemy_stats = {
             health = 110,
 
             speed = 5.5,
-            bulletSpeed = 5,
+            bulletSpeed = 50,
 
             meleeDamage = 15,
             rangeDamage = 6,
@@ -22,6 +22,8 @@ local enemy_stats = {
             chaseRange = 5,
 
             maxBurstShots = 4,
+
+            dispersion = 7.5,
 
             alertRadius = 10,
 
@@ -39,6 +41,8 @@ local enemy_stats = {
             burstCooldown = 0.3,
             -- Time between stabs attacks
             stabCooldown = 2.0,
+            -- Lifetime of the bullets
+            bulletLifetime = 5.0
         },
 
 
@@ -48,7 +52,7 @@ local enemy_stats = {
             health = 130,
 
             speed = 5.5,
-            bulletSpeed = 5,
+            bulletSpeed = 50,
 
             meleeDamage = 25,
             rangeDamage = 8,
@@ -61,6 +65,8 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
+            dispersion = 7.5,
+
             alertRadius = 10.0,
 
             priority = 1,
@@ -72,6 +78,7 @@ local enemy_stats = {
             timeBetweenBursts = 1.0,
             burstCooldown = 0.3,
             stabCooldown = 2.0,
+            bulletLifetime = 5.0,
             -- Invulnerable time of the range level 2 hability
             invulnerableTime = 2.0
         },

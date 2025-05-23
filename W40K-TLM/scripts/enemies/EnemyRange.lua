@@ -102,7 +102,6 @@ function on_ready()
     range.timeSinceLastStab = 0.0
     range.stabCooldownTimer = 0.0
     range.stabTimer = 1.0
-    range.bulletLifetime = 5.0
     range.invulnerabilityTimer = 0.0
     range.animTimer = 0.0
     range.animDuration = 0.0
@@ -509,11 +508,7 @@ function shoot_projectile(targetExplosive)
 
     local bullet = range.bulletPool[range.currentBulletIndex]
     
-    local startPos = Vector3.new(
-        range.enemyTransf.position.x - 1,
-        range.enemyTransf.position.y + 0.982,
-        range.enemyTransf.position.z - 0.1
-    )
+    local startPos = Vector3.new(range.enemyTransf.position.x - 1, range.enemyTransf.position.y + 0.982, range.enemyTransf.position.z - 0.1)
     bullet.rb:set_position(startPos)
     
     -- Target position
@@ -522,19 +517,28 @@ function shoot_projectile(targetExplosive)
         targetPos = range.explosiveTransf.position 
     end
 
-    -- Calculate normalized direction
-    local dx = targetPos.x - startPos.x
-    local dz = targetPos.z - startPos.z
+    -- Calculate direction vector
+    local dirX = targetPos.x - startPos.x
+    local dirZ = targetPos.z - startPos.z
+    local length = math.sqrt(dirX * dirX + dirZ * dirZ)
+    if length == 0 then length = 0.001 end
 
-    local targetAngle = math.deg(range:atan2(dx, dz))
+    local normX = dirX / length
+    local normZ = dirZ / length
+
+    -- Add angular dispersion ±5 degrees
+    local dispersion = math.rad(range.dispersion)
+    local randomAngle = math.random() * (2 * dispersion) - dispersion
+
+    local rotatedX = normX * math.cos(randomAngle) - normZ * math.sin(randomAngle)
+    local rotatedZ = normX * math.sin(randomAngle) + normZ * math.cos(randomAngle)
+
+    -- Set rotation
+    local targetAngle = math.deg(range:atan2(rotatedX, rotatedZ))
     bullet.rb:set_rotation(Vector3.new(0, targetAngle, 0))
-    
-    -- Set velocity and activate bullet
-    bullet.rb:set_velocity(Vector3.new(
-        dx * range.bulletSpeed,
-        0,
-        dz * range.bulletSpeed
-    ))
+
+    -- Apply velocity
+    bullet.rb:set_velocity(Vector3.new(rotatedX * range.bulletSpeed, 0, rotatedZ * range.bulletSpeed))
     bullet.active = true
     range.bulletTimers[range.currentBulletIndex] = 0
 
@@ -609,6 +613,7 @@ function range:set_stats(level)
     range.rangeAttackRange = stats.rangeAttackRange
     range.chaseRange = stats.chaseRange
     range.maxBurstShots = stats.maxBurstShots
+    range.dispersion = stats.dispersion
     range.alertRadius = stats.alertRadius
     range.priority = stats.priority
 
@@ -617,6 +622,7 @@ function range:set_stats(level)
     range.timeBetweenBursts = stats.timeBetweenBursts
     range.burstCooldown = stats.burstCooldown
     range.stabCooldown = stats.stabCooldown
+    range.bulletLifetime = stats.bulletLifetime
     range.invulnerableTime = stats.invulnerableTime
 
 end
