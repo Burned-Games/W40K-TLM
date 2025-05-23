@@ -76,7 +76,7 @@ function on_ready()
 
         bullet.rb = bullet.rbComponent.rb
         bullet.rb:set_trigger(true)
-        bullet.rb:set_position(Vector3.new(0, -5, 0))
+        bullet.rb:set_position(Vector3.new(-1000, 0, -1000))
 
         range.bulletPool[i] = bullet
         range.bulletTimers[i] = 0
@@ -501,7 +501,7 @@ function deactivate_bullet(index)
     local bullet = range.bulletPool[index]
     bullet.active = false
 
-    bullet.rb:set_position(Vector3.new(0, 0, 0))
+    bullet.rb:set_position(Vector3.new(-1000, 0, -1000))
     bullet.rb:set_velocity(Vector3.new(0, 0, 0))
 
     range.bulletTimers[index] = 0
