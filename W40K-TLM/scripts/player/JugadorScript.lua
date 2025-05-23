@@ -517,6 +517,7 @@ function on_update(dt)
     updateAnims(dt)
     
     if(changeing)then
+        health = 0;
         if fadeToBlackScript.fadeToBlackDoned then
             changeScene = true
         end
