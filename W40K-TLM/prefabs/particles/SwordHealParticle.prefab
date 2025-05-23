@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 11062810793922072559
+                "value0": 15821833738863775297
             },
             "value4": false
         },
@@ -368,9 +368,13 @@
         "value19": 0,
         "value20": 1,
         "value21": 0,
-        "value22": 0,
+        "value22": 1,
         "value23": 0,
-        "value24": 0,
+        "value24": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/particles/SwordHeal.lua",
+            "Language": 0
+        },
         "value25": 0,
         "value26": 0,
         "value27": 0,
@@ -381,6 +385,8 @@
         "value32": 0,
         "value33": 0,
         "value34": 0,
-        "value35": 0
+        "value35": 0,
+        "value36": 0,
+        "value37": 0
     }
 }

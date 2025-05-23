@@ -7,7 +7,7 @@ enemy.godMode = true
 
 local prefabScrap= "prefabs/Misc/Scrap.prefab"
 local enemyAlertPrefab  = "prefabs/Enemies/EnemyAlertedUI.prefab"
-local SwordHealPrefab = "prefabs/particles/SwordHealParticle.prefab"
+local swordHealPrefab = "prefabs/particles/SwordHealParticle.prefab"
 
 function enemy:new(obj)
 
@@ -761,6 +761,7 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
     if shieldMultiplier == nil then
         shieldMultiplier = 1
     end
+
     if sword == nil then
         sword = false
     end
@@ -772,11 +773,14 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
     end
 
     if sword then
-        local SwordHeal = instantiate_prefab(SwordHealPrefab)
-        local SwordHealParticle = SwordHeal:get_component("ParticlesSystemComponent")
-        local SwordHealTransf = SwordHeal:get_component("TransformComponent")
-        SwordHealTransf.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + 1, self.enemyTransf.position.z )
-        SwordHealParticle:emit(30)
+        local swordHeal = instantiate_prefab(swordHealPrefab)
+        local swordHealParticle = swordHeal:get_component("ParticlesSystemComponent")
+        local swordHealTransf = swordHeal:get_component("TransformComponent")
+        local swordHealScript = swordHeal:get_component("ScriptComponent")
+        swordHealTransf.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + 1, self.enemyTransf.position.z)
+        swordHealParticle:emit(30)
+        swordHealScript.playerTransf = self.playerTransf
+        swordHealScript:on_ready()
     end
 
     if not self.damageMaterial then
@@ -788,7 +792,7 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
     if self.enemyMat then self.enemyMat.material = self.damageMaterial end
 
     if self.bloodParticle then
-        self.bloodParticleTransf.position = Vector3.new(self.enemyTransf.position.x,self.enemyTransf.position.y + 1,self.enemyTransf.position.z)
+        self.bloodParticleTransf.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + 1, self.enemyTransf.position.z)
         self.bloodParticle:emit(5)
     end
 
