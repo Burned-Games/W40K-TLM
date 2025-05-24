@@ -1450,7 +1450,7 @@
     "Type": "User",
     "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
     "Language": "SFX",
-    "Hash": "{F957AFC7-6901-0116-E70F-C49463DD8E2C}",
+    "Hash": "{0441E243-44DB-757E-F51F-5087FBA486C6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\RangedSFX",
     "ShortName": "RangedSFX",
     "Path": "RangedSFX.bnk",
@@ -1510,6 +1510,7 @@
       "Name": "Play_RangedDying",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedDying",
       "GUID": "{A5948277-BC2C-4286-A07C-10286CCFE06B}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "1.1576667",
       "DurationMax": "1.3375133",
@@ -1524,9 +1525,10 @@
       "Name": "Play_RangedHurt",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedHurt",
       "GUID": "{931BE3FE-D681-4ECF-967C-ECA782005723}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0.4507339",
-      "DurationMax": "0.5438125",
+      "DurationMin": "0.4133248",
+      "DurationMax": "0.6467057",
       "MediaRefs": [
        {
         "Id": "568804497"
@@ -1538,6 +1540,7 @@
       "Name": "Play_RangedImpactoBalasPlayer",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoBalasPlayer",
       "GUID": "{29AD9E24-EC2D-4D4E-BB5E-E2535AFCAB1C}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.29001486",
       "DurationMax": "0.4603699",
@@ -1552,6 +1555,7 @@
       "Name": "Play_RangedImpactoCaCPlayer",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoCaCPlayer",
       "GUID": "{A1E60988-FEDD-4AEE-B3C9-F86FF9F838DB}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.31677496",
       "DurationMax": "0.47462618",
@@ -1566,6 +1570,7 @@
       "Name": "Play_RangedShot",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedShot",
       "GUID": "{A9A37324-8A19-42EF-B040-420E7B4ED031}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.2891991",
       "DurationMax": "0.42097363",
@@ -1580,6 +1585,7 @@
       "Name": "Play_RangedStomp",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedStomp",
       "GUID": "{4794DD84-574D-4FB5-99E8-CEB874A08C65}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "1.5039166",
       "DurationMax": "1.5039166",
@@ -1596,7 +1602,7 @@
     "Type": "User",
     "GUID": "{19E3CFCE-5418-4D54-9124-7DBDAE79CBE7}",
     "Language": "SFX",
-    "Hash": "{0D160BE7-DBF1-5E8F-9763-4650B806EB65}",
+    "Hash": "{86CA6BCD-B67B-85D8-4548-78AC254F4150}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\FinalBossSFX",
     "ShortName": "FinalBossSFX",
     "Path": "FinalBossSFX.bnk",
@@ -1857,7 +1863,7 @@
       "Name": "Play_BossSteps",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossSteps",
       "GUID": "{4F3A93D6-E7DF-45D2-AC6A-0E3C93F033E0}",
-      "MaxAttenuation": "84",
+      "MaxAttenuation": "70",
       "DurationType": "OneShot",
       "DurationMin": "0.2561004",
       "DurationMax": "1.1577759",
@@ -2065,7 +2071,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{58EFDB83-12D3-52AC-52DD-9A9DFD88E792}",
+    "Hash": "{89AC028F-847D-7727-CA2C-028F383C26A7}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -3109,7 +3115,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{9A3AB2AE-E5A9-34CC-73B2-A9BCCEDD783B}",
+    "Hash": "{FE439879-6F73-9FBF-3B30-F8F3795D0D56}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -3558,6 +3564,6 @@
     ]
    }
   ],
-  "FileHash": "{58A04563-8274-698D-056C-EDC6B856546A}"
+  "FileHash": "{7D167982-B0A9-B9AE-C5A2-4C2EF6ED9F3A}"
  }
 }
