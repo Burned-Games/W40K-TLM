@@ -311,7 +311,7 @@ end
 function enemy:enemy_raycast(dt)
 
     local direction = Vector3.new(0, 0, 0)
-    local origin = Vector3.new(self.enemyTransf.position.x, 0.5, self.enemyTransf.position.z)
+    local origin = Vector3.new(self.enemyTransf.position.x, 1, self.enemyTransf.position.z)
     local maxDistance = self.detectionRange
 
     self.raycastRotationY = self.enemyTransf.rotation.y

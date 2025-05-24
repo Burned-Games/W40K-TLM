@@ -5,6 +5,7 @@ local effect = require("scripts/utils/status_effects")
 kamikaze = enemy:new()
 
 local audioPrefab = "prefabs/Audio/EnemyKamikazeAudio.prefab"
+local explosionPrefab = "prefabs/Enemies/attacks/Explosion.prefab"
 
 function on_ready() 
 
@@ -42,8 +43,8 @@ function on_ready()
     kamikaze.explosiveBarrelRb = current_scene:get_entity_by_name("Explosive"):get_component("RigidbodyComponent").rb
 
     -- Particle
-    kamikaze.explosionParticle = current_scene:get_entity_by_name("particle_kamikaze"):get_component("ParticlesSystemComponent")
-    kamikaze.explosionParticleTransf = current_scene:get_entity_by_name("particle_kamikaze"):get_component("TransformComponent")
+    --kamikaze.explosionParticle = current_scene:get_entity_by_name("particle_kamikaze"):get_component("ParticlesSystemComponent")
+    --kamikaze.explosionParticleTransf = current_scene:get_entity_by_name("particle_kamikaze"):get_component("TransformComponent")
     kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
     kamikaze.bloodParticle = current_scene:get_entity_by_name("KamikazeBloodParticle"):get_component("ParticlesSystemComponent")
@@ -299,10 +300,12 @@ function kamikaze:attack_state()
         local playerPos = kamikaze.playerTransf.position
         local distance = kamikaze:get_distance(explosionPos, playerPos)
 
-        if kamikaze.explosionParticle then
-            kamikaze.explosionParticleTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y + 0.5, kamikaze.enemyTransf.position.z)
-            kamikaze.explosionParticle:emit(2)
-        end
+        -- VFX
+        kamikaze.explosion = instantiate_prefab(explosionPrefab)
+        kamikaze.explosionTransf = kamikaze.explosion:get_component("TransformComponent")
+        kamikaze.explosionScript = kamikaze.explosion:get_component("ScriptComponent")
+        kamikaze.explosionTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y, kamikaze.enemyTransf.position.z)
+        kamikaze.explosionScript:on_ready()
         
         if distance < kamikaze.explosionRange then
             kamikaze:make_damage(kamikaze.damage)
