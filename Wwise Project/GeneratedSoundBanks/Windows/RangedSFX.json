@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
     "Language": "SFX",
-    "Hash": "{F957AFC7-6901-0116-E70F-C49463DD8E2C}",
+    "Hash": "{0441E243-44DB-757E-F51F-5087FBA486C6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\RangedSFX",
     "ShortName": "RangedSFX",
     "Path": "RangedSFX.bnk",
@@ -70,6 +70,7 @@
       "Name": "Play_RangedDying",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedDying",
       "GUID": "{A5948277-BC2C-4286-A07C-10286CCFE06B}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "1.1576667",
       "DurationMax": "1.3375133",
@@ -84,9 +85,10 @@
       "Name": "Play_RangedHurt",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedHurt",
       "GUID": "{931BE3FE-D681-4ECF-967C-ECA782005723}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "0.4507339",
-      "DurationMax": "0.5438125",
+      "DurationMin": "0.4133248",
+      "DurationMax": "0.6467057",
       "MediaRefs": [
        {
         "Id": "568804497"
@@ -98,6 +100,7 @@
       "Name": "Play_RangedImpactoBalasPlayer",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoBalasPlayer",
       "GUID": "{29AD9E24-EC2D-4D4E-BB5E-E2535AFCAB1C}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.29001486",
       "DurationMax": "0.4603699",
@@ -112,6 +115,7 @@
       "Name": "Play_RangedImpactoCaCPlayer",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedImpactoCaCPlayer",
       "GUID": "{A1E60988-FEDD-4AEE-B3C9-F86FF9F838DB}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.31677496",
       "DurationMax": "0.47462618",
@@ -126,6 +130,7 @@
       "Name": "Play_RangedShot",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedShot",
       "GUID": "{A9A37324-8A19-42EF-B040-420E7B4ED031}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.2891991",
       "DurationMax": "0.42097363",
@@ -140,6 +145,7 @@
       "Name": "Play_RangedStomp",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangedStomp",
       "GUID": "{4794DD84-574D-4FB5-99E8-CEB874A08C65}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "1.5039166",
       "DurationMax": "1.5039166",
@@ -152,6 +158,6 @@
     ]
    }
   ],
-  "FileHash": "{8B572AB3-D860-7DDA-D588-9085E78E751E}"
+  "FileHash": "{C0B2F728-0181-2588-E291-009950C46C1F}"
  }
 }
