@@ -13,7 +13,7 @@ local impulseStrength = 0
 
 
 local disappearCounter = 0
-local disappearCounterTarget = 5
+local disappearCounterTarget = 1 --TIME FOR DISAPPEAR
 local hasDisappeared = false
 
 local actualSize = 1

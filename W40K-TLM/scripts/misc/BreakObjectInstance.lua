@@ -9,6 +9,7 @@ local prefabCajaV2 = "prefabs/Misc/CajaSeparadoV2.prefab"
 local rbComponent = nil
 
 local separateChildren = nil
+local separateChildrenWithParentMoved = {}
 local separate = nil
 
 hasDestroyed = false
@@ -16,13 +17,17 @@ hasDestroyed = false
 local impulseStrength = 0
 
 local disappearCounter = 0
-local disappearCounterTarget = 5
+local disappearCounterTarget = 5  --TIME FOR DISAPPEAR
 local hasDisappeared = false
 local actualSize = 1
 local sizeDisappearSpeed = 3
 
+local finished = false
+
 local camera = nil
 local cameraScript = nil
+
+local position00 = nil
 
 --Audio
 local boxBarrelDestroySFX = nil
@@ -36,6 +41,8 @@ function on_ready()
         end
     end
 
+    position00 = current_scene:get_entity_by_name("Position00")
+
     camera = current_scene:get_entity_by_name("Camera")
     cameraScript = camera:get_component("ScriptComponent")
 
@@ -44,6 +51,12 @@ function on_ready()
 
     rbComponent = self:get_component("RigidbodyComponent");
     rbComponent.rb:get_collider():set_box_size(Vector3.new(0.8,0.8,0.8))
+    rbComponent.rb:set_freeze_x(true)
+    rbComponent.rb:set_freeze_y(true)
+    rbComponent.rb:set_freeze_z(true)
+    rbComponent.rb:set_freeze_rot_x(true)
+    rbComponent.rb:set_freeze_rot_y(true)
+    rbComponent.rb:set_freeze_rot_z(true)
 
     rbComponent:on_collision_enter(function(entityA, entityB)
 
@@ -93,10 +106,15 @@ function give_phisycs()
         if child:has_component("RigidbodyComponent") then
             local rb = child:get_component("RigidbodyComponent").rb
 
+            child:set_parent(position00)
+            table.insert(separateChildrenWithParentMoved, child)
+
             local pivotObjectPosition = self:get_component("TransformComponent").position
             local pivotChildPosition = child:get_component("TransformComponent").position
 
             local pivotChildPositionOffset = Vector3.new(pivotObjectPosition.x + pivotChildPosition.x, pivotObjectPosition.y + pivotChildPosition.y, pivotObjectPosition.z + pivotChildPosition.z)
+
+            rb:set_position(pivotChildPositionOffset)
 
             local impulseForce = Vector3.new(pivotObjectPosition.x - pivotChildPositionOffset.x, pivotObjectPosition.y - pivotChildPositionOffset.y, pivotObjectPosition.z - pivotChildPositionOffset.z )
 
@@ -134,9 +152,13 @@ function on_update(dt)
 
     end
 
-    if hasDisappeared then
+    if hasDisappeared and not finished then
         separate:set_active(false)
         self:set_active(false)
+        for _, child in ipairs(separateChildren) do
+            child:set_active(false)
+        end
+        finished = true
     end
 
 end
