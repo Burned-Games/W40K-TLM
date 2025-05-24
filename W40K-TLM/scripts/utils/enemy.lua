@@ -260,16 +260,6 @@ function enemy:detect_state(dt)
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
         log("Detect animation")
     end
-            
-    if not self.alertEnemiesUI then
-        self.alertEnemiesUI = instantiate_prefab(enemyAlertPrefab)
-        self.alertUIScript = self.alertEnemiesUI:get_component("ScriptComponent")
-        self.alertUIScript:on_ready()
-        self.alertUIScript.enemyTransf = self.enemyTransf
-        self.alertUIScript.alertDistance = self.alertDistance
-        self.alertEnemiesUITransform = self.alertEnemiesUI:get_component("TransformComponent")
-    end
-    self.alertEnemiesUITransform.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + self.alertDistance, self.enemyTransf.position.z)
 
     if self.animTimer >= self.detectDuration and not self.isAlerted then
         self:alert_nearby_enemies(dt)
@@ -618,21 +608,14 @@ function enemy:alert_nearby_enemies(dt)
 
             -- Security check, in case the alertUI is already created
             if not enemyData.script.alertEnemiesUI then
-                local alertUI = instantiate_prefab(enemyAlertPrefab)
-                local alertUITransform = alertUI:get_component("TransformComponent")
-                local alertUIScript = alertUI:get_component("ScriptComponent")
-                alertUIScript:on_ready()
-                
-                enemyData.script.alertEnemiesUI = alertUI
-                enemyData.script.alertEnemiesUITransform = alertUITransform
-                enemyData.script.alertUIScript = alertUIScript
+                enemyData.script.alertEnemiesUI = instantiate_prefab(enemyAlertPrefab)
+                enemyData.script.alertUIScript = enemyData.script.alertEnemiesUI:get_component("ScriptComponent")
+                enemyData.script.alertUIScript:on_ready()
+                enemyData.script.alertEnemiesUITransform = enemyData.script.alertEnemiesUI:get_component("TransformComponent")
 
                 enemyData.script.alertUIScript.enemyTransf = enemyData.script.enemyTransf
                 enemyData.script.alertUIScript.alertDistance = enemyData.script.alertDistance
             end
-            
-            local enemyPos = enemyData.script.enemyTransf.position
-            enemyData.script.alertEnemiesUITransform.position = Vector3.new(enemyPos.x, enemyPos.y + enemyData.script.alertDistance, enemyPos.z)
         end
     end
     self.isAlerted = true
