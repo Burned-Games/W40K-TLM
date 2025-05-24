@@ -5,8 +5,8 @@ tank = enemy:new()
 
 local stats = nil
 
+local audioPrefab = "prefabs/Audio/EnemyTankAudio.prefab"
 local tackleIndicatorPrefab = "prefabs/Enemies/attacks/TankTackleIndicator.prefab"
-
 
 function on_ready()
 
@@ -46,14 +46,27 @@ function on_ready()
     -- Camera
     tank.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
-    -- Audio 
-    tank.berserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
-    tank.detectionSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
-    tank.impactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
-    tank.stepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
-    tank.dyingSFX = current_scene:get_entity_by_name("TankDeadSFX"):get_component("AudioSourceComponent")
-    tank.hurtSFX = current_scene:get_entity_by_name("TankHurtSFX"):get_component("AudioSourceComponent")
-    tank.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
+    -- Audio
+    tank.audio = instantiate_prefab(audioPrefab)
+    tank.audio:set_parent(self)
+    local audioChildren = tank.audio:get_children()
+    for _, child in ipairs(audioChildren) do
+        if child:get_component("TagComponent").tag == "TankDeadSFX" then
+            tank.dyingSFX = current_scene:get_entity_by_name("TankDeadSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "TankDetectPlayerSFX" then
+            tank.detectionSFX = current_scene:get_entity_by_name("TankDetectPlayerSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "TankBerserkerSFX" then
+            tank.berserkerSFX = current_scene:get_entity_by_name("TankBerserkerSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "TankImpactPlayerSFX" then
+            tank.impactPlayerSFX = current_scene:get_entity_by_name("TankImpactPlayerSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "TankStepsSFX" then
+            tank.stepsSFX = current_scene:get_entity_by_name("TankStepsSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "TankHurtSFX" then
+            tank.hurtSFX = current_scene:get_entity_by_name("TankHurtSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportShieldExplosionSFX" then
+            tank.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
+        end
+    end
 
     -- Particles
     tank.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
