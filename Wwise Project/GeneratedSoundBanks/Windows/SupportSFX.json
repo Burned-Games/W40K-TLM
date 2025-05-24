@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{EC862FA3-57C9-4C57-B979-540D2679AB59}",
     "Language": "SFX",
-    "Hash": "{288A48C3-9A56-EFFD-0D9B-4C72A8870386}",
+    "Hash": "{ACA67047-68B7-3407-F72D-EF93FCAEB506}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SupportSFX",
     "ShortName": "SupportSFX",
     "Path": "SupportSFX.bnk",
@@ -86,6 +86,7 @@
       "Name": "Play_SupportAtack",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportAtack",
       "GUID": "{DD930685-1E61-4D89-937B-B514104BEC80}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "3.905146",
       "DurationMax": "3.905146",
@@ -100,6 +101,7 @@
       "Name": "Play_SupportHurt",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportHurt",
       "GUID": "{BD4DAC2D-EA4B-4DE4-874A-127ECD1DCAE8}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.6467057",
       "DurationMax": "0.9830577",
@@ -114,6 +116,7 @@
       "Name": "Play_SupportShieldExplosion",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShieldExplosion",
       "GUID": "{3F9D6DAB-A46A-4D02-98CD-5DBD31732A42}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.6386015",
       "DurationMax": "0.8524307",
@@ -128,6 +131,7 @@
       "Name": "Play_SupportShieldZaps",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShieldZaps",
       "GUID": "{DBDF949C-FC70-4807-A840-47E792F627A7}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.43620834",
       "DurationMax": "0.7478333",
@@ -148,6 +152,7 @@
       "Name": "Play_SupportShildAssign",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SupportShildAssign",
       "GUID": "{6F6083A4-05D2-47B3-96B8-85D769F21F05}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.6781188",
       "DurationMax": "0.93170375",
@@ -162,6 +167,7 @@
       "Name": "Play_SuppportDead",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Support\\Play_SuppportDead",
       "GUID": "{F44D33BC-FF27-496D-9B66-74AA99ED3DE0}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.8879375",
       "DurationMax": "1.102692",
@@ -174,6 +180,6 @@
     ]
    }
   ],
-  "FileHash": "{910C544C-44CC-0317-49DD-89A05FA6FE28}"
+  "FileHash": "{34C01940-600A-7821-2B26-CD7FAF0831D9}"
  }
 }

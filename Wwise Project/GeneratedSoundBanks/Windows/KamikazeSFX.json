@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{71E0FA9C-9470-49F3-B98A-14CA86EAB718}",
     "Language": "SFX",
-    "Hash": "{6ED2AC58-4603-552C-C9D4-A72A3DE38D56}",
+    "Hash": "{4603F7D5-5153-D714-4295-B97A49615B27}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\KamikazeSFX",
     "ShortName": "KamikazeSFX",
     "Path": "KamikazeSFX.bnk",
@@ -54,6 +54,7 @@
       "Name": "Play_KamikazeDetection",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Kamikaze\\Play_KamikazeDetection",
       "GUID": "{B6B2F285-8908-402D-A7AE-5387361BBA59}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "1.2111875",
       "DurationMax": "1.2111875",
@@ -68,6 +69,7 @@
       "Name": "Play_KamikazeDie",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Kamikaze\\Play_KamikazeDie",
       "GUID": "{7B239EBC-32E5-4A00-B65A-179BE5E21AF1}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.49995834",
       "DurationMax": "0.49995834",
@@ -82,6 +84,7 @@
       "Name": "Play_KamikazeExplosion",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Kamikaze\\Play_KamikazeExplosion",
       "GUID": "{F201364D-E70E-4E7C-AC6B-FA7250E9EE63}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.72607696",
       "DurationMax": "0.9416053",
@@ -96,6 +99,7 @@
       "Name": "Play_KamikazeScreamBoom",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Kamikaze\\Play_KamikazeScreamBoom",
       "GUID": "{5D9748DB-65A7-468B-A62C-0A5406FAE7CD}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.8999583",
       "DurationMax": "0.8999583",
@@ -108,6 +112,6 @@
     ]
    }
   ],
-  "FileHash": "{5FC6CA57-459C-9E69-0363-943C58BF3B84}"
+  "FileHash": "{4193F8C7-CC94-7ACA-ACEF-9BCF695F041B}"
  }
 }
