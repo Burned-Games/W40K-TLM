@@ -4,9 +4,11 @@ local effect = require("scripts/utils/status_effects")
 
 support = enemy:new()
 
+local audioPrefab = "prefabs/Audio/EnemySupportAudio.prefab"
 local prefab_path = "prefabs/Enemies/shields/Shield.prefab"
 
-function on_ready() 
+function on_ready()
+
     -- Scene
     support.sceneName = SceneManager:get_scene_name()
 
@@ -34,21 +36,28 @@ function on_ready()
         support.playerObjects[i] = current_scene:get_entity_by_name(support.playerObjectsTagList[i]):get_component("TransformComponent")
     end
 
-    -- Shield
-    --support.prefabShield = current_scene:get_entity_by_name("Shield")
-
-
     -- Target
     support.currentTarget = nil
 
-    -- Audio 
-    support.attackSFX = current_scene:get_entity_by_name("SupportAttackSFX"):get_component("AudioSourceComponent")
-    support.hurtSFX = current_scene:get_entity_by_name("SupportHurtSFX"):get_component("AudioSourceComponent")
-    support.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
-    support.shieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
-    support.shieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
-    support.dyingSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
-    --support.supportShotSFX = current_scene:get_entity_by_name("SupportShotSFX"):get_component("AudioSourceComponent")
+    -- Audio
+    support.audio = instantiate_prefab(audioPrefab)
+    support.audio:set_parent(self)
+    local audioChildren = support.audio:get_children()
+    for _, child in ipairs(audioChildren) do
+        if child:get_component("TagComponent").tag == "SupportDeadSFX" then
+            support.dyingSFX = current_scene:get_entity_by_name("SupportDeadSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportAttackSFX" then
+            support.attackSFX = current_scene:get_entity_by_name("SupportAttackSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportShieldZapsSFX" then
+            support.shieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportShieldAssignSFX" then
+            support.shieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportHurtSFX" then
+            support.hurtSFX = current_scene:get_entity_by_name("SupportHurtSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportShieldExplosionSFX" then
+            support.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
+        end
+    end
     
     -- Particles
     support.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
@@ -56,6 +65,8 @@ function on_ready()
     support.bloodParticle = current_scene:get_entity_by_name("SupportBloodParticle"):get_component("ParticlesSystemComponent")
     support.bloodParticleTransf = current_scene:get_entity_by_name("SupportBloodParticle"):get_component("TransformComponent")
 
+
+    
     -- Level
     support.enemyType = "support"
     support:set_level()

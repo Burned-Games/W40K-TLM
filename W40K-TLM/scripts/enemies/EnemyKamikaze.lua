@@ -4,7 +4,7 @@ local effect = require("scripts/utils/status_effects")
 
 kamikaze = enemy:new()
 
-
+local audioPrefab = "prefabs/Audio/EnemyKamikazeAudio.prefab"
 
 function on_ready() 
 
@@ -50,11 +50,24 @@ function on_ready()
     kamikaze.bloodParticleTransf = current_scene:get_entity_by_name("KamikazeBloodParticle"):get_component("TransformComponent")
 
     -- Audio
-    kamikaze.detectionSFX = current_scene:get_entity_by_name("KamikazeDetectionSFX"):get_component("AudioSourceComponent")
-    kamikaze.dyingSFX = current_scene:get_entity_by_name("KamikazeDieSFX"):get_component("AudioSourceComponent")
-    kamikaze.kamikazeExplosionSFX = current_scene:get_entity_by_name("KamikazeExplosionSFX"):get_component("AudioSourceComponent")
-    kamikaze.kamikazeScreamBoomSFX = current_scene:get_entity_by_name("KamikazeScreamBoomSFX"):get_component("AudioSourceComponent")
-    kamikaze.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
+    kamikaze.audio = instantiate_prefab(audioPrefab)
+    kamikaze.audio:set_parent(self)
+    local audioChildren = kamikaze.audio:get_children()
+    for _, child in ipairs(audioChildren) do
+        if child:get_component("TagComponent").tag == "KamikazeDieSFX" then
+            kamikaze.dyingSFX = current_scene:get_entity_by_name("KamikazeDieSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "KamikazeDetectionSFX" then
+            kamikaze.detectionSFX = current_scene:get_entity_by_name("KamikazeDetectionSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "KamikazeExplosionSFX" then
+            kamikaze.kamikazeExplosionSFX = current_scene:get_entity_by_name("KamikazeExplosionSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "KamikazeScreamBoomSFX" then
+            kamikaze.kamikazeScreamBoomSFX = current_scene:get_entity_by_name("KamikazeScreamBoomSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportShieldExplosionSFX" then
+            kamikaze.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
+        end
+    end
+
+
 
     -- Level
     kamikaze.enemyType = "kamikaze"
