@@ -208,3 +208,6 @@ end
 function lerp(a, b, t)
     return a + (b - a) * t
 end
+
+function on_exit()
+end

@@ -314,3 +314,6 @@ function load_upgrades()
 
     --print("\nUpgrades loaded\n")
 end
+
+function on_exit()
+end

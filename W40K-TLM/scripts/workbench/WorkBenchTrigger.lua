@@ -379,3 +379,6 @@ function FadeToBlack(dt)
         interactionIconSprite.tint_color = Vector4.new(1,1,1,1)
     end
 end
+
+function on_exit()
+end
