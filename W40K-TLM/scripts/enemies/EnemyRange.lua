@@ -131,6 +131,7 @@ function on_ready()
     -- Ints
     range.burstCount = 0
     range.currentBulletIndex = 1
+    range.shieldScale = 4
 
     -- Floats
     range.alertDistance = 2.5

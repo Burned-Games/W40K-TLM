@@ -4,7 +4,7 @@ local effect = require("scripts/utils/status_effects")
 
 support = enemy:new()
 
-local prefab_path = "prefabs/Misc/Shield.prefab"
+local prefab_path = "prefabs/Enemies/shields/Shield.prefab"
 
 function on_ready() 
     -- Scene
@@ -440,18 +440,14 @@ function support:shield_state(dt)
                 support.currentTarget.script.shieldHealth = support.enemyShield
                 support.currentTarget.script.haveShield = true
                 support.canUseShield = false
-                support.shieldCooldownActive = true  
-                support.shieldTimer = 0  
-                support.shieldAnimTimer = 0  
+                support.shieldCooldownActive = true
+                support.shieldTimer = 0
+                support.shieldAnimTimer = 0
                 support.shieldAssignSFX:play()
-
-                for i, enemyData in ipairs(support.Enemies) do
-                    if enemyData.name == support.currentTarget.name then
-                        enemyData.haveShield = true
-                        break
-                    end
-                end
             end
+        end
+        if support.currentTarget.script.haveShield then
+            log("Have Shield")
         end
     end
 
@@ -778,13 +774,15 @@ function create_new_shield(targetEnemy)
     local transform = Mat4.identity():translate(pos)
   
     local newShield = instantiate_prefab(prefab_path, transform)
+    newShield:get_component("ScriptComponent"):on_ready()
     if not newShield or not newShield:is_valid() then
         log("Error: instantiate_prefab falló al crear el escudo")
         return nil
     end
 
     local shieldTransf = newShield:get_component("TransformComponent")
-    shieldTransf.scale = Vector3.new(2.5, 2.5, 2.5)
+
+    shieldTransf.scale = Vector3.new(targetEnemy.script.shieldScale, targetEnemy.script.shieldScale, targetEnemy.script.shieldScale)
 
     return newShield
 end

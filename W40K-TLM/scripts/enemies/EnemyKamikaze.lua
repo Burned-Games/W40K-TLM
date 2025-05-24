@@ -100,6 +100,9 @@ function on_ready()
     -- Lists
     kamikaze.nearbyEnemies = {}
 
+    -- Ints
+    kamikaze.shieldScale = 4
+
     -- Floats
     kamikaze.alertDistance = 1.8
 

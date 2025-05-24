@@ -118,6 +118,9 @@ function on_ready()
     -- Lists
     tank.nearbyEnemies = {}
 
+    -- Ints
+    tank.shieldScale = 4
+
     -- Floats
     tank.alertDistance = 3.5
 
