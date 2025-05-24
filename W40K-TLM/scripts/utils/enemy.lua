@@ -5,7 +5,7 @@ local enemy = {}
 enemy.state = { Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5}
 enemy.godMode = true
 
-local prefabScrap= "prefabs/Misc/Scrap.prefab"
+local prefabScrap = "prefabs/Misc/Scrap.prefab"
 local enemyAlertPrefab  = "prefabs/Enemies/EnemyAlertedUI.prefab"
 local swordHealPrefab = "prefabs/particles/SwordHealParticle.prefab"
 

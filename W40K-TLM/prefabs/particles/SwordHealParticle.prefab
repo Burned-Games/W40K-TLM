@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 12839655426586929885
+                "value0": 17559217206156331914
             },
             "value4": false
         },
@@ -30,12 +30,12 @@
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "y": 2.0410659313201906,
+                "z": 1.1591235399246216
             },
             "Rotation": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": -0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -80,8 +80,8 @@
                             "m22": 1.0,
                             "m23": 0.0,
                             "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
+                            "m31": 2.0410659313201906,
+                            "m32": 1.1591235399246216,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": true,
@@ -97,15 +97,15 @@
                         },
                         "UseColorRandom": true,
                         "ColorNormal": {
-                            "x": 0.5443547964096069,
+                            "x": 0.6814516186714172,
                             "y": 0.0,
                             "z": 0.0,
                             "w": 1.0
                         },
                         "ColorRandom": {
-                            "x": 0.40322577953338625,
-                            "y": 0.0,
-                            "z": 0.0,
+                            "x": 0.30645161867141726,
+                            "y": 0.001235690782777965,
+                            "z": 0.001235690782777965,
                             "w": 1.0
                         },
                         "Amount": 1000,
@@ -151,10 +151,10 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
-                        "RateOverTime": 1.0,
-                        "UseBurst": false,
+                        "RateOverTime": 3.0,
+                        "UseBurst": true,
                         "Bursts": [],
                         "ShapeType": 2,
                         "MinSpread": {
@@ -270,11 +270,11 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.07500000298023224,
+                                "value0": 0.11500000208616257,
                                 "value1": 1.0
                             },
                             {
-                                "value0": 0.07500000298023224,
+                                "value0": 0.11500000208616257,
                                 "value1": 1.0
                             },
                             {
@@ -359,7 +359,7 @@
                         "RenderMode": 0,
                         "RenderAlignment": 0,
                         "TextureUUID": {
-                            "value0": 8831832438998116576
+                            "value0": 2330904700658026574
                         }
                     }
                 }
@@ -368,9 +368,13 @@
         "value19": 0,
         "value20": 1,
         "value21": 0,
-        "value22": 0,
+        "value22": 1,
         "value23": 0,
-        "value24": 0,
+        "value24": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/particles/SwordHeal.lua",
+            "Language": 0
+        },
         "value25": 0,
         "value26": 0,
         "value27": 0,
@@ -381,6 +385,8 @@
         "value32": 0,
         "value33": 0,
         "value34": 0,
-        "value35": 0
+        "value35": 0,
+        "value36": 0,
+        "value37": 0
     }
 }

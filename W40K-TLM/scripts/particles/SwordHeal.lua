@@ -3,10 +3,10 @@ playerTransf = nil
 
 local swordHealTimer = 0
 
-local moveSpeed = 0
-local acceleration = 3
-local swordHealDelay = 1.5
-local swordHealLifetime = 5.0
+local moveSpeed = 2
+local acceleration = 4
+local swordHealDelay = 1.0
+local swordHealLifetime = 2.0
 
 function on_ready()
     swordHealTransf = self:get_component("TransformComponent")
