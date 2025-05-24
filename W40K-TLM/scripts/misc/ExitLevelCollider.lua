@@ -6,10 +6,11 @@ local fadeToBlackScript = nil
 local changeing = false
 local changed = false
 
+local playerScript = nil
+
 function on_ready()
 
-
-
+    playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
     colliderComponent = self:get_component("RigidbodyComponent")
@@ -21,6 +22,9 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
        
         if (nameA == "Player" or nameB == "Player") and not changeing then
+            
+            playerScript:saveProgress()
+            
             save_progress("level", 2)
             save_progress("zonePlayer", 0)
             fadeToBlackScript:DoFade()

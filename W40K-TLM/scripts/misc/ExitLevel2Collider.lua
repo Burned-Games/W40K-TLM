@@ -6,9 +6,11 @@ local fadeToBlackScript = nil
 local changeing = false
 local changed = false
 
+local playerScript = nil
+
 function on_ready()
 
-
+    playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 
@@ -21,7 +23,9 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
        
         if (nameA == "Player" or nameB == "Player") and not changeing then
+            playerScript:saveProgress()
             save_progress("level", 3)
+            save_progress("zonePlayer", 0)
             fadeToBlackScript:DoFade()
             changeing = true
             mission_Component.mr2_Check = true
