@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 15821833738863775297
+                "value0": 12839655426586929885
             },
             "value4": false
         },
@@ -30,12 +30,12 @@
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
-                "y": 2.0410659313201906,
-                "z": 1.1591235399246216
+                "y": 0.0,
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -80,8 +80,8 @@
                             "m22": 1.0,
                             "m23": 0.0,
                             "m30": 0.0,
-                            "m31": 2.0410659313201906,
-                            "m32": 1.1591235399246216,
+                            "m31": 0.0,
+                            "m32": 0.0,
                             "m33": 1.0
                         },
                         "UseDirectionRandom": true,
@@ -97,13 +97,13 @@
                         },
                         "UseColorRandom": true,
                         "ColorNormal": {
-                            "x": 1.0,
+                            "x": 0.5443547964096069,
                             "y": 0.0,
                             "z": 0.0,
                             "w": 1.0
                         },
                         "ColorRandom": {
-                            "x": 0.44354838132858279,
+                            "x": 0.40322577953338625,
                             "y": 0.0,
                             "z": 0.0,
                             "w": 1.0
@@ -113,7 +113,7 @@
                         "UseRandomLifeTime": false,
                         "StartLifeTimeMin": 5.0,
                         "StartLifeTimeMax": 5.0,
-                        "StartLifeTime": 3.0,
+                        "StartLifeTime": 2.0,
                         "UseRandomSpeed": true,
                         "StartSpeedMin": 45.0,
                         "StartSpeedMax": 50.0,
@@ -151,10 +151,10 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 0,
+                        "SimulationSpace": 1,
                         "UseEmission": true,
-                        "RateOverTime": 3.0,
-                        "UseBurst": true,
+                        "RateOverTime": 1.0,
+                        "UseBurst": false,
                         "Bursts": [],
                         "ShapeType": 2,
                         "MinSpread": {
@@ -207,15 +207,15 @@
                         ],
                         "VelocityOverLifeGeneral": [
                             {
-                                "value0": 0.0,
-                                "value1": 0.5199999809265137
-                            },
-                            {
-                                "value0": 0.03500000014901161,
+                                "value0": 0.09000000357627869,
                                 "value1": 1.0
                             },
                             {
-                                "value0": 0.03500000014901161,
+                                "value0": 0.09000000357627869,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 0.09000000357627869,
                                 "value1": 1.0
                             },
                             {
@@ -270,11 +270,11 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
-                                "value1": 0.5199999809265137
+                                "value0": 0.07500000298023224,
+                                "value1": 1.0
                             },
                             {
-                                "value0": 0.02500000037252903,
+                                "value0": 0.07500000298023224,
                                 "value1": 1.0
                             },
                             {
@@ -294,7 +294,7 @@
                                 "value1": 0.4599999785423279
                             }
                         ],
-                        "SizeMultiplier": 1.0,
+                        "SizeMultiplier": 0.5,
                         "UseRotationOverLifetime": false,
                         "RotationOverLifeX": [
                             {
@@ -359,7 +359,7 @@
                         "RenderMode": 0,
                         "RenderAlignment": 0,
                         "TextureUUID": {
-                            "value0": 2330904700658026574
+                            "value0": 8831832438998116576
                         }
                     }
                 }
@@ -368,13 +368,9 @@
         "value19": 0,
         "value20": 1,
         "value21": 0,
-        "value22": 1,
+        "value22": 0,
         "value23": 0,
-        "value24": {
-            "cereal_class_version": 0,
-            "ScriptPath": "scripts/particles/SwordHeal.lua",
-            "Language": 0
-        },
+        "value24": 0,
         "value25": 0,
         "value26": 0,
         "value27": 0,
@@ -385,8 +381,6 @@
         "value32": 0,
         "value33": 0,
         "value34": 0,
-        "value35": 0,
-        "value36": 0,
-        "value37": 0
+        "value35": 0
     }
 }

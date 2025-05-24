@@ -92,13 +92,13 @@
                         },
                         "UseColorRandom": true,
                         "ColorNormal": {
-                            "x": 1.0,
+                            "x": 0.5443547964096069,
                             "y": 0.0,
                             "z": 0.0,
                             "w": 1.0
                         },
                         "ColorRandom": {
-                            "x": 0.44354838132858279,
+                            "x": 0.40322577953338625,
                             "y": 0.0,
                             "z": 0.0,
                             "w": 1.0
@@ -108,7 +108,7 @@
                         "UseRandomLifeTime": false,
                         "StartLifeTimeMin": 5.0,
                         "StartLifeTimeMax": 5.0,
-                        "StartLifeTime": 3.0,
+                        "StartLifeTime": 2.0,
                         "UseRandomSpeed": true,
                         "StartSpeedMin": 45.0,
                         "StartSpeedMax": 50.0,
@@ -265,11 +265,11 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
-                                "value1": 0.5199999809265137
+                                "value0": 0.07500000298023224,
+                                "value1": 1.0
                             },
                             {
-                                "value0": 0.02500000037252903,
+                                "value0": 0.07500000298023224,
                                 "value1": 1.0
                             },
                             {
@@ -289,7 +289,7 @@
                                 "value1": 0.4599999785423279
                             }
                         ],
-                        "SizeMultiplier": 1.0,
+                        "SizeMultiplier": 0.5,
                         "UseRotationOverLifetime": false,
                         "RotationOverLifeX": [
                             {
@@ -355,7 +355,7 @@
                         "RenderAlignment": 0,
                         "TextureUUID": {
                             "cereal_class_version": 0,
-                            "value0": 2330904700658026574
+                            "value0": 8831832438998116576
                         }
                     }
                 }
