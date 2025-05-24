@@ -43,8 +43,6 @@ function on_ready()
     kamikaze.explosiveBarrelRb = current_scene:get_entity_by_name("Explosive"):get_component("RigidbodyComponent").rb
 
     -- Particle
-    --kamikaze.explosionParticle = current_scene:get_entity_by_name("particle_kamikaze"):get_component("ParticlesSystemComponent")
-    --kamikaze.explosionParticleTransf = current_scene:get_entity_by_name("particle_kamikaze"):get_component("TransformComponent")
     kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
     kamikaze.bloodParticle = current_scene:get_entity_by_name("KamikazeBloodParticle"):get_component("ParticlesSystemComponent")
