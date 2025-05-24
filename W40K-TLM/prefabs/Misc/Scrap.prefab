@@ -10,38 +10,28 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 5215357764266991069
+                "value0": 1906488526136825704
             },
             "value4": false
         },
         "RootEntity": 0,
-        "value0": 4,
-        "value1": 4,
+        "value0": 2,
+        "value1": 2,
         "value2": 0,
         "value3": 1,
         "value4": 2,
-        "value5": 3,
-        "value6": 4,
-        "value7": 0,
-        "value8": {
+        "value5": 0,
+        "value6": {
             "cereal_class_version": 0,
             "Tag": "Scrap"
         },
-        "value9": 1,
-        "value10": {
+        "value7": 1,
+        "value8": {
             "Tag": "FlareParticle"
         },
-        "value11": 2,
-        "value12": {
-            "Tag": "ScrapParticles"
-        },
-        "value13": 3,
-        "value14": {
-            "Tag": "ScrewParticles"
-        },
-        "value15": 4,
-        "value16": 0,
-        "value17": {
+        "value9": 2,
+        "value10": 0,
+        "value11": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
@@ -59,8 +49,8 @@
                 "z": 1.0
             }
         },
-        "value18": 1,
-        "value19": {
+        "value12": 1,
+        "value13": {
             "Position": {
                 "x": 0.0,
                 "y": 0.6000000238418579,
@@ -77,75 +67,25 @@
                 "z": 1.0
             }
         },
-        "value20": 2,
-        "value21": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.6000000238418579,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value22": 3,
-        "value23": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.6000000238418579,
-                "z": 2.8756469514105014e-21
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value24": 4,
-        "value25": 0,
-        "value26": {
+        "value14": 2,
+        "value15": 0,
+        "value16": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value27": 1,
-        "value28": {
-            "Parent": 0,
-            "First": 4294967295,
-            "Next": 3,
-            "Prev": 1
-        },
-        "value29": 2,
-        "value30": {
+        "value17": 1,
+        "value18": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
-            "Prev": 1
+            "Prev": 4294967295
         },
-        "value31": 3,
-        "value32": {
-            "Parent": 0,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 2
-        },
-        "value33": 1,
-        "value34": 0,
-        "value35": {
+        "value19": 1,
+        "value20": 0,
+        "value21": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 1922729568603917365
@@ -154,9 +94,9 @@
                 "value0": 0
             }
         },
-        "value36": 1,
-        "value37": 0,
-        "value38": {
+        "value22": 1,
+        "value23": 0,
+        "value24": {
             "cereal_class_version": 1,
             "IsEmbedded": false,
             "Type": 8,
@@ -164,11 +104,11 @@
                 "value0": 3367513909543705289
             }
         },
-        "value39": 0,
-        "value40": 0,
-        "value41": 3,
-        "value42": 1,
-        "value43": {
+        "value25": 0,
+        "value26": 0,
+        "value27": 1,
+        "value28": 1,
+        "value29": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -176,20 +116,20 @@
                     "data": {
                         "cereal_class_version": 4,
                         "TransformMatrix": {
-                            "m00": 1.0,
+                            "m00": 0.0,
                             "m01": 0.0,
                             "m02": 0.0,
                             "m03": 0.0,
                             "m10": 0.0,
-                            "m11": 1.0,
+                            "m11": 0.0,
                             "m12": 0.0,
                             "m13": 0.0,
                             "m20": 0.0,
                             "m21": 0.0,
-                            "m22": 1.0,
+                            "m22": 0.0,
                             "m23": 0.0,
                             "m30": 0.0,
-                            "m31": 0.6000005006790161,
+                            "m31": 4.6118069008116438e-7,
                             "m32": 0.0,
                             "m33": 1.0
                         },
@@ -451,573 +391,29 @@
                 }
             }
         },
-        "value44": 2,
-        "value45": {
-            "ParticleEmitter": {
-                "ptr_wrapper": {
-                    "id": 2147483650,
-                    "data": {
-                        "TransformMatrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.6000005006790161,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        },
-                        "UseDirectionRandom": true,
-                        "Direction": {
-                            "x": -1.0,
-                            "y": -1.0,
-                            "z": -1.0
-                        },
-                        "DirectionRandom": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        },
-                        "UseColorRandom": false,
-                        "ColorNormal": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0,
-                            "w": 1.0
-                        },
-                        "ColorRandom": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0,
-                            "w": 1.0
-                        },
-                        "Amount": 1000,
-                        "Looping": true,
-                        "UseRandomLifeTime": false,
-                        "StartLifeTimeMin": 5.0,
-                        "StartLifeTimeMax": 5.0,
-                        "StartLifeTime": 0.4000000059604645,
-                        "UseRandomSpeed": false,
-                        "StartSpeedMin": 5.0,
-                        "StartSpeedMax": 5.0,
-                        "StartSpeed": 2.5999999046325685,
-                        "UseRandomSize": true,
-                        "UseSplitAxesSize": false,
-                        "StartSizeMin": {
-                            "x": 0.10000000149011612,
-                            "y": 0.10000000149011612,
-                            "z": 0.10000000149011612
-                        },
-                        "StartSizeMax": {
-                            "x": 0.5,
-                            "y": 0.5,
-                            "z": 0.5
-                        },
-                        "StartSize": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        },
-                        "UseRandomRotation": true,
-                        "StartRotationMin": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": -75.0
-                        },
-                        "StartRotationMax": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 75.0
-                        },
-                        "StartRotation": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "SimulationSpace": 1,
-                        "UseEmission": true,
-                        "RateOverTime": 25.0,
-                        "UseBurst": false,
-                        "Bursts": [],
-                        "ShapeType": 2,
-                        "MinSpread": {
-                            "x": -0.10000000149011612,
-                            "y": -0.10000000149011612,
-                            "z": -0.10000000149011612
-                        },
-                        "MaxSpread": {
-                            "x": 0.10000000149011612,
-                            "y": 0.10000000149011612,
-                            "z": 0.10000000149011612
-                        },
-                        "UseShape": true,
-                        "ShapeAngle": 45.0,
-                        "ShapeRadius": 1.0,
-                        "ShapeRadiusThickness": 0.10000000149011612,
-                        "GoCenter": false,
-                        "UseVelocityOverLifetime": false,
-                        "VelocitySeparateAxes": false,
-                        "VelocityOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeGeneral": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityMultiplier": 1.0,
-                        "UseSizeOverLifetime": true,
-                        "SizeSeparateAxes": false,
-                        "SizeOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeGeneral": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 0.4300000071525574,
-                                "value1": 0.8600000143051148
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeMultiplier": 1.0,
-                        "UseRotationOverLifetime": true,
-                        "RotationOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 0.48000001907348635
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "RotationOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 0.48000001907348635
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 1.0
-                            }
-                        ],
-                        "RotationOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 0.5
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "RotationMultiplier": 1.0,
-                        "UseColorOverLifetime": true,
-                        "OverLifetimeColor": {
-                            "x": 1.744874427001833e-39,
-                            "y": 1.6155871338926323e-27,
-                            "z": 0.0,
-                            "w": 1.0097419586828951e-28
-                        },
-                        "ColorGradientPoints": [
-                            {
-                                "value0": 0.0,
-                                "value1": {
-                                    "value0": 0.6196078658103943,
-                                    "value1": 0.9254902005195618,
-                                    "value2": 1.0,
-                                    "value3": 1.0
-                                }
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": {
-                                    "value0": 0.6196078062057495,
-                                    "value1": 0.923921525478363,
-                                    "value2": 1.0,
-                                    "value3": 0.0
-                                }
-                            }
-                        ],
-                        "UseRenderer": true,
-                        "RenderMode": 0,
-                        "RenderAlignment": 0,
-                        "TextureUUID": {
-                            "value0": 3477136904960105160
-                        }
-                    }
-                }
-            }
-        },
-        "value46": 3,
-        "value47": {
-            "ParticleEmitter": {
-                "ptr_wrapper": {
-                    "id": 2147483651,
-                    "data": {
-                        "TransformMatrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.6000005006790161,
-                            "m32": 2.8756469514105014e-21,
-                            "m33": 1.0
-                        },
-                        "UseDirectionRandom": true,
-                        "Direction": {
-                            "x": -1.0,
-                            "y": -1.0,
-                            "z": -1.0
-                        },
-                        "DirectionRandom": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        },
-                        "UseColorRandom": false,
-                        "ColorNormal": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0,
-                            "w": 1.0
-                        },
-                        "ColorRandom": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0,
-                            "w": 1.0
-                        },
-                        "Amount": 1000,
-                        "Looping": true,
-                        "UseRandomLifeTime": false,
-                        "StartLifeTimeMin": 5.0,
-                        "StartLifeTimeMax": 5.0,
-                        "StartLifeTime": 0.4000000059604645,
-                        "UseRandomSpeed": false,
-                        "StartSpeedMin": 5.0,
-                        "StartSpeedMax": 5.0,
-                        "StartSpeed": 2.5999999046325685,
-                        "UseRandomSize": true,
-                        "UseSplitAxesSize": false,
-                        "StartSizeMin": {
-                            "x": 0.10000000149011612,
-                            "y": 0.10000000149011612,
-                            "z": 0.10000000149011612
-                        },
-                        "StartSizeMax": {
-                            "x": 0.5,
-                            "y": 0.5,
-                            "z": 0.5
-                        },
-                        "StartSize": {
-                            "x": -0.30000001192092898,
-                            "y": -0.30000001192092898,
-                            "z": -0.30000001192092898
-                        },
-                        "UseRandomRotation": true,
-                        "StartRotationMin": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": -75.0
-                        },
-                        "StartRotationMax": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 75.0
-                        },
-                        "StartRotation": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "SimulationSpace": 1,
-                        "UseEmission": true,
-                        "RateOverTime": 25.0,
-                        "UseBurst": false,
-                        "Bursts": [],
-                        "ShapeType": 2,
-                        "MinSpread": {
-                            "x": -0.10000000149011612,
-                            "y": -0.10000000149011612,
-                            "z": -0.10000000149011612
-                        },
-                        "MaxSpread": {
-                            "x": 0.10000000149011612,
-                            "y": 0.10000000149011612,
-                            "z": 0.10000000149011612
-                        },
-                        "UseShape": true,
-                        "ShapeAngle": 45.0,
-                        "ShapeRadius": 1.0,
-                        "ShapeRadiusThickness": 0.10000000149011612,
-                        "GoCenter": false,
-                        "UseVelocityOverLifetime": false,
-                        "VelocitySeparateAxes": false,
-                        "VelocityOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeGeneral": [
-                            {
-                                "value0": 0.10000000149011612,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityMultiplier": 1.0,
-                        "UseSizeOverLifetime": true,
-                        "SizeSeparateAxes": false,
-                        "SizeOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeGeneral": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 0.42500001192092898,
-                                "value1": 0.9200000166893005
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeMultiplier": 1.0,
-                        "UseRotationOverLifetime": true,
-                        "RotationOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 0.48000001907348635
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "RotationOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 0.5199999809265137
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 1.0
-                            }
-                        ],
-                        "RotationOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 0.5600000023841858
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "RotationMultiplier": 1.0,
-                        "UseColorOverLifetime": true,
-                        "OverLifetimeColor": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0,
-                            "w": 0.0
-                        },
-                        "ColorGradientPoints": [
-                            {
-                                "value0": 0.0,
-                                "value1": {
-                                    "value0": 0.6209677457809448,
-                                    "value1": 0.9266389608383179,
-                                    "value2": 1.0,
-                                    "value3": 1.0
-                                }
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": {
-                                    "value0": 0.6196078062057495,
-                                    "value1": 0.923921525478363,
-                                    "value2": 1.0,
-                                    "value3": 0.0
-                                }
-                            }
-                        ],
-                        "UseRenderer": true,
-                        "RenderMode": 0,
-                        "RenderAlignment": 0,
-                        "TextureUUID": {
-                            "value0": 4255943527309730858
-                        }
-                    }
-                }
-            }
-        },
-        "value48": 0,
-        "value49": 4,
-        "value50": 0,
-        "value51": 1,
-        "value52": 2,
-        "value53": 3,
-        "value54": 1,
-        "value55": 0,
-        "value56": {
+        "value30": 0,
+        "value31": 2,
+        "value32": 0,
+        "value33": 1,
+        "value34": 1,
+        "value35": 0,
+        "value36": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/PickupScrap.lua",
             "Language": 0
         },
-        "value57": 0,
-        "value58": 0,
-        "value59": 0,
-        "value60": 0,
-        "value61": 0,
-        "value62": 0,
-        "value63": 0,
-        "value64": 0,
-        "value65": 0,
-        "value66": 0,
-        "value67": 0,
-        "value68": 0,
-        "value69": 0
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 0,
+        "value41": 0,
+        "value42": 0,
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0
     }
 }
