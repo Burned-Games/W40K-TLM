@@ -10,33 +10,28 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 1081271049016466288
+                "value0": 1667156069371327114
             },
             "value4": false
         },
         "RootEntity": 0,
-        "value0": 3,
-        "value1": 3,
+        "value0": 2,
+        "value1": 2,
         "value2": 0,
         "value3": 1,
         "value4": 2,
-        "value5": 3,
-        "value6": 0,
-        "value7": {
+        "value5": 0,
+        "value6": {
             "cereal_class_version": 0,
             "Tag": "AuraTa"
         },
-        "value8": 1,
-        "value9": {
+        "value7": 1,
+        "value8": {
             "Tag": ""
         },
-        "value10": 2,
+        "value9": 2,
+        "value10": 0,
         "value11": {
-            "Tag": "AuraTank"
-        },
-        "value12": 3,
-        "value13": 0,
-        "value14": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
@@ -54,8 +49,8 @@
                 "z": 1.0
             }
         },
-        "value15": 1,
-        "value16": {
+        "value12": 1,
+        "value13": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -72,54 +67,29 @@
                 "z": 1.0
             }
         },
-        "value17": 2,
-        "value18": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.4000000059604645
-            },
-            "Rotation": {
-                "x": -89.99998474121094,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 4.0,
-                "y": 4.0,
-                "z": 4.0
-            }
-        },
-        "value19": 3,
-        "value20": 0,
-        "value21": {
+        "value14": 2,
+        "value15": 0,
+        "value16": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value22": 1,
-        "value23": {
-            "Parent": 0,
-            "First": 4294967295,
-            "Next": 2,
-            "Prev": 4294967295
-        },
-        "value24": 2,
-        "value25": {
+        "value17": 1,
+        "value18": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
-            "Prev": 1
+            "Prev": 4294967295
         },
-        "value26": 0,
-        "value27": 0,
-        "value28": 0,
-        "value29": 0,
-        "value30": 1,
-        "value31": 1,
-        "value32": {
+        "value19": 0,
+        "value20": 0,
+        "value21": 0,
+        "value22": 0,
+        "value23": 1,
+        "value24": 1,
+        "value25": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -211,7 +181,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 0.0,
                         "UseBurst": true,
@@ -401,40 +371,23 @@
                 }
             }
         },
+        "value26": 0,
+        "value27": 2,
+        "value28": 0,
+        "value29": 1,
+        "value30": 0,
+        "value31": 0,
+        "value32": 0,
         "value33": 0,
-        "value34": 3,
+        "value34": 0,
         "value35": 0,
-        "value36": 1,
-        "value37": 2,
+        "value36": 0,
+        "value37": 0,
         "value38": 0,
         "value39": 0,
         "value40": 0,
         "value41": 0,
         "value42": 0,
-        "value43": 0,
-        "value44": 0,
-        "value45": 1,
-        "value46": 2,
-        "value47": {
-            "cereal_class_version": 0,
-            "TextureUUID": {
-                "value0": 8831832438998116576
-            },
-            "TintColor": {
-                "x": 0.7058823704719544,
-                "y": 0.08627451211214066,
-                "z": 0.08627451211214066,
-                "w": 0.47058823704719546
-            },
-            "FlipX": false,
-            "FlipY": false,
-            "TilingFactor": 1.0
-        },
-        "value48": 0,
-        "value49": 0,
-        "value50": 0,
-        "value51": 0,
-        "value52": 0,
-        "value53": 0
+        "value43": 0
     }
 }

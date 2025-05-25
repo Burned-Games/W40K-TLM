@@ -7,7 +7,7 @@ local stats = nil
 
 local audioPrefab = "prefabs/Audio/EnemyTankAudio.prefab"
 local tackleIndicatorPrefab = "prefabs/Enemies/attacks/TankTackleIndicator.prefab"
-local auraPrefab = nil
+local auraPrefab = "prefabs/particles/AuraTank.prefab"
 
 function on_ready()
 
@@ -88,6 +88,8 @@ function on_ready()
 
     if self:get_component("TagComponent").tag == "EnemyTank1" then
         tank.level = 3
+        tank.auraTank = instantiate_prefab(auraPrefab)
+        tank.auraTank:set_parent(self)
     end
 
     tank:set_stats(tank.level)
