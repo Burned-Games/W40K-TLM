@@ -117,6 +117,8 @@ local granadePreviewTransf = nil
 
 local bulletTimers = nil
 
+local swordScript = nil
+
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -191,6 +193,11 @@ function on_ready()
 
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")    
     hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
+
+    if current_scene:get_entity_by_name("SawSwordManager"):has_component("ScriptComponent") then
+
+        swordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
+    end
 
 end
 
@@ -282,8 +289,8 @@ function on_update(dt)
             local rightTrigger = Input.get_button(Input.action.Shoot)
 
             -- shoot
-            if rightTrigger == Input.state.Repeat and is_reloading == false then
-                if playerScript.currentUpAnim ~= playerScript.shotgun_Pump and shootAnimation == false then
+            if rightTrigger == Input.state.Repeat and is_reloading == false and swordScript.slasheeed == false then
+                if playerScript.currentUpAnim ~= playerScript.shotgun_Pump and shootAnimation == false  then
                     playerScript.currentUpAnim = playerScript.shotgun_Pump
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     shootAnimation = true
