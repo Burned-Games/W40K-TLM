@@ -517,7 +517,6 @@ function shoot(dt, bulletNum)
 
     shootCoolDownTimer = shootCoolDown
     Input.send_rumble(vibrationNormalSettings.x, vibrationNormalSettings.y, vibrationNormalSettings.z)
-    print(bulletNum)
 
     local playerPosition = playerTransf.position
     local playerRotation = playerTransf.rotation
