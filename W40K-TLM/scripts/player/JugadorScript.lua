@@ -806,9 +806,16 @@ function handleWeaponSwitch(dt)
         else
             currentUpAnim = -1
             swordAnimationTimeCounter = 0
-            swordUpper:set_active(false)
-            shotgunUpper:set_active(true)
-            bolterUpper:set_active(true)
+            if actualweapon == 0 then
+                swordUpper:set_active(false)
+                shotgunUpper:set_active(false)
+                bolterUpper:set_active(true)
+            else
+                swordUpper:set_active(false)
+                shotgunUpper:set_active(true)
+                bolterUpper:set_active(false)
+            end
+            
             swordScript.slasheeed = false
             swordScript.slashed = false
         end
