@@ -7,9 +7,12 @@ local moveSpeed = 2
 local acceleration = 4
 local swordHealDelay = 1.0
 local swordHealLifetime = 2.0
+local playerScript = nil
+local hpStealed = 20
 
 function on_ready()
     swordHealTransf = self:get_component("TransformComponent")
+    playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 end
 
 function on_update(dt)
@@ -20,12 +23,16 @@ function on_update(dt)
 
         local currentPos = swordHealTransf.position
         local targetPos = Vector3.new(playerTransf.position.x, playerTransf.position.y + 1, playerTransf.position.z)
-
         local lerpFactor = math.min(moveSpeed * dt, 1)
         swordHealTransf.position = Vector3.lerp(currentPos, targetPos, lerpFactor)
     end
 
     if swordHealTimer >= swordHealLifetime then
+        if playerScript.health + hpStealed >= playerScript.maxHealth then
+            playerScript.health = playerScript.maxHealth
+        else
+            playerScript.health = playerScript.health + hpStealed
+        end
         current_scene:destroy_entity(self)
     end
 end

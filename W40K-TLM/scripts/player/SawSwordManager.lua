@@ -175,11 +175,11 @@ function Slash()
                             meleeHitSFX:play()
 
                         
-                            if playerScript.health + HpStealed >= playerScript.maxHealth then
-                                playerScript.health = playerScript.maxHealth
-                            else
-                                playerScript.health = playerScript.health + HpStealed
-                            end
+                            -- if playerScript.health + HpStealed >= playerScript.maxHealth then
+                            --     playerScript.health = playerScript.maxHealth
+                            -- else
+                            --     playerScript.health = playerScript.health + HpStealed
+                            -- end
                             playerScript.makeDamage = true
                             if enemyTag ~= "EnemyTank" and enemyTag ~= "EnemyTank1" and enemyTag ~= "EnemyTank2" and enemyTag ~= "EnemyTank3" and enemyTag ~= "EnemyTank4" and enemyTag ~= "EnemyTank5" and enemyTag ~= "EnemyTank6" then
                                 print(enemyTag)
