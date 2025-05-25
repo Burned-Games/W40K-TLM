@@ -133,6 +133,8 @@ local currentVFXAnim = 0
 
 local cooldownVFX = 0
 
+local playerCDSFX = nil
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -144,6 +146,8 @@ function on_ready()
     workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
     particleCharging = current_scene:get_entity_by_name("ChargingDisruptorChargeParticle"):get_component("ParticlesSystemComponent")
+
+    playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
 
     -- sphere1 = current_scene:get_entity_by_name("Sphere1")
     -- transformSphere1 = sphere1:get_component("TransformComponent")
@@ -161,7 +165,6 @@ function on_ready()
     -- end
     vfxShootTransf = current_scene:get_entity_by_name("vfxShoot"):get_component("TransformComponent")
     if current_scene:get_entity_by_name("vfxShoot"):has_component("AnimatorComponent") then
-        print("qqqqqqqqqqqqqqq")
     end
     
     animatorVFXShoot = current_scene:get_entity_by_name("vfxShoot"):get_component("AnimatorComponent")
@@ -488,6 +491,10 @@ function on_update(dt)
                 end
                 end
                 
+            end
+
+            if leftShoulder == Input.state.Down and cooldownDisruptorBulletTimeCounter < currentDisruptorBulletTimeCooldown and upgradeManager.has_weapon_special() then 
+                playerCDSFX:play()
             end
 
             if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown and upgradeManager.has_weapon_special() then

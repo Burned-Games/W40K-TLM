@@ -119,6 +119,7 @@ local bulletTimers = nil
 
 local swordScript = nil
 
+local playerCDSFX = nil
 
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -143,6 +144,8 @@ function on_ready()
     particle_previewG_exterior = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("ParticlesSystemComponent")
     particle_previewG_exterior_transform = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("TransformComponent")
     particle_previewG_interior_transform = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("TransformComponent")
+
+    playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
 
     astartesFervorManager = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
     bulletTimers = {}
@@ -271,7 +274,7 @@ function on_update(dt)
                 hudManager.ammoTextComponent:set_color(Vector4.new(1, 1, 1, 1))    
             end
 
-            -- if in reload, check is fishing
+            -- if in reload, check is fishing 
             if is_reloading or manualReload then
                 if current_time >= reload_end_time then
                     ammo = maxAmmo  -- reload bullet
@@ -280,6 +283,7 @@ function on_update(dt)
                     playerScript.currentAnim = -1
                 else
                     if playerScript.currentUpAnim ~= playerScript.reload_Shotgun then
+                        shotgunReloadSFX:play()
                         playerScript.currentUpAnim = playerScript.reload_Shotgun
                         playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     end
@@ -318,9 +322,10 @@ function on_update(dt)
 
             -- reload
             if (ammo == 0 or (Input.is_button_pressed(Input.controllercode.West) and ammo < maxAmmo)) and not is_reloading then
+                
                 is_reloading = true
                 reload_end_time = current_time + currentMaxReloadTime  -- setting reload time
-                shotgunReloadSFX:play()
+                
             end
 
             local leftShoulder = Input.get_button(Input.action.Skill2)
@@ -342,6 +347,9 @@ function on_update(dt)
                 timerGranade = 0
             end
 
+            if leftShoulder == Input.state.Down and upgradeManager.has_weapon_special() and timerGranade < granadeCooldown then
+                playerCDSFX:play()
+            end
             --granade 
             if ((leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L))) and upgradeManager.has_weapon_special() and timerGranade >= granadeCooldown then
                 lbapretado = true

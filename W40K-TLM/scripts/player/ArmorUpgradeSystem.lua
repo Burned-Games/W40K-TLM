@@ -28,6 +28,8 @@ local bannerFallSFX = nil
 local bannerZoneSFX = nil
 local bannerZoneTrans = nil
 
+local playerCDSFX = nil
+
 function on_ready()
     Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
@@ -41,6 +43,8 @@ function on_ready()
     bannerFallSFX = current_scene:get_entity_by_name("BannerFallSFX"):get_component("AudioSourceComponent")
     bannerZoneSFX = current_scene:get_entity_by_name("BannerZoneSFX"):get_component("AudioSourceComponent")
     bannerZoneTrans = current_scene:get_entity_by_name("BannerZoneSFX"):get_component("TransformComponent")
+
+    playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
 
 end
 
@@ -104,6 +108,10 @@ function handle_fervor_astartes(dt)
     
     if fervorAstartesCooldown <= 0 and not fervorAstartesAvailable then
         fervorAstartesAvailable = true
+    end
+
+    if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesAvailable == false then
+        playerCDSFX:play()
     end
 
     if Input.get_button(Input.action.Skill3) == Input.state.Down and fervorAstartesAvailable and not fervorAstartesStandardPlaced or Input.is_key_pressed(Input.keycode.Y) and fervorAstartesAvailable and not fervorAstartesStandardPlaced then

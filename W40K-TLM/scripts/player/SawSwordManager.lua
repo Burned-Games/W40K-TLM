@@ -35,6 +35,8 @@ local workbenchUIManagerScript = nil
 local pauseScript = nil
 local bolterScript = nil
 
+playerCDSFX = nil
+
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
@@ -52,6 +54,8 @@ function on_ready()
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
+    playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
+
 end
 
 function on_update(dt)
@@ -61,6 +65,10 @@ function on_update(dt)
     end
 
     local rightShoulder = Input.get_button(Input.action.Melee)
+
+    if rightShoulder == Input.state.Down and sawSwordAvailable == false then
+        playerCDSFX:play()
+    end
 
     if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true and playerScript.impulseApplied == false  and pauseScript.isPaused == false then
         
