@@ -127,6 +127,12 @@ local bulletTimers = nil
 
 local bulletPool = nil
 
+local animatorVFXShoot = nil
+
+local currentVFXAnim = 0
+
+local cooldownVFX = 0
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -154,7 +160,12 @@ function on_ready()
     --     end
     -- end
     vfxShootTransf = current_scene:get_entity_by_name("vfxShoot"):get_component("TransformComponent")
-    vfxShootTransf.position.y = -83
+    if current_scene:get_entity_by_name("vfxShoot"):has_component("AnimatorComponent") then
+        print("qqqqqqqqqqqqqqq")
+    end
+    
+    animatorVFXShoot = current_scene:get_entity_by_name("vfxShoot"):get_component("AnimatorComponent")
+    --vfxShootTransf.position.y = -83
     bulletTimers = {}
     bulletPool = {}
     for i = 1, bulletCount do
@@ -376,6 +387,18 @@ function on_update(dt)
                     manualReload = false
                 end
             end
+            
+
+            if shootCoolDown >= 0.1 and shootCoolDown <= 0.3 then
+                
+                
+            end
+
+            if shootCoolDown < 0.1 then
+                
+                
+            end
+
             if shooted == true then
                 shootCoolDown = shootCoolDown + dt
             end
@@ -388,10 +411,30 @@ function on_update(dt)
                     shootAnimation = true
                 end
                 
+
+                
+                
+
+                -- if cooldownVFX >= 0.5 then                    
+                --     if currentVFXAnim ~= 1 then
+                --         print("aaaaaaaaaaaaaaaa")
+                --         animatorVFXShoot:set_current_animation(1)
+                --         currentVFXAnim = 1
+                --     end
+                --     if cooldownVFX >= currentShootCoolDownRifle then
+                --         cooldownVFX = 0
+                --     end
+                -- end
                 if shootCoolDown >= currentShootCoolDownRifle then
-                    
+                    cooldownVFX = 0
+                    if currentVFXAnim ~= 1 then
+                        print("aaaaaaaaaaaaaaaa")
+                        animatorVFXShoot:set_current_animation(1)
+                        currentVFXAnim = 1
+                    end
                     tripleShoot()
-                    vfxShootTransf.position.y = vfxShootPosY
+                    
+                    --vfxShootTransf.position.y = vfxShootPosY
                     --shootParticlesComponent:emit(6)
                     ammo = ammo + 3
                     shooted = true
@@ -402,8 +445,11 @@ function on_update(dt)
                 end
                 playerScript.shootingIndicator = true
             else
+                
                 playerScript.activateAutoAim = false
-                vfxShootTransf.position.y = 830
+                
+                
+                --vfxShootTransf.position.y = 830
                 if disruptorShooted2 == false then
                     playerScript.activateAutoAim = false
                 end
@@ -431,6 +477,17 @@ function on_update(dt)
                 shoot(dt, tripleShootCount)
                 tripleShootCount = tripleShootCount - 1
                 tripleShootTimer = tripleShootInterval
+                cooldownVFX = 0
+            else 
+                cooldownVFX = cooldownVFX + dt
+                if cooldownVFX >= 0.1 then
+                    if currentVFXAnim ~= 0 then
+                    print("oooooooooooooooo")
+                    animatorVFXShoot:set_current_animation(0)
+                    currentVFXAnim = 0
+                end
+                end
+                
             end
 
             if (leftShoulder == Input.state.Repeat or Input.is_key_pressed(Input.keycode.L)) and cooldownDisruptorBulletTimeCounter >= currentDisruptorBulletTimeCooldown and upgradeManager.has_weapon_special() then
