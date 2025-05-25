@@ -8,6 +8,7 @@ local stats = nil
 
 local shieldPrefab = "prefabs/Enemies/shields/BossShield.prefab"
 local wrathPrefab = "prefabs/Enemies/attacks/WrathBoss.prefab"
+local runPrefab = "prefabs/particles/Lvl1_run.prefab"
 
 function on_ready()
 
@@ -61,6 +62,9 @@ function on_ready()
     -- Particle
     main_boss.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     main_boss.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    main_boss.run = instantiate_prefab(runPrefab)
+    main_boss.runParticle = main_boss.run:get_component("ParticlesSystemComponent")
+    main_boss.run:set_parent(self)
 
     -- Fade To Black
     main_boss.fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")

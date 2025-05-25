@@ -6,6 +6,7 @@ support = enemy:new()
 
 local audioPrefab = "prefabs/Audio/EnemySupportAudio.prefab"
 local prefab_path = "prefabs/Enemies/shields/Shield.prefab"
+local runPrefab = "prefabs/particles/Lvl1_run.prefab"
 
 function on_ready()
 
@@ -62,6 +63,9 @@ function on_ready()
     -- Particles
     support.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     support.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    support.run = instantiate_prefab(runPrefab)
+    support.runParticle = support.run:get_component("ParticlesSystemComponent")
+    support.run:set_parent(self)
 
 
     
@@ -114,6 +118,7 @@ function on_ready()
     support.updateTargetInterval = 0.5
     support.animTimer = 0.0
     support.animDuration = 0.0
+    support.moveAudioDuration = 0.5
 
     -- Animation Timers
     support.dieDuration = 2.5

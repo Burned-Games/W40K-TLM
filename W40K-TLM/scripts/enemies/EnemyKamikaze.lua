@@ -6,6 +6,7 @@ kamikaze = enemy:new()
 
 local audioPrefab = "prefabs/Audio/EnemyKamikazeAudio.prefab"
 local explosionPrefab = "prefabs/Enemies/attacks/Explosion.prefab"
+local runPrefab = "prefabs/particles/Lvl1_run.prefab"
 
 function on_ready() 
 
@@ -45,6 +46,9 @@ function on_ready()
     -- Particle
     kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    kamikaze.run = instantiate_prefab(runPrefab)
+    kamikaze.runParticle = kamikaze.run:get_component("ParticlesSystemComponent")
+    kamikaze.run:set_parent(self)
 
     -- Audio
     kamikaze.audio = instantiate_prefab(audioPrefab)
@@ -97,6 +101,7 @@ function on_ready()
     kamikaze.animTimer = 0.0
     kamikaze.detectDuration = 0.83
     kamikaze.attackDuration = 1.0
+    kamikaze.moveAudioDuration = 0.265
 
 
     -- Animations

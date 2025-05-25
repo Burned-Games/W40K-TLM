@@ -164,8 +164,7 @@ function enemy:new(obj)
     obj.neuralFirstTime = true
 
     -- Particles
-    obj.particle_spark = nil
-    obj.particle_spark_transform = nil
+    obj.runParticle = nil
 
     -- Mision
     obj.enemyDie = false
@@ -238,6 +237,7 @@ function enemy:move_state()
 
     if self.moveAudioTimer >= self.moveAudioDuration then
         if self.stepsSFX then self.stepsSFX:play() end
+        self.runParticle:emit(20)
         self.moveAudioTimer = 0.0
     end
 

@@ -7,6 +7,7 @@ range = enemy:new()
 local stats = nil
 
 local audioPrefab = "prefabs/Audio/EnemyRangeAudio.prefab"
+local runPrefab = "prefabs/particles/Lvl1_run.prefab"
 
 function on_ready() 
 
@@ -50,6 +51,9 @@ function on_ready()
     -- Particles
     range.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     range.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+    range.run = instantiate_prefab(runPrefab)
+    range.runParticle = range.run:get_component("ParticlesSystemComponent")
+    range.run:set_parent(self)
 
     -- Audio
     range.audio = instantiate_prefab(audioPrefab)
@@ -117,6 +121,7 @@ function on_ready()
     range.invulnerabilityTimer = 0.0
     range.animTimer = 0.0
     range.animDuration = 0.0
+    range.moveAudioDuration = 0.5
 
     -- Animations
     range.idleAnim = 5
@@ -436,6 +441,12 @@ function range:chase_state(dt)
             
                 range.firstChaseTimer = 0
                 range:follow_path()
+
+                if range.moveAudioTimer >= range.moveAudioDuration then
+                    if range.stepsSFX then range.stepsSFX:play() end
+                    range.runParticle:emit(20)
+                    range.moveAudioTimer = 0.0
+                end
             end 
         
         else
@@ -445,6 +456,12 @@ function range:chase_state(dt)
     
             end
             range:follow_path()
+
+            if range.moveAudioTimer >= range.moveAudioDuration then
+                if range.stepsSFX then range.stepsSFX:play() end
+                range.runParticle:emit(20)
+                range.moveAudioTimer = 0.0
+            end
         end
         
     else 
@@ -455,6 +472,11 @@ function range:chase_state(dt)
         end
         range:follow_path()
 
+        if range.moveAudioTimer >= range.moveAudioDuration then
+            if range.stepsSFX then range.stepsSFX:play() end
+            range.runParticle:emit(20)
+            range.moveAudioTimer = 0.0
+        end
     end 
 
 end
