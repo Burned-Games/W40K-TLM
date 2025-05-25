@@ -1,0 +1,68 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "shootUltramarine_Cylinder.002",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 13896086272311591913
+                        }
+                    },
+                    {
+                        "key": "shootUltramarine_Plane.001",
+                        "value": {
+                            "value0": 5746066217139819304
+                        }
+                    },
+                    {
+                        "key": "shootUltramarine_Plane.002",
+                        "value": {
+                            "value0": 9807909331568749483
+                        }
+                    },
+                    {
+                        "key": "shootUltramarine_Cone.002",
+                        "value": {
+                            "value0": 5707024358790093240
+                        }
+                    },
+                    {
+                        "key": "shootUltramarine_Cone",
+                        "value": {
+                            "value0": 15380666308356100775
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Shoot_Mat0",
+                        "value": {
+                            "value0": 12711096817337149858
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 11719455561999967280
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/vfx_shootUltramarine/shootUltramarine.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/11719455561999967280.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
