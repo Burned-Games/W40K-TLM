@@ -8,6 +8,7 @@ enemy.godMode = true
 local prefabScrap = "prefabs/Misc/Scrap.prefab"
 local enemyAlertPrefab  = "prefabs/Enemies/EnemyAlertedUI.prefab"
 local swordHealPrefab = "prefabs/particles/SwordHealParticle.prefab"
+local bloodPrefab = "prefabs/particles/RangedBloodParticle.prefab"
 
 function enemy:new(obj)
 
@@ -61,11 +62,7 @@ function enemy:new(obj)
 
     -- Particles
     obj.sparkParticle = nil
-    obj.bloodParticle = nil
     obj.sparkParticleTransf = nil
-    obj.bloodParticleTransf = nil
-    obj.bloodParticle = nil
-    obj.bloodParticleTransf = nil
 
     -- Tags
     obj.enemyType = "Nil"
@@ -774,10 +771,12 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
     
     if self.enemyMat then self.enemyMat.material = self.damageMaterial end
 
-    if self.bloodParticle then
-        self.bloodParticleTransf.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + 1, self.enemyTransf.position.z)
-        self.bloodParticle:emit(5)
-    end
+    local blood = instantiate_prefab(bloodPrefab)
+    local bloodParticle = blood:get_component("ParticlesSystemComponent")
+    local bloodTransf = blood:get_component("TransformComponent")
+    local bloodScript = blood:get_component("ScriptComponent")
+    bloodTransf.position = Vector3.new(self.enemyTransf.position.x, self.enemyTransf.position.y + 1, self.enemyTransf.position.z)
+    bloodParticle:emit(5)
 
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)

@@ -1,11 +1,12 @@
 local timer = 0.0
+lifeTime = 2.0
 
 function on_ready() end
 
 function on_update(dt)
     timer = timer + dt
 
-    if timer > 2 then
+    if timer > lifeTime then
         current_scene:destroy_entity(self)
     end
 end

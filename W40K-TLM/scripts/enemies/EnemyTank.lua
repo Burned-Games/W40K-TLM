@@ -7,6 +7,7 @@ local stats = nil
 
 local audioPrefab = "prefabs/Audio/EnemyTankAudio.prefab"
 local tackleIndicatorPrefab = "prefabs/Enemies/attacks/TankTackleIndicator.prefab"
+local auraPrefab = nil
 
 function on_ready()
 
@@ -71,8 +72,6 @@ function on_ready()
     -- Particles
     tank.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     tank.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
-    tank.bloodParticle = current_scene:get_entity_by_name("TankBloodParticle"):get_component("ParticlesSystemComponent")
-    tank.bloodParticleTransf = current_scene:get_entity_by_name("TankBloodParticle"):get_component("TransformComponent")
 
     if not tank.tackleIndicator then
         tank.tackleIndicator = instantiate_prefab(tackleIndicatorPrefab)

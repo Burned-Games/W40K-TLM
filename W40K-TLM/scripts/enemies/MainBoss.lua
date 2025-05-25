@@ -61,8 +61,6 @@ function on_ready()
     -- Particle
     main_boss.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     main_boss.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
-    main_boss.bloodParticle = current_scene:get_entity_by_name("BossBloodParticle"):get_component("ParticlesSystemComponent")
-    main_boss.bloodParticleTransf = current_scene:get_entity_by_name("BossBloodParticle"):get_component("TransformComponent")
 
     -- Fade To Black
     main_boss.fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")

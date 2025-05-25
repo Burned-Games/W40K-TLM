@@ -45,8 +45,6 @@ function on_ready()
     -- Particle
     kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
-    kamikaze.bloodParticle = current_scene:get_entity_by_name("KamikazeBloodParticle"):get_component("ParticlesSystemComponent")
-    kamikaze.bloodParticleTransf = current_scene:get_entity_by_name("KamikazeBloodParticle"):get_component("TransformComponent")
 
     -- Audio
     kamikaze.audio = instantiate_prefab(audioPrefab)

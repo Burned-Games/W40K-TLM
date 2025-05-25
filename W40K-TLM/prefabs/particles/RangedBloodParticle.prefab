@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 16603926489700048101
+                "value0": 8302448863649234115
             },
             "value4": false
         },
@@ -151,7 +151,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 0.0,
                         "UseBurst": true,
@@ -344,9 +344,13 @@
         "value19": 0,
         "value20": 1,
         "value21": 0,
-        "value22": 0,
+        "value22": 1,
         "value23": 0,
-        "value24": 0,
+        "value24": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/Despawner.lua",
+            "Language": 0
+        },
         "value25": 0,
         "value26": 0,
         "value27": 0,
@@ -357,6 +361,8 @@
         "value32": 0,
         "value33": 0,
         "value34": 0,
-        "value35": 0
+        "value35": 0,
+        "value36": 0,
+        "value37": 0
     }
 }

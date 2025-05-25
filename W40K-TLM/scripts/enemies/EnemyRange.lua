@@ -50,8 +50,6 @@ function on_ready()
     -- Particles
     range.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     range.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
-    range.bloodParticle = current_scene:get_entity_by_name("RangedBloodParticle"):get_component("ParticlesSystemComponent")
-    range.bloodParticleTransf = current_scene:get_entity_by_name("RangedBloodParticle"):get_component("TransformComponent")
 
     -- Audio
     range.audio = instantiate_prefab(audioPrefab)

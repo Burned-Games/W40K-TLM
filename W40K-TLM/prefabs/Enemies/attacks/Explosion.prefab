@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 13829287887938541930
+                "value0": 13591901265510416509
             },
             "value4": false
         },
@@ -28,11 +28,11 @@
         },
         "value8": 1,
         "value9": {
-            "Tag": "Root"
+            "Tag": "VFX_Explosion"
         },
         "value10": 2,
         "value11": {
-            "Tag": "VFX_Explosion"
+            "Tag": "Root"
         },
         "value12": 3,
         "value13": 0,
@@ -114,18 +114,18 @@
             "Prev": 1
         },
         "value26": 1,
-        "value27": 2,
+        "value27": 1,
         "value28": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 8838044113410652157
             },
             "AnimatorUUID": {
-                "value0": 9310731882917642502
+                "value0": 13998282216380276646
             }
         },
         "value29": 1,
-        "value30": 2,
+        "value30": 1,
         "value31": {
             "cereal_class_version": 1,
             "IsEmbedded": false,
@@ -146,7 +146,7 @@
         "value41": 0,
         "value42": {
             "cereal_class_version": 0,
-            "ScriptPath": "scripts/enemies/attacks/Explosion.lua",
+            "ScriptPath": "scripts/Despawner.lua",
             "Language": 0
         },
         "value43": 1,
@@ -160,7 +160,7 @@
                 "value0": 11491452278506668314
             },
             "AnimatorUUID": {
-                "value0": 9310731882917642502
+                "value0": 13998282216380276646
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
