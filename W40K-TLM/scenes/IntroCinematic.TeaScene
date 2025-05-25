@@ -1,8 +1,8 @@
 {
     "value0": {
         "cereal_class_version": 3,
-        "value0": 22,
-        "value1": 22,
+        "value0": 24,
+        "value1": 24,
         "value2": 3,
         "value3": 2097152,
         "value4": 2097153,
@@ -25,104 +25,114 @@
         "value21": 1048591,
         "value22": 20,
         "value23": 1048597,
-        "value24": 22,
-        "value25": 3,
-        "value26": {
+        "value24": 23,
+        "value25": 1048598,
+        "value26": 24,
+        "value27": 3,
+        "value28": {
             "cereal_class_version": 0,
             "Tag": "Camera"
         },
-        "value27": 2097152,
-        "value28": {
+        "value29": 2097152,
+        "value30": {
             "Tag": "prop_droppod_v01.gltf"
         },
-        "value29": 2097153,
-        "value30": {
+        "value31": 2097153,
+        "value32": {
             "Tag": "Drop_pod_final"
         },
-        "value31": 2097154,
-        "value32": {
+        "value33": 2097154,
+        "value34": {
             "Tag": "Root"
         },
-        "value33": 4,
-        "value34": {
+        "value35": 4,
+        "value36": {
             "Tag": "ChispasPS"
         },
-        "value35": 5,
-        "value36": {
+        "value37": 5,
+        "value38": {
             "Tag": "cinematicController"
         },
-        "value37": 6,
-        "value38": {
+        "value39": 6,
+        "value40": {
             "Tag": "FadeToBlack"
         },
-        "value39": 7,
-        "value40": {
+        "value41": 7,
+        "value42": {
             "Tag": "DialogManager"
         },
-        "value41": 8,
-        "value42": {
+        "value43": 8,
+        "value44": {
             "Tag": "DialogName"
         },
-        "value43": 9,
-        "value44": {
+        "value45": 9,
+        "value46": {
             "Tag": "DialogText"
         },
-        "value45": 10,
-        "value46": {
+        "value47": 10,
+        "value48": {
             "Tag": "DialogIMG"
         },
-        "value47": 11,
-        "value48": {
+        "value49": 11,
+        "value50": {
             "Tag": "DialogoCineSystem"
         },
-        "value49": 12,
-        "value50": {
+        "value51": 12,
+        "value52": {
             "Tag": "UI_SKIP_Indicator"
         },
-        "value51": 13,
-        "value52": {
+        "value53": 13,
+        "value54": {
             "Tag": "diaCine"
         },
-        "value53": 1048590,
-        "value54": {
+        "value55": 1048590,
+        "value56": {
             "Tag": "DroppodVFX.gltf"
         },
-        "value55": 1048595,
-        "value56": {
+        "value57": 1048595,
+        "value58": {
             "Tag": "VFXDroppod"
         },
-        "value57": 1048594,
-        "value58": {
+        "value59": 1048594,
+        "value60": {
             "Tag": "DroppodVFX_Cylinder-0"
         },
-        "value59": 1048593,
-        "value60": {
+        "value61": 1048593,
+        "value62": {
             "Tag": "DroppodVFX_Cylinder-1"
         },
-        "value61": 1048592,
-        "value62": {
+        "value63": 1048592,
+        "value64": {
             "Tag": "Root"
         },
-        "value63": 1048591,
-        "value64": {
-            "Tag": "LightFire"
-        },
-        "value65": 20,
+        "value65": 1048591,
         "value66": {
             "Tag": "LightFire"
         },
-        "value67": 1048597,
+        "value67": 20,
         "value68": {
+            "Tag": "LightFire"
+        },
+        "value69": 1048597,
+        "value70": {
             "Tag": "SmokePS"
         },
-        "value69": 22,
-        "value70": 3,
-        "value71": {
+        "value71": 23,
+        "value72": {
+            "Tag": "Light"
+        },
+        "value73": 1048598,
+        "value74": {
+            "Tag": "backCinematica.gltf"
+        },
+        "value75": 24,
+        "value76": 3,
+        "value77": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 0.5447572469711304,
-                "y": 2.3248209953308107,
-                "z": 16.78585433959961
+                "x": 0.181818887591362,
+                "y": 0.7759371995925903,
+                "z": 18.772098541259767
             },
             "Rotation": {
                 "x": 0.0,
@@ -135,8 +145,8 @@
                 "z": 1.0
             }
         },
-        "value72": 2097152,
-        "value73": {
+        "value78": 2097152,
+        "value79": {
             "Position": {
                 "x": 0.0,
                 "y": -0.1110360398888588,
@@ -153,8 +163,8 @@
                 "z": 1.0
             }
         },
-        "value74": 2097153,
-        "value75": {
+        "value80": 2097153,
+        "value81": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -171,8 +181,8 @@
                 "z": 1.0
             }
         },
-        "value76": 2097154,
-        "value77": {
+        "value82": 2097154,
+        "value83": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -189,8 +199,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value78": 4,
-        "value79": {
+        "value84": 4,
+        "value85": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -207,8 +217,8 @@
                 "z": 1.0
             }
         },
-        "value80": 5,
-        "value81": {
+        "value86": 5,
+        "value87": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -225,11 +235,11 @@
                 "z": 1.0
             }
         },
-        "value82": 6,
-        "value83": {
+        "value88": 6,
+        "value89": {
             "Position": {
-                "x": 462.0,
-                "y": 310.0,
+                "x": 480.0,
+                "y": 270.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -238,13 +248,13 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 924.0,
-                "y": 620.0,
+                "x": 960.0,
+                "y": 540.0,
                 "z": 1.0
             }
         },
-        "value84": 7,
-        "value85": {
+        "value90": 7,
+        "value91": {
             "Position": {
                 "x": -0.5000000596046448,
                 "y": 0.0,
@@ -261,65 +271,11 @@
                 "z": 1.0
             }
         },
-        "value86": 8,
-        "value87": {
-            "Position": {
-                "x": 462.0,
-                "y": 456.99688720703127,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 48.125,
-                "y": 92.11874389648438,
-                "z": 1.0
-            }
-        },
-        "value88": 9,
-        "value89": {
-            "Position": {
-                "x": 462.0,
-                "y": 477.2093811035156,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 48.125,
-                "y": 89.23126220703125,
-                "z": 1.0
-            }
-        },
-        "value90": 10,
-        "value91": {
-            "Position": {
-                "x": 462.0,
-                "y": 488.13751220703127,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 288.75,
-                "y": 91.4375,
-                "z": 1.0
-            }
-        },
-        "value92": 11,
+        "value92": 8,
         "value93": {
             "Position": {
-                "x": 0.0,
-                "y": 0.0,
+                "x": 480.0,
+                "y": 373.25,
                 "z": 0.0
             },
             "Rotation": {
@@ -328,16 +284,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 50.0,
+                "y": 90.5,
                 "z": 1.0
             }
         },
-        "value94": 12,
+        "value94": 9,
         "value95": {
             "Position": {
-                "x": -933.625,
-                "y": 612.300048828125,
+                "x": 480.0,
+                "y": 394.25,
                 "z": 0.0
             },
             "Rotation": {
@@ -346,16 +302,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1848.0,
-                "y": 15.39996337890625,
+                "x": 50.0,
+                "y": 87.5,
                 "z": 1.0
             }
         },
-        "value96": 13,
+        "value96": 10,
         "value97": {
             "Position": {
-                "x": 0.0,
-                "y": 0.0,
+                "x": 480.0,
+                "y": 403.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -364,39 +320,21 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
+                "x": 300.0,
+                "y": 95.0,
                 "z": 1.0
             }
         },
-        "value98": 1048590,
+        "value98": 11,
         "value99": {
             "Position": {
-                "x": -0.08920800685882569,
-                "y": -0.7193628549575806,
-                "z": 0.6797146797180176
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.100000023841858,
-                "y": 1.100000023841858,
-                "z": 1.100000023841858
-            }
-        },
-        "value100": 1048595,
-        "value101": {
-            "Position": {
                 "x": 0.0,
                 "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -405,7 +343,25 @@
                 "z": 1.0
             }
         },
-        "value102": 1048594,
+        "value100": 12,
+        "value101": {
+            "Position": {
+                "x": -970.0,
+                "y": 532.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1920.0,
+                "y": 16.0,
+                "z": 1.0
+            }
+        },
+        "value102": 13,
         "value103": {
             "Position": {
                 "x": 0.0,
@@ -423,8 +379,44 @@
                 "z": 1.0
             }
         },
-        "value104": 1048593,
+        "value104": 1048590,
         "value105": {
+            "Position": {
+                "x": -0.08920800685882569,
+                "y": -0.7193628549575806,
+                "z": 0.6797146797180176
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.100000023841858,
+                "y": 1.100000023841858,
+                "z": 1.100000023841858
+            }
+        },
+        "value106": 1048595,
+        "value107": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value108": 1048594,
+        "value109": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -441,8 +433,26 @@
                 "z": 1.0
             }
         },
-        "value106": 1048592,
-        "value107": {
+        "value110": 1048593,
+        "value111": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value112": 1048592,
+        "value113": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -459,8 +469,8 @@
                 "z": 1.0
             }
         },
-        "value108": 1048591,
-        "value109": {
+        "value114": 1048591,
+        "value115": {
             "Position": {
                 "x": 1.1848714351654053,
                 "y": 4.347230911254883,
@@ -477,8 +487,8 @@
                 "z": 0.9999996423721314
             }
         },
-        "value110": 20,
-        "value111": {
+        "value116": 20,
+        "value117": {
             "Position": {
                 "x": 0.0,
                 "y": 2.114521026611328,
@@ -495,8 +505,8 @@
                 "z": 0.9999996423721314
             }
         },
-        "value112": 1048597,
-        "value113": {
+        "value118": 1048597,
+        "value119": {
             "Position": {
                 "x": -3.773509979248047,
                 "y": 1.8236300945281983,
@@ -513,165 +523,215 @@
                 "z": 1.0
             }
         },
-        "value114": 22,
-        "value115": 3,
-        "value116": {
+        "value120": 23,
+        "value121": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 20.392778396606447
+            },
+            "Rotation": {
+                "x": 21.95584487915039,
+                "y": 37.14120101928711,
+                "z": -56.269893646240237
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0000001192092896,
+                "z": 0.9999998807907105
+            }
+        },
+        "value122": 1048598,
+        "value123": {
+            "Position": {
+                "x": -0.5146321654319763,
+                "y": -2.0565316677093508,
+                "z": -15.669538497924805
+            },
+            "Rotation": {
+                "x": 89.99993896484375,
+                "y": -0.000025613209800212645,
+                "z": -13.332919120788575
+            },
+            "Scale": {
+                "x": 20.570615768432618,
+                "y": 20.57030487060547,
+                "z": 20.57052993774414
+            }
+        },
+        "value124": 24,
+        "value125": 3,
+        "value126": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value117": 2097152,
-        "value118": {
+        "value127": 2097152,
+        "value128": {
             "Parent": 4294967295,
             "First": 2097153,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value119": 2097153,
-        "value120": {
+        "value129": 2097153,
+        "value130": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 2097154,
             "Prev": 4294967295
         },
-        "value121": 2097154,
-        "value122": {
+        "value131": 2097154,
+        "value132": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2097153
         },
-        "value123": 4,
-        "value124": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value125": 5,
-        "value126": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value127": 6,
-        "value128": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value129": 7,
-        "value130": {
-            "Parent": 4294967295,
-            "First": 8,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value131": 8,
-        "value132": {
-            "Parent": 7,
-            "First": 4294967295,
-            "Next": 9,
-            "Prev": 4294967295
-        },
-        "value133": 9,
+        "value133": 4,
         "value134": {
-            "Parent": 7,
-            "First": 4294967295,
-            "Next": 10,
-            "Prev": 8
-        },
-        "value135": 10,
-        "value136": {
-            "Parent": 7,
+            "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
-            "Prev": 9
+            "Prev": 4294967295
         },
-        "value137": 11,
+        "value135": 5,
+        "value136": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value137": 6,
         "value138": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value139": 12,
+        "value139": 7,
         "value140": {
             "Parent": 4294967295,
-            "First": 4294967295,
+            "First": 8,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value141": 13,
+        "value141": 8,
         "value142": {
+            "Parent": 7,
+            "First": 4294967295,
+            "Next": 9,
+            "Prev": 4294967295
+        },
+        "value143": 9,
+        "value144": {
+            "Parent": 7,
+            "First": 4294967295,
+            "Next": 10,
+            "Prev": 8
+        },
+        "value145": 10,
+        "value146": {
+            "Parent": 7,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 9
+        },
+        "value147": 11,
+        "value148": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value143": 1048590,
-        "value144": {
+        "value149": 12,
+        "value150": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value151": 13,
+        "value152": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value153": 1048590,
+        "value154": {
             "Parent": 4294967295,
             "First": 1048595,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value145": 1048595,
-        "value146": {
+        "value155": 1048595,
+        "value156": {
             "Parent": 1048590,
             "First": 1048594,
             "Next": 1048592,
             "Prev": 4294967295
         },
-        "value147": 1048594,
-        "value148": {
+        "value157": 1048594,
+        "value158": {
             "Parent": 1048595,
             "First": 4294967295,
             "Next": 1048593,
             "Prev": 4294967295
         },
-        "value149": 1048593,
-        "value150": {
+        "value159": 1048593,
+        "value160": {
             "Parent": 1048595,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1048594
         },
-        "value151": 1048592,
-        "value152": {
+        "value161": 1048592,
+        "value162": {
             "Parent": 1048590,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1048595
         },
-        "value153": 1048591,
-        "value154": {
+        "value163": 1048591,
+        "value164": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value155": 20,
-        "value156": {
+        "value165": 20,
+        "value166": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value157": 1048597,
-        "value158": {
+        "value167": 1048597,
+        "value168": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value159": 1,
-        "value160": 3,
-        "value161": {
+        "value169": 23,
+        "value170": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value171": 1048598,
+        "value172": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value173": 1,
+        "value174": 3,
+        "value175": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -684,9 +744,9 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value162": 3,
-        "value163": 2097153,
-        "value164": {
+        "value176": 4,
+        "value177": 2097153,
+        "value178": {
             "cereal_class_version": 0,
             "Mesh": {
                 "cereal_class_version": 0,
@@ -696,8 +756,8 @@
                 "value0": 13022089739303106082
             }
         },
-        "value165": 1048594,
-        "value166": {
+        "value179": 1048594,
+        "value180": {
             "Mesh": {
                 "value0": 16799669742104821266
             },
@@ -705,8 +765,8 @@
                 "value0": 47948228206143597
             }
         },
-        "value167": 1048593,
-        "value168": {
+        "value181": 1048593,
+        "value182": {
             "Mesh": {
                 "value0": 8346362907713799744
             },
@@ -714,9 +774,18 @@
                 "value0": 47948228206143597
             }
         },
-        "value169": 3,
-        "value170": 2097153,
-        "value171": {
+        "value183": 1048598,
+        "value184": {
+            "Mesh": {
+                "value0": 11479381553298627616
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value185": 4,
+        "value186": 2097153,
+        "value187": {
             "cereal_class_version": 1,
             "IsEmbedded": false,
             "Type": 8,
@@ -724,25 +793,175 @@
                 "value0": 13321323325830636168
             }
         },
-        "value172": 1048594,
-        "value173": {
+        "value188": 1048594,
+        "value189": {
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 2147483649,
+                "polymorphic_name": "Coffee::PBRMaterial",
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 13594740730520054364
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 13594740730520054364
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "cereal_class_version": 1,
+                                "value0": "Material.002_Mat0",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 11539467409648243128
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value190": 1048593,
+        "value191": {
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 13594740730520054364
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 13594740730520054364
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.003_Mat1",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 13180161044031113153
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value192": 1048598,
+        "value193": {
             "IsEmbedded": false,
             "Type": 8,
             "MaterialUUID": {
-                "value0": 11539467409648243128
+                "value0": 9589483955480786330
             }
         },
-        "value174": 1048593,
-        "value175": {
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 13180161044031113153
-            }
-        },
-        "value176": 2,
-        "value177": 1048591,
-        "value178": {
+        "value194": 3,
+        "value195": 1048591,
+        "value196": {
             "cereal_class_version": 1,
             "Color": {
                 "x": 1.0,
@@ -768,8 +987,8 @@
             "ShadowBias": 0.004999999888241291,
             "ShadowMaxDistance": 100.0
         },
-        "value179": 20,
-        "value180": {
+        "value197": 20,
+        "value198": {
             "Color": {
                 "x": 1.0,
                 "y": 0.16935479640960694,
@@ -794,43 +1013,69 @@
             "ShadowBias": 0.004999999888241291,
             "ShadowMaxDistance": 100.0
         },
-        "value181": 1,
-        "value182": 3,
-        "value183": {
+        "value199": 23,
+        "value200": {
+            "Color": {
+                "x": 0.9838709831237793,
+                "y": 0.7502208352088928,
+                "z": 0.5514438152313232
+            },
+            "Direction": {
+                "x": -0.8966981172561646,
+                "y": -0.3272613286972046,
+                "z": -0.2980479896068573
+            },
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 20.392778396606447
+            },
+            "Range": 5.0,
+            "Attenuation": 1.0,
+            "Intensity": 1.0,
+            "Angle": 45.0,
+            "Type": 0,
+            "Shadow": false,
+            "ShadowBias": 0.004999999888241291,
+            "ShadowMaxDistance": 100.0
+        },
+        "value201": 1,
+        "value202": 3,
+        "value203": {
             "cereal_class_version": 0,
             "Skybox": {
                 "value0": 13455572182650489709
             },
             "SkyboxIntensity": 1.0
         },
-        "value184": 0,
-        "value185": 4,
-        "value186": 5,
-        "value187": {
+        "value204": 0,
+        "value205": 4,
+        "value206": 5,
+        "value207": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/CinematicOneController.lua",
             "Language": 0
         },
-        "value188": 6,
-        "value189": {
+        "value208": 6,
+        "value209": {
             "ScriptPath": "scripts/misc/FadeToBlack.lua",
             "Language": 0
         },
-        "value190": 11,
-        "value191": {
+        "value210": 11,
+        "value211": {
             "ScriptPath": "scripts/Cinematic/CinematicDialogo.lua",
             "Language": 0
         },
-        "value192": 7,
-        "value193": {
+        "value212": 7,
+        "value213": {
             "ScriptPath": "scripts/DialogScript/dialogManager.lua",
             "Language": 0
         },
-        "value194": 0,
-        "value195": 0,
-        "value196": 2,
-        "value197": 2097152,
-        "value198": {
+        "value214": 0,
+        "value215": 0,
+        "value216": 2,
+        "value217": 2097152,
+        "value218": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -843,7 +1088,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483649,
+                    "id": 2147483651,
                     "data": {
                         "cereal_class_version": 0,
                         "CurrentAnimation": 1
@@ -852,7 +1097,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483650,
+                    "id": 2147483652,
                     "data": {
                         "CurrentAnimation": 1
                     }
@@ -863,8 +1108,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value199": 1048590,
-        "value200": {
+        "value219": 1048590,
+        "value220": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -876,7 +1121,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483651,
+                    "id": 2147483653,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -884,7 +1129,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483652,
+                    "id": 2147483654,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -895,14 +1140,14 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value201": 1,
-        "value202": 13,
-        "value203": {
+        "value221": 1,
+        "value222": 13,
+        "value223": {
             "cereal_class_version": 0,
             "GameObjectID": 7232288590300033459,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483653,
+                    "id": 2147483655,
                     "data": {
                         "cereal_class_version": 0,
                         "Name": "Dialogs",
@@ -963,9 +1208,9 @@
                 "m33": 1.0
             }
         },
-        "value204": 1,
-        "value205": 3,
-        "value206": {
+        "value224": 1,
+        "value225": 3,
+        "value226": {
             "cereal_class_version": 0,
             "GameObjectID": 12323991616038735456,
             "Transform": {
@@ -981,20 +1226,20 @@
                 "m21": 0.0,
                 "m22": 1.0,
                 "m23": 0.0,
-                "m30": 0.5447572469711304,
-                "m31": 2.3248209953308107,
-                "m32": 16.78585433959961,
+                "m30": 0.181818887591362,
+                "m31": 0.7759371995925903,
+                "m32": 18.772098541259767,
                 "m33": 1.0
             }
         },
-        "value207": 0,
-        "value208": 2,
-        "value209": 4,
-        "value210": {
+        "value227": 0,
+        "value228": 2,
+        "value229": 4,
+        "value230": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483654,
+                    "id": 2147483656,
                     "data": {
                         "cereal_class_version": 4,
                         "TransformMatrix": {
@@ -1272,11 +1517,11 @@
                 }
             }
         },
-        "value211": 1048597,
-        "value212": {
+        "value231": 1048597,
+        "value232": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483655,
+                    "id": 2147483657,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -1547,35 +1792,37 @@
                 }
             }
         },
-        "value213": 22,
-        "value214": 3,
-        "value215": 4,
-        "value216": 2097152,
-        "value217": 2097153,
-        "value218": 2097154,
-        "value219": 5,
-        "value220": 6,
-        "value221": 7,
-        "value222": 8,
-        "value223": 9,
-        "value224": 10,
-        "value225": 11,
-        "value226": 12,
-        "value227": 13,
-        "value228": 1048590,
-        "value229": 1048595,
-        "value230": 1048594,
-        "value231": 1048593,
-        "value232": 1048592,
-        "value233": 1048591,
-        "value234": 20,
-        "value235": 1048597,
-        "value236": 1,
-        "value237": 20,
-        "value238": 0,
-        "value239": 3,
+        "value233": 24,
+        "value234": 3,
+        "value235": 4,
+        "value236": 2097152,
+        "value237": 2097153,
+        "value238": 2097154,
+        "value239": 5,
         "value240": 6,
-        "value241": {
+        "value241": 7,
+        "value242": 8,
+        "value243": 9,
+        "value244": 10,
+        "value245": 11,
+        "value246": 12,
+        "value247": 13,
+        "value248": 1048590,
+        "value249": 1048595,
+        "value250": 1048594,
+        "value251": 1048593,
+        "value252": 1048592,
+        "value253": 1048591,
+        "value254": 20,
+        "value255": 1048597,
+        "value256": 23,
+        "value257": 1048598,
+        "value258": 1,
+        "value259": 20,
+        "value260": 0,
+        "value261": 3,
+        "value262": 6,
+        "value263": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 6711820436760903955
@@ -1613,8 +1860,8 @@
             },
             "Layer": 25
         },
-        "value242": 10,
-        "value243": {
+        "value264": 10,
+        "value265": {
             "TextureUUID": {
                 "value0": 18293614392373388477
             },
@@ -1650,8 +1897,8 @@
             },
             "Layer": 100
         },
-        "value244": 12,
-        "value245": {
+        "value266": 12,
+        "value267": {
             "TextureUUID": {
                 "value0": 13093128426387816779
             },
@@ -1687,9 +1934,9 @@
             },
             "Layer": 0
         },
-        "value246": 2,
-        "value247": 8,
-        "value248": {
+        "value268": 2,
+        "value269": 8,
+        "value270": {
             "cereal_class_version": 0,
             "Text": "DialogName",
             "FontPath": "",
@@ -1723,8 +1970,8 @@
             },
             "Layer": 0
         },
-        "value249": 9,
-        "value250": {
+        "value271": 9,
+        "value272": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -1757,12 +2004,12 @@
             },
             "Layer": 0
         },
-        "value251": 0,
-        "value252": 0,
-        "value253": 0,
-        "value254": 1,
-        "value255": 7,
-        "value256": {
+        "value273": 0,
+        "value274": 0,
+        "value275": 0,
+        "value276": 1,
+        "value277": 7,
+        "value278": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {
