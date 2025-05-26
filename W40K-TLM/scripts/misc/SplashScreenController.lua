@@ -48,11 +48,9 @@ function on_update(dt)
         local shrinkProgress = (contador - expandDuration) / (timeToTransition - expandDuration)
    
         local alpha = 1.0 - shrinkProgress
-        alpha = math.max(0.0, math.min(alpha, 1.0))
+        alpha = math.max(0.5, math.min(alpha, 1.0))
         
         logo:set_color(Vector4.new(1, 1, 1, alpha))
-
-
     end
 
     if contador > timeToTransition and fadeToBlackScript and not changeing then
