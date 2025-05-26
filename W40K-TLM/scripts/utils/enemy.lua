@@ -878,5 +878,3 @@ function enemy:atan2(y, x)
 end
 
 return enemy
-
-function on_exit() end
