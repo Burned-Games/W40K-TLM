@@ -277,6 +277,4 @@ function changeAutoTime(time)
     autoNextDelay = time
 end
 
-function on_exit()
-    if currentAudio then currentAudio:pause() end
-end
+function on_exit() end

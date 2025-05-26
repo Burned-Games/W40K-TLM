@@ -908,7 +908,4 @@ function playReload()
     bolterReloadSFX:play() 
 end
 
-
-function on_exit()
-    -- Add cleanup code here
-end
+function on_exit() end

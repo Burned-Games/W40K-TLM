@@ -183,6 +183,4 @@ function end_fervor_astartes(standardTransform)
     hudManager.velocidadAtaqueEntity:set_active(false)
 end
 
-function on_exit()
-    bannerZoneSFX:pause()
-end
+function on_exit() end

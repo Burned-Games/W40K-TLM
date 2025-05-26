@@ -560,14 +560,6 @@ function on_update(dt)
     playerListener.position = playerTransf.position
 end
 
-function on_exit()
-    fightingMusic:pause()
-    exploreMusic:pause()
-    howlingWindSFX:pause()
-end
-
-
-
 function updateMusic(dt)
     if backgroundMusicToPlay == 0 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
         if exploreMusicVolume >= 0.05 then
@@ -1685,3 +1677,6 @@ function updateScrapList()
     entities = current_scene:get_all_entities()
 
 end
+
+
+function on_exit() end

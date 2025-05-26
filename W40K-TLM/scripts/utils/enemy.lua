@@ -267,7 +267,6 @@ function enemy:die_state(dt)
     
     if self.currentAnim ~= self.dieAnim then
         self:play_blocking_animation(self.dieAnim, self.dieDuration)
-        --if self.hurtSFX ~= nil then self.hurtSFX:stop() end
         if self.dyingSFX ~= nil then self.dyingSFX:play() end
     end
 
@@ -879,3 +878,5 @@ function enemy:atan2(y, x)
 end
 
 return enemy
+
+function on_exit() end
