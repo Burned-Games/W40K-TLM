@@ -120,9 +120,9 @@ function on_ready()
     tank.detectAnim = 6
     --tank.hitAnim = 5 
     tank.idleAnim = 9
-    tank.stunAnim = 12
-    tank.tackleAnim = 13
-    tank.moveAnim = 14
+    tank.stunAnim = 1
+    tank.tackleAnim = 12
+    tank.moveAnim = 13
 
     -- Animation timers
     tank.attackDuration = 3.0 
@@ -184,17 +184,21 @@ function on_ready()
                 tank.currentState = tank.state.Attack
             end
         else
-            local isSphereOrGranade = 
+            local isNonBlockingCollision = 
                 nameA == "Sphere1" or nameA == "Sphere2" or nameA == "Sphere3" or 
                 nameA == "Sphere4" or nameA == "Sphere5" or nameA == "Sphere6" or 
                 nameA == "Sphere7" or nameA == "Sphere8" or nameA == "Granade" or 
-                nameA ==  "DisruptorBullet" or nameA == "ChargeZone" or
+                nameA == "DisruptorBullet" or nameA == "ChargeZone" or
+                nameA == "EnemyRange" or nameA == "EnemyKamikaze" or nameA == "EnemySupport" or
+                nameA == "SupportBullet1" or nameA == "SupportBullet2" or nameA == "SupportBullet3" or
                 nameB == "Sphere1" or nameB == "Sphere2" or nameB == "Sphere3" or 
                 nameB == "Sphere4" or nameB == "Sphere5" or nameB == "Sphere6" or 
                 nameB == "Sphere7" or nameB == "Sphere8" or nameB == "Granade" or 
-                nameB ==  "DisruptorBullet" or nameB == "ChargeZone"
+                nameB == "DisruptorBullet" or nameB == "ChargeZone" or
+                nameB == "EnemyRange" or nameB == "EnemyKamikaze" or nameB == "EnemySupport" or
+                nameB == "SupportBullet1" or nameB == "SupportBullet2" or nameB == "SupportBullet3"
 
-            if not isSphereOrGranade and tank.currentState == tank.state.Tackle then
+            if not isNonBlockingCollision and tank.currentState == tank.state.Tackle then
                 tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
                 tank.isCharging = false
