@@ -117,6 +117,7 @@ bleedingSFX = nil
 
 -- effects
 isBleeding = false
+isBurning = false
 isNeuralInhibitioning = false
 neuralFirstTime = true
 
@@ -502,7 +503,7 @@ function on_update(dt)
 
     check_effects(dt)
     checkPlayerDeath(dt)
-    handleBleed(dt)
+    handleDamageEffects(dt)
 
     if Input.is_key_pressed(Input.keycode.M) then
         applyStunn()
@@ -1406,12 +1407,14 @@ function checkPlayerDeath(dt)
     end
 end
 
-function handleBleed(dt)
-
+function handleDamageEffects(dt)
     if isBleeding then
         health = effect:bleed(playerScript, health, dt)
     end
 
+    if isBurning then
+        health = effect:burn(playerScript, health, dt)
+    end
 end
 --[[
 function find_scrap()

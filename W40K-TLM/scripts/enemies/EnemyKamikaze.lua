@@ -310,7 +310,7 @@ function kamikaze:attack_state()
         
         if distance < kamikaze.explosionRange then
             kamikaze:make_damage(kamikaze.damage)
-            effect:apply_bleed(kamikaze.playerScript)
+            effect:apply_burn(kamikaze.playerScript)
         end
 
         kamikaze.hasDealtDamage = true
