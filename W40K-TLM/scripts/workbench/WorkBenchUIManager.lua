@@ -64,6 +64,9 @@ local weaponIndex = 0  -- 0 for upgrade select, 1-4 for individual upgrades
 local prevWeaponIndex = 0
 local armorIndex = 0   -- 0 for upgrade select, 1-3 for individual upgrades
 local prevArmorIndex = 0
+
+local lastSelectedWeaponUpgrade = 1
+local lastSelectedArmorUpgrade = 1
 local buttonCooldown = 0
 local buttonCooldownTime = 0.1
 local contadorMovimientoBotones = 0
@@ -641,23 +644,26 @@ function handle_gun_controls(dt)
         if verticalValue < 0 then  -- Down
             if weaponIndex == 0 then
                 -- If currently on upgrade button, go to the first weapon upgrade button
-                weaponIndex = 1
+                weaponIndex = lastSelectedWeaponUpgrade
                 
-                currentUpgradeIndex.weapons = 0  -- First upgrade
+                currentUpgradeIndex.weapons = weaponIndex - 1
                 update_ui()
             else
                 -- If on weapon upgrade buttons, go to main upgrade button
+                lastSelectedWeaponUpgrade = weaponIndex
                 weaponIndex = 0
             end
         elseif verticalValue > 0 then  -- Up
             if weaponIndex == 0 then
-                -- If currently on upgrade button, go to the first weapon upgrade button
-                weaponIndex = 1
+                -- If currently on upgrade button, go to the previously selected weapon upgrade button
+                weaponIndex = lastSelectedWeaponUpgrade
                 
-                currentUpgradeIndex.weapons = 0  -- First upgrade
+                -- Auto-update displayed upgrade info based on the selected button
+                currentUpgradeIndex.weapons = weaponIndex - 1
                 update_ui()
             else
                 -- If on weapon upgrade buttons, go to main upgrade button
+                lastSelectedWeaponUpgrade = weaponIndex
                 weaponIndex = 0
             end
         end
@@ -801,26 +807,28 @@ function handle_character_controls(dt)
         
         if verticalValue < 0 then  -- Down
             if armorIndex == 0 then
-                -- If currently on upgrade button, go to the first armor upgrade button
-                armorIndex = 1
+                -- If currently on upgrade button, go to the previously selected armor upgrade button
+                armorIndex = lastSelectedArmorUpgrade
                 
-                -- Auto-update displayed upgrade info
-                currentUpgradeIndex.armor = 0  -- First upgrade
+                -- Auto-update displayed upgrade info based on the selected button
+                currentUpgradeIndex.armor = armorIndex - 1  -- Adjust for zero-based index
                 update_ui()
             else
                 -- If on armor upgrade buttons, go to main upgrade button
+                lastSelectedArmorUpgrade = armorIndex
                 armorIndex = 0
             end
         elseif verticalValue > 0 then  -- Up
             if armorIndex == 0 then
-                -- If currently on upgrade button, go to the first armor upgrade button
-                armorIndex = 1
+                -- If currently on upgrade button, go to the previously selected armor upgrade button
+                armorIndex = lastSelectedArmorUpgrade
                 
-                -- Auto-update displayed upgrade info
-                currentUpgradeIndex.armor = 0  -- First upgrade
+                -- Auto-update displayed upgrade info based on the selected button
+                currentUpgradeIndex.armor = armorIndex - 1  -- Adjust for zero-based index
                 update_ui()
             else
                 -- If on armor upgrade buttons, go to main upgrade button
+                lastSelectedArmorUpgrade = armorIndex
                 armorIndex = 0
             end
         end
@@ -893,6 +901,9 @@ function show_ui()
     find_next_available_upgrade("weapons")
     find_next_available_upgrade("armor")
     update_ui()
+    
+    lastSelectedWeaponUpgrade = 1
+    lastSelectedArmorUpgrade = 1
     
     isWorkBenchOpen = true
     openCooldownTimer = 0
