@@ -106,7 +106,7 @@ function on_ready()
     support.shieldAnimTimer = 0.0
     support.shieldAnimDuration = 3.4
     support.attackAnimTimer = 0.0
-    support.attackAnimDuration = 5.0
+    support.attackAnimDuration = 2.5
     support.findEnemiesTimer = 0.0
     support.findEnemiesInterval = 1.5
     support.pathUpdateTimer = 0.0
@@ -123,6 +123,7 @@ function on_ready()
     -- Animation Timers
     support.dieDuration = 2.5
     support.idleDuration = 2.5
+    support.moveDuration = 1.0
 
     -- Animation
     support.idleAnim = 3
@@ -280,7 +281,7 @@ function change_state()
 
     local distanceToPlayer = support:get_distance(support.enemyTransf.position, support.playerTransf.position)
     
-    if distanceToPlayer > 35 then   
+    if distanceToPlayer > 15 then   
         support.currentState = support.state.Idle
         return
     end
@@ -290,6 +291,7 @@ function change_state()
         support.findEnemiesTimer = 0
     end
 
+    
     if #support.Enemies == 0 then
         support.currentState = support.state.Shoot
         return
@@ -406,13 +408,18 @@ function support:move_state(dt)
 
         support:follow_path() 
         
-        local stoppingDistance = support.shieldRange * 0.85  -- Ajusta si es necesario
+        local stoppingDistance = support.shieldRange  
 
         local currentDistance = support:get_distance(support.enemyTransf.position, targetPos.position)
 
         -- Si ya está suficientemente cerca, deja de moverse
         if currentDistance <= stoppingDistance then
-            support.enemyRb:set_velocity(Vector3.new(0, 0, 0))  -- Stop movement
+            support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+            if support.currentAnim ~= support.idleAnim then
+            support.currentAnim = support.idleAnim
+            support.animator:set_current_animation(support.currentAnim)
+            end
+
             return
         end
 
@@ -469,12 +476,11 @@ function support:shield_state(dt)
 end
 
 function support:shoot_state(dt)
-
     -- Turn towards player
     support:rotate_enemy(support.playerTransf.position)
     support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
-    -- Shoot in bursts
+    -- Determine target
     local shouldTargetExplosive = false
     if support.explosiveDetected then
         local playerToExplosive = support:get_distance(support.playerTransf.position, support.explosiveTransf.position)
@@ -483,44 +489,50 @@ function support:shoot_state(dt)
         end
     end
 
-    if support.currentAnim ~= support.attackAnim then
-        support.currentAnim = support.attackAnim
-        support.animator:set_current_animation(support.currentAnim)
-    end
+    if support.isShootingBurst then
+        
+        if support.currentAnim ~= support.attackAnim then
+            support.currentAnim = support.attackAnim
+            support.animator:set_current_animation(support.currentAnim)
+        end
 
-    support.attackAnimTimer = support.attackAnimTimer + dt 
-    
-    if support.attackAnimTimer >= support.attackAnimDuration then
-        if support.isShootingBurst then
-
+        support.attackAnimTimer = support.attackAnimTimer + dt 
+        
+        
+        if support.attackAnimTimer >= support.attackAnimDuration then
             support.timeSinceLastShot = support.timeSinceLastShot + dt
 
+            
             if support.timeSinceLastShot >= support.burstCooldown and support.burstCount < support.maxBurstShots then
                 shoot_projectile(shouldTargetExplosive)
                 support.burstCount = support.burstCount + 1
                 support.timeSinceLastShot = 0
-                --support.supportShotSFX:play()
 
+                
                 if support.burstCount >= support.maxBurstShots then
                     support.isShootingBurst = false
                     support.burstCooldownTimer = 0
+                    support.attackAnimTimer = 0  
+                    if support.currentAnim ~= support.idleAnim then
+                        support.currentAnim = support.idleAnim
+                        support.animator:set_current_animation(support.currentAnim)
+                    end
                 end
             end
-        else
-            if support.currentAnim ~= support.idleAnim then
-                support.currentAnim = support.idleAnim
-                support.animator:set_current_animation(support.currentAnim)
-            end
+        end
+    else
 
-            support.burstCooldownTimer = support.burstCooldownTimer + dt
+        support.burstCooldownTimer = support.burstCooldownTimer + dt
 
-            if support.burstCooldownTimer >= support.timeBetweenBursts then
-                support.isShootingBurst = true
-                support.burstCount = 0
-                support.timeSinceLastShot = 0
-            end
+        
+        if support.burstCooldownTimer >= support.timeBetweenBursts then
+            support.isShootingBurst = true
+            support.burstCount = 0
+            support.timeSinceLastShot = 0
+            support.attackAnimTimer = 0
         end
     end
+
     -- Periodic enemy check
     support.checkEnemyTimer = support.checkEnemyTimer + dt
     if support.checkEnemyTimer >= support.checkEnemyInterval then
