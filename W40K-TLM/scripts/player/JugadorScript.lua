@@ -1087,10 +1087,14 @@ function playerMovement(dt)
 
         
     
-        -- Progressive acceleration until reaching moveSpeed
-        currentSpeed = math.min(currentSpeed + acceleration * dt, moveSpeed)
-    
-        local velocity = Vector3.new(moveDirection.x * currentSpeed, 0, moveDirection.z * currentSpeed)
+        local dirX = moveDirection.x
+        local dirZ = moveDirection.z
+
+-- NO normalizamos porque ya está dentro del rango [-1, 1]
+        local velocity = Vector3.new(dirX * moveSpeed, 0, dirZ * moveSpeed)
+
+
+
         
         playerRb:set_velocity(velocity)
         

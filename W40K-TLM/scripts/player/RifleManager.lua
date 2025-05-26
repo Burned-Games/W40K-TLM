@@ -420,7 +420,6 @@ function on_update(dt)
 
                 -- if cooldownVFX >= 0.5 then                    
                 --     if currentVFXAnim ~= 1 then
-                --         print("aaaaaaaaaaaaaaaa")
                 --         animatorVFXShoot:set_current_animation(1)
                 --         currentVFXAnim = 1
                 --     end
@@ -431,7 +430,6 @@ function on_update(dt)
                 if shootCoolDown >= currentShootCoolDownRifle then
                     cooldownVFX = 0
                     if currentVFXAnim ~= 1 then
-                        print("aaaaaaaaaaaaaaaa")
                         animatorVFXShoot:set_current_animation(1)
                         currentVFXAnim = 1
                     end
@@ -485,7 +483,6 @@ function on_update(dt)
                 cooldownVFX = cooldownVFX + dt
                 if cooldownVFX >= 0.1 then
                     if currentVFXAnim ~= 0 then
-                    print("oooooooooooooooo")
                     animatorVFXShoot:set_current_animation(0)
                     currentVFXAnim = 0
                 end
