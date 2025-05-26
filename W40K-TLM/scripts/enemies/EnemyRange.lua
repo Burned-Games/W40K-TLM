@@ -507,21 +507,25 @@ function shoot_projectile(targetExplosive)
     bulletRb:set_trigger(true)
     bulletScript.lifeTime = range.bulletLifetime
     bulletScript:on_ready()
+    local angle = math.rad(-range.enemyTransf.rotation.y)
+    local offsetX = -0.161
+    local offsetZ = 1.289
 
-    -- Obtener ángulo de rotación del enemigo en radianes
-    local angleY = range.enemyTransf.rotation.y
-    if angleY > 180 then angleY = angleY - 360 end
-    local angleRad = math.rad(angleY)
+    if range.enemyTransf.rotation.x == 180 then
+        angle = -angle
+        offsetX = -offsetX
+        offsetZ = -offsetZ
+    end
 
-    -- Calcular forward vector del enemigo
-    local forward = Vector3.normalize(Vector3.new(math.sin(angleRad), 0, math.cos(angleRad)))
 
-    -- Calcular posición de la bala frente al enemigo
-    local startPos = Vector3.new(
-        range.enemyTransf.position.x + forward.x * 1.25,  -- usa un offset ajustado como el del player
-        range.enemyTransf.position.y + 1.033,             -- altura correcta
-        range.enemyTransf.position.z + forward.z * 1.25
-    )
+    local enemyX = range.enemyTransf.position.x
+    local enemyZ = range.enemyTransf.position.z
+
+    local rotatedX = offsetX * math.cos(angle) - offsetZ * math.sin(angle)
+    local rotatedZ = offsetX * math.sin(angle) + offsetZ * math.cos(angle)
+
+    local startPos = Vector3.new(enemyX + rotatedX, range.enemyTransf.position.y + 1.033, enemyZ + rotatedZ)
+
     bulletRb:set_position(startPos)
     
     -- Target position
