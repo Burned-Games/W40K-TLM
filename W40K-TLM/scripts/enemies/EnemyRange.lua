@@ -102,6 +102,7 @@ function on_ready()
     range.animTimer = 0.0
     range.animDuration = 0.0
     range.moveAudioDuration = 0.5
+    range.stabDamageTimer = 0.0
 
     -- Animations
     range.idleAnim = 5
@@ -464,33 +465,39 @@ function range:stab_state(dt)
 
     range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     
-    if range.currentAnim ~= range.idleAnim and not range.isStabing then
-        range.currentAnim = range.idleAnim
-        range.animator:set_current_animation(range.currentAnim)
+    if not range.isStabing and range.currentAnim ~= range.meleeAttackAnim then
         range.isStabing = true
+        range.hasDealtDamage = false
+        range.currentAnim = range.meleeAttackAnim
+        range.animator:set_current_animation(range.currentAnim)
+        range.stabDamageTimer = range.meleeAnimDuration * 0.5
+        
     end
 
-    range.timeSinceLastStab = range.timeSinceLastStab + dt
-
-    if range.timeSinceLastStab < range.stabTimer then
-        if range.currentAnim ~= range.meleeAttackAnim then
-            range:play_blocking_animation(range.meleeAttackAnim, range.meleeAnimDuration)
-        end
-
-        if not range.hasDealtDamage and range.playerDistance <= range.meleeDamageRange then
+    if range.stabDamageTimer > 0 then
+        range.stabDamageTimer = range.stabDamageTimer - dt
+        
+        -- Cuando el timer llega a 0, aplicamos el daño
+        if range.stabDamageTimer <= 0 and not range.hasDealtDamage and range.playerDistance <= range.meleeDamageRange then
             range.meleeImpactSFX:play()
             range:make_damage(range.meleeDamage)
             if range.level ~= 1 then
                 effect:apply_bleed(range.playerScript)
             end
-
             range.hasDealtDamage = true
+            range.stabDamageTimer = 0
         end
+    end
 
-    elseif range.timeSinceLastStab >= range.stabTimer then
-        range.timeSinceLastStab = 0
-        range.stabCooldownTimer = range.stabCooldown 
-        range.hasDealtDamage = false
+    if range.currentAnim ~= range.idleAnim and range.stabDamageTimer == 0 then
+        range.currentAnim = range.idleAnim
+        range.animator:set_current_animation(range.currentAnim)
+    end
+
+    range.stabCooldownTimer = range.stabCooldownTimer + dt
+
+    if range.stabCooldownTimer >= range.stabCooldown then
+        range.stabCooldownTimer = 0
         range.isStabing = false
     end
 
