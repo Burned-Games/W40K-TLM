@@ -1,0 +1,140 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.003",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 15736375330351186294
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.018",
+                        "value": {
+                            "value0": 6923614424277990790
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.002",
+                        "value": {
+                            "value0": 14552080243247706414
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.019",
+                        "value": {
+                            "value0": 9796538681927138755
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.001",
+                        "value": {
+                            "value0": 8148392563007813745
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.004",
+                        "value": {
+                            "value0": 9311337738709703125
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.005",
+                        "value": {
+                            "value0": 10312715227625338774
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.006",
+                        "value": {
+                            "value0": 14558456534513538507
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.007",
+                        "value": {
+                            "value0": 16155071855745947906
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.008",
+                        "value": {
+                            "value0": 9517338618075726106
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.009",
+                        "value": {
+                            "value0": 11303580476568225907
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.010",
+                        "value": {
+                            "value0": 2921762929897277134
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.011",
+                        "value": {
+                            "value0": 7269287839648685652
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.012",
+                        "value": {
+                            "value0": 7335305802356424763
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.013",
+                        "value": {
+                            "value0": 3622065817999806924
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.014",
+                        "value": {
+                            "value0": 5101922576211807640
+                        }
+                    },
+                    {
+                        "key": "Columna_v1_rota_Column_v1_cell.015",
+                        "value": {
+                            "value0": 6733500888779197694
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Columna_MAT.003_Mat0",
+                        "value": {
+                            "value0": 15151633946800810300
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 7418360229167478654
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/mapa/p_columna_v1/Columna_v1_rota.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/7418360229167478654.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

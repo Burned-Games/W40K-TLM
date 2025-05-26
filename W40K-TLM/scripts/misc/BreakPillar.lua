@@ -1,99 +1,143 @@
 
-local childrenRBCDown = {}
-local childrenRBCUp = {}
-local childrenTransformDown = {}
-local childrenTransformUp = {}
 
-local tag = nil
-local rigidbodyComponent = nil
+local objectNormal = {}
 
+local prefabPillar1 = "prefabs/Misc/Pillars/Pillar1Destruible.prefab"
+local prefabPillar2 = "prefabs/Misc/Pillars/Pillar2Destruible.prefab"
+
+
+
+
+local rbComponent = nil
+
+
+local separateChildrenWithParentMoved = {}
+local separate = {}
+local separateChildren = {}
+
+
+local hasDestroyed = false
+
+local impulseStrength = 0
+
+local disappearCounter = 0
+local disappearCounterTarget = 5  --TIME FOR DISAPPEAR
+local hasDisappeared = false
 local actualSize = 1
 local sizeDisappearSpeed = 3
-local hasDestroyed = false
-local disappearCounterTarget = 5
-local disappearCounter = 0
-local hasDisappeared = false
-local impulseStrength = 1
+
+local finished = false
+
+local camera = nil
+local cameraScript = nil
+
+local position00 = nil
+
+--Audio
+local boxBarrelDestroySFX = nil
 
 function on_ready()
     -- Add initialization code here
-    tag = self:get_component("TagComponent").tag
-    rigidbodyComponent = self:get_component("RigidbodyComponent")
-    local children = self:get_children() 
-    for _, pillarVers in ipairs(children) do 
-        if pillarVers:get_component("TagComponent").tag == "Columna_v2.gltf" then
-            local transform = pillarVers:get_component("TransformComponent")
-            transform.position = Vector3.new(transform.position.x, 0, transform.position.z)
-            local childrenPillar = pillarVers:get_children()
-            for __, pillarPiece in ipairs(childrenPillar) do 
-                local pillarPieceRB = pillarPiece:get_component("RigidbodyComponent")
-                local pillarPieceTrans = pillarPiece:get_component("TransformComponent")
-                pillarPieceRB.rb:set_position(Vector3.new(pillarPieceTrans.position.x, pillarPieceTrans.position.y+4, pillarPieceTrans.position.z))
-                pillarPieceRB.rb:set_trigger(true)
-                pillarPieceRB.rb:set_body_type(0)
-                table.insert(childrenRBCUp, pillarPieceRB)
-                table.insert(childrenTransformUp, pillarPieceTrans)
-            end
-        end
-        if pillarVers:get_component("TagComponent").tag == "Columnas.gltf" then
-            local childrenPillar = pillarVers:get_children()
-            for __, pillarPiece in ipairs(childrenPillar) do 
-                local pillarPieceRB = pillarPiece:get_component("RigidbodyComponent")
-                local pillarPieceTrans = pillarPiece:get_component("TransformComponent")
-                pillarPieceRB.rb:set_trigger(true)
-                pillarPieceRB.rb:set_body_type(0)
-                table.insert(childrenRBCDown, pillarPieceRB)
-                table.insert(childrenTransformDown, pillarPieceTrans)
-            end
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "Normal" then
+            table.insert(objectNormal, child)
         end
     end
+
+    position00 = current_scene:get_entity_by_name("Position00")
+
+    camera = current_scene:get_entity_by_name("Camera")
+    cameraScript = camera:get_component("ScriptComponent")
+
+    --Audio
+    --boxBarrelDestroySFX = current_scene:get_entity_by_name("BoxBarrelDestroySFX"):get_component("AudioSourceComponent")
+
+    rbComponent = self:get_component("RigidbodyComponent");
+
 end
+
 
 function give_phisycs()
-     hasDestroyed = true
-     rigidbodyComponent.rb:set_trigger(true)
 
-     for _, pillarRB in ipairs(childrenRBCUp) do 
+    separate = nil
+    hasDestroyed = true
 
-            local impulseDir = Vector3.new(0,0,0)
-            pillarRB.rb:set_trigger(false)
-            pillarRB.rb:set_body_type(1)
-            pillarRB.rb:apply_impulse(impulseDir * impulseStrength)
-            pillarRB.rb:apply_torque_impulse(impulseDir * impulseStrength)
-     end
+    local tag = self:get_component("TagComponent").tag
 
-     for _, pillarRB in ipairs(childrenRBCDown) do 
-            local impulseDir = Vector3.new(0,0,0)
-            pillarRB.rb:set_trigger(false)
-            pillarRB.rb:set_body_type(1)
-            pillarRB.rb:apply_impulse(impulseDir * impulseStrength)
-            pillarRB.rb:apply_torque_impulse(impulseDir * impulseStrength)
-     end
-    
-end
-
-local function setChildrenSize(size)
-    
-    for _, child in ipairs(childrenTransformUp) do
-        child.scale = Vector3.new(size,size,size)
+    if tag == "Pillar1" then
+        local instantiated = instantiate_prefab(prefabPillar1)
+        log("holaaaaaaaaaaaaaaaa")
+        table.insert(separate, instantiated)
+        
+    elseif tag == "Pillar2" then
+        table.insert(separate, instantiate_prefab(prefabPillar1))
+        table.insert(separate, instantiate_prefab(prefabPillar2))
+    elseif tag == "Pillar3" then
+        table.insert(separate, instantiate_prefab(prefabPillar1))
+        table.insert(separate, instantiate_prefab(prefabPillar2))
+        table.insert(separate, instantiate_prefab(prefabPillar2))
     end
 
-    for _, child in ipairs(childrenTransformDown) do
-        child.scale = Vector3.new(size,size,size)
+
+
+    for i, parentColumns in ipairs(separate) do
+        local transform = self:get_component("TransformComponent")
+        
+        parentColumns:get_component("TransformComponent").position = Vector3.new(transform.position.x, transform.position.y+(4*i), transform.position.z)
+        parentColumns:get_component("TransformComponent").rotation = self:get_component("TransformComponent").rotation
+        separateChildren = parentColumns:get_children()
+
+        local parentsChildren = parentColumns:get_children()
+        for _, parentChild in ipairs(parentsChildren) do
+            
+            table.insert(separateChildren, parentChild)
+        end
     end
+
+    for _, child in ipairs(separateChildren) do
+        if child:has_component("RigidbodyComponent") then
+            local rb = child:get_component("RigidbodyComponent").rb
+
+            child:set_parent(position00)
+            table.insert(separateChildrenWithParentMoved, child)
+
+            local pivotObjectPosition = self:get_component("TransformComponent").position
+            local pivotChildPosition = child:get_component("TransformComponent").position
+
+            local pivotChildPositionOffset = Vector3.new(pivotObjectPosition.x + pivotChildPosition.x, pivotObjectPosition.y + pivotChildPosition.y, pivotObjectPosition.z + pivotChildPosition.z)
+
+            rb:set_position(pivotChildPositionOffset)
+
+            local impulseForce = Vector3.new(pivotObjectPosition.x - pivotChildPositionOffset.x, pivotObjectPosition.y - pivotChildPositionOffset.y, pivotObjectPosition.z - pivotChildPositionOffset.z )
+
+            impulseForce = Vector3.new((impulseForce.x + impulseStrength) * math.random(-1,1), (impulseForce.y  + 0) + math.random(-1,1), (impulseForce.z  + impulseStrength) * math.random(-1,1))
+
+            rb:apply_impulse(impulseForce)
+            rb:apply_torque_impulse(impulseForce)
+        
+        end
+
+    end
+    self:get_component("RigidbodyComponent").rb:set_position(Vector3.new(-100,-100,-100))
+    
+
+
+
 end
+
 
 function on_update(dt)
     -- Add update code here
-    if Input.is_key_pressed(Input.keycode.J) then
-        if not hasDestroyed then
-            --cameraScript.startShake(0.2,5)
-            give_phisycs()
-            hasDestroyed = true
-        end
+    
+    if Input.is_key_pressed(Input.keycode.J) and not hasDestroyed then
+        give_phisycs()
     end
-
+    
+    
+    
     if hasDestroyed and not hasDisappeared then
+       
         disappearCounter = disappearCounter + dt
 
         if disappearCounter >= disappearCounterTarget then
@@ -108,10 +152,22 @@ function on_update(dt)
 
     end
 
-    if hasDisappeared then
+    if hasDisappeared and not finished then
+        separate:set_active(false)
         self:set_active(false)
+        for _, child in ipairs(separateChildren) do
+            child:set_active(false)
+        end
+        finished = true
     end
 
+end
+
+function setChildrenSize(size)
+    
+    for _, child in ipairs(separateChildren) do
+        child:get_component("TransformComponent").scale = Vector3.new(size,size,size)
+    end
 end
 
 function on_exit()

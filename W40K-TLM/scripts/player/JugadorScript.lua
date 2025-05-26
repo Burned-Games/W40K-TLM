@@ -1526,7 +1526,7 @@ end
 ]]
 function handleCover()
     if sceneName ~= "level3.TeaScene" then
-        if barricadeScript.isPlayerInRange == false then
+        if barricadeScript and barricadeScript.isPlayerInRange == false then
             isCovering = false
             moveSpeed = normalSpeed * speedDebuf
             return
