@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{179A6250-3F23-44B9-A9AF-461B907637F3}",
     "Language": "SFX",
-    "Hash": "{2509CDA1-1136-5875-1CFB-A0A0895108BC}",
+    "Hash": "{80399560-13B1-CEC2-6A5F-2B2BC52BA2D0}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogs",
     "ShortName": "Dialogs",
     "Path": "Dialogs.bnk",
@@ -70,6 +70,14 @@
       "Location": "Memory",
       "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona1_2.wav",
       "CachePath": "45/{456F8AED-73AF-0FB5-2CD5-F320314F259F}.wem"
+     },
+     {
+      "Id": "185235166",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UIText3.wav",
+      "CachePath": "4B/{4BB66F75-7C2A-F245-15B8-1213FE72E61E}.wem"
      },
      {
       "Id": "201067192",
@@ -142,6 +150,14 @@
       "Location": "Memory",
       "ShortName": "DIÁLOGOS\\Decius Wav\\DeciusMarcellus_LlegadaZona8.wav",
       "CachePath": "6E/{6E23405C-5FC7-A257-783B-59DB41897280}.wem"
+     },
+     {
+      "Id": "621346575",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UIText2.wav",
+      "CachePath": "2C/{2C0D8477-6BD1-C720-BFD5-9D9C62C1E171}.wem"
      },
      {
       "Id": "626303130",
@@ -238,6 +254,14 @@
       "Location": "Memory",
       "ShortName": "DIÁLOGOS\\Quintus Wav\\QuintusMaxillian_CinematicaFinal2.wav",
       "CachePath": "0A/{0ABA278D-A693-E370-D4A1-64D5F84C27E1}.wem"
+     },
+     {
+      "Id": "1063390816",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UIText1.wav",
+      "CachePath": "B9/{B91885CC-95EB-D840-9E9F-9699736A3471}.wem"
      }
     ],
     "Events": [
@@ -632,10 +656,30 @@
         "Id": "626303130"
        }
       ]
+     },
+     {
+      "Id": "1196539901",
+      "Name": "Play_UIText",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_UIText",
+      "GUID": "{A0C2B5BE-F805-4BC9-8ABE-D3F343DAFB47}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.042229168",
+      "DurationMax": "0.13316667",
+      "MediaRefs": [
+       {
+        "Id": "185235166"
+       },
+       {
+        "Id": "621346575"
+       },
+       {
+        "Id": "1063390816"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{6860A19C-3D97-E3A1-476C-815E25978DE6}"
+  "FileHash": "{296C869C-DDEB-36D6-0FA0-8F9DF6D6DE06}"
  }
 }

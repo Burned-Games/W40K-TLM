@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	630505278	Play_PlayerGetBloodParticles			\Default Work Unit\Player\State Effects\Play_PlayerGetBloodParticles	
 	677390718	Play_PlayerInyector_01			\Default Work Unit\Player\State Effects\Play_PlayerInyector_01	
 	899646374	Play_BannerZone			\Default Work Unit\Player\Banner\Play_BannerZone	
 	910581297	Play_PlayerDeath			\Default Work Unit\Player\Play_PlayerDeath	
@@ -22,6 +23,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	300319314	PlayerStep1Lvl2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C4\{C41D5BDC-742B-986A-38CD-93B4838389ED}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep1Lvl2		3006
 	393389286	PlayerDeath	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\95\{954C3D13-1DCE-60AA-D4D7-235DB2316E32}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerDeath		13297
 	453479899	PlayerCD	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\7B\{7B49E2D0-655B-F3E9-4CD2-AD2313185A32}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerCD		947
+	502671763	PlayerGetBloodParticles	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AB\{AB5488F4-6C2C-2790-8CD7-BB6BE2416736}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerGetBloodParticles		2959
 	557785712	Burning3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\EB\{EB15153F-E816-6EBE-AA57-5DA848D7D96F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning3		21070
 	593561193	PlayerInyector	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\FE\{FE36E599-02DA-2A14-6D71-21F5F34273E4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerInyector		25008
 	619122296	Overload1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\83\{837AD791-FE62-4074-DBBB-A4EB5792FBC2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerOverloads\Overload1		14018

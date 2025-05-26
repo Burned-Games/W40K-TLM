@@ -1,5 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1267142758	Play_RangedDying			\Default Work Unit\Enemies\Ranged\Play_RangedDying	
+	1323766185	Play_EnemyRangeAlert			\Default Work Unit\Enemies\Ranged\Play_EnemyRangeAlert	
+	1828503890	Play_RangeSteps			\Default Work Unit\Enemies\Ranged\Play_RangeSteps	
 	2073373655	Play_RangedShot			\Default Work Unit\Enemies\Ranged\Play_RangedShot	
 	2431959016	Play_RangedHurt			\Default Work Unit\Enemies\Ranged\Play_RangedHurt	
 	2497668414	Play_RangedStomp			\Default Work Unit\Enemies\Ranged\Play_RangedStomp	
@@ -8,9 +10,14 @@ Event	ID	Name			Wwise Object Path	Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	125515982	RangedDying	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\08\{084BE95A-7FC2-5BB8-61E5-33C4B8C1BF20}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangedDying		12544
+	178944318	EnemyRangeStep4	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AA\{AA5D8255-3C1C-660B-BD54-CE62BC140EC0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangeSteps\EnemyRangeStep4		2044
+	187781952	EnemyRangeStep2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\BB\{BB2352B8-F4E4-E6A8-B1B6-D43E8EC98FE1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangeSteps\EnemyRangeStep2		1992
 	235500153	RangedStomp	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\73\{73CE247F-C1D9-1A0F-B77F-AE1F198B7F12}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangedStomp		19212
 	298949231	RangedImpactoCaCPlayer	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\9C\{9CA7703E-8482-B9C2-5B45-CED0D47D7365}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangedImpactoCaCPlayer		5602
+	450496747	EnemyRangeStep3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\4C\{4C32BB7C-C335-1E88-07F6-AD25129C39D6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangeSteps\EnemyRangeStep3		1601
 	568804497	RangedHurt	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\1D\{1D7D92EF-CD8C-75B9-5213-402C2173C110}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangedHurt		6940
 	752406354	RangedImpactoBalasPlayer	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\EE\{EE63CBCF-FA17-EAF2-FD4A-96B84E44E3C9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangedImpactoBalasPlayer		4449
 	774323198	RangedShot	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\88\{88874141-BB42-C55A-C6CF-E9D9705686CA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangedShot		5927
+	885005728	EnemyRangeAlert	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\C6\{C62A1660-38A9-4117-94FD-323D439234F2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\EnemyRangeAlert		19462
+	914845770	EnemyRangeStep1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AA\{AA0C59A6-57E1-5ADB-213E-43FBDBFBD509}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ranged\RangeSteps\EnemyRangeStep1		1643
 

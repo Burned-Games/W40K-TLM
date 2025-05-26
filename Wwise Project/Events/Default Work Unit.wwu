@@ -51,6 +51,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_PlayerGetBloodParticles" ID="{C6397028-1465-4AE0-B954-4D87DC55D49F}">
+									<ChildrenList>
+										<Action Name="" ID="{6E561B82-0D13-49A8-8AB4-1C3E87EFF4BB}" ShortID="946340221">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PlayerGetBloodParticles" ID="{621E5BB4-13C4-4909-B508-4D7CD992C606}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Banner" ID="{FD989B1B-737B-4B7C-A3AE-6F22F2D79BD7}" ShortID="500826075">
@@ -402,6 +413,28 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_RangeSteps" ID="{9F369228-FFBF-4400-923A-43C97E194470}">
+									<ChildrenList>
+										<Action Name="" ID="{8FB4680C-6088-4005-AC5A-6FEC7643050B}" ShortID="993166966">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RangeSteps" ID="{CBF761FC-4117-4481-8DBE-3BDA56612924}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_EnemyRangeAlert" ID="{5A202F20-A442-4C55-9E85-61F8B93E430C}">
+									<ChildrenList>
+										<Action Name="" ID="{7B5D059F-C9AC-45F3-BCAA-8DE4CA665CDE}" ShortID="47837712">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="EnemyRangeAlert" ID="{3F40B2E0-0985-4BD1-96DB-D3EC7F9B3B58}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Support" ID="{D1DA7064-73EF-4732-B529-1A5E2E75533F}" ShortID="185179306">
@@ -585,6 +618,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="KamikazeScreamBoom" ID="{5C0C18BA-409C-413D-A63F-4F84727B0606}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_KamikazeSteps" ID="{BA903144-FF42-4E82-A8AD-1747D80FBAC1}">
+									<ChildrenList>
+										<Action Name="" ID="{E7A1241E-DC50-4200-983C-95A34FEE8BC7}" ShortID="434224195">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="KamikazeSteps" ID="{99EB8C7D-7903-45C8-B97E-F693A00A62FE}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -896,6 +940,39 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="HowlingWindRandom" ID="{95EDE6CD-0D94-4322-B31C-66BAFCAE0D94}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_EnvironmentPillarCrash" ID="{76284BA6-816D-4040-AD4A-19C61773BD23}">
+							<ChildrenList>
+								<Action Name="" ID="{5E62CF82-3D90-4205-A061-7AE086A752F9}" ShortID="906290890">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EnvironmentPillarCrash" ID="{553A2A86-67FA-487D-86FC-FF7B804BD6B5}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_EnvironmentCloseDoor" ID="{0436380E-CCFF-40F3-AD0B-CAB34A524A99}">
+							<ChildrenList>
+								<Action Name="" ID="{25F0EE3E-A367-4FAC-8BF2-5C0A7CC9F7B1}" ShortID="594328587">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EnvironmentCloseDoor" ID="{7D040BE1-5976-4897-B304-5E5F88854E12}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_EnvironmentCloseDoorColliseum" ID="{B5D8CCF2-D39F-4930-80D1-0E3C3AF25123}">
+							<ChildrenList>
+								<Action Name="" ID="{F04508DC-657B-492F-BD53-1C532B4EBC5A}" ShortID="327945965">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EnvironmentCloseDoorColliseum" ID="{AEFF87FB-A9C1-4ECA-95C0-4AFAD2B0DDEF}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1302,6 +1379,17 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_UIText" ID="{A0C2B5BE-F805-4BC9-8ABE-D3F343DAFB47}">
+							<ChildrenList>
+								<Action Name="" ID="{425FB277-D42B-4A9A-B7C8-B98392FD355E}" ShortID="784087513">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UIText" ID="{E97E0190-15EB-406A-BACA-5ABEC54FD8FA}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

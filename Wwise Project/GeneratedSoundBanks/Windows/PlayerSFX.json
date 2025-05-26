@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{FE439879-6F73-9FBF-3B30-F8F3795D0D56}",
+    "Hash": "{5A429F81-CB89-19A7-6B21-2DDF3662F747}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -78,6 +78,14 @@
       "Location": "Memory",
       "ShortName": "PlayerCD.wav",
       "CachePath": "7B/{7B49E2D0-655B-F3E9-4CD2-AD2313185A32}.wem"
+     },
+     {
+      "Id": "502671763",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerGetBloodParticles.wav",
+      "CachePath": "AB/{AB5488F4-6C2C-2790-8CD7-BB6BE2416736}.wem"
      },
      {
       "Id": "557785712",
@@ -352,6 +360,20 @@
       ]
      },
      {
+      "Id": "630505278",
+      "Name": "Play_PlayerGetBloodParticles",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerGetBloodParticles",
+      "GUID": "{C6397028-1465-4AE0-B954-4D87DC55D49F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.49997732",
+      "DurationMax": "0.49997732",
+      "MediaRefs": [
+       {
+        "Id": "502671763"
+       }
+      ]
+     },
+     {
       "Id": "677390718",
       "Name": "Play_PlayerInyector_01",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerInyector_01",
@@ -459,6 +481,6 @@
     ]
    }
   ],
-  "FileHash": "{488F5F82-7FA0-16C7-13AA-85E7697DF5D6}"
+  "FileHash": "{30F551EF-0DCB-724F-895F-1641C189D098}"
  }
 }

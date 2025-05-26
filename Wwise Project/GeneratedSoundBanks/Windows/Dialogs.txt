@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	358790656	Play_DeciusMarcellus_LlegadaZona1_2			\Default Work Unit\Dialogs\Decius\Play_DeciusMarcellus_LlegadaZona1_2	
 	565719237	Play_QuintusMaxillian_CinematicaFinal2			\Default Work Unit\Dialogs\Quintus\Play_QuintusMaxillian_CinematicaFinal2	
 	565719238	Play_QuintusMaxillian_CinematicaFinal1			\Default Work Unit\Dialogs\Quintus\Play_QuintusMaxillian_CinematicaFinal1	
+	1196539901	Play_UIText			\Default Work Unit\Dialogs\Play_UIText	
 	1400486691	Play_DeciusMarcellus_LlegadaZona1			\Default Work Unit\Dialogs\Decius\Play_DeciusMarcellus_LlegadaZona1	
 	1400486695	Play_DeciusMarcellus_LlegadaZona5			\Default Work Unit\Dialogs\Decius\Play_DeciusMarcellus_LlegadaZona5	
 	1400486698	Play_DeciusMarcellus_LlegadaZona8			\Default Work Unit\Dialogs\Decius\Play_DeciusMarcellus_LlegadaZona8	
@@ -36,6 +37,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	110288935	DeciusMarcellus_SalidaZona11	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B3\{B31AB8C7-CC22-3A2D-7026-5397C3325EA9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_SalidaZona11		105446
 	164907491	DeciusMarcellus_LlegadaZona16	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\00\{00BF0539-D41A-BD63-BF66-63F16EE969FF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_LlegadaZona16		120654
 	167008796	DeciusMarcellus_LlegadaZona1_2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\45\{456F8AED-73AF-0FB5-2CD5-F320314F259F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_LlegadaZona1_2		106015
+	185235166	UIText3	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\4B\{4BB66F75-7C2A-F245-15B8-1213FE72E61E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\UIText\UIText3		2478
 	201067192	DeciusMarcellus_CinematicaFinal1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\DD\{DD013481-0675-4BB6-EA0D-4F36E144A600}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_CinematicaFinal1		65193
 	202406232	DeciusMarcellus_CinematicaFinal2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\5B\{5BB1777C-1449-ADE4-4F03-A9D6C8AD1D6B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_CinematicaFinal2		66715
 	230731430	DeciusMarcellus_Cinematica2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\4A\{4AFCCBA5-D80E-B5A9-2992-D85C35287DCA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_Cinematica2		78593
@@ -45,6 +47,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	451407930	QuintusMaxillian_LlegadaZona9	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B2\{B29139FB-A867-7351-6CE0-A694124EAA65}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Quintus\QuintusMaxillian_LlegadaZona9		55370
 	523031469	QuintusMaxillian_CinematicaFinal1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\AB\{AB7F6F20-1AA6-37BD-4B86-6179CB340467}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Quintus\QuintusMaxillian_CinematicaFinal1		60612
 	606882035	DeciusMarcellus_LlegadaZona8	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\6E\{6E23405C-5FC7-A257-783B-59DB41897280}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_LlegadaZona8		86104
+	621346575	UIText2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\2C\{2C0D8477-6BD1-C720-BFD5-9D9C62C1E171}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\UIText\UIText2		2132
 	626303130	QuintusMaxillian_SalidaZona9	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\7E\{7E4FFE3B-78BA-E635-6EC8-36A83551A86B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Quintus\QuintusMaxillian_SalidaZona9		61123
 	670019284	DeciusMarcellus_Intro	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\BF\{BF2B8461-D41F-3526-6EF3-3D2740CAAA28}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_Intro		159350
 	683713677	QuintusMaxillian_LlegadaZona1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\47\{476733E7-5A27-9009-6028-6A3EA59BAD55}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Quintus\QuintusMaxillian_LlegadaZona1		95939
@@ -57,4 +60,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	977010814	DeciusMarcellus_LlegadaZona14	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\89\{89D1EDDB-2448-658E-7BB1-363C68E4B7AB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_LlegadaZona14		116836
 	997464728	DeciusMarcellus_LlegadaZona10	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\4C\{4C567051-F5CE-961A-FE9A-F7DDCCA998FC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Decius\DeciusMarcellus_LlegadaZona10		86552
 	1048970218	QuintusMaxillian_CinematicaFinal2	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\0A\{0ABA278D-A693-E370-D4A1-64D5F84C27E1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\Quintus\QuintusMaxillian_CinematicaFinal2		65016
+	1063390816	UIText1	C:\Users\albert\Documents\GitHub\Warhammer-40000-The-Last-Marine\Wwise Project\.cache\B9\{B91885CC-95EB-D840-9E9F-9699736A3471}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\UIText\UIText1		1270
 

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{89AC028F-847D-7727-CA2C-028F383C26A7}",
+    "Hash": "{8725DFC7-E5F5-127B-89A3-B1B23741A9A1}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -48,6 +48,22 @@
       "CachePath": "49/{49F89D11-B22B-25D7-7BE4-9EB4986D3F25}.wem"
      },
      {
+      "Id": "159734690",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnvironmentPillarCrash.wav",
+      "CachePath": "34/{348E335D-82D3-0641-A913-36D2EAE16ED4}.wem"
+     },
+     {
+      "Id": "284794796",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnvironmentCloseDoor.wav",
+      "CachePath": "3A/{3AF86E99-4C1B-B929-6FB9-410CDB3505E3}.wem"
+     },
+     {
       "Id": "432911897",
       "Language": "SFX",
       "Streaming": "false",
@@ -70,6 +86,14 @@
       "Location": "Memory",
       "ShortName": "ScrapPickUp.wav",
       "CachePath": "4B/{4B1AC46D-742D-21BC-9EF0-6252F158B04F}.wem"
+     },
+     {
+      "Id": "639313908",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnvironmentCloseDoorColliseum.wav",
+      "CachePath": "3E/{3E048B81-7A30-EFC1-43A6-D0588E1F7419}.wem"
      },
      {
       "Id": "641304611",
@@ -132,6 +156,48 @@
       "MediaRefs": [
        {
         "Id": "912968692"
+       }
+      ]
+     },
+     {
+      "Id": "4230389559",
+      "Name": "Play_EnvironmentCloseDoor",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_EnvironmentCloseDoor",
+      "GUID": "{0436380E-CCFF-40F3-AD0B-CAB34A524A99}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5983437",
+      "DurationMax": "1.5983437",
+      "MediaRefs": [
+       {
+        "Id": "284794796"
+       }
+      ]
+     },
+     {
+      "Id": "4083217664",
+      "Name": "Play_EnvironmentCloseDoorColliseum",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_EnvironmentCloseDoorColliseum",
+      "GUID": "{B5D8CCF2-D39F-4930-80D1-0E3C3AF25123}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.606896",
+      "DurationMax": "2.606896",
+      "MediaRefs": [
+       {
+        "Id": "639313908"
+       }
+      ]
+     },
+     {
+      "Id": "3022566210",
+      "Name": "Play_EnvironmentPillarCrash",
+      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_EnvironmentPillarCrash",
+      "GUID": "{76284BA6-816D-4040-AD4A-19C61773BD23}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.041678",
+      "DurationMax": "2.041678",
+      "MediaRefs": [
+       {
+        "Id": "159734690"
        }
       ]
      },
@@ -280,6 +346,6 @@
     ]
    }
   ],
-  "FileHash": "{901D2E51-BD5D-AE26-85D4-506A02EC95F1}"
+  "FileHash": "{A68CDE9C-D1C9-9DE4-50DE-1C0C8709E480}"
  }
 }

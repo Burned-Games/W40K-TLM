@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
     "Language": "SFX",
-    "Hash": "{0441E243-44DB-757E-F51F-5087FBA486C6}",
+    "Hash": "{3146FE3D-EDC8-BA47-694B-3E0B8AB7BC2A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\RangedSFX",
     "ShortName": "RangedSFX",
     "Path": "RangedSFX.bnk",
@@ -22,6 +22,22 @@
       "Location": "Memory",
       "ShortName": "RangedDying.wav",
       "CachePath": "08/{084BE95A-7FC2-5BB8-61E5-33C4B8C1BF20}.wem"
+     },
+     {
+      "Id": "178944318",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnemyRangeStep4.wav",
+      "CachePath": "AA/{AA5D8255-3C1C-660B-BD54-CE62BC140EC0}.wem"
+     },
+     {
+      "Id": "187781952",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnemyRangeStep2.wav",
+      "CachePath": "BB/{BB2352B8-F4E4-E6A8-B1B6-D43E8EC98FE1}.wem"
      },
      {
       "Id": "235500153",
@@ -38,6 +54,14 @@
       "Location": "Memory",
       "ShortName": "RangedImpactoCaCPlayer.wav",
       "CachePath": "9C/{9CA7703E-8482-B9C2-5B45-CED0D47D7365}.wem"
+     },
+     {
+      "Id": "450496747",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnemyRangeStep3.wav",
+      "CachePath": "4C/{4C32BB7C-C335-1E88-07F6-AD25129C39D6}.wem"
      },
      {
       "Id": "568804497",
@@ -62,9 +86,39 @@
       "Location": "Memory",
       "ShortName": "RangedShot.wav",
       "CachePath": "88/{88874141-BB42-C55A-C6CF-E9D9705686CA}.wem"
+     },
+     {
+      "Id": "885005728",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnemyRangeAlert.wav",
+      "CachePath": "C6/{C62A1660-38A9-4117-94FD-323D439234F2}.wem"
+     },
+     {
+      "Id": "914845770",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EnemyRangeStep1.wav",
+      "CachePath": "AA/{AA0C59A6-57E1-5ADB-213E-43FBDBFBD509}.wem"
      }
     ],
     "Events": [
+     {
+      "Id": "1323766185",
+      "Name": "Play_EnemyRangeAlert",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_EnemyRangeAlert",
+      "GUID": "{5A202F20-A442-4C55-9E85-61F8B93E430C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.6299319",
+      "DurationMax": "1.6299319",
+      "MediaRefs": [
+       {
+        "Id": "885005728"
+       }
+      ]
+     },
      {
       "Id": "1267142758",
       "Name": "Play_RangedDying",
@@ -154,10 +208,34 @@
         "Id": "235500153"
        }
       ]
+     },
+     {
+      "Id": "1828503890",
+      "Name": "Play_RangeSteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_RangeSteps",
+      "GUID": "{9F369228-FFBF-4400-923A-43C97E194470}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "0.16020833",
+      "DurationMax": "0.16020833",
+      "MediaRefs": [
+       {
+        "Id": "178944318"
+       },
+       {
+        "Id": "187781952"
+       },
+       {
+        "Id": "450496747"
+       },
+       {
+        "Id": "914845770"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{C0B2F728-0181-2588-E291-009950C46C1F}"
+  "FileHash": "{1DF70D37-6DF0-826F-0767-0EDA63592F93}"
  }
 }
