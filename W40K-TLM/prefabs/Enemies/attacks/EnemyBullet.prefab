@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 18271057847779108088
+                "value0": 18305948611098189121
             },
             "value4": false
         },
@@ -28,11 +28,11 @@
         },
         "value8": 1,
         "value9": {
-            "Tag": "BalaMesh"
+            "Tag": "Root"
         },
         "value10": 2,
         "value11": {
-            "Tag": "Root"
+            "Tag": "BalaMesh"
         },
         "value12": 3,
         "value13": 0,
@@ -114,18 +114,18 @@
             "Prev": 1
         },
         "value26": 1,
-        "value27": 1,
+        "value27": 2,
         "value28": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 4477511158953972019
             },
             "AnimatorUUID": {
-                "value0": 6674995055135805754
+                "value0": 16603052947791946029
             }
         },
         "value29": 1,
-        "value30": 1,
+        "value30": 2,
         "value31": {
             "cereal_class_version": 1,
             "IsEmbedded": false,
@@ -179,7 +179,7 @@
                                         "Offset": {
                                             "x": 0.0,
                                             "y": 0.0,
-                                            "z": -0.20000000298023225
+                                            "z": 0.0
                                         },
                                         "Radius": 0.10000000149011612
                                     }
@@ -196,10 +196,16 @@
         "value39": 0,
         "value40": 1,
         "value41": 2,
-        "value42": 0,
-        "value43": 1,
-        "value44": 0,
-        "value45": {
+        "value42": 1,
+        "value43": 0,
+        "value44": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/Despawner.lua",
+            "Language": 0
+        },
+        "value45": 1,
+        "value46": 0,
+        "value47": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -208,7 +214,7 @@
                 "value0": 16723138422160746149
             },
             "AnimatorUUID": {
-                "value0": 6674995055135805754
+                "value0": 16603052947791946029
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
@@ -232,8 +238,6 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value46": 0,
-        "value47": 0,
         "value48": 0,
         "value49": 0,
         "value50": 0,
@@ -243,6 +247,8 @@
         "value54": 0,
         "value55": 0,
         "value56": 0,
-        "value57": 0
+        "value57": 0,
+        "value58": 0,
+        "value59": 0
     }
 }
