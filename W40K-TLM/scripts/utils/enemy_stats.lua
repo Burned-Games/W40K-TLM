@@ -42,7 +42,7 @@ local enemy_stats = {
             -- Time between stabs attacks
             stabCooldown = 2.0,
             -- Lifetime of the bullets
-            bulletLifetime = 5.0
+            bulletLifetime = 3.0
         },
 
 
@@ -78,7 +78,7 @@ local enemy_stats = {
             timeBetweenBursts = 1.0,
             burstCooldown = 0.3,
             stabCooldown = 2.0,
-            bulletLifetime = 5.0,
+            bulletLifetime = 3.0,
             -- Invulnerable time of the range level 2 hability
             invulnerableTime = 2.0
         },

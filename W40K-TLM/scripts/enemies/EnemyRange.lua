@@ -270,11 +270,10 @@ function on_update(dt)
         end
 
         if not range.playingDieAnim or range.currentAnim == range.meleeAttackAnim then
-            if not range.isShootingBurst then
+            if range.currentAnim ~= range.rangeAttackAnim then
                 range:rotate_enemy(range.playerTransf.position)
-            -- **This is making the enemies rotate wrong**
-            -- else
-            --     range:rotate_enemy(range.delayedPlayerPos)
+            else
+                range:rotate_enemy(range.delayedPlayerPos)
             end
         end
     end
