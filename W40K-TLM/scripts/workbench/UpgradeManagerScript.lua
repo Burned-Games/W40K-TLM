@@ -250,6 +250,16 @@ function on_ready()
 
     
     -- Load upgrades from save
+
+    if helmetlvl1 ~= nil and helmetlvl2 ~= nil then
+        helmetlvl1:set_active(true)
+        helmetlvl2:set_active(false)
+    end
+    if jetpacklvl1 ~= nil and jetpacklvl2 ~= nil then
+        jetpacklvl1:set_active(true)
+        jetpacklvl2:set_active(false)
+    end
+
     load_upgrades()
 
     -- Load visuals

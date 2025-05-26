@@ -580,13 +580,13 @@ function handle_gun_controls(dt)
             if isPreviousPurchased == nil then
                 isPreviousPurchased = true
             end
-            -- local upgradeManager.has_upgrade("weapons", isPreviousPurchased)
-            -- print(currentUpgradeIndex.weapons)
 
             if currentUpgrade and upgradeManager.has_upgrade("weapons", isPreviousPurchased) then
                 local success = upgradeManager.buy_upgrade("weapons", currentUpgrade)
                 if success then
-                    find_next_available_upgrade("weapons")
+                    if find_next_available_upgrade("weapons") then
+                        lastSelectedWeaponUpgrade = currentUpgradeIndex.weapons + 1
+                    end
                     update_ui()
                     buySFX:play()
                 else
@@ -595,7 +595,9 @@ function handle_gun_controls(dt)
             elseif currentUpgrade and isPreviousPurchased and currentUpgrade == "reloadReduction" then
                 local success = upgradeManager.buy_upgrade("weapons", "reloadReduction")
                 if success then
-                    find_next_available_upgrade("weapons")
+                    if find_next_available_upgrade("weapons") then
+                        lastSelectedWeaponUpgrade = currentUpgradeIndex.weapons + 1
+                    end
                     update_ui()
                     buySFX:play()
                 else
@@ -757,7 +759,9 @@ function handle_character_controls(dt)
             if currentUpgrade and upgradeManager.has_upgrade("armor", isPreviousPurchased) then
                 local success = upgradeManager.buy_upgrade("armor", currentUpgrade)
                 if success then
-                    find_next_available_upgrade("armor")
+                    if find_next_available_upgrade("armor") then
+                        lastSelectedArmorUpgrade = currentUpgradeIndex.armor + 1
+                    end
                     update_ui()
                     buySFX:play()
                 else
@@ -766,7 +770,9 @@ function handle_character_controls(dt)
             elseif currentUpgrade and isPreviousPurchased and currentUpgrade == "healthBoost" then
                 local success = upgradeManager.buy_upgrade("armor", "healthBoost")
                 if success then
-                    find_next_available_upgrade("armor")
+                    if find_next_available_upgrade("armor") then
+                        lastSelectedArmorUpgrade = currentUpgradeIndex.armor + 1
+                    end
                     update_ui()
                     buySFX:play()
                 else
