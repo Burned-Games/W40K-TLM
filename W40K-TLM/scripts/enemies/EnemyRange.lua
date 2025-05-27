@@ -571,7 +571,7 @@ function shoot_projectile(targetExplosive)
             range:make_damage(range.rangeDamage) 
         end
         
-        current_scene:destroy_entity(bullet)
+        --current_scene:destroy_entity(bullet)
     end)
 
 end
