@@ -2,13 +2,13 @@
     "value0": {
         "cereal_class_version": 3,
         "value0": 5,
-        "value1": 5,
+        "value1": 4,
         "value2": 0,
         "value3": 1,
-        "value4": 2,
+        "value4": 4,
         "value5": 3,
-        "value6": 4,
-        "value7": 5,
+        "value6": 1048578,
+        "value7": 4,
         "value8": 0,
         "value9": {
             "cereal_class_version": 0,
@@ -18,21 +18,17 @@
         "value11": {
             "Tag": "EntityCredits"
         },
-        "value12": 2,
+        "value12": 4,
         "value13": {
-            "Tag": "Manager"
+            "Tag": "Fondo"
         },
         "value14": 3,
         "value15": {
             "Tag": "Camera"
         },
         "value16": 4,
-        "value17": {
-            "Tag": "Fondo"
-        },
-        "value18": 5,
-        "value19": 0,
-        "value20": {
+        "value17": 0,
+        "value18": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 1352.0,
@@ -50,11 +46,11 @@
                 "z": 1.0
             }
         },
-        "value21": 1,
-        "value22": {
+        "value19": 1,
+        "value20": {
             "Position": {
-                "x": 676.0,
-                "y": 369.5,
+                "x": 0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -63,12 +59,30 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1313.77783203125,
-                "y": 2522.86376953125,
+                "x": 1446.0,
+                "y": 3952.0,
                 "z": 1.0
             }
         },
-        "value23": 2,
+        "value21": 4,
+        "value22": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+            }
+        },
+        "value23": 3,
         "value24": {
             "Position": {
                 "x": 0.0,
@@ -86,82 +100,39 @@
                 "z": 1.0
             }
         },
-        "value25": 3,
-        "value26": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value27": 4,
-        "value28": {
-            "Position": {
-                "x": 676.0,
-                "y": 369.5,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1352.0,
-                "y": 739.0,
-                "z": 1.0
-            }
-        },
-        "value29": 5,
-        "value30": 0,
-        "value31": {
+        "value25": 4,
+        "value26": 0,
+        "value27": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value32": 1,
-        "value33": {
+        "value28": 1,
+        "value29": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value34": 2,
-        "value35": {
+        "value30": 4,
+        "value31": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value36": 3,
-        "value37": {
+        "value32": 3,
+        "value33": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value38": 4,
-        "value39": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value40": 1,
-        "value41": 3,
-        "value42": {
+        "value34": 1,
+        "value35": 3,
+        "value36": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -174,36 +145,35 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value43": 0,
-        "value44": 0,
-        "value45": 0,
-        "value46": 0,
-        "value47": 0,
-        "value48": 1,
-        "value49": 1,
-        "value50": {
+        "value37": 0,
+        "value38": 0,
+        "value39": 0,
+        "value40": 0,
+        "value41": 0,
+        "value42": 1,
+        "value43": 1,
+        "value44": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/UI/creditsVictory.lua",
             "Language": 0
         },
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 0,
+        "value49": 0,
+        "value50": 0,
         "value51": 0,
-        "value52": 0,
+        "value52": 4,
         "value53": 0,
-        "value54": 0,
-        "value55": 0,
-        "value56": 0,
+        "value54": 1,
+        "value55": 4,
+        "value56": 3,
         "value57": 0,
-        "value58": 5,
-        "value59": 0,
+        "value58": 0,
+        "value59": 2,
         "value60": 1,
-        "value61": 2,
-        "value62": 3,
-        "value63": 4,
-        "value64": 0,
-        "value65": 0,
-        "value66": 2,
-        "value67": 1,
-        "value68": {
+        "value61": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "cereal_class_version": 0,
@@ -232,25 +202,25 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -960.0,
-                    "y": -1843.5
+                    "x": -723.0,
+                    "y": -1976.0
                 },
                 "OffsetMax": {
-                    "x": 960.0,
-                    "y": 1843.5
+                    "x": 723.0,
+                    "y": 1976.0
                 }
             },
             "Layer": 1
         },
-        "value69": 4,
-        "value70": {
+        "value62": 4,
+        "value63": {
             "TextureUUID": {
                 "value0": 3351135232612799137
             },
             "Color": {
-                "x": 0.20967739820480348,
-                "y": 0.20629550516605378,
-                "z": 0.20629550516605378,
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
                 "w": 1.0
             },
             "UVRect": {
@@ -279,13 +249,13 @@
             },
             "Layer": 0
         },
-        "value71": 0,
-        "value72": 0,
-        "value73": 0,
-        "value74": 0,
-        "value75": 1,
-        "value76": 0,
-        "value77": {
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 0,
+        "value68": 1,
+        "value69": 0,
+        "value70": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {

@@ -1,11 +1,11 @@
-local velocidad = 50 
+local velocidad = 100 
 local entidadCreditos
 local posicionY = 0
-local limiteSuperiorY = -1963
+local limiteSuperiorY = -2517
 
 function on_ready()
     entidadCreditos = self:get_component("UIImageComponent")
-    posicionY = 2400  
+    posicionY = 2600  
     move_ui_element(self, 0, posicionY)
 end
 
