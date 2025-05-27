@@ -1515,7 +1515,7 @@
     "Type": "User",
     "GUID": "{A77C30E7-2E40-4F54-B987-0389FB5ECE98}",
     "Language": "SFX",
-    "Hash": "{3146FE3D-EDC8-BA47-694B-3E0B8AB7BC2A}",
+    "Hash": "{BDE6FB93-37B3-6E8C-B33A-58A3974A6F75}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\RangedSFX",
     "ShortName": "RangedSFX",
     "Path": "RangedSFX.bnk",
@@ -1615,6 +1615,7 @@
       "Name": "Play_EnemyRangeAlert",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Ranged\\Play_EnemyRangeAlert",
       "GUID": "{5A202F20-A442-4C55-9E85-61F8B93E430C}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "1.6299319",
       "DurationMax": "1.6299319",
@@ -3845,6 +3846,6 @@
     ]
    }
   ],
-  "FileHash": "{FCF8C992-670A-589A-860B-A1441D033CE5}"
+  "FileHash": "{FB98A681-FA5F-18E3-2C3F-C7A5A4812C17}"
  }
 }
