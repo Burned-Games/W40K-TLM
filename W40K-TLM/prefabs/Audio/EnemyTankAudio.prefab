@@ -2,16 +2,17 @@
     "value0": {
         "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "EnemyTankAudio_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 6503015731347634443
-            }
+                "value0": 2691969581098326993
+            },
+            "value4": false
         },
         "RootEntity": 0,
         "value0": 7,
@@ -31,27 +32,27 @@
         },
         "value12": 1,
         "value13": {
-            "Tag": "TankDeadSFX"
+            "Tag": "TankStepsSFX"
         },
         "value14": 2,
         "value15": {
-            "Tag": "TankHurtSFX"
+            "Tag": "TankBerserkerSFX"
         },
         "value16": 3,
         "value17": {
-            "Tag": "TankImpactPlayerSFX"
+            "Tag": "TankDetectPlayerSFX"
         },
         "value18": 4,
         "value19": {
-            "Tag": "TankDetectPlayerSFX"
+            "Tag": "TankImpactPlayerSFX"
         },
         "value20": 5,
         "value21": {
-            "Tag": "TankBerserkerSFX"
+            "Tag": "TankHurtSFX"
         },
         "value22": 6,
         "value23": {
-            "Tag": "TankStepsSFX"
+            "Tag": "TankDeadSFX"
         },
         "value24": 7,
         "value25": 0,
@@ -252,7 +253,7 @@
         "value71": 1,
         "value72": {
             "cereal_class_version": 0,
-            "GameObjectID": 1243482678751162951,
+            "GameObjectID": 5469280175021168163,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -261,9 +262,7 @@
                         "Name": "TankSFX",
                         "Events": [
                             "Play_TankBerserker",
-                            "Play_TankDead",
                             "Play_TankDetectPlayer",
-                            "Play_TankHurt",
                             "Play_TankImpactPlayer",
                             "Play_TankSteps"
                         ]
@@ -271,8 +270,8 @@
                 }
             },
             "AudioBankName": "TankSFX",
-            "EventName": "Play_TankDead",
-            "Volume": 0.27799999713897707,
+            "EventName": "Play_TankSteps",
+            "Volume": 0.32499998807907107,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -296,15 +295,15 @@
         },
         "value73": 2,
         "value74": {
-            "GameObjectID": 12851904662088717239,
+            "GameObjectID": 20035084951501541,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "TankSFX",
-            "EventName": "Play_TankHurt",
-            "Volume": 0.1940000057220459,
+            "EventName": "Play_TankBerserker",
+            "Volume": 0.3630000054836273,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -328,24 +327,15 @@
         },
         "value75": 3,
         "value76": {
-            "GameObjectID": 6489254453371455043,
+            "GameObjectID": 15389217686627097709,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483650,
-                    "data": {
-                        "Name": "TankSFX",
-                        "Events": [
-                            "Play_TankBerserker",
-                            "Play_TankDetectPlayer",
-                            "Play_TankImpactPlayer",
-                            "Play_TankSteps"
-                        ]
-                    }
+                    "id": 1
                 }
             },
             "AudioBankName": "TankSFX",
-            "EventName": "Play_TankImpactPlayer",
-            "Volume": 0.24500000476837159,
+            "EventName": "Play_TankDetectPlayer",
+            "Volume": 0.4099999964237213,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -369,15 +359,15 @@
         },
         "value77": 4,
         "value78": {
-            "GameObjectID": 15389217686627097709,
+            "GameObjectID": 6489254453371455043,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2
+                    "id": 1
                 }
             },
             "AudioBankName": "TankSFX",
-            "EventName": "Play_TankDetectPlayer",
-            "Volume": 0.2070000022649765,
+            "EventName": "Play_TankImpactPlayer",
+            "Volume": 0.27799999713897707,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -401,15 +391,26 @@
         },
         "value79": 5,
         "value80": {
-            "GameObjectID": 20035084951501541,
+            "GameObjectID": 12851904662088717239,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2
+                    "id": 2147483650,
+                    "data": {
+                        "Name": "TankSFX",
+                        "Events": [
+                            "Play_TankBerserker",
+                            "Play_TankDead",
+                            "Play_TankDetectPlayer",
+                            "Play_TankHurt",
+                            "Play_TankImpactPlayer",
+                            "Play_TankSteps"
+                        ]
+                    }
                 }
             },
             "AudioBankName": "TankSFX",
-            "EventName": "Play_TankBerserker",
-            "Volume": 0.25,
+            "EventName": "Play_TankHurt",
+            "Volume": 0.34599998593330386,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -433,15 +434,15 @@
         },
         "value81": 6,
         "value82": {
-            "GameObjectID": 5469280175021168163,
+            "GameObjectID": 1243482678751162951,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2
                 }
             },
             "AudioBankName": "TankSFX",
-            "EventName": "Play_TankSteps",
-            "Volume": 0.32499998807907107,
+            "EventName": "Play_TankDead",
+            "Volume": 0.4699999988079071,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {

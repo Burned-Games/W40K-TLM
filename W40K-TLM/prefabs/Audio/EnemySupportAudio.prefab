@@ -2,20 +2,21 @@
     "value0": {
         "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "EnemySupportAudio_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 6850287579730623741
-            }
+                "value0": 8188927276422815923
+            },
+            "value4": false
         },
         "RootEntity": 0,
-        "value0": 7,
-        "value1": 7,
+        "value0": 8,
+        "value1": 8,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -24,38 +25,43 @@
         "value7": 5,
         "value8": 6,
         "value9": 7,
-        "value10": 0,
-        "value11": {
+        "value10": 8,
+        "value11": 0,
+        "value12": {
             "cereal_class_version": 0,
             "Tag": "EnemySupportAudio"
         },
-        "value12": 1,
-        "value13": {
-            "Tag": "SupportAttackSFX"
-        },
-        "value14": 2,
-        "value15": {
-            "Tag": "SupportHurtSFX"
-        },
-        "value16": 3,
-        "value17": {
-            "Tag": "SupportShieldExplosionSFX"
-        },
-        "value18": 4,
-        "value19": {
-            "Tag": "SupportShieldZapsSFX"
-        },
-        "value20": 5,
-        "value21": {
-            "Tag": "SupportShieldAssignSFX"
-        },
-        "value22": 6,
-        "value23": {
+        "value13": 1,
+        "value14": {
             "Tag": "SupportDeadSFX"
         },
-        "value24": 7,
-        "value25": 0,
+        "value15": 2,
+        "value16": {
+            "Tag": "SupportShieldAssignSFX"
+        },
+        "value17": 3,
+        "value18": {
+            "Tag": "SupportShieldZapsSFX"
+        },
+        "value19": 4,
+        "value20": {
+            "Tag": "SupportShieldExplosionSFX"
+        },
+        "value21": 5,
+        "value22": {
+            "Tag": "SupportHurtSFX"
+        },
+        "value23": 6,
+        "value24": {
+            "Tag": "SupportAttackSFX"
+        },
+        "value25": 7,
         "value26": {
+            "Tag": "SupportStepsSFX"
+        },
+        "value27": 8,
+        "value28": 0,
+        "value29": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
@@ -73,8 +79,8 @@
                 "z": 1.0
             }
         },
-        "value27": 1,
-        "value28": {
+        "value30": 1,
+        "value31": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -91,8 +97,8 @@
                 "z": 1.0
             }
         },
-        "value29": 2,
-        "value30": {
+        "value32": 2,
+        "value33": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -109,8 +115,8 @@
                 "z": 1.0
             }
         },
-        "value31": 3,
-        "value32": {
+        "value34": 3,
+        "value35": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -127,8 +133,8 @@
                 "z": 1.0
             }
         },
-        "value33": 4,
-        "value34": {
+        "value36": 4,
+        "value37": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -145,8 +151,8 @@
                 "z": 1.0
             }
         },
-        "value35": 5,
-        "value36": {
+        "value38": 5,
+        "value39": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -163,96 +169,122 @@
                 "z": 1.0
             }
         },
-        "value37": 6,
-        "value38": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value39": 7,
-        "value40": 0,
+        "value40": 6,
         "value41": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value42": 7,
+        "value43": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value44": 8,
+        "value45": 0,
+        "value46": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value42": 1,
-        "value43": {
+        "value47": 1,
+        "value48": {
             "Parent": 0,
             "First": 4294967295,
-            "Next": 6,
-            "Prev": 4
+            "Next": 7,
+            "Prev": 5
         },
-        "value44": 2,
-        "value45": {
+        "value49": 2,
+        "value50": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1
         },
-        "value46": 3,
-        "value47": {
+        "value51": 3,
+        "value52": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2
         },
-        "value48": 4,
-        "value49": {
+        "value53": 4,
+        "value54": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 3
         },
-        "value50": 5,
-        "value51": {
+        "value55": 5,
+        "value56": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4
         },
-        "value52": 6,
-        "value53": {
+        "value57": 6,
+        "value58": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 5
         },
-        "value54": 0,
-        "value55": 0,
-        "value56": 0,
-        "value57": 0,
-        "value58": 0,
-        "value59": 0,
-        "value60": 7,
+        "value59": 7,
+        "value60": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
         "value61": 0,
-        "value62": 1,
-        "value63": 2,
-        "value64": 3,
-        "value65": 4,
-        "value66": 5,
-        "value67": 6,
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 8,
         "value68": 0,
-        "value69": 0,
-        "value70": 6,
-        "value71": 1,
-        "value72": {
+        "value69": 1,
+        "value70": 2,
+        "value71": 3,
+        "value72": 4,
+        "value73": 5,
+        "value74": 6,
+        "value75": 7,
+        "value76": 0,
+        "value77": 0,
+        "value78": 7,
+        "value79": 1,
+        "value80": {
             "cereal_class_version": 0,
-            "GameObjectID": 17823738342426269225,
+            "GameObjectID": 2161050214705992754,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -271,8 +303,8 @@
                 }
             },
             "AudioBankName": "SupportSFX",
-            "EventName": "Play_SupportAtack",
-            "Volume": 0.2639999985694885,
+            "EventName": "Play_SuppportDead",
+            "Volume": 0.35100001096725466,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -294,104 +326,8 @@
                 "m33": 1.0
             }
         },
-        "value73": 2,
-        "value74": {
-            "GameObjectID": 15812238549855525834,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "SupportSFX",
-            "EventName": "Play_SupportHurt",
-            "Volume": 0.15600000321865083,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value75": 3,
-        "value76": {
-            "GameObjectID": 8039282295519323865,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "SupportSFX",
-            "EventName": "Play_SupportShieldExplosion",
-            "Volume": 0.24500000476837159,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value77": 4,
-        "value78": {
-            "GameObjectID": 17576498467317421537,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "SupportSFX",
-            "EventName": "Play_SupportShieldZaps",
-            "Volume": 0.2590000033378601,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value79": 5,
-        "value80": {
+        "value81": 2,
+        "value82": {
             "GameObjectID": 3790961122601345320,
             "AudioBank": {
                 "ptr_wrapper": {
@@ -422,17 +358,17 @@
                 "m33": 1.0
             }
         },
-        "value81": 6,
-        "value82": {
-            "GameObjectID": 2161050214705992754,
+        "value83": 3,
+        "value84": {
+            "GameObjectID": 17576498467317421537,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "SupportSFX",
-            "EventName": "Play_SuppportDead",
-            "Volume": 0.05700000002980232,
+            "EventName": "Play_SupportShieldZaps",
+            "Volume": 0.32499998807907107,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -454,16 +390,157 @@
                 "m33": 1.0
             }
         },
-        "value83": 0,
-        "value84": 0,
-        "value85": 0,
-        "value86": 0,
-        "value87": 0,
-        "value88": 0,
-        "value89": 0,
-        "value90": 0,
-        "value91": 0,
-        "value92": 0,
-        "value93": 0
+        "value85": 4,
+        "value86": {
+            "GameObjectID": 8039282295519323865,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "SupportSFX",
+            "EventName": "Play_SupportShieldExplosion",
+            "Volume": 0.24500000476837159,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value87": 5,
+        "value88": {
+            "GameObjectID": 15812238549855525834,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "SupportSFX",
+            "EventName": "Play_SupportHurt",
+            "Volume": 0.3019999861717224,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value89": 6,
+        "value90": {
+            "GameObjectID": 17823738342426269225,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 1
+                }
+            },
+            "AudioBankName": "SupportSFX",
+            "EventName": "Play_SupportAtack",
+            "Volume": 0.4359999895095825,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value91": 7,
+        "value92": {
+            "GameObjectID": 2844986328838895837,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "Name": "RangedSFX",
+                        "Events": [
+                            "Play_EnemyRangeAlert",
+                            "Play_RangedDying",
+                            "Play_RangedHurt",
+                            "Play_RangedImpactoBalasPlayer",
+                            "Play_RangedImpactoCaCPlayer",
+                            "Play_RangedShot",
+                            "Play_RangedStomp",
+                            "Play_RangeSteps"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "RangedSFX",
+            "EventName": "Play_RangeSteps",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value93": 0,
+        "value94": 0,
+        "value95": 0,
+        "value96": 0,
+        "value97": 0,
+        "value98": 0,
+        "value99": 0,
+        "value100": 0,
+        "value101": 0,
+        "value102": 0,
+        "value103": 0
     }
 }

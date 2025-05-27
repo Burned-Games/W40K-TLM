@@ -2,20 +2,21 @@
     "value0": {
         "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
+            "cereal_class_version": 1,
             "value0": "EnemyRangeAudio_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 11205594507152827067
-            }
+                "value0": 14475546368175045530
+            },
+            "value4": false
         },
         "RootEntity": 0,
-        "value0": 7,
-        "value1": 7,
+        "value0": 9,
+        "value1": 9,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -24,38 +25,48 @@
         "value7": 5,
         "value8": 6,
         "value9": 7,
-        "value10": 0,
-        "value11": {
+        "value10": 8,
+        "value11": 9,
+        "value12": 0,
+        "value13": {
             "cereal_class_version": 0,
             "Tag": "EnemyRangeAudio"
         },
-        "value12": 1,
-        "value13": {
-            "Tag": "RangeStompSFX"
-        },
-        "value14": 2,
+        "value14": 1,
         "value15": {
-            "Tag": "RangeShotSFX"
+            "Tag": "RangeDyingSFX"
         },
-        "value16": 3,
+        "value16": 2,
         "value17": {
-            "Tag": "RangeCaCImpactSFX"
+            "Tag": "RangeHurtSFX"
         },
-        "value18": 4,
+        "value18": 3,
         "value19": {
             "Tag": "RangeBulletImpactSFX"
         },
-        "value20": 5,
+        "value20": 4,
         "value21": {
-            "Tag": "RangeHurtSFX"
+            "Tag": "RangeCaCImpactSFX"
         },
-        "value22": 6,
+        "value22": 5,
         "value23": {
-            "Tag": "RangeDyingSFX"
+            "Tag": "RangeShotSFX"
         },
-        "value24": 7,
-        "value25": 0,
-        "value26": {
+        "value24": 6,
+        "value25": {
+            "Tag": "RangeStompSFX"
+        },
+        "value26": 7,
+        "value27": {
+            "Tag": "RangeStepsSFX"
+        },
+        "value28": 8,
+        "value29": {
+            "Tag": "RangeAlertSFX"
+        },
+        "value30": 9,
+        "value31": 0,
+        "value32": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
@@ -73,61 +84,7 @@
                 "z": 1.0
             }
         },
-        "value27": 1,
-        "value28": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value29": 2,
-        "value30": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value31": 3,
-        "value32": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value33": 4,
+        "value33": 1,
         "value34": {
             "Position": {
                 "x": 0.0,
@@ -145,7 +102,7 @@
                 "z": 1.0
             }
         },
-        "value35": 5,
+        "value35": 2,
         "value36": {
             "Position": {
                 "x": 0.0,
@@ -163,7 +120,7 @@
                 "z": 1.0
             }
         },
-        "value37": 6,
+        "value37": 3,
         "value38": {
             "Position": {
                 "x": 0.0,
@@ -181,78 +138,184 @@
                 "z": 1.0
             }
         },
-        "value39": 7,
-        "value40": 0,
-        "value41": {
+        "value39": 4,
+        "value40": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value41": 5,
+        "value42": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value43": 6,
+        "value44": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value45": 7,
+        "value46": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value47": 8,
+        "value48": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value49": 9,
+        "value50": 0,
+        "value51": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value42": 1,
-        "value43": {
+        "value52": 1,
+        "value53": {
             "Parent": 0,
             "First": 4294967295,
-            "Next": 6,
-            "Prev": 4
+            "Next": 8,
+            "Prev": 6
         },
-        "value44": 2,
-        "value45": {
+        "value54": 2,
+        "value55": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1
         },
-        "value46": 3,
-        "value47": {
+        "value56": 3,
+        "value57": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2
         },
-        "value48": 4,
-        "value49": {
+        "value58": 4,
+        "value59": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 3
         },
-        "value50": 5,
-        "value51": {
+        "value60": 5,
+        "value61": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4
         },
-        "value52": 6,
-        "value53": {
+        "value62": 6,
+        "value63": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 5
         },
-        "value54": 0,
-        "value55": 0,
-        "value56": 0,
-        "value57": 0,
-        "value58": 0,
-        "value59": 0,
-        "value60": 7,
-        "value61": 0,
-        "value62": 1,
-        "value63": 2,
-        "value64": 3,
-        "value65": 4,
-        "value66": 5,
-        "value67": 6,
+        "value64": 7,
+        "value65": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
+        "value66": 8,
+        "value67": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 7
+        },
         "value68": 0,
         "value69": 0,
-        "value70": 6,
-        "value71": 1,
-        "value72": {
+        "value70": 0,
+        "value71": 0,
+        "value72": 0,
+        "value73": 0,
+        "value74": 9,
+        "value75": 0,
+        "value76": 1,
+        "value77": 2,
+        "value78": 3,
+        "value79": 4,
+        "value80": 5,
+        "value81": 6,
+        "value82": 7,
+        "value83": 8,
+        "value84": 0,
+        "value85": 0,
+        "value86": 8,
+        "value87": 1,
+        "value88": {
             "cereal_class_version": 0,
-            "GameObjectID": 7767491048050014299,
+            "GameObjectID": 5726376078884207463,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
@@ -271,8 +334,8 @@
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedStomp",
-            "Volume": 0.27399998903274538,
+            "EventName": "Play_RangedDying",
+            "Volume": 0.6620000004768372,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -294,9 +357,9 @@
                 "m33": 1.0
             }
         },
-        "value73": 2,
-        "value74": {
-            "GameObjectID": 3974621043292008700,
+        "value89": 2,
+        "value90": {
+            "GameObjectID": 6484491094923457821,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483650,
@@ -313,8 +376,8 @@
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedShot",
-            "Volume": 0.24699999392032624,
+            "EventName": "Play_RangedHurt",
+            "Volume": 0.4090000092983246,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -336,40 +399,8 @@
                 "m33": 1.0
             }
         },
-        "value75": 3,
-        "value76": {
-            "GameObjectID": 4758222267947128748,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 2
-                }
-            },
-            "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedImpactoCaCPlayer",
-            "Volume": 0.3070000112056732,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value77": 4,
-        "value78": {
+        "value91": 3,
+        "value92": {
             "GameObjectID": 5751540155656303417,
             "AudioBank": {
                 "ptr_wrapper": {
@@ -400,17 +431,17 @@
                 "m33": 1.0
             }
         },
-        "value79": 5,
-        "value80": {
-            "GameObjectID": 6484491094923457821,
+        "value93": 4,
+        "value94": {
+            "GameObjectID": 4758222267947128748,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedHurt",
-            "Volume": 0.10400000214576721,
+            "EventName": "Play_RangedImpactoCaCPlayer",
+            "Volume": 0.3799999952316284,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -432,17 +463,49 @@
                 "m33": 1.0
             }
         },
-        "value81": 6,
-        "value82": {
-            "GameObjectID": 5726376078884207463,
+        "value95": 5,
+        "value96": {
+            "GameObjectID": 3974621043292008700,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2
+                }
+            },
+            "AudioBankName": "RangedSFX",
+            "EventName": "Play_RangedShot",
+            "Volume": 0.4129999876022339,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value97": 6,
+        "value98": {
+            "GameObjectID": 7767491048050014299,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1
                 }
             },
             "AudioBankName": "RangedSFX",
-            "EventName": "Play_RangedDying",
-            "Volume": 0.515999972820282,
+            "EventName": "Play_RangedStomp",
+            "Volume": 0.46399998664855959,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
@@ -464,16 +527,93 @@
                 "m33": 1.0
             }
         },
-        "value83": 0,
-        "value84": 0,
-        "value85": 0,
-        "value86": 0,
-        "value87": 0,
-        "value88": 0,
-        "value89": 0,
-        "value90": 0,
-        "value91": 0,
-        "value92": 0,
-        "value93": 0
+        "value99": 7,
+        "value100": {
+            "GameObjectID": 17982687127556985171,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "Name": "RangedSFX",
+                        "Events": [
+                            "Play_EnemyRangeAlert",
+                            "Play_RangedDying",
+                            "Play_RangedHurt",
+                            "Play_RangedImpactoBalasPlayer",
+                            "Play_RangedImpactoCaCPlayer",
+                            "Play_RangedShot",
+                            "Play_RangedStomp",
+                            "Play_RangeSteps"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "RangedSFX",
+            "EventName": "Play_RangeSteps",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value101": 8,
+        "value102": {
+            "GameObjectID": 11366582417441160296,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 3
+                }
+            },
+            "AudioBankName": "RangedSFX",
+            "EventName": "Play_EnemyRangeAlert",
+            "Volume": 0.4569999873638153,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value103": 0,
+        "value104": 0,
+        "value105": 0,
+        "value106": 0,
+        "value107": 0,
+        "value108": 0,
+        "value109": 0,
+        "value110": 0,
+        "value111": 0,
+        "value112": 0,
+        "value113": 0
     }
 }
