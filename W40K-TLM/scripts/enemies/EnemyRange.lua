@@ -63,6 +63,8 @@ function on_ready()
     for _, child in ipairs(audioChildren) do
         if child:get_component("TagComponent").tag == "RangeDyingSFX" then
             range.dyingSFX = current_scene:get_entity_by_name("RangeDyingSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "RangeAlertSFX" then
+            range.detectionSFX = current_scene:get_entity_by_name("RangeAlertSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "RangeHurtSFX" then
             range.hurtSFX = current_scene:get_entity_by_name("RangeHurtSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "RangeStompSFX" then
@@ -73,6 +75,8 @@ function on_ready()
             range.meleeImpactSFX = current_scene:get_entity_by_name("RangeCaCImpactSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "RangeShotSFX" then
             range.rangeShotSFX = current_scene:get_entity_by_name("RangeShotSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "RangeStepsSFX" then
+            range.stepsSFX = current_scene:get_entity_by_name("RangeStepsSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "SupportShieldExplosionSFX" then
             range.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
         end

@@ -53,6 +53,8 @@ function on_ready()
             support.shieldZapsSFX = current_scene:get_entity_by_name("SupportShieldZapsSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "SupportShieldAssignSFX" then
             support.shieldAssignSFX = current_scene:get_entity_by_name("SupportShieldAssignSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "SupportStepsSFX" then
+            support.stepsSFX = current_scene:get_entity_by_name("SupportStepsSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "SupportHurtSFX" then
             support.hurtSFX = current_scene:get_entity_by_name("SupportHurtSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "SupportShieldExplosionSFX" then
@@ -495,6 +497,7 @@ function support:shoot_state(dt)
         if support.canPlayAttackAnim and support.currentAnim ~= support.attackAnim then
             support.currentAnim = support.attackAnim
             support.animator:set_current_animation(support.currentAnim)
+            support.attackSFX:play()
             support.canPlayAttackAnim = false  
         end
 
