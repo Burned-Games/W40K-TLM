@@ -264,7 +264,7 @@ function on_ready()
 
     playerDeathSFX = current_scene:get_entity_by_name("PlayerDeathSFX"):get_component("AudioSourceComponent")
     bleedingSFX = current_scene:get_entity_by_name("PlayerBleedingSFX"):get_component("AudioSourceComponent")
-    playerBurningSFX = current_scene:get_entity_by_name("PlayerBurningSFX"):get_component("AudioSourceComponent")
+    burningSFX = current_scene:get_entity_by_name("PlayerBurningSFX"):get_component("AudioSourceComponent")
     playerDashSFX = current_scene:get_entity_by_name("PlayerDashSFX"):get_component("AudioSourceComponent")
     playerInyectorSFX = current_scene:get_entity_by_name("PlayerInyectorSFX"):get_component("AudioSourceComponent")
     playerOverloadsSFX = current_scene:get_entity_by_name("PlayerOverloadsSFX"):get_component("AudioSourceComponent")

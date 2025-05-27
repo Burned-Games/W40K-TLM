@@ -58,7 +58,7 @@ function effect:handle_periodic_damage(entityScript, health, dt, effectType)
         damage = burnDamage
         interval = burnInterval
         timeSince = timeSinceLastBurn
-        sfx = entityScript.bleedingSFX -- Cambiar a la SFX de quemadura cuando se tenga audio
+        sfx = entityScript.burningSFX
     else
         return health
     end

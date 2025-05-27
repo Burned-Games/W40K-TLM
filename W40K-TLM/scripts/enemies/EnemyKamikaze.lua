@@ -63,6 +63,8 @@ function on_ready()
             kamikaze.kamikazeExplosionSFX = current_scene:get_entity_by_name("KamikazeExplosionSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "KamikazeScreamBoomSFX" then
             kamikaze.kamikazeScreamBoomSFX = current_scene:get_entity_by_name("KamikazeScreamBoomSFX"):get_component("AudioSourceComponent")
+        elseif child:get_component("TagComponent").tag == "KamikazeStepsSFX" then
+            kamikaze.stepsSFX = current_scene:get_entity_by_name("KamikazeStepsSFX"):get_component("AudioSourceComponent")
         elseif child:get_component("TagComponent").tag == "SupportShieldExplosionSFX" then
             kamikaze.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
         end
@@ -181,7 +183,6 @@ function on_update(dt)
         end
         
         kamikaze:die_state()
-        kamikaze.kamikazeExplosionSFX:play()
     end
 
     if kamikaze.haveShield and kamikaze.enemyShield <= 0 then
