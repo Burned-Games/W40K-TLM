@@ -381,7 +381,7 @@ function on_ready()
         --animacionEntradaRealizada = true
     end
 
-    if level == 3 or SceneManager:get_scene_name() == "level3.TeaScene" then
+    if SceneManager:get_scene_name() == "level3.TeaScene" then
         neuralInParticle = current_scene:get_entity_by_name("NeuralInhibitionPartycle"):get_component("TransformComponent")
     end
 
