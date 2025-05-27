@@ -140,6 +140,8 @@ function on_ready()
     support.allShielded = true
     support.isShootingBurst = false
     support.isPlayingAnimation = false
+    support.canPlayAttackAnim = true  
+    support.waitingForShield = false 
 
     -- Ints
     support.currentWaypoint = 1
@@ -291,7 +293,6 @@ function change_state()
         support.findEnemiesTimer = 0
     end
 
-    
     if #support.Enemies == 0 then
         support.currentState = support.state.Shoot
         return
@@ -347,11 +348,6 @@ function change_state()
 end
 
 function support:move_state(dt)
-    if support.currentAnim ~= support.moveAnim then
-        support.currentAnim = support.moveAnim
-        support.animator:set_current_animation(support.currentAnim)
-    end 
-    
     local validTargets = {}
     for _, enemyData in ipairs(support.Enemies) do
         if not enemyData.haveShield then
@@ -366,12 +362,11 @@ function support:move_state(dt)
     end
 
     if #validTargets > 0 then
-        -- 2. Ordenamos los enemigos válidos por prioridad (de mayor a menor)
+        
         table.sort(validTargets, function(a, b)
             return a.priority > b.priority
         end)
         
-        -- 3. Tomamos los enemigos con la prioridad más alta
         local maxPriority = validTargets[1].priority
         local highestPriorityTargets = {}
         
@@ -381,7 +376,6 @@ function support:move_state(dt)
             end
         end
         
-        -- 4. Entre los de máxima prioridad, elegimos el más cercano
         local previousTarget = support.currentTarget
         local closestDist = math.huge
         for _, candidate in ipairs(highestPriorityTargets) do
@@ -395,9 +389,36 @@ function support:move_state(dt)
         end
     end
     
-    -- Movement management
     if support.currentTarget and support.currentTarget.transform then
         local targetPos = support.currentTarget.transform
+        local currentDistance = support:get_distance(support.enemyTransf.position, targetPos.position)
+        local stoppingDistance = support.shieldRange
+
+        
+        if currentDistance <= stoppingDistance then
+            support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+            
+            if support.canUseShield then
+                
+                support.currentState = support.state.Shield
+            else
+                
+                support.waitingForShield = true
+                if support.currentAnim ~= support.idleAnim then
+                    support.currentAnim = support.idleAnim
+                    support.animator:set_current_animation(support.currentAnim)
+                end
+            end
+            return
+        end
+
+        
+        support.waitingForShield = false
+        
+        if support.currentAnim ~= support.moveAnim then
+            support.currentAnim = support.moveAnim
+            support.animator:set_current_animation(support.currentAnim)
+        end 
         
         support.pathUpdateTimer = support.pathUpdateTimer + dt
         if support.pathUpdateTimer >= support.pathUpdateInterval or not support.lastTargetPos or (support.lastTargetPos and support:get_distance(support.lastTargetPos, targetPos.position) > 1.0) then
@@ -407,26 +428,6 @@ function support:move_state(dt)
         end
 
         support:follow_path() 
-        
-        local stoppingDistance = support.shieldRange  
-
-        local currentDistance = support:get_distance(support.enemyTransf.position, targetPos.position)
-
-        -- Si ya está suficientemente cerca, deja de moverse
-        if currentDistance <= stoppingDistance then
-            support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-            if support.currentAnim ~= support.idleAnim then
-            support.currentAnim = support.idleAnim
-            support.animator:set_current_animation(support.currentAnim)
-            end
-
-            return
-        end
-
-        -- Si está a distancia para escudo, lanza el escudo
-        if currentDistance <= support.shieldRange and support.canUseShield then
-            support.currentState = support.state.Shield
-        end
     else
         support.currentState = support.state.Shoot
     end
@@ -491,28 +492,29 @@ function support:shoot_state(dt)
 
     if support.isShootingBurst then
         
-        if support.currentAnim ~= support.attackAnim then
+        if support.canPlayAttackAnim and support.currentAnim ~= support.attackAnim then
             support.currentAnim = support.attackAnim
             support.animator:set_current_animation(support.currentAnim)
+            support.canPlayAttackAnim = false  
         end
 
         support.attackAnimTimer = support.attackAnimTimer + dt 
-        
-        
+      
         if support.attackAnimTimer >= support.attackAnimDuration then
             support.timeSinceLastShot = support.timeSinceLastShot + dt
 
-            
             if support.timeSinceLastShot >= support.burstCooldown and support.burstCount < support.maxBurstShots then
                 shoot_projectile(shouldTargetExplosive)
                 support.burstCount = support.burstCount + 1
                 support.timeSinceLastShot = 0
-
-                
+     
                 if support.burstCount >= support.maxBurstShots then
                     support.isShootingBurst = false
                     support.burstCooldownTimer = 0
                     support.attackAnimTimer = 0  
+                    support.canPlayAttackAnim = true  
+                    
+                    
                     if support.currentAnim ~= support.idleAnim then
                         support.currentAnim = support.idleAnim
                         support.animator:set_current_animation(support.currentAnim)
@@ -521,15 +523,20 @@ function support:shoot_state(dt)
             end
         end
     else
+        
+        if support.currentAnim ~= support.idleAnim then
+            support.currentAnim = support.idleAnim
+            support.animator:set_current_animation(support.currentAnim)
+        end
 
         support.burstCooldownTimer = support.burstCooldownTimer + dt
-
-        
+    
         if support.burstCooldownTimer >= support.timeBetweenBursts then
             support.isShootingBurst = true
             support.burstCount = 0
             support.timeSinceLastShot = 0
             support.attackAnimTimer = 0
+            support.canPlayAttackAnim = true  -- Permite reproducir la animación
         end
     end
 

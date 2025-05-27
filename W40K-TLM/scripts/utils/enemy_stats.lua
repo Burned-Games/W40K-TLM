@@ -102,7 +102,7 @@ local enemy_stats = {
 
             supportDamage = 4,
 
-            maxBurstShots = 4,
+            maxBurstShots = 3,
 
             detectionRange = 10,
             shieldRange = 5,
@@ -119,7 +119,7 @@ local enemy_stats = {
 
             timeBetweenBursts = 5.0,
             -- Minimun time between shots of the same burst
-            burstCooldown = 0.5
+            burstCooldown = 0.4
         },
 
 
