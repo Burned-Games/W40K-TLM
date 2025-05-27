@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{5A429F81-CB89-19A7-6B21-2DDF3662F747}",
+    "Hash": "{ED56E3F7-A0FC-CFED-9979-892125E0AFB8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -297,8 +297,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerBurning",
       "GUID": "{9D266046-B679-4230-AC9E-F644D83867C7}",
       "DurationType": "OneShot",
-      "DurationMin": "1.3900833",
-      "DurationMax": "2.0817292",
+      "DurationMin": "0.5946742",
+      "DurationMax": "0.8905586",
       "MediaRefs": [
        {
         "Id": "557785712"
@@ -481,6 +481,6 @@
     ]
    }
   ],
-  "FileHash": "{30F551EF-0DCB-724F-895F-1641C189D098}"
+  "FileHash": "{08AAAF1F-28BD-F255-A82B-317390CD4473}"
  }
 }
