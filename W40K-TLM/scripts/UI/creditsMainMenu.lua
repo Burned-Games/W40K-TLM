@@ -1,7 +1,7 @@
-local velocidad = 50
+local velocidad = 100
 local entidadCreditos
 local posicionY = 0
-local limiteSuperiorY = -1963
+local limiteSuperiorY = -2517
 local fondo = nil
 local fadeToBlackScript = nil
 
@@ -16,7 +16,7 @@ function on_ready()
     fondo = current_scene:get_entity_by_name("CreditosFondoD")
     fondo:set_active(false)
 
-    posicionY = 2500
+    posicionY = 2800
     move_ui_element(entidadCreditos, 0, posicionY)
 end
 
