@@ -8,7 +8,6 @@ local stats = nil
 
 local audioPrefab = "prefabs/Audio/EnemyRangeAudio.prefab"
 local runPrefab = "prefabs/particles/Lvl1_run.prefab"
-local bulletPrefab = "prefabs/Enemies/attacks/EnemyBullet.prefab"
 
 function on_ready() 
 
@@ -80,6 +79,28 @@ function on_ready()
         elseif child:get_component("TagComponent").tag == "SupportShieldExplosionSFX" then
             range.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
         end
+    end
+
+    -- Bullet pool
+    range.bulletPool = {}
+    range.bulletTimers = {}
+    range.maxBullets = 10
+    for i = 1, range.maxBullets do
+        local bulletEntity = current_scene:get_entity_by_name("EnemyBullet" .. i)
+
+        local bullet = {
+            entity = bulletEntity,
+            transform = bulletEntity:get_component("TransformComponent"),
+            rbComponent = bulletEntity:get_component("RigidbodyComponent"),
+            active = false
+        }
+
+        bullet.rb = bullet.rbComponent.rb
+        bullet.rb:set_trigger(true)
+        bullet.rb:set_position(Vector3.new(-1000, 0, -1000))
+
+        range.bulletPool[i] = bullet
+        range.bulletTimers[i] = 0
     end
 
 
@@ -192,7 +213,7 @@ function on_update(dt)
     if range.isPushed then return end
     if range.isGranadePushed then return end
         
-    --update_bullets(dt)
+    update_bullets(dt)
     change_state(dt)
 
     if range.currentState == range.state.Idle then return end
@@ -507,16 +528,34 @@ function range:stab_state(dt)
 
 end
 
+function update_bullets(dt)
+
+    for i, bullet in ipairs(range.bulletPool) do
+        if bullet.active then
+            range.bulletTimers[i] = range.bulletTimers[i] + dt
+            if range.bulletTimers[i] >= range.bulletLifetime then
+                deactivate_bullet(i)
+            end
+        end
+    end
+
+end
+
+function deactivate_bullet(index)
+
+    local bullet = range.bulletPool[index]
+    bullet.active = false
+
+    bullet.rb:set_position(Vector3.new(-1000, 0, -1000))
+    bullet.rb:set_velocity(Vector3.new(0, 0, 0))
+
+    range.bulletTimers[index] = 0
+
+end
+
 function shoot_projectile(targetExplosive)
 
-    local bullet = instantiate_prefab(bulletPrefab)
-    local bulletTransf = bullet:get_component("TransformComponent")
-    local bulletRbComp = bullet:get_component("RigidbodyComponent")
-    local bulletScript = bullet:get_component("ScriptComponent")
-    local bulletRb = bulletRbComp.rb
-    bulletRb:set_trigger(true)
-    bulletScript.lifeTime = range.bulletLifetime
-    bulletScript:on_ready()
+    local bullet = range.bulletPool[range.currentBulletIndex]
     local angle = math.rad(-range.enemyTransf.rotation.y)
     local offsetX = -0.161
     local offsetZ = 1.289
@@ -536,7 +575,7 @@ function shoot_projectile(targetExplosive)
 
     local startPos = Vector3.new(enemyX + rotatedX, range.enemyTransf.position.y + 1.033, enemyZ + rotatedZ)
 
-    bulletRb:set_position(startPos)
+    bullet.rb:set_position(startPos)
     
     -- Target position
     local targetPos = range.delayedPlayerPos -- Default to player
@@ -561,13 +600,13 @@ function shoot_projectile(targetExplosive)
 
     -- Set rotation
     local targetAngle = math.deg(range:atan2(rotatedX, rotatedZ))
-    bulletRb:set_rotation(Vector3.new(0, targetAngle, 0))
+    bullet.rb:set_rotation(Vector3.new(0, targetAngle, 0))
 
     -- Apply velocity
-    bulletRb:set_velocity(Vector3.new(rotatedX * range.bulletSpeed, 0, rotatedZ * range.bulletSpeed))
+    bullet.rb:set_velocity(Vector3.new(rotatedX * range.bulletSpeed, 0, rotatedZ * range.bulletSpeed))
 
     -- Collision handling for current bullet
-    bulletRbComp:on_collision_enter(function(entityA, entityB)
+    bullet.rbComponent:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
 
@@ -575,8 +614,14 @@ function shoot_projectile(targetExplosive)
             range:make_damage(range.rangeDamage) 
         end
         
-        --current_scene:destroy_entity(bullet)
+        deactivate_bullet(range.currentBulletIndex)
     end)
+
+    -- Update bullet index
+    range.currentBulletIndex = range.currentBulletIndex + 1
+    if range.currentBulletIndex > range.maxBullets then
+        range.currentBulletIndex = 1
+    end
 
 end
 
