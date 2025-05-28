@@ -219,6 +219,10 @@ end
 
 function on_update(dt)
 
+    if timerGranade < granadeCooldown then
+            timerGranade = timerGranade + dt
+        end
+
     for i = 1, bulletCount do
 
         if bulletTimers[i] ~= 0 then
@@ -370,9 +374,7 @@ function on_update(dt)
             
         end
 
-        if timerGranade < granadeCooldown then
-            timerGranade = timerGranade + dt
-        end
+        
     end
 end
 

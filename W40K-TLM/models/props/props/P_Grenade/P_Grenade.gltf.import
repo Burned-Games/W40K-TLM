@@ -1,0 +1,44 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "P_Grenade_Cylinder.012",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 9439504323275851771
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Grenade_Mat0",
+                        "value": {
+                            "value0": 11452614640699756327
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 7013549311078355076
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "models/props/props/P_Grenade/P_Grenade.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/7013549311078355076.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
