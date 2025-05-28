@@ -254,11 +254,20 @@ function enemy:detect_state(dt)
 
     if self.currentAnim ~= self.detectAnim then 
         if self.detectionSFX then self.detectionSFX:play() end
+        
+        local dx = self.playerTransf.position.x - self.enemyTransf.position.x
+        local dz = self.playerTransf.position.z - self.enemyTransf.position.z
+        self.detectionTargetRotation = math.deg(self:atan2(dx, dz))
+        
+        self.enemyRb:set_rotation(Vector3.new(0, self.detectionTargetRotation, 0))
+        self.currentRotationY = self.detectionTargetRotation
+        
         self:play_blocking_animation(self.detectAnim, self.detectDuration)
         log("Detect animation")
     end
 
     if self.animTimer >= self.detectDuration and not self.isAlerted then
+        self.detectionTargetRotation = nil
         self:alert_nearby_enemies(dt)
     end
 end
@@ -633,8 +642,6 @@ function enemy:generate_scrap()
 
     local scrapCount = math.random(1, 3)
     
-    log("Generating " .. scrapCount .. " scraps")
-    
     for i = 1, scrapCount do
         --offset para que no se spawneen uno encima de otro
         local offsetX = math.random(-100, 100) / 100  
@@ -650,7 +657,7 @@ function enemy:generate_scrap()
         local scrapTransf = scrap:get_component("TransformComponent")
         scrapTransf.position = spawnPosition
         
-        log("Spawned scrap " .. i .. " at position: " .. spawnPosition.x .. ", " .. spawnPosition.y .. ", " .. spawnPosition.z)
+        --log("Spawned scrap " .. i .. " at position: " .. spawnPosition.x .. ", " .. spawnPosition.y .. ", " .. spawnPosition.z)
         
         if i == 1 then
             self.scrap = scrap
@@ -702,7 +709,6 @@ function enemy:play_blocking_animation(animId, duration)
     self.isPlayingAnimation = true
     self.animDuration = duration
     self.animTimer = 0.0
-
 end
 
 function enemy:make_damage(damage)

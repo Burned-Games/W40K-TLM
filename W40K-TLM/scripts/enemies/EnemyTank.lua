@@ -93,9 +93,10 @@ function on_ready()
         tank.level = 3
         tank.auraTank = instantiate_prefab(auraPrefab)
         tank.auraTank:set_parent(self)
+        tank.zoneNumber = 4
     end
 
-    tank:set_stats(tank.level)
+    tank:set_stats(tank.level, tank.zoneNumber)
 
     
 
@@ -185,15 +186,11 @@ function on_ready()
             end
         else
             local isNonBlockingCollision = 
-                nameA == "Sphere1" or nameA == "Sphere2" or nameA == "Sphere3" or 
-                nameA == "Sphere4" or nameA == "Sphere5" or nameA == "Sphere6" or 
-                nameA == "Sphere7" or nameA == "Sphere8" or nameA == "Granade" or 
+                nameA:match("^Sphere") or nameA == "Granade" or 
                 nameA == "DisruptorBullet" or nameA == "ChargeZone" or
                 nameA == "EnemyRange" or nameA == "EnemyKamikaze" or nameA == "EnemySupport" or
                 nameA == "SupportBullet1" or nameA == "SupportBullet2" or nameA == "SupportBullet3" or
-                nameB == "Sphere1" or nameB == "Sphere2" or nameB == "Sphere3" or 
-                nameB == "Sphere4" or nameB == "Sphere5" or nameB == "Sphere6" or 
-                nameB == "Sphere7" or nameB == "Sphere8" or nameB == "Granade" or 
+                nameB:match("^Sphere") or nameB == "Granade" or
                 nameB == "DisruptorBullet" or nameB == "ChargeZone" or
                 nameB == "EnemyRange" or nameB == "EnemyKamikaze" or nameB == "EnemySupport" or
                 nameB == "SupportBullet1" or nameB == "SupportBullet2" or nameB == "SupportBullet3"
@@ -322,7 +319,7 @@ function on_update(dt)
         end
     end
 
-    if tank.playerDetected and tank.currentState ~= tank.state.Tackle then
+    if tank.playerDetected and tank.currentState ~= tank.state.Tackle and tank.currentState ~= tank.state.Detect then
         if tank.key == 0 then
              
             tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting + 1
