@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 13591901265510416509
+                "value0": 14698730838104095207
             },
             "value4": false
         },
@@ -28,18 +28,18 @@
         },
         "value8": 1,
         "value9": {
-            "Tag": "VFX_Explosion"
+            "Tag": "Root"
         },
         "value10": 2,
         "value11": {
-            "Tag": "Root"
+            "Tag": "VFX_Explosion"
         },
         "value12": 3,
         "value13": 0,
         "value14": {
             "cereal_class_version": 0,
             "Position": {
-                "x": -50.0,
+                "x": -52.98076248168945,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -114,44 +114,112 @@
             "Prev": 1
         },
         "value26": 1,
-        "value27": 1,
+        "value27": 2,
         "value28": {
             "cereal_class_version": 0,
             "Mesh": {
                 "value0": 8838044113410652157
             },
             "AnimatorUUID": {
-                "value0": 13998282216380276646
+                "value0": 10769495932378554873
             }
         },
         "value29": 1,
-        "value30": 1,
+        "value30": 2,
         "value31": {
             "cereal_class_version": 1,
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 1994458395019358906
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 2147483649,
+                "polymorphic_name": "Coffee::PBRMaterial",
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 5620694446686857653
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 5620694446686857653
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "VFX_Explosion_Mat0",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 1994458395019358906
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
             }
         },
         "value32": 0,
         "value33": 0,
         "value34": 0,
         "value35": 0,
-        "value36": 3,
-        "value37": 0,
-        "value38": 1,
-        "value39": 2,
-        "value40": 1,
-        "value41": 0,
-        "value42": {
+        "value36": 0,
+        "value37": 1,
+        "value38": 0,
+        "value39": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/Despawner.lua",
             "Language": 0
         },
-        "value43": 1,
-        "value44": 0,
-        "value45": {
+        "value40": 1,
+        "value41": 0,
+        "value42": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -160,11 +228,11 @@
                 "value0": 11491452278506668314
             },
             "AnimatorUUID": {
-                "value0": 13998282216380276646
+                "value0": 10769495932378554873
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483649,
+                    "id": 2147483650,
                     "data": {
                         "cereal_class_version": 0,
                         "CurrentAnimation": 0
@@ -173,7 +241,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483650,
+                    "id": 2147483651,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -184,6 +252,9 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
         "value46": 0,
         "value47": 0,
         "value48": 0,
@@ -192,9 +263,6 @@
         "value51": 0,
         "value52": 0,
         "value53": 0,
-        "value54": 0,
-        "value55": 0,
-        "value56": 0,
-        "value57": 0
+        "value54": 0
     }
 }
