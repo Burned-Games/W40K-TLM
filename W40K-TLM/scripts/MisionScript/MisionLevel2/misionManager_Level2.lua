@@ -332,3 +332,6 @@ end
 function getCurrerLevel()  
     return current_Level
 end
+
+function on_exit()
+end
