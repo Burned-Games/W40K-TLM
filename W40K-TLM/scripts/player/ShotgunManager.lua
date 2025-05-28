@@ -291,7 +291,7 @@ function on_update(dt)
                         playerScript.currentUpAnim = playerScript.reload_Shotgun
                         playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     end
-                    return 
+                    
                 end
             end
             local rightTrigger = Input.get_button(Input.action.Shoot)
