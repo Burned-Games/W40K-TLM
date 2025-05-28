@@ -304,6 +304,7 @@ function kamikaze:attack_state()
 
         -- VFX
         kamikaze.explosion = instantiate_prefab(explosionPrefab)
+        kamikaze.explosion:set_active(true)
         kamikaze.explosionTransf = kamikaze.explosion:get_component("TransformComponent")
         kamikaze.explosionScript = kamikaze.explosion:get_component("ScriptComponent")
         kamikaze.explosionTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y, kamikaze.enemyTransf.position.z)
