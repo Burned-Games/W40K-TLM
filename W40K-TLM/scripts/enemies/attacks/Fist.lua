@@ -1,7 +1,6 @@
 local stats_data = require("scripts/utils/enemy_stats")
 
 --Prefabs locations
-local fistPrefab = "prefabs/Enemies/attacks/BossFist.prefab"
 local fistIndicatorPrefab = "prefabs/Enemies/attacks/BossFistIndicator.prefab"
 
 -- Fists
@@ -60,16 +59,19 @@ function on_ready()
     bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
 
     -- Fists
-    for i = 1, fistMaxNumbers do
-        local fistEntity = instantiate_prefab(fistPrefab)
-        fistEntity:set_active(true)
-        fistAttacks[i] = fistEntity
-        fistAnimator[i] = fistAttacks[i]:get_component("AnimatorComponent")
-        fistTransf[i] = fistAttacks[i]:get_component("TransformComponent")
-        fistRbComponent[i] = fistAttacks[i]:get_component("RigidbodyComponent")
+    local fistChildren = self:get_children()
+    local i = 1
+    for _, child in ipairs(fistChildren) do
+        child:set_active(true)
+        fistAttacks[i] = child
+        fistAnimator[i] = child:get_component("AnimatorComponent")
+        fistTransf[i] = child:get_component("TransformComponent")
+        fistRbComponent[i] = child:get_component("RigidbodyComponent")
         fistRbs[i] = fistRbComponent[i].rb
         fistRbs[i]:set_position(Vector3.new(-500, 0, -500))
         fistRbs[i]:set_trigger(true)
+        
+        i = i + 1
     end
 
     -- Fists Indicators
