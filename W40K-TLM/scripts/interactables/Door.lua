@@ -11,10 +11,11 @@ local openAnimation = 0
 local closeAnimation = 1
 
 local doorSFX = nil
+local doorCloseSFX = nil
 
 function on_ready()
 
-    doorSFX = current_scene:get_entity_by_name("EnviroMetaldoorSFX"):get_component("AudioSourceComponent")
+    doorSFX = self:get_component("AudioSourceComponent")
 
     rigidBody = self:get_component("RigidbodyComponent").rb
     local children = self:get_children()
@@ -29,8 +30,13 @@ function on_ready()
         if childTag:match("^ExitTrigger") then
             exitPosition = child:get_component("TransformComponent").position
         end
+        if childTag:match("^CloseSFX")  then
+            doorCloseSFX = child:get_component("AudioSourceComponent")
+        end
     end
     
+
+
     playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent").position
     doorPosition = self:get_component("TransformComponent").position
 
@@ -52,6 +58,9 @@ function on_update(dt)
             currentInteractions = 0
             if animator then
                 animator:set_current_animation(closeAnimation)
+            end
+            if doorCloseSFX then
+                doorCloseSFX:play()
             end
             rigidBody:set_trigger(false)
             isClosed = true

@@ -29,7 +29,7 @@ function on_ready()
     transform = self:get_component("TransformComponent")
     leverAnimator = self:get_component("AnimatorComponent")
 
-    leverSFX = current_scene:get_entity_by_name("EnviroLeverSFX"):get_component("AudioSourceComponent")
+    leverSFX = self:get_component("AudioSourceComponent")
 
 
     local children = self:get_children()

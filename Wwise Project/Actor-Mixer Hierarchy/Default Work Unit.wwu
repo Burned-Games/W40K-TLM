@@ -5372,7 +5372,7 @@
 					<ChildrenList>
 						<Sound Name="metaldoor" ID="{B8D1703E-5B8A-420A-8031-AF8E7E024064}" ShortID="778818223">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
@@ -6037,7 +6037,7 @@
 						</Sound>
 						<Sound Name="EnvironmentCloseDoor" ID="{7D040BE1-5976-4897-B304-5E5F88854E12}" ShortID="774762587">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
@@ -6066,7 +6066,7 @@
 						</Sound>
 						<Sound Name="EnvironmentCloseDoorColliseum" ID="{AEFF87FB-A9C1-4ECA-95C0-4AFAD2B0DDEF}" ShortID="857201486">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
