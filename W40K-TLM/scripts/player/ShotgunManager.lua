@@ -219,6 +219,10 @@ end
 
 function on_update(dt)
 
+    if timerGranade < granadeCooldown then
+            timerGranade = timerGranade + dt
+        end
+
     for i = 1, bulletCount do
 
         if bulletTimers[i] ~= 0 then
@@ -287,7 +291,7 @@ function on_update(dt)
                         playerScript.currentUpAnim = playerScript.reload_Shotgun
                         playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     end
-                    return 
+                    
                 end
             end
             local rightTrigger = Input.get_button(Input.action.Shoot)
@@ -370,9 +374,7 @@ function on_update(dt)
             
         end
 
-        if timerGranade < granadeCooldown then
-            timerGranade = timerGranade + dt
-        end
+        
     end
 end
 
