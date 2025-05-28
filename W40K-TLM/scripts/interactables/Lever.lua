@@ -142,7 +142,9 @@ function interact()
     hasInteracted = true
     currentInteractions = currentInteractions + 1
     leverAnimator:set_current_animation(0)
-    leverSFX:play()
+    if leverSFX then
+        leverSFX:play()
+    end
     parentScript:on_interact()
 end
 

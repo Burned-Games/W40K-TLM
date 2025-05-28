@@ -76,7 +76,9 @@ function on_interact()
         end
         rigidBody:set_trigger(true)
         isClosed = false
-        doorSFX:play()
+        if doorSFX then
+            doorSFX:play()
+        end
     end
 end
 
