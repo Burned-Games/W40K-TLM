@@ -32,20 +32,20 @@ function on_ready()
             background = child
         end
     end
-    indicatorTransform = indicator:get_component("TransformComponent")
-    indicatorTransform.scale = Vector3.new(0,0,0)
 
-    backgroundSprite = background:get_component("SpriteComponent")
-    indicatorSprite = indicator:get_component("SpriteComponent")
+    if indicator then
+        indicatorTransform = indicator:get_component("TransformComponent")
+        indicatorTransform.scale = Vector3.new(0,0,0)
+        indicatorSprite = indicator:get_component("SpriteComponent")
+        indicatorColor = indicatorSprite.tint_color
+        indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, 0)
+    end
 
-    
-
-    backgroundColor = backgroundSprite.tint_color
-    indicatorColor = indicatorSprite.tint_color
-
-    backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, 0)
-    indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, 0)
-
+    if background then
+        backgroundSprite = background:get_component("SpriteComponent")
+        backgroundColor = backgroundSprite.tint_color
+        backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, 0)
+    end
 
 end
 

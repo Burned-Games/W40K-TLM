@@ -217,8 +217,6 @@ local healAnimCounter = 0
 local healAnimationTime = 1
 
 
-local enemyOrkScript = nil
-
 movingBackLookingUp = false
 notMovingLookingUp = false
 notMovingnotLooking = false
@@ -311,7 +309,6 @@ function on_ready()
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
 
-    enemyOrkScript = current_scene:get_entity_by_name("EnemyRange"):get_component("ScriptComponent")
     bolterUpper = current_scene:get_entity_by_name("Bolter_upper")
     bolterLower = current_scene:get_entity_by_name("Bolter_Lower")
 
@@ -336,7 +333,7 @@ function on_ready()
         shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
     end
 
-    barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
+    --barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
 
     if self:has_component("AnimatorComponent") then
         animator = self:get_component("AnimatorComponent")
@@ -1528,23 +1525,23 @@ function attract_scrap(dt)
 end
 ]]
 function handleCover()
-    if sceneName ~= "level3.TeaScene" then
-        if barricadeScript and barricadeScript.isPlayerInRange == false then
-            isCovering = false
-            moveSpeed = normalSpeed * speedDebuf
-            return
-        end
-        if Input.get_button(Input.action.Cover) == Input.state.Down then
-            isCovering = not isCovering
-            --print("isCovering", isCovering)
-        end
+    -- if sceneName ~= "level3.TeaScene" then
+    --     if barricadeScript and barricadeScript.isPlayerInRange == false then
+    --         isCovering = false
+    --         moveSpeed = normalSpeed * speedDebuf
+    --         return
+    --     end
+    --     if Input.get_button(Input.action.Cover) == Input.state.Down then
+    --         isCovering = not isCovering
+    --         --print("isCovering", isCovering)
+    --     end
 
-        if isCovering then
-            moveSpeed = 4 * speedDebuf
-        else
-            moveSpeed = normalSpeed * speedDebuf
-        end
-    end
+    --     if isCovering then
+    --         moveSpeed = 4 * speedDebuf
+    --     else
+    --         moveSpeed = normalSpeed * speedDebuf
+    --     end
+    -- end
 end
 
 function HealPlayer()

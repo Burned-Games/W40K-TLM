@@ -62,6 +62,7 @@ function on_ready()
     -- Fists
     for i = 1, fistMaxNumbers do
         local fistEntity = instantiate_prefab(fistPrefab)
+        fistEntity:set_active(true)
         fistAttacks[i] = fistEntity
         fistAnimator[i] = fistAttacks[i]:get_component("AnimatorComponent")
         fistTransf[i] = fistAttacks[i]:get_component("TransformComponent")
