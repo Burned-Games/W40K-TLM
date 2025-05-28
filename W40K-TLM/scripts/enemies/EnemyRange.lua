@@ -89,6 +89,8 @@ function on_ready()
     range.enemyType = "range"
     range:set_level()
 
+    if self:get_component("TagComponent").tag == "EnemyTutorial" then range.level = 0 end
+
     range:set_stats(range.level)
 
     -- States
@@ -485,7 +487,7 @@ function range:stab_state(dt)
         if range.stabDamageTimer <= 0 and not range.hasDealtDamage and range.playerDistance <= range.meleeDamageRange then
             range.meleeImpactSFX:play()
             range:make_damage(range.meleeDamage)
-            if range.level ~= 1 then
+            if range.level == 2 then
                 effect:apply_bleed(range.playerScript)
             end
             range.hasDealtDamage = true

@@ -167,7 +167,7 @@ function Slash()
 
 
                         else
-                            if enemyTag == "EnemyRange" or enemyTag == "EnemyRange1" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
+                            if enemyTag == "EnemyRange" or enemyTag == "EnemyTutorial" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                                 enemyInstance = enemyScript.range
                             elseif enemyTag == "EnemySupport" then
                                 enemyInstance = enemyScript.support

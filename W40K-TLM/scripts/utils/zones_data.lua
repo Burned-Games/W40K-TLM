@@ -1,6 +1,6 @@
 local zones_data = {
 
-    level1 = {
+    level0 = {
                 {
             id = 1,
             points = {
@@ -9,7 +9,10 @@ local zones_data = {
                 {x = 56, z = -53},
                 {x = -2, z = -42}
             }
-        },
+        }
+    },
+
+    level1 = {
                 {
             id = 2,
             points = {

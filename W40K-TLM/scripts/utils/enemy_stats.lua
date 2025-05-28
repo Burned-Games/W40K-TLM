@@ -4,6 +4,48 @@ local enemy_stats = {
 
     range = {
 
+        -- Range Tutorial
+        [0] = {
+            -- Stats
+            health = 110,
+
+            speed = 5.5,
+            bulletSpeed = 50,
+
+            meleeDamage = 2,
+            rangeDamage = 3,
+
+            detectionRange = 15,
+            meleeAttackRange = 2,
+            meleeDamageRange = 4,
+            rangeAttackRange = 13,
+            chaseRange = 5,
+
+            maxBurstShots = 4,
+
+            dispersion = 7.5,
+
+            alertRadius = 10,
+
+            priority = 1,
+
+
+
+            -- **TIMERS**
+
+            -- Saves the position of the player for the enemy shoot
+            updateTargetInterval = 1.0,
+            -- Time between bursts
+            timeBetweenBursts = 1.0,
+            -- Minimun time between shots of the same burst
+            burstCooldown = 0.3,
+            -- Time between stabs attacks
+            stabCooldown = 2.0,
+            -- Lifetime of the bullets
+            bulletLifetime = 3.0
+        },
+
+
         -- Range Level 1
         [1] = {
             -- Stats
