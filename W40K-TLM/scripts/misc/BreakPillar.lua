@@ -110,13 +110,7 @@ end
 
 function on_update(dt)
     -- Add update code here
-    
-    if Input.is_key_pressed(Input.keycode.J) and not hasDestroyed then
-        give_phisycs()
-    end
-    
-    
-    
+
     if hasDestroyed and not hasDisappeared then
        
         disappearCounter = disappearCounter + dt

@@ -1,0 +1,286 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "Pillar3_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 17723807567516502752
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 4,
+        "value1": 4,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Tag": "Pillar3"
+        },
+        "value9": 1,
+        "value10": {
+            "Tag": "Normal3"
+        },
+        "value11": 2,
+        "value12": {
+            "Tag": "Normal2"
+        },
+        "value13": 3,
+        "value14": {
+            "Tag": "Normal"
+        },
+        "value15": 4,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value18": 1,
+        "value19": {
+            "Position": {
+                "x": 0.0,
+                "y": 8.412083625793457,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value20": 2,
+        "value21": {
+            "Position": {
+                "x": 0.0,
+                "y": 4.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value22": 3,
+        "value23": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 0.7990052700042725,
+                "y": 0.7990050911903381,
+                "z": 0.7990052700042725
+            }
+        },
+        "value24": 4,
+        "value25": 0,
+        "value26": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value27": 1,
+        "value28": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 3,
+            "Prev": 1
+        },
+        "value29": 2,
+        "value30": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value31": 3,
+        "value32": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value33": 3,
+        "value34": 1,
+        "value35": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 1225982427700920734
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value36": 2,
+        "value37": {
+            "Mesh": {
+                "value0": 1225982427700920734
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value38": 3,
+        "value39": {
+            "Mesh": {
+                "value0": 4202649660142453428
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value40": 3,
+        "value41": 1,
+        "value42": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 8042898857401502664
+            }
+        },
+        "value43": 2,
+        "value44": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 8042898857401502664
+            }
+        },
+        "value45": 3,
+        "value46": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 5961289793490985603
+            }
+        },
+        "value47": 0,
+        "value48": 1,
+        "value49": 0,
+        "value50": {
+            "cereal_class_version": 0,
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "m_Properties": {
+                            "cereal_class_version": 0,
+                            "type": 0,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": true,
+                            "freezeY": true,
+                            "freezeZ": true,
+                            "freezeRotX": true,
+                            "freezeRotY": true,
+                            "freezeRotZ": true,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Coffee::CapsuleCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "cereal_class_version": 0,
+                                        "ShapeType": 10,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Radius": 1.2000000476837159,
+                                        "Height": 6.200000286102295
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value51": 0,
+        "value52": 0,
+        "value53": 4,
+        "value54": 0,
+        "value55": 1,
+        "value56": 2,
+        "value57": 3,
+        "value58": 1,
+        "value59": 0,
+        "value60": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/misc/BreakPillar.lua",
+            "Language": 0
+        },
+        "value61": 0,
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 0,
+        "value66": 0,
+        "value67": 0,
+        "value68": 0,
+        "value69": 0,
+        "value70": 0,
+        "value71": 0,
+        "value72": 0,
+        "value73": 0
+    }
+}
