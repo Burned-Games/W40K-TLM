@@ -13916,7 +13916,7 @@
         "value4878": {
             "Position": {
                 "x": 0.0,
-                "y": 145.0,
+                "y": 110.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -13925,8 +13925,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 100.0,
-                "y": 100.0,
+                "x": 244.0,
+                "y": 57.0,
                 "z": 1.0
             }
         },
@@ -48309,7 +48309,7 @@
             "FlipY": false,
             "TilingFactor": 1.0
         },
-        "value9777": 69,
+        "value9777": 70,
         "value9778": 919,
         "value9779": {
             "cereal_class_version": 1,
@@ -50865,9 +50865,46 @@
             },
             "Layer": 0
         },
-        "value9916": 29,
-        "value9917": 921,
-        "value9918": {
+        "value9916": 1049701,
+        "value9917": {
+            "TextureUUID": {
+                "value0": 3791511175865031667
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -122.0,
+                    "y": 81.5
+                },
+                "OffsetMax": {
+                    "x": 122.0,
+                    "y": 138.5
+                }
+            },
+            "Layer": 0
+        },
+        "value9918": 28,
+        "value9919": 921,
+        "value9920": {
             "cereal_class_version": 0,
             "Text": "250",
             "FontPath": "fonts/Brawler-Regular.ttf",
@@ -50901,8 +50938,8 @@
             },
             "Layer": 0
         },
-        "value9919": 925,
-        "value9920": {
+        "value9921": 925,
+        "value9922": {
             "Text": "5",
             "FontPath": "fonts/Brawler-Regular.ttf",
             "Color": {
@@ -50935,41 +50972,7 @@
             },
             "Layer": 0
         },
-        "value9921": 928,
-        "value9922": {
-            "Text": "5",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 40.0,
-            "Alignment": 1,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": -50.0,
-                    "y": -40.0
-                },
-                "OffsetMax": {
-                    "x": 50.0,
-                    "y": 60.0
-                }
-            },
-            "Layer": 0
-        },
-        "value9923": 933,
+        "value9923": 928,
         "value9924": {
             "Text": "5",
             "FontPath": "",
@@ -51003,8 +51006,42 @@
             },
             "Layer": 0
         },
-        "value9925": 939,
+        "value9925": 933,
         "value9926": {
+            "Text": "5",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 40.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -40.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 60.0
+                }
+            },
+            "Layer": 0
+        },
+        "value9927": 939,
+        "value9928": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -51037,8 +51074,8 @@
             },
             "Layer": 0
         },
-        "value9927": 2010,
-        "value9928": {
+        "value9929": 2010,
+        "value9930": {
             "Text": "3",
             "FontPath": "",
             "Color": {
@@ -51071,8 +51108,8 @@
             },
             "Layer": 0
         },
-        "value9929": 945,
-        "value9930": {
+        "value9931": 945,
+        "value9932": {
             "Text": "24",
             "FontPath": "",
             "Color": {
@@ -51105,8 +51142,8 @@
             },
             "Layer": 0
         },
-        "value9931": 3147810,
-        "value9932": {
+        "value9933": 3147810,
+        "value9934": {
             "Text": "Weapons",
             "FontPath": "",
             "Color": {
@@ -51139,8 +51176,8 @@
             },
             "Layer": 31
         },
-        "value9933": 951,
-        "value9934": {
+        "value9935": 951,
+        "value9936": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -51173,8 +51210,8 @@
             },
             "Layer": 0
         },
-        "value9935": 957,
-        "value9936": {
+        "value9937": 957,
+        "value9938": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -51207,8 +51244,8 @@
             },
             "Layer": 0
         },
-        "value9937": 959,
-        "value9938": {
+        "value9939": 959,
+        "value9940": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -51241,8 +51278,8 @@
             },
             "Layer": 0
         },
-        "value9939": 961,
-        "value9940": {
+        "value9941": 961,
+        "value9942": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -51275,8 +51312,8 @@
             },
             "Layer": 0
         },
-        "value9941": 1049983,
-        "value9942": {
+        "value9943": 1049983,
+        "value9944": {
             "Text": "Lorem ipsum dolor sit\namet\n",
             "FontPath": "",
             "Color": {
@@ -51309,8 +51346,8 @@
             },
             "Layer": 31
         },
-        "value9943": 3147809,
-        "value9944": {
+        "value9945": 3147809,
+        "value9946": {
             "Text": "Upgrade",
             "FontPath": "",
             "Color": {
@@ -51343,8 +51380,8 @@
             },
             "Layer": 31
         },
-        "value9945": 3147812,
-        "value9946": {
+        "value9947": 3147812,
+        "value9948": {
             "Text": "Lorem ipsum dolor sit\namet\n",
             "FontPath": "",
             "Color": {
@@ -51377,8 +51414,8 @@
             },
             "Layer": 31
         },
-        "value9947": 2007,
-        "value9948": {
+        "value9949": 2007,
+        "value9950": {
             "Text": "9999",
             "FontPath": "",
             "Color": {
@@ -51411,8 +51448,8 @@
             },
             "Layer": 0
         },
-        "value9949": 1050248,
-        "value9950": {
+        "value9951": 1050248,
+        "value9952": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -51445,8 +51482,8 @@
             },
             "Layer": 0
         },
-        "value9951": 1050237,
-        "value9952": {
+        "value9953": 1050237,
+        "value9954": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -51479,8 +51516,8 @@
             },
             "Layer": 0
         },
-        "value9953": 3147814,
-        "value9954": {
+        "value9955": 3147814,
+        "value9956": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -51513,8 +51550,8 @@
             },
             "Layer": 0
         },
-        "value9955": 1050639,
-        "value9956": {
+        "value9957": 1050639,
+        "value9958": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -51547,8 +51584,8 @@
             },
             "Layer": 0
         },
-        "value9957": 1050640,
-        "value9958": {
+        "value9959": 1050640,
+        "value9960": {
             "Text": "DialogName",
             "FontPath": "",
             "Color": {
@@ -51581,8 +51618,8 @@
             },
             "Layer": 0
         },
-        "value9959": 1049977,
-        "value9960": {
+        "value9961": 1049977,
+        "value9962": {
             "Text": "Lorem ipsum dolor sit\n amet Lorem ipsum dolor\n sit amet Lorem ipsum \ndolor sit amet Lorem \nipsum dolor sit amet",
             "FontPath": "",
             "Color": {
@@ -51615,8 +51652,8 @@
             },
             "Layer": 31
         },
-        "value9961": 1049981,
-        "value9962": {
+        "value9963": 1049981,
+        "value9964": {
             "Text": "Character\n",
             "FontPath": "",
             "Color": {
@@ -51649,8 +51686,8 @@
             },
             "Layer": 31
         },
-        "value9963": 1049980,
-        "value9964": {
+        "value9965": 1049980,
+        "value9966": {
             "Text": "300",
             "FontPath": "",
             "Color": {
@@ -51683,8 +51720,8 @@
             },
             "Layer": 31
         },
-        "value9965": 1049979,
-        "value9966": {
+        "value9967": 1049979,
+        "value9968": {
             "Text": "Upgrade",
             "FontPath": "",
             "Color": {
@@ -51717,42 +51754,42 @@
             },
             "Layer": 31
         },
-        "value9967": 1049701,
-        "value9968": {
-            "Text": "Garrosh",
+        "value9969": 3147811,
+        "value9970": {
+            "Text": "Lorem ipsum dolor sit\n amet Lorem ipsum dolor\n sit amet Lorem ipsum \ndolor sit amet Lorem \nipsum dolor sit amet",
             "FontPath": "",
             "Color": {
-                "x": 0.5524193644523621,
-                "y": 0.0,
-                "z": 0.0,
+                "x": 0.43529412150382998,
+                "y": 0.10196078568696976,
+                "z": 0.05882352963089943,
                 "w": 1.0
             },
             "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 72.0,
+            "LineSpacing": -5.0,
+            "FontSize": 38.0,
             "Alignment": 1,
             "Anchor": {
                 "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.0
+                    "x": 0.0,
+                    "y": 0.5
                 },
                 "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.0
+                    "x": 0.0,
+                    "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -50.0,
-                    "y": 95.0
+                    "x": 180.0,
+                    "y": 106.0
                 },
                 "OffsetMax": {
-                    "x": 50.0,
-                    "y": 195.0
+                    "x": 280.0,
+                    "y": 206.0
                 }
             },
-            "Layer": 0
+            "Layer": 31
         },
-        "value9969": 3147813,
-        "value9970": {
+        "value9971": 3147813,
+        "value9972": {
             "Text": "999",
             "FontPath": "",
             "Color": {
@@ -51785,8 +51822,8 @@
             },
             "Layer": 31
         },
-        "value9971": 1050242,
-        "value9972": {
+        "value9973": 1050242,
+        "value9974": {
             "Text": "999999",
             "FontPath": "",
             "Color": {
@@ -51815,40 +51852,6 @@
                 "OffsetMax": {
                     "x": 150.0,
                     "y": -440.0
-                }
-            },
-            "Layer": 31
-        },
-        "value9973": 3147811,
-        "value9974": {
-            "Text": "Lorem ipsum dolor sit\n amet Lorem ipsum dolor\n sit amet Lorem ipsum \ndolor sit amet Lorem \nipsum dolor sit amet",
-            "FontPath": "",
-            "Color": {
-                "x": 0.43529412150382998,
-                "y": 0.10196078568696976,
-                "z": 0.05882352963089943,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": -5.0,
-            "FontSize": 38.0,
-            "Alignment": 1,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.0,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 0.0,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": 180.0,
-                    "y": 106.0
-                },
-                "OffsetMax": {
-                    "x": 280.0,
-                    "y": 206.0
                 }
             },
             "Layer": 31

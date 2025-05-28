@@ -13,7 +13,7 @@ function on_ready()
     bossBar = current_scene:get_entity_by_name("BossBar")
     bossBarBase = current_scene:get_entity_by_name("BossBarBase"):get_component("UIImageComponent")
     bossBarLife = current_scene:get_entity_by_name("BossLifeUI"):get_component("UIImageComponent")
-    bossName = current_scene:get_entity_by_name("BossName"):get_component("UITextComponent")
+    bossName = current_scene:get_entity_by_name("BossName"):get_component("UIImageComponent")
     bossManager = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent")
     playerManager = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
@@ -22,7 +22,7 @@ function on_ready()
 
     bossBarBase:set_color(Vector4.new(1, 1, 1, 0))
     bossBarLife:set_color(Vector4.new(1, 1, 1, 0))
-    bossName:set_color(Vector4.new(0.55, 0, 0, 0))
+    bossName:set_color(Vector4.new(1, 1, 1, 0))
     
     triggerBossBattle:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
@@ -50,7 +50,7 @@ function on_update(dt)
         end
         bossBarBase:set_color(Vector4.new(1, 1, 1, alpha))
         bossBarLife:set_color(Vector4.new(1, 1, 1, alpha))
-        bossName:set_color(Vector4.new(0.55, 0, 0, alpha))
+        bossName:set_color(Vector4.new(1, 1, 1, alpha))
     end
 
     if vida <= 0 then
