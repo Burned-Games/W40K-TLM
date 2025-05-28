@@ -23816,7 +23816,7 @@
         "value9516": {
             "Position": {
                 "x": 0.0,
-                "y": 145.0,
+                "y": 100.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -23825,8 +23825,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 100.0,
-                "y": 100.0,
+                "x": 292.0,
+                "y": 67.0,
                 "z": 1.0
             }
         },
@@ -31015,7 +31015,7 @@
         "value10315": 1050454,
         "value10316": {
             "Position": {
-                "x": 83.0,
+                "x": -103.0,
                 "y": 175.0,
                 "z": 0.0
             },
@@ -31025,8 +31025,8 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 579.0,
-                "y": 13.0,
+                "x": 208.0,
+                "y": 12.5,
                 "z": 1.0
             }
         },
@@ -135249,7 +135249,7 @@
         },
         "value23741": 2711,
         "value23742": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 705712693571407118,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136517,7 +136517,7 @@
         },
         "value23813": 2665,
         "value23814": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 14050315696230733700,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136549,7 +136549,7 @@
         },
         "value23815": 2675,
         "value23816": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 3925138307656824779,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136581,7 +136581,7 @@
         },
         "value23817": 2708,
         "value23818": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 6529884646173294340,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136613,7 +136613,7 @@
         },
         "value23819": 3147235,
         "value23820": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 13013491475473869743,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136645,7 +136645,7 @@
         },
         "value23821": 2100149,
         "value23822": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 8913604183570771909,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136677,7 +136677,7 @@
         },
         "value23823": 2661,
         "value23824": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 9604389974945454254,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136709,7 +136709,7 @@
         },
         "value23825": 2100153,
         "value23826": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 1541508870662789037,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136741,7 +136741,7 @@
         },
         "value23827": 2671,
         "value23828": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 8910057417460797963,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136773,7 +136773,7 @@
         },
         "value23829": 1048613,
         "value23830": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 7135066686933703337,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136805,7 +136805,7 @@
         },
         "value23831": 2704,
         "value23832": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 906234135140894991,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136837,7 +136837,7 @@
         },
         "value23833": 1048614,
         "value23834": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 17003122912674391415,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136869,7 +136869,7 @@
         },
         "value23835": 1461,
         "value23836": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 7170552716044531047,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -136901,7 +136901,7 @@
         },
         "value23837": 2099831,
         "value23838": {
-            "GameObjectID": 18446744073709551615,
+            "GameObjectID": 6484930159455099167,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 1968
@@ -146899,7 +146899,7 @@
             "FlipY": false,
             "TilingFactor": 1.0
         },
-        "value26248": 69,
+        "value26248": 70,
         "value26249": 919,
         "value26250": {
             "cereal_class_version": 1,
@@ -149445,19 +149445,56 @@
                     "y": 0.0
                 },
                 "OffsetMin": {
-                    "x": -206.5,
-                    "y": 168.5
+                    "x": -207.0,
+                    "y": 168.75
                 },
                 "OffsetMax": {
-                    "x": 372.5,
-                    "y": 181.5
+                    "x": 1.0,
+                    "y": 181.25
                 }
             },
             "Layer": 1
         },
-        "value26387": 29,
-        "value26388": 921,
-        "value26389": {
+        "value26387": 1050455,
+        "value26388": {
+            "TextureUUID": {
+                "value0": 4812001131096261445
+            },
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "UVRect": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.0
+                },
+                "OffsetMin": {
+                    "x": -146.0,
+                    "y": 66.5
+                },
+                "OffsetMax": {
+                    "x": 146.0,
+                    "y": 133.5
+                }
+            },
+            "Layer": 0
+        },
+        "value26389": 28,
+        "value26390": 921,
+        "value26391": {
             "cereal_class_version": 0,
             "Text": "250",
             "FontPath": "",
@@ -149491,8 +149528,8 @@
             },
             "Layer": 0
         },
-        "value26390": 925,
-        "value26391": {
+        "value26392": 925,
+        "value26393": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -149525,41 +149562,7 @@
             },
             "Layer": 0
         },
-        "value26392": 928,
-        "value26393": {
-            "Text": "5",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 40.0,
-            "Alignment": 1,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": -50.0,
-                    "y": -41.0
-                },
-                "OffsetMax": {
-                    "x": 50.0,
-                    "y": 59.0
-                }
-            },
-            "Layer": 0
-        },
-        "value26394": 933,
+        "value26394": 928,
         "value26395": {
             "Text": "5",
             "FontPath": "",
@@ -149593,8 +149596,42 @@
             },
             "Layer": 0
         },
-        "value26396": 939,
+        "value26396": 933,
         "value26397": {
+            "Text": "5",
+            "FontPath": "",
+            "Color": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "Kerning": 0.0,
+            "LineSpacing": 0.0,
+            "FontSize": 40.0,
+            "Alignment": 1,
+            "Anchor": {
+                "AnchorMin": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "AnchorMax": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "OffsetMin": {
+                    "x": -50.0,
+                    "y": -41.0
+                },
+                "OffsetMax": {
+                    "x": 50.0,
+                    "y": 59.0
+                }
+            },
+            "Layer": 0
+        },
+        "value26398": 939,
+        "value26399": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -149627,8 +149664,8 @@
             },
             "Layer": 1
         },
-        "value26398": 1051580,
-        "value26399": {
+        "value26400": 1051580,
+        "value26401": {
             "Text": "9999",
             "FontPath": "",
             "Color": {
@@ -149661,8 +149698,8 @@
             },
             "Layer": 0
         },
-        "value26400": 945,
-        "value26401": {
+        "value26402": 945,
+        "value26403": {
             "Text": "24",
             "FontPath": "",
             "Color": {
@@ -149695,8 +149732,8 @@
             },
             "Layer": 0
         },
-        "value26402": 1476,
-        "value26403": {
+        "value26404": 1476,
+        "value26405": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -149729,8 +149766,8 @@
             },
             "Layer": 0
         },
-        "value26404": 951,
-        "value26405": {
+        "value26406": 951,
+        "value26407": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -149763,8 +149800,8 @@
             },
             "Layer": 0
         },
-        "value26406": 957,
-        "value26407": {
+        "value26408": 957,
+        "value26409": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -149797,8 +149834,8 @@
             },
             "Layer": 0
         },
-        "value26408": 959,
-        "value26409": {
+        "value26410": 959,
+        "value26411": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -149831,8 +149868,8 @@
             },
             "Layer": 0
         },
-        "value26410": 961,
-        "value26411": {
+        "value26412": 961,
+        "value26413": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -149865,8 +149902,8 @@
             },
             "Layer": 0
         },
-        "value26412": 3013,
-        "value26413": {
+        "value26414": 3013,
+        "value26415": {
             "Text": "3",
             "FontPath": "",
             "Color": {
@@ -149899,8 +149936,8 @@
             },
             "Layer": 1
         },
-        "value26414": 1477,
-        "value26415": {
+        "value26416": 1477,
+        "value26417": {
             "Text": "DialogName",
             "FontPath": "",
             "Color": {
@@ -149933,8 +149970,8 @@
             },
             "Layer": 0
         },
-        "value26416": 1591,
-        "value26417": {
+        "value26418": 1591,
+        "value26419": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -149967,8 +150004,8 @@
             },
             "Layer": 0
         },
-        "value26418": 1472,
-        "value26419": {
+        "value26420": 1472,
+        "value26421": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -150001,42 +150038,42 @@
             },
             "Layer": 0
         },
-        "value26420": 1050455,
-        "value26421": {
-            "Text": "Wild Boyz",
+        "value26422": 1473,
+        "value26423": {
+            "Text": "",
             "FontPath": "",
             "Color": {
-                "x": 0.5529412031173706,
-                "y": 0.0,
-                "z": 0.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
                 "w": 1.0
             },
             "Kerning": 0.0,
             "LineSpacing": 0.0,
-            "FontSize": 72.0,
-            "Alignment": 1,
+            "FontSize": 30.0,
+            "Alignment": 0,
             "Anchor": {
                 "AnchorMin": {
-                    "x": 0.5,
-                    "y": 0.0
+                    "x": 1.0,
+                    "y": 0.5
                 },
                 "AnchorMax": {
-                    "x": 0.5,
-                    "y": 0.0
+                    "x": 1.0,
+                    "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": -50.0,
-                    "y": 95.0
+                    "x": -455.0,
+                    "y": -375.0
                 },
                 "OffsetMax": {
-                    "x": 50.0,
-                    "y": 195.0
+                    "x": -355.0,
+                    "y": -275.0
                 }
             },
             "Layer": 0
         },
-        "value26422": 1051628,
-        "value26423": {
+        "value26424": 1051628,
+        "value26425": {
             "Text": "999999",
             "FontPath": "",
             "Color": {
@@ -150069,8 +150106,8 @@
             },
             "Layer": 31
         },
-        "value26424": 1051630,
-        "value26425": {
+        "value26426": 1051630,
+        "value26427": {
             "Text": "Lorem ipsum dolor sit\namet\n",
             "FontPath": "",
             "Color": {
@@ -150103,8 +150140,8 @@
             },
             "Layer": 31
         },
-        "value26426": 1051624,
-        "value26427": {
+        "value26428": 1051624,
+        "value26429": {
             "Text": "Lorem ipsum dolor sit\n amet Lorem ipsum dolor\n sit amet Lorem ipsum \ndolor sit amet Lorem \nipsum dolor sit amet",
             "FontPath": "",
             "Color": {
@@ -150137,8 +150174,8 @@
             },
             "Layer": 31
         },
-        "value26428": 2100209,
-        "value26429": {
+        "value26430": 2100209,
+        "value26431": {
             "Text": "Weapons",
             "FontPath": "",
             "Color": {
@@ -150171,8 +150208,8 @@
             },
             "Layer": 31
         },
-        "value26430": 4197329,
-        "value26431": {
+        "value26432": 4197329,
+        "value26433": {
             "Text": "999",
             "FontPath": "",
             "Color": {
@@ -150205,8 +150242,8 @@
             },
             "Layer": 31
         },
-        "value26432": 1051258,
-        "value26433": {
+        "value26434": 1051258,
+        "value26435": {
             "Text": "Upgrade",
             "FontPath": "",
             "Color": {
@@ -150239,8 +150276,8 @@
             },
             "Layer": 31
         },
-        "value26434": 1051216,
-        "value26435": {
+        "value26436": 1051216,
+        "value26437": {
             "Text": "Lorem ipsum dolor sit\namet\n",
             "FontPath": "",
             "Color": {
@@ -150273,8 +150310,8 @@
             },
             "Layer": 31
         },
-        "value26436": 1051217,
-        "value26437": {
+        "value26438": 1051217,
+        "value26439": {
             "Text": "Lorem ipsum dolor sit\n amet Lorem ipsum dolor\n sit amet Lorem ipsum \ndolor sit amet Lorem \nipsum dolor sit amet",
             "FontPath": "",
             "Color": {
@@ -150307,8 +150344,8 @@
             },
             "Layer": 31
         },
-        "value26438": 1051218,
-        "value26439": {
+        "value26440": 1051218,
+        "value26441": {
             "Text": "Character\n",
             "FontPath": "",
             "Color": {
@@ -150341,8 +150378,8 @@
             },
             "Layer": 31
         },
-        "value26440": 1051219,
-        "value26441": {
+        "value26442": 1051219,
+        "value26443": {
             "Text": "300",
             "FontPath": "",
             "Color": {
@@ -150375,8 +150412,8 @@
             },
             "Layer": 31
         },
-        "value26442": 1051220,
-        "value26443": {
+        "value26444": 1051220,
+        "value26445": {
             "Text": "Upgrade",
             "FontPath": "",
             "Color": {
@@ -150408,40 +150445,6 @@
                 }
             },
             "Layer": 31
-        },
-        "value26444": 1473,
-        "value26445": {
-            "Text": "",
-            "FontPath": "",
-            "Color": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0,
-                "w": 1.0
-            },
-            "Kerning": 0.0,
-            "LineSpacing": 0.0,
-            "FontSize": 30.0,
-            "Alignment": 0,
-            "Anchor": {
-                "AnchorMin": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "AnchorMax": {
-                    "x": 1.0,
-                    "y": 0.5
-                },
-                "OffsetMin": {
-                    "x": -455.0,
-                    "y": -375.0
-                },
-                "OffsetMax": {
-                    "x": -355.0,
-                    "y": -275.0
-                }
-            },
-            "Layer": 0
         },
         "value26446": 5,
         "value26447": 926,

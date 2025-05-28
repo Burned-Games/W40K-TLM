@@ -16,7 +16,7 @@ function on_ready()
     tankBar = current_scene:get_entity_by_name("TankBar")
     tankBarBase = current_scene:get_entity_by_name("TankBarBase"):get_component("UIImageComponent")
     tankBarLife = current_scene:get_entity_by_name("TankLifeUI"):get_component("UIImageComponent")
-    tankNam = current_scene:get_entity_by_name("TankName"):get_component("UITextComponent")
+    tankNam = current_scene:get_entity_by_name("TankName"):get_component("UIImageComponent")
     tankManager = current_scene:get_entity_by_name("EnemyTank1"):get_component("ScriptComponent")
     playerManager = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
@@ -33,7 +33,7 @@ function on_ready()
 
     tankBarBase:set_color(Vector4.new(1, 1, 1, 0))
     tankBarLife:set_color(Vector4.new(1, 1, 1, 0))
-    tankNam:set_color(Vector4.new(0.55, 0, 0, 0))
+    tankNam:set_color(Vector4.new(1, 1, 1, 0))
     
     doorInAnimator:set_current_animation(1) 
     doorOutAnimator:set_current_animation(1) 
@@ -71,7 +71,7 @@ function on_update(dt)
         end
         tankBarBase:set_color(Vector4.new(1, 1, 1, alpha))
         tankBarLife:set_color(Vector4.new(1, 1, 1, alpha))
-        tankNam:set_color(Vector4.new(0.55, 0, 0, alpha))
+        tankNam:set_color(Vector4.new(1, 1, 1, alpha))
     end
 
     if vida <= 0 and doorsClosed then
