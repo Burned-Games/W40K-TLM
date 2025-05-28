@@ -135,6 +135,8 @@ local cooldownVFX = 0
 
 local playerCDSFX = nil
 
+local forwardVector = Vector3.new(0,0,0)
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -584,14 +586,16 @@ function shoot(dt, bulletNum)
 
 
     playShoot()
-    local forwardVector = Vector3.new(0,0,0)
-
-    if playerScript.enemyDirection ~= nil then
-        forwardVector = playerScript.enemyDirection
-        playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
-    else
-        forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+    
+    if bulletNum == 3 then
+        if playerScript.enemyDirection ~= nil then
+            forwardVector = playerScript.enemyDirection
+            playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
+        else
+            forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+        end
     end
+    
     
     
     local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , yPositionBullet  , (forwardVector.z+ playerPosition.z) )
