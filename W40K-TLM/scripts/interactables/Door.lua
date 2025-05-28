@@ -33,6 +33,11 @@ function on_ready()
     
     playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent").position
     doorPosition = self:get_component("TransformComponent").position
+
+    if minimumInteractions == 0 then
+        rigidBody:set_trigger(true)
+        isClosed = false
+    end
 end
 
 function on_update(dt)
