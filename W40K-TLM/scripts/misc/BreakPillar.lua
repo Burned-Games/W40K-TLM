@@ -2,18 +2,19 @@
 
 local objectNormal = {}
 
-local prefabPillar1 = "prefabs/Misc/Pillars/Pillar1Destruible.prefab"
-local prefabPillar2 = "prefabs/Misc/Pillars/Pillar2Destruible.prefab"
+local prefabPillar1 = "prefabs/Misc/Pillars/DestructiblePillar1.prefab"
+local prefabPillar2 = "prefabs/Misc/Pillars/DestructiblePillar2.prefab"
+local prefabPillar3 = "prefabs/Misc/Pillars/DestructiblePillar3.prefab"
 
 
 
 
 local rbComponent = nil
+local transform = nil
 
-
+local separateChildren = nil
 local separateChildrenWithParentMoved = {}
-local separate = {}
-local separateChildren = {}
+local separate = nil
 
 
 local hasDestroyed = false
@@ -53,7 +54,8 @@ function on_ready()
     --Audio
     --boxBarrelDestroySFX = current_scene:get_entity_by_name("BoxBarrelDestroySFX"):get_component("AudioSourceComponent")
 
-    rbComponent = self:get_component("RigidbodyComponent");
+    rbComponent = self:get_component("RigidbodyComponent")
+    transform = self:get_component("TransformComponent")
 
 end
 
@@ -66,63 +68,42 @@ function give_phisycs()
     local tag = self:get_component("TagComponent").tag
 
     if tag == "Pillar1" then
-        local instantiated = instantiate_prefab(prefabPillar1)
-        log("holaaaaaaaaaaaaaaaa")
-        table.insert(separate, instantiated)
-        
+        separate = instantiate_prefab(prefabPillar1)
     elseif tag == "Pillar2" then
-        table.insert(separate, instantiate_prefab(prefabPillar1))
-        table.insert(separate, instantiate_prefab(prefabPillar2))
+        separate = instantiate_prefab(prefabPillar2)
     elseif tag == "Pillar3" then
-        table.insert(separate, instantiate_prefab(prefabPillar1))
-        table.insert(separate, instantiate_prefab(prefabPillar2))
-        table.insert(separate, instantiate_prefab(prefabPillar2))
+        separate = instantiate_prefab(prefabPillar3)
     end
 
+    if separate == nil then return end
+
+    separate:get_component("TransformComponent").position = transform.position
+    separate:get_component("TransformComponent").rotation = transform.rotation
+
+    separateChildren = separate:get_children()
+
+    for i, separateChild in ipairs(separateChildren) do
+        local pieces = separateChild:get_children()
+        for j, piece in ipairs(pieces) do
+
+            local rb = piece:get_component("RigidbodyComponent").rb
 
 
-    for i, parentColumns in ipairs(separate) do
-        local transform = self:get_component("TransformComponent")
-        
-        parentColumns:get_component("TransformComponent").position = Vector3.new(transform.position.x, transform.position.y+(4*i), transform.position.z)
-        parentColumns:get_component("TransformComponent").rotation = self:get_component("TransformComponent").rotation
-        separateChildren = parentColumns:get_children()
-
-        local parentsChildren = parentColumns:get_children()
-        for _, parentChild in ipairs(parentsChildren) do
-            
-            table.insert(separateChildren, parentChild)
-        end
-    end
-
-    for _, child in ipairs(separateChildren) do
-        if child:has_component("RigidbodyComponent") then
-            local rb = child:get_component("RigidbodyComponent").rb
-
-            child:set_parent(position00)
-            table.insert(separateChildrenWithParentMoved, child)
+            piece:set_parent(position00)
+            table.insert(separateChildrenWithParentMoved, piece)
 
             local pivotObjectPosition = self:get_component("TransformComponent").position
-            local pivotChildPosition = child:get_component("TransformComponent").position
-
-            local pivotChildPositionOffset = Vector3.new(pivotObjectPosition.x + pivotChildPosition.x, pivotObjectPosition.y + pivotChildPosition.y, pivotObjectPosition.z + pivotChildPosition.z)
+            local pivotSeparateChild = separateChild:get_component("TransformComponent").position
+            local pivotChildPosition = piece:get_component("TransformComponent").position
+            local pivotChildPositionOffset = Vector3.new(pivotObjectPosition.x + pivotSeparateChild.x + pivotChildPosition.x, pivotObjectPosition.y + pivotSeparateChild.y + pivotChildPosition.y, pivotObjectPosition.z + pivotSeparateChild.z + pivotChildPosition.z)
 
             rb:set_position(pivotChildPositionOffset)
-
-            local impulseForce = Vector3.new(pivotObjectPosition.x - pivotChildPositionOffset.x, pivotObjectPosition.y - pivotChildPositionOffset.y, pivotObjectPosition.z - pivotChildPositionOffset.z )
-
-            impulseForce = Vector3.new((impulseForce.x + impulseStrength) * math.random(-1,1), (impulseForce.y  + 0) + math.random(-1,1), (impulseForce.z  + impulseStrength) * math.random(-1,1))
-
+            local impulseForce = Vector3.new((1 + impulseStrength) * math.random(-1,1), (1  + 0) + math.random(-1,1), (1  + impulseStrength) * math.random(-1,1))
             rb:apply_impulse(impulseForce)
             rb:apply_torque_impulse(impulseForce)
-        
         end
-
     end
     self:get_component("RigidbodyComponent").rb:set_position(Vector3.new(-100,-100,-100))
-    
-
-
 
 end
 
@@ -165,7 +146,7 @@ end
 
 function setChildrenSize(size)
     
-    for _, child in ipairs(separateChildren) do
+    for _, child in ipairs(separateChildrenWithParentMoved) do
         child:get_component("TransformComponent").scale = Vector3.new(size,size,size)
     end
 end
