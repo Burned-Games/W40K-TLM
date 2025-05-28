@@ -275,13 +275,15 @@ function on_update(dt)
             range.playerScript.enemys_targeting = range.playerScript.enemys_targeting + 1
             range.key = range.key + 1
         end
+    end
 
-        if not range.playingDieAnim or range.currentAnim == range.meleeAttackAnim then
-            if range.currentAnim ~= range.rangeAttackAnim then
-                range:rotate_enemy(range.playerTransf.position)
-            else
-                range:rotate_enemy(range.delayedPlayerPos)
-            end
+    if not range.playingDieAnim and range.currentState ~= range.state.Detect then
+        if range.currentAnim == range.meleeAttackAnim then
+            range:rotate_enemy(range.playerTransf.position)
+        elseif range.currentAnim ~= range.rangeAttackAnim and range.currentAnim ~= range.detectAnim then
+            range:rotate_enemy(range.playerTransf.position)
+        else
+            range:rotate_enemy(range.delayedPlayerPos)
         end
     end
 

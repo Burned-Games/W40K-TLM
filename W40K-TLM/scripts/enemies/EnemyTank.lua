@@ -93,9 +93,10 @@ function on_ready()
         tank.level = 3
         tank.auraTank = instantiate_prefab(auraPrefab)
         tank.auraTank:set_parent(self)
+        tank.zoneNumber = 4
     end
 
-    tank:set_stats(tank.level)
+    tank:set_stats(tank.level, tank.zoneNumber)
 
     
 
@@ -322,7 +323,7 @@ function on_update(dt)
         end
     end
 
-    if tank.playerDetected and tank.currentState ~= tank.state.Tackle then
+    if tank.playerDetected and tank.currentState ~= tank.state.Tackle and tank.currentState ~= tank.state.Detect then
         if tank.key == 0 then
              
             tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting + 1
