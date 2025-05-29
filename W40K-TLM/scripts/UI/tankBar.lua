@@ -12,6 +12,11 @@ local doorInAnimator = nil
 local doorOutAnimator = nil
 local doorsClosed = false
 
+local doorInOpenSFX = nil
+local doorOutOpenSFX = nil
+local doorInCloseSFX = nil
+local doorOutCloseSFX = nil
+
 function on_ready()
     tankBar = current_scene:get_entity_by_name("TankBar")
     tankBarBase = current_scene:get_entity_by_name("TankBarBase"):get_component("UIImageComponent")
@@ -25,6 +30,11 @@ function on_ready()
     
     doorInAnimator = current_scene:get_entity_by_name("PuertaEntradaColiseo"):get_component("AnimatorComponent")
     doorOutAnimator = current_scene:get_entity_by_name("PuertaSalidaColiseo"):get_component("AnimatorComponent")
+
+    doorInOpenSFX = current_scene:get_entity_by_name("ColiseoInOpenSFX"):get_component("AudioSourceComponent")
+    doorOutOpenSFX = current_scene:get_entity_by_name("ColiseoOutOpenSFX"):get_component("AudioSourceComponent")
+    doorInCloseSFX = current_scene:get_entity_by_name("PuertaEntradaColiseo"):get_component("AudioSourceComponent")
+    doorOutCloseSFX = current_scene:get_entity_by_name("PuertaSalidaColiseo"):get_component("AudioSourceComponent")
 
     arenaIn:set_active(false)
     arenaOut:set_active(false)
@@ -43,17 +53,21 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
 
         if (nameA == "Player" or nameB == "Player") and not doorsClosed then
-           tankBar:set_active(true)
+            tankBar:set_active(true)
            
-           arenaIn:set_active(true) 
-           arenaOut:set_active(true)
+            arenaIn:set_active(true) 
+            arenaOut:set_active(true)
            
-           doorInAnimator:set_current_animation(0) 
-           doorOutAnimator:set_current_animation(0) 
-           alpha = 0
-           fadeActive = true
+            doorInAnimator:set_current_animation(0) 
+            doorOutAnimator:set_current_animation(0) 
+            
+            doorInCloseSFX:play()
+            doorOutCloseSFX:play()
+
+            alpha = 0
+            fadeActive = true
            
-           doorsClosed = true
+            doorsClosed = true
         end
     end)
 end
@@ -79,6 +93,9 @@ function on_update(dt)
  
         doorInAnimator:set_current_animation(1)  
         doorOutAnimator:set_current_animation(1)  
+
+        doorInOpenSFX:play()
+        doorOutOpenSFX:play()
         
         arenaIn:set_active(false)
         arenaOut:set_active(false)
