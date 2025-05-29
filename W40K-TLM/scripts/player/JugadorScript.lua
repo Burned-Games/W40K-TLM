@@ -243,6 +243,10 @@ local movementIndicatorTransf = nil
 shootingIndicator = false
 local aimingIndicator = false
 
+infiniteHealth = false
+
+local levelToChange = -1
+
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -425,6 +429,32 @@ end
 
 function on_update(dt)
 
+    if levelToChange ~= -1 then
+        
+        if levelToChange == 0 then
+            SceneManager.change_scene("Default.TeaScene")
+            log ("cambio 0")
+        elseif levelToChange == 1 then
+            SceneManager.change_scene("scenes/level1.TeaScene")
+            log ("cambio 1")
+        elseif levelToChange == 2 then
+            SceneManager.change_scene("scenes/level2.TeaScene")
+            log ("cambio 2")
+
+        elseif levelToChange == 3 then
+            SceneManager.change_scene("scenes/level3.TeaScene")
+            log ("cambio 3")
+
+        end
+        if level ~= levelToChange then
+
+            
+        else
+            levelToChange = -1
+        end
+        return
+    end
+    
     updateMusic(dt)
     if combatTimer <= 0 then   
         backgroundMusicToPlay = 0
@@ -500,7 +530,10 @@ function on_update(dt)
 
     check_effects(dt)
     checkPlayerDeath(dt)
-    handleDamageEffects(dt)
+    if not infiniteHealth then
+        handleDamageEffects(dt)
+    end
+    
 
     if Input.is_key_pressed(Input.keycode.M) then
         applyStunn()
@@ -659,7 +692,7 @@ end
 
 function updateGodMode(dt)
 
-    if Input.is_key_pressed(Input.keycode.F1) then
+    if Input.is_key_pressed(Input.keycode.F2) then
         if godMode == false then
             moveSpeed = normalSpeed
             playerRb:set_trigger(false)
@@ -675,26 +708,13 @@ function updateGodMode(dt)
         pressedButton = false
     end
 
+    if Input.is_key_pressed(Input.keycode.F1) then
+        infiniteHealth = not infiniteHealth
+        health = maxHealth
+    end
+
     if godMode then
-        if Input.is_key_pressed(Input.keycode.F2) then
-            SceneManager.change_scene("scenes/level1.TeaScene")
-            log ("cambio 1")
-        end
-        if Input.is_key_pressed(Input.keycode.F3) then
-            SceneManager.change_scene("scenes/level2.TeaScene")
-            log ("cambio 2")
-        end
-        if Input.is_key_pressed(Input.keycode.F4) then
-            log ("cambio 3")
-            SceneManager.change_scene("scenes/level3.TeaScene")
-        end
-        if Input.is_key_pressed(Input.keycode.F5) then
-            log ("cambio 4")
-            SceneManager.change_scene("Default.TeaScene")
-        end
-        if Input.is_key_pressed(Input.keycode.F6) then
-            scrapCounter = scrapCounter + 1000
-        end
+        
         health = maxHealth
         bolterScript.ammo = 0
         shotgunammo = 0
@@ -717,6 +737,23 @@ function updateGodMode(dt)
         end
     elseif isCovering == false then
         
+    end
+
+    if Input.is_key_pressed(Input.keycode.F3) then
+        levelToChange = 1
+        
+    end
+    if Input.is_key_pressed(Input.keycode.F4) then
+        levelToChange = 2
+    end
+    if Input.is_key_pressed(Input.keycode.F5) then
+        levelToChange = 3
+    end
+    if Input.is_key_pressed(Input.keycode.F6) then
+        levelToChange = 0
+    end
+    if Input.is_key_pressed(Input.keycode.F7) then
+        scrapCounter = scrapCounter + 1000
     end
 end
 
