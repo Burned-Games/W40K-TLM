@@ -2707,7 +2707,7 @@
     "Type": "User",
     "GUID": "{179A6250-3F23-44B9-A9AF-461B907637F3}",
     "Language": "SFX",
-    "Hash": "{80399560-13B1-CEC2-6A5F-2B2BC52BA2D0}",
+    "Hash": "{6E7091E1-7BB0-A6D1-6A34-0D73231A2F4A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogs",
     "ShortName": "Dialogs",
     "Path": "Dialogs.bnk",
@@ -3359,9 +3359,7 @@
       "Name": "Play_UIText",
       "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_UIText",
       "GUID": "{A0C2B5BE-F805-4BC9-8ABE-D3F343DAFB47}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.042229168",
-      "DurationMax": "0.13316667",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "185235166"
@@ -3852,6 +3850,6 @@
     ]
    }
   ],
-  "FileHash": "{FAE73BD1-434E-64C7-1502-C2EEC75EB6AC}"
+  "FileHash": "{DC50DE94-335A-2D74-EF7F-D529401C312B}"
  }
 }

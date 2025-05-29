@@ -7455,6 +7455,17 @@
 							</ChildrenList>
 						</Folder>
 						<RandomSequenceContainer Name="UIText" ID="{E97E0190-15EB-406A-BACA-5ABEC54FD8FA}" ShortID="422670948">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A9FCAF6F-9B7C-4E4D-9242-56DFF7D49AEC}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
