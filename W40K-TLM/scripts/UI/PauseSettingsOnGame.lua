@@ -21,6 +21,9 @@ local SettingsBaseText
 local BaseTextureBG
 local HUD = nil
 local chatarraUI = nil
+local cancelTimer = 0
+local cancelTriggered = false
+
 
 isPaused = false
 
@@ -308,9 +311,21 @@ function on_update(dt)
             visibilidad2Entity:set_active(false)
             visibilidad3Entity:set_active(false)
             chatarraUI:set_active(true)
-            isPaused = false
+            
+            cancelTimer = 0
+            cancelTriggered = true
         end
     end 
+    
+    if cancelTriggered then
+        cancelTimer = cancelTimer + dt
+        if cancelTimer >= 0.2 then
+            isPaused = false
+            cancelTriggered = false
+            cancelTimer = 0
+        end
+    end
+    
 
     if index ~= currentSelectedIndex then
         indexHoverSFX:play()

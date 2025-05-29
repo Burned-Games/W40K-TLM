@@ -30,9 +30,6 @@ function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
 
-    text1 = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
-    text2 = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
-
     mainMenuBase = current_scene:get_entity_by_name("Base")
     mainMenuScript = current_scene:get_entity_by_name("BaseManager"):get_component("ScriptComponent")
     settingsMainMenu = current_scene:get_entity_by_name("Settings")
