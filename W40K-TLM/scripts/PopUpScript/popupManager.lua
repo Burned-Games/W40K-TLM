@@ -143,10 +143,10 @@ function on_update(dt)
 
 
     elseif current_scene_name == "level2.TeaScene" then
-        print("Level 2")
+        --print("Level 2")
        
     elseif current_scene_name == "level3.TeaScene" then
-        print("Level 3")
+        --print("Level 3")
     end
 
         

@@ -243,7 +243,6 @@ function getCurrentTask(tasks, index)
         end
        
     elseif current_scene_name == "level3.TeaScene" then
-        print("Level 3")
     end
 
     return insert_line_breaks(description, 27)
@@ -304,7 +303,9 @@ function missionBlue_Tutor()
         end
        
     elseif current_scene_name == "level3.TeaScene" then
-        print("Level 3")
+        if blueTaskIndex == 1 and BossDie then
+            startAnimation(blueAnimation)
+        end
     end
 
 
@@ -335,7 +336,9 @@ function missionRed_Tutor()
             startAnimation(redAnimation)
         end
     elseif current_scene_name == "level3.TeaScene" then
-        print("Level 3")
+        if redTaskIndex == 1 and BossDie then
+            startAnimation(blueAnimation)
+        end
     end
 
     
