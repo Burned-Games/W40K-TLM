@@ -423,6 +423,23 @@ function on_update(dt)
         end
        
     elseif current_scene_name == "level3.TeaScene" then
+        --Colider
+        if detect and first and current_scene_tag =="Dialogo_Col_Find" then
+            dialogFind = true
+            first = false
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_Change" then
+            dialogChange = true
+            first = false
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_Die" then
+            dialogDie = true
+            first = false
+        end
+
+         --Dialogo
+
+
         if dialogFind then 
             dialogScriptComponent.start_dialog(dialogLinesFind)
             dialogFind = false
