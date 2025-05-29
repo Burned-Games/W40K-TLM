@@ -16,25 +16,9 @@ local redTasks = {
     {id = 3, description = "Fight and defeat (name)"}
 }
 
-local dialogLines = {
-    { name = "Decius Marcellus", text = "This is Decius Marcellus, commander of Guilliman's Fist..." },
-    { name = "Decius Marcellus", text = "Has anyone successfully made planetfall? I repeat: are there any survivors?" },
-    { name = "Decius Marcellus", text = "I think you're the only survivor, Brother Quintus Maxillian. Maintain course toward Martyria Eterna." },
-    { name = "Decius Marcellus", text = "We detect enemies along your path. May the Emperor be with you." }
-}
 
-local dialogLines2 = {
-    { name = "Decius Marcellus", text = "Brother Quintus, that is an upgrade station. With it, you can enhance your equipment to continue the xenos purge." },
-    { name = "Decius Marcellus", text = "Search for them in the field-they could make a huge difference in how the battle unfolds." }
-}
-
-local dialogLines3 = {
-    { name = "Decius Marcellus", text = "Brother Quintus, it's an ambush! Hold out until the enemies are eliminated." },
-    { name = "Decius Marcellus", text = "May the Emperor's light guide you, for Ultramar!" }
-}
-
-    blueTaskIndex = 1
-    redTaskIndex = 1
+blueTaskIndex = 1
+redTaskIndex = 1
 
 -- UI Components
 local textBlueComponent = nil
@@ -98,13 +82,7 @@ mr2_Check = false
 -- MR3
 mr3_Check = false
 
--- Trigger variables
-enemyDieCounttest = 2
-enemyDieCount = 0
-enemyDie_M7 = 1
-enemyDie_M10 = 1
-M5_WorkBrech = false
-M9_WorkBrech = false
+
 
 local actualAlpha = 0  
 
@@ -140,7 +118,6 @@ function on_ready()
     textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
     bcgBlueUI:set_color(Vector4.new(0, 0, 0, 0))
     bcgRedUI:set_color(Vector4.new(0, 0, 0, 0))
-
 
     blueTaskIndex = load_progress("bluemision",1)
     redTaskIndex = load_progress("redmision",1)
@@ -229,11 +206,8 @@ function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
     if redTaskIndex == 1 and mr1_Check then
         startAnimation(redAnimation)
-
-        -- dialogScriptComponent.start_dialog(dialogLines2)
     elseif redTaskIndex == 2 and mr2_Check then
         startAnimation(redAnimation)
-        -- dialogScriptComponent.start_dialog(dialogLines3)
     elseif redTaskIndex == 3 and mr3_Check then
         startAnimation(redAnimation)
     end

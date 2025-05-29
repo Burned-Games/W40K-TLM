@@ -130,7 +130,7 @@ function on_update(dt)
     if hasDisappeared and not finished then
         separate:set_active(false)
         self:set_active(false)
-        for _, child in ipairs(separateChildren) do
+        for _, child in ipairs(separateChildrenWithParentMoved) do
             child:set_active(false)
         end
         finished = true

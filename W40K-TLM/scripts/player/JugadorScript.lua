@@ -717,7 +717,7 @@ function updateGodMode(dt)
         
         health = maxHealth
         bolterScript.ammo = 0
-        shotgunammo = 0
+        shotGunScript.ammo = shotGunScript.maxAmmo
         moveSpeed = godModeSpeed
         playerRb:set_trigger(true)
         dashColdownCounter = dashTime
@@ -1569,7 +1569,7 @@ function handleCover()
             return
         end
         if Input.get_button(Input.action.Cover) == Input.state.Down then
-            isCovering = not isCovering
+            --isCovering = not isCovering
             --print("isCovering", isCovering)
         end
 
