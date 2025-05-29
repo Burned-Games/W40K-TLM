@@ -5,7 +5,7 @@ local popupExampleRigidBody = nil
 local detect = false
 local first = true
 local isPersistentActive = false
-local SpecialText = "(x/2)"
+local SpecialText = "(x/1)"
 local closUpdate = true
 -- Initialization
 function on_ready()

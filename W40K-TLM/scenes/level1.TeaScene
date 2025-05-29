@@ -13422,7 +13422,7 @@
         "value8358": {
             "Position": {
                 "x": 14.111126899719239,
-                "y": 1.095770001411438,
+                "y": 1.0957698822021485,
                 "z": -9.0466890335083
             },
             "Rotation": {
@@ -15635,9 +15635,9 @@
         "value8603": 3078,
         "value8604": {
             "Position": {
-                "x": 12.144460678100586,
-                "y": 0.00006103515625,
-                "z": -16.222366333007814
+                "x": 13.617451667785645,
+                "y": 1.0,
+                "z": -17.03278160095215
             },
             "Rotation": {
                 "x": 0.0,
@@ -97301,7 +97301,7 @@
                                         "Size": {
                                             "x": 0.0005531199276447296,
                                             "y": 0.0005531199276447296,
-                                            "z": 19.500545501708986
+                                            "z": 19.5
                                         }
                                     }
                                 }
@@ -97403,7 +97403,7 @@
                                             "z": 0.0
                                         },
                                         "Size": {
-                                            "x": 4.500025749206543,
+                                            "x": 4.0,
                                             "y": 0.00002345070242881775,
                                             "z": 0.00002345070242881775
                                         }
@@ -97613,7 +97613,7 @@
                                         "Size": {
                                             "x": 0.0005531199276447296,
                                             "y": 0.0005531199276447296,
-                                            "z": 9.500555038452149
+                                            "z": 9.5
                                         }
                                     }
                                 }
@@ -97665,7 +97665,7 @@
                                         "Size": {
                                             "x": 0.0005531199276447296,
                                             "y": 0.0005531199276447296,
-                                            "z": 7.000553607940674
+                                            "z": 7.0
                                         }
                                     }
                                 }
@@ -97717,7 +97717,7 @@
                                         "Size": {
                                             "x": 0.0005531199276447296,
                                             "y": 0.0005531199276447296,
-                                            "z": 7.000553607940674
+                                            "z": 7.000500202178955
                                         }
                                     }
                                 }
@@ -97769,7 +97769,7 @@
                                         "Size": {
                                             "x": 0.0005531199276447296,
                                             "y": 0.0005531199276447296,
-                                            "z": 4.500553607940674
+                                            "z": 4.5
                                         }
                                     }
                                 }
@@ -129374,54 +129374,54 @@
             "ScriptPath": "scripts/enemies/EnemyRange.lua",
             "Language": 0
         },
-        "value23269": 3071,
+        "value23269": 3147235,
         "value23270": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_1.lua",
+            "ScriptPath": "scripts/interactables/Door.lua",
             "Language": 0
         },
-        "value23271": 3072,
+        "value23271": 3071,
         "value23272": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_2.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23273": 3073,
+        "value23273": 3072,
         "value23274": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_3.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23275": 3074,
+        "value23275": 3073,
         "value23276": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_4.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23277": 3075,
+        "value23277": 3074,
         "value23278": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_5.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23279": 3076,
+        "value23279": 3075,
         "value23280": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_6.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23281": 3077,
+        "value23281": 3076,
         "value23282": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_7.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23283": 3078,
+        "value23283": 3077,
         "value23284": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_SP_1.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23285": 3079,
+        "value23285": 3078,
         "value23286": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_SP_2.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
-        "value23287": 3080,
+        "value23287": 3079,
         "value23288": {
-            "ScriptPath": "scripts/PopUpScript/PopUpLevl1/popUp_SP_3.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
         "value23289": 3216,
@@ -129544,9 +129544,9 @@
             "ScriptPath": "scripts/enemies/EnemyRange.lua",
             "Language": 0
         },
-        "value23337": 3147235,
+        "value23337": 3080,
         "value23338": {
-            "ScriptPath": "scripts/interactables/Door.lua",
+            "ScriptPath": "scripts/PopUpScript/popupManager.lua",
             "Language": 0
         },
         "value23339": 2,
