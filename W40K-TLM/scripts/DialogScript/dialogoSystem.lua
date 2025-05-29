@@ -335,14 +335,51 @@ function on_update(dt)
         end
 
     elseif current_scene_name == "level2.TeaScene" then
+        --Colider
+        if detect and first and current_scene_tag =="Dialogo_Col_13" then
+            dialog13 = true
+            first = false
+
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_13AC" then
+            dialog13Ac = true
+            first = false
+        
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_14" then
+            dialog14 = true
+            first = false
+        
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_15" then
+            dialog15 = true
+            first = false
+        
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_16" then
+            dialog16 = true
+            first = false
+
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_17" then
+            dialog17 = true
+            first = false
+
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_18" then
+            dialog18 = true
+            first = false
+
+        elseif detect and first and current_scene_tag =="Dialogo_Col_19" then
+            dialog19 = true
+            first = false
+        end
+
+         --Dialogo
+
         if openDialog then
         dialogScriptComponent.start_dialog(dialogLines12)
         openDialog = false
-        end
-
-        if dialog12 then 
-            dialogScriptComponent.start_dialog(dialogLines12)
-            dialog12 = false
         end
 
         if dialog13 then 
