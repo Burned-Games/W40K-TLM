@@ -1,0 +1,80 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "VFX_ZHBolter_Plane-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 17548423605055853526
+                        }
+                    },
+                    {
+                        "key": "VFX_ZHBolter_Plane-1",
+                        "value": {
+                            "value0": 18288840659301866570
+                        }
+                    },
+                    {
+                        "key": "VFX_ZHBolter_Plane-2",
+                        "value": {
+                            "value0": 6314669778925378552
+                        }
+                    },
+                    {
+                        "key": "VFX_ZHBolter_Plane-3",
+                        "value": {
+                            "value0": 13092527646362042776
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.001_Mat0",
+                        "value": {
+                            "value0": 17182412442191571525
+                        }
+                    },
+                    {
+                        "key": "Material.004_Mat3",
+                        "value": {
+                            "value0": 10297904181921903840
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat1",
+                        "value": {
+                            "value0": 13988621534678803522
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat2",
+                        "value": {
+                            "value0": 17681091746074655439
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 18100322368477388576
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/VFX_DisruptorZone/VFX_ZHBolter.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/18100322368477388576.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 12126525544217487848
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "vfxs/VFX_DisruptorZone/VFX_impactoBolter-VFX_impactoBolter_A.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/12126525544217487848.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
