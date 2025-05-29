@@ -17,8 +17,8 @@ local redTasks = {
 }
 
 
-    blueTaskIndex = 1
-    redTaskIndex = 1
+blueTaskIndex = 1
+redTaskIndex = 1
 
 -- UI Components
 local textBlueComponent = nil
@@ -82,13 +82,7 @@ mr2_Check = false
 -- MR3
 mr3_Check = false
 
--- Trigger variables
-enemyDieCounttest = 2
-enemyDieCount = 0
-enemyDie_M7 = 1
-enemyDie_M10 = 1
-M5_WorkBrech = false
-M9_WorkBrech = false
+
 
 local actualAlpha = 0  
 
@@ -124,7 +118,6 @@ function on_ready()
     textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
     bcgBlueUI:set_color(Vector4.new(0, 0, 0, 0))
     bcgRedUI:set_color(Vector4.new(0, 0, 0, 0))
-
 
     blueTaskIndex = load_progress("bluemision",1)
     redTaskIndex = load_progress("redmision",1)
