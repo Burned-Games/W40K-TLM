@@ -661,7 +661,7 @@ function updateGodMode(dt)
 
     if Input.is_key_pressed(Input.keycode.F1) then
         if godMode == false then
-            moveSpeed = normalSpeed * speedDebuf
+            moveSpeed = normalSpeed
             playerRb:set_trigger(false)
             local newPos = Vector3.new(playerTransf.position.x,0,playerTransf.position.z)
             playerRb:set_position(newPos)
@@ -945,7 +945,7 @@ function playerMovement(dt)
             local diference = angleInDegrees - angle2InDegrees
             if rotationDirection.x > minX and rotationDirection.x < maxX and
             (rotationDirection.z > minZ and rotationDirection.z < maxZ) then        
-                moveSpeed = normalSpeed * speedDebuf
+                moveSpeed = normalSpeed
                 if actualweapon == 0 then
                     if currentAnim ~= run  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false  then
                         currentAnim = run
@@ -970,7 +970,7 @@ function playerMovement(dt)
             elseif (rotationDirection.x > minZ and rotationDirection.x < maxZ and
                 (rotationDirection.z > minX and rotationDirection.z < maxX))or ((rotationDirection.x < minZ or rotationDirection.x > maxZ) and
                 (rotationDirection.z < minX or rotationDirection.z > maxX)) then
-                    moveSpeed = 4 * speedDebuf
+                    moveSpeed = 4
                     if actualweapon == 0 then
                         if currentAnim ~= runB  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false  then
                             currentAnim = runB
@@ -999,7 +999,7 @@ function playerMovement(dt)
 
                 if cross > 0 then
                     -- IZQUIERDA
-                    moveSpeed = 4 * speedDebuf
+                    moveSpeed = 4
                     if actualweapon == 0 then
                         if currentAnim ~= runR  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false  then
                             currentAnim = runR
@@ -1024,7 +1024,7 @@ function playerMovement(dt)
 
                 elseif cross < 0 then
                     -- DERECHA
-                    moveSpeed = 4 * speedDebuf
+                    moveSpeed = 4
                     if actualweapon == 0 then
                         if currentAnim ~= runL  and swordScript.slasheeed == false and isHitted == false and bolterScript.chaaarging == false  then
                             currentAnim = runL
@@ -1062,7 +1062,7 @@ function playerMovement(dt)
                         animator:set_lower_animation(currentAnim)
                         if currentUpAnim ~= run and bolterScript.shootAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and aimAnimation == false and swordScript.slasheeed == false then
                             currentUpAnim = run
-                            moveSpeed = normalSpeed * speedDebuf
+                            moveSpeed = normalSpeed
                             animator:set_upper_animation(currentUpAnim)
                         end
                     end
@@ -1072,7 +1072,7 @@ function playerMovement(dt)
                         animator:set_lower_animation(currentAnim)
                         if currentUpAnim ~= run and shotGunScript.shootAnimation == false and shotGunScript.is_reloading == false and aimAnimation == false and healAnimationBool == false and swordScript.slasheeed == false then                     
                             currentUpAnim = run
-                            moveSpeed = normalSpeed * speedDebuf
+                            moveSpeed = normalSpeed
                             animator:set_upper_animation(currentUpAnim)
                         end
                         
@@ -1089,7 +1089,7 @@ function playerMovement(dt)
         local dirZ = moveDirection.z
 
 -- NO normalizamos porque ya está dentro del rango [-1, 1]
-        local velocity = Vector3.new(dirX * moveSpeed, 0, dirZ * moveSpeed)
+        local velocity = Vector3.new(dirX * moveSpeed * speedDebuf, 0, dirZ * moveSpeed * speedDebuf)
 
 
 
@@ -1528,7 +1528,7 @@ function handleCover()
     if sceneName ~= "level3.TeaScene" then
         if barricadeScript and barricadeScript.isPlayerInRange == false then
             isCovering = false
-            moveSpeed = normalSpeed * speedDebuf
+            moveSpeed = normalSpeed
             return
         end
         if Input.get_button(Input.action.Cover) == Input.state.Down then
@@ -1537,9 +1537,9 @@ function handleCover()
         end
 
         if isCovering then
-            moveSpeed = 4 * speedDebuf
+            moveSpeed = 4
         else
-            moveSpeed = normalSpeed * speedDebuf
+            moveSpeed = normalSpeed
         end
     end
 end
