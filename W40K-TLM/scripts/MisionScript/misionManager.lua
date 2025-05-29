@@ -1,26 +1,28 @@
 -- Task list split by color
 local blueTasks = {
-    {id = 1, description = "Upgrade your equipment before entering the Hive City"},
-    {id = 2, description = "Find and use the lever to open the East Door"},
-    {id = 3, description = "Make your way through the city"},
-    {id = 4, description = "Explore and exit the Hive City Central Square"},
-    {id = 5, description = "Upgrade your equipment before fighting in the Great Bridge"},
-    {id = 6, description = "Pull the lever to open the Great Bridge door"},
-    {id = 7, description = "Pull all the levers on the Great Bridge to open the Elevator Door. (x/2)"},
-    {id = 8, description = "Enter the Great Bridge Elevator"}
+    {id = 1, description = "Start moving with [L]"},
+    {id = 2, description = "Aim with [R] and shoot with [RT]"},
+    {id = 3, description = "Defeat the first ork"},
+    {id = 4, description = "Finish the Orkz and pull the lever up"},
+    {id = 5, description = "Upgrade your equipment with the drop pod supply"},
+    {id = 6, description = "Find and get the Bio-Recovery Shot to heal yourself"},
+    {id = 7, description = "Continue going East while defeating enemy orkz"},
+    {id = 8, description = "Upgrade your equipment for the big fight"},
+    {id = 9, description = "Pull both levers to get to the Orkz base (x/2)"},
+    {id = 10, description = "Be the last standing on the Orkz Colliseum"},
+    {id = 11, description = "Upgrade your equipment before leaving the Orkz base"},
+    {id = 12, description = "Find a way to get to the Hive City"}
 }
 
 local redTasks = {
-    {id = 1, description = "Get to the Great Bridge of the Hive City"},
-    {id = 2, description = "Fight your way to the elevator of the Hive City"},
-    {id = 3, description = "Fight and defeat (name)"}
+    {id = 1, description = "Find the drop pod supply"},
+    {id = 2, description = "Make your way to the orkz base"},
+    {id = 3, description = "Break out of the orkz base to the Hive City"}
 }
 
+blueTaskIndex = 1
+redTaskIndex = 1
 
-    blueTaskIndex = 1
-    redTaskIndex = 1
-
--- UI Components
 local textBlueComponent = nil
 local textRedComponent = nil
 local textBlueTransform = nil
@@ -35,17 +37,14 @@ local bcgRedUI = nil
 local bck = false
 local actualAlphaBackground = 0
 
--- Animation control
-local blueAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
-local redAnimation = {start = false, closing = true, lerpTime = 0.0, reset = false, playing = false}
+local blueAnimation = {start = false, playing = false, lerpTime = 0.0, phase = ""}
+local redAnimation = {start = false, playing = false, lerpTime = 0.0, phase = ""}
 
--- Position control
 local imgPosOri = -123
 local imgPosDes = 124
 local textPosOri = -27
 local textPosDes = 220
 
--- Other components (missions)
 local mission4Component = nil
 local mission5Component = nil
 local mission6Component = nil
@@ -54,51 +53,35 @@ local mission8Component = nil
 local mission9Component = nil
 local mission10Complet = false
 
-local current_Level = 2
+    current_Level = 1
+    m3_EnemyCount = 0
+    m4_lever = false
+    m4_EnemyCount = 0
+    m4_showLeverPop = false
+    m5_Upgrade = false
+    m6_heal  = false
+    m7_Defeate = false
+    m7_Upgrade = false
+    m8_lever = 0
+    m9_EnemyCount = false
+    m10_Upgrade = false
+    m11_NewZone = false
+    mr1_supply = false
+    mr2_orkzBase = false
+    mr3_breakOut = false
+    enemyDieCounttest = 2
+    enemyDieCount = 0
+    enemyDie_M7 = 1
+    enemyDie_M10 = 1
+    M5_WorkBrech = false
+    M9_WorkBrech = false
+    actualAlpha = 0
+    delayTimer = 0
+    initialDelay = 3.0
+    initialDelayDone = false
 
--- Mission Blue
--- M1
-m1_Upgrade = false
--- M2
-m2_lever = false
--- M3
-m3_throughCity = false
--- M4
-m4_exitCity = false
--- M5
-m5_Upgrade = false
--- M6
-m6_lever = false
--- M7
-m7_lever = 0
--- M8
-m8_Elevator = false
-
--- Mission Red
--- MR1
-mr1_Check = false
--- MR2
-mr2_Check = false
--- MR3
-mr3_Check = false
-
--- Trigger variables
-enemyDieCounttest = 2
-enemyDieCount = 0
-enemyDie_M7 = 1
-enemyDie_M10 = 1
-M5_WorkBrech = false
-M9_WorkBrech = false
-
-local actualAlpha = 0  
-
-
-local delayTimer = 0.0
-local initialDelay = 3.0
-local initialDelayDone = false
-
---Audio
-local missionCompleteSFX = nil
+    --Audio
+    local missionCompleteSFX = nil
 
 function on_ready()
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
@@ -106,25 +89,27 @@ function on_ready()
     textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
     textRedTransform = current_scene:get_entity_by_name("MisionTextRed"):get_component("TransformComponent")
 
-     --Audio
-     missionCompleteSFX = current_scene:get_entity_by_name("MissionCompleteSFX"):get_component("AudioSourceComponent")
+    --Audio
+    missionCompleteSFX = current_scene:get_entity_by_name("MissionCompleteSFX"):get_component("AudioSourceComponent")
 
     imgBlue = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
     imgRed = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
 
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
-    
+
     bcgBlueUI = current_scene:get_entity_by_name("MisionBackgroundRed"):get_component("UIImageComponent")
     bcgRedUI = current_scene:get_entity_by_name("MisionBackgroundBlue"):get_component("UIImageComponent")
 
+    popupScriptComponent = current_scene:get_entity_by_name("PopUpManager"):get_component("ScriptComponent")
+    
     imgBlueUI:set_color(Vector4.new(1, 1, 1, 0))
     imgRedUI:set_color(Vector4.new(1, 1, 1, 0))
     textBlueComponent:set_color(Vector4.new(1, 1, 1, 0))
     textRedComponent:set_color(Vector4.new(1, 1, 1, 0))
+
     bcgBlueUI:set_color(Vector4.new(0, 0, 0, 0))
     bcgRedUI:set_color(Vector4.new(0, 0, 0, 0))
-
 
     blueTaskIndex = load_progress("bluemision",1)
     redTaskIndex = load_progress("redmision",1)
@@ -181,44 +166,61 @@ function getCurrentTask(tasks, index)
     end
     local description = tasks[index].description
 
-    if blueTaskIndex == 7 then
-        description = description:gsub("x", tostring(m7_lever))
+    if blueTaskIndex == 9 then
+        description = description:gsub("x", tostring(m8_lever))
     end
 
-    return insert_line_breaks(description, 23)
+
+    return insert_line_breaks(description, 27)
 end
 
 function missionBlue_Tutor()
     if blueAnimation.playing or blueTaskIndex > #blueTasks then return end
-    if blueTaskIndex == 1 and m1_Upgrade then
+
+    if blueTaskIndex == 1 and Input.get_axis_position(Input.axiscode.LeftX) ~= 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 2 and m2_lever then
+    elseif blueTaskIndex == 2 and Input.get_axis_position(Input.axiscode.RightTrigger) ~= 0 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 3 and m3_throughCity then
+    elseif blueTaskIndex == 3 and m3_EnemyCount >= 1 then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 4 and m4_exitCity then
+        popupScriptComponent.start_popup_removal_timer()
+    elseif blueTaskIndex == 4 and m4_lever and m4_EnemyCount >= 2 then
         startAnimation(blueAnimation)
     elseif blueTaskIndex == 5 and m5_Upgrade then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 6 and m6_lever then
+    elseif blueTaskIndex == 6 and m6_heal then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 7 and m7_lever == 2 then
+    elseif blueTaskIndex == 7 and m7_Defeate then
         startAnimation(blueAnimation)
-    elseif blueTaskIndex == 8 and m8_Elevator then
+    elseif blueTaskIndex == 8 and m7_Upgrade then
+        startAnimation(blueAnimation)
+        popupScriptComponent.start_popup_removal_timer()
+    elseif blueTaskIndex == 9 and m8_lever == 2 then
+        startAnimation(blueAnimation)
+        popupScriptComponent.start_popup_removal_timer()
+        popupScriptComponent.remove_persistent_popup()
+    elseif blueTaskIndex == 10 and m9_EnemyCount == true then
+        startAnimation(blueAnimation)
+        popupScriptComponent.remove_persistent_popup()
+    elseif blueTaskIndex == 11 and m10_Upgrade then
+        startAnimation(blueAnimation)
+    elseif blueTaskIndex == 12 and m11_NewZone then
         startAnimation(blueAnimation)
     end
 end
 
 function missionRed_Tutor()
     if redAnimation.playing or redTaskIndex > #redTasks then return end
-    if redTaskIndex == 1 and mr1_Check then
+
+    if redTaskIndex == 1 and mr1_supply then
         startAnimation(redAnimation)
-    elseif redTaskIndex == 2 and mr2_Check then
+    elseif redTaskIndex == 2 and mr2_orkzBase then
         startAnimation(redAnimation)
-    elseif redTaskIndex == 3 and mr3_Check then
+    elseif redTaskIndex == 3 and mr3_breakOut then
         startAnimation(redAnimation)
     end
 end
+
 
 function startAnimation(anim)
     if not anim.start and not anim.playing then
@@ -229,6 +231,7 @@ function startAnimation(anim)
         missionCompleteSFX:play()
     end
 end
+
 
 function processAnimation(dt, anim, img, text, onComplete)
     if not anim.start then return end
@@ -263,8 +266,9 @@ function processAnimation(dt, anim, img, text, onComplete)
     bcgBlueUI:set_color(Vector4.new(0, 0, 0, actualAlphaBackground))
     bcgRedUI:set_color(Vector4.new(0, 0, 0, actualAlphaBackground))
 end
+
 function lerp(a, b, t)
-    return a + (b - a) * t
+    return a + (b - a) * math.min(t, 1.0)
 end
 
 function insert_line_breaks(text, max_chars_per_line)
@@ -310,7 +314,7 @@ function utf8_char_count(s)
     return count
 end
 
-function getCurrerLevel()  
+function getCurrerLevel()
     return current_Level
 end
 
