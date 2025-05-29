@@ -11,6 +11,7 @@ pillarToDestroy = nil
 -- Audio
 local bossChargeUltimateSFX = nil
 local bossUltimateExplosionSFX = nil
+local pillarCrashSFX = nil
 
 -- Timers
 local ultiAttackTimer = 0.0
@@ -52,6 +53,7 @@ function on_ready()
     -- Audio
     bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
     bossUltimateExplosionSFX = current_scene:get_entity_by_name("BossUltimateExplosionSFX"):get_component("AudioSourceComponent")
+    pillarCrashSFX = current_scene:get_entity_by_name("PillarCrashSFX"):get_component("AudioSourceComponent")
 
     -- Level
     local enemy_type = "main_boss"
@@ -221,11 +223,11 @@ end
 
 function manage_destroyed_pillar()
 
-    --local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
-    --pillarRb:set_position(Vector3.new(-800, 0, -800))
-    --pillarToDestroy:get_component("ScriptComponent"):give_phisycs()
-    --pillarToDestroy = nil
-
+    local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
+    pillarRb:set_position(Vector3.new(-800, 0, -800))
+    pillarToDestroy:get_component("ScriptComponent"):give_phisycs()
+    pillarToDestroy = nil
+    pillarCrashSFX:play()
 end
 
 function on_exit() end

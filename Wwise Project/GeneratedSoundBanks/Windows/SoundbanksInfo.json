@@ -1746,7 +1746,7 @@
     "Type": "User",
     "GUID": "{19E3CFCE-5418-4D54-9124-7DBDAE79CBE7}",
     "Language": "SFX",
-    "Hash": "{86CA6BCD-B67B-85D8-4548-78AC254F4150}",
+    "Hash": "{1B5013EA-BF78-3318-5CED-797A1C1FB339}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\FinalBossSFX",
     "ShortName": "FinalBossSFX",
     "Path": "FinalBossSFX.bnk",
@@ -1886,6 +1886,7 @@
       "Name": "Play_BossChargeUltimate",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossChargeUltimate",
       "GUID": "{920B37F9-CEA4-47A3-AD55-3B6538D26886}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "3.9814584",
       "DurationMax": "3.9814584",
@@ -1900,6 +1901,7 @@
       "Name": "Play_BossConeAtack",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossConeAtack",
       "GUID": "{341718C5-E47B-4580-850A-762204DA40F0}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "2.319529",
       "DurationMax": "2.964931",
@@ -1914,6 +1916,7 @@
       "Name": "Play_BossFase2Change",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossFase2Change",
       "GUID": "{8E7B445A-5244-41A5-81C3-934F63F779BD}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "2.0448072",
       "DurationMax": "2.0448072",
@@ -1928,6 +1931,7 @@
       "Name": "Play_BossHurt",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossHurt",
       "GUID": "{F19B5EBB-EA02-492E-A85F-14C92D906990}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.6782917",
       "DurationMax": "0.89243007",
@@ -1942,6 +1946,7 @@
       "Name": "Play_BossShieldExplosion",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossShieldExplosion",
       "GUID": "{AAAC3D6A-1472-4F0F-8327-FADB0B24B6D0}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.67657477",
       "DurationMax": "0.90311885",
@@ -1956,6 +1961,7 @@
       "Name": "Play_BossShieldZap",
       "ObjectPath": "\\Events\\Default Work Unit\\Enemies\\Boss\\Play_BossShieldZap",
       "GUID": "{110C8EB9-1F48-4B8C-801E-1BF98CF8DF26}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
       "DurationMin": "0.620375",
       "DurationMax": "0.7478333",
@@ -3846,6 +3852,6 @@
     ]
    }
   ],
-  "FileHash": "{2E995A75-9A14-9495-F919-E27AC660D169}"
+  "FileHash": "{FAE73BD1-434E-64C7-1502-C2EEC75EB6AC}"
  }
 }
