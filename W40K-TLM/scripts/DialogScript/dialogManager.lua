@@ -153,6 +153,8 @@ function update_dialog_animation(dt)
         dialogCurrentAlpha = lerp(0, 1, t)
     else
         dialogCurrentAlpha = lerp(1, 0, t)
+        nameComponent:set_text(" ")
+        textComponent:set_text(" ")
     end
 
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, dialogCurrentAlpha))
