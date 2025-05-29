@@ -594,6 +594,9 @@ function shoot(dt, bulletNum)
         else
             forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
         end
+        bullets[3].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+        bullets[2].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+        bullets[1].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
     end
     
     
@@ -602,7 +605,7 @@ function shoot(dt, bulletNum)
 
     bullets[bulletNum].rigidBody:set_position(newPosition)
 
-    bullets[bulletNum].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+    
 
     local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
     bullets[bulletNum].rigidBody:set_velocity(velocity)
