@@ -84,6 +84,29 @@ function on_ready()
         tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
     end
 
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "MeleeArea" then
+            tank.meleeArea = child
+            tank.meleeAreaRbComponent = child:get_component("RigidbodyComponent")
+            tank.meleeAreaRb = tank.meleeAreaRbComponent.rb
+            tank.meleeAreaRbComponent:on_collision_enter(function(entityA, entityB)
+                local nameA = entityA:get_component("TagComponent").tag
+                local nameB = entityB:get_component("TagComponent").tag
+            
+                if (nameA == "Player" or nameB == "Player") then
+                    print("Tank melee attack hit player")
+                    tank.make_damage(tank.meleeDamage)
+                    tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
+                end
+            end)
+            tank.meleeAreaRb:set_trigger(true)
+            tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
+            break
+        end
+    end
+
+    
 
     -- Level
     tank.enemyType = "tank"
@@ -126,7 +149,7 @@ function on_ready()
     tank.moveAnim = 13
 
     -- Animation timers
-    tank.attackDuration = 3.0 
+    tank.attackDuration = 2.0 
     tank.berserkaDuration = 2.0
     tank.dieDuration = 0.45
     tank.detectDuration = 2.0
@@ -463,27 +486,24 @@ function tank:attack_state(dt)
 
     tank.attackTimer = tank.attackTimer + dt
     
-    tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-    tank:rotate_enemy(tank.playerTransf.position)
+    tank.enemyRb:set_velocity(Vector3.new(0, 0, 0)) 
+    tank:rotate_enemy(tank.playerTransf.position) 
+
+    if tank.currentAnim ~= tank.attackAnim then
+        tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
+    end
 
     if tank.attackTimer >= tank.attackCooldown then
-
-        if tank.currentAnim ~= tank.attackAnim then
-            tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
-        end
-
         if tank.animTimer >= tank.attackDuration then
             local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
             if attackDistance <= tank.meleeAttackRange then
                 tank.impactPlayerSFX:play()
-                tank:make_damage(tank.meleeDamage)
-                print("melee damage: " .. tank.meleeDamage)
-                print("player health: " .. tank.playerScript.health)
+                tank.meleeAreaRb:set_position(tank.enemyTransf.position)
             else
                 tank.currentState = tank.state.Move
+                tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
             end
             tank.attackTimer = 0.0
-            print("timer reset")
         end
 
     end
