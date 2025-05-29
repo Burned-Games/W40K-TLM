@@ -193,7 +193,6 @@ function check_ulti_collision()
     local origin = ultimateTransf.position
     local direction = Vector3.new(playerTransf.position.x - origin.x, 1.5, playerTransf.position.z - origin.z)
     local rayLength = 40
-    local tag = "Pilar"
 
     local rayHit = Physics.Raycast(origin, direction, rayLength)
 
@@ -203,7 +202,13 @@ function check_ulti_collision()
             enemyScript.main_boss:make_damage(ultimateDamage)
             isUltimateDamaging = false
         end
-    elseif enemyScript.main_boss:detect_by_tag(rayHit, tag) then
+    elseif enemyScript.main_boss:detect_by_tag(rayHit, "Pillar1") then
+        log("Pillar hit with ultimate")
+        pillarToDestroy = rayHit.hitEntity
+    elseif enemyScript.main_boss:detect_by_tag(rayHit, "Pillar2") then
+        log("Pillar hit with ultimate")
+        pillarToDestroy = rayHit.hitEntity
+    elseif enemyScript.main_boss:detect_by_tag(rayHit, "Pillar3") then
         log("Pillar hit with ultimate")
         pillarToDestroy = rayHit.hitEntity
     end
@@ -216,10 +221,10 @@ end
 
 function manage_destroyed_pillar()
 
-    local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
-    pillarRb:set_position(Vector3.new(-800, 0, -800))
+    --local pillarRb = pillarToDestroy:get_component("RigidbodyComponent").rb
+    --pillarRb:set_position(Vector3.new(-800, 0, -800))
     --pillarToDestroy:get_component("ScriptComponent"):give_phisycs()
-    pillarToDestroy = nil
+    --pillarToDestroy = nil
 
 end
 
