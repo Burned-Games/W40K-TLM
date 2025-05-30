@@ -1,4 +1,5 @@
     ammoTextComponent = nil
+    local maxAmmoTextComponent = nil
 
     local lifeFullComponent
     local lifeTextComponent
@@ -138,6 +139,7 @@
         arma2 = current_scene:get_entity_by_name("Arma2")
         arma2Texture = arma2:get_component("UIImageComponent")
         ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
+        maxAmmoTextComponent = current_scene:get_entity_by_name("BalasMax"):get_component("UITextComponent")
         weaponChangerToggle = current_scene:get_entity_by_name("BotonCambioArmas"):get_component("UIToggleComponent")
         
         --Chatarra
@@ -338,6 +340,7 @@
         if playerScript.actualweapon == 0 then
             arma1:set_active(true)
             arma2:set_active(false)
+            maxAmmoTextComponent:set_text(rifleScript.maxAmmo)
             weaponChangerToggle.value = false
             
             skillArma1Entity:set_active(true)
@@ -372,6 +375,7 @@
         elseif playerScript.actualweapon == 1 then
             arma1:set_active(false)
             arma2:set_active(true)
+            maxAmmoTextComponent:set_text(shotGunScript.maxAmmo)
             weaponChangerToggle.value = true
             
             skillArma1Entity:set_active(false)
