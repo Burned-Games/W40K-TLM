@@ -102,7 +102,7 @@ function on_update(dt)
                 currentAudio:pause()
                 currentAudio = nil
             end
-             audioLoopSFX:pause()
+            audioLoopSFX:pause()
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
@@ -223,11 +223,10 @@ function play_current_line()
 
     nameComponent:set_text(line.name or " ")
     textComponent:set_text(" ")
-
+    audioLoopSFX:play()
     if line.audio then
         currentAudio = line.audio
         currentAudio:play()
-        audioLoopSFX:play()
     end
 end
 

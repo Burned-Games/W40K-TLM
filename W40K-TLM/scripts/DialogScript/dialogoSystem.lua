@@ -208,7 +208,7 @@ function on_ready()
        
     elseif current_scene_name == "level3.TeaScene" then
         dialogLinesFind = {
-            { name = "DeciusMarcellus", text = "Heh... You'z got lucky, humie. But dis iz where it ends. Martyria Eterna belongs to da WAAAGH now!"}
+            { name = "DeciusMarcellus", text = "Heh... You'z got lucky, humie. But dis iz where it ends. Martyria Eterna belongs to da WAAAGH now!", time = 7}
         }
         
         dialogLinesChange = {
@@ -249,7 +249,7 @@ function on_update(dt)
 
     if isTimerStarted then
         timer = timer + dt        
-        if timer >= 4 then          
+        if timer >= 3 then          
             isTimerStarted = false  
             openDialog = true     
         end
