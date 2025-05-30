@@ -130,10 +130,6 @@ local sceneChanged = false
 --UpgradeManager
 local UpgradeManager = nil
 
---Barricade
-local barricadeScript = nil
-isCovering = false
-
 --granadeSpeed
 local granadeVelocity = 0.65
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
@@ -336,8 +332,6 @@ function on_ready()
 
         shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
     end
-
-    --barricadeScript = current_scene:get_entity_by_name("Barricade"):get_component("ScriptComponent")
 
     if self:has_component("AnimatorComponent") then
         animator = self:get_component("AnimatorComponent")
@@ -578,14 +572,7 @@ function on_update(dt)
     end
     if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
         playerMovement(dt)
-    end 
-        
-        
-
-
-    handleCover()
-    
-    
+    end
 
     -- Listener Position
     playerListener.position = playerTransf.position
@@ -735,8 +722,6 @@ function updateGodMode(dt)
             local newPos = Vector3.new(playerTransf.position.x,playerTransf.position.y - dt * moveSpeed,playerTransf.position.z)
             playerRb:set_position(newPos)
         end
-    elseif isCovering == false then
-        
     end
 
     if Input.is_key_pressed(Input.keycode.F3) then
@@ -1561,25 +1546,6 @@ function attract_scrap(dt)
     end 
 end
 ]]
-function handleCover()
-    if sceneName ~= "level3.TeaScene" then
-        if barricadeScript and barricadeScript.isPlayerInRange == false then
-            isCovering = false
-            moveSpeed = normalSpeed
-            return
-        end
-        if Input.get_button(Input.action.Cover) == Input.state.Down then
-            --isCovering = not isCovering
-            --print("isCovering", isCovering)
-        end
-
-        if isCovering then
-            moveSpeed = 4
-        else
-            moveSpeed = normalSpeed
-        end
-    end
-end
 
 function HealPlayer()
 
