@@ -243,22 +243,22 @@ function on_ready()
     player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     rifle = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
     shotgun = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
-    helmetlvl1 = current_scene:get_entity_by_name("Casco_lv1")
-    helmetlvl2 = current_scene:get_entity_by_name("Casco_lvl_2")
-    jetpacklvl1 = current_scene:get_entity_by_name("Jetpack_lv1")
-    jetpacklvl2 = current_scene:get_entity_by_name("Jetpack_lv2")
+    helmetlvl1 = current_scene:get_entity_by_name("Casco_lv1_player")
+    helmetlvl2 = current_scene:get_entity_by_name("Casco_lvl_2_player")
+    jetpacklvl1 = current_scene:get_entity_by_name("Jetpack_lv1_player")
+    jetpacklvl2 = current_scene:get_entity_by_name("Jetpack_lv2_player")
 
     
     -- Load upgrades from save
 
-    if helmetlvl1 ~= nil and helmetlvl2 ~= nil then
-        helmetlvl1:set_active(true)
-        helmetlvl2:set_active(false)
-    end
-    if jetpacklvl1 ~= nil and jetpacklvl2 ~= nil then
-        jetpacklvl1:set_active(true)
-        jetpacklvl2:set_active(false)
-    end
+    -- if helmetlvl1 ~= nil and helmetlvl2 ~= nil then
+    --     helmetlvl1:set_active(true)
+    --     helmetlvl2:set_active(false)
+    -- end
+    -- if jetpacklvl1 ~= nil and jetpacklvl2 ~= nil then
+    --     jetpacklvl1:set_active(true)
+    --     jetpacklvl2:set_active(false)
+    -- end
 
     load_upgrades()
 
@@ -284,7 +284,7 @@ end
 
 function handle_visuals()
     if has_upgrade("armor", "healthBoost") then
-        jetpacklvl1:set_active(false)
+        jetpacklvl1:set_active(true)
         jetpacklvl2:set_active(true)
     else
         jetpacklvl1:set_active(true)
