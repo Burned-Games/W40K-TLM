@@ -1,11 +1,13 @@
 ammoTextComponent = nil
 local maxAmmoTextComponent = nil
 
+local lifeEntity
 local lifeFullComponent
 local lifeTextComponent
 local originalLifeColor = nil
 
 local skill1
+local skill1Entity
 local skill1VisualCooldownEntity
 local skill1VisualCooldown
 local skill1TextCooldownEntity
@@ -14,6 +16,7 @@ local skill1Cooldown = false
 local skill1Timer = 0
 
 local skill2
+local skill2Entity
 local skill2ButtonEntity    
 local skill2Button
 local skill2VisualCooldownEntity
@@ -22,14 +25,17 @@ local skill2Cooldown = false
 local skill2Timer = 0
 
 local skill3
+local skill3Entity
 local skill3Button    
 local skill3VisualCooldown
 local skill3Cooldown = false
 local skill3Timer = 0
 
 local skillsArmasTextCooldown
+local skillArma1Entity
 local skillArma1
 local skillArma1Cooldown
+local skillArma2Entity
 local skillArma2
 local skillArma2Cooldown
 local skillsArmasCooldown = false
@@ -87,45 +93,77 @@ local velocidadAtaque = nil
 local cantidadConsumible = nil
 
 function on_ready()
-    --Vida
-    lifeFullComponent = current_scene:get_entity_by_name("VidaFull"):get_component("UIImageComponent")
-    lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
 
-    --Habilidades
-    skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
-    skill1VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad1Cooldown")
-    skill1VisualCooldown = skill1VisualCooldownEntity:get_component("UIImageComponent")
-    skill1TextCooldownEntity = current_scene:get_entity_by_name("Habilidad1CooldownText")
-    skill1TextCooldown = skill1TextCooldownEntity:get_component("UITextComponent")
+    local children = self:get_children() 
+    for _, child in ipairs(children) do
+        local childTag = child:get_component("TagComponent").tag
 
-    skill2 = current_scene:get_entity_by_name("Habilidad2Activable"):get_component("UIToggleComponent")
-    skill2ButtonEntity = current_scene:get_entity_by_name("Habilidad2Boton")
-    skill2Button = skill2ButtonEntity:get_component("UIImageComponent")
-    skill2VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad2Cooldown")
-    skill2VisualCooldown = skill2VisualCooldownEntity:get_component("UIImageComponent")
-    skill2TextCooldownEntity = current_scene:get_entity_by_name("Habilidad2CooldownText")
-    skill2TextCooldown = skill2TextCooldownEntity:get_component("UITextComponent")
+        --Vida
+        if childTag == "VidaFull" then
+            lifeEntity = child
+            lifeFullComponent = child:get_component("UIImageComponent")
+            lifeTextComponent = lifeEntity:get_child(0):get_component("UITextComponent")
+        end
 
-    skill3 = current_scene:get_entity_by_name("Habilidad3Activable"):get_component("UIToggleComponent")
-    skill3ButtonEntity = current_scene:get_entity_by_name("Habilidad3Boton")
-    skill3Button = skill3ButtonEntity:get_component("UIImageComponent")
-    skill3VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad3Cooldown")
-    skill3VisualCooldown = skill3VisualCooldownEntity:get_component("UIImageComponent")
-    skill3TextCooldownEntity = current_scene:get_entity_by_name("Habilidad3CooldownText")
-    skill3TextCooldown = skill3TextCooldownEntity:get_component("UITextComponent")
+        --Habilidades
+        if childTag == "Habilidades" then
+            --Skill 1
+            skill1Entity = child:get_child(0)
+            skill1 = skill1Entity:get_component("UIImageComponent")
+            skill1VisualCooldownEntity = skill1Entity:get_child(0)
+            skill1VisualCooldown = skill1VisualCooldownEntity:get_component("UIImageComponent")
+            skill1TextCooldownEntity = skill1Entity:get_child(1)
+            skill1TextCooldown = skill1TextCooldownEntity:get_component("UITextComponent")
 
-    skillsArmasTextCooldownEntity = current_scene:get_entity_by_name("HabilidadesArmasCooldown")
-    skillsArmasTextCooldown = skillsArmasTextCooldownEntity:get_component("UITextComponent")
-    skillArma1Entity = current_scene:get_entity_by_name("HabilidadArma1")
-    skillArma1 = skillArma1Entity:get_component("UIToggleComponent")
-    skillArma1CooldownEntity = current_scene:get_entity_by_name("HabilidadArma1Cooldown")
-    skillArma1Cooldown = skillArma1CooldownEntity:get_component("UIImageComponent")
-    skillArma2Entity = current_scene:get_entity_by_name("HabilidadArma2")
-    skillArma2 = skillArma2Entity:get_component("UIToggleComponent")
-    skillArma2CooldownEntity = current_scene:get_entity_by_name("HabilidadArma2Cooldown")
-    skillArma2Cooldown = skillArma2CooldownEntity:get_component("UIImageComponent")
-    skillsArmasBoton = current_scene:get_entity_by_name("HabilidadesArmasBoton")
+            --Skill 2
+            skill2Entity = child:get_child(1)
+            skill2 = skill2Entity:get_component("UIToggleComponent")
+            skill2VisualCooldownEntity = skill2Entity:get_child(0)
+            skill2VisualCooldown = skill2VisualCooldownEntity:get_component("UIImageComponent")
+            skill2TextCooldownEntity = skill2Entity:get_child(1)
+            skill2TextCooldown = skill2TextCooldownEntity:get_component("UITextComponent")
+            skill2ButtonEntity = skill2Entity:get_child(2)
+            skill2Button = skill2ButtonEntity:get_component("UIImageComponent")
 
+            --Skill 3
+            skill3Entity = child:get_child(2)
+            skill3 = skill3Entity:get_component("UIToggleComponent")
+            skill3VisualCooldownEntity = skill3Entity:get_child(0)
+            skill3VisualCooldown = skill3VisualCooldownEntity:get_component("UIImageComponent")
+            skill3TextCooldownEntity = skill3Entity:get_child(1)
+            skill3TextCooldown = skill3TextCooldownEntity:get_component("UITextComponent")
+            skill3ButtonEntity = skill3Entity:get_child(2)
+            skill3Button = skill3ButtonEntity:get_component("UIImageComponent")
+
+            --Skills Arma 1
+            skillArma1Entity = child:get_child(3)
+            skillArma1 = skillArma1Entity:get_component("UIToggleComponent")
+            skillArma1CooldownEntity = skillArma1Entity:get_child(0)
+            skillArma1Cooldown = skillArma1CooldownEntity:get_component("UIImageComponent")
+
+            --Skills Arma 2
+            skillArma2Entity = child:get_child(4)
+            skillArma2 = skillArma2Entity:get_component("UIToggleComponent")
+            skillArma2CooldownEntity = skillArma2Entity:get_child(0)
+            skillArma2Cooldown = skillArma2CooldownEntity:get_component("UIImageComponent")
+
+            skillsArmasTextCooldownEntity = child:get_child(5)
+            skillsArmasTextCooldown = skillsArmasTextCooldownEntity:get_component("UITextComponent")
+            
+            skillsArmasBoton = child:get_child(5)
+        end
+
+        --Armas
+        if childTag == "Arma1" then
+            arma1 = child
+            arma1Texture = arma1:get_component("UIImageComponent")
+        end
+        if childTag == "Arma2" then
+            arma2 = child
+            arma2Texture = arma2:get_component("UIImageComponent")
+        end
+    end
+    
     rifleScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
     rifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTimeCounter
     maxRifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTime
@@ -134,26 +172,11 @@ function on_ready()
     sawSwordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
 
     --Armas
-    arma1 = current_scene:get_entity_by_name("Arma1")
-    arma1Texture = arma1:get_component("UIImageComponent")
-    arma2 = current_scene:get_entity_by_name("Arma2")
-    arma2Texture = arma2:get_component("UIImageComponent")
     ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
     maxAmmoTextComponent = current_scene:get_entity_by_name("BalasMax"):get_component("UITextComponent")
     weaponChangerToggle = current_scene:get_entity_by_name("BotonCambioArmas"):get_component("UIToggleComponent")
-    
-    --Chatarra
-    chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
 
-    player = current_scene:get_entity_by_name("Player")
-    playerScript = player:get_component("ScriptComponent")
-
-    armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
-    armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
-
-    upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
-
-    --Debuffs
+     --Debuffs
     quemadoEntity = current_scene:get_entity_by_name("Quemado")
     quemado = quemadoEntity:get_component("UIImageComponent")
     sangradoEntity = current_scene:get_entity_by_name("Sangrado")
@@ -174,7 +197,18 @@ function on_ready()
     velocidadAtaque = velocidadAtaqueEntity:get_component("UIImageComponent")
 
     cantidadConsumible = current_scene:get_entity_by_name("ConsumibleCantidad"):get_component("UITextComponent")
-    
+
+    --Chatarra
+    chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
+
+    player = current_scene:get_entity_by_name("Player")
+    playerScript = player:get_component("ScriptComponent")
+
+    armorUpgrade = current_scene:get_entity_by_name("ArmorUpgradeSystem")
+    armorUpgradeScript = armorUpgrade:get_component("ScriptComponent")
+
+    upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
+
     skill1TextCooldownEntity:set_active(false)
     skill1VisualCooldownEntity:set_active(false)
 

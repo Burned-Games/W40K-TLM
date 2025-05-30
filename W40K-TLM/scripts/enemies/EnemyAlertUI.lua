@@ -12,10 +12,13 @@ alertDistance = 2
 
 function on_ready()
     alertTransf = self:get_component("TransformComponent")
-    alertSprite = self:get_component("SpriteComponent")
 end
 
 function on_update(dt)
+    if alertSprite == nil then
+        alertSprite = self:get_component("SpriteComponent")
+    end
+
     if enemyTransf then
         alertTransf.position = Vector3.new(enemyTransf.position.x, enemyTransf.position.y + alertDistance, enemyTransf.position.z)
     end
