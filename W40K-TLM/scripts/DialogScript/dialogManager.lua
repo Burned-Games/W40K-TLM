@@ -1,7 +1,5 @@
 -- dialogSystem.lua
 
-
-
 -- UI Components
 local nameComponent = nil
 local textComponent = nil
@@ -9,6 +7,7 @@ local dialogImgComponent = nil
 
 -- Dialog state control
 local dialogQueue = {}
+local dialogSequenceQueue = {} 
 local currentDialogIndex = 1
 local isDialogPlaying = false
 
@@ -38,27 +37,39 @@ local dialogStartQueued = false
 
 -- Audio control
 local currentAudio = nil
-
 local audioLoopSFX = nil
+
+local isQueueProcessing = false
+local dialogEndTimer = 0.0
+local dialogEndDelay = 3.0
+local waitingForNextDialog = false
 
 -- Initialization
 function on_ready()
-
-
     nameComponent = current_scene:get_entity_by_name("DialogName"):get_component("UITextComponent")
     textComponent = current_scene:get_entity_by_name("DialogText"):get_component("UITextComponent")
     dialogImgComponent = current_scene:get_entity_by_name("DialogIMG"):get_component("UIImageComponent")
     audioLoopSFX = current_scene:get_entity_by_name("DialogoLoop"):get_component("AudioSourceComponent")
-
 
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, 0))
     nameComponent:set_text(" ")
     textComponent:set_text(" ")
 end
 
--- Per-frame update
 function on_update(dt)
     update_dialog_animation(dt)
+
+    if waitingForNextDialog then
+        dialogEndTimer = dialogEndTimer + dt
+        if dialogEndTimer >= dialogEndDelay then
+            waitingForNextDialog = false
+            start_next_queued_dialog()
+        end
+    end
+
+    if not isDialogPlaying and not isQueueProcessing and not waitingForNextDialog and #dialogSequenceQueue > 0 then
+        start_next_queued_dialog()
+    end
 
     if not isDialogPlaying then return end
 
@@ -89,7 +100,6 @@ function on_update(dt)
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
-            audioLoopSFX:pause()
         end
         return
     end
@@ -97,7 +107,6 @@ function on_update(dt)
     if waitingForNext and autoNextEnabled then
         autoNextTimer = autoNextTimer + dt
         if autoNextTimer >= autoNextDelay then
-            -- Stop current audio when auto-advancing
             if currentAudio then
                 currentAudio:pause()
                 currentAudio = nil
@@ -129,14 +138,47 @@ function on_update(dt)
     end
 end
 
+function start_next_queued_dialog()
+    if #dialogSequenceQueue == 0 then return end
+    isQueueProcessing = true
+    local nextDialog = table.remove(dialogSequenceQueue, 1)
+    start_dialog(nextDialog)
+    isQueueProcessing = false
+end
+
+
+function dialog_equals(a, b)
+    if #a ~= #b then return false end
+    for i = 1, #a do
+        if a[i].text ~= b[i].text or a[i].name ~= b[i].name then
+            return false
+        end
+    end
+    return true
+end
+
 function start_dialog(lines)
+    waitingForNextDialog = false
+
+        if isDialogPlaying or dialogAnimating or waitingDialogStart then
+            if dialog_equals(dialogQueue, lines) then
+                return
+            end
+            for _, queuedLines in ipairs(dialogSequenceQueue) do
+                if dialog_equals(queuedLines, lines) then
+                    return
+                end
+            end
+            table.insert(dialogSequenceQueue, lines)
+            return
+        end
+
     dialogQueue = lines
     currentDialogIndex = 1
     isDialogPlaying = false
     waitingDialogStart = true
     dialogStartQueued = true
     start_dialog_open_animation()
-    
 end
 
 function start_dialog_open_animation()
@@ -196,17 +238,14 @@ function play_current_line()
         return
     end
 
-
     fullText = line.text or " "
     local text_length = utf8_char_count(fullText)
-    
 
     if line.time and text_length > 0 then
-        typeSpeed = math.max(line.time / text_length, 0.01) 
+        typeSpeed = math.max(line.time / text_length, 0.01)
     else
-        typeSpeed = 0.04  
+        typeSpeed = 0.04
     end
-
 
     if currentAudio then
         currentAudio:pause()
@@ -224,6 +263,7 @@ function play_current_line()
     nameComponent:set_text(line.name or " ")
     textComponent:set_text(" ")
     audioLoopSFX:play()
+
     if line.audio then
         currentAudio = line.audio
         currentAudio:play()
@@ -246,6 +286,11 @@ function end_dialog()
     end
     audioLoopSFX:pause()
     start_dialog_close_animation()
+
+    if #dialogSequenceQueue > 0 then
+        waitingForNextDialog = true
+        dialogEndTimer = 0.0
+    end
 end
 
 function lerp(a, b, t)
