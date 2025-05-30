@@ -95,6 +95,16 @@ function on_ready()
                 -- Configure the area trigger
                 areaTriggerRB.rb:set_trigger(true)
                 areaTriggerRB.rb:set_position(Vector3.new(workbenchInitialPosition.x, workbenchInitialPosition.y, workbenchInitialPosition.z))
+                local collider = areaTriggerRB.rb:get_collider()
+                local collider_type = areaTriggerRB.rb:get_collider_type()
+                
+                if collider_type == "Box" then
+                    collider:set_box_size(Vector3.new(10, 1, 10))
+                end
+
+                areaTriggerRB.rb:set_trigger(true)
+                areaTriggerRB.rb:set_position(Vector3.new(workbenchInitialPosition.x, workbenchInitialPosition.y, workbenchInitialPosition.z))
+
                 areaTriggerRB:on_collision_enter(function(entityA, entityB)
                     handle_area_collision_enter(entityA, entityB)
                 end)
