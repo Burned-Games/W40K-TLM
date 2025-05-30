@@ -122,7 +122,6 @@ function on_ready()
 
     -- Bools
     kamikaze.isExploding = false
-    kamikaze.hasExploded = false
     kamikaze.hasDealtDamage = false
     kamikaze.hasStartedExplosionAnim = false
     kamikaze.isAlerted = false
@@ -164,23 +163,6 @@ function on_update(dt)
     change_state(dt)
 
     if kamikaze.currentState == kamikaze.state.Idle then return end
-
-    if not kamikaze.hasExploded and kamikaze.health <= 0 then
-        drop_explosive()
-        if kamikaze.key ~= 0 then
-            kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting - 1
-            kamikaze.key = 0
-        end
-        kamikaze:die_state()
-        kamikaze.kamikazeDieSFX:play()
-    elseif kamikaze.hasExploded and kamikaze.health <= 0 then
-        if kamikaze.key ~= 0 then
-            kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting - 1
-            kamikaze.key = 0
-        end
-        
-        kamikaze:die_state()
-    end
 
     if kamikaze.haveShield and kamikaze.enemyShield <= 0 then
         kamikaze.haveShield = false
@@ -283,6 +265,46 @@ function change_state(dt)
 
 end
 
+function kamikaze:die_state(dt)
+    local explosionPos = kamikaze.enemyRb:get_position()
+    local playerPos = kamikaze.playerTransf.position
+    local distance = kamikaze:get_distance(explosionPos, playerPos)
+
+    -- VFX
+    kamikaze.explosion = instantiate_prefab(explosionPrefab)
+    kamikaze.explosion:set_active(true)
+    kamikaze.explosionTransf = kamikaze.explosion:get_component("TransformComponent")
+    kamikaze.explosionScript = kamikaze.explosion:get_component("ScriptComponent")
+    kamikaze.explosionTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y, kamikaze.enemyTransf.position.z)
+    kamikaze.explosionScript:on_ready()
+    
+    if distance < kamikaze.explosionRange then
+        kamikaze:make_damage(kamikaze.damage)
+        effect:apply_burn(kamikaze.playerScript)
+    end
+
+    kamikaze.kamikazeExplosionSFX:play()
+    
+    kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting - 1 
+    kamikaze.currentState = kamikaze.state.Idle
+    kamikaze.enemyRb:set_position(Vector3.new(-500, 0, 0))
+    kamikaze.isDead = true
+
+    kamikaze:generate_scrap()
+
+    if kamikaze.misionManager and kamikaze.enemyDie == false  then
+        if kamikaze.misionManager.getCurrerTaskIndex(true) <= 3 then
+            kamikaze.misionManager.m3_EnemyCount = kamikaze.misionManager.m3_EnemyCount + 1
+        end
+        
+        if kamikaze.misionManager.getCurrerTaskIndex(true) == 4 then
+            kamikaze.misionManager.m4_EnemyCount = kamikaze.misionManager.m4_EnemyCount + 1
+        end
+        
+        kamikaze.enemyDie = true
+    end
+end
+
 function kamikaze:attack_state()
 
     if kamikaze.currentAnim ~= kamikaze.attackAnim then
@@ -294,37 +316,10 @@ function kamikaze:attack_state()
 
 
     if kamikaze.attackTimer >= kamikaze.attackDelay and not kamikaze.hasDealtDamage then
-
-        local explosionPos = kamikaze.enemyRb:get_position()
-        local playerPos = kamikaze.playerTransf.position
-        local distance = kamikaze:get_distance(explosionPos, playerPos)
-
-        -- VFX
-        kamikaze.explosion = instantiate_prefab(explosionPrefab)
-        kamikaze.explosion:set_active(true)
-        kamikaze.explosionTransf = kamikaze.explosion:get_component("TransformComponent")
-        kamikaze.explosionScript = kamikaze.explosion:get_component("ScriptComponent")
-        kamikaze.explosionTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y, kamikaze.enemyTransf.position.z)
-        kamikaze.explosionScript:on_ready()
-        
-        if distance < kamikaze.explosionRange then
-            kamikaze:make_damage(kamikaze.damage)
-            effect:apply_burn(kamikaze.playerScript)
-        end
-
         kamikaze.hasDealtDamage = true
         kamikaze.health = 0
-        kamikaze.hasExploded = true
-        kamikaze.kamikazeExplosionSFX:play()
-        kamikaze.playerScript.enemys_targeting = kamikaze.playerScript.enemys_targeting - 1
         kamikaze:die_state()
     end
-
-end
-
-function drop_explosive()
-
-    --kamikaze.explosiveBarrelRb:set_position(Vector3.new(kamikaze.enemyTransf.position.x, 0.4, kamikaze.enemyTransf.position.z))
 
 end
 
