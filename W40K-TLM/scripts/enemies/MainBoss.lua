@@ -430,7 +430,7 @@ function fists_attack()
     log("Fists Indicator")
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
-    main_boss.fistScript:fist()
+    main_boss.fistScript.fist()
 
 end
 

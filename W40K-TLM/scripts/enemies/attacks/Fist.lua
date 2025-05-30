@@ -15,6 +15,11 @@ local fistIndicators = {}
 local fistIndicatorsScript = {}
 local fistIndicatorsTransform = {}
 
+-- Arena
+local arenaCenter = nil
+local playerTransf = nil
+local enemyScript = nil
+
 -- Lists
 local fistPositions = {}
 local scalingAttacks = {}
@@ -29,7 +34,7 @@ rangeAttackDuration = 0.0
 local colliderUpdateInterval = 0.1
 
 -- Ints
-local fistMaxNumbers = 4
+local fistMaxNumbers = 25
 local radius = 6
 rangeDamage = 0
 fistTargetScale = 0
@@ -57,6 +62,9 @@ function on_ready()
     -- Audio
     bossSmashDescendSFX = current_scene:get_entity_by_name("BossSmashDescendSFX"):get_component("AudioSourceComponent")
     bossSmashImpactSFX = current_scene:get_entity_by_name("BossSmashImpactSFX"):get_component("AudioSourceComponent")
+
+    -- Arena
+    arenaCenter = current_scene:get_entity_by_name("ArenaCenter"):get_component("TransformComponent").position
 
     -- Fists
     local fistChildren = self:get_children()
@@ -167,18 +175,43 @@ function fist()
     fistsAttackPending = true
     fistsAttackDelayTimer = 0.0
 
-    fistPositions = {Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)}
+    fistPositions = {}
 
-    -- Generate the other positions with some variability
+    -- Arena data
+    local arenaRadius = 20
+
+    -- Centro directo (jugador)
+    table.insert(fistPositions, Vector3.new(playerTransf.position.x, 0, playerTransf.position.z))
+
     for i = 1, fistMaxNumbers - 1 do
-        local angle = math.rad((360 / (fistMaxNumbers - 1)) * (i - 1))
-        local randRadius = radius + math.random() * 5
-        local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
-        local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
+        local attempts = 0
+        local maxAttempts = 10
+        local valid = false
+        local pos = nil
 
-        table.insert(fistPositions, Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ))
+        while not valid and attempts < maxAttempts do
+            local angle = math.rad((360 / (fistMaxNumbers - 1)) * (i - 1))
+            local randRadius = radius + math.random() * 5
+            local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
+            local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
+            pos = Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ)
+
+            if is_within_arena(pos, arenaCenter, arenaRadius) then
+                valid = true
+            end
+
+            attempts = attempts + 1
+        end
+
+        -- Si tras los intentos no encontró posición válida, coloca en el centro
+        if not valid then
+            pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+        end
+
+        table.insert(fistPositions, pos)
     end
 
+    -- Aplicar a los indicadores
     for i = 1, fistMaxNumbers do
         if fistIndicatorsTransform[i] then
             fistIndicatorsTransform[i].position = fistPositions[i]
@@ -260,6 +293,12 @@ function update_scaling_attacks(dt)
         end
     end
     
+end
+
+function is_within_arena(position, center, radius)
+    local dx = position.x - center.x
+    local dz = position.z - center.z
+    return dx * dx + dz * dz <= radius * radius
 end
 
 function on_exit() end

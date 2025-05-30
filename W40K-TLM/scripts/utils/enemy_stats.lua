@@ -352,9 +352,9 @@ local enemy_stats = {
             meleeDamage = 70,
             rangeDamage = 50,
 
-            detectionRange = 40,
+            detectionRange = 29,
             meleeAttackRange = 10,
-            rangeAttackRange = 30,
+            rangeAttackRange = 28,
 
             fistTargetScale = 3,
 
@@ -391,7 +391,7 @@ local enemy_stats = {
 
             detectionRange = 50,
             meleeAttackRange = 10,
-            rangeAttackRange = 30,
+            rangeAttackRange = 40,
             totemRange = 2,
 
             fistTargetScale = 3,
