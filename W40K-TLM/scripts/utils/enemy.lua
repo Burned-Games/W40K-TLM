@@ -275,6 +275,7 @@ end
 function enemy:die_state(dt)
     
     if self.currentAnim ~= self.dieAnim then
+        self.animator:set_looping(false)
         self:play_blocking_animation(self.dieAnim, self.dieDuration)
         if self.dyingSFX ~= nil then self.dyingSFX:play() end
     end
