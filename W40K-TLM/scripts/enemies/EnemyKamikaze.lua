@@ -40,9 +40,6 @@ function on_ready()
     -- Camera
     kamikaze.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
-    -- Explosive
-    kamikaze.explosiveBarrelRb = current_scene:get_entity_by_name("Explosive"):get_component("RigidbodyComponent").rb
-
     -- Particle
     kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
     kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
@@ -327,7 +324,7 @@ end
 
 function drop_explosive()
 
-    kamikaze.explosiveBarrelRb:set_position(Vector3.new(kamikaze.enemyTransf.position.x, 0.4, kamikaze.enemyTransf.position.z))
+    --kamikaze.explosiveBarrelRb:set_position(Vector3.new(kamikaze.enemyTransf.position.x, 0.4, kamikaze.enemyTransf.position.z))
 
 end
 
