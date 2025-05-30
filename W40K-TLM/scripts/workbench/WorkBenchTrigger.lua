@@ -41,6 +41,15 @@ currentUIScreen = "gun"  -- "gun" or "character"
 local IDLE_TRANSITION_TIME = 0.8  -- Time for the transition animations (Armor/Weapons)
 local IDLE_DISPLAY_TIME = 1.0     -- Time for the idle animations (IdleArmor/IdleWeapons)
 
+-- Scale management
+local isScaling = false
+local targetScale = 1.0
+local currentScale = 1.0
+local scaleSpeed = 300.0  -- Scale units per second
+local scaleDelayTimer = 0.0
+local scaleDelay = 2.3  -- Delay before starting scale animation
+local waitingForScaleDelay = false
+
 --Audio
 local workbenchFallSFX
 
@@ -137,6 +146,39 @@ function on_ready()
 end
 
 function on_update(dt)
+    -- Handle workbench scaling delay
+    if waitingForScaleDelay then
+        scaleDelayTimer = scaleDelayTimer + dt
+        if scaleDelayTimer >= scaleDelay then
+            waitingForScaleDelay = false
+            isScaling = true
+            scaleDelayTimer = 0.0
+        end
+    end
+
+    -- Handle workbench scaling
+    if isScaling then
+        local scaleDifference = targetScale - currentScale
+        if math.abs(scaleDifference) > 0.01 then
+            local scaleDirection = scaleDifference > 0 and 1 or -1
+            currentScale = currentScale + scaleDirection * scaleSpeed * dt
+            
+            -- Clamp to target
+            if scaleDirection > 0 and currentScale > targetScale then
+                currentScale = targetScale
+            elseif scaleDirection < 0 and currentScale < targetScale then
+                currentScale = targetScale
+            end
+            
+            -- Apply scale to workbench
+            workbenchTransform.scale = Vector3.new(currentScale, currentScale, currentScale)
+        else
+            currentScale = targetScale
+            workbenchTransform.scale = Vector3.new(currentScale, currentScale, currentScale)
+            isScaling = false
+        end
+    end
+
     -- Manage animations based on UI state
     if workbenchInGround and workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen then
 
@@ -264,6 +306,11 @@ function workbenchFall()
         landAnimationTimer = 0
         workbenchInGround = true
         
+        -- Start scaling to normal size immediately
+        targetScale = 1.0
+        isScaling = true
+        waitingForScaleDelay = false
+        
         -- Update current UI screen if the UI is open
         if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen then
             currentUIScreen = workbenchUIManagerScript.currentScreen
@@ -281,12 +328,18 @@ function workbenchRise()
         playAnimation(ANIM_FLY)
         workbenchInGround = false
         
+        -- Start scaling to zero with delay
+        targetScale = 0.0
+        waitingForScaleDelay = true
+        isScaling = false
+        scaleDelayTimer = 0.0
+        
         -- Reset animation states
         idleAnimationTimer = 0
         idleAnimationState = 0
         currentUIScreen = "gun"
     end
- 
+
     -- Track mission objectives
     if mission_Component.getCurrerTaskIndex(true) == 5 and mission_Component.getCurrerLevel() == 1  then
         mission_Component.m5_Upgrade = true
