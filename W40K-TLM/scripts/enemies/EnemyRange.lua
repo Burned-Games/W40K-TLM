@@ -38,10 +38,6 @@ function on_ready()
     -- Camera
     range.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
-    -- Explosive
-    range.explosive = current_scene:get_entity_by_name("Explosive")
-    range.explosiveTransf = range.explosive:get_component("TransformComponent")
-
     -- Mision
     range.misionManager = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
 
@@ -362,15 +358,6 @@ function range:shoot_state(dt)
 
     range.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
-    --Checks if explosive is detected and within range of the player
-    local shouldTargetExplosive = false
-    if range.explosiveDetected then
-        local playerToExplosive = range:get_distance(range.playerTransf.position, range.explosiveTransf.position)
-        if playerToExplosive <= 5.0 then
-            shouldTargetExplosive = true
-        end
-    end
-
     if range.isShootingBurst then
         if range.currentAnim ~= range.rangeAttackAnim then
             range.currentAnim = range.rangeAttackAnim
@@ -380,7 +367,7 @@ function range:shoot_state(dt)
         range.timeSinceLastShot = range.timeSinceLastShot + dt
 
         if range.timeSinceLastShot >= range.burstCooldown and range.burstCount < range.maxBurstShots then
-            shoot_projectile(shouldTargetExplosive)
+            shoot_projectile()
             range.burstCount = range.burstCount + 1
             range.timeSinceLastShot = 0
             range.rangeShotSFX:play()
@@ -511,7 +498,7 @@ function range:stab_state(dt)
 
 end
 
-function shoot_projectile(targetExplosive)
+function shoot_projectile()
 
     local bullet, index = range.bulletManagerScript:get_free_bullet()
     local angle = math.rad(-range.enemyTransf.rotation.y)
@@ -537,9 +524,6 @@ function shoot_projectile(targetExplosive)
     
     -- Target position
     local targetPos = range.delayedPlayerPos -- Default to player
-    if targetExplosive and range.explosiveDetected and range.level == 2 then -- Switch to explosive if detected
-        targetPos = range.explosiveTransf.position 
-    end
 
     -- Calculate direction vector
     local dirX = targetPos.x - startPos.x
