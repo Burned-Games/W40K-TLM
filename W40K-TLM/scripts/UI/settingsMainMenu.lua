@@ -126,7 +126,7 @@ function on_update(dt)
             local currentValue = selectedSlider.value
             
         
-            newValue = currentValue + (horizontalInput * 0.05) 
+            newValue = currentValue + (horizontalInput * 0.10) 
             newValue = math.max(0.0, math.min(1.0, newValue))
 
             

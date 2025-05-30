@@ -235,35 +235,35 @@ function on_update(dt)
     end
 
     if isOnPauseSettings then
-        local horizontalInput = Input.get_axis(Input.action.UiMoveHorizontal)
-        if math.abs(horizontalInput) > 0.5 then
-            inputCooldown = cooldownTime / 2
+        if inputCooldown > 0 then
+            inputCooldown = inputCooldown - dt
+        else
+            local horizontalInput = Input.get_axis(Input.action.UiMoveHorizontal)
 
-            if currentSelectedSlider == 1 then
-                slider1.value = math.max(0.0, math.min(1.0, slider1.value + (horizontalInput * 0.05)))
-                musicVolume = slider1.value
-                
-                set_music_volume(musicVolume)
-                musicVolume = musicVolume * 100
-                save_progress("musicVolumeGeneral", musicVolume)
+            if math.abs(horizontalInput) > 0.5 then
+                local selectedSlider = (currentSelectedSlider == 1) and slider1 or slider2
+                local currentValue = selectedSlider.value
 
-            elseif currentSelectedSlider == 2 then
-                slider2.value = math.max(0.0, math.min(1.0, slider2.value + (horizontalInput * 0.05)))
-                fxVolume = slider2.value
-                
-                log("Este es el valor del slider ahora: " .. fxVolume)
-               
-                set_sfx_volume(fxVolume)
-            
-                fxVolume = fxVolume * 100
-                save_progress("fxVolume", fxVolume)
-                if fxVolume ~= 100 then
-                    settingsSFX:play()
+                local newValue = currentValue + (horizontalInput * 0.10)
+                newValue = math.max(0.0, math.min(1.0, newValue))
+                selectedSlider.value = newValue
+
+                if currentSelectedSlider == 1 then
+                    set_music_volume(newValue)
+                    save_progress("musicVolumeGeneral", newValue * 100)
+                else
+                    set_sfx_volume(newValue)
+                    save_progress("fxVolume", newValue * 100)
+                    if newValue ~= 1.0 then
+                        settingsSFX:play()
+                    end
                 end
+
+                inputCooldown = cooldownTime / 2
             end
         end
     end
-        
+
     if inputCooldown > 0 then
         inputCooldown = inputCooldown - dt
         return
