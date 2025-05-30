@@ -243,6 +243,10 @@ infiniteHealth = false
 
 local levelToChange = -1
 
+--god mode
+local pressedFullscreen = false
+
+
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -740,6 +744,20 @@ function updateGodMode(dt)
     if Input.is_key_pressed(Input.keycode.F7) then
         scrapCounter = scrapCounter + 1000
     end
+    if Input.is_key_pressed(Input.keycode.F11) then
+    if pressedFullscreen == false then
+        local currentMode = App.get_window_mode()
+        if currentMode == WindowMode.Fullscreen then
+            App.set_window_mode(WindowMode.Windowed)
+        else
+            App.set_window_mode(WindowMode.Fullscreen)
+        end
+        pressedFullscreen = true
+    end
+else
+    pressedFullscreen = false
+end
+
 end
 
 function updateEntranceAnimation(dt)
