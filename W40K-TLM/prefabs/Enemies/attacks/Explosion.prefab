@@ -10,38 +10,53 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 11580186225412296703
+                "value0": 6153429201591206892
             },
             "value4": false
         },
         "RootEntity": 0,
-        "value0": 3,
-        "value1": 3,
+        "value0": 6,
+        "value1": 6,
         "value2": 0,
         "value3": 1,
         "value4": 2,
         "value5": 3,
-        "value6": 0,
-        "value7": {
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 0,
+        "value10": {
             "cereal_class_version": 0,
             "Tag": "Explosion"
         },
-        "value8": 1,
-        "value9": {
+        "value11": 1,
+        "value12": {
             "Tag": "Root"
         },
-        "value10": 2,
-        "value11": {
+        "value13": 2,
+        "value14": {
             "Tag": "VFX_Explosion"
         },
-        "value12": 3,
-        "value13": 0,
-        "value14": {
+        "value15": 3,
+        "value16": {
+            "Tag": "VFX_Explosion_v2_Cylinder.003-2"
+        },
+        "value17": 4,
+        "value18": {
+            "Tag": "VFX_Explosion_v2_Cylinder.003-1"
+        },
+        "value19": 5,
+        "value20": {
+            "Tag": "VFX_Explosion_v2_Cylinder.003-0"
+        },
+        "value21": 6,
+        "value22": 0,
+        "value23": {
             "cereal_class_version": 0,
             "Position": {
-                "x": -52.98076248168945,
-                "y": 0.0,
-                "z": 0.0
+                "x": -50.00936508178711,
+                "y": 0.11902455985546112,
+                "z": 1.4271650314331055
             },
             "Rotation": {
                 "x": 0.0,
@@ -49,13 +64,13 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 0.2800188958644867,
-                "y": 0.2800188958644867,
-                "z": 0.2800188958644867
+                "x": 0.2070000022649765,
+                "y": 0.20703792572021485,
+                "z": 0.20703792572021485
             }
         },
-        "value15": 1,
-        "value16": {
+        "value24": 1,
+        "value25": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -72,8 +87,8 @@
                 "z": 1.0
             }
         },
-        "value17": 2,
-        "value18": {
+        "value26": 2,
+        "value27": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -90,50 +105,229 @@
                 "z": 1.0
             }
         },
-        "value19": 3,
-        "value20": 0,
-        "value21": {
+        "value28": 3,
+        "value29": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value30": 4,
+        "value31": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value32": 5,
+        "value33": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value34": 6,
+        "value35": 0,
+        "value36": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value22": 1,
-        "value23": {
+        "value37": 1,
+        "value38": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 2,
             "Prev": 4294967295
         },
-        "value24": 2,
-        "value25": {
+        "value39": 2,
+        "value40": {
             "Parent": 0,
-            "First": 4294967295,
+            "First": 3,
             "Next": 4294967295,
             "Prev": 1
         },
-        "value26": 1,
-        "value27": 2,
-        "value28": {
+        "value41": 3,
+        "value42": {
+            "Parent": 2,
+            "First": 4294967295,
+            "Next": 5,
+            "Prev": 3
+        },
+        "value43": 4,
+        "value44": {
+            "Parent": 2,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value45": 5,
+        "value46": {
+            "Parent": 2,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value47": 3,
+        "value48": 3,
+        "value49": {
             "cereal_class_version": 0,
             "Mesh": {
-                "value0": 8838044113410652157
+                "value0": 14193539695934894815
             },
             "AnimatorUUID": {
-                "value0": 10177801455544351214
+                "value0": 2500673234986701976
             }
         },
-        "value29": 1,
-        "value30": 2,
-        "value31": {
+        "value50": 4,
+        "value51": {
+            "Mesh": {
+                "value0": 16449622778432133523
+            },
+            "AnimatorUUID": {
+                "value0": 2500673234986701976
+            }
+        },
+        "value52": 5,
+        "value53": {
+            "Mesh": {
+                "value0": 4104418137388812040
+            },
+            "AnimatorUUID": {
+                "value0": 2500673234986701976
+            }
+        },
+        "value54": 3,
+        "value55": 3,
+        "value56": {
             "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 14736281283764346952
+            }
+        },
+        "value57": 4,
+        "value58": {
             "IsEmbedded": true,
             "Material": {
                 "polymorphic_id": 2147483649,
                 "polymorphic_name": "Coffee::PBRMaterial",
                 "ptr_wrapper": {
                     "id": 2147483649,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 861869311306195951
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 861869311306195951
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "VFX_Area.001_Mat1",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 6358880586459370776
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 1.0,
+                                "BlendMode": 0,
+                                "CullMode": 2,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value59": 5,
+        "value60": {
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483650,
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
@@ -196,7 +390,7 @@
                                 "TransparencyMode": 1,
                                 "AlphaCutoff": 0.5,
                                 "BlendMode": 0,
-                                "CullMode": 1,
+                                "CullMode": 2,
                                 "DepthTest": true,
                                 "Wireframe": false
                             }
@@ -205,21 +399,27 @@
                 }
             }
         },
-        "value32": 0,
-        "value33": 0,
-        "value34": 0,
-        "value35": 0,
-        "value36": 0,
-        "value37": 1,
-        "value38": 0,
-        "value39": {
+        "value61": 0,
+        "value62": 0,
+        "value63": 0,
+        "value64": 0,
+        "value65": 6,
+        "value66": 0,
+        "value67": 1,
+        "value68": 2,
+        "value69": 3,
+        "value70": 4,
+        "value71": 5,
+        "value72": 1,
+        "value73": 0,
+        "value74": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/Despawner.lua",
             "Language": 0
         },
-        "value40": 1,
-        "value41": 0,
-        "value42": {
+        "value75": 1,
+        "value76": 0,
+        "value77": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -228,11 +428,11 @@
                 "value0": 11491452278506668314
             },
             "AnimatorUUID": {
-                "value0": 10177801455544351214
+                "value0": 2500673234986701976
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483650,
+                    "id": 2147483651,
                     "data": {
                         "cereal_class_version": 0,
                         "CurrentAnimation": 0
@@ -241,7 +441,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483651,
+                    "id": 2147483652,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -252,17 +452,17 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value43": 0,
-        "value44": 0,
-        "value45": 0,
-        "value46": 0,
-        "value47": 0,
-        "value48": 0,
-        "value49": 0,
-        "value50": 0,
-        "value51": 0,
-        "value52": 0,
-        "value53": 0,
-        "value54": 0
+        "value78": 0,
+        "value79": 0,
+        "value80": 0,
+        "value81": 0,
+        "value82": 0,
+        "value83": 0,
+        "value84": 0,
+        "value85": 0,
+        "value86": 0,
+        "value87": 0,
+        "value88": 0,
+        "value89": 0
     }
 }

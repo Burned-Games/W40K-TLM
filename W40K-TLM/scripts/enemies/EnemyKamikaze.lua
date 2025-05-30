@@ -275,7 +275,7 @@ function kamikaze:die_state(dt)
     kamikaze.explosion:set_active(true)
     kamikaze.explosionTransf = kamikaze.explosion:get_component("TransformComponent")
     kamikaze.explosionScript = kamikaze.explosion:get_component("ScriptComponent")
-    kamikaze.explosionTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y, kamikaze.enemyTransf.position.z)
+    kamikaze.explosionTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y + 0.01, kamikaze.enemyTransf.position.z)
     kamikaze.explosionScript:on_ready()
     
     if distance < kamikaze.explosionRange then
