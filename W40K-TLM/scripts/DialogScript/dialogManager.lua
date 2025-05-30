@@ -39,11 +39,17 @@ local dialogStartQueued = false
 -- Audio control
 local currentAudio = nil
 
+local audioLoopSFX = nil
+
 -- Initialization
 function on_ready()
+
+
     nameComponent = current_scene:get_entity_by_name("DialogName"):get_component("UITextComponent")
     textComponent = current_scene:get_entity_by_name("DialogText"):get_component("UITextComponent")
     dialogImgComponent = current_scene:get_entity_by_name("DialogIMG"):get_component("UIImageComponent")
+    audioLoopSFX = current_scene:get_entity_by_name("DialogoLoop"):get_component("AudioSourceComponent")
+
 
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, 0))
     nameComponent:set_text(" ")
@@ -71,17 +77,19 @@ function on_update(dt)
             if currentAudio then
                 currentAudio:pause()
                 currentAudio = nil
-            end  
-
+            end     
+            audioLoopSFX:pause()
         elseif waitingForNext then
             if currentAudio then
                 currentAudio:pause()
+                audioLoopSFX:pause()
                 currentAudio = nil
             end
 
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
+            audioLoopSFX:pause()
         end
         return
     end
@@ -94,7 +102,7 @@ function on_update(dt)
                 currentAudio:pause()
                 currentAudio = nil
             end
-
+             audioLoopSFX:pause()
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
@@ -115,6 +123,7 @@ function on_update(dt)
                 isTyping = false
                 waitingForNext = true
                 autoNextTimer = 0
+                audioLoopSFX:pause()
             end
         end
     end
@@ -127,6 +136,7 @@ function start_dialog(lines)
     waitingDialogStart = true
     dialogStartQueued = true
     start_dialog_open_animation()
+    
 end
 
 function start_dialog_open_animation()
@@ -200,6 +210,7 @@ function play_current_line()
 
     if currentAudio then
         currentAudio:pause()
+        audioLoopSFX:pause()
         currentAudio = nil
     end
 
@@ -216,6 +227,7 @@ function play_current_line()
     if line.audio then
         currentAudio = line.audio
         currentAudio:play()
+        audioLoopSFX:play()
     end
 end
 
@@ -233,6 +245,7 @@ function end_dialog()
         currentAudio:pause()
         currentAudio = nil
     end
+    audioLoopSFX:pause()
     start_dialog_close_animation()
 end
 
