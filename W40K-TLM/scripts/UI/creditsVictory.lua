@@ -10,19 +10,19 @@ function on_ready()
 end
 
 function on_update(dt)
-
    
-    local desplazamiento = velocidad * dt
+    local velocidadActual = velocidad
+    if Input.is_button_pressed(Input.action.Confirm) then
+        velocidadActual = velocidad * 5
+    end
+
+    local desplazamiento = velocidadActual * dt
     posicionY = posicionY - desplazamiento
     move_ui_element(self, 0, -desplazamiento)
 
     if posicionY <= limiteSuperiorY then
         SceneManager.change_scene("scenes/mainMenu.TeaScene")
     end
-   
-    --[[if posicionY > limiteSuperiorY then
-        entidadCreditos:Destroy()
-    end--]]
 end
 
 function on_exit()

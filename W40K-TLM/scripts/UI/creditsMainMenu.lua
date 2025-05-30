@@ -30,8 +30,13 @@ function on_update(dt)
         end
     end
 
+    local velocidadActual = velocidad
+    if Input.is_button_pressed(Input.action.Confirm) then
+        velocidadActual = velocidad * 5
+    end
+
     -- Mover créditos hacia arriba
-    local desplazamiento = velocidad * dt
+    local desplazamiento = velocidadActual * dt
     posicionY = posicionY - desplazamiento
     move_ui_element(entidadCreditos, 0, -desplazamiento)
 
