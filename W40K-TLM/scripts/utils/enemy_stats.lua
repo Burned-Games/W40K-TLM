@@ -146,7 +146,8 @@ local enemy_stats = {
 
             maxBurstShots = 3,
 
-            detectionRange = 10,
+            detectionRange = 17,
+            rangeAttackRange = 10,
             shieldRange = 5,
             attackRange = 0,
 
@@ -180,7 +181,8 @@ local enemy_stats = {
 
             maxBurstShots = 4,
 
-            detectionRange = 10,
+            detectionRange = 17,
+            rangeAttackRange = 10,
             shieldRange = 5,
             attackRange = 10,
 

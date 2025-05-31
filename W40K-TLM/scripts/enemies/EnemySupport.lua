@@ -80,7 +80,7 @@ function on_ready()
     if not stats then log("No stats for type: " .. support.enemyType .. " level: " .. support.level) return end
 
     -- State
-    support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Shield = 6}
+    support.state = {Dead = 1, Idle = 2, Move = 3, Attack = 4, Shoot = 5, Shield = 6, Chase = 7}
 
     -- Stats of the Support
     support.health = stats.health
@@ -95,6 +95,7 @@ function on_ready()
     support.rangeAttackRange = stats.rangeAttackRange
     support.supportDamage = stats.supportDamage 
     support.bulletSpeed = stats.bulletSpeed
+    support.proximityDetectionRadius = 25
 
     -- External Timers
     support.shieldCooldown = 5.0
@@ -152,7 +153,7 @@ function on_ready()
     support.key = 0
 
     -- Floats
-    support.alertDistance = 2.5
+    support.alertDistance = 25
 
     -- Lists
     support.Enemies = {}
@@ -200,7 +201,7 @@ function on_update(dt)
     if support.isGranadePushed then return end
     
     update_bullets(dt)
-    change_state()
+    change_state(dt)
 
     support.moveAudioTimer = support.moveAudioTimer + dt
     support.findEnemiesTimer = support.findEnemiesTimer + dt
@@ -254,6 +255,9 @@ function on_update(dt)
 
     elseif support.currentState == support.state.Move then
         support:move_state(dt)
+    
+    elseif support.currentState == support.state.Chase then
+        support:chase_state(dt)
 
     elseif support.currentState == support.state.Attack then
         support:attack_state()
@@ -280,12 +284,13 @@ function update_shield_status()
     return shieldState
 end
 
-function change_state()
+function change_state(dt)
     support.allShielded = true
 
-    local distanceToPlayer = support:get_distance(support.enemyTransf.position, support.playerTransf.position)
+    support:enemy_raycast(dt)
+    support:check_player_distance()
     
-    if distanceToPlayer > 15 then   
+    if support.playerDistance > 30 or not support.playerDetected then   
         support.currentState = support.state.Idle
         return
     end
@@ -296,7 +301,12 @@ function change_state()
     end
 
     if #support.Enemies == 0 then
-        support.currentState = support.state.Shoot
+
+        if support.playerDistance <= support.rangeAttackRange then
+            support.currentState = support.state.Shoot
+        else
+            support.currentState = support.state.Move
+        end
         return
     end
 
@@ -318,7 +328,11 @@ function change_state()
     support.Enemies = filteredEnemies
 
     if #support.Enemies == 0 or support.allShielded then
-        support.currentState = support.state.Shoot
+        if support.playerDistance <= support.rangeAttackRange then
+            support.currentState = support.state.Shoot
+        else
+            support.currentState = support.state.Move
+        end
         return
     end
 
@@ -347,6 +361,8 @@ function change_state()
     else
         support.currentState = support.state.Shoot
     end
+
+
 end
 
 function support:move_state(dt)
@@ -355,12 +371,6 @@ function support:move_state(dt)
         if not enemyData.haveShield then
             table.insert(validTargets, enemyData)
         end
-    end
-    
-    if #validTargets == 0 then
-        support.currentTarget = nil
-        support.currentState = support.state.Shoot
-        return
     end
 
     if #validTargets > 0 then
@@ -433,6 +443,24 @@ function support:move_state(dt)
     else
         support.currentState = support.state.Shoot
     end
+end
+
+function support:chase_state(dt)
+
+    if support.currentAnim ~= support.moveAnim then
+        support.currentAnim = support.moveAnim
+        support.animator:set_current_animation(support.currentAnim)
+    end
+
+    support.pathUpdateTimer = support.pathUpdateTimer + dt
+    if support.pathUpdateTimer >= support.pathUpdateInterval or not support.lastTargetPos or (support.lastTargetPos and support:get_distance(support.lastTargetPos, targetPos.position) > 1.0) then
+        support:update_path(targetPos)
+        support.lastTargetPos = targetPos.position
+        support.pathUpdateTimer = 0.0
+    end
+
+    support:follow_path() 
+
 end
 
 function support:shield_state(dt)
@@ -645,36 +673,6 @@ function shoot_projectile(targetExplosive)
 
 end
 
--- function set_waypoints()
---     -- Obtener componentes Transform de los waypoints
---     support.wp1Transf = support.waypoint1:get_component("TransformComponent")
---     support.wp2Transf = support.waypoint2:get_component("TransformComponent")
---     support.wp3Transf = support.waypoint3:get_component("TransformComponent")
-
---     local suppPos = support.enemyTransf.position
---     local radius = 8.0  -- Radio alrededor del support
-    
---     -- Generar posiciones aleatorias para cada waypoint
---     local waypointTransforms = {
---         support.wp1Transf,
---         support.wp2Transf,
---         support.wp3Transf
---     }
-
---     for _, wpTransf in ipairs(waypointTransforms) do
---         -- Generar ángulo aleatorio en radianes (0 a 2π)
---         local randomAngle = math.random() * 2 * math.pi
-        
---         -- Calcular posición alrededor del support
---         local x = suppPos.x + radius * math.cos(randomAngle)
---         local z = suppPos.z + radius * math.sin(randomAngle)
---         local newPos = Vector3.new(x, 0, z)
-        
---         -- Asignar nueva posición al waypoint
---         wpTransf.position = newPos
---     end
--- end
-
 function find_all_enemies()
     -- Reset all enemy tables
     support.EnemyRange = {}
@@ -758,27 +756,6 @@ function find_all_entities_of_type(typeName, resultTable, scriptField)
         end
     end
     return resultTable
-end
-
-function get_priority_enemy()
-    local priorityEnemies = {}
-    
-    
-    for _, enemyData in ipairs(support.Enemies) do
-        if enemyData.priority then
-            table.insert(priorityEnemies, {
-                enemy = enemyData,
-                priority = enemyData.priority
-            })
-        end
-    end
-    
-    
-    table.sort(priorityEnemies, function(a, b)
-        return a.priority > b.priority
-    end)
-    enemies_distance()
-    return priorityEnemies
 end
 
 function enemies_distance()
