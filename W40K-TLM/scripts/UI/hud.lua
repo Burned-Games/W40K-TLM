@@ -149,20 +149,18 @@ function on_ready()
 
             skillsArmasTextCooldownEntity = child:get_child(5)
             skillsArmasTextCooldown = skillsArmasTextCooldownEntity:get_component("UITextComponent")
-            
-            skillsArmasBoton = child:get_child(6)
-        end
 
-        --Armas
-        if childTag == "Arma1" then
-            arma1 = child
-            arma1Texture = arma1:get_component("UIImageComponent")
-        end
-        if childTag == "Arma2" then
-            arma2 = child
-            arma2Texture = arma2:get_component("UIImageComponent")
+            
+            local habChildren = child:get_children() 
+            for _, habChild in ipairs(habChildren) do
+                local childHabTag = habChild:get_component("TagComponent").tag
+                if childHabTag == "HabilidadesArmasBoton" then
+                    skillsArmasBoton = habChild
+                end
+            end
         end
     end
+
     
     rifleScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
     rifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTimeCounter
@@ -172,6 +170,10 @@ function on_ready()
     sawSwordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
 
     --Armas
+    arma1 = current_scene:get_entity_by_name("Arma1")
+    arma1Texture = arma1:get_component("UIImageComponent")
+    arma2 = current_scene:get_entity_by_name("Arma2")
+    arma2Texture = arma2:get_component("UIImageComponent")
     ammoTextComponent = current_scene:get_entity_by_name("BalasRestantes"):get_component("UITextComponent")
     maxAmmoTextComponent = current_scene:get_entity_by_name("BalasMax"):get_component("UITextComponent")
     weaponChangerToggle = current_scene:get_entity_by_name("BotonCambioArmas"):get_component("UIToggleComponent")
