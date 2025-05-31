@@ -21,6 +21,8 @@ local playerTransf = nil
 local enemyScript = nil
 
 -- Lists
+local fistsUsed = {}
+local fistsToUseThisWave = {}
 local fistPositions = {}
 local scalingAttacks = {}
 
@@ -32,9 +34,11 @@ local fistsAttackDelayTimer = 0.0
 local rangeAttackTimer = 0.0
 rangeAttackDuration = 0.0
 local colliderUpdateInterval = 0.1
+local fistsExtraTime = 0.5
 
 -- Ints
 local fistMaxNumbers = 25
+local fistsPerWave = 5
 local radius = 6
 rangeDamage = 0
 fistTargetScale = 0
@@ -123,7 +127,6 @@ function on_ready()
 end
 
 function on_update(dt)
-
     if enemyScript.main_boss.isDead then return end
 
     if fistsAttackPending then
@@ -132,6 +135,15 @@ function on_update(dt)
             execute_fists_attack()
             fistsAttackPending = false
             fistsAttackDelayTimer = 0.0
+            fistsThrown = true
+        end
+    end
+
+    if not isFistsDamaging then
+        timeSinceLastFistHit = timeSinceLastFistHit + dt
+        if timeSinceLastFistHit > fistsDamageCooldown then
+            isFistsDamaging = true
+            timeSinceLastFistHit = 0.0
         end
     end
 
@@ -148,21 +160,6 @@ function on_update(dt)
                 bossSmashImpactSFX:play()
             end
         end
-
-        if not isFistsDamaging then
-            timeSinceLastFistHit = timeSinceLastFistHit + dt
-            if timeSinceLastFistHit > fistsDamageCooldown then
-                isFistsDamaging = true
-                timeSinceLastFistHit = 0.0
-            end
-        elseif rangeAttackTimer >= rangeAttackDuration then
-            -- Send them back
-            for i = 1, fistMaxNumbers do
-                fistRbComponent[i].rb:set_position(Vector3.new(-500, 0, -150))
-            end
-        
-            fistsThrown = false
-        end
     end
 
     update_scaling_attacks(dt)
@@ -170,51 +167,44 @@ end
 
 function fist()
 
-    if fistsThrown or fistsAttackPending then return end
-
     fistsAttackPending = true
     fistsAttackDelayTimer = 0.0
 
-    fistPositions = {}
-
-    -- Arena data
     local arenaRadius = 20
+    fistsToUseThisWave = get_next_fists()
 
-    -- Centro directo (jugador)
-    table.insert(fistPositions, Vector3.new(playerTransf.position.x, 0, playerTransf.position.z))
-
-    for i = 1, fistMaxNumbers - 1 do
+    for _, i in ipairs(fistsToUseThisWave) do
         local attempts = 0
         local maxAttempts = 10
         local valid = false
         local pos = nil
 
-        while not valid and attempts < maxAttempts do
-            local angle = math.rad((360 / (fistMaxNumbers - 1)) * (i - 1))
-            local randRadius = radius + math.random() * 5
-            local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
-            local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
-            pos = Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ)
+        if i == 1 then
+            pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+        else
+            while not valid and attempts < maxAttempts do
+                local angle = math.rad(math.random() * 360)
+                local randRadius = radius + math.random() * 5
+                local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
+                local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
+                pos = Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ)
 
-            if is_within_arena(pos, arenaCenter, arenaRadius) then
-                valid = true
+                if is_within_arena(pos, arenaCenter, arenaRadius) then
+                    valid = true
+                end
+
+                attempts = attempts + 1
             end
 
-            attempts = attempts + 1
+            if not valid then
+                pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+            end
         end
 
-        -- Si tras los intentos no encontró posición válida, coloca en el centro
-        if not valid then
-            pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
-        end
+        fistPositions[i] = pos
 
-        table.insert(fistPositions, pos)
-    end
-
-    -- Aplicar a los indicadores
-    for i = 1, fistMaxNumbers do
         if fistIndicatorsTransform[i] then
-            fistIndicatorsTransform[i].position = fistPositions[i]
+            fistIndicatorsTransform[i].position = pos
             fistIndicatorsTransform[i].position.y = 0.1
         end
         if fistIndicatorsScript[i] then
@@ -224,75 +214,108 @@ function fist()
 end
 
 function execute_fists_attack()
-
-    if fistsThrown then return end
-
     log("Fists Attack")
 
-    -- Clear previous scaling operations
-    scalingAttacks = {}
-
-    for i = 1, fistMaxNumbers do
-        if fistRbs[i] and fistTransf[i] then
-            -- Set initial position
-            fistRbComponent[i].rb:set_position(fistPositions[i])
+    for _, i in ipairs(fistsToUseThisWave) do
+        local pos = fistPositions[i]
+        if fistRbComponent[i] and pos then
+            fistRbComponent[i].rb:set_position(pos)
             currentAnim = 1
             fistAnimator[i]:set_current_animation(currentAnim)
-
             bossSmashDescendSFX:play()
 
-            -- Reset scale
             fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)
             fistRbComponent[i].rb:set_trigger(true)
-            
-            -- Add to scaling list with reference to the specific fist transform
+
             table.insert(scalingAttacks, {
                 transformRb = fistRbComponent[i],
                 elapsed = 0,
                 duration = rangeAttackDuration,
                 startScale = Vector3.new(1.5, 1.5, 1.5),
                 targetScale = Vector3.new(fistTargetScale, fistTargetScale, fistTargetScale),
-                colliderTimer = 0.0
+                colliderTimer = 0.0,
+                finishedScaling = false,
+                lingerElapsed = 0.0,
+                lingerDuration = 3.0
             })
         end
     end
 
     fistsThrown = true
     rangeAttackTimer = 0.0
-
 end
 
 function update_scaling_attacks(dt)
 
     for i = #scalingAttacks, 1, -1 do
         local data = scalingAttacks[i]
-        data.elapsed = data.elapsed + dt
-        data.colliderTimer = (data.colliderTimer or 0) + dt
 
-        local t = math.min(data.elapsed / data.duration, 1.0)
-        local newScale = Vector3.new(
-            data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
-            data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
-            data.startScale.z + (data.targetScale.z - data.startScale.z) * t
-        )
+        if not data.finishedScaling then
+            data.elapsed = data.elapsed + dt
+            data.colliderTimer = (data.colliderTimer or 0) + dt
 
-        if data.colliderTimer >= colliderUpdateInterval then
-            if data.transformRb then
-                data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
-                data.transformRb.rb:set_trigger(true)
+            local t = math.min(data.elapsed / data.duration, 1.0)
+            local newScale = Vector3.new(
+                data.startScale.x + (data.targetScale.x - data.startScale.x) * t,
+                data.startScale.y + (data.targetScale.y - data.startScale.y) * t,
+                data.startScale.z + (data.targetScale.z - data.startScale.z) * t
+            )
+
+            if data.colliderTimer >= colliderUpdateInterval then
+                if data.transformRb then
+                    data.transformRb.rb:get_collider():set_sphere_radius(newScale.x * 0.5)
+                    data.transformRb.rb:set_trigger(true)
+                end
+                data.colliderTimer = 0.0
             end
-            data.colliderTimer = 0.0
-        end
 
-        if data.elapsed >= data.duration then
-            if data.transformRb then
-                data.transformRb.rb:get_collider():set_sphere_radius(data.targetScale.x * 0.5)
-                data.transformRb.rb:set_trigger(true)
+            if data.elapsed >= data.duration then
+                data.finishedScaling = true
+                data.lingerElapsed = 0.0
+                data.lingerDuration = fistsExtraTime
             end
-            table.remove(scalingAttacks, i)
+        else
+            data.lingerElapsed = data.lingerElapsed + dt
+            if data.lingerElapsed >= data.lingerDuration then
+                -- Return the fists
+                if data.transformRb and data.transformRb.rb then
+                    data.transformRb.rb:set_position(Vector3.new(-500, 0, -150))
+                end
+                table.remove(scalingAttacks, i)
+            end
         end
     end
     
+end
+
+function get_next_fists()
+    local result = {}
+
+    local usedCount = 0
+    for i = 1, fistMaxNumbers do
+        if fistsUsed[i] then
+            usedCount = usedCount + 1
+        end
+    end
+
+    if usedCount >= fistMaxNumbers then
+        reset_fist_wave()
+    end
+
+    for i = 1, fistMaxNumbers do
+        if not fistsUsed[i] then
+            table.insert(result, i)
+            fistsUsed[i] = true
+        end
+        if #result >= fistsPerWave then break end
+    end
+
+    return result
+end
+
+function reset_fist_wave()
+    fistsUsed = {}
+    fistsThrown = false
 end
 
 function is_within_arena(position, center, radius)

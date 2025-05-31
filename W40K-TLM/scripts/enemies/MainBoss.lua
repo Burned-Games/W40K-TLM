@@ -421,7 +421,7 @@ end
 
 function fists_attack()
 
-    if main_boss.fistScript.fistsThrown or main_boss.fistScript.fistsAttackPending then return end
+    if main_boss.fistScript.fistsAttackPending then return end
 
     if main_boss.currentAnim ~= main_boss.rangeAnim then
         main_boss:play_blocking_animation(main_boss.rangeAnim, main_boss.fistsDuration)
