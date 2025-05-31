@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 6153429201591206892
+                "value0": 5119323835647891376
             },
             "value4": false
         },
@@ -54,9 +54,9 @@
         "value23": {
             "cereal_class_version": 0,
             "Position": {
-                "x": -50.00936508178711,
-                "y": 0.11902455985546112,
-                "z": 1.4271650314331055
+                "x": 0.0,
+                "y": 0.0,
+                "z": 5.362894058227539
             },
             "Rotation": {
                 "x": 0.0,
@@ -64,7 +64,7 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 0.2070000022649765,
+                "x": 0.20703792572021485,
                 "y": 0.20703792572021485,
                 "z": 0.20703792572021485
             }
@@ -208,48 +208,118 @@
         "value49": {
             "cereal_class_version": 0,
             "Mesh": {
-                "value0": 14193539695934894815
+                "value0": 975858099975943302
             },
             "AnimatorUUID": {
-                "value0": 2500673234986701976
+                "value0": 7684031479561428175
             }
         },
         "value50": 4,
         "value51": {
             "Mesh": {
-                "value0": 16449622778432133523
+                "value0": 4135826492809358398
             },
             "AnimatorUUID": {
-                "value0": 2500673234986701976
+                "value0": 7684031479561428175
             }
         },
         "value52": 5,
         "value53": {
             "Mesh": {
-                "value0": 4104418137388812040
+                "value0": 14337510625178033652
             },
             "AnimatorUUID": {
-                "value0": 2500673234986701976
+                "value0": 7684031479561428175
             }
         },
         "value54": 3,
         "value55": 3,
         "value56": {
             "cereal_class_version": 1,
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 14736281283764346952
-            }
-        },
-        "value57": 4,
-        "value58": {
             "IsEmbedded": true,
             "Material": {
                 "polymorphic_id": 2147483649,
                 "polymorphic_name": "Coffee::PBRMaterial",
                 "ptr_wrapper": {
                     "id": 2147483649,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 8009783178041793326
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 8009783178041793326
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "VFX_Esfera_2_Mat2",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 13802871228536091517
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value57": 4,
+        "value58": {
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483650,
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
@@ -303,16 +373,16 @@
                                 },
                                 "value2": 8,
                                 "value3": {
-                                    "value0": 6358880586459370776
+                                    "value0": 4967907360051966024
                                 },
                                 "value4": true
                             },
                             "Shader Path": "",
                             "Render Settings": {
                                 "TransparencyMode": 1,
-                                "AlphaCutoff": 1.0,
+                                "AlphaCutoff": 0.5,
                                 "BlendMode": 0,
-                                "CullMode": 2,
+                                "CullMode": 1,
                                 "DepthTest": true,
                                 "Wireframe": false
                             }
@@ -327,7 +397,7 @@
             "Material": {
                 "polymorphic_id": 1,
                 "ptr_wrapper": {
-                    "id": 2147483650,
+                    "id": 2147483651,
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
@@ -390,7 +460,7 @@
                                 "TransparencyMode": 1,
                                 "AlphaCutoff": 0.5,
                                 "BlendMode": 0,
-                                "CullMode": 2,
+                                "CullMode": 1,
                                 "DepthTest": true,
                                 "Wireframe": false
                             }
@@ -428,11 +498,11 @@
                 "value0": 11491452278506668314
             },
             "AnimatorUUID": {
-                "value0": 2500673234986701976
+                "value0": 7684031479561428175
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483651,
+                    "id": 2147483652,
                     "data": {
                         "cereal_class_version": 0,
                         "CurrentAnimation": 0
@@ -441,7 +511,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483652,
+                    "id": 2147483653,
                     "data": {
                         "CurrentAnimation": 0
                     }
