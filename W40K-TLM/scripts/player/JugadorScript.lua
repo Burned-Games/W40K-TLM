@@ -416,7 +416,7 @@ function on_ready()
             local component = child:get_component("MaterialComponent")
             table.insert(playerMatsComponents,component)
             table.insert(playerMatsOriginals,component.material)
-            local damageMat = PBRMaterial.new()
+            local damageMat = PBRMaterial.new("PlayerDamageMat")
             damageMat.albedo_texture = component.material.albedo_texture
             damageMat.color = Vector4.new(255/255, 0/255, 0/255, 255/255)
             table.insert(playerMatsDamages,damageMat)

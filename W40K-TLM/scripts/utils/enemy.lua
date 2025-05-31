@@ -771,7 +771,7 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
     end
 
     if not self.damageMaterial then
-        self.damageMaterial = PBRMaterial.new()
+        self.damageMaterial = PBRMaterial.new("EnemyDamageMat")
         self.damageMaterial.albedo_texture = self.originalMaterial.albedo_texture
         self.damageMaterial.color = Vector4.new(255/255, 82/255, 102/255, 255/255)
     end
