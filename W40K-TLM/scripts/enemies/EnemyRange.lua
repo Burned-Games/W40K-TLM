@@ -43,8 +43,7 @@ function on_ready()
 
     -- Particles
     range.runPrefab = "prefabs/particles/Lvl1_run.prefab"
-    range.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    range.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+
     range.run = instantiate_prefab(range.runPrefab)
     range.runParticle = range.run:get_component("ParticlesSystemComponent")
     range.run:set_parent(self)

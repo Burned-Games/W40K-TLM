@@ -60,8 +60,6 @@ function on_ready()
     main_boss.stepsSFX = current_scene:get_entity_by_name("BossStepsSFX"):get_component("AudioSourceComponent")
 
     -- Particle
-    main_boss.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    main_boss.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
     main_boss.run = instantiate_prefab(runPrefab)
     main_boss.runParticle = main_boss.run:get_component("ParticlesSystemComponent")
     main_boss.run:set_parent(self)

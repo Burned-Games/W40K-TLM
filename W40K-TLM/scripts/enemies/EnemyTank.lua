@@ -71,8 +71,7 @@ function on_ready()
     end
 
     -- Particles
-    tank.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    tank.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+
     tank.run = instantiate_prefab(runPrefab)
     tank.runParticle = tank.run:get_component("ParticlesSystemComponent")
     tank.run:set_parent(self)

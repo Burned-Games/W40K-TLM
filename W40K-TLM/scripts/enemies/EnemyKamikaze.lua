@@ -41,8 +41,7 @@ function on_ready()
     kamikaze.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
     -- Particle
-    kamikaze.sparkParticle = current_scene:get_entity_by_name("particle_spark"):get_component("ParticlesSystemComponent")
-    kamikaze.sparkParticleTransf = current_scene:get_entity_by_name("particle_spark"):get_component("TransformComponent")
+
     kamikaze.run = instantiate_prefab(runPrefab)
     kamikaze.runParticle = kamikaze.run:get_component("ParticlesSystemComponent")
     kamikaze.run:set_parent(self)
