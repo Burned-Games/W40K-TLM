@@ -802,8 +802,7 @@ function handleWeaponSwitch(dt)
                 actualweapon = 0
             end
             pressedButtonChangeWeapon = true
-
-            playerSwapWeaponsSFX:play()
+            
         end
     else
         pressedButtonChangeWeapon = false
@@ -812,9 +811,13 @@ function handleWeaponSwitch(dt)
     if actualweapon == 0 then
         bolterScript.using = true
         shotGunScript.using = false
+
+        shotGunScript.shootAnimation = false shotGunScript.is_reloading = false shotGunScript.granadeAnimation = false
     else
         bolterScript.using = false
         shotGunScript.using = true
+
+        bolterScript.chaaarging = false bolterScript.shootAnimation = false bolterScript.reloadAnimation = false
     end
 
     if swordScript.slasheeed == true then
@@ -1173,7 +1176,7 @@ function playerMovement(dt)
                 end
             end
         
-
+            
 
 
             
