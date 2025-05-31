@@ -137,6 +137,10 @@ local playerCDSFX = nil
 
 local forwardVector = Vector3.new(0,0,0)
 
+local isDiruptorShooted = false
+
+local disruptorTime = 0
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -225,6 +229,12 @@ function on_ready()
             if entityARB:get_is_trigger() == false then
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
                 disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
+                activateZone = true
+                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                bolterSkillExplosionSFX:play()
+                bolterSkillAreaSFX:play()
+                isDiruptorShooted = false
+                disruptorTime = 0
             end 
         end
 
@@ -233,6 +243,12 @@ function on_ready()
             if entityBRB:get_is_trigger() == false then
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
                 disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
+                activateZone = true
+                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                bolterSkillExplosionSFX:play()
+                bolterSkillAreaSFX:play()
+                isDiruptorShooted = false
+                disruptorTime = 0
             end
         end
         
@@ -290,6 +306,8 @@ function on_ready()
 
             bolterSkillExplosionSFX:play()
             bolterSkillAreaSFX:play()
+            isDiruptorShooted = false
+            disruptorTime = 0
         end
 
         if nameB == "BarrilDestruible" or nameB == "CajaDestruible" or nameB == "CajaDestruibleV2" or nameB == "ScrapPile" then 
@@ -304,6 +322,8 @@ function on_ready()
 
             bolterSkillExplosionSFX:play()
             bolterSkillAreaSFX:play()
+            isDiruptorShooted = false
+            disruptorTime = 0
         end
 
         
@@ -344,6 +364,19 @@ function on_update(dt)
 
 
         
+    end
+
+
+    if isDiruptorShooted then
+        disruptorTime = disruptorTime + dt
+        if disruptorTime >= 0.3 then
+            activateZone = true
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            bolterSkillExplosionSFX:play()
+            bolterSkillAreaSFX:play()
+            isDiruptorShooted = false
+            disruptorTime = 0
+        end
     end
 
     if astartesFervorManager.isPlayerInRadius then
@@ -540,6 +573,7 @@ function on_update(dt)
             if disruptorShooted2 then
                 playerScript.activateAutoAim = true
                 disruptiveCharge()
+                isDiruptorShooted = true
                 disruptorChargeTimeCounter = 0
                 disruptorShooted2 = false
             end
@@ -847,7 +881,8 @@ function makeDisruptorDamage(enemy)
 
             bolterSkillExplosionSFX:play()
             bolterSkillAreaSFX:play()
-
+            isDiruptorShooted = false
+            disruptorTime = 0
         end
     end
 
