@@ -121,6 +121,8 @@ local swordScript = nil
 
 local playerCDSFX = nil
 
+local explosionPrefab = "prefabs/Enemies/attacks/Explosion.prefab"
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -201,6 +203,7 @@ function on_ready()
 
         swordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
     end
+
 
 end
 
@@ -793,6 +796,14 @@ function explodeGranade()
                 end
             end
         end
+        local explosionVFX = instantiate_prefab(explosionPrefab)
+        explosionVFX:set_active(true)
+        local explosionTransf = explosionVFX:get_component("TransformComponent")
+        local explosionScript = explosionVFX:get_component("ScriptComponent")
+        explosionTransf.position = Vector3.new(explosionPos.x, explosionPos.y, explosionPos.z)
+        explosionScript:on_ready()
+    
+        
         rb:set_position(Vector3.new(0, -1000, 0))
         rb:set_velocity(Vector3.new(0, 0, 0))
         rb:set_angular_velocity(Vector3.new(0, 0, 0))
