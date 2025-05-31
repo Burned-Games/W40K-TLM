@@ -66,18 +66,18 @@ local workbenchUIManager = nil
 
 local baseGranadePosition = nil       
 local targetGranadePosition = nil    
-local granadeMoveSpeed = 0.1   
-local GRENADE_GRAVITY = 12.0  
-local GRENADE_LAUNCH_ANGLE = math.rad(30)  
-local GRENADE_SPEED_MULTIPLIER = 1.2      
-local ISOMETRIC_CORRECTION_FACTOR = 0.707  
-local DISTANCE_CALIBRATION = 1.22   
+local granadeMoveSpeed = 0.2   
+--local GRENADE_GRAVITY = 25.0  
+--local GRENADE_LAUNCH_ANGLE = math.rad(30)  
+--local GRENADE_SPEED_MULTIPLIER = 50    
+--local ISOMETRIC_CORRECTION_FACTOR = 0.707  
+--local DISTANCE_CALIBRATION = 1.22   
 
 local launched = false
 
 local granadeOrigin = nil
 local granadeDirection = nil
-local granadeSpeed = 0.2  
+local granadeSpeed = 0.4
 local granadeDistance = 0 
 local initialize = true
 local rb = nil
@@ -661,8 +661,8 @@ function throwGranade(targetPosition)
     end
 
     local LAUNCH_ANGLE = math.rad(35)   
-    local GRAVITY = 10.0                -- Gravedad
-    local SPEED_BOOST = 1.33            -- Aceleración horizontal adicional
+    local GRAVITY = 4              -- Gravedad
+    local SPEED_BOOST = 3          -- Aceleración horizontal adicional
 
     -- Aquí agregamos el factor para la velocidad de caída
     local verticalSpeed = math.sqrt(GRAVITY * horizontalDistance * math.tan(LAUNCH_ANGLE))
