@@ -77,7 +77,7 @@ local launched = false
 
 local granadeOrigin = nil
 local granadeDirection = nil
-local granadeSpeed = 0.1  
+local granadeSpeed = 0.2  
 local granadeDistance = 0 
 local initialize = true
 local rb = nil

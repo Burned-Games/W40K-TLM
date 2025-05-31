@@ -230,7 +230,7 @@ function on_ready()
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
                 disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
                 activateZone = true
-                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, 0.2, disruptorBulletTransf.position.z))
                 bolterSkillExplosionSFX:play()
                 bolterSkillAreaSFX:play()
                 isDiruptorShooted = false
@@ -244,7 +244,7 @@ function on_ready()
                 disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
                 disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
                 activateZone = true
-                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+                chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, 0.2, disruptorBulletTransf.position.z))
                 bolterSkillExplosionSFX:play()
                 bolterSkillAreaSFX:play()
                 isDiruptorShooted = false
@@ -300,7 +300,7 @@ function on_ready()
             script.hasDestroyed = true
 
             activateZone = true
-            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, 0.2, disruptorBulletTransf.position.z))
             disruptorBulletRb:set_position(Vector3.new(0,1500,0))
             disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
 
@@ -316,7 +316,7 @@ function on_ready()
             script.hasDestroyed = true
 
             activateZone = true
-            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, 0.2, disruptorBulletTransf.position.z))
             disruptorBulletRb:set_position(Vector3.new(0,1500,0))
             disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
 
@@ -371,7 +371,9 @@ function on_update(dt)
         disruptorTime = disruptorTime + dt
         if disruptorTime >= 0.3 then
             activateZone = true
-            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            disruptorBulletRbComponent.rb:set_position(Vector3.new(0,-150,0))
+            disruptorBulletRbComponent.rb:set_velocity(Vector3.new(0,0,0))
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, 0.2, disruptorBulletTransf.position.z))
             bolterSkillExplosionSFX:play()
             bolterSkillAreaSFX:play()
             isDiruptorShooted = false
