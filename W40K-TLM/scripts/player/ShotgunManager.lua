@@ -740,14 +740,20 @@ function explodeGranade()
                                 script.hasDestroyed = true
 
                             else
+                                local isPushed = false
                                 if enemyTag == "EnemyRange" or enemyTag == "EnemyTutorial" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" then
                                     enemyInstance = enemyScript.range
+                                    isPushed = true
                                 elseif enemyTag == "EnemySupport" then
+                                    isPushed = true
                                     enemyInstance = enemyScript.support
                                 elseif enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" then
                                     enemyInstance = enemyScript.tank
                                 elseif enemyTag == "EnemyKamikaze" then
+                                    isPushed = true    
                                     enemyInstance = enemyScript.kamikaze
+                                elseif enemyTag == "MainBoss" then
+                                    enemyInstance = enemyScript.main_boss
                                 end
                                 
                                 enemyInstance.isNeuralInhibitioning = true
@@ -755,42 +761,21 @@ function explodeGranade()
                                 playerScript.makeDamage = true
                                 enemyInstance:take_damage(granadeDamage)
 
-                                enemyInstance.isGranadePushed = true
-                                local impulseForce = 7
-                                local impulseDirection = Vector3.new(
-                                entityPos.x - explosionPos.x,
-                                entityPos.y - explosionPos.y,
-                                entityPos.z - explosionPos.z)
-                                entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                                if isPushed then
+                                    enemyInstance.isGranadePushed = true
+                                    local impulseForce = 7
+                                    local impulseDirection = Vector3.new(
+                                    entityPos.x - explosionPos.x,
+                                    entityPos.y - explosionPos.y,
+                                    entityPos.z - explosionPos.z)
+                                    entityRb:apply_impulse(Vector3.new(impulseDirection.x * impulseForce, impulseDirection.y * impulseForce, impulseDirection.z * impulseForce))
+                                end
+                                
                             end
                         end
 
 
-                    -- if enemyTag == "EnemyRange" or enemyTag == "EnemyTutorial" or enemyTag == "EnemyRange2" or enemyTag == "EnemyRange3" or enemyTag == "EnemyRange4" or enemyTag == "EnemyRange5" or enemyTag == "EnemyRange6" or enemyTag == "EnemySupport" or enemyTag == "EnemyKamikaze" or enemyTag == "EnemyTank" or enemyTag == "EnemyTank1" or enemyTag == "EnemyTank2" or enemyTag == "EnemyTank3" or enemyTag == "EnemyTank4" or enemyTag == "EnemyTank5" or enemyTag == "EnemyTank6" or enemyTag == "MainBoss" then 
-                    --     enemyOrkScript = entity:get_component("ScriptComponent")
-                    --     if enemyOrkScript ~= nil then
-                    --         enemyOrkScript.range.isNeuralInhibitioning = true
-                    --         playerScript.makeDamage = true
-                    --     end
-                    -- else
-                        -- local forceFactor = (explosionRadius - distance) / explosionRadius
-                        -- direction.y = direction.y + explosionUpward
-                        
-                        -- local finalForce = Vector3.new(
-                        --     direction.x * explosionForce * forceFactor,
-                        --     direction.y * explosionForce * forceFactor,
-                        --     direction.z * explosionForce * forceFactor
-                        -- )
-                        -- entityRb:apply_impulse(finalForce)
-
-                        -- local rotationFactor = explosionForce * forceFactor 
-                        -- local randomRotation = Vector3.new(
-                        --     (math.random() - 0.5) * rotationFactor,
-                        --     (math.random() - 0.5) * rotationFactor,
-                        --     (math.random() - 0.5) * rotationFactor
-                        -- )
-
-                        -- entityRb:set_angular_velocity(randomRotation)
+                    
                     end
                     
                 end
