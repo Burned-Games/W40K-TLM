@@ -411,8 +411,8 @@ function on_ready()
     local children = self:get_children()
     for _, child in ipairs(children) do
         local tag = child:get_component("TagComponent").tag
-        if tag == "Ultramarine_low" or tag == "Jetpack_lv1" or tag == "Jetpack_lv2" or tag == "Casco_lv1" or tag == "Casco_lvl_2" or tag == "Shotgun_upper" 
-        or tag == "Shotgun_lower" or tag == "ChainSword_Upper" or tag == "ChainSword_Lower" or tag == "Bolter_upper" or tag == "Bolter_Lower" then
+        if tag == "Ultramarine_low" or tag == "Jetpack_lv1_player" or tag == "Jetpack_lv2_player" or tag == "Casco_lv1_player" or tag == "Casco_lvl_2_player" or tag == "Shotgun_upper_player" 
+        or tag == "Shotgun_lower_player" or tag == "ChainSword_Upper" or tag == "ChainSword_Lower" or tag == "Bolter_upper_player" or tag == "Bolter_Lower_player" then
             local component = child:get_component("MaterialComponent")
             table.insert(playerMatsComponents,component)
             table.insert(playerMatsOriginals,component.material)
