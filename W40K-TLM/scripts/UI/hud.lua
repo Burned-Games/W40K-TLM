@@ -150,7 +150,7 @@ function on_ready()
             skillsArmasTextCooldownEntity = child:get_child(5)
             skillsArmasTextCooldown = skillsArmasTextCooldownEntity:get_component("UITextComponent")
             
-            skillsArmasBoton = child:get_child(5)
+            skillsArmasBoton = child:get_child(6)
         end
 
         --Armas
