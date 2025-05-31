@@ -106,6 +106,7 @@ function on_ready()
     range.animDuration = 0.0
     range.moveAudioDuration = 0.5
     range.stabDamageTimer = 0.0
+    range.meleeAnimTimer = 0.0
 
     -- Animations
     range.idleAnim = 5
@@ -127,6 +128,7 @@ function on_ready()
     range.hasFoundNearbyEnemies = false
     range.isPlayingAnimation = false
     range.isStabing = false
+    range.inStab = false
 
     -- Ints
     range.burstCount = 0
@@ -327,17 +329,17 @@ function change_state(dt)
                 range.currentState = range.state.Stab
             end
             
-        elseif range.playerDistance <= range.chaseRange then
+        elseif range.playerDistance <= range.chaseRange and not range.inStab then
             if range.currentState ~= range.state.Chase then
                 range.currentState = range.state.Chase
             end
 
-        elseif range.playerDistance <= range.rangeAttackRange then
+        elseif range.playerDistance <= range.rangeAttackRange and not range.inStab then
             if range.currentState ~= range.state.Shoot then
                 range.currentState = range.state.Shoot
             end
 
-        elseif not range.isStabing and not range.isShootingBurst then
+        elseif not range.isStabing and not range.isShootingBurst and not range.inStab then
             if range.currentState ~= range.state.Move then
                 range.currentState = range.state.Move
             end
@@ -462,13 +464,18 @@ function range:stab_state(dt)
     
     if not range.isStabing and range.currentAnim ~= range.meleeAttackAnim then
         range.isStabing = true
+        range.inStab = true
+        range.meleeAnimTimer = 0
         range.hasDealtDamage = false
         range.currentAnim = range.meleeAttackAnim
         range.animator:set_current_animation(range.currentAnim)
         range.stabDamageTimer = range.meleeAnimDuration * 0.5
         
     end
-
+    range.meleeAnimTimer = range.meleeAnimTimer + dt
+    if range.meleeAnimTimer >= range.meleeAnimDuration then
+        range.inStab = false
+    end
     if range.stabDamageTimer > 0 then
         range.stabDamageTimer = range.stabDamageTimer - dt
         
