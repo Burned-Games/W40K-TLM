@@ -74,13 +74,28 @@ local RigidBody = nil
 local detect = false
 local first = true
 
-function on_ready()
+local isCineScene = false
 
-    dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
-    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")  
+function on_ready()
 
     current_scene_name = SceneManager:get_scene_name()
     current_scene_tag = self:get_component("TagComponent").tag
+
+    if current_scene_name== "IntroCinematic.TeaScene" then
+        isCineScene = true
+    else
+        isCineScene = false
+    end
+
+   
+    dialogScriptComponent = current_scene:get_entity_by_name("DialogManager"):get_component("ScriptComponent")
+
+    if isCineScene == false then
+        mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")  
+    end
+
+
+    
 
     if current_scene_name == "level1.TeaScene" then
 
@@ -173,34 +188,46 @@ function on_ready()
         dialogLinesDie = {
             { name = "DeciusMarcellus", text = "No...! Dis... ain't over... Garrosh ... never dies..."}
         }
+    elseif current_scene_name == "IntroCinematic.TeaScene" then
+        dialogLinesCine = {
+            { name = "DeciusMarcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around, the way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects.", audio = diaCine ,time = 14.8}
+        }
     end
 
 
-
-    RigidBodyComponent = self:get_component("RigidbodyComponent")
-    RigidBody = RigidBodyComponent.rb
-    RigidBody:set_trigger(true)
-    RigidBodyComponent:on_collision_enter(function(entityA, entityB)  
-        local nameA = entityA:get_component("TagComponent").tag
-        local nameB = entityB:get_component("TagComponent").tag   
-    if nameA == "Player" or nameB == "Player" then
-        detect = true
-    else
-        detect =false
-    end
-    end)
+    if isCineScene == false then
+        RigidBodyComponent = self:get_component("RigidbodyComponent")
+        RigidBody = RigidBodyComponent.rb
+        RigidBody:set_trigger(true)
+        RigidBodyComponent:on_collision_enter(function(entityA, entityB)  
+            local nameA = entityA:get_component("TagComponent").tag
+            local nameB = entityB:get_component("TagComponent").tag   
+        if nameA == "Player" or nameB == "Player" then
+            detect = true
+        else
+            detect =false
+        end
+        end)
     
-
+    end
 
 end
 
 function on_update(dt)
-    if mission_Component.blueTaskIndex == 1 and firstCallDialogo then
-        firstCallDialogo = false    
-        isTimerStarted = true      
-        timer = 0                  
-    end
 
+    if isCineScene == false then
+        if mission_Component.blueTaskIndex == 1 and firstCallDialogo then
+            firstCallDialogo = false    
+            isTimerStarted = true      
+            timer = 0                  
+        end
+    else
+        if firstCallDialogo then
+            firstCallDialogo = false    
+            isTimerStarted = true      
+            timer = 0                  
+        end
+    end
 
     if isTimerStarted then
         timer = timer + dt        
@@ -408,6 +435,11 @@ function on_update(dt)
         if dialogDie then 
             dialogScriptComponent.start_dialog(dialogLinesDie)
             dialogDie = false
+        end
+    elseif current_scene_name == "IntroCinematic.TeaScene" then
+       if openDialog then
+            dialogScriptComponent.start_dialog(dialogLinesCine)
+            openDialog = false
         end
     end
 

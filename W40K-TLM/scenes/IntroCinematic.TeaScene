@@ -1,8 +1,8 @@
 {
     "value0": {
         "cereal_class_version": 3,
-        "value0": 24,
-        "value1": 24,
+        "value0": 25,
+        "value1": 23,
         "value2": 3,
         "value3": 2097152,
         "value4": 2097153,
@@ -14,7 +14,7 @@
         "value10": 8,
         "value11": 9,
         "value12": 10,
-        "value13": 11,
+        "value13": 1048598,
         "value14": 12,
         "value15": 13,
         "value16": 1048590,
@@ -26,108 +26,105 @@
         "value22": 20,
         "value23": 1048597,
         "value24": 23,
-        "value25": 1048598,
-        "value26": 24,
-        "value27": 3,
-        "value28": {
+        "value25": 1048587,
+        "value26": 1048600,
+        "value27": 23,
+        "value28": 3,
+        "value29": {
             "cereal_class_version": 0,
             "Tag": "Camera"
         },
-        "value29": 2097152,
-        "value30": {
+        "value30": 2097152,
+        "value31": {
             "Tag": "prop_droppod_v01.gltf"
         },
-        "value31": 2097153,
-        "value32": {
+        "value32": 2097153,
+        "value33": {
             "Tag": "Drop_pod_final"
         },
-        "value33": 2097154,
-        "value34": {
+        "value34": 2097154,
+        "value35": {
             "Tag": "Root"
         },
-        "value35": 4,
-        "value36": {
+        "value36": 4,
+        "value37": {
             "Tag": "ChispasPS"
         },
-        "value37": 5,
-        "value38": {
+        "value38": 5,
+        "value39": {
             "Tag": "cinematicController"
         },
-        "value39": 6,
-        "value40": {
+        "value40": 6,
+        "value41": {
             "Tag": "FadeToBlack"
         },
-        "value41": 7,
-        "value42": {
+        "value42": 7,
+        "value43": {
             "Tag": "DialogManager"
         },
-        "value43": 8,
-        "value44": {
+        "value44": 8,
+        "value45": {
             "Tag": "DialogName"
         },
-        "value45": 9,
-        "value46": {
+        "value46": 9,
+        "value47": {
             "Tag": "DialogText"
         },
-        "value47": 10,
-        "value48": {
+        "value48": 10,
+        "value49": {
             "Tag": "DialogIMG"
         },
-        "value49": 11,
-        "value50": {
-            "Tag": "DialogoCineSystem"
-        },
-        "value51": 12,
-        "value52": {
-            "Tag": "UI_SKIP_Indicator"
-        },
-        "value53": 13,
-        "value54": {
-            "Tag": "diaCine"
-        },
-        "value55": 1048590,
-        "value56": {
-            "Tag": "DroppodVFX.gltf"
-        },
-        "value57": 1048595,
-        "value58": {
-            "Tag": "VFXDroppod"
-        },
-        "value59": 1048594,
-        "value60": {
-            "Tag": "DroppodVFX_Cylinder-0"
-        },
-        "value61": 1048593,
-        "value62": {
-            "Tag": "DroppodVFX_Cylinder-1"
-        },
-        "value63": 1048592,
-        "value64": {
-            "Tag": "Root"
-        },
-        "value65": 1048591,
-        "value66": {
-            "Tag": "LightFire"
-        },
-        "value67": 20,
-        "value68": {
-            "Tag": "LightFire"
-        },
-        "value69": 1048597,
-        "value70": {
-            "Tag": "SmokePS"
-        },
-        "value71": 23,
-        "value72": {
-            "Tag": "Light"
-        },
-        "value73": 1048598,
-        "value74": {
+        "value50": 1048598,
+        "value51": {
             "Tag": "backCinematica.gltf"
         },
-        "value75": 24,
-        "value76": 3,
-        "value77": {
+        "value52": 12,
+        "value53": {
+            "Tag": "UI_SKIP_Indicator"
+        },
+        "value54": 13,
+        "value55": {
+            "Tag": "DialogoLoop"
+        },
+        "value56": 1048590,
+        "value57": {
+            "Tag": "DroppodVFX.gltf"
+        },
+        "value58": 1048595,
+        "value59": {
+            "Tag": "VFXDroppod"
+        },
+        "value60": 1048594,
+        "value61": {
+            "Tag": "DroppodVFX_Cylinder-0"
+        },
+        "value62": 1048593,
+        "value63": {
+            "Tag": "DroppodVFX_Cylinder-1"
+        },
+        "value64": 1048592,
+        "value65": {
+            "Tag": "Root"
+        },
+        "value66": 1048591,
+        "value67": {
+            "Tag": "LightFire"
+        },
+        "value68": 20,
+        "value69": {
+            "Tag": "LightFire"
+        },
+        "value70": 1048597,
+        "value71": {
+            "Tag": "SmokePS"
+        },
+        "value72": 23,
+        "value73": {
+            "Tag": "Light"
+        },
+        "value74": 23,
+        "value75": 3,
+        "value76": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.181818887591362,
@@ -145,8 +142,8 @@
                 "z": 1.0
             }
         },
-        "value78": 2097152,
-        "value79": {
+        "value77": 2097152,
+        "value78": {
             "Position": {
                 "x": 0.0,
                 "y": -0.1110360398888588,
@@ -163,8 +160,8 @@
                 "z": 1.0
             }
         },
-        "value80": 2097153,
-        "value81": {
+        "value79": 2097153,
+        "value80": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -181,8 +178,8 @@
                 "z": 1.0
             }
         },
-        "value82": 2097154,
-        "value83": {
+        "value81": 2097154,
+        "value82": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -199,8 +196,8 @@
                 "z": 0.9999999403953552
             }
         },
-        "value84": 4,
-        "value85": {
+        "value83": 4,
+        "value84": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -217,8 +214,8 @@
                 "z": 1.0
             }
         },
-        "value86": 5,
-        "value87": {
+        "value85": 5,
+        "value86": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -235,8 +232,8 @@
                 "z": 1.0
             }
         },
-        "value88": 6,
-        "value89": {
+        "value87": 6,
+        "value88": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -253,8 +250,8 @@
                 "z": 1.0
             }
         },
-        "value90": 7,
-        "value91": {
+        "value89": 7,
+        "value90": {
             "Position": {
                 "x": -0.5000000596046448,
                 "y": 0.0,
@@ -271,8 +268,8 @@
                 "z": 1.0
             }
         },
-        "value92": 8,
-        "value93": {
+        "value91": 8,
+        "value92": {
             "Position": {
                 "x": 0.0,
                 "y": -306.5,
@@ -289,8 +286,8 @@
                 "z": 1.0
             }
         },
-        "value94": 9,
-        "value95": {
+        "value93": 9,
+        "value94": {
             "Position": {
                 "x": 0.0,
                 "y": -264.5,
@@ -307,8 +304,8 @@
                 "z": 1.0
             }
         },
-        "value96": 10,
-        "value97": {
+        "value95": 10,
+        "value96": {
             "Position": {
                 "x": 0.0,
                 "y": -274.0,
@@ -325,224 +322,8 @@
                 "z": 1.0
             }
         },
-        "value98": 11,
-        "value99": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value100": 12,
-        "value101": {
-            "Position": {
-                "x": -2900.0,
-                "y": -16.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 3840.0,
-                "y": 32.0,
-                "z": 1.0
-            }
-        },
-        "value102": 13,
-        "value103": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value104": 1048590,
-        "value105": {
-            "Position": {
-                "x": -0.08920800685882569,
-                "y": -0.7193628549575806,
-                "z": 0.6797146797180176
-            },
-            "Rotation": {
-                "x": 0.05260336026549339,
-                "y": 0.10349524021148682,
-                "z": 0.3709336519241333
-            },
-            "Scale": {
-                "x": 1.0999985933303834,
-                "y": 1.0999999046325684,
-                "z": 1.1000005006790162
-            }
-        },
-        "value106": 1048595,
-        "value107": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value108": 1048594,
-        "value109": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value110": 1048593,
-        "value111": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value112": 1048592,
-        "value113": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 1.0431312347236599e-7,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value114": 1048591,
-        "value115": {
-            "Position": {
-                "x": 4.207727909088135,
-                "y": 5.725554466247559,
-                "z": 1.1013859510421754
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 0.9999995231628418,
-                "y": 1.0,
-                "z": 0.9999996423721314
-            }
-        },
-        "value116": 20,
-        "value117": {
-            "Position": {
-                "x": -0.1580209732055664,
-                "y": -2.0949254035949709,
-                "z": 4.520138263702393
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 0.9999995231628418,
-                "y": 1.0,
-                "z": 0.9999996423721314
-            }
-        },
-        "value118": 1048597,
-        "value119": {
-            "Position": {
-                "x": -3.773509979248047,
-                "y": 1.8236300945281983,
-                "z": -1.498828411102295
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": -0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value120": 23,
-        "value121": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 20.392778396606447
-            },
-            "Rotation": {
-                "x": 21.95584487915039,
-                "y": 37.14120101928711,
-                "z": -56.269893646240237
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0000001192092896,
-                "z": 0.9999998807907105
-            }
-        },
-        "value122": 1048598,
-        "value123": {
+        "value97": 1048598,
+        "value98": {
             "Position": {
                 "x": -0.4850924611091614,
                 "y": -0.6962158679962158,
@@ -559,179 +340,370 @@
                 "z": 22.627382278442384
             }
         },
-        "value124": 24,
-        "value125": 3,
-        "value126": {
+        "value99": 12,
+        "value100": {
+            "Position": {
+                "x": -2900.0,
+                "y": -16.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 3840.0,
+                "y": 32.0,
+                "z": 1.0
+            }
+        },
+        "value101": 13,
+        "value102": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value103": 1048590,
+        "value104": {
+            "Position": {
+                "x": -0.08920800685882569,
+                "y": -0.7193628549575806,
+                "z": 0.6797146797180176
+            },
+            "Rotation": {
+                "x": 0.05260336026549339,
+                "y": 0.10349524021148682,
+                "z": 0.3709336519241333
+            },
+            "Scale": {
+                "x": 1.0999985933303834,
+                "y": 1.0999999046325684,
+                "z": 1.1000005006790162
+            }
+        },
+        "value105": 1048595,
+        "value106": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value107": 1048594,
+        "value108": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value109": 1048593,
+        "value110": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value111": 1048592,
+        "value112": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 1.0431312347236599e-7,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value113": 1048591,
+        "value114": {
+            "Position": {
+                "x": 4.207727909088135,
+                "y": 5.725554466247559,
+                "z": 1.1013859510421754
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 0.9999995231628418,
+                "y": 1.0,
+                "z": 0.9999996423721314
+            }
+        },
+        "value115": 20,
+        "value116": {
+            "Position": {
+                "x": -0.1580209732055664,
+                "y": -2.0949254035949709,
+                "z": 4.520138263702393
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 0.9999995231628418,
+                "y": 1.0,
+                "z": 0.9999996423721314
+            }
+        },
+        "value117": 1048597,
+        "value118": {
+            "Position": {
+                "x": -3.773509979248047,
+                "y": 1.8236300945281983,
+                "z": -1.498828411102295
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value119": 23,
+        "value120": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 20.392778396606447
+            },
+            "Rotation": {
+                "x": 21.95584487915039,
+                "y": 37.14120101928711,
+                "z": -56.269893646240237
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0000001192092896,
+                "z": 0.9999998807907105
+            }
+        },
+        "value121": 23,
+        "value122": 3,
+        "value123": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value127": 2097152,
-        "value128": {
+        "value124": 2097152,
+        "value125": {
             "Parent": 4294967295,
             "First": 2097153,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value129": 2097153,
-        "value130": {
+        "value126": 2097153,
+        "value127": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 2097154,
             "Prev": 4294967295
         },
-        "value131": 2097154,
-        "value132": {
+        "value128": 2097154,
+        "value129": {
             "Parent": 2097152,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2097153
         },
-        "value133": 4,
-        "value134": {
+        "value130": 4,
+        "value131": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value135": 5,
-        "value136": {
+        "value132": 5,
+        "value133": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value137": 6,
-        "value138": {
+        "value134": 6,
+        "value135": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value139": 7,
-        "value140": {
+        "value136": 7,
+        "value137": {
             "Parent": 4294967295,
             "First": 8,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value141": 8,
-        "value142": {
+        "value138": 8,
+        "value139": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 9,
             "Prev": 4294967295
         },
-        "value143": 9,
-        "value144": {
+        "value140": 9,
+        "value141": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 10,
             "Prev": 8
         },
-        "value145": 10,
-        "value146": {
+        "value142": 10,
+        "value143": {
+            "Parent": 7,
+            "First": 4294967295,
+            "Next": 13,
+            "Prev": 9
+        },
+        "value144": 1048598,
+        "value145": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value146": 12,
+        "value147": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value148": 13,
+        "value149": {
             "Parent": 7,
             "First": 4294967295,
             "Next": 4294967295,
-            "Prev": 9
+            "Prev": 10
         },
-        "value147": 11,
-        "value148": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value149": 12,
-        "value150": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value151": 13,
-        "value152": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value153": 1048590,
-        "value154": {
+        "value150": 1048590,
+        "value151": {
             "Parent": 4294967295,
             "First": 1048595,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value155": 1048595,
-        "value156": {
+        "value152": 1048595,
+        "value153": {
             "Parent": 1048590,
             "First": 1048594,
             "Next": 1048592,
             "Prev": 4294967295
         },
-        "value157": 1048594,
-        "value158": {
+        "value154": 1048594,
+        "value155": {
             "Parent": 1048595,
             "First": 4294967295,
             "Next": 1048593,
             "Prev": 4294967295
         },
-        "value159": 1048593,
-        "value160": {
+        "value156": 1048593,
+        "value157": {
             "Parent": 1048595,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1048594
         },
-        "value161": 1048592,
-        "value162": {
+        "value158": 1048592,
+        "value159": {
             "Parent": 1048590,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1048595
         },
-        "value163": 1048591,
-        "value164": {
+        "value160": 1048591,
+        "value161": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value165": 20,
-        "value166": {
+        "value162": 20,
+        "value163": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value167": 1048597,
-        "value168": {
+        "value164": 1048597,
+        "value165": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value169": 23,
+        "value166": 23,
+        "value167": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value168": 1,
+        "value169": 3,
         "value170": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value171": 1048598,
-        "value172": {
-            "Parent": 4294967295,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4294967295
-        },
-        "value173": 1,
-        "value174": 3,
-        "value175": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -744,9 +716,9 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value176": 4,
-        "value177": 2097153,
-        "value178": {
+        "value171": 4,
+        "value172": 2097153,
+        "value173": {
             "cereal_class_version": 0,
             "Mesh": {
                 "cereal_class_version": 0,
@@ -756,8 +728,8 @@
                 "value0": 13022089739303106082
             }
         },
-        "value179": 1048594,
-        "value180": {
+        "value174": 1048594,
+        "value175": {
             "Mesh": {
                 "value0": 16799669742104821266
             },
@@ -765,8 +737,8 @@
                 "value0": 47948228206143597
             }
         },
-        "value181": 1048593,
-        "value182": {
+        "value176": 1048593,
+        "value177": {
             "Mesh": {
                 "value0": 8346362907713799744
             },
@@ -774,8 +746,8 @@
                 "value0": 47948228206143597
             }
         },
-        "value183": 1048598,
-        "value184": {
+        "value178": 1048598,
+        "value179": {
             "Mesh": {
                 "value0": 11479381553298627616
             },
@@ -783,9 +755,9 @@
                 "value0": 0
             }
         },
-        "value185": 4,
-        "value186": 2097153,
-        "value187": {
+        "value180": 4,
+        "value181": 2097153,
+        "value182": {
             "cereal_class_version": 1,
             "IsEmbedded": false,
             "Type": 8,
@@ -793,8 +765,8 @@
                 "value0": 13321323325830636168
             }
         },
-        "value188": 1048594,
-        "value189": {
+        "value183": 1048594,
+        "value184": {
             "IsEmbedded": true,
             "Material": {
                 "polymorphic_id": 2147483649,
@@ -873,8 +845,8 @@
                 }
             }
         },
-        "value190": 1048593,
-        "value191": {
+        "value185": 1048593,
+        "value186": {
             "IsEmbedded": true,
             "Material": {
                 "polymorphic_id": 1,
@@ -951,17 +923,17 @@
                 }
             }
         },
-        "value192": 1048598,
-        "value193": {
+        "value187": 1048598,
+        "value188": {
             "IsEmbedded": false,
             "Type": 8,
             "MaterialUUID": {
                 "value0": 9589483955480786330
             }
         },
-        "value194": 3,
-        "value195": 1048591,
-        "value196": {
+        "value189": 3,
+        "value190": 1048591,
+        "value191": {
             "cereal_class_version": 1,
             "Color": {
                 "x": 0.9798387289047241,
@@ -987,8 +959,8 @@
             "ShadowBias": 0.004999999888241291,
             "ShadowMaxDistance": 100.0
         },
-        "value197": 20,
-        "value198": {
+        "value192": 20,
+        "value193": {
             "Color": {
                 "x": 1.0,
                 "y": 0.16935479640960694,
@@ -1013,8 +985,8 @@
             "ShadowBias": 0.004999999888241291,
             "ShadowMaxDistance": 100.0
         },
-        "value199": 23,
-        "value200": {
+        "value194": 23,
+        "value195": {
             "Color": {
                 "x": 1.0,
                 "y": 1.0,
@@ -1039,9 +1011,9 @@
             "ShadowBias": 0.004999999888241291,
             "ShadowMaxDistance": 100.0
         },
-        "value201": 1,
-        "value202": 3,
-        "value203": {
+        "value196": 1,
+        "value197": 3,
+        "value198": {
             "cereal_class_version": 1,
             "Skybox": {
                 "value0": 13455572182650489709
@@ -1058,34 +1030,34 @@
             "FogHeight": 0.0,
             "FogHeightDensity": 0.0
         },
-        "value204": 0,
-        "value205": 4,
-        "value206": 5,
-        "value207": {
+        "value199": 0,
+        "value200": 4,
+        "value201": 5,
+        "value202": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/misc/CinematicOneController.lua",
             "Language": 0
         },
-        "value208": 6,
-        "value209": {
+        "value203": 6,
+        "value204": {
             "ScriptPath": "scripts/misc/FadeToBlack.lua",
             "Language": 0
         },
-        "value210": 11,
-        "value211": {
-            "ScriptPath": "scripts/Cinematic/CinematicDialogo.lua",
-            "Language": 0
-        },
-        "value212": 7,
-        "value213": {
+        "value205": 7,
+        "value206": {
             "ScriptPath": "scripts/DialogScript/dialogManager.lua",
             "Language": 0
         },
-        "value214": 0,
-        "value215": 0,
-        "value216": 2,
-        "value217": 2097152,
-        "value218": {
+        "value207": 13,
+        "value208": {
+            "ScriptPath": "scripts/DialogScript/dialogoSystem.lua",
+            "Language": 0
+        },
+        "value209": 0,
+        "value210": 0,
+        "value211": 2,
+        "value212": 2097152,
+        "value213": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -1118,8 +1090,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value219": 1048590,
-        "value220": {
+        "value214": 1048590,
+        "value215": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -1150,9 +1122,9 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value221": 1,
-        "value222": 13,
-        "value223": {
+        "value216": 1,
+        "value217": 13,
+        "value218": {
             "cereal_class_version": 0,
             "GameObjectID": 7232288590300033459,
             "AudioBank": {
@@ -1162,45 +1134,18 @@
                         "cereal_class_version": 0,
                         "Name": "Dialogs",
                         "Events": [
-                            "Play_DeciusMarcellus_Cinematica2",
-                            "Play_DeciusMarcellus_CinematicaFinal1",
-                            "Play_DeciusMarcellus_CinematicaFinal2",
-                            "Play_DeciusMarcellus_Intro",
-                            "Play_DeciusMarcellus_LlegadaZona1",
-                            "Play_DeciusMarcellus_LlegadaZona10",
-                            "Play_DeciusMarcellus_LlegadaZona12",
-                            "Play_DeciusMarcellus_LlegadaZona13",
-                            "Play_DeciusMarcellus_LlegadaZona14",
-                            "Play_DeciusMarcellus_LlegadaZona16",
-                            "Play_DeciusMarcellus_LlegadaZona17",
-                            "Play_DeciusMarcellus_LlegadaZona18",
-                            "Play_DeciusMarcellus_LlegadaZona19",
-                            "Play_DeciusMarcellus_LlegadaZona1_2",
-                            "Play_DeciusMarcellus_LlegadaZona5",
-                            "Play_DeciusMarcellus_LlegadaZona8",
-                            "Play_DeciusMarcellus_LlegadaZona9",
-                            "Play_DeciusMarcellus_SalidaZona11",
-                            "Play_DeciusMarcellus_SalidaZona5",
-                            "Play_DeciusMarcellus_SalidaZona9",
-                            "Play_QuintusMaxillian_ActivacionPalancaZona13",
-                            "Play_QuintusMaxillian_Cinematica2",
-                            "Play_QuintusMaxillian_CinematicaFinal1",
-                            "Play_QuintusMaxillian_CinematicaFinal2",
-                            "Play_QuintusMaxillian_LlegadaZona1",
-                            "Play_QuintusMaxillian_LlegadaZona15",
-                            "Play_QuintusMaxillian_LlegadaZona9",
-                            "Play_QuintusMaxillian_SalidaZona9"
+                            "Play_UIText"
                         ]
                     }
                 }
             },
             "AudioBankName": "Dialogs",
-            "EventName": "Play_DeciusMarcellus_Intro",
+            "EventName": "Play_UIText",
             "Volume": 1.0,
             "Mute": false,
             "PlayOnAwake": false,
             "Transform": {
-                "m00": 1.0,
+                "m00": 0.0,
                 "m01": 0.0,
                 "m02": 0.0,
                 "m03": 0.0,
@@ -1212,15 +1157,15 @@
                 "m21": 0.0,
                 "m22": 1.0,
                 "m23": 0.0,
-                "m30": 0.0,
+                "m30": -0.5000000596046448,
                 "m31": 0.0,
                 "m32": 0.0,
                 "m33": 1.0
             }
         },
-        "value224": 1,
-        "value225": 3,
-        "value226": {
+        "value219": 1,
+        "value220": 3,
+        "value221": {
             "cereal_class_version": 0,
             "GameObjectID": 12323991616038735456,
             "Transform": {
@@ -1242,10 +1187,10 @@
                 "m33": 1.0
             }
         },
-        "value227": 0,
-        "value228": 2,
-        "value229": 4,
-        "value230": {
+        "value222": 0,
+        "value223": 2,
+        "value224": 4,
+        "value225": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -1527,8 +1472,8 @@
                 }
             }
         },
-        "value231": 1048597,
-        "value232": {
+        "value226": 1048597,
+        "value227": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
                     "id": 2147483657,
@@ -1802,37 +1747,36 @@
                 }
             }
         },
-        "value233": 24,
-        "value234": 3,
-        "value235": 4,
-        "value236": 2097152,
-        "value237": 2097153,
-        "value238": 2097154,
-        "value239": 5,
-        "value240": 6,
-        "value241": 7,
-        "value242": 8,
-        "value243": 9,
-        "value244": 10,
-        "value245": 11,
-        "value246": 12,
-        "value247": 13,
-        "value248": 1048590,
-        "value249": 1048595,
-        "value250": 1048594,
-        "value251": 1048593,
-        "value252": 1048592,
-        "value253": 1048591,
-        "value254": 20,
-        "value255": 1048597,
-        "value256": 1048598,
-        "value257": 23,
-        "value258": 1,
-        "value259": 20,
-        "value260": 0,
-        "value261": 3,
-        "value262": 6,
-        "value263": {
+        "value228": 23,
+        "value229": 3,
+        "value230": 4,
+        "value231": 2097152,
+        "value232": 2097153,
+        "value233": 2097154,
+        "value234": 5,
+        "value235": 6,
+        "value236": 7,
+        "value237": 8,
+        "value238": 9,
+        "value239": 10,
+        "value240": 23,
+        "value241": 12,
+        "value242": 13,
+        "value243": 1048590,
+        "value244": 1048595,
+        "value245": 1048594,
+        "value246": 1048593,
+        "value247": 1048592,
+        "value248": 1048591,
+        "value249": 20,
+        "value250": 1048597,
+        "value251": 1048598,
+        "value252": 1,
+        "value253": 20,
+        "value254": 0,
+        "value255": 3,
+        "value256": 6,
+        "value257": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 6711820436760903955
@@ -1870,8 +1814,8 @@
             },
             "Layer": 25
         },
-        "value264": 10,
-        "value265": {
+        "value258": 10,
+        "value259": {
             "TextureUUID": {
                 "value0": 18293614392373388477
             },
@@ -1907,8 +1851,8 @@
             },
             "Layer": 100
         },
-        "value266": 12,
-        "value267": {
+        "value260": 12,
+        "value261": {
             "TextureUUID": {
                 "value0": 13093128426387816779
             },
@@ -1944,9 +1888,9 @@
             },
             "Layer": 0
         },
-        "value268": 2,
-        "value269": 8,
-        "value270": {
+        "value262": 2,
+        "value263": 8,
+        "value264": {
             "cereal_class_version": 0,
             "Text": "DialogName",
             "FontPath": "",
@@ -1980,8 +1924,8 @@
             },
             "Layer": 0
         },
-        "value271": 9,
-        "value272": {
+        "value265": 9,
+        "value266": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -2014,12 +1958,12 @@
             },
             "Layer": 0
         },
-        "value273": 0,
-        "value274": 0,
-        "value275": 0,
-        "value276": 1,
-        "value277": 7,
-        "value278": {
+        "value267": 0,
+        "value268": 0,
+        "value269": 0,
+        "value270": 1,
+        "value271": 7,
+        "value272": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {
