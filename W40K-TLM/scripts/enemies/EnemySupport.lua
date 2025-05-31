@@ -95,7 +95,6 @@ function on_ready()
     support.rangeAttackRange = stats.rangeAttackRange
     support.supportDamage = stats.supportDamage 
     support.bulletSpeed = stats.bulletSpeed
-    support.proximityDetectionRadius = 25
 
     -- External Timers
     support.shieldCooldown = 5.0
@@ -222,6 +221,10 @@ function on_update(dt)
 
     support:reset_material()
 
+    if support.playerMissing then
+        support.missingTimer = support.missingTimer + dt
+    end
+
     if support.updateTargetTimer >= support.updateTargetInterval then
         support.delayedPlayerPos = Vector3.new(support.playerTransf.position.x, support.playerTransf.position.y, support.playerTransf.position.z)
         support.updateTargetTimer = 0
@@ -288,20 +291,86 @@ function change_state(dt)
     support.allShielded = true
 
     support:enemy_raycast(dt)
-    support:check_player_distance()
     
+    -- Primero verificar si el player está fuera de rango o no detectado
     if support.playerDistance > 30 or not support.playerDetected then   
         support.currentState = support.state.Idle
         return
     end
 
+    -- Si el player está perdido, priorizar chase/move en lugar de shoot
+    if support.playerLost then
+        if support.findEnemiesTimer >= support.findEnemiesInterval then
+            find_all_enemies()
+            support.findEnemiesTimer = 0
+        end
+
+        if #support.Enemies == 0 then
+            -- Sin enemigos cerca y player perdido -> Chase
+            support.currentState = support.state.Chase
+            return
+        end
+
+        local filteredEnemies = {}
+        local suppPos = support.enemyTransf.position
+
+        for _, enemy in ipairs(support.Enemies) do
+            if enemy.transform then
+                local dist = support:get_distance(suppPos, enemy.transform.position)
+                if dist <= 20 then
+                    table.insert(filteredEnemies, enemy)
+                    if not enemy.haveShield then
+                        support.allShielded = false
+                    end
+                end
+            end
+        end
+
+        support.Enemies = filteredEnemies
+
+        if #support.Enemies == 0 or support.allShielded then
+            -- No hay enemigos sin escudo y player perdido -> Chase
+            support.currentState = support.state.Chase
+            return
+        end
+
+        -- Hay enemigos sin escudo, proceder con lógica de shield/move
+        local distances = enemies_distance()
+        local shieldStates = update_shield_status()
+        local shieldLookup = {}
+        for _, s in ipairs(shieldStates) do
+            shieldLookup[s.enemy.name] = s.haveShield
+        end
+
+        local closest, minD = nil, math.huge
+        for _, d in ipairs(distances) do
+            if not shieldLookup[d.enemy.name] and d.distance < minD then
+                minD = d.distance
+                closest = d.enemy
+            end
+        end
+        
+        support.currentTarget = closest
+        
+        if closest then
+            if minD <= support.shieldRange and support.canUseShield then
+                support.currentState = support.state.Shield
+            else
+                support.currentState = support.state.Move
+            end
+        else
+            support.currentState = support.state.Chase
+        end
+        return
+    end
+
+    -- Lógica normal cuando el player está detectado y visible
     if support.findEnemiesTimer >= support.findEnemiesInterval then
         find_all_enemies()
         support.findEnemiesTimer = 0
     end
 
     if #support.Enemies == 0 then
-
         if support.playerDistance <= support.rangeAttackRange then
             support.currentState = support.state.Shoot
         else
@@ -350,21 +419,21 @@ function change_state(dt)
             closest = d.enemy
         end
     end
-
+    
     support.currentTarget = closest
+    
     if closest then
         if minD <= support.shieldRange and support.canUseShield then
             support.currentState = support.state.Shield
         else
             support.currentState = support.state.Move
         end
-    else
+    elseif support.playerDistance <= support.rangeAttackRange then
         support.currentState = support.state.Shoot
+    else 
+        support.currentState = support.state.Chase
     end
-
-
 end
-
 function support:move_state(dt)
     local validTargets = {}
     for _, enemyData in ipairs(support.Enemies) do
@@ -452,14 +521,24 @@ function support:chase_state(dt)
         support.animator:set_current_animation(support.currentAnim)
     end
 
-    support.pathUpdateTimer = support.pathUpdateTimer + dt
-    if support.pathUpdateTimer >= support.pathUpdateInterval or not support.lastTargetPos or (support.lastTargetPos and support:get_distance(support.lastTargetPos, targetPos.position) > 1.0) then
-        support:update_path(targetPos)
-        support.lastTargetPos = targetPos.position
-        support.pathUpdateTimer = 0.0
+    if support.playerDistance <= support.rangeAttackRange then
+        support.currentState = support.state.Shoot
+        return
     end
 
-    support:follow_path() 
+    support.pathUpdateTimer = support.pathUpdateTimer + dt
+    if support.pathUpdateTimer >= support.pathUpdateInterval or 
+       not support.lastTargetPos or 
+       (support.lastTargetPos and support:get_distance(support.lastTargetPos, support.delayedPlayerPos) > 1.5) then
+        
+ 
+        support:update_path(support.playerTransf)
+        support.lastTargetPos = Vector3.new(support.delayedPlayerPos.x, support.delayedPlayerPos.y, support.delayedPlayerPos.z)
+        support.pathUpdateTimer = 0.0
+    end
+    
+    -- Seguir el path hacia el player
+    support:follow_path()
 
 end
 

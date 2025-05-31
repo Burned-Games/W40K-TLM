@@ -577,7 +577,7 @@ function range:find_nearby_enemies()
         local tag = entity:get_component("TagComponent")
         local name = entity:get_component("TagComponent").tag
         
-        if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze" or name == "EnemyTank1") and entity ~= self then
+        if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze" or name == "EnemyTank1" or name == "EnemySupport") and entity ~= self then
             local script = entity:get_component("ScriptComponent")
             local entityTransform = entity:get_component("TransformComponent")
             log("Entity: " .. name .. " - Tag: " .. tag.tag)
