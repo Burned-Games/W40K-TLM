@@ -671,6 +671,7 @@ function enemy:check_initial_distance()
 
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
     if distance > 30 then
+        self:rotate_enemy(self.enemyInitialPos)
         self.playerDetected = false
         --self.currentState = self.state.Move
         self.isReturning = true
@@ -687,7 +688,7 @@ function enemy:check_initial_distance()
         self.playerMissing = false
         self.missingTimer = 0.0
         self.currentState = self.state.Idle
-        self:rotate_enemy(self.playerTransf.position)
+        self.enemyRb:set_rotation(Vector3.new(0, 0, 0))
     end
 end
 
