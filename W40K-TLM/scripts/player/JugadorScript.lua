@@ -573,6 +573,8 @@ function on_update(dt)
     
     if godMode or activateAutoAim then
         autoaimUpdate()
+    else
+        enemyDirection = nil
     end
     if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
         playerMovement(dt)
