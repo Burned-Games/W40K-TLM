@@ -8,10 +8,22 @@
                 "cereal_class_version": 0,
                 "meshUUIDs": [
                     {
-                        "key": "VFX_Explosion_v2_Cylinder.003",
+                        "key": "VFX_Explosion_v2_Cylinder.003-0",
                         "value": {
                             "cereal_class_version": 0,
-                            "value0": 8838044113410652157
+                            "value0": 11953313024682183576
+                        }
+                    },
+                    {
+                        "key": "VFX_Explosion_v2_Cylinder.003-1",
+                        "value": {
+                            "value0": 14937792644266622324
+                        }
+                    },
+                    {
+                        "key": "VFX_Explosion_v2_Cylinder.003-2",
+                        "value": {
+                            "value0": 14317676512464022888
                         }
                     }
                 ],
@@ -19,21 +31,33 @@
                     {
                         "key": "VFX_Explosion_Mat0",
                         "value": {
-                            "value0": 1994458395019358906
+                            "value0": 13357543311359656084
+                        }
+                    },
+                    {
+                        "key": "VFX_Area.001_Mat1",
+                        "value": {
+                            "value0": 6891967403822082128
+                        }
+                    },
+                    {
+                        "key": "VFX_Esfera_2_Mat2",
+                        "value": {
+                            "value0": 11552358147990720994
                         }
                     }
                 ],
                 "value0": {
                     "cereal_class_version": 0,
                     "uuid": {
-                        "value0": 11491452278506668314
+                        "value0": 13941921491801141912
                     },
                     "type": 4,
                     "originalPath": {
                         "value0": "vfxs/VFX_Explosion_v2/VFX_Explosion_v2.gltf"
                     },
                     "cachedPath": {
-                        "value0": ".CoffeeEngine/Cache/11491452278506668314.model"
+                        "value0": ".CoffeeEngine/Cache/13941921491801141912.model"
                     },
                     "cache": true,
                     "internal": false
