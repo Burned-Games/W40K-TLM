@@ -681,7 +681,7 @@ function throwGranade(targetPosition)
 
     rb:set_position(startPos)
     rb:set_velocity(finalVelocity)
-
+    rb:set_angular_velocity(Vector3.new(5,0,5))
 end
 
 
