@@ -47,6 +47,7 @@ fistTargetScale = 0
 fistsThrown = false
 fistsAttackPending = false
 local isFistsDamaging = true
+isRaging = false
 
 -- Animation
 local currentAnim = 0
@@ -171,44 +172,75 @@ function fist()
     fistsAttackDelayTimer = 0.0
 
     local arenaRadius = 20
-    fistsToUseThisWave = get_next_fists()
 
-    for _, i in ipairs(fistsToUseThisWave) do
-        local attempts = 0
-        local maxAttempts = 10
-        local valid = false
-        local pos = nil
+    if isRaging then
+        fistsToUseThisWave = {}
 
-        if i == 1 then
-            pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
-        else
-            while not valid and attempts < maxAttempts do
-                local angle = math.rad(math.random() * 360)
-                local randRadius = radius + math.random() * 5
-                local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
-                local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
-                pos = Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ)
+        for i = 1, fistMaxNumbers do
+            fistsUsed[i] = true
+            table.insert(fistsToUseThisWave, i)
 
-                if is_within_arena(pos, arenaCenter, arenaRadius) then
-                    valid = true
+            local angle = math.random() * 2 * math.pi
+            local randRadius = math.sqrt(math.random()) * arenaRadius
+
+            local offsetX = math.cos(angle) * randRadius
+            local offsetZ = math.sin(angle) * randRadius
+            local pos = Vector3.new(
+                enemyScript.main_boss.enemyTransf.position.x + offsetX,
+                0,
+                enemyScript.main_boss.enemyTransf.position.z + offsetZ
+            )
+
+            fistPositions[i] = pos
+
+            if fistIndicatorsTransform[i] then
+                fistIndicatorsTransform[i].position = pos
+                fistIndicatorsTransform[i].position.y = 0.1
+            end
+            if fistIndicatorsScript[i] then
+                fistIndicatorsScript[i]:startIndicator()
+            end
+        end
+    else
+        fistsToUseThisWave = get_next_fists()
+
+        for _, i in ipairs(fistsToUseThisWave) do
+            local attempts = 0
+            local maxAttempts = 10
+            local valid = false
+            local pos = nil
+
+            if i == 1 then
+                pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+            else
+                while not valid and attempts < maxAttempts do
+                    local angle = math.rad(math.random() * 360)
+                    local randRadius = radius + math.random() * 5
+                    local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
+                    local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
+                    pos = Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ)
+
+                    if is_within_arena(pos, arenaCenter, arenaRadius) then
+                        valid = true
+                    end
+
+                    attempts = attempts + 1
                 end
 
-                attempts = attempts + 1
+                if not valid then
+                    pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+                end
             end
 
-            if not valid then
-                pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+            fistPositions[i] = pos
+
+            if fistIndicatorsTransform[i] then
+                fistIndicatorsTransform[i].position = pos
+                fistIndicatorsTransform[i].position.y = 0.1
             end
-        end
-
-        fistPositions[i] = pos
-
-        if fistIndicatorsTransform[i] then
-            fistIndicatorsTransform[i].position = pos
-            fistIndicatorsTransform[i].position.y = 0.1
-        end
-        if fistIndicatorsScript[i] then
-            fistIndicatorsScript[i]:startIndicator()
+            if fistIndicatorsScript[i] then
+                fistIndicatorsScript[i]:startIndicator()
+            end
         end
     end
 end

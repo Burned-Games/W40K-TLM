@@ -310,6 +310,7 @@ function main_boss:rage_state()
 
         log("New stats setted")
         main_boss.isRaging = true
+        main_boss.fistScript.isRaging = main_boss.isRaging
 
         main_boss.bossFaseTwoChangeSFX:play()
 
