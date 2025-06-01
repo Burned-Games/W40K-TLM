@@ -179,6 +179,8 @@ function on_ready()
     end
 
     -- Positions
+    support.enemyInitialPos = Vector3.new(support.enemyTransf.position.x, support.enemyTransf.position.y, support.enemyTransf.position.z)
+    support.enemyInitialRot = Vector3.new(support.enemyTransf.rotation.x, support.enemyTransf.rotation.y, support.enemyTransf.rotation.z)
     support.lastTargetPos = Vector3.new(0, 0, 0)
     support.delayedPlayerPos = support.playerTransf.position
     support.bulletLifetime = 5.0

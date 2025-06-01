@@ -150,6 +150,7 @@ function on_ready()
 
     -- Positions
     range.enemyInitialPos = Vector3.new(range.enemyTransf.position.x, range.enemyTransf.position.y, range.enemyTransf.position.z)
+    range.enemyInitialRot = Vector3.new(range.enemyTransf.rotation.x, range.enemyTransf.rotation.y, range.enemyTransf.rotation.z)
     range.lastTargetPos = range.playerTransf.position
     range.delayedPlayerPos = range.playerTransf.position
 
@@ -277,6 +278,8 @@ function on_update(dt)
     if not range.playingDieAnim and range.currentState ~= range.state.Detect then
         if range.currentAnim == range.meleeAttackAnim then
             range:rotate_enemy(range.playerTransf.position)
+        elseif range.isReturning then
+            range:rotate_enemy(range.enemyInitialPos)
         elseif range.currentAnim ~= range.rangeAttackAnim and range.currentAnim ~= range.detectAnim then
             range:rotate_enemy(range.playerTransf.position)
         else

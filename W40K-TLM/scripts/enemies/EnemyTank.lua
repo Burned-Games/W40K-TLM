@@ -175,6 +175,7 @@ function on_ready()
     -- Positions
     tank.targetDirection = Vector3.new(0, 0, 0)
     tank.enemyInitialPos = Vector3.new(tank.enemyTransf.position.x, tank.enemyTransf.position.y, tank.enemyTransf.position.z)
+    tank.enemyInitialRot = Vector3.new(tank.enemyTransf.rotation.x, tank.enemyTransf.rotation.y, tank.enemyTransf.rotation.z)
     tank.playerDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position) + 100
     tank.lastTargetPos = tank.playerTransf.position
 
@@ -345,7 +346,11 @@ function on_update(dt)
             tank.key = tank.key + 1
         end
         if not tank.playingDieAnim then
-            tank:rotate_enemy(tank.playerTransf.position)
+            if tank.isReturning then
+                tank:rotate_enemy(tank.enemyInitialPos)
+            else
+                tank:rotate_enemy(tank.playerTransf.position)
+            end
         end
     end
     

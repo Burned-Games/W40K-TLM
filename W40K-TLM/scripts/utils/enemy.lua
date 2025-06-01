@@ -131,6 +131,7 @@ function enemy:new(obj)
     obj.enemyHit = false
 
     -- Vector3
+    obj.enemyInitialRot = Vector3.new(0, 0, 0)
     obj.enemyInitialPos = Vector3.new(0, 0, 0)
     obj.lastTargetPos = Vector3.new(0, 0, 0)
 
@@ -671,8 +672,8 @@ function enemy:check_initial_distance()
 
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
     if distance > 30 then
-        self:rotate_enemy(self.enemyInitialPos)
         self.playerDetected = false
+        self:rotate_enemy(self.enemyInitialPos)
         --self.currentState = self.state.Move
         self.isReturning = true
         self.health = self.defaultHealth
@@ -683,12 +684,13 @@ function enemy:check_initial_distance()
         self.isAlerted = false
         self.hasAlerted = false
         self.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        self.enemyRb:set_rotation(Vector3.new(0, self.enemyInitialRot.y, 0))
+        self.currentRotationY = self.enemyInitialRot.y
         self.health = self.defaultHealth
         self.playerLost = false
         self.playerMissing = false
         self.missingTimer = 0.0
         self.currentState = self.state.Idle
-        self.enemyRb:set_rotation(Vector3.new(0, 0, 0))
     end
 end
 
