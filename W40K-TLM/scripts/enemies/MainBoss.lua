@@ -313,7 +313,6 @@ function main_boss:rage_state()
         main_boss.fistScript.isRaging = main_boss.isRaging
 
         main_boss.bossFaseTwoChangeSFX:play()
-
     end
 
 end
