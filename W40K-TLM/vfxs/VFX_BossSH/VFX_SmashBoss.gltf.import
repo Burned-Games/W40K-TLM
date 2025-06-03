@@ -1,0 +1,104 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "VFX_SmashBoss_Plane.001-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 603886118624910114
+                        }
+                    },
+                    {
+                        "key": "VFX_SmashBoss_Plane.001-1",
+                        "value": {
+                            "value0": 17488090516920118291
+                        }
+                    },
+                    {
+                        "key": "VFX_SmashBoss_Plane.001-2",
+                        "value": {
+                            "value0": 10569534085896424562
+                        }
+                    },
+                    {
+                        "key": "VFX_SmashBoss_Plane.001-3",
+                        "value": {
+                            "value0": 18426149672920703788
+                        }
+                    },
+                    {
+                        "key": "VFX_SmashBoss_Plane.001-4",
+                        "value": {
+                            "value0": 5395890057275235602
+                        }
+                    },
+                    {
+                        "key": "VFX_SmashBoss_Plane.001-5",
+                        "value": {
+                            "value0": 7005267515999240744
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.002_Mat0",
+                        "value": {
+                            "value0": 3525315367835731991
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat1",
+                        "value": {
+                            "value0": 12724466748115483795
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat2",
+                        "value": {
+                            "value0": 10703826672777701204
+                        }
+                    },
+                    {
+                        "key": "Material.006_Mat5",
+                        "value": {
+                            "value0": 14630674910014295491
+                        }
+                    },
+                    {
+                        "key": "Material.004_Mat3",
+                        "value": {
+                            "value0": 17894153895476827642
+                        }
+                    },
+                    {
+                        "key": "Material.005_Mat4",
+                        "value": {
+                            "value0": 15921219518177855937
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 10159532985070732964
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/VFX_BossSH/VFX_SmashBoss.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10159532985070732964.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

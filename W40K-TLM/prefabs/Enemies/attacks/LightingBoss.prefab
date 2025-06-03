@@ -2,45 +2,86 @@
     "value0": {
         "cereal_class_version": 1,
         "Base": {
-            "cereal_class_version": 0,
-            "value0": "Lightning_Prefab",
+            "cereal_class_version": 1,
+            "value0": "LightningBoss_Prefab",
             "value1": {
                 "value0": ""
             },
-            "value2": 12,
+            "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 7747841423663925957
-            }
+                "value0": 7538562042727604183
+            },
+            "value4": false
         },
         "RootEntity": 0,
-        "value0": 2,
-        "value1": 2,
+        "value0": 10,
+        "value1": 10,
         "value2": 0,
         "value3": 1,
         "value4": 2,
-        "value5": 0,
-        "value6": {
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 8,
+        "value11": 9,
+        "value12": 10,
+        "value13": 0,
+        "value14": {
             "cereal_class_version": 0,
-            "Tag": "Lightning"
+            "Tag": "LightningBoss"
         },
-        "value7": 1,
-        "value8": {
-            "Tag": "Ray.glb"
+        "value15": 1,
+        "value16": {
+            "Tag": "VFX_ThunderFury"
         },
-        "value9": 2,
-        "value10": 0,
-        "value11": {
+        "value17": 2,
+        "value18": {
+            "Tag": "Root"
+        },
+        "value19": 3,
+        "value20": {
+            "Tag": "RayCollision1"
+        },
+        "value21": 4,
+        "value22": {
+            "Tag": "RayCollision2"
+        },
+        "value23": 5,
+        "value24": {
+            "Tag": "RayCollision3"
+        },
+        "value25": 6,
+        "value26": {
+            "Tag": "RayCollision4"
+        },
+        "value27": 7,
+        "value28": {
+            "Tag": "RayCollision5"
+        },
+        "value29": 8,
+        "value30": {
+            "Tag": "RayCollision6"
+        },
+        "value31": 9,
+        "value32": {
+            "Tag": "RayCollision7"
+        },
+        "value33": 10,
+        "value34": 0,
+        "value35": {
             "cereal_class_version": 0,
             "Position": {
-                "x": 16.77435302734375,
+                "x": 0.0,
                 "y": 0.0,
-                "z": 34.8526725769043
+                "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
                 "y": -0.0,
-                "z": 90.0
+                "z": 0.0
             },
             "Scale": {
                 "x": 1.0,
@@ -48,68 +89,341 @@
                 "z": 1.0
             }
         },
-        "value12": 1,
-        "value13": {
+        "value36": 1,
+        "value37": {
             "Position": {
                 "x": 0.0,
-                "y": 9.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
                 "y": -0.0,
-                "z": -90.0
+                "z": 0.0
             },
             "Scale": {
-                "x": 3.0,
+                "x": 1.0,
                 "y": 1.0,
-                "z": 4.0
+                "z": 1.0
             }
         },
-        "value14": 2,
-        "value15": 0,
-        "value16": {
+        "value38": 2,
+        "value39": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value40": 3,
+        "value41": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 2.700000047683716
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value42": 4,
+        "value43": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.600000023841858
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value44": 5,
+        "value45": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.5
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value46": 6,
+        "value47": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -0.6000000238418579
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value48": 7,
+        "value49": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -1.7000000476837159
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value50": 8,
+        "value51": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -2.799999952316284
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value52": 9,
+        "value53": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -3.9000000953674318
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value54": 10,
+        "value55": 0,
+        "value56": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value17": 1,
-        "value18": {
+        "value57": 1,
+        "value58": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 9,
+            "Prev": 7
+        },
+        "value59": 2,
+        "value60": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
-            "Prev": 4294967295
+            "Prev": 1
         },
-        "value19": 1,
-        "value20": 1,
-        "value21": {
+        "value61": 3,
+        "value62": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value63": 4,
+        "value64": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value65": 5,
+        "value66": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value67": 6,
+        "value68": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value69": 7,
+        "value70": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
+        "value71": 8,
+        "value72": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 7
+        },
+        "value73": 9,
+        "value74": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 8
+        },
+        "value75": 1,
+        "value76": 1,
+        "value77": {
             "cereal_class_version": 0,
             "Mesh": {
-                "value0": 7275430343910683694
+                "value0": 13213551123577004773
             },
             "AnimatorUUID": {
-                "value0": 0
+                "value0": 9821950670239313825
             }
         },
-        "value22": 1,
-        "value23": 1,
-        "value24": {
-            "cereal_class_version": 0,
+        "value78": 1,
+        "value79": 1,
+        "value80": {
+            "cereal_class_version": 1,
+            "IsEmbedded": true,
             "Material": {
-                "value0": 18234502765975561363
+                "polymorphic_id": 2147483649,
+                "polymorphic_name": "Coffee::PBRMaterial",
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 7560636497841032905
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 7560636497841032905
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.003_Mat0",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 12807662614009709198
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
             }
         },
-        "value25": 0,
-        "value26": 1,
-        "value27": 0,
-        "value28": {
+        "value81": 0,
+        "value82": 7,
+        "value83": 3,
+        "value84": {
             "cereal_class_version": 0,
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483649,
+                    "id": 2147483650,
                     "data": {
                         "cereal_class_version": 0,
                         "m_Properties": {
@@ -134,22 +448,25 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 2147483649,
-                            "polymorphic_name": "Coffee::ConeCollider",
+                            "polymorphic_id": 2147483650,
+                            "polymorphic_name": "Coffee::BoxCollider",
                             "ptr_wrapper": {
-                                "id": 2147483650,
+                                "id": 2147483651,
                                 "data": {
                                     "cereal_class_version": 0,
                                     "value0": {
                                         "cereal_class_version": 0,
-                                        "ShapeType": 11,
+                                        "ShapeType": 0,
                                         "Offset": {
                                             "x": 0.0,
                                             "y": 0.0,
                                             "z": 0.0
                                         },
-                                        "Radius": 10.199999809265137,
-                                        "Height": 12.0
+                                        "Size": {
+                                            "x": 2.25,
+                                            "y": 0.15000000596046449,
+                                            "z": 0.5
+                                        }
                                     }
                                 }
                             }
@@ -158,24 +475,384 @@
                 }
             }
         },
-        "value29": 0,
-        "value30": 0,
-        "value31": 2,
-        "value32": 0,
-        "value33": 1,
-        "value34": 0,
-        "value35": 0,
-        "value36": 0,
-        "value37": 0,
-        "value38": 0,
-        "value39": 0,
-        "value40": 0,
-        "value41": 0,
-        "value42": 0,
-        "value43": 0,
-        "value44": 0,
-        "value45": 0,
-        "value46": 0,
-        "value47": 0
+        "value85": 4,
+        "value86": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483652,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2,
+                            "ptr_wrapper": {
+                                "id": 2147483653,
+                                "data": {
+                                    "value0": {
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 3.0,
+                                            "y": 0.15000000596046449,
+                                            "z": 0.5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value87": 5,
+        "value88": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483654,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2,
+                            "ptr_wrapper": {
+                                "id": 2147483655,
+                                "data": {
+                                    "value0": {
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 4.0,
+                                            "y": 0.15000000596046449,
+                                            "z": 0.5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value89": 6,
+        "value90": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483656,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2,
+                            "ptr_wrapper": {
+                                "id": 2147483657,
+                                "data": {
+                                    "value0": {
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 4.5,
+                                            "y": 0.15000000596046449,
+                                            "z": 0.5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value91": 7,
+        "value92": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483658,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2,
+                            "ptr_wrapper": {
+                                "id": 2147483659,
+                                "data": {
+                                    "value0": {
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 5.5,
+                                            "y": 0.15000000596046449,
+                                            "z": 0.5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value93": 8,
+        "value94": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483660,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2,
+                            "ptr_wrapper": {
+                                "id": 2147483661,
+                                "data": {
+                                    "value0": {
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 6.5,
+                                            "y": 0.15000000596046449,
+                                            "z": 0.5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value95": 9,
+        "value96": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483662,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2,
+                            "ptr_wrapper": {
+                                "id": 2147483663,
+                                "data": {
+                                    "value0": {
+                                        "ShapeType": 0,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Size": {
+                                            "x": 6.650000095367432,
+                                            "y": 0.15000000596046449,
+                                            "z": 0.5
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value97": 0,
+        "value98": 0,
+        "value99": 10,
+        "value100": 0,
+        "value101": 1,
+        "value102": 2,
+        "value103": 3,
+        "value104": 4,
+        "value105": 5,
+        "value106": 6,
+        "value107": 7,
+        "value108": 8,
+        "value109": 9,
+        "value110": 1,
+        "value111": 0,
+        "value112": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/enemies/attacks/Lightning.lua",
+            "Language": 0
+        },
+        "value113": 1,
+        "value114": 0,
+        "value115": {
+            "cereal_class_version": 0,
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 15863587608717953697
+            },
+            "AnimatorUUID": {
+                "value0": 9821950670239313825
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483664,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483665,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value116": 0,
+        "value117": 0,
+        "value118": 0,
+        "value119": 0,
+        "value120": 0,
+        "value121": 0,
+        "value122": 0,
+        "value123": 0,
+        "value124": 0,
+        "value125": 0,
+        "value126": 0,
+        "value127": 0
     }
 }

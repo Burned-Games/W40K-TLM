@@ -1,0 +1,44 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "VFX_ThunderFury_Plane.001",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 13213551123577004773
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.003_Mat0",
+                        "value": {
+                            "value0": 12807662614009709198
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 15863587608717953697
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/VFX_ThunderFury/VFX_ThunderFury.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/15863587608717953697.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

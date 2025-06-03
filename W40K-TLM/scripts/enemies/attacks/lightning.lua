@@ -53,16 +53,10 @@ function on_ready()
             lightningColliders[6] = child
         elseif child:get_component("TagComponent").tag == "RayCollision7" then
             lightningColliders[7] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision8" then
-            lightningColliders[8] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision9" then
-            lightningColliders[9] = child
-        elseif child:get_component("TagComponent").tag == "RayCollision10" then
-            lightningColliders[10] = child
         end
     end
 
-    for i = 1, 10 do
+    for i = 1, 7 do
         lightningRbComponent[i] = lightningColliders[i]:get_component("RigidbodyComponent")
         lightningRbs[i] = lightningRbComponent[i].rb
         lightningRbs[i]:set_trigger(true)
@@ -139,19 +133,19 @@ function lightning()
     if lightningThrown then return end
 
     local direction = unitary_direction(playerTransf.position.x, enemyTransf.position.x, playerTransf.position.z, enemyTransf.position.z)
-    local basePos = Vector3.new(enemyTransf.position.x + (direction.x * -12), enemyTransf.position.y, enemyTransf.position.z + (direction.z * -12))
+    local basePos = Vector3.new(enemyTransf.position.x + (direction.x * -5), enemyTransf.position.y, enemyTransf.position.z + (direction.z * -5))
     local colliderSpacing = 1.1 -- Base distance between colliders
 
     for i = 1, #lightningRbs do
-        local offset = (i - 1) * colliderSpacing
-        local pos = Vector3.new(basePos.x + direction.x * offset, basePos.y, basePos.z - 0.5 + direction.z * offset)
+        local offset = (#lightningRbs - i)
+        local pos = Vector3.new(basePos.x + ((direction.x) * (offset -4)), basePos.y, basePos.z - 0.5 + ((direction.z) * (offset -4)))
 
         lightningRbs[i]:set_position(pos)
-        lightningRbs[i]:set_rotation(Vector3.new(90 + angle, 0, 90))
+        lightningRbs[i]:set_rotation(Vector3.new(0, angle, 0))
     end
 
     lightningTransf.position = basePos
-    lightningTransf.rotation = Vector3.new(90 + angle, 0, 90)
+    lightningTransf.rotation = Vector3.new(0, angle, 0)
 
     lightningThrown = true
     isLightningDamaging = false
