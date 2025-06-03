@@ -350,8 +350,8 @@ function main_boss:attack_state()
 
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
     local attackChance = math.random()
-
-    if main_boss.isRaging and main_boss.ultimateScript.ultiTimer >= main_boss.ultiCooldown then
+    log(main_boss.ultimateScript.ultiTimer)
+    if main_boss.isRaging and main_boss.ultimateScript.ultiTimer >= math.random(1, main_boss.ultiCooldown) then
         ultimate_attack()
     else
         if distance <= main_boss.meleeAttackRange then

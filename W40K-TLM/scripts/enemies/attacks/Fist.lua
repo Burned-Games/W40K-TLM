@@ -37,11 +37,13 @@ local colliderUpdateInterval = 0.1
 local fistsExtraTime = 0.5
 
 -- Ints
-local fistMaxNumbers = 25
+local fistMaxNumbers = 50
 local fistsPerWave = 5
 local radius = 6
 rangeDamage = 0
 fistTargetScale = 0
+local rageWaveIndex = 1
+local rageTotalWaves = 2
 
 -- Bools
 fistsThrown = false
@@ -78,6 +80,7 @@ function on_ready()
         child:set_active(true)
         fistAttacks[i] = child
         fistAnimator[i] = child:get_component("AnimatorComponent")
+        fistAnimator[i]:set_looping(false)
         fistTransf[i] = child:get_component("TransformComponent")
         fistRbComponent[i] = child:get_component("RigidbodyComponent")
         fistRbs[i] = fistRbComponent[i].rb
@@ -176,12 +179,17 @@ function fist()
     if isRaging then
         fistsToUseThisWave = {}
 
-        for waveIndex = 1, fistMaxNumbers do
-            fistsUsed[waveIndex] = true
-            table.insert(fistsToUseThisWave, waveIndex)
+        local fistsPerRageWave = math.floor(fistMaxNumbers / rageTotalWaves)
+        local startIndex = (rageWaveIndex - 1) * fistsPerRageWave + 1
+        local endIndex = rageWaveIndex * fistsPerRageWave
+        if rageWaveIndex == rageTotalWaves then endIndex = fistMaxNumbers end
 
-            local pos
-            if waveIndex == 1 then
+        for i = startIndex, endIndex do
+            fistsUsed[i] = true
+            table.insert(fistsToUseThisWave, i)
+
+            local pos = Vector3.new(0, 0, 0)
+            if i == startIndex then
                 pos = Vector3.new(enemyScript.main_boss.enemyTransf.position.x, 0, enemyScript.main_boss.enemyTransf.position.z)
             else
                 local angle = math.random() * 2 * math.pi
@@ -189,22 +197,24 @@ function fist()
 
                 local offsetX = math.cos(angle) * randRadius
                 local offsetZ = math.sin(angle) * randRadius
-                pos = Vector3.new(
-                    enemyScript.main_boss.enemyTransf.position.x + offsetX,
-                    0,
-                    enemyScript.main_boss.enemyTransf.position.z + offsetZ
-                )
-
-                fistPositions[waveIndex] = pos
-
-                if fistIndicatorsTransform[waveIndex] then
-                    fistIndicatorsTransform[waveIndex].position = pos
-                    fistIndicatorsTransform[waveIndex].position.y = 0.1
-                end
-                if fistIndicatorsScript[waveIndex] then
-                    fistIndicatorsScript[waveIndex]:startIndicator()
-                end
+                pos = Vector3.new(enemyScript.main_boss.enemyTransf.position.x + offsetX, 0, enemyScript.main_boss.enemyTransf.position.z + offsetZ)
             end
+
+            fistPositions[i] = pos
+
+            if fistIndicatorsTransform[i] then
+                fistIndicatorsTransform[i].position = pos
+                fistIndicatorsTransform[i].position.y = 0.1
+            end
+            if fistIndicatorsScript[i] then
+                fistIndicatorsScript[i]:startIndicator()
+            end
+        end
+
+        rageWaveIndex = rageWaveIndex + 1
+        if rageWaveIndex > rageTotalWaves then
+            rageWaveIndex = 1
+            reset_fist_wave()
         end
     else
         fistsToUseThisWave = get_next_fists()
@@ -276,7 +286,7 @@ function execute_fists_attack()
                 colliderTimer = 0.0,
                 finishedScaling = false,
                 lingerElapsed = 0.0,
-                lingerDuration = 3.0
+                lingerDuration = 4.0
             })
         end
     end
@@ -358,6 +368,7 @@ function reset_fist_wave()
     fistsThrown = false
     rangeAttackTimer = 0.0
     currentAnim = 0
+    rageWaveIndex = 1
 end
 
 function is_within_arena(position, center, radius)

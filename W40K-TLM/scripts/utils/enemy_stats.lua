@@ -408,7 +408,7 @@ local enemy_stats = {
             fistsDamageCooldown = 1.0,
             shieldCooldown = 8.0,
             -- Time between ultimates
-            ultiCooldown = 15.0,
+            ultiCooldown = 30.0,
             -- Time before the ultimate starts making damage
             ultiAttackDuration = 5.0,
             -- Time of the ultimate active and making damage
