@@ -5,6 +5,7 @@ local distanceShow = 3.0
 local player  = nil
 local playerTransform  = nil
 local transform = nil
+local initialTransform = nil
 
 local spriteComponent = nil
 
@@ -21,17 +22,21 @@ function on_ready()
     playerTransform = player:get_component("TransformComponent")
     spriteComponent = self:get_component("SpriteComponent")
     transform = self:get_component("TransformComponent")
+    initialTransform = self:get_component("TransformComponent").position
 end
 
 function on_update(dt)
+
+    print(initialTransform.x, initialTransform.y, initialTransform.z)
+    transform.position = Vector3.new(playerTransform.position.x, 3, playerTransform.position.z)
     -- Add update code here
     beforeFrameOutOfRange = outOfRange
 
-    local distance = Vector3.new(100,100,100)
+    local distance = Vector3.new(1,1,1)
     distance = Vector3.new(
-            math.abs(playerTransform.position.x - transform.position.x),
-            math.abs(playerTransform.position.y - transform.position.y),
-            math.abs(playerTransform.position.z - transform.position.z)
+            math.abs(playerTransform.position.x - initialTransform.x),
+            math.abs(playerTransform.position.y - initialTransform.y),
+            math.abs(playerTransform.position.z - initialTransform.z)
     )
 
     if distance.x < distanceShow and distance.z < distanceShow then

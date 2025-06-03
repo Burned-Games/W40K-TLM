@@ -246,7 +246,14 @@ local levelToChange = -1
 --god mode
 local pressedFullscreen = false
 
+--tutorial
+local moveButton = nil
+local aimButton = nil
+local shootButton = nil
+local changeWeaponButton = nil
+local meleeButton = nil
 
+local hasAimed = false
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -346,28 +353,12 @@ function on_ready()
         local nameB = entityB:get_component("TagComponent").tag
         local nameATran = entityA:get_component("TransformComponent")
         local nameBTran = entityB:get_component("TransformComponent")
-        
-        local newIndex = zonePlayer + 1
+        if (nameB == "AimAndShootCollider" or nameA == "AimAndShootCollider") and not hasAimed then
+            aimButton:set_active(true)
+            shootButton:set_active(true)
+            moveButton:set_active(false)
 
-        --[[ if nameA == "Inyectores" or nameB == "Inyectores" then   
-                   
-            StimsCounter = StimsCounter + 1
-            if nameA == "Inyectores" then
-                
-                
-                local rigid = entityA:get_component("RigidbodyComponent").rb
-                local newPos = Vector3.new(2000000, 0, 0)
-                rigid:set_position(newPos)
-            end
-            if nameB == "Inyectores" then
-                
-                
-                local rigid = entityB:get_component("RigidbodyComponent").rb
-                local newPos = Vector3.new(2000000, 0, 0)
-                rigid:set_position(newPos)
-                
-            end
-        end ]]
+        end
     end)
 
     --Mision
@@ -423,6 +414,13 @@ function on_ready()
             
         end
     end
+
+    --TUTORIAL  
+    moveButton = current_scene:get_entity_by_name("MovementButton")
+    shootButton = current_scene:get_entity_by_name("ShootButton")
+    meleeButton = current_scene:get_entity_by_name("SawSwordButton")
+    aimButton = current_scene:get_entity_by_name("AimAndShoot")
+
 end
 
 function on_update(dt)
@@ -532,6 +530,11 @@ function on_update(dt)
         handleDamageEffects(dt)
     end
     
+    if aimButton:is_active() and isAiming and shootButton:is_active() and currentUpAnim == attack then
+        aimButton:set_active(false)
+        hasAimed = true
+    end
+
 
     if Input.is_key_pressed(Input.keycode.M) then
         applyStunn()
