@@ -189,20 +189,20 @@ function fist()
 
                 local offsetX = math.cos(angle) * randRadius
                 local offsetZ = math.sin(angle) * randRadius
-                local pos = Vector3.new(
+                pos = Vector3.new(
                     enemyScript.main_boss.enemyTransf.position.x + offsetX,
                     0,
                     enemyScript.main_boss.enemyTransf.position.z + offsetZ
                 )
 
-                fistPositions[i] = pos
+                fistPositions[waveIndex] = pos
 
-                if fistIndicatorsTransform[i] then
-                    fistIndicatorsTransform[i].position = pos
-                    fistIndicatorsTransform[i].position.y = 0.1
+                if fistIndicatorsTransform[waveIndex] then
+                    fistIndicatorsTransform[waveIndex].position = pos
+                    fistIndicatorsTransform[waveIndex].position.y = 0.1
                 end
-                if fistIndicatorsScript[i] then
-                    fistIndicatorsScript[i]:startIndicator()
+                if fistIndicatorsScript[waveIndex] then
+                    fistIndicatorsScript[waveIndex]:startIndicator()
                 end
             end
         end
