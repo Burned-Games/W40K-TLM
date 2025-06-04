@@ -288,6 +288,9 @@ function on_update(dt)
     end
 
     if range.currentState == range.state.Dead then
+        if range.playerScript.firstEnemyDied == false then
+            range.playerScript.firstEnemyDied = true
+        end
         range:die_state(dt)
         return
 

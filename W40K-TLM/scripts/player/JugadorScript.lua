@@ -252,8 +252,12 @@ local aimButton = nil
 local shootButton = nil
 local changeWeaponButton = nil
 local meleeButton = nil
+local healButton = nil
 
 local hasAimed = false
+firstEnemyDied = false
+local hasDoneTutorialChangeWeapon = false
+local hasDoneTutorialHeal = false
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -385,6 +389,7 @@ function on_ready()
     UpgradeManager:load_upgrades()
     StimsCounter = load_progress("stims", StimsCounter)
     scrapCounter = load_progress("scrap", 0)
+    hasDoneTutorialHeal = load_progress("hasDoneTutorialHeal", hasDoneTutorialHeal)
 
     if zonePlayer >= 1 then
         health = load_progress("health", maxHealth)
@@ -428,6 +433,8 @@ function on_ready()
     shootButton = current_scene:get_entity_by_name("ShootButton")
     meleeButton = current_scene:get_entity_by_name("SawSwordButton")
     aimButton = current_scene:get_entity_by_name("AimAndShoot")
+    changeWeaponButton = current_scene:get_entity_by_name("changeWeaponButton")
+    healButton = current_scene:get_entity_by_name("HealButton")
 
     if level == 1 and zonePlayer == 0 then
         moveButton:set_active(true)
@@ -542,6 +549,7 @@ function on_update(dt)
         handleDamageEffects(dt)
     end
     
+    --TUTORIAL
     if aimButton:is_active() and isAiming and shootButton:is_active() and currentUpAnim == attack then
         aimButton:set_active(false)
         hasAimed = true
@@ -549,6 +557,24 @@ function on_update(dt)
 
     if meleeButton:is_active() and swordScript.slasheeed then
         meleeButton:set_active(false)
+    end
+
+    if hasDoneTutorialChangeWeapon == false and firstEnemyDied and not changeWeaponButton:is_active() then
+        changeWeaponButton:set_active(true)
+        hasDoneTutorialChangeWeapon = true
+    end
+
+    if pressedButtonChangeWeapon and changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
+        changeWeaponButton:set_active(false)
+    end
+    print(hasDoneTutorialHeal)
+    if health < maxHealth * 0.5 and not hasDoneTutorialHeal then
+        healButton:set_active(true)
+        hasDoneTutorialHeal = true
+    end
+
+    if hasDoneTutorialHeal and healButton:is_active() and isHealing then
+        healButton:set_active(false)
     end
 
     if Input.is_key_pressed(Input.keycode.M) then
@@ -1620,6 +1646,7 @@ function saveProgress()
     save_progress("stims", StimsCounter)
     save_progress("bluemision",mission_Component.blueTaskIndex)
     save_progress("redmision",mission_Component.redTaskIndex)
+    save_progress("hasDoneTutorialHeal", hasDoneTutorialHeal)
 end
 
 function saveUpgrades()
@@ -1630,6 +1657,7 @@ function takeHit()
     currentAnim = hit
     isHitted = true
 
+    
 end
 
 function updateAnims(dt)

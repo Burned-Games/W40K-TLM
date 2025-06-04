@@ -37,6 +37,8 @@ local bolterScript = nil
 
 playerCDSFX = nil
 
+firstEnemyDied = false
+
 function on_ready()
     player = current_scene:get_entity_by_name("Player")
     playerTransf = player:get_component("TransformComponent")
