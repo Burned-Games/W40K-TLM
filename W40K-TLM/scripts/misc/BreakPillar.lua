@@ -13,6 +13,7 @@ local transform = nil
 
 local separateChildren = nil
 local separateChildrenWithParentMoved = {}
+local separateChildrenWithParentMovedTransform = {}
 local separate = nil
 
 
@@ -98,14 +99,15 @@ function give_phisycs()
         for j, piece in ipairs(pieces) do
 
             local rb = piece:get_component("RigidbodyComponent").rb
-
+            local pieceTransform = piece:get_component("TransformComponent")
 
             piece:set_parent(position00)
             table.insert(separateChildrenWithParentMoved, piece)
+            table.insert(separateChildrenWithParentMovedTransform, pieceTransform)
 
             local pivotObjectPosition = self:get_component("TransformComponent").position
             local pivotSeparateChild = separateChild:get_component("TransformComponent").position
-            local pivotChildPosition = piece:get_component("TransformComponent").position
+            local pivotChildPosition = pieceTransform.position
             local pivotChildPositionOffset = Vector3.new(pivotObjectPosition.x + pivotSeparateChild.x + pivotChildPosition.x, pivotObjectPosition.y + pivotSeparateChild.y + pivotChildPosition.y, pivotObjectPosition.z + pivotSeparateChild.z + pivotChildPosition.z)
 
             rb:set_position(pivotChildPositionOffset)
@@ -121,6 +123,7 @@ end
 
 function on_update(dt)
     -- Add update code here
+    if hasDisappeared then return end
 
     if hasDestroyed and not hasDisappeared then
        
@@ -139,11 +142,15 @@ function on_update(dt)
     end
 
     if hasDisappeared and not finished then
-        separate:set_active(false)
+        
         self:set_active(false)
         for _, child in ipairs(separateChildrenWithParentMoved) do
-            child:set_active(false)
+            --child:set_active(false)
+            --child:remove_component("RigidbodyComponent")
+            --current_scene:destroy_entity(child)
+            child:set_parent(separate)
         end
+        separate:set_active(false)
         finished = true
     end
 
@@ -155,8 +162,8 @@ end
 
 function setChildrenSize(size)
     
-    for _, child in ipairs(separateChildrenWithParentMoved) do
-        child:get_component("TransformComponent").scale = Vector3.new(size,size,size)
+    for _, childTransform in ipairs(separateChildrenWithParentMovedTransform) do
+        childTransform.scale = Vector3.new(size,size,size)
     end
 end
 
