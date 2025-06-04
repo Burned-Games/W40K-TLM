@@ -499,11 +499,11 @@ function tank:attack_state(dt)
     tank.enemyRb:set_velocity(Vector3.new(0, 0, 0)) 
     tank:rotate_enemy(tank.playerTransf.position) 
 
-    if tank.attackTimer >= tank.attackCooldown then
-        if tank.currentAnim ~= tank.attackAnim then
-            tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
-        end
+    if tank.currentAnim ~= tank.attackAnim then
+        tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
+    end
 
+    if tank.attackTimer >= tank.attackCooldown then
         if tank.animTimer >= tank.attackDuration then
             local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
             if attackDistance <= tank.meleeAttackRange then
