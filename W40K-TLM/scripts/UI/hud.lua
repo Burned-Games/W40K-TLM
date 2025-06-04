@@ -14,6 +14,9 @@ local skill1TextCooldownEntity
 local skill1TextCooldown
 local skill1Cooldown = false
 local skill1Timer = 0
+local dashScaling = false
+local dashScaleTimer = 0
+local dashAvailableLastFrame = true
 
 local skill2
 local skill2Entity
@@ -99,11 +102,13 @@ function on_ready()
     lifeTextComponent = current_scene:get_entity_by_name("VidaValor"):get_component("UITextComponent")
 
     --Habilidades
-    skill1 = current_scene:get_entity_by_name("Habilidad1"):get_component("UIImageComponent")
+    skill1Entity = current_scene:get_entity_by_name("Habilidad1")
+    skill1 = skill1Entity:get_component("UIImageComponent")
     skill1VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad1Cooldown")
     skill1VisualCooldown = skill1VisualCooldownEntity:get_component("UIImageComponent")
     skill1TextCooldownEntity = current_scene:get_entity_by_name("Habilidad1CooldownText")
     skill1TextCooldown = skill1TextCooldownEntity:get_component("UITextComponent")
+    skill1Button = current_scene:get_entity_by_name("Habilidad1Boton")
 
     skill2 = current_scene:get_entity_by_name("Habilidad2Activable"):get_component("UIToggleComponent")
     skill2ButtonEntity = current_scene:get_entity_by_name("Habilidad2Boton")
@@ -237,36 +242,94 @@ end
 
 function abilityManager(dt)
     -- Skill 1 (Dash)
+    local maxScale = 1.1
+    local originalScale = 1.0
+    local expandDuration = 0.15
+    local contractDuration = 0.15
+    local totalAnimationTime = expandDuration + contractDuration
+
+    if dashCurrentScale == nil then
+        dashCurrentScale = originalScale
+    end
+
+    if dashScaling == nil then
+        dashScaling = false
+    end
+
+    if dashScaleTimer == nil then
+        dashScaleTimer = 0
+    end
+
+    local dashJustBecameAvailable = not dashAvailableLastFrame and playerScript.dashAvailable
+
+    if dashJustBecameAvailable then
+        dashScaling = true
+        dashScaleTimer = 0
+    end
+
+    if dashScaling then
+        skill1:set_color(Vector4.new(0.952, 1, 0.258, 1))
+        skill1Button:set_active(false)
+        playerScript.dashAvailable = false
+
+        dashScaleTimer = dashScaleTimer + dt
+
+        local desiredScale = originalScale
+
+        if dashScaleTimer <= expandDuration then
+            -- Expansión
+            local expandProgress = dashScaleTimer / expandDuration
+            desiredScale = originalScale + (maxScale - originalScale) * expandProgress
+
+        elseif dashScaleTimer <= totalAnimationTime then
+            -- Contracción
+            local shrinkProgress = (dashScaleTimer - expandDuration) / contractDuration
+            desiredScale = maxScale - (maxScale - originalScale) * shrinkProgress
+                
+        else
+            dashScaling = false
+            desiredScale = originalScale
+            skill1Button:set_active(true)
+            skill1:set_color(Vector4.new(1, 1, 1, 1))
+                
+            playerScript.dashAvailable = true
+        end
+
+        local relativeScale = desiredScale / dashCurrentScale
+        scale_ui_element(skill1Entity, relativeScale)
+        dashCurrentScale = desiredScale
+    end
+
+
+    -- Mostrar cooldown
     local dashRemainingTime = playerScript.dashColdown - playerScript.dashColdownCounter
-    if dashRemainingTime > 0 and not playerScript.dashAvailable then
-        -- Mostrar cooldown
-        skill1Timer = skill1Timer + dt 
+    if dashRemainingTime > 0 and not playerScript.dashAvailable and not dashScaling then
+        skill1Timer = skill1Timer + dt
         
         local totalCooldown = playerScript.dashColdown
         local porcentaje = dashRemainingTime / totalCooldown
-        if porcentaje > 1 then 
-            porcentaje = 1 
-        end
-    
+        if porcentaje > 1 then porcentaje = 1 end
+
         local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
         skill1VisualCooldown:set_rect(cooldownRect)
-        
+
         if dashRemainingTime <= 1.1 and dashRemainingTime > 0 then
             skill1TextCooldown:set_text(string.format("%.1f", dashRemainingTime))
         else
             skill1TextCooldown:set_text(string.format("%d", math.ceil(dashRemainingTime)))
         end
-        
+
         skill1TextCooldownEntity:set_active(true)
         skill1VisualCooldownEntity:set_active(true)
     else
-        -- Ocultar cooldown
         skill1TextCooldownEntity:set_active(false)
         skill1VisualCooldownEntity:set_active(false)
-        -- Reset de rect y color
         skill1VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
     end
-    
+
+    dashAvailableLastFrame = playerScript.dashAvailable
+
+
     -- Skill 2 (Saw Sword)
     local sawSwordRemainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
     if sawSwordRemainingTime > 0 and not sawSwordScript.sawSwordAvailable then
@@ -457,6 +520,12 @@ function buff_debuff_manager()
     cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
 
     local bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
+
+    if playerScript.isHitted then
+        bleedingFeedback:set_active(true)
+    else
+        bleedingFeedback:set_active(false)
+    end
     
     if playerScript.isBleeding then
         sangradoEntity:set_active(true)
@@ -478,10 +547,8 @@ function buff_debuff_manager()
 
     if playerScript.isBurning then
         quemadoEntity:set_active(true)
-        bleedingFeedback:set_active(true)
     else
         quemadoEntity:set_active(false)
-        bleedingFeedback:set_active(false)
     end
     
     local colorHealing = Vector4.new(0, 1, 0.031, 1)
