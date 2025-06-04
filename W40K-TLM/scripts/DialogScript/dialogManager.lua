@@ -130,7 +130,7 @@ function on_update(dt)
     end
 
     if isTyping then
-        -- 若处于标点暂停状态，则等待暂停时间结束
+        
         if punctuationPause then
             punctuationPauseTimer = punctuationPauseTimer + dt
             if punctuationPauseTimer >= punctuationPauseDelay then
@@ -150,7 +150,7 @@ function on_update(dt)
                 textIndex = textIndex + 1
                 timer = 0
 
-                -- 遇到句号或逗号时暂停，并调用pause避免重复音效
+
                 if char == "." or char == "," then
                     punctuationPause = true
                     punctuationPauseTimer = 0
