@@ -1,0 +1,4268 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10755",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 4749926318093767003
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.109",
+                        "value": {
+                            "value0": 5543631862360904090
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.145",
+                        "value": {
+                            "value0": 2598475387245217829
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.087",
+                        "value": {
+                            "value0": 18125781305923249415
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.212",
+                        "value": {
+                            "value0": 13701179742580534283
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.140",
+                        "value": {
+                            "value0": 8982546991851655815
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.661",
+                        "value": {
+                            "value0": 14786203462315226887
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10783",
+                        "value": {
+                            "value0": 6176006895343686261
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.190",
+                        "value": {
+                            "value0": 3571614119638754880
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.352",
+                        "value": {
+                            "value0": 14191422077063264143
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.143",
+                        "value": {
+                            "value0": 10769671295519140918
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10780",
+                        "value": {
+                            "value0": 9896845801659702907
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.144",
+                        "value": {
+                            "value0": 15246498299757172362
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.665",
+                        "value": {
+                            "value0": 2274407894349518000
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10787",
+                        "value": {
+                            "value0": 4341381501014916376
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.289",
+                        "value": {
+                            "value0": 5197844472446232582
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.357",
+                        "value": {
+                            "value0": 11437152091428093358
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10604",
+                        "value": {
+                            "value0": 5168323847628234921
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.146",
+                        "value": {
+                            "value0": 9416012070335767929
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.288",
+                        "value": {
+                            "value0": 9957851257492105434
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.356",
+                        "value": {
+                            "value0": 4701226779500774950
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10605",
+                        "value": {
+                            "value0": 4951808519268013087
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.244",
+                        "value": {
+                            "value0": 18139826086276424247
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.598",
+                        "value": {
+                            "value0": 2758415484652514249
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.147",
+                        "value": {
+                            "value0": 6024290066898183956
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.666",
+                        "value": {
+                            "value0": 4621138681411848114
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10784",
+                        "value": {
+                            "value0": 7524205024966466352
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10674",
+                        "value": {
+                            "value0": 14264678440502833122
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10713",
+                        "value": {
+                            "value0": 8446653189579567617
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.150",
+                        "value": {
+                            "value0": 1741521688021012540
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.312",
+                        "value": {
+                            "value0": 4231020322102640860
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10596",
+                        "value": {
+                            "value0": 1578683834596109661
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.141",
+                        "value": {
+                            "value0": 17412348094523034916
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10782",
+                        "value": {
+                            "value0": 17437707365285570665
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10672",
+                        "value": {
+                            "value0": 15771985475765713407
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.291",
+                        "value": {
+                            "value0": 2539467311650406111
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.199",
+                        "value": {
+                            "value0": 13107372708225397514
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.155",
+                        "value": {
+                            "value0": 16789181446075825700
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.238",
+                        "value": {
+                            "value0": 1178779771065644118
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.317",
+                        "value": {
+                            "value0": 1135950256203895501
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10679",
+                        "value": {
+                            "value0": 4039704178193809951
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10632",
+                        "value": {
+                            "value0": 7695108528286131861
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10654",
+                        "value": {
+                            "value0": 16436353371554507077
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10702",
+                        "value": {
+                            "value0": 14493575001419858480
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.177",
+                        "value": {
+                            "value0": 8219519278413820844
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.166",
+                        "value": {
+                            "value0": 15832075290993184966
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10731",
+                        "value": {
+                            "value0": 17516780022192566936
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.392",
+                        "value": {
+                            "value0": 8776781914196884984
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.210",
+                        "value": {
+                            "value0": 3175433497141214784
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.171",
+                        "value": {
+                            "value0": 7284043324661783459
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.214",
+                        "value": {
+                            "value0": 17878213749565686010
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.175",
+                        "value": {
+                            "value0": 12166429571047854888
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.382",
+                        "value": {
+                            "value0": 10579503219182132336
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.400",
+                        "value": {
+                            "value0": 141580624292481944
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10593",
+                        "value": {
+                            "value0": 13048165571650412125
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.646",
+                        "value": {
+                            "value0": 14584388348962721940
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.325",
+                        "value": {
+                            "value0": 1613994774929747595
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.178",
+                        "value": {
+                            "value0": 2634704544036322714
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10769",
+                        "value": {
+                            "value0": 14146980604745667341
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.324",
+                        "value": {
+                            "value0": 7400008520428604439
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.647",
+                        "value": {
+                            "value0": 14132362874485021440
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.179",
+                        "value": {
+                            "value0": 9002782320578430400
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10650",
+                        "value": {
+                            "value0": 5128560346649152329
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.201",
+                        "value": {
+                            "value0": 5806895929885859937
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.182",
+                        "value": {
+                            "value0": 15803609857909662554
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.206",
+                        "value": {
+                            "value0": 1133862433356610881
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.185",
+                        "value": {
+                            "value0": 17886117797817542626
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.343",
+                        "value": {
+                            "value0": 10124561409206860109
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10635",
+                        "value": {
+                            "value0": 18187229739379113762
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.256",
+                        "value": {
+                            "value0": 12338742212437939459
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.224",
+                        "value": {
+                            "value0": 17184408532311474665
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10614",
+                        "value": {
+                            "value0": 4110108208574876326
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10619",
+                        "value": {
+                            "value0": 2699981791002054212
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.650",
+                        "value": {
+                            "value0": 17790267584804245682
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10621",
+                        "value": {
+                            "value0": 11129042623138215147
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.222",
+                        "value": {
+                            "value0": 16347094208278030279
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.169",
+                        "value": {
+                            "value0": 12446066579054860428
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10612",
+                        "value": {
+                            "value0": 136401599224732339
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10599",
+                        "value": {
+                            "value0": 14955818966147688274
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10594",
+                        "value": {
+                            "value0": 12048706737905785643
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.239",
+                        "value": {
+                            "value0": 2401596282937039998
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.316",
+                        "value": {
+                            "value0": 16744410909231069021
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.198",
+                        "value": {
+                            "value0": 4732070060861393245
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10645",
+                        "value": {
+                            "value0": 6533093376743502607
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.200",
+                        "value": {
+                            "value0": 18418794888544409199
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.309",
+                        "value": {
+                            "value0": 4531082449294216684
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.203",
+                        "value": {
+                            "value0": 15296855143287273296
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.204",
+                        "value": {
+                            "value0": 12164892415500784476
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.207",
+                        "value": {
+                            "value0": 16533087323486900309
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.209",
+                        "value": {
+                            "value0": 5891497736703371106
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.215",
+                        "value": {
+                            "value0": 14301837639036448240
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.220",
+                        "value": {
+                            "value0": 11691081733624477790
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.369",
+                        "value": {
+                            "value0": 13742208532576800973
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10652",
+                        "value": {
+                            "value0": 16342049894213103774
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.708",
+                        "value": {
+                            "value0": 7666644240844783211
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.331",
+                        "value": {
+                            "value0": 17586889879388115960
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.290",
+                        "value": {
+                            "value0": 14086527336446102593
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10673",
+                        "value": {
+                            "value0": 13532811063464482205
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.292",
+                        "value": {
+                            "value0": 13161018050050782736
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.294",
+                        "value": {
+                            "value0": 8536995692632149224
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10677",
+                        "value": {
+                            "value0": 6701904672958047592
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.295",
+                        "value": {
+                            "value0": 8519931896686126912
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.298",
+                        "value": {
+                            "value0": 7946722359916905134
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.230",
+                        "value": {
+                            "value0": 1132734043330834941
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.299",
+                        "value": {
+                            "value0": 8546219698708401320
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10700",
+                        "value": {
+                            "value0": 10273086646161921413
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.301",
+                        "value": {
+                            "value0": 15891494366141310354
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.208",
+                        "value": {
+                            "value0": 4712655262751199561
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.302",
+                        "value": {
+                            "value0": 15263533685632597315
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.232",
+                        "value": {
+                            "value0": 7988807112435784094
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.233",
+                        "value": {
+                            "value0": 10293299454511053428
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.655",
+                        "value": {
+                            "value0": 17312794625995826092
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10777",
+                        "value": {
+                            "value0": 1896025264592759307
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.234",
+                        "value": {
+                            "value0": 18270903807014902831
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.216",
+                        "value": {
+                            "value0": 9755734608292436376
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.237",
+                        "value": {
+                            "value0": 10055545493660486777
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.318",
+                        "value": {
+                            "value0": 424736074707988575
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.306",
+                        "value": {
+                            "value0": 14585162812359248792
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.307",
+                        "value": {
+                            "value0": 5701058618197377701
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10735",
+                        "value": {
+                            "value0": 5394223197163342971
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.310",
+                        "value": {
+                            "value0": 3195657785675820009
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.152",
+                        "value": {
+                            "value0": 12764179010138020695
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.247",
+                        "value": {
+                            "value0": 15047569782730112003
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10606",
+                        "value": {
+                            "value0": 17791981802788339413
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.248",
+                        "value": {
+                            "value0": 4059476904585670287
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.626",
+                        "value": {
+                            "value0": 112934804090398594
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10609",
+                        "value": {
+                            "value0": 4803367201802287877
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10744",
+                        "value": {
+                            "value0": 15182553906483544631
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.313",
+                        "value": {
+                            "value0": 17614433678244761961
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.249",
+                        "value": {
+                            "value0": 10471433503597214327
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10608",
+                        "value": {
+                            "value0": 11630056216062500706
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.314",
+                        "value": {
+                            "value0": 6969253471714667111
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.128",
+                        "value": {
+                            "value0": 3425984755908716101
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10767",
+                        "value": {
+                            "value0": 13033218857081834421
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.315",
+                        "value": {
+                            "value0": 12450160140795217427
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.273",
+                        "value": {
+                            "value0": 13375891990528042806
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.252",
+                        "value": {
+                            "value0": 9884662473154019284
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10631",
+                        "value": {
+                            "value0": 7460648471535154977
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.253",
+                        "value": {
+                            "value0": 8022183515822612413
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.639",
+                        "value": {
+                            "value0": 9819173121162958642
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.319",
+                        "value": {
+                            "value0": 8593023854779235204
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.254",
+                        "value": {
+                            "value0": 5095043113212514015
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10637",
+                        "value": {
+                            "value0": 6635313485258438802
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.255",
+                        "value": {
+                            "value0": 8764381037786003523
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10636",
+                        "value": {
+                            "value0": 9963713512814839984
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.257",
+                        "value": {
+                            "value0": 8833473977972619861
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10634",
+                        "value": {
+                            "value0": 5470327981874625638
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.258",
+                        "value": {
+                            "value0": 18001437480976408753
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.259",
+                        "value": {
+                            "value0": 590824427181357017
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.261",
+                        "value": {
+                            "value0": 17806587750185668968
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.262",
+                        "value": {
+                            "value0": 14954416876939904645
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.263",
+                        "value": {
+                            "value0": 8510206770916666458
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.320",
+                        "value": {
+                            "value0": 9041907317411911488
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.321",
+                        "value": {
+                            "value0": 13903973683877348170
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.322",
+                        "value": {
+                            "value0": 13518401681085719854
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.323",
+                        "value": {
+                            "value0": 18056922222665003124
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.640",
+                        "value": {
+                            "value0": 18007463474858645686
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.264",
+                        "value": {
+                            "value0": 4896619861515078040
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.329",
+                        "value": {
+                            "value0": 6709284768778934432
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.330",
+                        "value": {
+                            "value0": 8448865222293314010
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.266",
+                        "value": {
+                            "value0": 880541325279639638
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.332",
+                        "value": {
+                            "value0": 5758997800347840981
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.673",
+                        "value": {
+                            "value0": 15106244281702963431
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.333",
+                        "value": {
+                            "value0": 7255779523890280572
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.672",
+                        "value": {
+                            "value0": 7584798731687579205
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.334",
+                        "value": {
+                            "value0": 15489004249755970255
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.675",
+                        "value": {
+                            "value0": 7338723738846582021
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.268",
+                        "value": {
+                            "value0": 11454416673972454444
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.270",
+                        "value": {
+                            "value0": 9871365618288114958
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.271",
+                        "value": {
+                            "value0": 14032027184365506456
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.335",
+                        "value": {
+                            "value0": 9074882512234237317
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10792",
+                        "value": {
+                            "value0": 4240437846332916429
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.674",
+                        "value": {
+                            "value0": 12043971146841859994
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.337",
+                        "value": {
+                            "value0": 16579642293688997450
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.676",
+                        "value": {
+                            "value0": 3002166316914711927
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.338",
+                        "value": {
+                            "value0": 8301932148229476276
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.701",
+                        "value": {
+                            "value0": 3038549486973308519
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.176",
+                        "value": {
+                            "value0": 68705674124343651
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.378",
+                        "value": {
+                            "value0": 14698832321418239720
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.274",
+                        "value": {
+                            "value0": 9016843420405958560
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.303",
+                        "value": {
+                            "value0": 13172680098666888468
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.341",
+                        "value": {
+                            "value0": 9464998018980280247
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.342",
+                        "value": {
+                            "value0": 811432169794194102
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.181",
+                        "value": {
+                            "value0": 835738250434692275
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.347",
+                        "value": {
+                            "value0": 9751948959177613594
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.231",
+                        "value": {
+                            "value0": 12046654209890423181
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.345",
+                        "value": {
+                            "value0": 3312839778233624317
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10798",
+                        "value": {
+                            "value0": 2134407025784269325
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.706",
+                        "value": {
+                            "value0": 15696450058042832301
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.279",
+                        "value": {
+                            "value0": 8643857480155947142
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.280",
+                        "value": {
+                            "value0": 7461767031447200920
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10641",
+                        "value": {
+                            "value0": 16311786384330281870
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.349",
+                        "value": {
+                            "value0": 4572004307478878973
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10789",
+                        "value": {
+                            "value0": 6750589066763472374
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.595",
+                        "value": {
+                            "value0": 5171931529457997628
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.350",
+                        "value": {
+                            "value0": 2277600837344501746
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.351",
+                        "value": {
+                            "value0": 8326700439084055978
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.193",
+                        "value": {
+                            "value0": 14211328917468801087
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.353",
+                        "value": {
+                            "value0": 15992526868842866797
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.191",
+                        "value": {
+                            "value0": 9192324752204403879
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.354",
+                        "value": {
+                            "value0": 3764396832016500477
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.355",
+                        "value": {
+                            "value0": 8445839700390913582
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.358",
+                        "value": {
+                            "value0": 12162673049317413345
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10647",
+                        "value": {
+                            "value0": 7233826190819089613
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10717",
+                        "value": {
+                            "value0": 6076354850756076525
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.602",
+                        "value": {
+                            "value0": 3760060046209088615
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10724",
+                        "value": {
+                            "value0": 15884552055670201993
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.361",
+                        "value": {
+                            "value0": 8526364784414257074
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.228",
+                        "value": {
+                            "value0": 3559540825697409848
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.362",
+                        "value": {
+                            "value0": 13148659307915674265
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.160",
+                        "value": {
+                            "value0": 5714157226467949733
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10770",
+                        "value": {
+                            "value0": 9670670963890125090
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.365",
+                        "value": {
+                            "value0": 12880715825981363634
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.167",
+                        "value": {
+                            "value0": 16642355716393190875
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.368",
+                        "value": {
+                            "value0": 7687598861057720845
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.370",
+                        "value": {
+                            "value0": 1335500887735355779
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.189",
+                        "value": {
+                            "value0": 9544846376541338401
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10712",
+                        "value": {
+                            "value0": 10029820600261678132
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10707",
+                        "value": {
+                            "value0": 9045893172235714171
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.374",
+                        "value": {
+                            "value0": 15319699317569792082
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.375",
+                        "value": {
+                            "value0": 2303866606388501809
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.380",
+                        "value": {
+                            "value0": 1389748890799463386
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10737",
+                        "value": {
+                            "value0": 4455854106025876664
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.384",
+                        "value": {
+                            "value0": 13787676439149520489
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10709",
+                        "value": {
+                            "value0": 7650846862537601132
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.385",
+                        "value": {
+                            "value0": 13600541066054897895
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10708",
+                        "value": {
+                            "value0": 3737284792517002786
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10752",
+                        "value": {
+                            "value0": 893082227264268402
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.387",
+                        "value": {
+                            "value0": 10309970213935491972
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.582",
+                        "value": {
+                            "value0": 14822531515308799626
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.689",
+                        "value": {
+                            "value0": 17891409051945654574
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.597",
+                        "value": {
+                            "value0": 18021359593875846785
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.669",
+                        "value": {
+                            "value0": 3789236104165191188
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.604",
+                        "value": {
+                            "value0": 134126357796186044
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.605",
+                        "value": {
+                            "value0": 10857508084725189209
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.607",
+                        "value": {
+                            "value0": 6291001385945110492
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.360",
+                        "value": {
+                            "value0": 16553897143196847344
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.367",
+                        "value": {
+                            "value0": 7953373939941830173
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.165",
+                        "value": {
+                            "value0": 17487148817499240117
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.389",
+                        "value": {
+                            "value0": 2278712461070109833
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10704",
+                        "value": {
+                            "value0": 1686960484710860540
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.390",
+                        "value": {
+                            "value0": 3972815230170647176
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.391",
+                        "value": {
+                            "value0": 18193564776577248734
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10732",
+                        "value": {
+                            "value0": 12499194385186478637
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.416",
+                        "value": {
+                            "value0": 8944251450089365180
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.417",
+                        "value": {
+                            "value0": 13821825208986677525
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.473",
+                        "value": {
+                            "value0": 11408000640469189515
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10757",
+                        "value": {
+                            "value0": 15062481139974394447
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.614",
+                        "value": {
+                            "value0": 8540220420678238960
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.620",
+                        "value": {
+                            "value0": 17637265641473439468
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.621",
+                        "value": {
+                            "value0": 8907700248544653099
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.622",
+                        "value": {
+                            "value0": 11319690205695233622
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.625",
+                        "value": {
+                            "value0": 10825511557944067273
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10747",
+                        "value": {
+                            "value0": 15390096765753008401
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.630",
+                        "value": {
+                            "value0": 7309309338418299534
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10639",
+                        "value": {
+                            "value0": 13146381531383920117
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.635",
+                        "value": {
+                            "value0": 14829961008596744544
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.637",
+                        "value": {
+                            "value0": 8913104849026583879
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.648",
+                        "value": {
+                            "value0": 9121008068305603813
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.654",
+                        "value": {
+                            "value0": 16356582078680910787
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.656",
+                        "value": {
+                            "value0": 12931103985886073248
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10774",
+                        "value": {
+                            "value0": 4233585581724775498
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.657",
+                        "value": {
+                            "value0": 8939605499586374131
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10775",
+                        "value": {
+                            "value0": 4180598735548892413
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.658",
+                        "value": {
+                            "value0": 11207356236543553958
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10611",
+                        "value": {
+                            "value0": 9018387051908294400
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.659",
+                        "value": {
+                            "value0": 4194583199342388238
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.668",
+                        "value": {
+                            "value0": 2634969947253798205
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.710",
+                        "value": {
+                            "value0": 18029005326050174043
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.677",
+                        "value": {
+                            "value0": 10457675171730691678
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.686",
+                        "value": {
+                            "value0": 16359001638339847177
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.690",
+                        "value": {
+                            "value0": 8900479337082279321
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.693",
+                        "value": {
+                            "value0": 10362201576633236894
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.694",
+                        "value": {
+                            "value0": 10946455294395201538
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.695",
+                        "value": {
+                            "value0": 1530488985492929443
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.696",
+                        "value": {
+                            "value0": 4724770558023665558
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.697",
+                        "value": {
+                            "value0": 5780772374874494621
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.698",
+                        "value": {
+                            "value0": 6627972910366286002
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.700",
+                        "value": {
+                            "value0": 5398936330604089542
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.702",
+                        "value": {
+                            "value0": 15401900528872415222
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.703",
+                        "value": {
+                            "value0": 11424167218982682178
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.704",
+                        "value": {
+                            "value0": 6620150058289542843
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.705",
+                        "value": {
+                            "value0": 10065207394102336066
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.707",
+                        "value": {
+                            "value0": 9080488309094300337
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10579",
+                        "value": {
+                            "value0": 5707729269398928891
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10585",
+                        "value": {
+                            "value0": 15447707925524230792
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10586",
+                        "value": {
+                            "value0": 10587702432611324678
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10663",
+                        "value": {
+                            "value0": 9889068122475437634
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10588",
+                        "value": {
+                            "value0": 16455296984990225261
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10589",
+                        "value": {
+                            "value0": 17383245539845476325
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10590",
+                        "value": {
+                            "value0": 537084301994186569
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10591",
+                        "value": {
+                            "value0": 17245650108541396413
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10595",
+                        "value": {
+                            "value0": 12509215513311827999
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10597",
+                        "value": {
+                            "value0": 17988114964458618704
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10600",
+                        "value": {
+                            "value0": 16028879422025586527
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10601",
+                        "value": {
+                            "value0": 3869206377030714121
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10603",
+                        "value": {
+                            "value0": 862477507850706330
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10613",
+                        "value": {
+                            "value0": 6744999516559753991
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10778",
+                        "value": {
+                            "value0": 14643424269057240630
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10615",
+                        "value": {
+                            "value0": 10973722021261949642
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10616",
+                        "value": {
+                            "value0": 17846998600894999493
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10618",
+                        "value": {
+                            "value0": 18004795435456017541
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10620",
+                        "value": {
+                            "value0": 7514136308643279076
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10622",
+                        "value": {
+                            "value0": 13726003932280222488
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10629",
+                        "value": {
+                            "value0": 2779900272726495010
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10633",
+                        "value": {
+                            "value0": 17496133918018042797
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10638",
+                        "value": {
+                            "value0": 307055203991431092
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10640",
+                        "value": {
+                            "value0": 16960371985277930605
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.158",
+                        "value": {
+                            "value0": 4162288189389145681
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.235",
+                        "value": {
+                            "value0": 14342613580974436866
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.186",
+                        "value": {
+                            "value0": 10216042459699892090
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.340",
+                        "value": {
+                            "value0": 4722569805046910850
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.188",
+                        "value": {
+                            "value0": 6346553163458723616
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.327",
+                        "value": {
+                            "value0": 11519674585752997360
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10651",
+                        "value": {
+                            "value0": 12021295485265714363
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10656",
+                        "value": {
+                            "value0": 14561639523227565562
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10657",
+                        "value": {
+                            "value0": 16620666251641847493
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10659",
+                        "value": {
+                            "value0": 4971340303010793013
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10661",
+                        "value": {
+                            "value0": 11770083490653864807
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10665",
+                        "value": {
+                            "value0": 5527294209691444856
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10675",
+                        "value": {
+                            "value0": 624584668685122867
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10681",
+                        "value": {
+                            "value0": 6297702396251884253
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10682",
+                        "value": {
+                            "value0": 10636337549610087322
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10690",
+                        "value": {
+                            "value0": 13727208777840575898
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10696",
+                        "value": {
+                            "value0": 2755601571359153473
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.218",
+                        "value": {
+                            "value0": 14476956627045859114
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10750",
+                        "value": {
+                            "value0": 356690244476262663
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10753",
+                        "value": {
+                            "value0": 2455386007285435901
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10760",
+                        "value": {
+                            "value0": 3546494893388197898
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.161",
+                        "value": {
+                            "value0": 8008527119619734706
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.172",
+                        "value": {
+                            "value0": 17218649358568672918
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.180",
+                        "value": {
+                            "value0": 10834561583040801203
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.225",
+                        "value": {
+                            "value0": 17798229408255259483
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.226",
+                        "value": {
+                            "value0": 3087472966772971624
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.272",
+                        "value": {
+                            "value0": 9048368251268053116
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.276",
+                        "value": {
+                            "value0": 17111774589329831489
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.326",
+                        "value": {
+                            "value0": 2426264561108902517
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.359",
+                        "value": {
+                            "value0": 8464229609367976446
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10800",
+                        "value": {
+                            "value0": 7322310413891350763
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10810",
+                        "value": {
+                            "value0": 11308337751921949015
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10811",
+                        "value": {
+                            "value0": 7930098092488216705
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10812",
+                        "value": {
+                            "value0": 12704152889091746024
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10813",
+                        "value": {
+                            "value0": 13322005737664508780
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10814",
+                        "value": {
+                            "value0": 10082760222584070435
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10815",
+                        "value": {
+                            "value0": 11478263783155487088
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10816",
+                        "value": {
+                            "value0": 14027968808640295676
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10817",
+                        "value": {
+                            "value0": 4989876727129780651
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.173",
+                        "value": {
+                            "value0": 8996666349292981750
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.174",
+                        "value": {
+                            "value0": 12931079709235145634
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10728",
+                        "value": {
+                            "value0": 18187396605374799979
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10807",
+                        "value": {
+                            "value0": 1851643208435584991
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.10818",
+                        "value": {
+                            "value0": 2459631447295625782
+                        }
+                    },
+                    {
+                        "key": "CollidersLvl1_FinalFinalGold_Cube.170",
+                        "value": {
+                            "value0": 7619486108916320430
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Cube.105_Mat0",
+                        "value": {
+                            "value0": 5901198140399864118
+                        }
+                    },
+                    {
+                        "key": "Cube.057_Mat0",
+                        "value": {
+                            "value0": 16609219569963295712
+                        }
+                    },
+                    {
+                        "key": "Cube.061_Mat0",
+                        "value": {
+                            "value0": 2664497995991766654
+                        }
+                    },
+                    {
+                        "key": "Cube.146_Mat0",
+                        "value": {
+                            "value0": 16517302220892962441
+                        }
+                    },
+                    {
+                        "key": "Cube.058_Mat0",
+                        "value": {
+                            "value0": 17412885339823894803
+                        }
+                    },
+                    {
+                        "key": "Cube.201_Mat0",
+                        "value": {
+                            "value0": 410278620868236072
+                        }
+                    },
+                    {
+                        "key": "Cube.121_Mat0",
+                        "value": {
+                            "value0": 14502628618530297486
+                        }
+                    },
+                    {
+                        "key": "Cube.433_Mat0",
+                        "value": {
+                            "value0": 1396681902678028294
+                        }
+                    },
+                    {
+                        "key": "Cube.060_Mat0",
+                        "value": {
+                            "value0": 8843515000917218799
+                        }
+                    },
+                    {
+                        "key": "Cube.147_Mat0",
+                        "value": {
+                            "value0": 1065162240667712731
+                        }
+                    },
+                    {
+                        "key": "Cube.059_Mat0",
+                        "value": {
+                            "value0": 10344144728023078679
+                        }
+                    },
+                    {
+                        "key": "Cube.200_Mat0",
+                        "value": {
+                            "value0": 16686623438343344221
+                        }
+                    },
+                    {
+                        "key": "Cube.123_Mat0",
+                        "value": {
+                            "value0": 5484088721427107438
+                        }
+                    },
+                    {
+                        "key": "Cube.431_Mat0",
+                        "value": {
+                            "value0": 18391232991743608324
+                        }
+                    },
+                    {
+                        "key": "Cube.062_Mat0",
+                        "value": {
+                            "value0": 14726218658456018734
+                        }
+                    },
+                    {
+                        "key": "Cube.122_Mat0",
+                        "value": {
+                            "value0": 16952406408265048056
+                        }
+                    },
+                    {
+                        "key": "Cube.430_Mat0",
+                        "value": {
+                            "value0": 10341018394148117199
+                        }
+                    },
+                    {
+                        "key": "Cube.063_Mat0",
+                        "value": {
+                            "value0": 18439005891114057448
+                        }
+                    },
+                    {
+                        "key": "Cube.125_Mat0",
+                        "value": {
+                            "value0": 5340558807878080099
+                        }
+                    },
+                    {
+                        "key": "Cube.437_Mat0",
+                        "value": {
+                            "value0": 825223633001103389
+                        }
+                    },
+                    {
+                        "key": "Cube.064_Mat0",
+                        "value": {
+                            "value0": 2637644311648247264
+                        }
+                    },
+                    {
+                        "key": "Cube.067_Mat0",
+                        "value": {
+                            "value0": 5336367324369772302
+                        }
+                    },
+                    {
+                        "key": "Cube.129_Mat0",
+                        "value": {
+                            "value0": 6460501705774830086
+                        }
+                    },
+                    {
+                        "key": "Cube.068_Mat0",
+                        "value": {
+                            "value0": 15626773792889808625
+                        }
+                    },
+                    {
+                        "key": "Cube.069_Mat0",
+                        "value": {
+                            "value0": 17542353026251641148
+                        }
+                    },
+                    {
+                        "key": "Cube.506_Mat0",
+                        "value": {
+                            "value0": 6887692506035134558
+                        }
+                    },
+                    {
+                        "key": "Cube.071_Mat0",
+                        "value": {
+                            "value0": 17825439755211236841
+                        }
+                    },
+                    {
+                        "key": "Cube.119_Mat0",
+                        "value": {
+                            "value0": 12054709104488903707
+                        }
+                    },
+                    {
+                        "key": "Cube.072_Mat0",
+                        "value": {
+                            "value0": 7122777641241867976
+                        }
+                    },
+                    {
+                        "key": "Cube.076_Mat0",
+                        "value": {
+                            "value0": 13050881620829243804
+                        }
+                    },
+                    {
+                        "key": "Cube.537_Mat0",
+                        "value": {
+                            "value0": 16055218554115474727
+                        }
+                    },
+                    {
+                        "key": "Cube.113_Mat0",
+                        "value": {
+                            "value0": 9971401558892176620
+                        }
+                    },
+                    {
+                        "key": "Cube.078_Mat0",
+                        "value": {
+                            "value0": 17679974478445393742
+                        }
+                    },
+                    {
+                        "key": "Cube.539_Mat0",
+                        "value": {
+                            "value0": 6645856417284297446
+                        }
+                    },
+                    {
+                        "key": "Cube.112_Mat0",
+                        "value": {
+                            "value0": 3931059035530309178
+                        }
+                    },
+                    {
+                        "key": "Cube.079_Mat0",
+                        "value": {
+                            "value0": 8486681310263693103
+                        }
+                    },
+                    {
+                        "key": "Cube.080_Mat0",
+                        "value": {
+                            "value0": 1142805936582917592
+                        }
+                    },
+                    {
+                        "key": "Cube.563_Mat0",
+                        "value": {
+                            "value0": 10747119614846182096
+                        }
+                    },
+                    {
+                        "key": "Cube.103_Mat0",
+                        "value": {
+                            "value0": 14656905351896520134
+                        }
+                    },
+                    {
+                        "key": "Cube.082_Mat0",
+                        "value": {
+                            "value0": 15989606898047501347
+                        }
+                    },
+                    {
+                        "key": "Cube.640_Mat0",
+                        "value": {
+                            "value0": 3148902720926335283
+                        }
+                    },
+                    {
+                        "key": "Cube.104_Mat0",
+                        "value": {
+                            "value0": 17376832012469791730
+                        }
+                    },
+                    {
+                        "key": "Cube.085_Mat0",
+                        "value": {
+                            "value0": 6874422781643323061
+                        }
+                    },
+                    {
+                        "key": "Cube.566_Mat0",
+                        "value": {
+                            "value0": 10730737828095204157
+                        }
+                    },
+                    {
+                        "key": "Cube.086_Mat0",
+                        "value": {
+                            "value0": 16620677787203307782
+                        }
+                    },
+                    {
+                        "key": "Cube.088_Mat0",
+                        "value": {
+                            "value0": 5456403983448170455
+                        }
+                    },
+                    {
+                        "key": "Cube.132_Mat0",
+                        "value": {
+                            "value0": 4101445501233634528
+                        }
+                    },
+                    {
+                        "key": "Cube.091_Mat0",
+                        "value": {
+                            "value0": 4715571940903194074
+                        }
+                    },
+                    {
+                        "key": "Cube.130_Mat0",
+                        "value": {
+                            "value0": 8391959515498464615
+                        }
+                    },
+                    {
+                        "key": "Cube.093_Mat0",
+                        "value": {
+                            "value0": 7307223259914704453
+                        }
+                    },
+                    {
+                        "key": "Cube.094_Mat0",
+                        "value": {
+                            "value0": 8879564907821157988
+                        }
+                    },
+                    {
+                        "key": "Cube.136_Mat0",
+                        "value": {
+                            "value0": 11863007906869353021
+                        }
+                    },
+                    {
+                        "key": "Cube.095_Mat0",
+                        "value": {
+                            "value0": 15591238227994401976
+                        }
+                    },
+                    {
+                        "key": "Cube.135_Mat0",
+                        "value": {
+                            "value0": 9044459722017281613
+                        }
+                    },
+                    {
+                        "key": "Cube.096_Mat0",
+                        "value": {
+                            "value0": 11282973966040483701
+                        }
+                    },
+                    {
+                        "key": "Cube.097_Mat0",
+                        "value": {
+                            "value0": 14406232336710822928
+                        }
+                    },
+                    {
+                        "key": "Cube.098_Mat0",
+                        "value": {
+                            "value0": 1480167874527311036
+                        }
+                    },
+                    {
+                        "key": "Cube.519_Mat0",
+                        "value": {
+                            "value0": 6121320846139614310
+                        }
+                    },
+                    {
+                        "key": "Cube.099_Mat0",
+                        "value": {
+                            "value0": 14019245830908153610
+                        }
+                    },
+                    {
+                        "key": "Cube.100_Mat0",
+                        "value": {
+                            "value0": 6797043889773818469
+                        }
+                    },
+                    {
+                        "key": "Cube.102_Mat0",
+                        "value": {
+                            "value0": 7543471824116604439
+                        }
+                    },
+                    {
+                        "key": "Cube.397_Mat0",
+                        "value": {
+                            "value0": 3570233228129245642
+                        }
+                    },
+                    {
+                        "key": "Cube.106_Mat0",
+                        "value": {
+                            "value0": 11592048650653730564
+                        }
+                    },
+                    {
+                        "key": "Cube.144_Mat0",
+                        "value": {
+                            "value0": 2173392020156878713
+                        }
+                    },
+                    {
+                        "key": "Cube.108_Mat0",
+                        "value": {
+                            "value0": 12449986336839498398
+                        }
+                    },
+                    {
+                        "key": "Cube.526_Mat0",
+                        "value": {
+                            "value0": 9385596850204360108
+                        }
+                    },
+                    {
+                        "key": "Cube.110_Mat0",
+                        "value": {
+                            "value0": 6648854436019530678
+                        }
+                    },
+                    {
+                        "key": "Cube.114_Mat0",
+                        "value": {
+                            "value0": 1895653590382983928
+                        }
+                    },
+                    {
+                        "key": "Cube.115_Mat0",
+                        "value": {
+                            "value0": 12228401259592768957
+                        }
+                    },
+                    {
+                        "key": "Cube.116_Mat0",
+                        "value": {
+                            "value0": 15107113985454131913
+                        }
+                    },
+                    {
+                        "key": "Cube.118_Mat0",
+                        "value": {
+                            "value0": 13561490334040027282
+                        }
+                    },
+                    {
+                        "key": "Cube.124_Mat0",
+                        "value": {
+                            "value0": 15025322040935083165
+                        }
+                    },
+                    {
+                        "key": "Cube.436_Mat0",
+                        "value": {
+                            "value0": 17825897103733061833
+                        }
+                    },
+                    {
+                        "key": "Cube.127_Mat0",
+                        "value": {
+                            "value0": 4352390754501684904
+                        }
+                    },
+                    {
+                        "key": "Cube.435_Mat0",
+                        "value": {
+                            "value0": 3876326102207042712
+                        }
+                    },
+                    {
+                        "key": "Cube.131_Mat0",
+                        "value": {
+                            "value0": 4203811280904359045
+                        }
+                    },
+                    {
+                        "key": "Cube.133_Mat0",
+                        "value": {
+                            "value0": 11163867605099990089
+                        }
+                    },
+                    {
+                        "key": "Cube.138_Mat0",
+                        "value": {
+                            "value0": 10743497422845017192
+                        }
+                    },
+                    {
+                        "key": "Cube.387_Mat0",
+                        "value": {
+                            "value0": 7541171399693279377
+                        }
+                    },
+                    {
+                        "key": "Cube.426_Mat0",
+                        "value": {
+                            "value0": 13546017878448282031
+                        }
+                    },
+                    {
+                        "key": "Cube.139_Mat0",
+                        "value": {
+                            "value0": 15276734169478087816
+                        }
+                    },
+                    {
+                        "key": "Cube.386_Mat0",
+                        "value": {
+                            "value0": 4009126186278145504
+                        }
+                    },
+                    {
+                        "key": "Cube.427_Mat0",
+                        "value": {
+                            "value0": 13490725839047354215
+                        }
+                    },
+                    {
+                        "key": "Cube.140_Mat0",
+                        "value": {
+                            "value0": 12486650382893873887
+                        }
+                    },
+                    {
+                        "key": "Cube.141_Mat0",
+                        "value": {
+                            "value0": 5804939260586377709
+                        }
+                    },
+                    {
+                        "key": "Cube.148_Mat0",
+                        "value": {
+                            "value0": 8418852672414585922
+                        }
+                    },
+                    {
+                        "key": "Cube.149_Mat0",
+                        "value": {
+                            "value0": 2477456297673871436
+                        }
+                    },
+                    {
+                        "key": "Cube.150_Mat0",
+                        "value": {
+                            "value0": 17667531123096270052
+                        }
+                    },
+                    {
+                        "key": "Cube.402_Mat0",
+                        "value": {
+                            "value0": 4931419488209796270
+                        }
+                    },
+                    {
+                        "key": "Cube.151_Mat0",
+                        "value": {
+                            "value0": 780209678285743161
+                        }
+                    },
+                    {
+                        "key": "Cube.403_Mat0",
+                        "value": {
+                            "value0": 17322177582752041573
+                        }
+                    },
+                    {
+                        "key": "Cube.153_Mat0",
+                        "value": {
+                            "value0": 915564833819057891
+                        }
+                    },
+                    {
+                        "key": "Cube.401_Mat0",
+                        "value": {
+                            "value0": 14419782786744943645
+                        }
+                    },
+                    {
+                        "key": "Cube.154_Mat0",
+                        "value": {
+                            "value0": 16303475586639872058
+                        }
+                    },
+                    {
+                        "key": "Cube.156_Mat0",
+                        "value": {
+                            "value0": 5296077598013546136
+                        }
+                    },
+                    {
+                        "key": "Cube.404_Mat0",
+                        "value": {
+                            "value0": 3523410465043526893
+                        }
+                    },
+                    {
+                        "key": "Cube.157_Mat0",
+                        "value": {
+                            "value0": 751118731172566798
+                        }
+                    },
+                    {
+                        "key": "Cube.405_Mat0",
+                        "value": {
+                            "value0": 9009558372868055720
+                        }
+                    },
+                    {
+                        "key": "Cube.158_Mat0",
+                        "value": {
+                            "value0": 15612370288712316235
+                        }
+                    },
+                    {
+                        "key": "Cube.159_Mat0",
+                        "value": {
+                            "value0": 12038158693583588972
+                        }
+                    },
+                    {
+                        "key": "Cube.160_Mat0",
+                        "value": {
+                            "value0": 6314956152262496886
+                        }
+                    },
+                    {
+                        "key": "Cube.285_Mat0",
+                        "value": {
+                            "value0": 15034312544674082715
+                        }
+                    },
+                    {
+                        "key": "Cube.472_Mat0",
+                        "value": {
+                            "value0": 10811594340648536411
+                        }
+                    },
+                    {
+                        "key": "Cube.161_Mat0",
+                        "value": {
+                            "value0": 7869535446256347023
+                        }
+                    },
+                    {
+                        "key": "Cube.473_Mat0",
+                        "value": {
+                            "value0": 1569304049494710247
+                        }
+                    },
+                    {
+                        "key": "Cube.162_Mat0",
+                        "value": {
+                            "value0": 15749463491072108242
+                        }
+                    },
+                    {
+                        "key": "Cube.287_Mat0",
+                        "value": {
+                            "value0": 11497146700913787360
+                        }
+                    },
+                    {
+                        "key": "Cube.163_Mat0",
+                        "value": {
+                            "value0": 14257541230453664223
+                        }
+                    },
+                    {
+                        "key": "Cube.286_Mat0",
+                        "value": {
+                            "value0": 5484851744019982503
+                        }
+                    },
+                    {
+                        "key": "Cube.471_Mat0",
+                        "value": {
+                            "value0": 15217123852192804840
+                        }
+                    },
+                    {
+                        "key": "Cube.164_Mat0",
+                        "value": {
+                            "value0": 7560135147909155051
+                        }
+                    },
+                    {
+                        "key": "Cube.165_Mat0",
+                        "value": {
+                            "value0": 9318770058930458589
+                        }
+                    },
+                    {
+                        "key": "Cube.280_Mat0",
+                        "value": {
+                            "value0": 13221968800074894316
+                        }
+                    },
+                    {
+                        "key": "Cube.338_Mat0",
+                        "value": {
+                            "value0": 9247342900944520635
+                        }
+                    },
+                    {
+                        "key": "Cube.477_Mat0",
+                        "value": {
+                            "value0": 1924595449218571468
+                        }
+                    },
+                    {
+                        "key": "Cube.167_Mat0",
+                        "value": {
+                            "value0": 2416874400407767859
+                        }
+                    },
+                    {
+                        "key": "Cube.282_Mat0",
+                        "value": {
+                            "value0": 17087580230989441741
+                        }
+                    },
+                    {
+                        "key": "Cube.475_Mat0",
+                        "value": {
+                            "value0": 10339408122082633819
+                        }
+                    },
+                    {
+                        "key": "Cube.169_Mat0",
+                        "value": {
+                            "value0": 676817136032513614
+                        }
+                    },
+                    {
+                        "key": "Cube.170_Mat0",
+                        "value": {
+                            "value0": 12081551001481882178
+                        }
+                    },
+                    {
+                        "key": "Cube.466_Mat0",
+                        "value": {
+                            "value0": 13051999348185404968
+                        }
+                    },
+                    {
+                        "key": "Cube.172_Mat0",
+                        "value": {
+                            "value0": 13234278103510209666
+                        }
+                    },
+                    {
+                        "key": "Cube.174_Mat0",
+                        "value": {
+                            "value0": 5044853240602328897
+                        }
+                    },
+                    {
+                        "key": "Cube.462_Mat0",
+                        "value": {
+                            "value0": 15523025656616968392
+                        }
+                    },
+                    {
+                        "key": "Cube.175_Mat0",
+                        "value": {
+                            "value0": 8187940994876039285
+                        }
+                    },
+                    {
+                        "key": "Cube.463_Mat0",
+                        "value": {
+                            "value0": 6942130742184268302
+                        }
+                    },
+                    {
+                        "key": "Cube.178_Mat0",
+                        "value": {
+                            "value0": 5395768776347925461
+                        }
+                    },
+                    {
+                        "key": "Cube.179_Mat0",
+                        "value": {
+                            "value0": 9950273510907723404
+                        }
+                    },
+                    {
+                        "key": "Cube.181_Mat0",
+                        "value": {
+                            "value0": 4299046527564526686
+                        }
+                    },
+                    {
+                        "key": "Cube.457_Mat0",
+                        "value": {
+                            "value0": 3147243133903086793
+                        }
+                    },
+                    {
+                        "key": "Cube.182_Mat0",
+                        "value": {
+                            "value0": 13092132417820292993
+                        }
+                    },
+                    {
+                        "key": "Cube.183_Mat0",
+                        "value": {
+                            "value0": 10060079747450876448
+                        }
+                    },
+                    {
+                        "key": "Cube.455_Mat0",
+                        "value": {
+                            "value0": 4951302209343231710
+                        }
+                    },
+                    {
+                        "key": "Cube.184_Mat0",
+                        "value": {
+                            "value0": 9393196122012623056
+                        }
+                    },
+                    {
+                        "key": "Cube.311_Mat0",
+                        "value": {
+                            "value0": 16741482753888292752
+                        }
+                    },
+                    {
+                        "key": "Cube.185_Mat0",
+                        "value": {
+                            "value0": 7729046314022927658
+                        }
+                    },
+                    {
+                        "key": "Cube.453_Mat0",
+                        "value": {
+                            "value0": 6066383508114357131
+                        }
+                    },
+                    {
+                        "key": "Cube.187_Mat0",
+                        "value": {
+                            "value0": 4367531073266996927
+                        }
+                    },
+                    {
+                        "key": "Cube.188_Mat0",
+                        "value": {
+                            "value0": 364650755607196230
+                        }
+                    },
+                    {
+                        "key": "Cube.189_Mat0",
+                        "value": {
+                            "value0": 4681065904273125829
+                        }
+                    },
+                    {
+                        "key": "Cube.190_Mat0",
+                        "value": {
+                            "value0": 17801380634134338525
+                        }
+                    },
+                    {
+                        "key": "Cube.323_Mat0",
+                        "value": {
+                            "value0": 5911007814819180783
+                        }
+                    },
+                    {
+                        "key": "Cube.442_Mat0",
+                        "value": {
+                            "value0": 221663239863589540
+                        }
+                    },
+                    {
+                        "key": "Cube.191_Mat0",
+                        "value": {
+                            "value0": 6966144779360924707
+                        }
+                    },
+                    {
+                        "key": "Cube.322_Mat0",
+                        "value": {
+                            "value0": 18426308335563067770
+                        }
+                    },
+                    {
+                        "key": "Cube.443_Mat0",
+                        "value": {
+                            "value0": 3854768618172023352
+                        }
+                    },
+                    {
+                        "key": "Cube.192_Mat0",
+                        "value": {
+                            "value0": 5826524686017608411
+                        }
+                    },
+                    {
+                        "key": "Cube.299_Mat0",
+                        "value": {
+                            "value0": 8935101634170558473
+                        }
+                    },
+                    {
+                        "key": "Cube.440_Mat0",
+                        "value": {
+                            "value0": 12206974455612706091
+                        }
+                    },
+                    {
+                        "key": "Cube.193_Mat0",
+                        "value": {
+                            "value0": 9905222392008702191
+                        }
+                    },
+                    {
+                        "key": "Cube.298_Mat0",
+                        "value": {
+                            "value0": 806984415892254308
+                        }
+                    },
+                    {
+                        "key": "Cube.320_Mat0",
+                        "value": {
+                            "value0": 9568343640822261480
+                        }
+                    },
+                    {
+                        "key": "Cube.441_Mat0",
+                        "value": {
+                            "value0": 3368030188768601220
+                        }
+                    },
+                    {
+                        "key": "Cube.194_Mat0",
+                        "value": {
+                            "value0": 12702725315401831264
+                        }
+                    },
+                    {
+                        "key": "Cube.327_Mat0",
+                        "value": {
+                            "value0": 14115549103080917163
+                        }
+                    },
+                    {
+                        "key": "Cube.446_Mat0",
+                        "value": {
+                            "value0": 17120664699636039260
+                        }
+                    },
+                    {
+                        "key": "Cube.195_Mat0",
+                        "value": {
+                            "value0": 2240241946688825268
+                        }
+                    },
+                    {
+                        "key": "Cube.326_Mat0",
+                        "value": {
+                            "value0": 17098603541077842243
+                        }
+                    },
+                    {
+                        "key": "Cube.447_Mat0",
+                        "value": {
+                            "value0": 792373317604802335
+                        }
+                    },
+                    {
+                        "key": "Cube.196_Mat0",
+                        "value": {
+                            "value0": 5618977668120746905
+                        }
+                    },
+                    {
+                        "key": "Cube.325_Mat0",
+                        "value": {
+                            "value0": 17449923390945787523
+                        }
+                    },
+                    {
+                        "key": "Cube.197_Mat0",
+                        "value": {
+                            "value0": 10909785064858544197
+                        }
+                    },
+                    {
+                        "key": "Cube.445_Mat0",
+                        "value": {
+                            "value0": 13937195140342334133
+                        }
+                    },
+                    {
+                        "key": "Cube.198_Mat0",
+                        "value": {
+                            "value0": 382762405201347797
+                        }
+                    },
+                    {
+                        "key": "Cube.199_Mat0",
+                        "value": {
+                            "value0": 2053181421620556714
+                        }
+                    },
+                    {
+                        "key": "Cube.202_Mat0",
+                        "value": {
+                            "value0": 16635737598217597237
+                        }
+                    },
+                    {
+                        "key": "Cube.204_Mat0",
+                        "value": {
+                            "value0": 10464358306603556133
+                        }
+                    },
+                    {
+                        "key": "Cube.205_Mat0",
+                        "value": {
+                            "value0": 3077137416905656296
+                        }
+                    },
+                    {
+                        "key": "Cube.206_Mat0",
+                        "value": {
+                            "value0": 863952984818363442
+                        }
+                    },
+                    {
+                        "key": "Cube.207_Mat0",
+                        "value": {
+                            "value0": 9926510916495862056
+                        }
+                    },
+                    {
+                        "key": "Cube.208_Mat0",
+                        "value": {
+                            "value0": 14868122381608107097
+                        }
+                    },
+                    {
+                        "key": "Cube.209_Mat0",
+                        "value": {
+                            "value0": 12337348206676511649
+                        }
+                    },
+                    {
+                        "key": "Cube.210_Mat0",
+                        "value": {
+                            "value0": 11825928692907121521
+                        }
+                    },
+                    {
+                        "key": "Cube.629_Mat0",
+                        "value": {
+                            "value0": 8007882259101658828
+                        }
+                    },
+                    {
+                        "key": "Cube.211_Mat0",
+                        "value": {
+                            "value0": 13352734052198348143
+                        }
+                    },
+                    {
+                        "key": "Cube.628_Mat0",
+                        "value": {
+                            "value0": 8085947096460851743
+                        }
+                    },
+                    {
+                        "key": "Cube.212_Mat0",
+                        "value": {
+                            "value0": 7384157529936365788
+                        }
+                    },
+                    {
+                        "key": "Cube.213_Mat0",
+                        "value": {
+                            "value0": 6642826073728845138
+                        }
+                    },
+                    {
+                        "key": "Cube.214_Mat0",
+                        "value": {
+                            "value0": 1030347952069652487
+                        }
+                    },
+                    {
+                        "key": "Cube.215_Mat0",
+                        "value": {
+                            "value0": 8377422204135905940
+                        }
+                    },
+                    {
+                        "key": "Cube.216_Mat0",
+                        "value": {
+                            "value0": 14196472282169011662
+                        }
+                    },
+                    {
+                        "key": "Cube.217_Mat0",
+                        "value": {
+                            "value0": 6254313827143438441
+                        }
+                    },
+                    {
+                        "key": "Cube.218_Mat0",
+                        "value": {
+                            "value0": 8379663418702882188
+                        }
+                    },
+                    {
+                        "key": "Cube.219_Mat0",
+                        "value": {
+                            "value0": 17336571209490928399
+                        }
+                    },
+                    {
+                        "key": "Cube.220_Mat0",
+                        "value": {
+                            "value0": 14264529860498516442
+                        }
+                    },
+                    {
+                        "key": "Cube.221_Mat0",
+                        "value": {
+                            "value0": 17740849764062146574
+                        }
+                    },
+                    {
+                        "key": "Cube.222_Mat0",
+                        "value": {
+                            "value0": 16142632041503049696
+                        }
+                    },
+                    {
+                        "key": "Cube.639_Mat0",
+                        "value": {
+                            "value0": 5705360366256557166
+                        }
+                    },
+                    {
+                        "key": "Cube.224_Mat0",
+                        "value": {
+                            "value0": 12592156498635576286
+                        }
+                    },
+                    {
+                        "key": "Cube.226_Mat0",
+                        "value": {
+                            "value0": 3330483377636085365
+                        }
+                    },
+                    {
+                        "key": "Cube.227_Mat0",
+                        "value": {
+                            "value0": 6722054334778699665
+                        }
+                    },
+                    {
+                        "key": "Cube.229_Mat0",
+                        "value": {
+                            "value0": 9108596131336188819
+                        }
+                    },
+                    {
+                        "key": "Cube.632_Mat0",
+                        "value": {
+                            "value0": 3079893319519329397
+                        }
+                    },
+                    {
+                        "key": "Cube.231_Mat0",
+                        "value": {
+                            "value0": 16764229371784564298
+                        }
+                    },
+                    {
+                        "key": "Cube.232_Mat0",
+                        "value": {
+                            "value0": 5250480858515118097
+                        }
+                    },
+                    {
+                        "key": "Cube.235_Mat0",
+                        "value": {
+                            "value0": 688333090272819634
+                        }
+                    },
+                    {
+                        "key": "Cube.236_Mat0",
+                        "value": {
+                            "value0": 11633535302034356402
+                        }
+                    },
+                    {
+                        "key": "Cube.237_Mat0",
+                        "value": {
+                            "value0": 15717818552692789490
+                        }
+                    },
+                    {
+                        "key": "Cube.238_Mat0",
+                        "value": {
+                            "value0": 12959681463380319208
+                        }
+                    },
+                    {
+                        "key": "Cube.239_Mat0",
+                        "value": {
+                            "value0": 5919277401751062464
+                        }
+                    },
+                    {
+                        "key": "Cube.240_Mat0",
+                        "value": {
+                            "value0": 11384131118597154420
+                        }
+                    },
+                    {
+                        "key": "Cube.241_Mat0",
+                        "value": {
+                            "value0": 9432266762706580462
+                        }
+                    },
+                    {
+                        "key": "Cube.242_Mat0",
+                        "value": {
+                            "value0": 15501217857290499415
+                        }
+                    },
+                    {
+                        "key": "Cube.243_Mat0",
+                        "value": {
+                            "value0": 5331762964178069696
+                        }
+                    },
+                    {
+                        "key": "Cube.245_Mat0",
+                        "value": {
+                            "value0": 1874804481952014341
+                        }
+                    },
+                    {
+                        "key": "Cube.246_Mat0",
+                        "value": {
+                            "value0": 3096547846618827348
+                        }
+                    },
+                    {
+                        "key": "Cube.247_Mat0",
+                        "value": {
+                            "value0": 1718984639294927714
+                        }
+                    },
+                    {
+                        "key": "Cube.248_Mat0",
+                        "value": {
+                            "value0": 12596415184666988556
+                        }
+                    },
+                    {
+                        "key": "Cube.249_Mat0",
+                        "value": {
+                            "value0": 11765765448223061028
+                        }
+                    },
+                    {
+                        "key": "Cube.250_Mat0",
+                        "value": {
+                            "value0": 16517538801289340525
+                        }
+                    },
+                    {
+                        "key": "Cube.251_Mat0",
+                        "value": {
+                            "value0": 2003410109550502683
+                        }
+                    },
+                    {
+                        "key": "Cube.253_Mat0",
+                        "value": {
+                            "value0": 407893707431232171
+                        }
+                    },
+                    {
+                        "key": "Cube.254_Mat0",
+                        "value": {
+                            "value0": 10129322879214525119
+                        }
+                    },
+                    {
+                        "key": "Cube.255_Mat0",
+                        "value": {
+                            "value0": 8376169951272255958
+                        }
+                    },
+                    {
+                        "key": "Cube.256_Mat0",
+                        "value": {
+                            "value0": 6093687224976275082
+                        }
+                    },
+                    {
+                        "key": "Cube.257_Mat0",
+                        "value": {
+                            "value0": 9684121978082590949
+                        }
+                    },
+                    {
+                        "key": "Cube.258_Mat0",
+                        "value": {
+                            "value0": 4727892465555653997
+                        }
+                    },
+                    {
+                        "key": "Cube.259_Mat0",
+                        "value": {
+                            "value0": 6749225822160817304
+                        }
+                    },
+                    {
+                        "key": "Cube.260_Mat0",
+                        "value": {
+                            "value0": 9237950558808965537
+                        }
+                    },
+                    {
+                        "key": "Cube.261_Mat0",
+                        "value": {
+                            "value0": 14197859048746801551
+                        }
+                    },
+                    {
+                        "key": "Cube.262_Mat0",
+                        "value": {
+                            "value0": 11303079143194071472
+                        }
+                    },
+                    {
+                        "key": "Cube.263_Mat0",
+                        "value": {
+                            "value0": 8172569684175486662
+                        }
+                    },
+                    {
+                        "key": "Cube.264_Mat0",
+                        "value": {
+                            "value0": 17200758364657151001
+                        }
+                    },
+                    {
+                        "key": "Cube.265_Mat0",
+                        "value": {
+                            "value0": 13468820427263723231
+                        }
+                    },
+                    {
+                        "key": "Cube.266_Mat0",
+                        "value": {
+                            "value0": 12265653973513165492
+                        }
+                    },
+                    {
+                        "key": "Cube.268_Mat0",
+                        "value": {
+                            "value0": 3708547817358655408
+                        }
+                    },
+                    {
+                        "key": "Cube.270_Mat0",
+                        "value": {
+                            "value0": 16283889506426165663
+                        }
+                    },
+                    {
+                        "key": "Cube.273_Mat0",
+                        "value": {
+                            "value0": 9866044745562012912
+                        }
+                    },
+                    {
+                        "key": "Cube.275_Mat0",
+                        "value": {
+                            "value0": 1156112848135982637
+                        }
+                    },
+                    {
+                        "key": "Cube.277_Mat0",
+                        "value": {
+                            "value0": 1652190890279270499
+                        }
+                    },
+                    {
+                        "key": "Cube.283_Mat0",
+                        "value": {
+                            "value0": 1218557785192974348
+                        }
+                    },
+                    {
+                        "key": "Cube.474_Mat0",
+                        "value": {
+                            "value0": 13982532994826224156
+                        }
+                    },
+                    {
+                        "key": "Cube.289_Mat0",
+                        "value": {
+                            "value0": 12803235531829504693
+                        }
+                    },
+                    {
+                        "key": "Cube.331_Mat0",
+                        "value": {
+                            "value0": 14987724295342431569
+                        }
+                    },
+                    {
+                        "key": "Cube.291_Mat0",
+                        "value": {
+                            "value0": 7407926506832483001
+                        }
+                    },
+                    {
+                        "key": "Cube.295_Mat0",
+                        "value": {
+                            "value0": 16449368998465992987
+                        }
+                    },
+                    {
+                        "key": "Cube.296_Mat0",
+                        "value": {
+                            "value0": 7856747211209041187
+                        }
+                    },
+                    {
+                        "key": "Cube.301_Mat0",
+                        "value": {
+                            "value0": 11047827731600749666
+                        }
+                    },
+                    {
+                        "key": "Cube.307_Mat0",
+                        "value": {
+                            "value0": 5998533805883951403
+                        }
+                    },
+                    {
+                        "key": "Cube.308_Mat0",
+                        "value": {
+                            "value0": 7504670655411581830
+                        }
+                    },
+                    {
+                        "key": "Cube.595_Mat0",
+                        "value": {
+                            "value0": 11206124870925968885
+                        }
+                    },
+                    {
+                        "key": "Cube.313_Mat0",
+                        "value": {
+                            "value0": 14404735448138815973
+                        }
+                    },
+                    {
+                        "key": "Cube.315_Mat0",
+                        "value": {
+                            "value0": 3512299053201784810
+                        }
+                    },
+                    {
+                        "key": "Cube.456_Mat0",
+                        "value": {
+                            "value0": 15828179122236704486
+                        }
+                    },
+                    {
+                        "key": "Cube.319_Mat0",
+                        "value": {
+                            "value0": 15345756878209561722
+                        }
+                    },
+                    {
+                        "key": "Cube.328_Mat0",
+                        "value": {
+                            "value0": 5771488274549427644
+                        }
+                    },
+                    {
+                        "key": "Cube.332_Mat0",
+                        "value": {
+                            "value0": 10563472953229192205
+                        }
+                    },
+                    {
+                        "key": "Cube.333_Mat0",
+                        "value": {
+                            "value0": 14037366312166169385
+                        }
+                    },
+                    {
+                        "key": "Cube.343_Mat0",
+                        "value": {
+                            "value0": 7068795951977409753
+                        }
+                    },
+                    {
+                        "key": "Cube.344_Mat0",
+                        "value": {
+                            "value0": 17936082044186917078
+                        }
+                    },
+                    {
+                        "key": "Cube.345_Mat0",
+                        "value": {
+                            "value0": 16701643262414648613
+                        }
+                    },
+                    {
+                        "key": "Cube.348_Mat0",
+                        "value": {
+                            "value0": 2113707305930935101
+                        }
+                    },
+                    {
+                        "key": "Cube.349_Mat0",
+                        "value": {
+                            "value0": 15866301552355275180
+                        }
+                    },
+                    {
+                        "key": "Cube.352_Mat0",
+                        "value": {
+                            "value0": 5441925989265916444
+                        }
+                    },
+                    {
+                        "key": "Cube.357_Mat0",
+                        "value": {
+                            "value0": 4345320386148008200
+                        }
+                    },
+                    {
+                        "key": "Cube.359_Mat0",
+                        "value": {
+                            "value0": 13508315606237172593
+                        }
+                    },
+                    {
+                        "key": "Cube.361_Mat0",
+                        "value": {
+                            "value0": 16696942771109174083
+                        }
+                    },
+                    {
+                        "key": "Cube.363_Mat0",
+                        "value": {
+                            "value0": 11451485845609382377
+                        }
+                    },
+                    {
+                        "key": "Cube.364_Mat0",
+                        "value": {
+                            "value0": 11864839865226027828
+                        }
+                    },
+                    {
+                        "key": "Cube.367_Mat0",
+                        "value": {
+                            "value0": 15610944059547039034
+                        }
+                    },
+                    {
+                        "key": "Cube.368_Mat0",
+                        "value": {
+                            "value0": 3869539794795156892
+                        }
+                    },
+                    {
+                        "key": "Cube.370_Mat0",
+                        "value": {
+                            "value0": 15703090121785809217
+                        }
+                    },
+                    {
+                        "key": "Cube.371_Mat0",
+                        "value": {
+                            "value0": 4962565957011229843
+                        }
+                    },
+                    {
+                        "key": "Cube.372_Mat0",
+                        "value": {
+                            "value0": 6520928717919880819
+                        }
+                    },
+                    {
+                        "key": "Cube.589_Mat0",
+                        "value": {
+                            "value0": 6204693217721012752
+                        }
+                    },
+                    {
+                        "key": "Cube.373_Mat0",
+                        "value": {
+                            "value0": 2856196350134356804
+                        }
+                    },
+                    {
+                        "key": "Cube.374_Mat0",
+                        "value": {
+                            "value0": 9224279562195963283
+                        }
+                    },
+                    {
+                        "key": "Cube.375_Mat0",
+                        "value": {
+                            "value0": 7634706670433446727
+                        }
+                    },
+                    {
+                        "key": "Cube.377_Mat0",
+                        "value": {
+                            "value0": 3960847361328135257
+                        }
+                    },
+                    {
+                        "key": "Cube.379_Mat0",
+                        "value": {
+                            "value0": 9667435682011698789
+                        }
+                    },
+                    {
+                        "key": "Cube.380_Mat0",
+                        "value": {
+                            "value0": 9907319141241860298
+                        }
+                    },
+                    {
+                        "key": "Cube.421_Mat0",
+                        "value": {
+                            "value0": 9566190224195079624
+                        }
+                    },
+                    {
+                        "key": "Cube.381_Mat0",
+                        "value": {
+                            "value0": 12880281226576328655
+                        }
+                    },
+                    {
+                        "key": "Cube.384_Mat0",
+                        "value": {
+                            "value0": 14941727617509961523
+                        }
+                    },
+                    {
+                        "key": "Cube.425_Mat0",
+                        "value": {
+                            "value0": 5818102582751522171
+                        }
+                    },
+                    {
+                        "key": "Cube.385_Mat0",
+                        "value": {
+                            "value0": 11448673987227236432
+                        }
+                    },
+                    {
+                        "key": "Cube.424_Mat0",
+                        "value": {
+                            "value0": 8577872248674935594
+                        }
+                    },
+                    {
+                        "key": "Cube.613_Mat0",
+                        "value": {
+                            "value0": 16537313819498566975
+                        }
+                    },
+                    {
+                        "key": "Cube.388_Mat0",
+                        "value": {
+                            "value0": 8214026038459830906
+                        }
+                    },
+                    {
+                        "key": "Cube.429_Mat0",
+                        "value": {
+                            "value0": 16669666570084707487
+                        }
+                    },
+                    {
+                        "key": "Cube.394_Mat0",
+                        "value": {
+                            "value0": 10126676846345558398
+                        }
+                    },
+                    {
+                        "key": "Cube.398_Mat0",
+                        "value": {
+                            "value0": 5686752693378315160
+                        }
+                    },
+                    {
+                        "key": "Cube.602_Mat0",
+                        "value": {
+                            "value0": 17199109814105288872
+                        }
+                    },
+                    {
+                        "key": "Cube.400_Mat0",
+                        "value": {
+                            "value0": 9084801822477215865
+                        }
+                    },
+                    {
+                        "key": "Cube.407_Mat0",
+                        "value": {
+                            "value0": 18186349007699551300
+                        }
+                    },
+                    {
+                        "key": "Cube.408_Mat0",
+                        "value": {
+                            "value0": 6489683834241165433
+                        }
+                    },
+                    {
+                        "key": "Cube.409_Mat0",
+                        "value": {
+                            "value0": 5229004413260375016
+                        }
+                    },
+                    {
+                        "key": "Cube.410_Mat0",
+                        "value": {
+                            "value0": 7481902500118819902
+                        }
+                    },
+                    {
+                        "key": "Cube.411_Mat0",
+                        "value": {
+                            "value0": 2881196775005651574
+                        }
+                    },
+                    {
+                        "key": "Cube.412_Mat0",
+                        "value": {
+                            "value0": 5329016080992240761
+                        }
+                    },
+                    {
+                        "key": "Cube.413_Mat0",
+                        "value": {
+                            "value0": 4667623112210492240
+                        }
+                    },
+                    {
+                        "key": "Cube.414_Mat0",
+                        "value": {
+                            "value0": 7991892675868279503
+                        }
+                    },
+                    {
+                        "key": "Cube.416_Mat0",
+                        "value": {
+                            "value0": 14270669164539346246
+                        }
+                    },
+                    {
+                        "key": "Cube.417_Mat0",
+                        "value": {
+                            "value0": 4819721792842386812
+                        }
+                    },
+                    {
+                        "key": "Cube.422_Mat0",
+                        "value": {
+                            "value0": 10879834500557900116
+                        }
+                    },
+                    {
+                        "key": "Cube.434_Mat0",
+                        "value": {
+                            "value0": 536329946593458102
+                        }
+                    },
+                    {
+                        "key": "Cube.438_Mat0",
+                        "value": {
+                            "value0": 15601468369868242660
+                        }
+                    },
+                    {
+                        "key": "Cube.458_Mat0",
+                        "value": {
+                            "value0": 2801846004073484598
+                        }
+                    },
+                    {
+                        "key": "Cube.459_Mat0",
+                        "value": {
+                            "value0": 10355852876079777602
+                        }
+                    },
+                    {
+                        "key": "Cube.460_Mat0",
+                        "value": {
+                            "value0": 16607262316268303968
+                        }
+                    },
+                    {
+                        "key": "Cube.461_Mat0",
+                        "value": {
+                            "value0": 15898239712826426114
+                        }
+                    },
+                    {
+                        "key": "Cube.467_Mat0",
+                        "value": {
+                            "value0": 5572726246220562014
+                        }
+                    },
+                    {
+                        "key": "Cube.485_Mat0",
+                        "value": {
+                            "value0": 5258631365469105350
+                        }
+                    },
+                    {
+                        "key": "Cube.486_Mat0",
+                        "value": {
+                            "value0": 15923095905526007384
+                        }
+                    },
+                    {
+                        "key": "Cube.487_Mat0",
+                        "value": {
+                            "value0": 13089399482988347257
+                        }
+                    },
+                    {
+                        "key": "Cube.489_Mat0",
+                        "value": {
+                            "value0": 16036361026381288760
+                        }
+                    },
+                    {
+                        "key": "Cube.571_Mat0",
+                        "value": {
+                            "value0": 13450871333451015585
+                        }
+                    },
+                    {
+                        "key": "Cube.490_Mat0",
+                        "value": {
+                            "value0": 9415158152989545201
+                        }
+                    },
+                    {
+                        "key": "Cube.492_Mat0",
+                        "value": {
+                            "value0": 5416420735239409536
+                        }
+                    },
+                    {
+                        "key": "Cube.493_Mat0",
+                        "value": {
+                            "value0": 4585174685870250112
+                        }
+                    },
+                    {
+                        "key": "Cube.495_Mat0",
+                        "value": {
+                            "value0": 10035630081639625342
+                        }
+                    },
+                    {
+                        "key": "Cube.496_Mat0",
+                        "value": {
+                            "value0": 11964453718576408325
+                        }
+                    },
+                    {
+                        "key": "Cube.500_Mat0",
+                        "value": {
+                            "value0": 8220406881702886020
+                        }
+                    },
+                    {
+                        "key": "Cube.501_Mat0",
+                        "value": {
+                            "value0": 5417481635208262787
+                        }
+                    },
+                    {
+                        "key": "Cube.503_Mat0",
+                        "value": {
+                            "value0": 14984590897187251567
+                        }
+                    },
+                    {
+                        "key": "Cube.505_Mat0",
+                        "value": {
+                            "value0": 3370235276936543058
+                        }
+                    },
+                    {
+                        "key": "Cube.513_Mat0",
+                        "value": {
+                            "value0": 8099420495277434424
+                        }
+                    },
+                    {
+                        "key": "Cube.522_Mat0",
+                        "value": {
+                            "value0": 5820972062281406218
+                        }
+                    },
+                    {
+                        "key": "Cube.603_Mat0",
+                        "value": {
+                            "value0": 607906309977420665
+                        }
+                    },
+                    {
+                        "key": "Cube.525_Mat0",
+                        "value": {
+                            "value0": 12586646461489702866
+                        }
+                    },
+                    {
+                        "key": "Cube.534_Mat0",
+                        "value": {
+                            "value0": 13744314863989819979
+                        }
+                    },
+                    {
+                        "key": "Cube.545_Mat0",
+                        "value": {
+                            "value0": 10769434925724194714
+                        }
+                    },
+                    {
+                        "key": "Cube.548_Mat0",
+                        "value": {
+                            "value0": 11407356373392128392
+                        }
+                    },
+                    {
+                        "key": "Cube.550_Mat0",
+                        "value": {
+                            "value0": 15182601121173274782
+                        }
+                    },
+                    {
+                        "key": "Cube.551_Mat0",
+                        "value": {
+                            "value0": 3929463581133596868
+                        }
+                    },
+                    {
+                        "key": "Cube.553_Mat0",
+                        "value": {
+                            "value0": 14649754257084636460
+                        }
+                    },
+                    {
+                        "key": "Cube.556_Mat0",
+                        "value": {
+                            "value0": 14918354673444367884
+                        }
+                    },
+                    {
+                        "key": "Cube.569_Mat0",
+                        "value": {
+                            "value0": 11235632415966126699
+                        }
+                    },
+                    {
+                        "key": "Cube.570_Mat0",
+                        "value": {
+                            "value0": 11915258185442663489
+                        }
+                    },
+                    {
+                        "key": "Cube.574_Mat0",
+                        "value": {
+                            "value0": 9337703171300068080
+                        }
+                    },
+                    {
+                        "key": "Cube.575_Mat0",
+                        "value": {
+                            "value0": 17229470384326678688
+                        }
+                    },
+                    {
+                        "key": "Cube.578_Mat0",
+                        "value": {
+                            "value0": 12572804441373999539
+                        }
+                    },
+                    {
+                        "key": "Cube.580_Mat0",
+                        "value": {
+                            "value0": 7379872071288988280
+                        }
+                    },
+                    {
+                        "key": "Cube.586_Mat0",
+                        "value": {
+                            "value0": 2035883683337238772
+                        }
+                    },
+                    {
+                        "key": "Cube.587_Mat0",
+                        "value": {
+                            "value0": 973121694565553984
+                        }
+                    },
+                    {
+                        "key": "Cube.596_Mat0",
+                        "value": {
+                            "value0": 6835735259361547847
+                        }
+                    },
+                    {
+                        "key": "Cube.597_Mat0",
+                        "value": {
+                            "value0": 12230524403581841725
+                        }
+                    },
+                    {
+                        "key": "Cube.598_Mat0",
+                        "value": {
+                            "value0": 13625673182347924388
+                        }
+                    },
+                    {
+                        "key": "Cube.600_Mat0",
+                        "value": {
+                            "value0": 5970221395600833468
+                        }
+                    },
+                    {
+                        "key": "Cube.601_Mat0",
+                        "value": {
+                            "value0": 8995208424011721391
+                        }
+                    },
+                    {
+                        "key": "Cube.605_Mat0",
+                        "value": {
+                            "value0": 17597403905071330824
+                        }
+                    },
+                    {
+                        "key": "Cube.623_Mat0",
+                        "value": {
+                            "value0": 17447319592233440971
+                        }
+                    },
+                    {
+                        "key": "Cube.624_Mat0",
+                        "value": {
+                            "value0": 5908979251088899453
+                        }
+                    },
+                    {
+                        "key": "Cube.625_Mat0",
+                        "value": {
+                            "value0": 5918890239006395641
+                        }
+                    },
+                    {
+                        "key": "Cube.626_Mat0",
+                        "value": {
+                            "value0": 2521554476541038086
+                        }
+                    },
+                    {
+                        "key": "Cube.627_Mat0",
+                        "value": {
+                            "value0": 362297948858977249
+                        }
+                    },
+                    {
+                        "key": "Cube.630_Mat0",
+                        "value": {
+                            "value0": 14183410622174399026
+                        }
+                    },
+                    {
+                        "key": "Cube.631_Mat0",
+                        "value": {
+                            "value0": 15572053615088055398
+                        }
+                    },
+                    {
+                        "key": "Cube.633_Mat0",
+                        "value": {
+                            "value0": 5221118951158976508
+                        }
+                    },
+                    {
+                        "key": "Cube.634_Mat0",
+                        "value": {
+                            "value0": 4649888858567846783
+                        }
+                    },
+                    {
+                        "key": "Cube.637_Mat0",
+                        "value": {
+                            "value0": 1165978787166477697
+                        }
+                    },
+                    {
+                        "key": "Cube.638_Mat0",
+                        "value": {
+                            "value0": 2092855030950847471
+                        }
+                    },
+                    {
+                        "key": "Cube.636_Mat0",
+                        "value": {
+                            "value0": 8860197877312012861
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 10804841100397755995
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel1/colliders_gold/CollidersLvl1_FinalFinalGold.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/10804841100397755995.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
