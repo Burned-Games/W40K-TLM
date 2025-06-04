@@ -141,37 +141,29 @@ function on_ready()
 
         --DialogoText
         dialogLines12 = {
-            { name = "DeciusMarcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Garrosh to end this invasion.", time = 7.5}
+            { name = "DeciusMarcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Garrosh to end this invasion.", time = 3}
         }
         
         dialogLines13 = {
-            { name = "DeciusMarcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother.", time = 8}
-        }
-
-        dialogLines13Ac = {
-            { name = "QuintusMaxillian", text = "Lever engaged, moving forward.", time = 2}
+            { name = "DeciusMarcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother.", time = 3}
         }
 
         dialogLines14 = {
-            { name = "DeciusMarcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", time = 8.5}
+            { name = "DeciusMarcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", time = 3}
         }
 
         dialogLines15 = {
-            { name = "QuintusMaxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", time = 7}
+            { name = "QuintusMaxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", time = 3}
         }
         
         dialogLines16 = {
-            { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", time = 9}
+            { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", time = 3}
         }
         dialogLines17 = {
-            { name = "DeciusMarcellus", text = "You're approaching the Great Bridge-but the access gate is sealed. Search the area for a lever. Force the passage open.", time = 8.5}
+            { name = "DeciusMarcellus", text = "You're approaching the Great Bridge-but the access gate is sealed. Search the area for a lever. Force the passage open.", time = 3}
         }
         dialogLines18 = {
-            { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", time = 9}
-        }
-        
-        dialogLines19 = {
-            { name = "DeciusMarcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", time = 9}
+            { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", time = 3}
         }
        
     elseif current_scene_name == "level3.TeaScene" then
