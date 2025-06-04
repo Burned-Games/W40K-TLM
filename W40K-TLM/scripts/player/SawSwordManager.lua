@@ -60,7 +60,7 @@ end
 
 function on_update(dt)
 
-    if playerScript.health <= 0 or workbenchUIManagerScript.isWorkBenchOpen or pauseScript.isPaused or playerScript.locked == true then
+    if playerScript.health <= 0 or workbenchUIManagerScript.isWorkBenchOpen or --[[pauseScript.isPaused or]] playerScript.locked == true then
         return
     end
 
@@ -70,7 +70,7 @@ function on_update(dt)
         playerCDSFX:play()
     end
 
-    if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true and playerScript.impulseApplied == false  and pauseScript.isPaused == false then
+    if (rightShoulder == Input.state.Down or Input.is_key_pressed(Input.keycode.U)) and sawSwordAvailable == true and playerScript.impulseApplied == false  --[[and pauseScript.isPaused == false]] then
         
         slasheeed = true
             

@@ -359,6 +359,13 @@ function on_ready()
             moveButton:set_active(false)
 
         end
+
+        if (nameB == "MeleeButtonCollider" or nameA == "MeleeButtonCollider") then
+            meleeButton:set_active(true)
+            aimButton:set_active(false)
+            shootButton:set_active(false)
+            moveButton:set_active(false)
+        end
     end)
 
     --Mision
@@ -417,9 +424,14 @@ function on_ready()
 
     --TUTORIAL  
     moveButton = current_scene:get_entity_by_name("MovementButton")
+    moveButton:set_active(false)
     shootButton = current_scene:get_entity_by_name("ShootButton")
     meleeButton = current_scene:get_entity_by_name("SawSwordButton")
     aimButton = current_scene:get_entity_by_name("AimAndShoot")
+
+    if level == 1 and zonePlayer == 0 then
+        moveButton:set_active(true)
+    end
 
 end
 
@@ -460,7 +472,7 @@ function on_update(dt)
     
     footstepSFXTimer = footstepSFXTimer + dt
     
-    if pauseScript.isPaused or workbenchUIManagerScript.isWorkBenchOpen then
+    if --[[pauseScript.isPaused or]] workbenchUIManagerScript.isWorkBenchOpen then
         playerRb:set_velocity(Vector3.new(0, 0, 0))
         if currentAnim ~= idle  then
             currentAnim = idle
@@ -535,6 +547,9 @@ function on_update(dt)
         hasAimed = true
     end
 
+    if meleeButton:is_active() and swordScript.slasheeed then
+        meleeButton:set_active(false)
+    end
 
     if Input.is_key_pressed(Input.keycode.M) then
         applyStunn()
@@ -579,7 +594,7 @@ function on_update(dt)
     else
         enemyDirection = nil
     end
-    if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
+    if --[[pauseScript.isPaused == false and]] workbenchUIManagerScript.isWorkBenchOpen == false then
         playerMovement(dt)
     end
 
