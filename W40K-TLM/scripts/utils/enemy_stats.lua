@@ -138,7 +138,7 @@ local enemy_stats = {
 
             speed = 5,
             fleeSpeed = 7,
-            bulletSpeed = 15,
+            bulletSpeed = 30,
 
             enemyShield = 50,
 
@@ -164,7 +164,7 @@ local enemy_stats = {
 
             timeBetweenBursts = 5.0,
             -- Minimun time between shots of the same burst
-            burstCooldown = 0.4
+            burstCooldown = 0.1
         },
 
 
@@ -175,7 +175,7 @@ local enemy_stats = {
 
             speed = 5,
             fleeSpeed = 7,
-            bulletSpeed = 15,
+            bulletSpeed = 30,
 
             enemyShield = 60,
 
@@ -197,7 +197,7 @@ local enemy_stats = {
             checkEnemyInterval = 40.0,
             timeBetweenBursts = 2.0,
             -- Minimun time between shots of the same burst
-            burstCooldown = 0.2
+            burstCooldown = 0.1
         }
 
     },

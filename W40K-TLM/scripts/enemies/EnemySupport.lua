@@ -708,8 +708,8 @@ function shoot_projectile()
 
     local bullet, index = support.bulletManagerScript:get_free_bullet()
     local angle = math.rad(-support.enemyTransf.rotation.y)
-    local offsetX = -0.087
-    local offsetZ = -3.717
+    local offsetX = 0
+    local offsetZ = 3.704
 
     if support.enemyTransf.rotation.x == 180 then
         angle = -angle
@@ -724,7 +724,7 @@ function shoot_projectile()
     local rotatedX = offsetX * math.cos(angle) - offsetZ * math.sin(angle)
     local rotatedZ = offsetX * math.sin(angle) + offsetZ * math.cos(angle)
 
-    local startPos = Vector3.new(enemyX + rotatedX, support.enemyTransf.position.y + 1.033, enemyZ + rotatedZ)
+    local startPos = Vector3.new(enemyX + rotatedX, support.enemyTransf.position.y + 1.240, enemyZ + rotatedZ)
 
     bullet.rb:set_position(startPos)
     
