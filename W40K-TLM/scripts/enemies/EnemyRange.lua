@@ -579,7 +579,7 @@ function range:find_nearby_enemies()
         local tag = entity:get_component("TagComponent")
         local name = entity:get_component("TagComponent").tag
         
-        if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze" or name == "EnemyTank1" or name == "EnemySupport") and entity ~= self then
+        if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze" or name == "EnemyTank1" or name == "EnemySupport" or name == "EnemyTutorial") and entity ~= self then
             local script = entity:get_component("ScriptComponent")
             local entityTransform = entity:get_component("TransformComponent")
             log("Entity: " .. name .. " - Tag: " .. tag.tag)
@@ -587,11 +587,23 @@ function range:find_nearby_enemies()
                 local distance = range:get_distance(range.enemyTransf.position, entityTransform.position)
                 
                 if distance <= range.alertRadius then
+                    local scriptRef = nil
+
+                    if name == "EnemyRange" or name == "EnemyTutorial" then
+                        scriptRef = script.range
+                    elseif name == "EnemyTank" or name == "EnemyTank1" then
+                        scriptRef = script.tank
+                    elseif name == "EnemyKamikaze" then
+                        scriptRef = script.kamikaze
+                    elseif name == "EnemySupport" then
+                        scriptRef = script.support
+                    end
+
                     count = count + 1
                     local enemyData = {
                         entity = entity,
                         transform = entityTransform,
-                        script = script[name:lower():sub(6)],
+                        script = scriptRef,
                         distance = distance,
                         alerted = false
                     }

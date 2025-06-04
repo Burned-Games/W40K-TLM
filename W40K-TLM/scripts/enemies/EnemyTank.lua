@@ -603,11 +603,23 @@ function tank:find_nearby_enemies()
                 local distance = tank:get_distance(tank.enemyTransf.position, entityTransform.position)
                 
                 if distance <= tank.alertRadius then
+                    local scriptRef = nil
+
+                    if name == "EnemyRange" or name == "EnemyTutorial" then
+                        scriptRef = script.range
+                    elseif name == "EnemyTank" or name == "EnemyTank1" then
+                        scriptRef = script.tank
+                    elseif name == "EnemyKamikaze" then
+                        scriptRef = script.kamikaze
+                    elseif name == "EnemySupport" then
+                        scriptRef = script.support
+                    end
+
                     count = count + 1
                     local enemyData = {
                         entity = entity,
                         transform = entityTransform,
-                        script = script[name:lower():sub(6)],
+                        script = scriptRef,
                         distance = distance,
                         alerted = false
                     }
