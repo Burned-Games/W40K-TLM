@@ -1,5 +1,6 @@
 local slider1 
 local slider2 
+local FullSceeenButton
 
 local text1
 local text2
@@ -29,6 +30,7 @@ local settingsSFX = nil
 function on_ready()
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
+    FullSceeenButton = current_scene:get_entity_by_name("FullScreen"):get_component("UIButtonComponent")
 
     mainMenuBase = current_scene:get_entity_by_name("Base")
     mainMenuScript = current_scene:get_entity_by_name("BaseManager"):get_component("ScriptComponent")
@@ -62,6 +64,11 @@ function on_ready()
         slider2.selected = true
         slider1.selected = false
     end
+
+    local currentMode = App.get_window_mode()
+    update_fullscreen_button_state(currentMode == WindowMode.Fullscreen)
+    
+
 end
 
 function on_update(dt)
@@ -96,27 +103,31 @@ function on_update(dt)
         local verticalInput = Input.get_axis(Input.action.UiMoveVertical)
         if math.abs(verticalInput) > 0.5 then
             if verticalInput > 0 then
-                currentSelectedSlider = currentSelectedSlider - 1
-                if currentSelectedSlider < 1 then
-                    currentSelectedSlider = 2
-                end
-            else 
                 currentSelectedSlider = currentSelectedSlider + 1
-                if currentSelectedSlider > 2 then
+                if currentSelectedSlider > 3 then
                     currentSelectedSlider = 1
                 end
+            else 
+                currentSelectedSlider = currentSelectedSlider - 1
+                if currentSelectedSlider < 1 then
+                    currentSelectedSlider = 3
+                end
             end
+    
+            update_visual_selection()
 
-            if currentSelectedSlider == 1 then
-                slider1.selected = true
-                slider2.selected = false
-            elseif currentSelectedSlider == 2 then
-                slider2.selected = true
-                slider1.selected = false
-            end
+
             inputCooldown = cooldownTime
             return
         end
+
+        if  currentSelectedSlider == 3 then
+            value = Input.get_button(Input.action.Confirm)
+            if value == Input.state.Down then
+                toggle_fullscreen()
+            end
+        end
+        
     end
 
    if mainMenuScript.ajustesOpened == true then
@@ -145,6 +156,50 @@ function on_update(dt)
     end
     
 end
+
+function toggle_fullscreen()
+    local currentMode = App.get_window_mode()
+    if currentMode == WindowMode.Fullscreen then
+        App.set_window_mode(WindowMode.Windowed)
+        update_fullscreen_button_state(false)
+    else
+        App.set_window_mode(WindowMode.Fullscreen)
+        update_fullscreen_button_state(true)
+    end
+
+    update_visual_selection()
+end
+
+function update_fullscreen_button_state(isFullscreen)
+    if isFullscreen then
+        FullSceeenButton.state = State.Pressed
+    else
+        FullSceeenButton.state = State.Normal
+    end
+end
+
+function update_visual_selection()
+    slider1.selected = false
+    slider2.selected = false
+
+    local isFullscreen = (App.get_window_mode() == WindowMode.Fullscreen)
+
+    if currentSelectedSlider == 1 then
+        slider1.selected = true
+        update_fullscreen_button_state(isFullscreen) 
+    elseif currentSelectedSlider == 2 then
+        slider2.selected = true
+        update_fullscreen_button_state(isFullscreen) 
+    elseif currentSelectedSlider == 3 then
+        
+        FullSceeenButton.state = State.Hover
+    else
+        update_fullscreen_button_state(isFullscreen) 
+    end
+end
+
+
+
 
 function on_exit()
    
