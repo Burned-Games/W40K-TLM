@@ -55,11 +55,11 @@ local skillsArmasBoton
 local bolterCurrentScale = 1.0
 local bolterScaling = false
 local bolterScaleTimer = 0
+local bolterAvailableLastFrame = true
 local grenadeCurrentScale = 1.0
 local grenadeScaling = false
 local grenadeScaleTimer = 0
-
-
+local grenadeAvailableLastFrame = true
 
 arma1 = nil
 arma1Texture = nil
@@ -288,7 +288,6 @@ function abilityManager(dt)
 
     if dashScaling then
         skill1:set_color(Vector4.new(0.952, 1, 0.258, 1))
-        skill1Button:set_active(false)
         playerScript.dashAvailable = false
 
         dashScaleTimer = dashScaleTimer + dt
@@ -308,7 +307,6 @@ function abilityManager(dt)
         else
             dashScaling = false
             desiredScale = originalScale
-            skill1Button:set_active(true)
             skill1:set_color(Vector4.new(1, 1, 1, 1))
                 
             playerScript.dashAvailable = true
@@ -318,7 +316,6 @@ function abilityManager(dt)
         scale_ui_element(skill1Entity, relativeScale)
         dashCurrentScale = desiredScale
     end
-
 
     -- Mostrar cooldown
     local dashRemainingTime = playerScript.dashColdown - playerScript.dashColdownCounter
@@ -370,7 +367,6 @@ function abilityManager(dt)
 
     if meleScaling then
         --skill2:set_color(Vector4.new(0.952, 1, 0.258, 1))
-        skill2Button:set_active(false)
         sawSwordScript.sawSwordAvailable = false
 
         meleeScaleTimer = meleeScaleTimer + dt
@@ -390,7 +386,6 @@ function abilityManager(dt)
         else
             meleScaling = false
             desiredScale = originalScale
-            skill2Button:set_active(true)
             --skill2:set_color(Vector4.new(1, 1, 1, 1))
                 
             sawSwordScript.sawSwordAvailable = true
@@ -453,9 +448,8 @@ function abilityManager(dt)
     end
 
     if fervorScaling then
-        --skill3:set_color(Vector4.new(0.952, 1, 0.258, 1)) -- Opcional: color resaltado
-        skill3ButtonEntity:set_active(false)
-        armorUpgradeScript.fervorAstartesAvailable = false -- Bloqueo temporal
+        --skill3:set_color(Vector4.new(0.952, 1, 0.258, 1)) 
+        armorUpgradeScript.fervorAstartesAvailable = false
 
         fervorScaleTimer = fervorScaleTimer + dt
         local desiredScale = originalScale
@@ -467,7 +461,6 @@ function abilityManager(dt)
         else
             fervorScaling = false
             desiredScale = originalScale
-            skill3ButtonEntity:set_active(true)
             --skill3:set_color(Vector4.new(1, 1, 1, 1))
             armorUpgradeScript.fervorAstartesAvailable = true
         end
@@ -477,7 +470,6 @@ function abilityManager(dt)
         fervorCurrentScale = desiredScale
     end
 
-    -- Actualizar estado visual del botón
     skill3.value = upgradeManager:has_armor_special()
     skill3ButtonEntity:set_active(skill3.value)
 
@@ -518,7 +510,97 @@ function weaponManager(dt)
     
     skillsArmasBoton:set_active(hasWeaponSpecial)
 
+    local maxScale = 1.1
+    local originalScale = 1.0
+    local expandDuration = 0.15
+    local contractDuration = 0.15
+    local totalAnimationTime = expandDuration + contractDuration
+
     if playerScript.actualweapon == 0 then
+        arma1:set_active(true)
+        arma2:set_active(false)
+        maxAmmoTextComponent:set_text(rifleScript.maxAmmo)
+        weaponChangerToggle.value = false
+        
+        skillArma1Entity:set_active(true)
+        skillArma2Entity:set_active(false)
+        
+        skillArma2CooldownEntity:set_active(false)
+
+        if bolterCurrentScale == nil then
+            bolterCurrentScale = originalScale
+        end
+
+        if bolterScaling == nil then
+            bolterScaling = false
+        end
+
+        if bolterScaleTimer == nil then
+            bolterScaleTimer = 0
+        end
+
+        local bolterRemainingTime = rifleScript.cooldownDisruptorBulletTime - rifleScript.cooldownDisruptorBulletTimeCounter
+        local bolterCurrentlyAvailable = bolterRemainingTime <= 0
+        local bolterJustBecameAvailable = not bolterAvailableLastFrame and bolterCurrentlyAvailable
+
+        if bolterJustBecameAvailable then
+            bolterScaling = true
+            bolterScaleTimer = 0
+        end
+
+        -- Animación de escala del bolter
+        if bolterScaling then
+
+            bolterScaleTimer = bolterScaleTimer + dt
+
+            local desiredScale = originalScale
+
+            if bolterScaleTimer <= expandDuration then
+                -- Expansión
+                local expandProgress = bolterScaleTimer / expandDuration
+                desiredScale = originalScale + (maxScale - originalScale) * expandProgress
+
+            elseif bolterScaleTimer <= totalAnimationTime then
+                -- Contracción
+                local shrinkProgress = (bolterScaleTimer - expandDuration) / contractDuration
+                desiredScale = maxScale - (maxScale - originalScale) * shrinkProgress
+                    
+            else
+                bolterScaling = false
+                desiredScale = originalScale
+            end
+
+            local relativeScale = desiredScale / bolterCurrentScale
+            scale_ui_element(skillArma1Entity, relativeScale) 
+            bolterCurrentScale = desiredScale
+        end
+
+        bolterAvailableLastFrame = bolterCurrentlyAvailable
+
+        -- Mostrar cooldown del bolter
+        local remainingTime = rifleScript.cooldownDisruptorBulletTime - rifleScript.cooldownDisruptorBulletTimeCounter
+        if remainingTime > 0 and not bolterScaling then 
+            if remainingTime <= 1.1 then
+                skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
+            else
+                skillsArmasTextCooldown:set_text(string.format("%d", math.ceil(remainingTime)))
+            end
+            skillsArmasTextCooldownEntity:set_active(true)
+            skillArma1CooldownEntity:set_active(true)
+            
+            local totalCooldown = rifleScript.cooldownDisruptorBulletTime
+            local porcentaje = remainingTime / totalCooldown
+            if porcentaje > 1 then
+                porcentaje = 1
+            end
+            
+            local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
+            skillArma1Cooldown:set_rect(cooldownRect)
+        else
+            skillsArmasTextCooldown:set_text("")
+            skillsArmasTextCooldownEntity:set_active(false)
+            skillArma1CooldownEntity:set_active(false)
+        end
         arma1:set_active(true)
         arma2:set_active(false)
         maxAmmoTextComponent:set_text(rifleScript.maxAmmo)
@@ -552,7 +634,7 @@ function weaponManager(dt)
             skillsArmasTextCooldownEntity:set_active(false)
             skillArma1CooldownEntity:set_active(false)
         end
-    
+        
     elseif playerScript.actualweapon == 1 then
         arma1:set_active(false)
         arma2:set_active(true)
@@ -563,9 +645,59 @@ function weaponManager(dt)
         skillArma2Entity:set_active(true)
         
         skillArma1CooldownEntity:set_active(false)
-    
+
+        if grenadeCurrentScale == nil then
+            grenadeCurrentScale = originalScale
+        end
+
+        if grenadeScaling == nil then
+            grenadeScaling = false
+        end
+
+        if grenadeScaleTimer == nil then
+            grenadeScaleTimer = 0
+        end
+
+        local grenadeRemainingTime = shotGunScript.granadeCooldown - shotGunScript.timerGranade
+        local grenadeCurrentlyAvailable = grenadeRemainingTime <= 0
+        local grenadeJustBecameAvailable = not grenadeAvailableLastFrame and grenadeCurrentlyAvailable
+
+        if grenadeJustBecameAvailable then
+            grenadeScaling = true
+            grenadeScaleTimer = 0
+        end
+
+        -- Animación de escala de la granada
+        if grenadeScaling then
+            grenadeScaleTimer = grenadeScaleTimer + dt
+
+            local desiredScale = originalScale
+
+            if grenadeScaleTimer <= expandDuration then
+                -- Expansión
+                local expandProgress = grenadeScaleTimer / expandDuration
+                desiredScale = originalScale + (maxScale - originalScale) * expandProgress
+
+            elseif grenadeScaleTimer <= totalAnimationTime then
+                -- Contracción
+                local shrinkProgress = (grenadeScaleTimer - expandDuration) / contractDuration
+                desiredScale = maxScale - (maxScale - originalScale) * shrinkProgress
+                    
+            else
+                grenadeScaling = false
+                desiredScale = originalScale
+            end
+
+            local relativeScale = desiredScale / grenadeCurrentScale
+            scale_ui_element(skillArma2Entity, relativeScale)
+            grenadeCurrentScale = desiredScale
+        end
+
+        grenadeAvailableLastFrame = grenadeCurrentlyAvailable
+
+        -- Mostrar cooldown de la granada
         local remainingTime = shotGunScript.granadeCooldown - shotGunScript.timerGranade
-        if remainingTime > 0 then
+        if remainingTime > 0 and not grenadeScaling then
             if remainingTime <= 1.1 then
                 skillsArmasTextCooldown:set_text(string.format("%.1f", remainingTime))
             else
