@@ -18,6 +18,11 @@ local textIndex = 1
 local typeSpeed = 0.04
 local timer = 0
 
+-- Pause-at-punctuation control
+local punctuationPause = false
+local punctuationPauseTimer = 0
+local punctuationPauseDelay = 2 
+
 -- Auto-next control
 local autoNextEnabled = true
 local autoNextTimer = 0
@@ -25,6 +30,9 @@ local autoNextDelay = 3.0
 local waitingForNext = false
 local isTyping = false
 local spacePressedLastFrame = false
+
+-- Audio typing sound state
+local isTypingAudioPlaying = false
 
 -- Animation control
 local dialogAnimationTime = 0.0
@@ -90,13 +98,14 @@ function on_update(dt)
                 currentAudio = nil
             end     
             audioLoopSFX:pause()
+            isTypingAudioPlaying = false
         elseif waitingForNext then
             if currentAudio then
                 currentAudio:pause()
                 audioLoopSFX:pause()
                 currentAudio = nil
             end
-
+            isTypingAudioPlaying = false
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
@@ -112,6 +121,7 @@ function on_update(dt)
                 currentAudio = nil
             end
             audioLoopSFX:pause()
+            isTypingAudioPlaying = false
             waitingForNext = false
             autoNextTimer = 0
             nextDialogLine()
@@ -120,19 +130,45 @@ function on_update(dt)
     end
 
     if isTyping then
-        timer = timer + dt
-        if timer >= typeSpeed and textIndex <= #fullText then
-            local char = fullText:sub(textIndex, textIndex)
-            visibleText = visibleText .. char
-            textComponent:set_text(insert_line_breaks(visibleText, 45))
-            textIndex = textIndex + 1
-            timer = 0
+        -- 若处于标点暂停状态，则等待暂停时间结束
+        if punctuationPause then
+            punctuationPauseTimer = punctuationPauseTimer + dt
+            if punctuationPauseTimer >= punctuationPauseDelay then
+                punctuationPause = false
+                punctuationPauseTimer = 0
+                if not isTypingAudioPlaying then
+                    audioLoopSFX:play()
+                    isTypingAudioPlaying = true
+                end
+            end
+        else
+            timer = timer + dt
+            if timer >= typeSpeed and textIndex <= #fullText then
+                local char = fullText:sub(textIndex, textIndex)
+                visibleText = visibleText .. char
+                textComponent:set_text(insert_line_breaks(visibleText, 45))
+                textIndex = textIndex + 1
+                timer = 0
 
-            if textIndex > #fullText then
-                isTyping = false
-                waitingForNext = true
-                autoNextTimer = 0
-                audioLoopSFX:pause()
+                -- 遇到句号或逗号时暂停，并调用pause避免重复音效
+                if char == "." or char == "," then
+                    punctuationPause = true
+                    punctuationPauseTimer = 0
+                    if isTypingAudioPlaying then
+                        audioLoopSFX:pause()
+                        isTypingAudioPlaying = false
+                    end
+                end
+
+                if textIndex > #fullText then
+                    isTyping = false
+                    waitingForNext = true
+                    autoNextTimer = 0
+                    if isTypingAudioPlaying then
+                        audioLoopSFX:pause()
+                        isTypingAudioPlaying = false
+                    end
+                end
             end
         end
     end
@@ -145,7 +181,6 @@ function start_next_queued_dialog()
     start_dialog(nextDialog)
     isQueueProcessing = false
 end
-
 
 function dialog_equals(a, b)
     if #a ~= #b then return false end
@@ -160,18 +195,18 @@ end
 function start_dialog(lines)
     waitingForNextDialog = false
 
-        if isDialogPlaying or dialogAnimating or waitingDialogStart then
-            if dialog_equals(dialogQueue, lines) then
-                return
-            end
-            for _, queuedLines in ipairs(dialogSequenceQueue) do
-                if dialog_equals(queuedLines, lines) then
-                    return
-                end
-            end
-            table.insert(dialogSequenceQueue, lines)
+    if isDialogPlaying or dialogAnimating or waitingDialogStart then
+        if dialog_equals(dialogQueue, lines) then
             return
         end
+        for _, queuedLines in ipairs(dialogSequenceQueue) do
+            if dialog_equals(queuedLines, lines) then
+                return
+            end
+        end
+        table.insert(dialogSequenceQueue, lines)
+        return
+    end
 
     dialogQueue = lines
     currentDialogIndex = 1
@@ -259,10 +294,15 @@ function play_current_line()
     waitingForNext = false
     autoNextTimer = 0
     isTyping = true
+    punctuationPause = false
+    punctuationPauseTimer = 0
 
     nameComponent:set_text(line.name or " ")
     textComponent:set_text(" ")
-    audioLoopSFX:play()
+    if not isTypingAudioPlaying then
+        audioLoopSFX:play()
+        isTypingAudioPlaying = true
+    end
 
     if line.audio then
         currentAudio = line.audio
@@ -285,6 +325,7 @@ function end_dialog()
         currentAudio = nil
     end
     audioLoopSFX:pause()
+    isTypingAudioPlaying = false
     start_dialog_close_animation()
 
     if #dialogSequenceQueue > 0 then
