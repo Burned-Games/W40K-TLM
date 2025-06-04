@@ -61,6 +61,9 @@ function on_ready()
             support.shieldExplosionSFX = current_scene:get_entity_by_name("SupportShieldExplosionSFX"):get_component("AudioSourceComponent")
         end
     end
+
+    -- BulletManager
+    support.bulletManagerScript = current_scene:get_entity_by_name("SuppEnemyBullets"):get_component("ScriptComponent")
     
     -- Particles
 
@@ -94,6 +97,7 @@ function on_ready()
     support.rangeAttackRange = stats.rangeAttackRange
     support.supportDamage = stats.supportDamage 
     support.bulletSpeed = stats.bulletSpeed
+    support.dispersion = stats.dispersion
 
     -- External Timers
     support.shieldCooldown = 5.0
@@ -700,38 +704,54 @@ function deactivate_bullet(index)
     support.bulletTimers[index] = 0
 end
 
-function shoot_projectile(targetExplosive)
+function shoot_projectile()
 
-    local bullet = support.bulletPool[support.currentBulletIndex]
-    
-    local startPos = Vector3.new(
-        support.enemyTransf.position.x - 1,
-        support.enemyTransf.position.y + 0.982,
-        support.enemyTransf.position.z - 0.1
-    )
+    local bullet, index = support.bulletManagerScript:get_free_bullet()
+    local angle = math.rad(-support.enemyTransf.rotation.y)
+    local offsetX = -0.087
+    local offsetZ = -3.717
+
+    if support.enemyTransf.rotation.x == 180 then
+        angle = -angle
+        offsetX = -offsetX
+        offsetZ = -offsetZ
+    end
+
+
+    local enemyX = support.enemyTransf.position.x
+    local enemyZ = support.enemyTransf.position.z
+
+    local rotatedX = offsetX * math.cos(angle) - offsetZ * math.sin(angle)
+    local rotatedZ = offsetX * math.sin(angle) + offsetZ * math.cos(angle)
+
+    local startPos = Vector3.new(enemyX + rotatedX, support.enemyTransf.position.y + 1.033, enemyZ + rotatedZ)
+
     bullet.rb:set_position(startPos)
     
     -- Target position
     local targetPos = support.delayedPlayerPos -- Default to player
-    if targetExplosive and support.explosiveDetected and support.level == 2 then -- Switch to explosive if detected
-        targetPos = support.explosiveTransf.position 
-    end
 
-    -- Calculate normalized direction
-    local dx = targetPos.x - startPos.x
-    local dz = targetPos.z - startPos.z
+    -- Calculate direction vector
+    local dirX = targetPos.x - startPos.x
+    local dirZ = targetPos.z - startPos.z
+    local length = math.sqrt(dirX * dirX + dirZ * dirZ)
+    if length == 0 then length = 0.001 end
 
-    local targetAngle = math.deg(support:atan2(dx, dz))
+    local normX = dirX / length
+    local normZ = dirZ / length
+
+    -- Add angular dispersion ±5 degrees
+    local dispersion = math.rad(support.dispersion)
+    local randomAngle = math.random() * (2 * dispersion) - dispersion
+    local rotatedX = normX * math.cos(randomAngle) - normZ * math.sin(randomAngle)
+    local rotatedZ = normX * math.sin(randomAngle) + normZ * math.cos(randomAngle)
+
+    -- Set rotation
+    local targetAngle = math.deg(support:atan2(rotatedX, rotatedZ))
     bullet.rb:set_rotation(Vector3.new(0, targetAngle, 0))
-    
-    -- Set velocity and activate bullet
-    bullet.rb:set_velocity(Vector3.new(
-        dx * support.bulletSpeed,
-        0,
-        dz * support.bulletSpeed
-    ))
-    bullet.active = true
-    support.bulletTimers[support.currentBulletIndex] = 0
+
+    -- Apply velocity
+    bullet.rb:set_velocity(Vector3.new(rotatedX * support.bulletSpeed, 0, rotatedZ * support.bulletSpeed))
 
     -- Collision handling for current bullet
     bullet.rbComponent:on_collision_enter(function(entityA, entityB)
@@ -742,14 +762,8 @@ function shoot_projectile(targetExplosive)
             support:make_damage(support.supportDamage) 
         end
         
-        deactivate_bullet(support.currentBulletIndex)
+        support.bulletManagerScript:deactivate(index)
     end)
-
-    -- Update bullet index
-    support.currentBulletIndex = support.currentBulletIndex + 1
-    if support.currentBulletIndex > 3 then
-        support.currentBulletIndex = 1
-    end
 
 end
 

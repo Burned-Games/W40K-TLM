@@ -144,6 +144,8 @@ local enemy_stats = {
 
             supportDamage = 4,
 
+            dispersion = 3,
+
             maxBurstShots = 3,
 
             detectionRange = 17,
@@ -178,6 +180,8 @@ local enemy_stats = {
             enemyShield = 60,
 
             supportDamage = 20,
+
+            dispersion = 3,
 
             maxBurstShots = 4,
 
