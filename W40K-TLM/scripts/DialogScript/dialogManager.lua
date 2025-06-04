@@ -21,12 +21,12 @@ local timer = 0
 -- Pause-at-punctuation control
 local punctuationPause = false
 local punctuationPauseTimer = 0
-local punctuationPauseDelay = 2 
+local punctuationPauseDelay = 0.5 
 
 -- Auto-next control
 local autoNextEnabled = true
 local autoNextTimer = 0
-local autoNextDelay = 3.0
+local autoNextDelay = 2
 local waitingForNext = false
 local isTyping = false
 local spacePressedLastFrame = false
@@ -49,7 +49,7 @@ local audioLoopSFX = nil
 
 local isQueueProcessing = false
 local dialogEndTimer = 0.0
-local dialogEndDelay = 3.0
+local dialogEndDelay = 1.0
 local waitingForNextDialog = false
 
 -- Initialization

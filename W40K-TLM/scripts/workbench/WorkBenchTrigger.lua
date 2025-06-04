@@ -74,7 +74,7 @@ function on_ready()
         -- --print("Found RigidBodyComponent on Workbench")
         workbenchRB.rb:set_trigger(true)
         workbenchRB.rb:set_freeze_y(true)
-        workbenchInitialPosition = Vector3.new(workbenchRB.rb:get_position().x, workbenchRB.rb:get_position().y, workbenchRB.rb:get_position().z)
+        workbenchInitialPosition = Vector3.new(workbenchRB.rb:get_position().x, workbenchRB.rb:get_position().y + 0.1, workbenchRB.rb:get_position().z)
         workbenchRB:on_collision_enter(function(entityA, entityB)
             handle_collision_stay(entityA, entityB)
         end)
@@ -108,7 +108,7 @@ function on_ready()
                 local collider_type = areaTriggerRB.rb:get_collider_type()
                 
                 if collider_type == "Box" then
-                    collider:set_box_size(Vector3.new(10, 1, 10))
+                    collider:set_box_size(Vector3.new(10, 0.010, 10))
                 end
 
                 areaTriggerRB.rb:set_trigger(true)

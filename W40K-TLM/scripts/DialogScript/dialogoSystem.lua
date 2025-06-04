@@ -102,39 +102,37 @@ function on_ready()
 
         --Dialogo
         dialogLines1 = {
-            { name = "DeciusMarcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?",  time =9.6},
-            { name = "DeciusMarcellus", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", time = 7.5},
-            { name = "DeciusMarcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", time = 8}
+            { name = "Decius    Marcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?",  time =3},
+            { name = "Quintus Maxillian", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", time = 3},
+            { name = "Decius Marcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", time = 3}
         }
         
         dialogLines5L = {
-            { name = "DeciusMarcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand.", time = 9}
+            { name = "Decius Marcellus", text = "Brother Maxillian, a supply pod is en route to your position. Use it to upgrade your gear. May the Emperor's light guide your hand.", time = 3}
         }
 
         dialogLines5S = {
-            { name = "DeciusMarcellus", text = "We're detecting medicae injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter.", time = 7.8}
+            { name = "Decius Marcellus", text = "We're detecting medical injectors nearby. Tend to your wounds with them before proceeding. The mission must not falter.", time = 3}
         }
 
         dialogLines8 = {
-            { name = "QuintusMaxillian", text = "Brother, the scanner reveals heavy Ork presence. Enter their stronghold and purge them all.", time = 6}
+            { name = "Decius Marcellus", text = "Brother, the scanner reveals heavy Ork presence. One of them can protect others, be careful.", time = 3}
         }
 
         dialogLines9L = {
-            { name = "QuintusMaxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?", time = 4},
-            { name = "DeciusMarcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother.", time = 6}
+            { name = "Quintus Maxillian", text = "Commander Decius, I hear Orks nearby. Can you confirm their numbers?", time = 3},
+            { name = "Decius Marcellus", text = "You are surrounded, Brother. Prepare for a brutal confrontation. The Emperor protects brother.", time = 3}
         }
 
         dialogLines9S = {
-            { name = "DeciusMarcellus", text = "Status report-are you still with us, Brother?", time = 4},
-            { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?", time = 5}
+            { name = "DeciusMarcellus", text = "Status report, are you still with us, Brother?", time = 3},
+            { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?", time = 3},
+            { name = "DeciusMarcellus", text = "There is a brutal combat on the next door Brother. A big one will try to harrass you, be careful.", time = 3}
         }
 
         dialogLines10 = {
-            { name = "DeciusMarcellus", text = "Nothing more brother, few enemies left. Go ahead brother, clean this place and proceed with the mission.", time = 6.5}
-        }
-
-        dialogLines11 = {
-            { name = "DeciusMarcellus", text = "Little resistance remains. Once you clear the path ahead, proceed directly to Martyria Eterna. Finish this, Brother.", time = 8}
+            { name = "DeciusMarcellus", text = "That was a huge fight, brother. A supply pot should be in your way.", time = 3},
+            { name = "DeciusMarcellus", text = "Few enemies left. Go ahead brother, clean this place and proceed with the mission.", time = 3}
         }
     
     elseif current_scene_name == "level2.TeaScene" then
