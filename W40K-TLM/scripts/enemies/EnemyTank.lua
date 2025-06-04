@@ -179,6 +179,9 @@ function on_ready()
     tank.playerDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position) + 100
     tank.lastTargetPos = tank.playerTransf.position
 
+    -- Raycast for tackle 
+    tank.tackleRaycastLength = 0.5
+    tank.tackleRaycastOffset = 1.5 
 
 
     -- On Collision functions
@@ -521,6 +524,10 @@ function tank:attack_state(dt)
 end
 
 function tank:tackle_state()
+    if tank:tackle_raycast() then
+        return
+    end
+
     if tank.currentAnim ~= tank.tackleAnim then
         tank.currentAnim = tank.tackleAnim
         tank.animator:set_current_animation(tank.currentAnim)
@@ -536,7 +543,7 @@ function tank:tackle_state()
         )
 
         tank.enemyRb:set_velocity(velocity)
-            tank:rotate_enemy(Vector3.new(
+        tank:rotate_enemy(Vector3.new(
             tank.enemyTransf.position.x + tank.targetDirection.x,
             tank.enemyTransf.position.y,
             tank.enemyTransf.position.z + tank.targetDirection.z
@@ -585,6 +592,59 @@ function tank:berserka_rage()
             self.originalStats = nil
         end
     end
+end
+
+function tank:tackle_raycast()
+    if tank.currentState ~= tank.state.Tackle or not tank.isCharging then 
+        return false
+    end
+    
+    local foward = Vector3.new(tank.targetDirection.x, 0, tank.targetDirection.z)
+    local leftRay = Vector3.new(-foward.z, 0, foward.x)
+    local rightRay = Vector3.new(foward.z, 0, -foward.x)
+
+    local leftOrigin = Vector3.new(
+        tank.enemyTransf.position.x + leftRay.x * tank.tackleRaycastOffset,
+        tank.enemyTransf.position.y + 1,
+        tank.enemyTransf.position.z + leftRay.z * tank.tackleRaycastOffset
+    )
+    local rightOrigin = Vector3.new(
+        tank.enemyTransf.position.x + rightRay.x * tank.tackleRaycastOffset,
+        tank.enemyTransf.position.y + 1,
+        tank.enemyTransf.position.z + rightRay.z * tank.tackleRaycastOffset
+    )
+
+    local leftHit = Physics.Raycast(leftOrigin, leftRay, tank.tackleRaycastLength)
+    local rightHit = Physics.Raycast(rightOrigin, rightRay, tank.tackleRaycastLength)
+
+    Physics.DebugDrawRaycast(leftOrigin, leftRay, tank.tackleRaycastLength, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    Physics.DebugDrawRaycast(rightOrigin, rightRay, tank.tackleRaycastLength, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+
+    if tank:detect(leftHit, tank.player) or tank:detect(rightHit, tank.player) then
+        print("[TANK] Tackle hit player by RAYCAST")
+        tank:rotate_enemy(tank.playerTransf.position)
+        tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
+        tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+        tank.isCharging = false
+        tank.canTackle = false
+
+        tank.tackleTimer = 0.0
+        tank.impactPlayerSFX:play()
+        tank:make_damage(tank.tackleDamage)
+        tank.playerScript.applyStunn()
+
+        if tank.meleeAreaRb then
+            tank.meleeAreaRb:set_position(tank.enemyTransf.position)
+        end
+
+        if not tank.isBerserkaActive then
+            tank:berserka_rage()
+        end
+        tank.currentState = tank.state.Attack
+        return true
+    end
+
+    return false
 end
 
 function tank:find_nearby_enemies()
