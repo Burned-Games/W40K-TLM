@@ -959,7 +959,7 @@ function playerMovement(dt)
         rotationDirection = Vector3.new(rotationDirectionX, 0, rotationDirectionY)
     end
 
-    
+    moveSpeed = normalSpeed
 
     if impulseApplied == false and meleeImpulseApplied == false then
     if moveDirectionX ~= 0 or moveDirectionY ~= 0 then
@@ -1676,12 +1676,15 @@ function check_effects(dt)
 end
 
 function update_combat_state(dt)
-    if isHitted or makeDamage then
+    if isHitted --[[or makeDamage]] then
+        --log("aaaaaaaaaaaaaaaaa")
         combatTimer = 5.0
         --isHitted = false
         makeDamage = false
     else
+        --log("bbbbbbbbbbbbbb")
         if combatTimer > 0 then
+            --log("ccccccccccccc")
             combatTimer = combatTimer - dt
         end
     end
@@ -1707,7 +1710,7 @@ function applyStunn()
 end
 function updateScrapList()
     
-    entities = current_scene:get_all_entities()
+    --entities = current_scene:get_all_entities()
 
 end
 
