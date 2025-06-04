@@ -26,6 +26,10 @@ local skill2VisualCooldownEntity
 local skill2VisualCooldown
 local skill2Cooldown = false
 local skill2Timer = 0
+local meleeCurrentScale = 1.0
+local meleeScaling = false
+local meleeScaleTimer = 0
+local meleeAvailableLastFrame = true
 
 local skill3
 local skill3Entity
@@ -33,6 +37,10 @@ local skill3Button
 local skill3VisualCooldown
 local skill3Cooldown = false
 local skill3Timer = 0
+local fervorCurrentScale = 1.0
+local fervorScaling = false
+local fervorScaleTimer = 0
+local fervorAvailableLastFrame = true
 
 local skillsArmasTextCooldown
 local skillArma1Entity
@@ -44,6 +52,14 @@ local skillArma2Cooldown
 local skillsArmasCooldown = false
 local skillsArmasTimer = 0
 local skillsArmasBoton
+local bolterCurrentScale = 1.0
+local bolterScaling = false
+local bolterScaleTimer = 0
+local grenadeCurrentScale = 1.0
+local grenadeScaling = false
+local grenadeScaleTimer = 0
+
+
 
 arma1 = nil
 arma1Texture = nil
@@ -110,15 +126,18 @@ function on_ready()
     skill1TextCooldown = skill1TextCooldownEntity:get_component("UITextComponent")
     skill1Button = current_scene:get_entity_by_name("Habilidad1Boton")
 
-    skill2 = current_scene:get_entity_by_name("Habilidad2Activable"):get_component("UIToggleComponent")
+    skill2Entity = current_scene:get_entity_by_name("Habilidad2Activable")
+    skill2 = skill2Entity:get_component("UIToggleComponent")
     skill2ButtonEntity = current_scene:get_entity_by_name("Habilidad2Boton")
     skill2Button = skill2ButtonEntity:get_component("UIImageComponent")
     skill2VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad2Cooldown")
     skill2VisualCooldown = skill2VisualCooldownEntity:get_component("UIImageComponent")
     skill2TextCooldownEntity = current_scene:get_entity_by_name("Habilidad2CooldownText")
     skill2TextCooldown = skill2TextCooldownEntity:get_component("UITextComponent")
+    skill2Button = current_scene:get_entity_by_name("Habilidad2Boton")
 
-    skill3 = current_scene:get_entity_by_name("Habilidad3Activable"):get_component("UIToggleComponent")
+    skill3Entity = current_scene:get_entity_by_name("Habilidad3Activable")
+    skill3 = skill3Entity:get_component("UIToggleComponent")
     skill3ButtonEntity = current_scene:get_entity_by_name("Habilidad3Boton")
     skill3Button = skill3ButtonEntity:get_component("UIImageComponent")
     skill3VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad3Cooldown")
@@ -329,10 +348,61 @@ function abilityManager(dt)
 
     dashAvailableLastFrame = playerScript.dashAvailable
 
-
     -- Skill 2 (Saw Sword)
+    if meleeCurrentScale == nil then
+        meleeCurrentScale = originalScale
+    end
+
+    if meleScaling == nil then
+        meleScaling = false
+    end
+
+    if meleeScaleTimer == nil then
+        meleeScaleTimer = 0
+    end
+
+    local meleeJustBecameAvailable = not meleeAvailableLastFrame and sawSwordScript.sawSwordAvailable
+
+    if meleeJustBecameAvailable then
+        meleScaling = true
+        meleeScaleTimer = 0
+    end
+
+    if meleScaling then
+        --skill2:set_color(Vector4.new(0.952, 1, 0.258, 1))
+        skill2Button:set_active(false)
+        sawSwordScript.sawSwordAvailable = false
+
+        meleeScaleTimer = meleeScaleTimer + dt
+
+        local desiredScale = originalScale
+
+        if meleeScaleTimer <= expandDuration then
+            -- Expansión
+            local expandProgress = meleeScaleTimer / expandDuration
+            desiredScale = originalScale + (maxScale - originalScale) * expandProgress
+
+        elseif meleeScaleTimer <= totalAnimationTime then
+            -- Contracción
+            local shrinkProgress = (meleeScaleTimer - expandDuration) / contractDuration
+            desiredScale = maxScale - (maxScale - originalScale) * shrinkProgress
+                
+        else
+            meleScaling = false
+            desiredScale = originalScale
+            skill2Button:set_active(true)
+            --skill2:set_color(Vector4.new(1, 1, 1, 1))
+                
+            sawSwordScript.sawSwordAvailable = true
+        end
+
+        local relativeScale = desiredScale / meleeCurrentScale
+        scale_ui_element(skill2Entity, relativeScale)
+        meleeCurrentScale = desiredScale
+    end
+
     local sawSwordRemainingTime = sawSwordScript.coolDown - sawSwordScript.coolDownCounter
-    if sawSwordRemainingTime > 0 and not sawSwordScript.sawSwordAvailable then
+    if sawSwordRemainingTime > 0 and not sawSwordScript.sawSwordAvailable and not meleScaling then
         -- Mostrar cooldown
         skill2Timer = skill2Timer + dt
         
@@ -360,23 +430,64 @@ function abilityManager(dt)
         skill2VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
     end
     
-    -- Skill 3 (Fervor Astartes)
-    skill3.value = upgradeManager:has_armor_special() 
-    skill3ButtonEntity:set_active(skill3.value)
-    
-    local fervorRemainingTime = armorUpgradeScript.fervorAstartesCooldown
-    if fervorRemainingTime > 0 and not armorUpgradeScript.fervorAstartesAvailable then
-        -- Mostrar cooldown
-        skill3Timer = skill3Timer + dt
-        
-        local totalCooldown = 25
-        local porcentaje = fervorRemainingTime / totalCooldown
-        if porcentaje > 1 then 
-            porcentaje = 1 
+    meleeAvailableLastFrame = sawSwordScript.sawSwordAvailable
+
+   -- Skill 3 (Fervor Astartes)
+    if fervorCurrentScale == nil then
+        fervorCurrentScale = originalScale
+    end
+    if fervorScaling == nil then
+        fervorScaling = false
+    end
+    if fervorScaleTimer == nil then
+        fervorScaleTimer = 0
+    end
+
+    -- Detectar si acaba de estar disponible
+    local currentFervorAvailable = armorUpgradeScript.fervorAstartesAvailable or false
+    local fervorJustBecameAvailable = not fervorAvailableLastFrame and currentFervorAvailable
+
+    if fervorJustBecameAvailable then
+        fervorScaling = true
+        fervorScaleTimer = 0
+    end
+
+    if fervorScaling then
+        --skill3:set_color(Vector4.new(0.952, 1, 0.258, 1)) -- Opcional: color resaltado
+        skill3ButtonEntity:set_active(false)
+        armorUpgradeScript.fervorAstartesAvailable = false -- Bloqueo temporal
+
+        fervorScaleTimer = fervorScaleTimer + dt
+        local desiredScale = originalScale
+
+        if fervorScaleTimer <= expandDuration then
+            desiredScale = originalScale + (maxScale - originalScale) * (fervorScaleTimer / expandDuration)
+        elseif fervorScaleTimer <= totalAnimationTime then
+            desiredScale = maxScale - (maxScale - originalScale) * ((fervorScaleTimer - expandDuration) / contractDuration)
+        else
+            fervorScaling = false
+            desiredScale = originalScale
+            skill3ButtonEntity:set_active(true)
+            --skill3:set_color(Vector4.new(1, 1, 1, 1))
+            armorUpgradeScript.fervorAstartesAvailable = true
         end
 
-        local cooldownRect = Vector4.new(0, 0, 1, porcentaje)
-        skill3VisualCooldown:set_rect(cooldownRect)
+        local relativeScale = desiredScale / fervorCurrentScale
+        scale_ui_element(skill3Entity, relativeScale)
+        fervorCurrentScale = desiredScale
+    end
+
+    -- Actualizar estado visual del botón
+    skill3.value = upgradeManager:has_armor_special()
+    skill3ButtonEntity:set_active(skill3.value)
+
+    -- Mostrar Cooldown
+    local fervorRemainingTime = armorUpgradeScript.fervorAstartesCooldown
+    if fervorRemainingTime > 0 and not armorUpgradeScript.fervorAstartesAvailable and not fervorScaling then
+        local totalCooldown = 25
+        local porcentaje = fervorRemainingTime / totalCooldown
+        if porcentaje > 1 then porcentaje = 1 end
+        skill3VisualCooldown:set_rect(Vector4.new(0, 0, 1, porcentaje))
         
         if fervorRemainingTime <= 1.1 and fervorRemainingTime > 0 then
             skill3TextCooldown:set_text(string.format("%.1f", fervorRemainingTime))
@@ -387,11 +498,13 @@ function abilityManager(dt)
         skill3TextCooldownEntity:set_active(true)
         skill3VisualCooldownEntity:set_active(true)
     else
-        -- Ocultar cooldown
         skill3TextCooldownEntity:set_active(false)
         skill3VisualCooldownEntity:set_active(false)
         skill3VisualCooldown:set_rect(Vector4.new(0, 0, 1, 1))
     end
+
+    -- Guardar estado anterior para comparación futura
+    fervorAvailableLastFrame = currentFervorAvailable
 end
 
 function weaponManager(dt)
