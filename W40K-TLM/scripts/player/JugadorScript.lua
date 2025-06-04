@@ -248,16 +248,31 @@ local pressedFullscreen = false
 
 --tutorial
 local moveButton = nil
+local moveButtonSprite = nil
 local aimButton = nil
+local aimButtonSprite = nil
 local shootButton = nil
+local shootButtonSprite = nil
 local changeWeaponButton = nil
+local changeWeaponButtonSprite = nil
 local meleeButton = nil
+local meleeButtonSprite = nil
 local healButton = nil
+local healButtonSprite = nil
 
 local hasAimed = false
 firstEnemyDied = false
 local hasDoneTutorialChangeWeapon = false
 local hasDoneTutorialHeal = false
+local activateMoveButton = false
+local activateMoveButtonFade = false
+local changeWeaponTutorialButtonShown = false
+local aimAndShootTutorialButtonsShown = false
+
+local SpriteTransitionTimer = 0.0
+local SpriteTransitionTimerTarget = 0.4
+
+
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -358,9 +373,9 @@ function on_ready()
         local nameATran = entityA:get_component("TransformComponent")
         local nameBTran = entityB:get_component("TransformComponent")
         if (nameB == "AimAndShootCollider" or nameA == "AimAndShootCollider") and not hasAimed then
-            aimButton:set_active(true)
-            shootButton:set_active(true)
-            moveButton:set_active(false)
+            
+            activateMoveButtonFade = true
+            
 
         end
 
@@ -430,15 +445,19 @@ function on_ready()
     --TUTORIAL  
     moveButton = current_scene:get_entity_by_name("MovementButton")
     moveButton:set_active(false)
+    moveButtonSprite = moveButton:get_component("SpriteComponent")
     shootButton = current_scene:get_entity_by_name("ShootButton")
+    shootButtonSprite = shootButton:get_component("SpriteComponent")
     meleeButton = current_scene:get_entity_by_name("SawSwordButton")
-    aimButton = current_scene:get_entity_by_name("AimAndShoot")
+    meleeButtonSprite = meleeButton:get_component("SpriteComponent")
+    aimButton = current_scene:get_entity_by_name("AimButton")
+    aimButtonSprite = aimButton:get_component("SpriteComponent")
     changeWeaponButton = current_scene:get_entity_by_name("changeWeaponButton")
+    changeWeaponButtonSprite = changeWeaponButton:get_component("SpriteComponent")
     healButton = current_scene:get_entity_by_name("HealButton")
+    healButtonSprite = healButton:get_component("SpriteComponent")
 
-    if level == 1 and zonePlayer == 0 then
-        moveButton:set_active(true)
-    end
+    
 
 end
 
@@ -548,33 +567,100 @@ function on_update(dt)
     if not infiniteHealth then
         handleDamageEffects(dt)
     end
-    
     --TUTORIAL
+    if animacionEntradaRealizada and not activateMoveButton and level == 1 and zonePlayer == 0 then
+        moveButton:set_active(true)
+        activateMoveButton = true
+    end
+
+    if activateMoveButtonFade and moveButton:is_active() then
+        
+            SpriteTransitionTimer = SpriteTransitionTimer + dt
+            local alpha = math.min(SpriteTransitionTimer / SpriteTransitionTimerTarget, 1.0)
+            alpha = 1.0 - alpha -- invertir
+            moveButtonSprite.tint_color = Vector4.new(1,1,1,alpha)
+            if (SpriteTransitionTimer > SpriteTransitionTimerTarget) then
+                moveButtonSprite.tint_color = Vector4.new(1,1,1,0)
+                aimButton:set_active(true)
+                shootButton:set_active(true)
+                moveButton:set_active(false)
+                activateMoveButtonFade = false
+                SpriteTransitionTimer = 0
+            end
+            
+    end
+    
     if aimButton:is_active() and isAiming and shootButton:is_active() and currentUpAnim == attack then
-        aimButton:set_active(false)
-        hasAimed = true
+        aimAndShootTutorialButtonsShown = true
+    end
+
+    if aimAndShootTutorialButtonsShown then
+        SpriteTransitionTimer = SpriteTransitionTimer + dt
+            local alpha = math.min(SpriteTransitionTimer / SpriteTransitionTimerTarget, 1.0)
+            alpha = 1.0 - alpha -- invertir
+            aimButtonSprite.tint_color = Vector4.new(1,1,1,alpha)
+            shootButtonSprite.tint_color = Vector4.new(1,1,1,alpha)
+            if (SpriteTransitionTimer > SpriteTransitionTimerTarget) then
+                aimButtonSprite.tint_color = Vector4.new(1,1,1,0)
+                shootButtonSprite.tint_color = Vector4.new(1,1,1,0)
+                aimButton:set_active(false)
+                shootButton:set_active(false)
+                hasAimed = true
+                SpriteTransitionTimer = 0
+                aimAndShootTutorialButtonsShown = false
+            end
+        
     end
 
     if meleeButton:is_active() and swordScript.slasheeed then
-        meleeButton:set_active(false)
+        SpriteTransitionTimer = SpriteTransitionTimer + dt
+            local alpha = math.min(SpriteTransitionTimer / SpriteTransitionTimerTarget, 1.0)
+            alpha = 1.0 - alpha -- invertir
+            meleeButtonSprite.tint_color = Vector4.new(1,1,1,alpha)
+            if (SpriteTransitionTimer > SpriteTransitionTimerTarget) then
+                meleeButtonSprite.tint_color = Vector4.new(1,1,1,0)
+                meleeButton:set_active(false)
+                SpriteTransitionTimer = 0
+            end
+        
     end
 
-    if hasDoneTutorialChangeWeapon == false and firstEnemyDied and not changeWeaponButton:is_active() then
+    if hasDoneTutorialChangeWeapon == false and firstEnemyDied and not changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
         changeWeaponButton:set_active(true)
         hasDoneTutorialChangeWeapon = true
     end
 
-    if pressedButtonChangeWeapon and changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
-        changeWeaponButton:set_active(false)
+    if changeWeaponTutorialButtonShown and changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
+        SpriteTransitionTimer = SpriteTransitionTimer + dt
+            local alpha = math.min(SpriteTransitionTimer / SpriteTransitionTimerTarget, 1.0)
+            alpha = 1.0 - alpha -- invertir
+            changeWeaponButtonSprite.tint_color = Vector4.new(1,1,1,alpha)
+            if (SpriteTransitionTimer > SpriteTransitionTimerTarget) then
+                changeWeaponButtonSprite.tint_color = Vector4.new(1,1,1,0)
+                changeWeaponButton:set_active(false)
+                SpriteTransitionTimer = 0
+                
+            end
+        
     end
-    print(hasDoneTutorialHeal)
+
     if health < maxHealth * 0.5 and not hasDoneTutorialHeal then
         healButton:set_active(true)
         hasDoneTutorialHeal = true
     end
 
     if hasDoneTutorialHeal and healButton:is_active() and isHealing then
-        healButton:set_active(false)
+        SpriteTransitionTimer = SpriteTransitionTimer + dt
+            local alpha = math.min(SpriteTransitionTimer / SpriteTransitionTimerTarget, 1.0)
+            alpha = 1.0 - alpha -- invertir
+            healButtonSprite.tint_color = Vector4.new(1,1,1,alpha)
+            if (SpriteTransitionTimer > SpriteTransitionTimerTarget) then
+                healButtonSprite.tint_color = Vector4.new(1,1,1,0)
+                healButton:set_active(false)
+                SpriteTransitionTimer = 0
+                save_progress("hasDoneTutorialHeal", hasDoneTutorialHeal)
+            end
+        
     end
 
     if Input.is_key_pressed(Input.keycode.M) then
@@ -846,6 +932,7 @@ function handleWeaponSwitch(dt)
                 actualweapon = 0
             end
             pressedButtonChangeWeapon = true
+            changeWeaponTutorialButtonShown = true
             
         end
     else
@@ -1646,7 +1733,7 @@ function saveProgress()
     save_progress("stims", StimsCounter)
     save_progress("bluemision",mission_Component.blueTaskIndex)
     save_progress("redmision",mission_Component.redTaskIndex)
-    save_progress("hasDoneTutorialHeal", hasDoneTutorialHeal)
+    
 end
 
 function saveUpgrades()
