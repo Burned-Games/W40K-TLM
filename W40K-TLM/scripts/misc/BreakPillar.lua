@@ -8,7 +8,6 @@ local prefabPillar3 = "prefabs/Misc/Pillars/DestructiblePillar3.prefab"
 
 
 
-
 local rbComponent = nil
 local transform = nil
 
@@ -37,12 +36,23 @@ local position00 = nil
 --Audio
 local boxBarrelDestroySFX = nil
 
+local originalMaterial = {}
+local actualRGBA = Vector4.new(1,1,1,1)
+local targetColor = Vector4.new(255/255,99/255,36/255,1)
+local changeColorSpeed = 300
+local colorDirection = 0 -- 0 = To target | 1 = To actual
+
+local ultimateBossScript = nil
+
 function on_ready()
     -- Add initialization code here
     local children = self:get_children()
     for _, child in ipairs(children) do
-        if child:get_component("TagComponent").tag == "Normal" then
+        local childTag = child:get_component("TagComponent").tag
+        
+        if childTag:match("^Normal") then
             table.insert(objectNormal, child)
+            table.insert(originalMaterial, child:get_component("MaterialComponent").material)
         end
     end
 
@@ -51,6 +61,7 @@ function on_ready()
     camera = current_scene:get_entity_by_name("Camera")
     cameraScript = camera:get_component("ScriptComponent")
 
+    ultimateBossScript = current_scene:get_entity_by_name("Ultimate"):get_component("ScriptComponent")
     --Audio
     --boxBarrelDestroySFX = current_scene:get_entity_by_name("BoxBarrelDestroySFX"):get_component("AudioSourceComponent")
 
@@ -136,12 +147,59 @@ function on_update(dt)
         finished = true
     end
 
+    if not hasDestroyed then
+        changeColor(dt)
+    end
+
 end
 
 function setChildrenSize(size)
     
     for _, child in ipairs(separateChildrenWithParentMoved) do
         child:get_component("TransformComponent").scale = Vector3.new(size,size,size)
+    end
+end
+
+function changeColor(dt)
+    local step = (dt / 255) * changeColorSpeed
+
+    if colorDirection == 0 and ultimateBossScript.ultimateThrown then
+        -- Ir hacia el targetColor
+        local r = math.max(actualRGBA.x - step, targetColor.x)
+        local g = math.max(actualRGBA.y - step, targetColor.y)
+        local b = math.max(actualRGBA.z - step, targetColor.z)
+        local a = math.max(actualRGBA.w - step, targetColor.w)
+
+        actualRGBA = Vector4.new(r, g, b, a)
+
+        -- Si ya llegamos al target en todos los canales, cambiamos dirección
+        if actualRGBA.x == targetColor.x and
+           actualRGBA.y == targetColor.y and
+           actualRGBA.z == targetColor.z and
+           actualRGBA.w == targetColor.w then
+            colorDirection = 1
+        end
+
+    else
+        -- Volver a blanco (1,1,1,1)
+        local r = math.min(actualRGBA.x + step, 1)
+        local g = math.min(actualRGBA.y + step, 1)
+        local b = math.min(actualRGBA.z + step, 1)
+        local a = math.min(actualRGBA.w + step, 1)
+
+        actualRGBA = Vector4.new(r, g, b, a)
+
+        -- Si ya llegamos a blanco, cambiamos dirección
+        if actualRGBA.x == 1 and
+           actualRGBA.y == 1 and
+           actualRGBA.z == 1 and
+           actualRGBA.w == 1 then
+            colorDirection = 0
+        end
+    end
+
+    for i, mat in ipairs(originalMaterial) do 
+        mat.color = actualRGBA
     end
 end
 
