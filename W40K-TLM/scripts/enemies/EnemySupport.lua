@@ -509,6 +509,7 @@ function support:chase_state(dt)
     end
 
     if support.playerDistance <= support.rangeAttackRange then
+        support.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         support.currentState = support.state.Shoot
         return
     end
@@ -518,13 +519,11 @@ function support:chase_state(dt)
        not support.lastTargetPos or 
        (support.lastTargetPos and support:get_distance(support.lastTargetPos, support.delayedPlayerPos) > 1.5) then
         
- 
         support:update_path(support.playerTransf)
         support.lastTargetPos = Vector3.new(support.delayedPlayerPos.x, support.delayedPlayerPos.y, support.delayedPlayerPos.z)
         support.pathUpdateTimer = 0.0
     end
     
-    -- Seguir el path hacia el player
     support:follow_path()
 
 end
