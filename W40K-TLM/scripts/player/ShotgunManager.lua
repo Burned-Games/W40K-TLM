@@ -123,6 +123,9 @@ local playerCDSFX = nil
 
 local explosionPrefab = "prefabs/Enemies/attacks/Explosion.prefab"
 
+local playVFXAnimCounter = 0
+local playVFXAnimCounterTime = 0.233
+
 function on_ready()
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -306,11 +309,28 @@ function on_update(dt)
                     playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     shootAnimation = true
                 end
+                
+
                 if ammo > 0 and current_time >= next_fire_time then
                     ammo = ammo - 1  -- use bullet 
                     --bolterScript.vfxShootTransf.position.y = vfxShootPosY
                     shoot(dt)
                     next_fire_time = current_time + currentShootCoolDownRifle  -- next shoot time
+                    if bolterScript.currentVFXAnim ~= 1 then
+                        bolterScript.animatorVFXShoot:set_current_animation(1)
+                        bolterScript.currentVFXAnim = 1
+                        playVFXAnimCounter = 0
+                    end
+                else
+                    playVFXAnimCounter = playVFXAnimCounter + dt
+
+                    if playVFXAnimCounter >= playVFXAnimCounterTime then
+                        if bolterScript.currentVFXAnim ~= 0 then
+                            bolterScript.animatorVFXShoot:set_current_animation(0)
+                            bolterScript.currentVFXAnim = 0
+                        end
+                    end
+                    
                 end
                 playerScript.shootingIndicator = true
 
@@ -323,6 +343,10 @@ function on_update(dt)
                 shootAnimation = false
                 
                 playerScript.shootingIndicator = false
+                if bolterScript.currentVFXAnim ~= 0 then
+                    bolterScript.animatorVFXShoot:set_current_animation(0)
+                    bolterScript.currentVFXAnim = 0
+                end
             end
 
            
