@@ -590,7 +590,7 @@ function on_update(dt)
             
     end
     
-    if aimButton:is_active() and isAiming and shootButton:is_active() and currentUpAnim == attack then
+    if aimButton:is_active() and isAiming and shootButton:is_active() and (currentUpAnim == attack or currentUpAnim == shotgun_Pump) then
         aimAndShootTutorialButtonsShown = true
     end
 
@@ -628,6 +628,10 @@ function on_update(dt)
     if hasDoneTutorialChangeWeapon == false and firstEnemyDied and not changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
         changeWeaponButton:set_active(true)
         hasDoneTutorialChangeWeapon = true
+    end
+
+    if changeWeaponTutorialButtonShown and not hasDoneTutorialChangeWeapon then
+        changeWeaponTutorialButtonShown = false
     end
 
     if changeWeaponTutorialButtonShown and changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
