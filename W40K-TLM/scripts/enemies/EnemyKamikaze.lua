@@ -87,8 +87,9 @@ function on_ready()
     kamikaze.detectionRange = stats.detectionRange
     kamikaze.attackRange = stats.attackRange
     kamikaze.explosionRange = stats.explosionRange
-    kamikaze.priority = stats.priority
     kamikaze.alertRadius = stats.alertRadius
+    kamikaze.returningRange = stats.returningRange
+    kamikaze.priority = stats.priority
 
     -- Timers
     kamikaze.pathUpdateTimer = 0.0

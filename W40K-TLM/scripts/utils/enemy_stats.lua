@@ -20,6 +20,7 @@ local enemy_stats = {
             meleeDamageRange = 4,
             rangeAttackRange = 13,
             chaseRange = 5,
+            returningRange = 30,
 
             maxBurstShots = 4,
 
@@ -62,6 +63,7 @@ local enemy_stats = {
             meleeDamageRange = 4,
             rangeAttackRange = 13,
             chaseRange = 5,
+            returningRange = 30,
 
             maxBurstShots = 4,
 
@@ -104,6 +106,7 @@ local enemy_stats = {
             meleeDamageRange = 4,
             rangeAttackRange = 13,
             chaseRange = 5,
+            returningRange = 30,
 
             maxBurstShots = 4,
 
@@ -152,6 +155,7 @@ local enemy_stats = {
             rangeAttackRange = 10,
             shieldRange = 5,
             attackRange = 10,
+            returningRange = 30,
 
 
 
@@ -189,6 +193,7 @@ local enemy_stats = {
             rangeAttackRange = 10,
             shieldRange = 5,
             attackRange = 10,
+            returningRange = 30,
 
 
 
@@ -219,6 +224,7 @@ local enemy_stats = {
 
             detectionRange = 15,
             meleeAttackRange = 3,
+            returningRange = 70,
 
             statsIncrement = 1.5,
             statsDecrement = 0.33,
@@ -253,6 +259,7 @@ local enemy_stats = {
 
             detectionRange = 20,
             meleeAttackRange = 2,
+            returningRange = 70,
 
             statsIncrement = 1.5,
             statsDecrement = 0.33,
@@ -282,6 +289,7 @@ local enemy_stats = {
 
             detectionRange = 20,
             meleeAttackRange = 2,
+            returningRange = 70,
 
             statsIncrement = 1.5,
             statsDecrement = 0.33,
@@ -315,6 +323,7 @@ local enemy_stats = {
             detectionRange = 15,
             attackRange = 1,
             explosionRange = 3,
+            returningRange = 50,
 
             priority = 3,
             
@@ -334,6 +343,7 @@ local enemy_stats = {
             detectionRange = 15,
             attackRange = 3,
             explosionRange = 6,
+            returningRange = 50,
 
             priority = 3,
             

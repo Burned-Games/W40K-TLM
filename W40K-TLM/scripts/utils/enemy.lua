@@ -78,6 +78,7 @@ function enemy:new(obj)
     obj.shieldHealth = 0
     obj.enemyShield = 35
     obj.detectionRange = 25
+    obj.returningRange = 30
     obj.priority = 0
 
 
@@ -674,10 +675,9 @@ end
 function enemy:check_initial_distance()
 
     local distance = self:get_distance(self.enemyInitialPos, self.enemyTransf.position)
-    if distance > 30 then
+    if distance > self.returningRange then
         self.playerDetected = false
         self:rotate_enemy(self.enemyInitialPos)
-        --self.currentState = self.state.Move
         self.isReturning = true
         self.health = self.defaultHealth
         self.isAlerted = false

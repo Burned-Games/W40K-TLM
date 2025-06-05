@@ -722,6 +722,7 @@ function tank:set_stats(level)
     tank.tackleDamage = stats.tackleDamage
     tank.detectionRange = stats.detectionRange
     tank.meleeAttackRange = stats.meleeAttackRange
+    tank.returningRange = stats.returningRange
     tank.priority = stats.priority
     tank.alertRadius = stats.alertRadius
     tank.minTackleDistance = stats.meleeAttackRange + 3
