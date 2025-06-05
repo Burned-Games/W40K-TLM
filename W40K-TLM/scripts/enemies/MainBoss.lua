@@ -156,6 +156,10 @@ end
 
 function on_update(dt)
 
+    if main_boss.changeScene then
+        return
+    end
+
     if Input.is_key_pressed(Input.keycode.K) then
         main_boss.health = 400
     end
@@ -170,10 +174,18 @@ function on_update(dt)
 
     change_state()
 
+    if main_boss.changeScene then
+        return
+    end
+
     if main_boss.currentState == main_boss.state.Idle then return end
 
     if main_boss.health <= 0 then
         main_boss:die_state()
+    end
+
+    if main_boss.changeScene then
+        return
     end
 
     main_boss.moveAudioTimer = main_boss.moveAudioTimer + dt
