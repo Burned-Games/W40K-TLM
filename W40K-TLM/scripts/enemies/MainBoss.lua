@@ -160,6 +160,10 @@ function on_update(dt)
         main_boss.health = 400
     end
 
+    if Input.is_key_pressed(Input.keycode.L) then
+        main_boss.health = 10
+    end
+
     if not main_boss.battleStart then return end
 
     main_boss:check_effects(dt)
@@ -174,7 +178,7 @@ function on_update(dt)
 
     main_boss.moveAudioTimer = main_boss.moveAudioTimer + dt
     main_boss.attackTimer = main_boss.attackTimer + dt
-    main_boss.shieldTimer = main_boss.shieldTimer + dt
+    if not main_boss.isAttacking then main_boss.shieldTimer = main_boss.shieldTimer + dt end
     main_boss.pathUpdateTimer = main_boss.pathUpdateTimer + dt
     if main_boss.enemyHit then
         main_boss.hitTimer = main_boss.hitTimer + dt 
