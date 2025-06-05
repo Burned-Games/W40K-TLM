@@ -5,7 +5,7 @@ local fadeToBlackImage = nil
 
 local starting = true
 local contador = 0
-local fadeToBlackTimer = 2.5
+fadeToBlackTimer = 2.5
 
 local fading = false
 fadeToBlackDoned = false

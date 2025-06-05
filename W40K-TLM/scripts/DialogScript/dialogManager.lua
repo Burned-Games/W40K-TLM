@@ -52,6 +52,8 @@ local dialogEndTimer = 0.0
 local dialogEndDelay = 1.0
 local waitingForNextDialog = false
 
+finishedDialog = false
+
 -- Initialization
 function on_ready()
     nameComponent = current_scene:get_entity_by_name("DialogName"):get_component("UITextComponent")
@@ -313,6 +315,7 @@ end
 function nextDialogLine()
     currentDialogIndex = currentDialogIndex + 1
     if currentDialogIndex > #dialogQueue then
+        
         end_dialog()
     else
         play_current_line()
@@ -320,6 +323,8 @@ function nextDialogLine()
 end
 
 function end_dialog()
+    finishedDialog = true
+
     if currentAudio then
         currentAudio:pause()
         currentAudio = nil

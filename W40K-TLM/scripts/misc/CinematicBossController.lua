@@ -14,8 +14,27 @@ local bossCurrentAnim = -1
 local bossIntroAnim = 5
 local bossOutroAnim = 1
 
+local contador = 0.0
+local timeToTransition = 3.0
+local changeing = false
+local changeScene = false
+local timer = 0.0
+
+local fadeDuration = 1.0
+
+-- Shake
+local isShaking = false
+local shakeAmount = 0
+local shakeDuration = 0
+local shakeDecay = 3
+local shakeDelay = 0.3
+
 function on_ready()
     introBossDone = load_progress("introBossDone", introBossDone)
+
+    -- Fade to Black
+    fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
+    fadeToBlackScript.fadeToBlackTimer = fadeDuration
 
     -- Player
     playerAnimator = current_scene:get_entity_by_name("Player"):get_component("AnimatorComponent")
@@ -32,6 +51,8 @@ function on_ready()
     if not introBossDone then
         playerTransf.position = introPos
         cameraTransf.position, cameraTransf.rotation = cameraIntroPos, cameraIntroRot
+
+        shakeDelay = 0.3
     else
         playerTransf.position = outroPos
         cameraTransf.position, cameraTransf.rotation = cameraOutroPos, cameraOutroRot
@@ -45,9 +66,6 @@ function on_update(dt)
             bossCurrentAnim = bossIntroAnim
             bossAnimator:set_current_animation(bossCurrentAnim)
         end
-
-        introBossDone = true
-        save_progress("introBossDone", introBossDone)
     else
         if bossCurrentAnim ~= bossOutroAnim then
             bossCurrentAnim = bossOutroAnim
@@ -55,6 +73,49 @@ function on_update(dt)
         end
     end
 
+    timer = timer + dt
+    if timer >= shakeDelay then
+        if not isShaking then
+            start_shake(0.1, 0.2)
+            isShaking = true
+        end
+    end
+
+    if shakeDuration > 0 then
+        local shakeOffset = Vector3.new(
+            (math.random() * 2 - 1) * shakeAmount,
+            (math.random() * 2 - 1) * shakeAmount,
+            (math.random() * 2 - 1) * shakeAmount
+        )
+        smoothPos = Vector3.new(cameraTransf.position.x + shakeOffset.x, cameraTransf.position.y + shakeOffset.y, cameraTransf.position.z + shakeOffset.z) 
+
+        shakeDuration = shakeDuration - dt
+        log(shakeDuration)
+        cameraTransf.position = smoothPos
+    end
+
+    contador = contador + dt
+    if  not changeing and contador > timeToTransition then
+        changeing = true
+        fadeToBlackScript:DoFade()
+    end
+ 
+    if changeing and not changeScene then
+        if fadeToBlackScript.fadeToBlackDoned then
+            changeScene = true
+
+            if not introBossDone then
+                SceneManager.change_scene("scenes/bossArena.TeaScene")
+            else
+                SceneManager.change_scene("scenes/credits.TeaScene")
+            end
+        end
+    end
+end
+
+function start_shake(amount, duration)
+    shakeAmount = amount
+    shakeDuration = duration
 end
 
 function on_exit() end
