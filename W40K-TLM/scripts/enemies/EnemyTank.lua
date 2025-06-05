@@ -432,8 +432,6 @@ function change_state(dt)
     if tank.collisionWithPlayer then
         if tank.currentState == tank.state.Tackle or tank.currentState == tank.state.Move then
             tank.currentState = tank.state.Attack
-        elseif tank.currentState == tank.state.Attack and tank.playerDistance > tank.meleeAttackRange then
-            tank.currentState = tank.state.Move
         end
         return
     end
@@ -461,7 +459,7 @@ function change_state(dt)
     end
 
     if tank.playerDetected then
-        if tank.currentState ~= tank.state.Move then
+        if tank.currentState ~= tank.state.Move and tank.currentState ~= tank.state.Attack then
             tank.currentState = tank.state.Move
         end
         return
@@ -512,7 +510,7 @@ function tank:attack_state(dt)
             if attackDistance <= tank.meleeAttackRange then
                 tank.impactPlayerSFX:play()
                 tank.meleeAreaRb:set_position(tank.enemyTransf.position)
-            else
+            elseif attackDistance > tank.meleeAttackRange then
                 tank.currentState = tank.state.Move
                 tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
             end
@@ -617,8 +615,10 @@ function tank:tackle_raycast()
     local leftHit = Physics.Raycast(leftOrigin, leftRay, tank.tackleRaycastLength)
     local rightHit = Physics.Raycast(rightOrigin, rightRay, tank.tackleRaycastLength)
 
-    Physics.DebugDrawRaycast(leftOrigin, leftRay, tank.tackleRaycastLength, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
-    Physics.DebugDrawRaycast(rightOrigin, rightRay, tank.tackleRaycastLength, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    if self.playerScript.godMode then 
+        Physics.DebugDrawRaycast(leftOrigin, leftRay, tank.tackleRaycastLength, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+        Physics.DebugDrawRaycast(rightOrigin, rightRay, tank.tackleRaycastLength, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+    end
 
     if tank:detect(leftHit, tank.player) or tank:detect(rightHit, tank.player) then
         print("[TANK] Tackle hit player by RAYCAST")
