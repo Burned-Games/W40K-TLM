@@ -8,7 +8,7 @@ local cameraTransf = nil
 local introPos = Vector3.new(0, 0, -70)
 local outroPos = Vector3.new(0, 0, -95)
 local cameraIntroPos, cameraIntroRot = Vector3.new(0.0, 1.6, -87.0), Vector3.new(5.0, 0.0, 0.0)
-local cameraOutroPos, cameraOutroRot = Vector3.new(4.2, 0.7, -87.0), Vector3.new(0.0, 50.0, 0.0)
+local cameraOutroPos, cameraOutroRot = Vector3.new(4.8, 0.7, -88.0), Vector3.new(0.0, 50.0, 0.0)
 
 local bossCurrentAnim = -1
 local bossIntroAnim = 5
