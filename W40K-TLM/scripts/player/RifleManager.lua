@@ -886,7 +886,7 @@ function makeDisruptorDamage(enemy)
 
             playerScript.makeDamage = true
             activateZone = true
-            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, disruptorBulletTransf.position.y, disruptorBulletTransf.position.z))
+            chargeZoneRb:set_position(Vector3.new(disruptorBulletTransf.position.x, 0.2, disruptorBulletTransf.position.z))
             disruptorBulletRb:set_position(Vector3.new(0,1500,0))
             disruptorBulletRb:set_velocity(Vector3.new(0,0,0))
 
