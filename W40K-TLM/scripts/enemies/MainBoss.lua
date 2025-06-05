@@ -111,15 +111,17 @@ function on_ready()
     main_boss.idleDuration = 2.5
 
     -- Animations
-    main_boss.idleAnim = 3
-    main_boss.moveAnim = 8
-    main_boss.meleeAnim = 5
-    main_boss.rangeAnim = 4
+    main_boss.idleAnim = 4
+    main_boss.moveAnim = 10
+    main_boss.meleeAnim = 7
+    main_boss.rangeAnim = 6
     main_boss.shieldAnim = 0
-    main_boss.totemAnim = 6
-    main_boss.ultiAnim = 7
-    main_boss.dieAnim = 1
-    main_boss.rageAnim = 2
+    main_boss.totemAnim = 8
+    main_boss.ultiAnim = 9
+    main_boss.dieAnim = 2
+    main_boss.rageAnim = 3
+    main_boss.introAnim = 5
+    main_boss.outroAnim = 1
 
     -- Bools
     main_boss.battleStart = false
