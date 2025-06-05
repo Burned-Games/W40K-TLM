@@ -74,7 +74,7 @@ function on_ready()
         -- --print("Found RigidBodyComponent on Workbench")
         workbenchRB.rb:set_trigger(true)
         workbenchRB.rb:set_freeze_y(true)
-        workbenchInitialPosition = Vector3.new(workbenchRB.rb:get_position().x, workbenchRB.rb:get_position().y + 0.1, workbenchRB.rb:get_position().z)
+        workbenchInitialPosition = Vector3.new(workbenchRB.rb:get_position().x, workbenchRB.rb:get_position().y + 0.2, workbenchRB.rb:get_position().z)
         workbenchRB:on_collision_enter(function(entityA, entityB)
             handle_collision_stay(entityA, entityB)
         end)
@@ -103,7 +103,7 @@ function on_ready()
                 -- --print("Found RigidBodyComponent on " .. areaTriggerName)
                 -- Configure the area trigger
                 areaTriggerRB.rb:set_trigger(true)
-                areaTriggerRB.rb:set_position(Vector3.new(workbenchInitialPosition.x, workbenchInitialPosition.y, workbenchInitialPosition.z))
+                areaTriggerRB.rb:set_position(Vector3.new(workbenchInitialPosition.x, workbenchInitialPosition.y + 0.3, workbenchInitialPosition.z))
                 local collider = areaTriggerRB.rb:get_collider()
                 local collider_type = areaTriggerRB.rb:get_collider_type()
                 
@@ -112,7 +112,7 @@ function on_ready()
                 end
 
                 areaTriggerRB.rb:set_trigger(true)
-                areaTriggerRB.rb:set_position(Vector3.new(workbenchInitialPosition.x, workbenchInitialPosition.y, workbenchInitialPosition.z))
+                areaTriggerRB.rb:set_position(Vector3.new(workbenchInitialPosition.x, workbenchInitialPosition.y + 0.3, workbenchInitialPosition.z))
 
                 areaTriggerRB:on_collision_enter(function(entityA, entityB)
                     handle_area_collision_enter(entityA, entityB)
