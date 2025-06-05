@@ -96,6 +96,7 @@ function on_ready()
     support.shieldRange = stats.shieldRange
     support.attackRange = stats.attackRange
     support.rangeAttackRange = stats.rangeAttackRange
+    support.returningRange = stats.returningRange
     support.supportDamage = stats.supportDamage 
     support.bulletSpeed = stats.bulletSpeed
     support.dispersion = stats.dispersion

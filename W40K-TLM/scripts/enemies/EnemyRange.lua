@@ -635,6 +635,7 @@ function range:set_stats(level)
     range.meleeDamageRange = stats.meleeDamageRange
     range.rangeAttackRange = stats.rangeAttackRange
     range.chaseRange = stats.chaseRange
+    range.returningRange = stats.returningRange
     range.maxBurstShots = stats.maxBurstShots
     range.dispersion = stats.dispersion
     range.alertRadius = stats.alertRadius
