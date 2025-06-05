@@ -1,4 +1,4 @@
--- Variables de UI
+
 local button1, button2, button3, button4, FullScreenButton
 local slider1, slider2
 local text1, text2
@@ -6,41 +6,41 @@ local VolumeText, FXText, PauseText, SettingsBaseText
 local visibilidad1Entity, visibilidad2Entity, visibilidad3Entity
 local visibilidadtotal, chatarraUI
 
--- Variables de estado
-local isPaused = false
+
+isPaused = false
 local isOnPauseSettings = false
 local isOnControls = false
 local sceneChanged = false
 
--- Variables de navegación
+
 local mainMenuIndex = 0
 local settingsIndex = 1
 local inputCooldown = 0
 local buttonCooldown = 0
 local contadorMovimientoBotones = 0
 
--- Variables de audio
+
 local settingsSFX, indexHoverSFX, indexSelectionSFX
 local musicVolume = 0.0
 local fxVolume = 0.0
 
--- Variables de scripts
+
 local workbenchUIManagerScript, fadeToBlackScript
 
--- Constantes
+
 local COOLDOWN_TIME = 0.15
 local BUTTON_COOLDOWN_TIME = 0.2
 local CANCEL_DELAY = 0.2
 
--- Variables de colores
+
 local selectedColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
 local defaultColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
--- Variables de cancelación
+
 local cancelTimer = 0
 local cancelTriggered = false
 
--- Estados del menú
+
 local MenuState = {
     MAIN_MENU = 1,
     SETTINGS = 2,
@@ -59,18 +59,18 @@ function on_ready()
 end
 
 function initialize_ui_components()
-    -- Botones del menú principal
+    
     button1 = current_scene:get_entity_by_name("Continue"):get_component("UIButtonComponent")
     button2 = current_scene:get_entity_by_name("SettingsButton"):get_component("UIButtonComponent")
     button3 = current_scene:get_entity_by_name("Controls"):get_component("UIButtonComponent")
     button4 = current_scene:get_entity_by_name("Exit"):get_component("UIButtonComponent")
     FullScreenButton = current_scene:get_entity_by_name("FullScreen"):get_component("UIButtonComponent")
 
-    -- Sliders
+    
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
     slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
 
-    -- Textos
+   
     text1 = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
     text2 = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
     VolumeText = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
@@ -78,7 +78,7 @@ function initialize_ui_components()
     PauseText = current_scene:get_entity_by_name("PauseText"):get_component("UITextComponent")
     SettingsBaseText = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
 
-    -- Entidades de visibilidad
+    
     visibilidad1Entity = current_scene:get_entity_by_name("Pause")
     visibilidad2Entity = current_scene:get_entity_by_name("Settings")
     visibilidad3Entity = current_scene:get_entity_by_name("ControlsBase")
@@ -321,7 +321,7 @@ function handle_settings_confirm()
 end
 
 function handle_controls_input(dt)
-    -- Lógica para controles si es necesaria
+    
 end
 
 function handle_cancel_input()
@@ -376,13 +376,13 @@ function update_main_menu_buttons()
         return
     end
     
-    -- Resetear todos los botones
+    
     button1.state = State.Normal
     button2.state = State.Normal
     button3.state = State.Normal
     button4.state = State.Normal
     
-    -- Aplicar hover al botón seleccionado
+    
     if mainMenuIndex == 0 then
         button1.state = State.Hover
     elseif mainMenuIndex == 1 then
@@ -443,9 +443,9 @@ function update_settings_visual_selection()
 end
 
 function hide_pause()
-    -- Función legacy mantenida por compatibilidad
+    
 end
 
 function on_exit()
-    -- Cleanup code aquí si es necesario
+    
 end

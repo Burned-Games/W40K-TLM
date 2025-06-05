@@ -498,7 +498,7 @@ function on_update(dt)
     
     footstepSFXTimer = footstepSFXTimer + dt
     
-    if --[[pauseScript.isPaused or]] workbenchUIManagerScript.isWorkBenchOpen then
+    if pauseScript.isPaused or workbenchUIManagerScript.isWorkBenchOpen then
         playerRb:set_velocity(Vector3.new(0, 0, 0))
         if currentAnim ~= idle  then
             currentAnim = idle
@@ -706,7 +706,7 @@ function on_update(dt)
     else
         enemyDirection = nil
     end
-    if --[[pauseScript.isPaused == false and]] workbenchUIManagerScript.isWorkBenchOpen == false then
+    if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
         playerMovement(dt)
     end
 
