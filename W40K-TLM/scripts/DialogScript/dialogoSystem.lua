@@ -46,9 +46,6 @@ dialog19 = false
 --Dialogo 3
 --Dialogo
 local dialogLinesFind = nil
-local dialogLinesChange = nil
-local dialogLinesDie = nil
-
 
 dialogFind = false
 dialogChange = false
@@ -141,51 +138,44 @@ function on_ready()
 
         --DialogoText
         dialogLines12 = {
-            { name = "DeciusMarcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Garrosh to end this invasion.", time = 7.5}
+            { name = "DeciusMarcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Garrosh to end this invasion.", time = 3}
         }
         
         dialogLines13 = {
-            { name = "DeciusMarcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother.", time = 8}
+            { name = "DeciusMarcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother.", time = 3}
         }
 
         dialogLines13Ac = {
-            { name = "QuintusMaxillian", text = "Lever engaged, moving forward.", time = 2}
+            { name = "QuintusMaxillian", text = "Lever engaged, moving forward.", time = 1}
         }
 
         dialogLines14 = {
-            { name = "DeciusMarcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", time = 8.5}
+            { name = "DeciusMarcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", time = 3}
         }
 
         dialogLines15 = {
-            { name = "QuintusMaxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", time = 7}
+            { name = "QuintusMaxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", time = 3}
         }
         
         dialogLines16 = {
-            { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", time = 9}
+            { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", time = 3}
         }
         dialogLines17 = {
-            { name = "DeciusMarcellus", text = "You're approaching the Great Bridge-but the access gate is sealed. Search the area for a lever. Force the passage open.", time = 8.5}
+            { name = "DeciusMarcellus", text = "You're approaching the Great Bridge, but the access gate is sealed. Search the area for a lever. Force the passage open.", time = 3}
         }
         dialogLines18 = {
-            { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", time = 9}
+            { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", time = 3}
         }
         
         dialogLines19 = {
-            { name = "DeciusMarcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", time = 9}
+            { name = "DeciusMarcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", time = 3}
         }
        
     elseif current_scene_name == "level3.TeaScene" then
         dialogLinesFind = {
-            { name = "DeciusMarcellus", text = "Heh... You'z got lucky, humie. But dis iz where it ends. Martyria Eterna belongs to da WAAAGH now!", time = 7}
-        }
-        
-        dialogLinesChange = {
-            { name = "DeciusMarcellus", text = "RAAAAGH! Youz made me ANGRY now! No more playin' around-time to show ya da real pawa of Garrosh!!"}
+            { name = "DeciusMarcellus", text = "This is Garrosh chamber, the old church of Martyria Eterna, end him brother. The Emperor protects brother.", time = 3}
         }
 
-        dialogLinesDie = {
-            { name = "DeciusMarcellus", text = "No...! Dis... ain't over... Garrosh ... never dies..."}
-        }
     elseif current_scene_name == "IntroCinematic.TeaScene" then
         dialogLinesCine = {
             { name = "DeciusMarcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around, the way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects.", audio = diaCine ,time = 14.8}
@@ -404,17 +394,10 @@ function on_update(dt)
        
     elseif current_scene_name == "level3.TeaScene" then
         --Colider
-        if detect and first and current_scene_tag =="Dialogo_Col_Find" then
+        if detect and first and current_scene_tag =="dialogLinesFind" then
             dialogFind = true
             first = false
 
-        elseif detect and first and current_scene_tag =="Dialogo_Col_Change" then
-            dialogChange = true
-            first = false
-
-        elseif detect and first and current_scene_tag =="Dialogo_Col_Die" then
-            dialogDie = true
-            first = false
         end
 
          --Dialogo
