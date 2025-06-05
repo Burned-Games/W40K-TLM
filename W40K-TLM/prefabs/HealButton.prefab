@@ -1,0 +1,100 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "HealButton_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 6808847166088952977
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 1,
+        "value1": 1,
+        "value2": 0,
+        "value3": 1,
+        "value4": 0,
+        "value5": {
+            "cereal_class_version": 0,
+            "Tag": "HealButton"
+        },
+        "value6": 1,
+        "value7": 0,
+        "value8": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.0,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": -35.0,
+                "y": -45.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value9": 1,
+        "value10": 0,
+        "value11": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value12": 0,
+        "value13": 0,
+        "value14": 0,
+        "value15": 0,
+        "value16": 0,
+        "value17": 0,
+        "value18": 0,
+        "value19": 1,
+        "value20": 0,
+        "value21": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/misc/MovementTutorialIndicator.lua",
+            "Language": 0
+        },
+        "value22": 0,
+        "value23": 0,
+        "value24": 0,
+        "value25": 0,
+        "value26": 0,
+        "value27": 0,
+        "value28": 1,
+        "value29": 0,
+        "value30": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "value0": 9898195140404311312
+            },
+            "TintColor": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 1.0
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value31": 0,
+        "value32": 0,
+        "value33": 0,
+        "value34": 0,
+        "value35": 0,
+        "value36": 0
+    }
+}
