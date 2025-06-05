@@ -223,6 +223,16 @@ function on_update(dt)
         end
     end
 
+    if main_boss.isPlayingUpperAnimation then
+        main_boss.animTimer = main_boss.animTimer + dt
+
+        if main_boss.animTimer >= main_boss.animDuration then
+            main_boss.isPlayingUpperAnimation = false
+        else
+            return
+        end
+    end
+
     if main_boss.playerDetected then
         if not main_boss.isDead or not main_boss.isPlayingAnimation or main_boss.ultimateScript.ultimateThrown or main_boss.ultimateScript.ultimateCasting and not main_boss.isReturning then
             main_boss:rotate_enemy(main_boss.playerTransf.position)
@@ -343,11 +353,6 @@ function main_boss:attack_state()
         return
     end
 
-    if main_boss.currentAnim ~= main_boss.idleAnim then
-        main_boss.currentAnim = main_boss.idleAnim
-        main_boss.animator:set_current_animation(main_boss.currentAnim)
-    end
-
     local distance = main_boss:get_distance(main_boss.enemyTransf.position, main_boss.playerTransf.position)
     local attackChance = math.random()
     log(main_boss.ultimateScript.ultiTimer)
@@ -363,6 +368,24 @@ function main_boss:attack_state()
 
     main_boss.isAttacking = false
     main_boss.attackTimer = 0.0
+
+end
+
+function main_boss:move_state()
+
+    if main_boss.currentLowerAnim ~= main_boss.moveAnim then
+        main_boss.currentLowerAnim = main_boss.moveAnim
+        main_boss.currentAnim = -1
+        main_boss.animator:set_lower_animation(main_boss.currentLowerAnim)
+    end
+
+    main_boss:follow_path()
+
+    if main_boss.moveAudioTimer >= main_boss.moveAudioDuration then
+        if main_boss.stepsSFX then main_boss.stepsSFX:play() end
+        main_boss.runParticle:emit(20)
+        main_boss.moveAudioTimer = 0.0
+    end
 
 end
 
@@ -422,13 +445,12 @@ function fists_attack()
 
     if main_boss.fistScript.fistsAttackPending then return end
 
-    if main_boss.currentAnim ~= main_boss.rangeAnim then
-        main_boss:play_blocking_animation(main_boss.rangeAnim, main_boss.fistsDuration)
+    if main_boss.currentUpperAnim ~= main_boss.rangeAnim then
+        main_boss:play_upper_blocking_animation(main_boss.rangeAnim, main_boss.fistsDuration)
     end
 
     log("Fists Indicator")
 
-    main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     main_boss.fistScript.fist()
 
 end
