@@ -633,13 +633,30 @@ function tank:tackle_raycast()
         tank:make_damage(tank.tackleDamage)
         tank.playerScript.applyStunn()
 
+        if not tank.isBerserkaActive then
+            tank:berserka_rage()
+        end
+
+        -- Move tank closer to player to ensure melee attack
+        local tankPos = tank.enemyTransf.position
+        local playerPos = tank.playerTransf.position
+        local dx = playerPos.x - tankPos.x
+        local dz = playerPos.z - tankPos.z
+        local distance = math.sqrt(dx*dx + dz*dz)
+        if distance > tank.meleeAttackRange and distance > 0.01 then
+            tank.enemyRb:set_trigger(true)
+            tank.enemyTransf:set_position(Vector3.new(
+                tankPos.x + dx/distance * 0.7,
+                tankPos.y,
+                tankPos.z + dz/distance * 0.7
+            ))
+            tank.enemyRb:set_trigger(false)
+        end
+
         if tank.meleeAreaRb then
             tank.meleeAreaRb:set_position(tank.enemyTransf.position)
         end
 
-        if not tank.isBerserkaActive then
-            tank:berserka_rage()
-        end
         tank.currentState = tank.state.Attack
         return true
     end
