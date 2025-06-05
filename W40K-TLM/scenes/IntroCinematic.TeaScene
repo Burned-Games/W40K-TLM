@@ -1031,7 +1031,7 @@
             "FogHeightDensity": 0.0
         },
         "value199": 0,
-        "value200": 4,
+        "value200": 5,
         "value201": 5,
         "value202": {
             "cereal_class_version": 0,
@@ -1053,11 +1053,16 @@
             "ScriptPath": "scripts/DialogScript/dialogoSystem.lua",
             "Language": 0
         },
-        "value209": 0,
-        "value210": 0,
-        "value211": 2,
-        "value212": 2097152,
-        "value213": {
+        "value209": 3,
+        "value210": {
+            "ScriptPath": "scripts/camera/IntroCameraScript.lua",
+            "Language": 0
+        },
+        "value211": 0,
+        "value212": 0,
+        "value213": 2,
+        "value214": 2097152,
+        "value215": {
             "cereal_class_version": 0,
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
@@ -1090,8 +1095,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value214": 1048590,
-        "value215": {
+        "value216": 1048590,
+        "value217": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -1122,9 +1127,9 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value216": 1,
-        "value217": 13,
-        "value218": {
+        "value218": 1,
+        "value219": 13,
+        "value220": {
             "cereal_class_version": 0,
             "GameObjectID": 7232288590300033459,
             "AudioBank": {
@@ -1163,9 +1168,9 @@
                 "m33": 1.0
             }
         },
-        "value219": 1,
-        "value220": 3,
-        "value221": {
+        "value221": 1,
+        "value222": 3,
+        "value223": {
             "cereal_class_version": 0,
             "GameObjectID": 12323991616038735456,
             "Transform": {
@@ -1187,10 +1192,10 @@
                 "m33": 1.0
             }
         },
-        "value222": 0,
-        "value223": 2,
-        "value224": 4,
-        "value225": {
+        "value224": 0,
+        "value225": 2,
+        "value226": 4,
+        "value227": {
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -1472,8 +1477,8 @@
                 }
             }
         },
-        "value226": 1048597,
-        "value227": {
+        "value228": 1048597,
+        "value229": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
                     "id": 2147483657,
@@ -1747,36 +1752,36 @@
                 }
             }
         },
-        "value228": 23,
-        "value229": 3,
-        "value230": 4,
-        "value231": 2097152,
-        "value232": 2097153,
-        "value233": 2097154,
-        "value234": 5,
-        "value235": 6,
-        "value236": 7,
-        "value237": 8,
-        "value238": 9,
-        "value239": 10,
-        "value240": 23,
-        "value241": 12,
-        "value242": 13,
-        "value243": 1048590,
-        "value244": 1048595,
-        "value245": 1048594,
-        "value246": 1048593,
-        "value247": 1048592,
-        "value248": 1048591,
-        "value249": 20,
-        "value250": 1048597,
-        "value251": 1048598,
-        "value252": 1,
-        "value253": 20,
-        "value254": 0,
-        "value255": 3,
-        "value256": 6,
-        "value257": {
+        "value230": 23,
+        "value231": 3,
+        "value232": 4,
+        "value233": 2097152,
+        "value234": 2097153,
+        "value235": 2097154,
+        "value236": 5,
+        "value237": 6,
+        "value238": 7,
+        "value239": 8,
+        "value240": 9,
+        "value241": 10,
+        "value242": 23,
+        "value243": 12,
+        "value244": 13,
+        "value245": 1048590,
+        "value246": 1048595,
+        "value247": 1048594,
+        "value248": 1048593,
+        "value249": 1048592,
+        "value250": 1048591,
+        "value251": 20,
+        "value252": 1048597,
+        "value253": 1048598,
+        "value254": 1,
+        "value255": 20,
+        "value256": 0,
+        "value257": 3,
+        "value258": 6,
+        "value259": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 6711820436760903955
@@ -1814,8 +1819,8 @@
             },
             "Layer": 25
         },
-        "value258": 10,
-        "value259": {
+        "value260": 10,
+        "value261": {
             "TextureUUID": {
                 "value0": 18293614392373388477
             },
@@ -1851,8 +1856,8 @@
             },
             "Layer": 100
         },
-        "value260": 12,
-        "value261": {
+        "value262": 12,
+        "value263": {
             "TextureUUID": {
                 "value0": 13093128426387816779
             },
@@ -1888,9 +1893,9 @@
             },
             "Layer": 0
         },
-        "value262": 2,
-        "value263": 8,
-        "value264": {
+        "value264": 2,
+        "value265": 8,
+        "value266": {
             "cereal_class_version": 0,
             "Text": "DialogName",
             "FontPath": "",
@@ -1924,8 +1929,8 @@
             },
             "Layer": 0
         },
-        "value265": 9,
-        "value266": {
+        "value267": 9,
+        "value268": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -1958,12 +1963,12 @@
             },
             "Layer": 0
         },
-        "value267": 0,
-        "value268": 0,
         "value269": 0,
-        "value270": 1,
-        "value271": 7,
-        "value272": {
+        "value270": 0,
+        "value271": 0,
+        "value272": 1,
+        "value273": 7,
+        "value274": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {
