@@ -53,9 +53,11 @@ function on_ready()
         cameraTransf.position, cameraTransf.rotation = cameraIntroPos, cameraIntroRot
 
         shakeDelay = 0.3
+        timeToTransition = 5.0
     else
         playerTransf.position = outroPos
         cameraTransf.position, cameraTransf.rotation = cameraOutroPos, cameraOutroRot
+        timeToTransition = 3.0
     end
 end
 
@@ -76,7 +78,7 @@ function on_update(dt)
     timer = timer + dt
     if timer >= shakeDelay then
         if not isShaking then
-            start_shake(0.1, 0.2)
+            start_shake(0.05, 0.2)
             isShaking = true
         end
     end
