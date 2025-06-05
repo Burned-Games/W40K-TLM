@@ -146,6 +146,8 @@ function on_update(dt)
                     save_progress("bluemision",1)
                     save_progress("redmision",1)
                     save_progress("hasDoneTutorialHeal",false)
+
+                    save_progress("introBossDone", false)
                     
                     saliendoDeMenu = true
                     botonSalida1:set_active(true)

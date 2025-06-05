@@ -1735,8 +1735,8 @@ function saveProgress()
     save_progress("scrap", scrapCounter)
     save_progress("health", health)
     save_progress("stims", StimsCounter)
-    save_progress("bluemision",mission_Component.blueTaskIndex)
-    save_progress("redmision",mission_Component.redTaskIndex)
+    save_progress("bluemision", mission_Component.blueTaskIndex)
+    save_progress("redmision", mission_Component.redTaskIndex)
     
 end
 
