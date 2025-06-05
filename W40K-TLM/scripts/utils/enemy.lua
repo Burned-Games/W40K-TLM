@@ -88,6 +88,8 @@ function enemy:new(obj)
 
     -- Variables for the animations
     obj.currentAnim = 0
+    obj.currentUpperAnim = 0
+    obj.currentLowerAnim = 0
     obj.idleAnim = 0
     obj.moveAnim = 1
     obj.dieAnim = 2
@@ -126,6 +128,7 @@ function enemy:new(obj)
     obj.isArenaEnemy = false
     obj.playingDieAnim = false
     obj.isPlayingAnimation = false
+    obj.isPlayingUpperAnimation = false
     obj.playerMissing = false
     obj.playerLost = false
     obj.enemyHit = false
@@ -707,10 +710,20 @@ function enemy:set_level()
 end
 
 function enemy:play_blocking_animation(animId, duration)
-
     self.currentAnim = animId
+    self.currentLowerAnim = -1
+    self.currentUpperAnim = -1
     self.animator:set_current_animation(animId)
     self.isPlayingAnimation = true
+    self.animDuration = duration
+    self.animTimer = 0.0
+end
+
+function enemy:play_upper_blocking_animation(animId, duration)
+    self.currentUpperAnim = animId
+    self.currentAnim = -1
+    self.animator:set_upper_animation(animId)
+    self.isPlayingUpperAnimation = true
     self.animDuration = duration
     self.animTimer = 0.0
 end
