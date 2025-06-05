@@ -644,7 +644,7 @@ function on_update(dt)
         
     end
 
-    if health < maxHealth * 0.5 and not hasDoneTutorialHeal then
+    if health < 125 and not hasDoneTutorialHeal then
         healButton:set_active(true)
         hasDoneTutorialHeal = true
     end
