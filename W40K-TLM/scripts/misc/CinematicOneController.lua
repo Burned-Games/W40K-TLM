@@ -18,7 +18,7 @@ end
 
 function on_update(dt)
     contador = contador + dt
-    Input.send_rumble(1, 1, 200) 
+    Input.send_rumble(0.1, 1, 1) 
     if  not changeing and (contador > timeToTransition or uiskipActualOffset >= 2000) then
         changeing = true
         move_ui_element(uiskipEntity, -2000, 0)
