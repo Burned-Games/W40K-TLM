@@ -287,7 +287,6 @@ function abilityManager(dt)
     end
 
     if dashScaling then
-        skill1:set_color(Vector4.new(0.952, 1, 0.258, 1))
         playerScript.dashAvailable = false
 
         dashScaleTimer = dashScaleTimer + dt
@@ -307,7 +306,6 @@ function abilityManager(dt)
         else
             dashScaling = false
             desiredScale = originalScale
-            skill1:set_color(Vector4.new(1, 1, 1, 1))
                 
             playerScript.dashAvailable = true
         end
