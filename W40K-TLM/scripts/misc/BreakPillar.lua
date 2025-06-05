@@ -14,6 +14,7 @@ local transform = nil
 local separateChildren = nil
 local separateChildrenWithParentMoved = {}
 local separateChildrenWithParentMovedTransform = {}
+local separateChildrenWithParentMovedRigidbody = {}
 local separate = nil
 
 
@@ -98,12 +99,14 @@ function give_phisycs()
         local pieces = separateChild:get_children()
         for j, piece in ipairs(pieces) do
 
-            local rb = piece:get_component("RigidbodyComponent").rb
+            local rbC = piece:get_component("RigidbodyComponent")
+            local rb = rbC.rb
             local pieceTransform = piece:get_component("TransformComponent")
 
             piece:set_parent(position00)
             table.insert(separateChildrenWithParentMoved, piece)
             table.insert(separateChildrenWithParentMovedTransform, pieceTransform)
+            table.insert(separateChildrenWithParentMovedRigidbody, rbC)
 
             local pivotObjectPosition = self:get_component("TransformComponent").position
             local pivotSeparateChild = separateChild:get_component("TransformComponent").position
@@ -144,11 +147,13 @@ function on_update(dt)
     if hasDisappeared and not finished then
         
         self:set_active(false)
-        for _, child in ipairs(separateChildrenWithParentMoved) do
+        for _, child in ipairs(separateChildrenWithParentMovedRigidbody) do
+            child.rb:set_position(Vector3.new(-1000,-1000,-1000))
+            
             --child:set_active(false)
             --child:remove_component("RigidbodyComponent")
             --current_scene:destroy_entity(child)
-            child:set_parent(separate)
+            --child:set_parent(separate)
         end
         separate:set_active(false)
         finished = true
