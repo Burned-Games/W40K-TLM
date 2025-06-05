@@ -236,6 +236,7 @@ local playerMatsDamages = {}
 locked = false 
 
 local movementIndicatorTransf = nil
+local movementIndicator = nil
 shootingIndicator = false
 local aimingIndicator = false
 
@@ -284,6 +285,10 @@ function on_ready()
     playerListener = current_scene:get_entity_by_name("Listener"):get_component("TransformComponent")
 
     movementIndicatorTransf = current_scene:get_entity_by_name("MovementPlayerIndicator"):get_component("TransformComponent")
+
+    movementIndicator = current_scene:get_entity_by_name("BodyIndicator")
+
+    movementIndicator:set_active(false)
 
     exploreMusic = current_scene:get_entity_by_name("ExploreMusic"):get_component("AudioSourceComponent")
     fightingMusic = current_scene:get_entity_by_name("FightingMusic"):get_component("AudioSourceComponent")
@@ -569,6 +574,7 @@ function on_update(dt)
     end
     --TUTORIAL
     if animacionEntradaRealizada and not activateMoveButton and level == 1 and zonePlayer == 0 then
+        movementIndicator:set_active(true)
         moveButton:set_active(true)
         activateMoveButton = true
     end
