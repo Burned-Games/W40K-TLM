@@ -485,6 +485,7 @@ function range:stab_state(dt)
         range.stabDamageTimer = range.stabDamageTimer - dt
         
         -- Cuando el timer llega a 0, aplicamos el daño
+        range:check_player_distance()
         if range.stabDamageTimer <= 0 and not range.hasDealtDamage and range.playerDistance <= range.meleeDamageRange then
             range.meleeImpactSFX:play()
             range:make_damage(range.meleeDamage)
