@@ -414,6 +414,7 @@ function lightning_attack()
 
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     main_boss.lightningScript:lightning()
+    main_boss.fistScript.fist()
 
 end
 
