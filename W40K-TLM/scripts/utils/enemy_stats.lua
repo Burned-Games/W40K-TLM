@@ -151,7 +151,7 @@ local enemy_stats = {
             detectionRange = 17,
             rangeAttackRange = 10,
             shieldRange = 5,
-            attackRange = 0,
+            attackRange = 10,
 
 
 
@@ -183,7 +183,7 @@ local enemy_stats = {
 
             dispersion = 3,
 
-            maxBurstShots = 4,
+            maxBurstShots = 3,
 
             detectionRange = 17,
             rangeAttackRange = 10,

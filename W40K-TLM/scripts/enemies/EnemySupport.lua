@@ -64,6 +64,7 @@ function on_ready()
 
     -- BulletManager
     support.bulletManagerScript = current_scene:get_entity_by_name("SuppEnemyBullets"):get_component("ScriptComponent")
+
     
     -- Particles
 
@@ -163,24 +164,6 @@ function on_ready()
     support.bulletPool = {}
     support.bulletTimers = {}
 
-    -- Create bullet pool
-    for i = 1, 3 do
-        local bulletEntity = current_scene:get_entity_by_name("SupportBullet" .. i)
-        
-        local bullet = {
-            entity = bulletEntity,
-            transform = bulletEntity:get_component("TransformComponent"),
-            rbComponent = bulletEntity:get_component("RigidbodyComponent"),
-            active = false
-        }
-        
-        bullet.rb = bullet.rbComponent.rb
-        bullet.rb:set_trigger(true)
-        bullet.rb:set_position(Vector3.new(-1000, 0, -1000))
-        
-        support.bulletPool[i] = bullet
-        support.bulletTimers[i] = 0
-    end
 
     -- Positions
     support.enemyInitialPos = Vector3.new(support.enemyTransf.position.x, support.enemyTransf.position.y, support.enemyTransf.position.z)
@@ -204,7 +187,6 @@ function on_update(dt)
     if support.isPushed then return end
     if support.isGranadePushed then return end
     
-    update_bullets(dt)
     change_state(dt)
 
     support.moveAudioTimer = support.moveAudioTimer + dt
@@ -679,29 +661,6 @@ function support:shoot_state(dt)
             support.currentState = support.state.Move
         end
     end
-end
-
-
-function update_bullets(dt)
-    for i, bullet in ipairs(support.bulletPool) do
-        if bullet and bullet.active then
-            support.bulletTimers[i] = support.bulletTimers[i] + dt
-            if support.bulletTimers[i] >= support.bulletLifetime then
-                deactivate_bullet(i)
-            end
-        end
-    end
-end
-
-function deactivate_bullet(index)
-    local bullet = support.bulletPool[index]
-    
-    bullet.active = false
-
-    bullet.rb:set_position(Vector3.new(-1000, 0, -1000))
-    bullet.rb:set_velocity(Vector3.new(0, 0, 0))
-
-    support.bulletTimers[index] = 0
 end
 
 function shoot_projectile()
