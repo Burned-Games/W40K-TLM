@@ -178,7 +178,8 @@ function on_ready()
 
     elseif current_scene_name == "IntroCinematic.TeaScene" then
         dialogLinesCine = {
-            { name = "DeciusMarcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around, the way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects.", audio = diaCine ,time = 14.8}
+            { name = "DeciusMarcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around.", audio = diaCine ,time = 3},
+            { name = "DeciusMarcellus", text = "The way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects.", audio = diaCine ,time = 2.5}
         }
     end
 
