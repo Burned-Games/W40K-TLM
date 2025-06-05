@@ -137,7 +137,6 @@ function on_ready()
 
     -- Positions
     main_boss.lastTargetPos = main_boss.playerTransf.position
-    main_boss.arenaCenter = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z)
 
     -- On Collision functions
     main_boss.wrathRbComponent:on_collision_stay(function(entityA, entityB)
@@ -190,7 +189,7 @@ function on_update(dt)
 
     main_boss.moveAudioTimer = main_boss.moveAudioTimer + dt
     main_boss.attackTimer = main_boss.attackTimer + dt
-    if not main_boss.isAttacking then main_boss.shieldTimer = main_boss.shieldTimer + dt end
+    if not main_boss.shieldActive and not main_boss.isAttacking and not main_boss.ultimateScript.ultimateThrown and not main_boss.ultimateScript.ultimateCasting then main_boss.shieldTimer = main_boss.shieldTimer + dt end
     main_boss.pathUpdateTimer = main_boss.pathUpdateTimer + dt
     if main_boss.enemyHit then
         main_boss.hitTimer = main_boss.hitTimer + dt 
@@ -253,10 +252,12 @@ function on_update(dt)
     end
 
     if main_boss.playerDetected then
-        if not main_boss.isDead or not main_boss.isPlayingAnimation or main_boss.ultimateScript.ultimateThrown or main_boss.ultimateScript.ultimateCasting and not main_boss.isReturning then
+        if main_boss.isReturning then
+            main_boss:rotate_enemy(main_boss.arenaTrasnf.position)
+        elseif main_boss.isDead then
+            -- Do nothing
+        elseif not main_boss.isPlayingAnimation or main_boss.ultimateScript.ultimateThrown or main_boss.ultimateScript.ultimateCasting then
             main_boss:rotate_enemy(main_boss.playerTransf.position)
-        elseif main_boss.isReturning then
-            main_boss:rotate_enemy(main_boss.arenaCenter.position)
         end
     end
 
@@ -274,6 +275,8 @@ function on_update(dt)
 end
 
 function change_state()
+
+    if main_boss.isDead then return end
 
     if main_boss.isReturning then return end
 
@@ -293,6 +296,13 @@ function change_state()
         end
     end
 
+    if distance <= main_boss.rangeAttackRange and main_boss.isAttacking then
+        main_boss.currentState = main_boss.state.Attack
+    elseif distance <= main_boss.detectionRange and not main_boss.isRaging and not main_boss.hasMovedToCenter then
+        main_boss.playerDetected = true
+        main_boss.currentState = main_boss.state.Move
+    end
+
     if main_boss.shieldActive then
         if main_boss.shieldHealth <= 0 then
             main_boss.shieldActive = false
@@ -303,15 +313,8 @@ function change_state()
             main_boss.shieldHealth = main_boss.bossShieldHealth
             main_boss.shieldActive = true
             main_boss.currentState = main_boss.state.Shield
-            main_boss.shieldTimer = 0
+            main_boss.shieldTimer = 0.0
         end
-    end
-
-    if distance <= main_boss.rangeAttackRange and main_boss.isAttacking then
-        main_boss.currentState = main_boss.state.Attack
-    elseif distance <= main_boss.detectionRange and not main_boss.isRaging and not main_boss.hasMovedToCenter then
-        main_boss.playerDetected = true
-        main_boss.currentState = main_boss.state.Move
     end
 
 end

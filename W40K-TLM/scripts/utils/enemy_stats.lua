@@ -379,7 +379,7 @@ local enemy_stats = {
             -- The damage of the fist is called every time this timer ends (ex. The fists attack makes damage every second staying on it, it can be changed to 2s, 3s, 4s...etc.)
             fistsDamageCooldown = 1.0,
             -- Time before throwing the shield
-            shieldCooldown = 8.0
+            shieldCooldown = 15.0
         },
 
 
@@ -410,7 +410,7 @@ local enemy_stats = {
             lightningDuration = 0.5,
             rangeAttackDuration = 2.0,
             fistsDamageCooldown = 1.0,
-            shieldCooldown = 8.0,
+            shieldCooldown = 15.0,
             -- Time between ultimates
             ultiCooldown = 30.0,
             -- Time before the ultimate starts making damage
