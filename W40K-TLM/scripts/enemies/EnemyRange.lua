@@ -585,7 +585,7 @@ function range:find_nearby_enemies()
         if (name == "EnemyRange" or name == "EnemyTank" or name == "EnemyKamikaze" or name == "EnemyTank1" or name == "EnemySupport" or name == "EnemyTutorial") and entity ~= self then
             local script = entity:get_component("ScriptComponent")
             local entityTransform = entity:get_component("TransformComponent")
-            log("Entity: " .. name .. " - Tag: " .. tag.tag)
+            
             if entityTransform and script then
                 local distance = range:get_distance(range.enemyTransf.position, entityTransform.position)
                 

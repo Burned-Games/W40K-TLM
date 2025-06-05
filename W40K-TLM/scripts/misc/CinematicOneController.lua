@@ -1,8 +1,4 @@
-
-
 local timeToTransition = 18
-
-
 
 local contador = 0
 local fadeToBlackScript = nil
@@ -21,32 +17,12 @@ function on_ready()
 end
 
 function on_update(dt)
-    -- Add update code here
-    --[[
-
-
-    if not changeing then
-        
-        
-        
-        if Input.get_button(Input.action.Confirm) == Input.state.Repeat then
-            uiskipActualOffset = uiskipActualOffset + dt * uiSkipSpeed
-            move_ui_element(uiskipEntity, dt * uiSkipSpeed, 0)
-        end
-        
-
-        if Input.get_button(Input.action.Confirm) == Input.state.Up then
-            move_ui_element(uiskipEntity, -uiskipActualOffset, 0)
-            uiskipActualOffset = 0
-        end
-    end
-    ]]
-    
-    
     contador = contador + dt
+    Input.send_rumble(0.1, 1, 1) 
     if  not changeing and (contador > timeToTransition or uiskipActualOffset >= 2000) then
         changeing = true
         move_ui_element(uiskipEntity, -2000, 0)
+        
         fadeToBlackScript:DoFade()
     end
     
