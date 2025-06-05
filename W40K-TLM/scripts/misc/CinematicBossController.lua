@@ -1,5 +1,6 @@
 local introBossDone = false
 
+local player = nil
 local playerAnimator = nil
 local playerTransf = nil
 local bossAnimator = nil
@@ -22,6 +23,9 @@ local timer = 0.0
 
 local fadeDuration = 1.0
 
+local backpack = false
+local helmet = false
+
 -- Shake
 local isShaking = false
 local shakeAmount = 0
@@ -36,10 +40,23 @@ function on_ready()
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
     fadeToBlackScript.fadeToBlackTimer = fadeDuration
 
+    -- Upgrades
+    backpack = load_progress("armorHealthBoost", false)
+    helmet = load_progress("armorProtection", false)
+
     -- Player
-    playerAnimator = current_scene:get_entity_by_name("Player"):get_component("AnimatorComponent")
-    playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
+    player = current_scene:get_entity_by_name("Player")
+    playerAnimator = player:get_component("AnimatorComponent")
+    playerTransf = player:get_component("TransformComponent")
     playerAnimator:set_looping(false)
+    local children = player:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "Jetpack_lv2_player" and backpack then
+            child:set_active(true)
+        elseif child:get_component("TagComponent").tag == "Casco_lvl_2_player" and helmet then
+            child:set_active(true)
+        end
+    end
 
     -- Main Boss
     bossAnimator = current_scene:get_entity_by_name("MainBoss"):get_component("AnimatorComponent")
