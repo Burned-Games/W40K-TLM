@@ -18,6 +18,7 @@ local LogoEntity
 local LogoSalidaEntity
 local Ajustes
 local Credits
+local hasGameSave = false
 
 local botonAnimadoScript
 
@@ -107,9 +108,10 @@ function on_ready()
     local savedLevel = load_progress("level",-1)
 
     if savedLevel == -1 then
-        print("No hay nivel guardado")
-        --button2.interactable = false
+        hasGameSave = false
         button2.state = State.Disabled
+    else
+        hasGameSave = true
     end
 end
 
@@ -165,27 +167,33 @@ function on_update(dt)
 
     elseif index == 1 then
         button1.state = State.Normal
-        button2.state = State.Hover
+        if hasGameSave then
+            button2.state = State.Hover
+        else
+            button2.state = State.Disabled
+        end
         button3.state = State.Normal
         button4.state = State.Normal
         button5.state = State.Normal
 
-        value = Input.get_button(Input.action.Confirm)
-        if((value == Input.state.Down and sceneChanged == false)) then
-            outroSFX:play()
-            if(index == 1) then
-                botonSalida2:set_active(true)
-                salidaImagen:set_active(true)
-                SettingsEntity:set_active(false)
-                BaseEntity:set_active(false)
-                OrderEntity:set_active(false)
-                LogoEntity:set_active(false)
-                LogoSalidaEntity:set_active(true)
+        if hasGameSave then
+            value = Input.get_button(Input.action.Confirm)
+            if((value == Input.state.Down and sceneChanged == false)) then
+                outroSFX:play()
+                if(index == 1) then
+                    botonSalida2:set_active(true)
+                    salidaImagen:set_active(true)
+                    SettingsEntity:set_active(false)
+                    BaseEntity:set_active(false)
+                    OrderEntity:set_active(false)
+                    LogoEntity:set_active(false)
+                    LogoSalidaEntity:set_active(true)
 
-                fadeToBlackScript:DoFade()
+                    fadeToBlackScript:DoFade()
 
-                changingScene = 2
-                sceneChanged = true
+                    changingScene = 2
+                    sceneChanged = true
+                end
             end
         end
         
