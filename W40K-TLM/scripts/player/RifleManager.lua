@@ -127,9 +127,9 @@ local bulletTimers = nil
 
 local bulletPool = nil
 
-local animatorVFXShoot = nil
+animatorVFXShoot = nil
 
-local currentVFXAnim = 0
+currentVFXAnim = 0
 
 local cooldownVFX = 0
 
