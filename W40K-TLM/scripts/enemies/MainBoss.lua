@@ -132,6 +132,7 @@ function on_ready()
     main_boss.isReturning = false
     main_boss.isPlayingAnimation = false
     main_boss.changeing = false
+    main_boss.changeScene = false
     main_boss.fadeToBlack = false
 
     -- Positions
@@ -394,23 +395,25 @@ end
 function main_boss:die_state(dt)
     
     if main_boss.currentAnim ~= main_boss.dieAnim then
+        main_boss.animator:set_looping(false)
         main_boss:play_blocking_animation(main_boss.dieAnim, main_boss.dieDuration)
         if main_boss.dyingSFX ~= nil then main_boss.dyingSFX:play() end
     end
 
     if not main_boss.isDead then main_boss.isDead = true end
 
-    print(main_boss.changeing)
-    print(main_boss.contador)
-    print(main_boss.timeToTransition)
+    save_progress("introBossDone", true)
+
     if  not main_boss.changeing and (main_boss.contador >= main_boss.timeToTransition) then
         main_boss.changeing = true
         main_boss.fadeToBlackScript:DoFade()
     end
 
-    if main_boss.changeing then
+    if main_boss.changeing and not main_boss.changeScene then
         if main_boss.fadeToBlackScript.fadeToBlackDoned then
-            SceneManager.change_scene("scenes/credits.TeaScene")
+            main_boss.changeScene = true
+            SceneManager.change_scene("scenes/bossCinematic.TeaScene")
+            return
         end
     end
 end

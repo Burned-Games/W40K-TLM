@@ -38,7 +38,8 @@ function on_update(dt)
     if changeing and not changeScene then
         if fadeToBlackScript.fadeToBlackDoned then
             changeScene = true
-            SceneManager.change_scene("scenes/bossArena.TeaScene")
+            SceneManager.change_scene("scenes/bossCinematic.TeaScene")
+            return
         end
     end
 end
