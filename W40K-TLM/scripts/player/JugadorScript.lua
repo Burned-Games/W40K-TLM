@@ -155,29 +155,29 @@ local checkpointsPositionLvl1 = { Vector3.new(-14, 0, -32), Vector3.new(105, 0, 
 local checkpointsPositionLvl2 = { Vector3.new(0, 0, 0), Vector3.new(63, 0, -60)}
 
 --animation indexs
-idle = 17 --17
+idle = 18 --17
 attack = 3
-local dash = 5
-local die = 7
-local drop = 8
-local mainMenu = 18
-local melee = 19
-local run = 24
-local runB = 25
-local runL = 26
+local dash = 6
+local die = 8
+local drop = 9
+local mainMenu = 19
+local melee = 20
+local run = 25
+local runB = 26
+local runL = 27
 local runR = 27
-local walk = 30
-shotgun_Pump = 28
-local run_Shotgun = 12
-h1_Bolter = 11
-h1_Shotgun_Aim = 12
-h1_Shotgun_Throw = 13
-h1_Shotgun_Enter = 14
-local heal = 15
-hit = 16
-reload_Bolter = 20
-reload_Shotgun = 22
-local stun = 29
+local walk = 31
+shotgun_Pump = 29
+local run_Shotgun = 13
+h1_Bolter = 12
+h1_Shotgun_Aim = 13
+h1_Shotgun_Throw = 14
+h1_Shotgun_Enter = 15
+local heal = 16
+hit = 17
+reload_Bolter = 21
+reload_Shotgun = 23
+local stun = 30
 local aim = 0
 
 local rotationAngle = 0
@@ -537,12 +537,11 @@ function on_update(dt)
             mission_Component.m6_heal = true
         end
 
-        if currentUpAnim ~= heal then
+        if currentUpAnim ~= heal and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false and bolterScript.chaaarging == false then
             healAnimationSecondBool = true
             healAnimationBool = true
                 currentUpAnim = heal
-                
-                animator:set_upper_animation(currentUpAnim)
+            animator:set_upper_animation(currentUpAnim)
         end
     end
     updateEntranceAnimation(dt)
@@ -572,9 +571,12 @@ function on_update(dt)
     if not infiniteHealth then
         handleDamageEffects(dt)
     end
+
+    if animacionEntradaRealizada or (level ~= 1 or zonePlayer ~= 0) then
+        movementIndicator:set_active(true)
+    end
     --TUTORIAL
     if animacionEntradaRealizada and not activateMoveButton and level == 1 and zonePlayer == 0 then
-        movementIndicator:set_active(true)
         moveButton:set_active(true)
         activateMoveButton = true
     end
