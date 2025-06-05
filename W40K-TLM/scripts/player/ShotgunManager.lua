@@ -92,7 +92,7 @@ local shotgunReloadSFX = nil
 local shotgunShotSFX = nil
 local playerNoAmmoSFX = nil
 
-local firstTimeAudio = false
+local firstTimeAudio = false    
 
 --Particles
 local particle_previewG_interior = nil
