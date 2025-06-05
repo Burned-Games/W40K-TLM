@@ -141,6 +141,8 @@ local isDiruptorShooted = false
 
 local disruptorTime = 0
 
+local firstTime = false
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -402,6 +404,7 @@ function on_update(dt)
         local currentMaxReloadTime = maxReloadTime * (1 / reloadSpeedMultiplier)
 
         if using then
+            firstTime = false
             local rightTrigger = Input.get_button(Input.action.Shoot)
             local leftShoulder = Input.get_button(Input.action.Skill2)
 
@@ -580,6 +583,12 @@ function on_update(dt)
                 disruptorShooted2 = false
             end
 
+            
+        else 
+            if not firstTime then
+                animatorVFXShoot:set_current_animation(0)
+                firstTime = true
+            end
             
         end
 

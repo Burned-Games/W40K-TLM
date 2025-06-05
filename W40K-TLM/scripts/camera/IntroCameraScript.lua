@@ -16,7 +16,7 @@ function on_ready()
     -- Add initialization code here
 
     cameraFirstTransform = Vector3.new(0.182, 0.776, 18.772)
-    cameraTransform = self:get_component("TransformComponent") 
+    cameraTransform = self:get_component("TransformComponent")
 
     startShake(0.1,300)
 end
