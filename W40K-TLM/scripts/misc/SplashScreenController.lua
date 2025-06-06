@@ -7,22 +7,16 @@ local logoObj = nil
 local logo = nil
 local title = nil
 
--- Animation parameters
-local expandDuration = 2.0  -- Duration of expansion phase (1 second)
-local maxScale = 1.01       -- Maximum scale factor (reduced to avoid GL errors)
-local originalScale = 1.0   -- Original scale to return to
-
+local expandDuration = 3.5  
+local maxScale = 1.02       
+local originalScale = 1.0  
 function on_ready()
 
     fadeToBlackEntity = current_scene:get_entity_by_name("FadeToBlack")
     fadeToBlackScript = fadeToBlackEntity:get_component("ScriptComponent")
     logoObj = current_scene:get_entity_by_name("logo")
     logo = logoObj:get_component("UIImageComponent")
-  
     
-    local titleEntity = current_scene:get_entity_by_name("title")
-    title = titleEntity:get_component("UITextComponent")
-
 end
 
 function on_update(dt)
