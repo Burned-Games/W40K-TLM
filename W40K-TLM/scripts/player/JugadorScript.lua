@@ -137,16 +137,6 @@ local granadeVelocity = 0.65
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
 scrapCounter = 0
-local scrapObjects = {}
---local tuplaScrap = { {}, {} }
---local tuplaP1 = {}
---local tuplaP2 = {}
-local distanceToPlayerToDestroy = 2, 2, 2
-local attractionActive = false 
-local attractionSpeed = 2
-local amountOfScrap = 0
-local scrapDestroyed = 0
-local partOfList = 0
 
 zonePlayer = 0
 level = 1
@@ -221,7 +211,6 @@ notMovingnotLooking = false
 
 isStunned = false
 
-local lastTriggerTime = 0
 local interval = 2
 local sceneName = nil
 
@@ -521,14 +510,6 @@ function on_update(dt)
     end 
     dtColective = dtColective + dt
     update_combat_state(dt)
-
-    
-
-    if dtColective - lastTriggerTime >= interval then
-        updateScrapList()
-        
-        lastTriggerTime = dtColective
-    end
 
     if StimsCounter > 0 and isHealing == false and (Input.is_button_pressed(Input.controllercode.DpadRight) or Input.is_key_pressed(Input.keycode.H)) then
         StimsCounter = StimsCounter - 1
@@ -1612,117 +1593,6 @@ function handleDamageEffects(dt)
         health = effect:burn(playerScript, health, dt)
     end
 end
---[[
-function find_scrap()
-    --local entities = current_scene:get_all_entities()
-    --tuplaScrap = { {}, {} }
-    --local entities = current_scene:get_all_entities()
-
-
-    amountOfScrap = 0
-
-
-    scrapObjects = {}
-    local amount = 0
-    for _, entity in ipairs(entities) do
-        local entitiname = entity:get_component("TagComponent").tag
-        
-        if entitiname == "Scrap" then
-            amount = amount + 1
-            playerPos = playerTransf.position
-
-            local transform = entity:get_component("TransformComponent")
-            local cercania = Vector3.new(
-            math.abs(playerPos.x - transform.position.x),
-            math.abs(playerPos.y - transform.position.y),
-            math.abs(playerPos.z - transform.position.z)
-            )
-            
-            if cercania.x < 200 and cercania.y < 200 and cercania.z < 200 then
-                
-
-
-            
-
-            table.insert(scrapObjects, entity:get_component("TransformComponent"))
-
-            
-            amountOfScrap = amountOfScrap + 1
-            end
-        end
-        
-        
-        
-    end
-    if amountOfScrap == 0 then
-        attractionActive = false
-
-    end
-    
-
-    
-end
-
-function attract_scrap(dt)
-    partOfList = partOfList + 1
-    
-    for _, scrap in ipairs(scrapObjects) do
-        
-        playerPos = playerTransf.position
-        local cercania = Vector3.new(
-            math.abs(playerPos.x - scrap.position.x),
-            math.abs(playerPos.y - scrap.position.y),
-            math.abs(playerPos.z - scrap.position.z)
-        )
-        
-        local direction = Vector3.new(playerPos.x - scrap.position.x,
-        playerPos.y - scrap.position.y, 
-        playerPos.z - scrap.position.z)
-
-        local l = attractionSpeed * dt
-        local p = Vector3.new(direction.x * l ,
-                              direction.y * l , 
-                              direction.z * l )
-        local scrapPos = Vector3.new(scrap.position.x + p.x,
-                                     scrap.position.y + p.y, 
-                                     scrap.position.z + p.z)
-        scrap.position = scrapPos
-
-        -- Calcular la distancia entre el player y la chatarra
-        local cercania = Vector3.new(
-            math.abs(playerPos.x - scrap.position.x),
-            math.abs(playerPos.y - scrap.position.y),
-            math.abs(playerPos.z - scrap.position.z)
-        )
-        ----print("algo", cercania.x, cercania.y, cercania.z)
-
-        if cercania.x < 2 and cercania.y < 2 and cercania.z < 2 then
-            --current_scene:destroy_entity(tuplaP1[partOfList])
-            scrap.position.x = 5000000000
-            scrap.position.y = 5000000000
-            scrap.position.z = 5000000000
-            scrapCounter = scrapCounter + 37
-            scrapDestroyed = scrapDestroyed + 1
-
-
-
-
-        end
-        if amountOfScrap == scrapDestroyed then
-            scrapDestroyed = 0
-            attractionActive = false
-
-        end
-
-        --[[
-        if partOfList >= amountOfScrap then
-            partOfList = 0
-        end
-        
-    
-    end 
-end
-]]
 
 function HealPlayer()
 
@@ -1860,11 +1730,5 @@ function applyStunn()
     end
 
 end
-function updateScrapList()
-    
-    --entities = current_scene:get_all_entities()
-
-end
-
 
 function on_exit() end

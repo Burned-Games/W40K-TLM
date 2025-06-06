@@ -27,11 +27,13 @@ local backpack = false
 local helmet = false
 
 -- Shake
-local isShaking = false
+local isFirstShaking = false
+local isSecondShaking = false
 local shakeAmount = 0
 local shakeDuration = 0
 local shakeDecay = 3
 local shakeDelay = 0.3
+local secondShakeDelay = 4.5
 
 -- Audio
 local introBossSFX = nil
@@ -89,6 +91,7 @@ function on_ready()
 end
 
 function on_update(dt)
+    timer = timer + dt
     
     if not introBossDone then
         if bossCurrentAnim ~= bossIntroAnim then
@@ -98,6 +101,20 @@ function on_update(dt)
             if not hasIntroPlayed then
                 introBossSFX:play()
                 hasIntroPlayed = true
+            end
+        end
+
+        if timer >= shakeDelay then
+            if not isFirstShaking then
+                start_shake(0.05, 0.2)
+                isFirstShaking = true
+            end
+        end
+
+        if timer >= secondShakeDelay then
+            if not isSecondShaking then
+                start_shake(0.03, 2.0)
+                isSecondShaking = true
             end
         end
     else
@@ -110,13 +127,12 @@ function on_update(dt)
                 hasOutroPlayed = true
             end
         end
-    end
 
-    timer = timer + dt
-    if timer >= shakeDelay then
-        if not isShaking then
-            start_shake(0.05, 0.2)
-            isShaking = true
+        if timer >= shakeDelay then
+            if not isFirstShaking then
+                start_shake(0.05, 0.2)
+                isFirstShaking = true
+            end
         end
     end
 
