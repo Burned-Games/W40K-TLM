@@ -46,6 +46,7 @@ local dialogStartQueued = false
 -- Audio control
 local currentAudio = nil
 local audioLoopSFX = nil
+local audioSkipSFX = nil
 
 local isQueueProcessing = false
 local dialogEndTimer = 0.0
@@ -60,6 +61,7 @@ function on_ready()
     textComponent = current_scene:get_entity_by_name("DialogText"):get_component("UITextComponent")
     dialogImgComponent = current_scene:get_entity_by_name("DialogIMG"):get_component("UIImageComponent")
     audioLoopSFX = current_scene:get_entity_by_name("DialogoLoop"):get_component("AudioSourceComponent")
+    audioSkipSFX = current_scene:get_entity_by_name("DialogSkip"):get_component("AudioSourceComponent")
 
     dialogImgComponent:set_color(Vector4.new(1, 1, 1, 0))
     nameComponent:set_text(" ")
@@ -100,6 +102,7 @@ function on_update(dt)
                 currentAudio = nil
             end     
             audioLoopSFX:pause()
+            audioSkipSFX:play()
             isTypingAudioPlaying = false
         elseif waitingForNext then
             if currentAudio then
