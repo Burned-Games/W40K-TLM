@@ -111,6 +111,11 @@ local velocidadAtaque = nil
 
 local cantidadConsumible = nil
 
+local bleedingFadeOutActive = false
+local bleedingFadeOutAlpha = 1.0
+local bleedingFadeOutSpeed = 2.0
+local wasHitted = false
+
 function on_ready()
 
     --Vida
@@ -759,13 +764,6 @@ function update_scrap_display()
     end
 end
 
-
--- Variables para controlar el estado del bleeding feedback (FUERA de la función)
-local bleedingFadeOutActive = false
-local bleedingFadeOutAlpha = 1.0
-local bleedingFadeOutSpeed = 2.0
-local wasHitted = false
-
 function buff_debuff_manager(dt)
     cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
 
@@ -798,7 +796,6 @@ function buff_debuff_manager(dt)
         bleedingFeedback:set_active(false)
     end
     
-    -- Procesar fade out si está activo
     if bleedingFadeOutActive then
         bleedingFadeOutAlpha = bleedingFadeOutAlpha - (bleedingFadeOutSpeed * dt) 
         
