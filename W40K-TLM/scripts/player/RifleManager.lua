@@ -448,11 +448,7 @@ function on_update(dt)
 
             if rightTrigger == Input.state.Repeat and (ammo < maxAmmo) and swordScript.slasheeed == false and reloadAnimation == false then
                 playerScript.activateAutoAim = true
-                if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
-                    playerScript.currentUpAnim = playerScript.attack
-                    playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
-                    shootAnimation = true
-                end
+                
                 
 
                 
@@ -468,6 +464,11 @@ function on_update(dt)
                 --     end
                 -- end
                 if shootCoolDown >= currentShootCoolDownRifle then
+                    if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
+                        playerScript.currentUpAnim = playerScript.attack
+                        playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                        shootAnimation = true
+                    end
                     cooldownVFX = 0
                     if currentVFXAnim ~= 1 then
                         animatorVFXShoot:set_current_animation(1)
@@ -522,6 +523,10 @@ function on_update(dt)
             else 
                 cooldownVFX = cooldownVFX + dt
                 if cooldownVFX >= 0.1 then
+                    if playerScript.currentUpAnim ~= playerScript.aim then
+                        playerScript.currentUpAnim = playerScript.aim
+                        playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                    end
                     if currentVFXAnim ~= 0 then
                     animatorVFXShoot:set_current_animation(0)
                     currentVFXAnim = 0

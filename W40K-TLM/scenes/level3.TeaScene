@@ -88,7 +88,7 @@
         "value84": 4195219,
         "value85": 1048606,
         "value86": 1048608,
-        "value87": 4195799,
+        "value87": 3146719,
         "value88": 3146851,
         "value89": 3146692,
         "value90": 2097188,
@@ -421,7 +421,7 @@
         "value417": 3146767,
         "value418": 1049554,
         "value419": 3146791,
-        "value420": 3146719,
+        "value420": 5244375,
         "value421": 4195419,
         "value422": 2097316,
         "value423": 2097317,
@@ -2836,9 +2836,9 @@
         "value2663": {
             "Tag": "Collisions"
         },
-        "value2664": 4195799,
+        "value2664": 3146719,
         "value2665": {
-            "Tag": "HealingParticle"
+            "Tag": "PlayerAudio"
         },
         "value2666": 3146851,
         "value2667": {
@@ -4168,9 +4168,9 @@
         "value3329": {
             "Tag": "Cube.009"
         },
-        "value3330": 3146719,
+        "value3330": 5244375,
         "value3331": {
-            "Tag": "PlayerAudio"
+            "Tag": "HealingParticle"
         },
         "value3332": 419,
         "value3333": 4195372,
@@ -5704,16 +5704,16 @@
                 "z": 1.0
             }
         },
-        "value3503": 4195799,
+        "value3503": 3146719,
         "value3504": {
             "Position": {
                 "x": 0.0,
-                "y": 1.1914583444595338,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -11698,16 +11698,16 @@
                 "z": 0.9999999403953552
             }
         },
-        "value4169": 3146719,
+        "value4169": 5244375,
         "value4170": {
             "Position": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": 1.1914583444595338,
                 "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": -0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -11834,7 +11834,7 @@
         "value4205": {
             "Parent": 3146785,
             "First": 4294967295,
-            "Next": 4195799,
+            "Next": 5244375,
             "Prev": 4194308
         },
         "value4206": 1050248,
@@ -12313,12 +12313,12 @@
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value4342": 4195799,
+        "value4342": 3146719,
         "value4343": {
-            "Parent": 3146785,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 4194309
+            "Parent": 3146700,
+            "First": 2099252,
+            "Next": 3146636,
+            "Prev": 3147836
         },
         "value4344": 3146851,
         "value4345": {
@@ -14644,12 +14644,12 @@
             "Next": 3146790,
             "Prev": 3146792
         },
-        "value5008": 3146719,
+        "value5008": 5244375,
         "value5009": {
-            "Parent": 3146700,
-            "First": 2099252,
-            "Next": 3146636,
-            "Prev": 3147836
+            "Parent": 3146785,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4194309
         },
         "value5010": 1,
         "value5011": 22,
@@ -25797,7 +25797,7 @@
                 }
             }
         },
-        "value5698": 4195799,
+        "value5698": 5244375,
         "value5699": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -25855,17 +25855,17 @@
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
                         "StartSpeed": 3.299999952316284,
-                        "UseRandomSize": false,
+                        "UseRandomSize": true,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.4000000059604645,
+                            "y": 0.4000000059604645,
+                            "z": 0.4000000059604645
                         },
                         "StartSizeMax": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.6000000238418579,
+                            "y": 0.6000000238418579,
+                            "z": 0.6000000238418579
                         },
                         "StartSize": {
                             "x": 1.0,
@@ -25888,7 +25888,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 4.0,
                         "UseBurst": false,
@@ -25906,8 +25906,8 @@
                         },
                         "UseShape": true,
                         "ShapeAngle": 0.75,
-                        "ShapeRadius": 0.6669999957084656,
-                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "ShapeRadius": 1.5,
+                        "ShapeRadiusThickness": 0.5,
                         "GoCenter": false,
                         "UseVelocityOverLifetime": false,
                         "VelocitySeparateAxes": false,
@@ -25986,7 +25986,7 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
+                                "value0": 0.11500000208616257,
                                 "value1": 1.0
                             },
                             {
@@ -26038,17 +26038,17 @@
                             {
                                 "value0": 0.0,
                                 "value1": {
-                                    "value0": 0.37981176376342776,
-                                    "value1": 1.0,
-                                    "value2": 0.010230183601379395,
+                                    "value0": 0.23672732710838319,
+                                    "value1": 0.6380090713500977,
+                                    "value2": 0.0,
                                     "value3": 1.0
                                 }
                             },
                             {
                                 "value0": 1.0,
                                 "value1": {
-                                    "value0": 0.31372547149658205,
-                                    "value1": 1.0,
+                                    "value0": 0.2569425702095032,
+                                    "value1": 0.8190045356750488,
                                     "value2": 0.0,
                                     "value3": 0.0
                                 }
@@ -26341,7 +26341,7 @@
         "value5974": 1049462,
         "value5975": 1049553,
         "value5976": 2098126,
-        "value5977": 4195799,
+        "value5977": 3146837,
         "value5978": 2058,
         "value5979": 939,
         "value5980": 2099268,
@@ -26414,7 +26414,7 @@
         "value6047": 3146840,
         "value6048": 3146839,
         "value6049": 3146838,
-        "value6050": 3146837,
+        "value6050": 5244375,
         "value6051": 53,
         "value6052": 881,
         "value6053": 1434,

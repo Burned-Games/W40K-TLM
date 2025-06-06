@@ -542,7 +542,7 @@
         "value538": 2098220,
         "value539": 2098219,
         "value540": 3146636,
-        "value541": 3146851,
+        "value541": 2098029,
         "value542": 2098221,
         "value543": 2097170,
         "value544": 3147697,
@@ -684,7 +684,7 @@
         "value680": 2098032,
         "value681": 2098031,
         "value682": 2098030,
-        "value683": 2098029,
+        "value683": 4195427,
         "value684": 2098028,
         "value685": 2098027,
         "value686": 2098026,
@@ -4652,7 +4652,7 @@
         "value3571": {
             "Tag": "ShotgunAudio"
         },
-        "value3572": 3146851,
+        "value3572": 2098029,
         "value3573": {
             "Tag": "HealingParticle"
         },
@@ -14924,7 +14924,7 @@
                 "z": 1.0
             }
         },
-        "value4935": 3146851,
+        "value4935": 2098029,
         "value4936": {
             "Position": {
                 "x": 0.0,
@@ -17661,7 +17661,7 @@
         "value5271": {
             "Parent": 4195799,
             "First": 4294967295,
-            "Next": 3146851,
+            "Next": 2098029,
             "Prev": 3146134
         },
         "value5272": 2098147,
@@ -21255,7 +21255,7 @@
             "Next": 2098146,
             "Prev": 3146719
         },
-        "value6298": 3146851,
+        "value6298": 2098029,
         "value6299": {
             "Parent": 4195799,
             "First": 4294967295,
@@ -42734,7 +42734,7 @@
                 }
             }
         },
-        "value8142": 3146851,
+        "value8142": 2098029,
         "value8143": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -42792,17 +42792,17 @@
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
                         "StartSpeed": 3.299999952316284,
-                        "UseRandomSize": false,
+                        "UseRandomSize": true,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.4000000059604645,
+                            "y": 0.4000000059604645,
+                            "z": 0.4000000059604645
                         },
                         "StartSizeMax": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.6000000238418579,
+                            "y": 0.6000000238418579,
+                            "z": 0.6000000238418579
                         },
                         "StartSize": {
                             "x": 1.0,
@@ -42825,7 +42825,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 4.0,
                         "UseBurst": false,
@@ -42843,8 +42843,8 @@
                         },
                         "UseShape": true,
                         "ShapeAngle": 0.75,
-                        "ShapeRadius": 0.6669999957084656,
-                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "ShapeRadius": 1.5,
+                        "ShapeRadiusThickness": 0.5,
                         "GoCenter": false,
                         "UseVelocityOverLifetime": false,
                         "VelocitySeparateAxes": false,
@@ -42923,7 +42923,7 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
+                                "value0": 0.11500000208616257,
                                 "value1": 1.0
                             },
                             {
@@ -42975,17 +42975,17 @@
                             {
                                 "value0": 0.0,
                                 "value1": {
-                                    "value0": 0.37981176376342776,
-                                    "value1": 1.0,
-                                    "value2": 0.010230183601379395,
+                                    "value0": 0.23672732710838319,
+                                    "value1": 0.6380090713500977,
+                                    "value2": 0.0,
                                     "value3": 1.0
                                 }
                             },
                             {
                                 "value0": 1.0,
                                 "value1": {
-                                    "value0": 0.31372547149658205,
-                                    "value1": 1.0,
+                                    "value0": 0.2569425702095032,
+                                    "value1": 0.8190045356750488,
                                     "value2": 0.0,
                                     "value3": 0.0
                                 }
@@ -43569,7 +43569,7 @@
         "value8709": 2098184,
         "value8710": 2098205,
         "value8711": 938,
-        "value8712": 3146851,
+        "value8712": 2098029,
         "value8713": 3146739,
         "value8714": 3146746,
         "value8715": 2099595,

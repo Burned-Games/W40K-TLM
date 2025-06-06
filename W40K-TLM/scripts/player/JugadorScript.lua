@@ -1718,7 +1718,7 @@ function HealPlayer()
     if timesHealed <= 0 then playerInyectorSFX:play() end
 
     timesHealed = timesHealed + 1
-    healingParticle:emit(6)
+    healingParticle:emit(5)
     local healAmount = (maxHealth * 0.35) / 5
     health = health + healAmount
     
