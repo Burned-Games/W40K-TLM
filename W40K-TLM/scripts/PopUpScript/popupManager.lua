@@ -61,11 +61,6 @@ function on_update(dt)
             first = false
         end
 
-        if detect and first and current_scene_tag == "PopUp_3" then
-            popupScriptComponent.show_popup(false,"[A] to interact")
-            first = false
-        end
-
         if detect and first and current_scene_tag == "PopUp_4" then
             popupScriptComponent.show_popup(false,"Training Area")
             first = false
@@ -88,17 +83,17 @@ function on_update(dt)
 
     elseif current_scene_name == "level2.TeaScene" then
         if detect and first and current_scene_tag == "PopUp_1" then
-            popupScriptComponent.show_popup(false,"AAAAAAAAAAAA")
+            popupScriptComponent.show_popup(true,"AAAAAAAAAAAA")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_2" then
-            popupScriptComponent.show_popup(false,"BBBBBBBBBBBBBBB")
+            popupScriptComponent.show_popup(true,"BBBBBBBBBBBBBBB")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_3" then
-            popupScriptComponent.show_popup(false,"CCCCCCCCCCCCCCCCCCC")
+            popupScriptComponent.show_popup(true,"CCCCCCCCCCCCCCCCCCC")
             first = false
         end
 
@@ -108,7 +103,10 @@ function on_update(dt)
         end
        
     elseif current_scene_name == "level3.TeaScene" then
-        --print("Level 3")
+                if detect and first and current_scene_tag == "PopUp_1" then
+            popupScriptComponent.show_popup(false,"DDDDDDDDDDDDDDDDD")
+            first = false
+        end
     end
  
 end
