@@ -30,7 +30,27 @@ function on_ready()
         if child:get_component("TagComponent").tag == "cuerpo_low" then
             tank.enemyMat = child:get_component("MaterialComponent")
             tank.originalMaterial = tank.enemyMat.material
-            break
+        end
+
+        if child:get_component("TagComponent").tag == "MeleeArea" then
+            tank.meleeArea = child
+            tank.meleeAreaRbComponent = child:get_component("RigidbodyComponent")
+            tank.meleeAreaRb = tank.meleeAreaRbComponent.rb
+            tank.meleeAreaRb:set_trigger(true)
+            tank.meleeAreaRbComponent:on_collision_enter(function(entityA, entityB)
+                local nameA = entityA:get_component("TagComponent").tag
+                local nameB = entityB:get_component("TagComponent").tag
+            
+                if (nameA == "Player" or nameB == "Player") then
+                    tank:make_damage(tank.meleeDamage)
+                    tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
+                end
+            end)
+        end
+
+        if child:get_component("TagComponent").tag == "BerserkParticle" then
+            tank.berserkVFX = child
+            tank.berserkVFXAnimator = tank.berserkVFX:get_component("AnimatorComponent")
         end
     end
 
@@ -84,31 +104,6 @@ function on_ready()
         tank.tackleIndicator:set_parent(self)
     end
 
-    local children = self:get_children()
-    for _, child in ipairs(children) do
-        if child:get_component("TagComponent").tag == "MeleeArea" then
-            tank.meleeArea = child
-            tank.meleeAreaRbComponent = child:get_component("RigidbodyComponent")
-            tank.meleeAreaRb = tank.meleeAreaRbComponent.rb
-            tank.meleeAreaRb:set_trigger(true)
-            tank.meleeAreaRbComponent:on_collision_enter(function(entityA, entityB)
-                local nameA = entityA:get_component("TagComponent").tag
-                local nameB = entityB:get_component("TagComponent").tag
-            
-                if (nameA == "Player" or nameB == "Player") then
-                    tank:make_damage(tank.meleeDamage)
-                    tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
-                end
-            end)
-            break
-        end
-
-        if child:get_component("TagComponent").tag == "BerserkParticle" then
-            tank.berserkVFX = child
-            tank.berserkVFXAnimator = tank.berserkVFX:get_component("AnimatorComponent")
-        end
-    end
-
     
 
     -- Level
@@ -140,6 +135,8 @@ function on_ready()
     tank.animTimer = 0.0
     tank.moveAudioDuration = 1.0
     tank.indicatorTimer = 0.0
+    tank.vfxDuration = 1.0
+    tank.vfxTimer = 0.0
 
     -- Animations
     tank.attackAnim = 1
@@ -300,6 +297,13 @@ function on_update(dt)
         tank.hitTimer = tank.hitTimer + dt 
     end
     tank.hitAudioTimer = tank.hitAudioTimer + dt
+    if tank.canVFX then tank.vfxTimer = tank.vfxTimer + dt end
+
+    if tank.vfxTimer >= tank.vfxDuration then
+        tank.berserkVFXAnimator:set_current_animation(12)
+        tank.canVFX = false
+        tank.vfxTimer = 0.0
+    end
 
     tank:reset_material()
 
@@ -591,6 +595,7 @@ function tank:berserka_rage()
     if tank.currentAnim ~= tank.berserkaAnim then
         tank.berserkerSFX:play()
         tank:play_blocking_animation(tank.berserkaAnim, tank.berserkaDuration)
+        tank.berserkVFXAnimator:set_current_animation(3)
     end
 
     tank.originalStats = {
