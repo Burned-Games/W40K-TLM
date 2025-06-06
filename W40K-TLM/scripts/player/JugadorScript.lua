@@ -113,6 +113,7 @@ local playerStepsSFX = nil
 local playerSwapWeaponsSFX = nil
 local playerCDSFX = nil
 local playerHealingSFX = nil
+local dropPodSFX = nil
 
 bleedingSFX = nil
 
@@ -306,6 +307,7 @@ function on_ready()
     playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
     playerHealingSFX = current_scene:get_entity_by_name("PlayerHealingSFX"):get_component("AudioSourceComponent")
+    dropPodSFX = current_scene:get_entity_by_name("DropPodSFX"):get_component("AudioSourceComponent")
 
     local musicVolume = load_progress("musicVolumeGeneral", 50.0) / 100
     exploreMusic:set_volume(musicVolume)
@@ -908,11 +910,12 @@ end
 
 function updateEntranceAnimation(dt)
     if sceneName == "level1.TeaScene"and zonePlayer == 0 then 
-            
+           
         if animacionEntradaRealizada == false then
             if(currentAnim ~= drop) then
                 currentAnim = drop
                 animator:set_current_animation(currentAnim)
+                dropPodSFX:play()
             end
             timerAnimacionEntrada = timerAnimacionEntrada + dt
             if(timerAnimacionEntrada > 3.6 )then

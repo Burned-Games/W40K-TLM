@@ -11,12 +11,14 @@ local playerScript = nil
 local hpStealed = 20
 
 local playerHealingSFX = nil
+local bloodParticlesSFX = nil
 
 function on_ready()
     swordHealTransf = self:get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
     playerHealingSFX = current_scene:get_entity_by_name("PlayerHealingSFX"):get_component("AudioSourceComponent")
+    bloodParticlesSFX = current_scene:get_entity_by_name("BloodParticlesSFX"):get_component("AudioSourceComponent")
 end
 
 function on_update(dt)
@@ -41,6 +43,7 @@ function on_update(dt)
             playerHealingSFX:play()
             playerScript.health = playerScript.health + hpStealed
         end
+        bloodParticlesSFX:play()
         current_scene:destroy_entity(self)
     end
 end
