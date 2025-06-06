@@ -112,6 +112,7 @@ local playerOverloadsSFX = nil
 local playerStepsSFX = nil
 local playerSwapWeaponsSFX = nil
 local playerCDSFX = nil
+local playerHealingSFX = nil
 
 bleedingSFX = nil
 
@@ -304,6 +305,7 @@ function on_ready()
     playerStepsSFX = current_scene:get_entity_by_name("PlayerStepsSFX"):get_component("AudioSourceComponent")
     playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
+    playerHealingSFX = current_scene:get_entity_by_name("PlayerHealingSFX"):get_component("AudioSourceComponent")
 
     local musicVolume = load_progress("musicVolumeGeneral", 50.0) / 100
     exploreMusic:set_volume(musicVolume)
@@ -1719,6 +1721,7 @@ function HealPlayer()
 
     timesHealed = timesHealed + 1
     healingParticle:emit(5)
+    playerHealingSFX:play()
     local healAmount = (maxHealth * 0.35) / 5
     health = health + healAmount
     
