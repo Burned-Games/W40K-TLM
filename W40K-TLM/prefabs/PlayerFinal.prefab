@@ -1,0 +1,2241 @@
+{
+    "value0": {
+        "cereal_class_version": 1,
+        "Base": {
+            "cereal_class_version": 1,
+            "value0": "Player_Prefab",
+            "value1": {
+                "value0": ""
+            },
+            "value2": 14,
+            "value3": {
+                "cereal_class_version": 0,
+                "value0": 13715649632999615451
+            },
+            "value4": false
+        },
+        "RootEntity": 0,
+        "value0": 28,
+        "value1": 28,
+        "value2": 0,
+        "value3": 1,
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 8,
+        "value11": 9,
+        "value12": 10,
+        "value13": 11,
+        "value14": 12,
+        "value15": 13,
+        "value16": 14,
+        "value17": 15,
+        "value18": 16,
+        "value19": 17,
+        "value20": 18,
+        "value21": 19,
+        "value22": 20,
+        "value23": 21,
+        "value24": 22,
+        "value25": 23,
+        "value26": 24,
+        "value27": 25,
+        "value28": 26,
+        "value29": 27,
+        "value30": 28,
+        "value31": 0,
+        "value32": {
+            "cereal_class_version": 0,
+            "Tag": "Player"
+        },
+        "value33": 1,
+        "value34": {
+            "Tag": "Bolter_Lower_player"
+        },
+        "value35": 2,
+        "value36": {
+            "Tag": "Bolter_upper_player"
+        },
+        "value37": 3,
+        "value38": {
+            "Tag": "Casco_lv1_player"
+        },
+        "value39": 4,
+        "value40": {
+            "Tag": "Casco_lvl_2_player"
+        },
+        "value41": 5,
+        "value42": {
+            "Tag": "ChainSword_Lower"
+        },
+        "value43": 6,
+        "value44": {
+            "Tag": "ChainSword_Upper"
+        },
+        "value45": 7,
+        "value46": {
+            "Tag": "Jetpack_lv1_player"
+        },
+        "value47": 8,
+        "value48": {
+            "Tag": "Jetpack_lv2_player"
+        },
+        "value49": 9,
+        "value50": {
+            "Tag": "Shotgun_lower_player"
+        },
+        "value51": 10,
+        "value52": {
+            "Tag": "Shotgun_upper_player"
+        },
+        "value53": 11,
+        "value54": {
+            "Tag": "Ultramarine_low"
+        },
+        "value55": 12,
+        "value56": {
+            "Tag": "Root"
+        },
+        "value57": 13,
+        "value58": {
+            "Tag": "ShotgunManager"
+        },
+        "value59": 14,
+        "value60": {
+            "Tag": "BolterManager"
+        },
+        "value61": 15,
+        "value62": {
+            "Tag": "SawSwordManager"
+        },
+        "value63": 16,
+        "value64": {
+            "Tag": "particle_lvl1_run"
+        },
+        "value65": 17,
+        "value66": {
+            "Tag": "ChargingDisruptorChargeParticle"
+        },
+        "value67": 18,
+        "value68": {
+            "Tag": "BodyIndicator"
+        },
+        "value69": 19,
+        "value70": {
+            "Tag": "MovementPlayerIndicator"
+        },
+        "value71": 20,
+        "value72": {
+            "Tag": "SparkParticle"
+        },
+        "value73": 21,
+        "value74": {
+            "Tag": "vfxShoot"
+        },
+        "value75": 22,
+        "value76": {
+            "Tag": "Fade"
+        },
+        "value77": 23,
+        "value78": {
+            "Tag": "Flash1"
+        },
+        "value79": 24,
+        "value80": {
+            "Tag": "Flash2"
+        },
+        "value81": 25,
+        "value82": {
+            "Tag": "Muzzle01"
+        },
+        "value83": 26,
+        "value84": {
+            "Tag": "Muzzle02"
+        },
+        "value85": 27,
+        "value86": {
+            "Tag": "Root"
+        },
+        "value87": 28,
+        "value88": 0,
+        "value89": {
+            "cereal_class_version": 0,
+            "Position": {
+                "x": 0.37400001287460329,
+                "y": 0.0,
+                "z": -1.718999981880188
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value90": 1,
+        "value91": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value92": 2,
+        "value93": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value94": 3,
+        "value95": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value96": 4,
+        "value97": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value98": 5,
+        "value99": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value100": 6,
+        "value101": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value102": 7,
+        "value103": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value104": 8,
+        "value105": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value106": 9,
+        "value107": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value108": 10,
+        "value109": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value110": 11,
+        "value111": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value112": 12,
+        "value113": {
+            "Position": {
+                "x": 0.0,
+                "y": 1.077844262123108,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 168.50660705566407,
+                "y": -0.000010201774784945883,
+                "z": -180.0
+            },
+            "Scale": {
+                "x": 1.000000238418579,
+                "y": 0.9999997019767761,
+                "z": 1.0
+            }
+        },
+        "value114": 13,
+        "value115": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value116": 14,
+        "value117": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value118": 15,
+        "value119": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value120": 16,
+        "value121": {
+            "Position": {
+                "x": -0.001947641372680664,
+                "y": 0.0,
+                "z": -0.05551505088806152
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value122": 17,
+        "value123": {
+            "Position": {
+                "x": -0.3700000047683716,
+                "y": 0.9729999899864197,
+                "z": 0.8939999938011169
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value124": 18,
+        "value125": {
+            "Position": {
+                "x": -0.000033915042877197269,
+                "y": 0.0007894058362580836,
+                "z": 1.000920295715332
+            },
+            "Rotation": {
+                "x": 90.00022888183594,
+                "y": 2.108382225036621,
+                "z": -180.0
+            },
+            "Scale": {
+                "x": 2.0000882148742677,
+                "y": 4.0,
+                "z": 1.0
+            }
+        },
+        "value126": 19,
+        "value127": {
+            "Position": {
+                "x": 0.00000889599323272705,
+                "y": -0.0005592107772827148,
+                "z": 0.0010000000474974514
+            },
+            "Rotation": {
+                "x": -1.7310404132331315e-7,
+                "y": -0.000005006973879062571,
+                "z": -0.00002219904854428023
+            },
+            "Scale": {
+                "x": 0.9999579787254334,
+                "y": 1.000035047531128,
+                "z": 1.0
+            }
+        },
+        "value128": 20,
+        "value129": {
+            "Position": {
+                "x": 0.0,
+                "y": 1.6175123453140259,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value130": 21,
+        "value131": {
+            "Position": {
+                "x": -0.16489815711975099,
+                "y": 1.475832223892212,
+                "z": 1.1570451259613038
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value132": 22,
+        "value133": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value134": 23,
+        "value135": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value136": 24,
+        "value137": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value138": 25,
+        "value139": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value140": 26,
+        "value141": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value142": 27,
+        "value143": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 89.64779663085938,
+                "y": -3.050955115213583e-7,
+                "z": 179.9999542236328
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.000000238418579,
+                "z": 1.0
+            }
+        },
+        "value144": 28,
+        "value145": 0,
+        "value146": {
+            "cereal_class_version": 0,
+            "Parent": 4294967295,
+            "First": 1,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value147": 1,
+        "value148": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 21,
+            "Prev": 18
+        },
+        "value149": 2,
+        "value150": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value151": 3,
+        "value152": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value153": 4,
+        "value154": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value155": 5,
+        "value156": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value157": 6,
+        "value158": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
+        "value159": 7,
+        "value160": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 6
+        },
+        "value161": 8,
+        "value162": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 7
+        },
+        "value163": 9,
+        "value164": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 8
+        },
+        "value165": 10,
+        "value166": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 9
+        },
+        "value167": 11,
+        "value168": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 10
+        },
+        "value169": 12,
+        "value170": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 11
+        },
+        "value171": 13,
+        "value172": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 12
+        },
+        "value173": 14,
+        "value174": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 13
+        },
+        "value175": 15,
+        "value176": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 14
+        },
+        "value177": 16,
+        "value178": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 15
+        },
+        "value179": 17,
+        "value180": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 16
+        },
+        "value181": 18,
+        "value182": {
+            "Parent": 0,
+            "First": 19,
+            "Next": 4294967295,
+            "Prev": 17
+        },
+        "value183": 19,
+        "value184": {
+            "Parent": 18,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value185": 20,
+        "value186": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 18
+        },
+        "value187": 21,
+        "value188": {
+            "Parent": 0,
+            "First": 22,
+            "Next": 4294967295,
+            "Prev": 20
+        },
+        "value189": 22,
+        "value190": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 27,
+            "Prev": 25
+        },
+        "value191": 23,
+        "value192": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 22
+        },
+        "value193": 24,
+        "value194": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 23
+        },
+        "value195": 25,
+        "value196": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 24
+        },
+        "value197": 26,
+        "value198": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 25
+        },
+        "value199": 27,
+        "value200": {
+            "Parent": 21,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 26
+        },
+        "value201": 16,
+        "value202": 1,
+        "value203": {
+            "cereal_class_version": 0,
+            "Mesh": {
+                "value0": 11468544747487106562
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value204": 2,
+        "value205": {
+            "Mesh": {
+                "value0": 7735887000406976756
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value206": 3,
+        "value207": {
+            "Mesh": {
+                "value0": 8625174714263172467
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value208": 4,
+        "value209": {
+            "Mesh": {
+                "value0": 11854195188078251769
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value210": 5,
+        "value211": {
+            "Mesh": {
+                "value0": 7480543009721378606
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value212": 6,
+        "value213": {
+            "Mesh": {
+                "value0": 4363205161936583254
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value214": 7,
+        "value215": {
+            "Mesh": {
+                "value0": 16806380531382999409
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value216": 8,
+        "value217": {
+            "Mesh": {
+                "value0": 6609371042259596451
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value218": 9,
+        "value219": {
+            "Mesh": {
+                "value0": 7589311161740352882
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value220": 10,
+        "value221": {
+            "Mesh": {
+                "value0": 6465179752451793748
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value222": 11,
+        "value223": {
+            "Mesh": {
+                "value0": 17707383734542423095
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            }
+        },
+        "value224": 22,
+        "value225": {
+            "Mesh": {
+                "value0": 13896086272311591913
+            },
+            "AnimatorUUID": {
+                "value0": 16143234847369528063
+            }
+        },
+        "value226": 23,
+        "value227": {
+            "Mesh": {
+                "value0": 5746066217139819304
+            },
+            "AnimatorUUID": {
+                "value0": 16143234847369528063
+            }
+        },
+        "value228": 24,
+        "value229": {
+            "Mesh": {
+                "value0": 9807909331568749483
+            },
+            "AnimatorUUID": {
+                "value0": 16143234847369528063
+            }
+        },
+        "value230": 25,
+        "value231": {
+            "Mesh": {
+                "value0": 15380666308356100775
+            },
+            "AnimatorUUID": {
+                "value0": 16143234847369528063
+            }
+        },
+        "value232": 26,
+        "value233": {
+            "Mesh": {
+                "value0": 5707024358790093240
+            },
+            "AnimatorUUID": {
+                "value0": 16143234847369528063
+            }
+        },
+        "value234": 16,
+        "value235": 1,
+        "value236": {
+            "cereal_class_version": 1,
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 12529516442153706434
+            }
+        },
+        "value237": 2,
+        "value238": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 12529516442153706434
+            }
+        },
+        "value239": 3,
+        "value240": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 3445939963586150990
+            }
+        },
+        "value241": 4,
+        "value242": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 3016281681235879718
+            }
+        },
+        "value243": 5,
+        "value244": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 9419817333894062401
+            }
+        },
+        "value245": 6,
+        "value246": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 9419817333894062401
+            }
+        },
+        "value247": 7,
+        "value248": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 7643492230740480439
+            }
+        },
+        "value249": 8,
+        "value250": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 7643492230740480439
+            }
+        },
+        "value251": 9,
+        "value252": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 9758257062040371343
+            }
+        },
+        "value253": 10,
+        "value254": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 9758257062040371343
+            }
+        },
+        "value255": 11,
+        "value256": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 3445939963586150990
+            }
+        },
+        "value257": 22,
+        "value258": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 12711096817337149858
+            }
+        },
+        "value259": 23,
+        "value260": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 12711096817337149858
+            }
+        },
+        "value261": 24,
+        "value262": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 12711096817337149858
+            }
+        },
+        "value263": 25,
+        "value264": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 12711096817337149858
+            }
+        },
+        "value265": 26,
+        "value266": {
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 12711096817337149858
+            }
+        },
+        "value267": 0,
+        "value268": 1,
+        "value269": 0,
+        "value270": {
+            "cereal_class_version": 0,
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "m_Properties": {
+                            "cereal_class_version": 0,
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": true,
+                            "freezeZ": false,
+                            "freezeRotX": true,
+                            "freezeRotY": true,
+                            "freezeRotZ": true,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Coffee::CapsuleCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "cereal_class_version": 0,
+                                        "ShapeType": 10,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 1.399999976158142,
+                                            "z": 0.0
+                                        },
+                                        "Radius": 0.5,
+                                        "Height": 1.5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value271": 3,
+        "value272": 16,
+        "value273": {
+            "cereal_class_version": 0,
+            "ParticleEmitter": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "cereal_class_version": 4,
+                        "TransformMatrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.3720523715019226,
+                            "m31": 0.0,
+                            "m32": -1.7745150327682496,
+                            "m33": 1.0
+                        },
+                        "UseDirectionRandom": false,
+                        "Direction": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "DirectionRandom": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "UseColorRandom": true,
+                        "ColorNormal": {
+                            "x": 0.9333333373069763,
+                            "y": 0.8509804010391235,
+                            "z": 0.6352941393852234,
+                            "w": 1.0
+                        },
+                        "ColorRandom": {
+                            "x": 0.8156862854957581,
+                            "y": 0.6784313917160034,
+                            "z": 0.41960784792900088,
+                            "w": 1.0
+                        },
+                        "Amount": 70,
+                        "Looping": false,
+                        "UseRandomLifeTime": false,
+                        "StartLifeTimeMin": 5.0,
+                        "StartLifeTimeMax": 5.0,
+                        "StartLifeTime": 0.44999998807907107,
+                        "UseRandomSpeed": false,
+                        "StartSpeedMin": 5.0,
+                        "StartSpeedMax": 5.0,
+                        "StartSpeed": 0.6000000238418579,
+                        "UseRandomSize": false,
+                        "UseSplitAxesSize": false,
+                        "StartSizeMin": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSizeMax": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSize": {
+                            "x": 0.4000000059604645,
+                            "y": 0.4000000059604645,
+                            "z": 0.4000000059604645
+                        },
+                        "UseRandomRotation": false,
+                        "StartRotationMin": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotationMax": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "SimulationSpace": 1,
+                        "UseEmission": true,
+                        "RateOverTime": 8.0,
+                        "UseBurst": false,
+                        "Bursts": [],
+                        "ShapeType": 2,
+                        "MinSpread": {
+                            "x": -0.15000000596046449,
+                            "y": 0.0,
+                            "z": -0.10000000149011612
+                        },
+                        "MaxSpread": {
+                            "x": 0.15000000596046449,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
+                        },
+                        "UseShape": true,
+                        "ShapeAngle": 45.0,
+                        "ShapeRadius": 1.0,
+                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "GoCenter": false,
+                        "UseVelocityOverLifetime": false,
+                        "VelocitySeparateAxes": false,
+                        "VelocityOverLifeX": [
+                            {
+                                "cereal_class_version": 0,
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityMultiplier": 1.0,
+                        "UseSizeOverLifetime": true,
+                        "SizeSeparateAxes": false,
+                        "SizeOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 0.5600000023841858
+                            },
+                            {
+                                "value0": 0.5049999952316284,
+                                "value1": 0.8400000333786011
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5600000023841858
+                            }
+                        ],
+                        "SizeMultiplier": 1.0,
+                        "UseRotationOverLifetime": false,
+                        "RotationOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationMultiplier": 1.0,
+                        "UseColorOverLifetime": true,
+                        "OverLifetimeColor": {
+                            "x": 9.10844001811131e-44,
+                            "y": 1.2611686178923354e-44,
+                            "z": 9.949219096706202e-44,
+                            "w": 7.987401246651457e-44
+                        },
+                        "ColorGradientPoints": [
+                            {
+                                "cereal_class_version": 0,
+                                "value0": 0.0,
+                                "value1": {
+                                    "value0": 0.7490196228027344,
+                                    "value1": 0.529411792755127,
+                                    "value2": 0.2235294133424759,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": {
+                                    "value0": 0.9254902005195618,
+                                    "value1": 0.7411764860153198,
+                                    "value2": 0.48235294222831728,
+                                    "value3": 1.0
+                                }
+                            }
+                        ],
+                        "UseRenderer": true,
+                        "RenderMode": 0,
+                        "RenderAlignment": 0,
+                        "TextureUUID": {
+                            "value0": 8760388149134123358
+                        }
+                    }
+                }
+            }
+        },
+        "value274": 17,
+        "value275": {
+            "ParticleEmitter": {
+                "ptr_wrapper": {
+                    "id": 2147483652,
+                    "data": {
+                        "TransformMatrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0040000081062316898,
+                            "m31": 0.9729999899864197,
+                            "m32": -0.824999988079071,
+                            "m33": 1.0
+                        },
+                        "UseDirectionRandom": false,
+                        "Direction": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "DirectionRandom": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "UseColorRandom": false,
+                        "ColorNormal": {
+                            "x": 0.11764705181121826,
+                            "y": 0.48766589164733889,
+                            "z": 1.0,
+                            "w": 1.0
+                        },
+                        "ColorRandom": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0,
+                            "w": 1.0
+                        },
+                        "Amount": 1000,
+                        "Looping": false,
+                        "UseRandomLifeTime": false,
+                        "StartLifeTimeMin": 5.0,
+                        "StartLifeTimeMax": 5.0,
+                        "StartLifeTime": 0.5,
+                        "UseRandomSpeed": false,
+                        "StartSpeedMin": 5.0,
+                        "StartSpeedMax": 5.0,
+                        "StartSpeed": 1.0,
+                        "UseRandomSize": false,
+                        "UseSplitAxesSize": false,
+                        "StartSizeMin": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSizeMax": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSize": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "UseRandomRotation": false,
+                        "StartRotationMin": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotationMax": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "StartRotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
+                        },
+                        "SimulationSpace": 0,
+                        "UseEmission": true,
+                        "RateOverTime": 0.0,
+                        "UseBurst": true,
+                        "Bursts": [
+                            {
+                                "ptr_wrapper": {
+                                    "id": 2147483653,
+                                    "data": {
+                                        "cereal_class_version": 0,
+                                        "initialTime": 0.0,
+                                        "count": 3,
+                                        "interval": 0.20000000298023225
+                                    }
+                                }
+                            }
+                        ],
+                        "ShapeType": 2,
+                        "MinSpread": {
+                            "x": -0.5,
+                            "y": -0.5,
+                            "z": -0.10000000149011612
+                        },
+                        "MaxSpread": {
+                            "x": 0.5,
+                            "y": 0.5,
+                            "z": 0.5
+                        },
+                        "UseShape": true,
+                        "ShapeAngle": 0.75,
+                        "ShapeRadius": 1.0,
+                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "GoCenter": true,
+                        "UseVelocityOverLifetime": false,
+                        "VelocitySeparateAxes": false,
+                        "VelocityOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "VelocityMultiplier": 1.0,
+                        "UseSizeOverLifetime": true,
+                        "SizeSeparateAxes": false,
+                        "SizeOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 0.5
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 1.0
+                            }
+                        ],
+                        "SizeMultiplier": 0.75,
+                        "UseRotationOverLifetime": false,
+                        "RotationOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "RotationMultiplier": 1.0,
+                        "UseColorOverLifetime": true,
+                        "OverLifetimeColor": {
+                            "x": -0.12807178497314454,
+                            "y": 7.51095976878102e-43,
+                            "z": 9.528829557408757e-44,
+                            "w": -1.692768544904379e-42
+                        },
+                        "ColorGradientPoints": [
+                            {
+                                "value0": 0.0,
+                                "value1": {
+                                    "value0": 0.0,
+                                    "value1": 0.3176470696926117,
+                                    "value2": 0.7176470756530762,
+                                    "value3": 0.0
+                                }
+                            },
+                            {
+                                "value0": 0.5,
+                                "value1": {
+                                    "value0": 0.0,
+                                    "value1": 0.3176470696926117,
+                                    "value2": 0.7176470756530762,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": {
+                                    "value0": 0.0,
+                                    "value1": 0.31881847977638247,
+                                    "value2": 0.7194570302963257,
+                                    "value3": 1.0
+                                }
+                            }
+                        ],
+                        "UseRenderer": true,
+                        "RenderMode": 0,
+                        "RenderAlignment": 0,
+                        "TextureUUID": {
+                            "value0": 2330904700658026574
+                        }
+                    }
+                }
+            }
+        },
+        "value276": 20,
+        "value277": {
+            "ParticleEmitter": {
+                "ptr_wrapper": {
+                    "id": 2147483654,
+                    "data": {
+                        "TransformMatrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.37400001287460329,
+                            "m31": 1.6175123453140259,
+                            "m32": -1.718999981880188,
+                            "m33": 1.0
+                        },
+                        "UseDirectionRandom": false,
+                        "Direction": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "DirectionRandom": {
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
+                        },
+                        "UseColorRandom": false,
+                        "ColorNormal": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0,
+                            "w": 1.0
+                        },
+                        "ColorRandom": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0,
+                            "w": 1.0
+                        },
+                        "Amount": 1000,
+                        "Looping": true,
+                        "UseRandomLifeTime": true,
+                        "StartLifeTimeMin": 0.20000000298023225,
+                        "StartLifeTimeMax": 1.0,
+                        "StartLifeTime": 1.0,
+                        "UseRandomSpeed": true,
+                        "StartSpeedMin": 1.0,
+                        "StartSpeedMax": 5.0,
+                        "StartSpeed": 5.0,
+                        "UseRandomSize": true,
+                        "UseSplitAxesSize": false,
+                        "StartSizeMin": {
+                            "x": 0.20000000298023225,
+                            "y": 0.20000000298023225,
+                            "z": 0.20000000298023225
+                        },
+                        "StartSizeMax": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "StartSize": {
+                            "x": 1.0,
+                            "y": 1.0,
+                            "z": 1.0
+                        },
+                        "UseRandomRotation": true,
+                        "StartRotationMin": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 30.0
+                        },
+                        "StartRotationMax": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 90.0
+                        },
+                        "StartRotation": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 90.0
+                        },
+                        "SimulationSpace": 1,
+                        "UseEmission": true,
+                        "RateOverTime": 0.0,
+                        "UseBurst": false,
+                        "Bursts": [
+                            {
+                                "ptr_wrapper": {
+                                    "id": 2147483655,
+                                    "data": {
+                                        "initialTime": 0.0,
+                                        "count": 0,
+                                        "interval": 0.0
+                                    }
+                                }
+                            }
+                        ],
+                        "ShapeType": 1,
+                        "MinSpread": {
+                            "x": -0.5,
+                            "y": -0.10000000149011612,
+                            "z": -0.4000000059604645
+                        },
+                        "MaxSpread": {
+                            "x": 0.4000000059604645,
+                            "y": 0.10000000149011612,
+                            "z": 0.5
+                        },
+                        "UseShape": true,
+                        "ShapeAngle": 1.1979999542236329,
+                        "ShapeRadius": 0.2849999964237213,
+                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "GoCenter": false,
+                        "UseVelocityOverLifetime": true,
+                        "VelocitySeparateAxes": true,
+                        "VelocityOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 0.5199999809265137
+                            },
+                            {
+                                "value0": 0.5,
+                                "value1": 0.5
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.6399999856948853
+                            }
+                        ],
+                        "VelocityOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 0.0
+                            },
+                            {
+                                "value0": 0.5149999856948853,
+                                "value1": 0.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.0
+                            }
+                        ],
+                        "VelocityOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 0.4599999785423279
+                            },
+                            {
+                                "value0": 0.4749999940395355,
+                                "value1": 0.48000001907348635
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.3999999761581421
+                            }
+                        ],
+                        "VelocityOverLifeGeneral": [
+                            {
+                                "value0": 0.0,
+                                "value1": 0.6200000047683716
+                            },
+                            {
+                                "value0": 0.41999998688697817,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 1.0
+                            }
+                        ],
+                        "VelocityMultiplier": 1.0,
+                        "UseSizeOverLifetime": true,
+                        "SizeSeparateAxes": false,
+                        "SizeOverLifeX": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeY": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeZ": [
+                            {
+                                "value0": 0.0,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 0.5
+                            }
+                        ],
+                        "SizeOverLifeGeneral": [
+                            {
+                                "value0": 0.125,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 0.5,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 0.9950000047683716,
+                                "value1": 0.5600000023841858
+                            }
+                        ],
+                        "SizeMultiplier": 1.0,
+                        "UseRotationOverLifetime": true,
+                        "RotationOverLifeX": [
+                            {
+                                "value0": 0.125,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 0.9850000143051148,
+                                "value1": 1.0
+                            }
+                        ],
+                        "RotationOverLifeY": [
+                            {
+                                "value0": 0.125,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 0.5,
+                                "value1": 0.6399999856948853
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": 1.0
+                            }
+                        ],
+                        "RotationOverLifeZ": [
+                            {
+                                "value0": 0.125,
+                                "value1": 1.0
+                            },
+                            {
+                                "value0": 0.9700000286102295,
+                                "value1": 1.0
+                            }
+                        ],
+                        "RotationMultiplier": 1.5,
+                        "UseColorOverLifetime": true,
+                        "OverLifetimeColor": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0,
+                            "w": 0.0
+                        },
+                        "ColorGradientPoints": [
+                            {
+                                "value0": 0.0,
+                                "value1": {
+                                    "value0": 0.9679093956947327,
+                                    "value1": 0.9683257937431336,
+                                    "value2": 0.8763129115104675,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
+                                "value0": 0.6973180174827576,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 0.8687782883644104,
+                                    "value2": 0.0,
+                                    "value3": 1.0
+                                }
+                            },
+                            {
+                                "value0": 1.0,
+                                "value1": {
+                                    "value0": 1.0,
+                                    "value1": 0.004524886608123779,
+                                    "value2": 0.004524886608123779,
+                                    "value3": 0.5113122463226318
+                                }
+                            }
+                        ],
+                        "UseRenderer": true,
+                        "RenderMode": 0,
+                        "RenderAlignment": 0,
+                        "TextureUUID": {
+                            "value0": 2432147797259528480
+                        }
+                    }
+                }
+            }
+        },
+        "value278": 4,
+        "value279": 13,
+        "value280": 14,
+        "value281": 15,
+        "value282": 16,
+        "value283": 28,
+        "value284": 0,
+        "value285": 1,
+        "value286": 2,
+        "value287": 3,
+        "value288": 4,
+        "value289": 5,
+        "value290": 6,
+        "value291": 7,
+        "value292": 8,
+        "value293": 9,
+        "value294": 10,
+        "value295": 11,
+        "value296": 12,
+        "value297": 13,
+        "value298": 14,
+        "value299": 15,
+        "value300": 16,
+        "value301": 17,
+        "value302": 18,
+        "value303": 19,
+        "value304": 20,
+        "value305": 21,
+        "value306": 22,
+        "value307": 23,
+        "value308": 24,
+        "value309": 25,
+        "value310": 26,
+        "value311": 27,
+        "value312": 4,
+        "value313": 0,
+        "value314": {
+            "cereal_class_version": 0,
+            "ScriptPath": "scripts/player/JugadorScript.lua",
+            "Language": 0
+        },
+        "value315": 13,
+        "value316": {
+            "ScriptPath": "scripts/player/ShotgunManager.lua",
+            "Language": 0
+        },
+        "value317": 14,
+        "value318": {
+            "ScriptPath": "scripts/player/RifleManager.lua",
+            "Language": 0
+        },
+        "value319": 15,
+        "value320": {
+            "ScriptPath": "scripts/player/SawSwordManager.lua",
+            "Language": 0
+        },
+        "value321": 2,
+        "value322": 0,
+        "value323": {
+            "cereal_class_version": 0,
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 17270392652188308655
+            },
+            "AnimatorUUID": {
+                "value0": 9048835578289604219
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483656,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483657,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 39
+        },
+        "value324": 21,
+        "value325": {
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 11719455561999967280
+            },
+            "AnimatorUUID": {
+                "value0": 16143234847369528063
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483658,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483659,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value326": 0,
+        "value327": 0,
+        "value328": 0,
+        "value329": 0,
+        "value330": 0,
+        "value331": 2,
+        "value332": 18,
+        "value333": {
+            "cereal_class_version": 0,
+            "TextureUUID": {
+                "value0": 14140380573434282294
+            },
+            "TintColor": {
+                "x": 0.0,
+                "y": 0.7450980544090271,
+                "z": 1.0,
+                "w": 0.16470588743686677
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value334": 19,
+        "value335": {
+            "TextureUUID": {
+                "value0": 5517261345337856122
+            },
+            "TintColor": {
+                "x": 0.0,
+                "y": 0.7450980544090271,
+                "z": 1.0,
+                "w": 0.16470588743686677
+            },
+            "FlipX": false,
+            "FlipY": false,
+            "TilingFactor": 1.0
+        },
+        "value336": 0,
+        "value337": 0,
+        "value338": 0,
+        "value339": 0,
+        "value340": 0,
+        "value341": 0
+    }
+}
