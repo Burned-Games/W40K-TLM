@@ -191,7 +191,7 @@ local particle_fire = nil
 local particle_smoke = nil
 local neuralInParticle = nil
 local particle_spark = nil
-local healingParticle = nil
+healingParticle = nil
 
 local dtColective = 0
 

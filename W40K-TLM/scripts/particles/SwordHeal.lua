@@ -29,8 +29,10 @@ function on_update(dt)
 
     if swordHealTimer >= swordHealLifetime then
         if playerScript.health + hpStealed >= playerScript.maxHealth then
+            playerScript.healingParticle:emit(6)
             playerScript.health = playerScript.maxHealth
         else
+            playerScript.healingParticle:emit(6)
             playerScript.health = playerScript.health + hpStealed
         end
         current_scene:destroy_entity(self)
