@@ -21,6 +21,8 @@ local beforeFrameOutOfRange = true
 
 local leverSFX = nil
 
+local leverDont = nil
+
 function on_ready()
     parentScript = self:get_parent():get_component("ScriptComponent")
     playerTransform = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
@@ -31,11 +33,15 @@ function on_ready()
 
     leverSFX = self:get_component("AudioSourceComponent")
 
+    
+    leverDont = current_scene:get_entity_by_name("NotInteractionIcon")
+    leverDont:set_active(true)
 
     local children = self:get_children()
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "InteractionIcon" then
             interactionSprite = child:get_component("SpriteComponent")
+            
         end
     end
     if interactionSprite then
@@ -139,6 +145,7 @@ function FadeToTransparent(dt)
     interactionSprite.tint_color = Vector4.new(1,1,1,alpha)
     if (interactionSpriteTransitionTimer > interactionSpriteTransitionTimerTarget) then
         interactionSprite.tint_color = Vector4.new(1,1,1,0)
+        leverDont:set_active(true)
     end
 end
 
@@ -148,5 +155,6 @@ function FadeToBlack(dt)
     interactionSprite.tint_color = Vector4.new(1,1,1,alpha)
     if (interactionSpriteTransitionTimer > interactionSpriteTransitionTimerTarget) then
         interactionSprite.tint_color = Vector4.new(1,1,1,1)
+        leverDont:set_active(false)
     end
 end
