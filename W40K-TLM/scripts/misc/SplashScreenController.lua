@@ -7,8 +7,8 @@ local logoObj = nil
 local logo = nil
 local title = nil
 
-local expandDuration = 3.5  
-local maxScale = 1.02       
+local expandDuration = 1.0 
+local maxScale = 1.01       
 local originalScale = 1.0  
 function on_ready()
 
