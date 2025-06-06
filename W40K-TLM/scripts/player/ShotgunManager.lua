@@ -232,7 +232,6 @@ function on_update(dt)
         end
 
     for i = 1, bulletCount do
-
         if bulletTimers[i] ~= 0 then
             bulletTimers[i] = bulletTimers[i] + dt
 
@@ -241,11 +240,6 @@ function on_update(dt)
                 bulletTimers[i] = 0
             end
         end
-
-
-
-
-        
     end
 
     if astartesFervorManager.isPlayerInRadius then
