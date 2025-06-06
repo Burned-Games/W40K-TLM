@@ -540,11 +540,10 @@ function on_update(dt)
         if mission_Component.getCurrerTaskIndex(true) == 6 then
             mission_Component.m6_heal = true
         end
-
         if currentUpAnim ~= heal and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false and bolterScript.chaaarging == false then
             healAnimationSecondBool = true
             healAnimationBool = true
-                currentUpAnim = heal
+            currentUpAnim = heal
             animator:set_upper_animation(currentUpAnim)
         end
     end
@@ -559,6 +558,7 @@ function on_update(dt)
         if healAnimCounter >= healAnimationTime then
             healAnimationBool = false
             healAnimationSecondBool = false
+            healAnimCounter = 0
             currentAnim = -1
         end
     end
@@ -1826,14 +1826,11 @@ end
 
 function update_combat_state(dt)
     if isHitted --[[or makeDamage]] then
-        --log("aaaaaaaaaaaaaaaaa")
         combatTimer = 5.0
         --isHitted = false
         makeDamage = false
     else
-        --log("bbbbbbbbbbbbbb")
         if combatTimer > 0 then
-            --log("ccccccccccccc")
             combatTimer = combatTimer - dt
         end
     end
