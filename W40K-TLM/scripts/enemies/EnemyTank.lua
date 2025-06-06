@@ -378,7 +378,6 @@ function on_update(dt)
         tank:idle_state(dt)
         
     elseif tank.currentState == tank.state.Detect then
-        tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
         tank:detect_state(dt)
 
     elseif tank.currentState == tank.state.Move then 
@@ -404,7 +403,7 @@ function tank:is_other_tank_in_tackle()
     local entities = current_scene:get_all_entities()
     for _, entity in ipairs(entities) do
         local tagComponent = entity:get_component("TagComponent")
-        if tagComponent and tagComponent.tag == "EnemyTank" and entity ~= self then
+        if tagComponent and (tagComponent.tag == "EnemyTank" or tagComponent.tag == "EnemyTank1") and entity ~= self then
             local otherTankScript = entity:get_component("ScriptComponent")
             if otherTankScript then                
                 local tankInstance = otherTankScript.tank
@@ -678,7 +677,7 @@ function tank:tackle_raycast()
         local dx = playerPos.x - tankPos.x
         local dz = playerPos.z - tankPos.z
         local distance = math.sqrt(dx*dx + dz*dz)
-        if distance > tank.meleeAttackRange and distance > 0.01 then
+        if distance >= tank.meleeAttackRange and distance > 0.01 then
             tank.enemyRb:set_trigger(true)
             tank.enemyTransf:set_position(Vector3.new(
                 tankPos.x + dx/distance * 0.7,

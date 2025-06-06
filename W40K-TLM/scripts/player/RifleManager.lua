@@ -148,6 +148,8 @@ local changeAnimCounter = 0.0
 
 isShootingRepeatly = false
 
+local indicatorDisruptorCharge = nil
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -351,6 +353,9 @@ function on_ready()
 
         swordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
     end
+
+    indicatorDisruptorCharge = current_scene:get_entity_by_name("IndicatorDisruptorCharge")
+    indicatorDisruptorCharge:set_active(false)
 
 end
 
@@ -564,7 +569,10 @@ function on_update(dt)
                 
                 aimVector = Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation))
                 
-                Physics.DebugDrawRaycast(player:get_component("TransformComponent").position, aimVector, 10, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
+                if not indicatorDisruptorCharge:is_active() then
+                    indicatorDisruptorCharge:set_active(true)
+                end
+                
             end
 
             if charging then
@@ -580,6 +588,9 @@ function on_update(dt)
                     disruptorShooted2 = true
                     charging = false
                     chaaarging = false
+                    if indicatorDisruptorCharge:is_active() then
+                        indicatorDisruptorCharge:set_active(false)
+                    end
                 else
 
                     if chaaarging == false then bolterSkillChargeSFX:play() end
