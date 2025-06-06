@@ -52,6 +52,11 @@ function on_ready()
             tank.berserkVFX = child
             tank.berserkVFXAnimator = tank.berserkVFX:get_component("AnimatorComponent")
         end
+
+        if child:get_component("TagComponent").tag == "AttackParticle" then
+            tank.attackVFX = child
+            tank.attackVFXAnimator = tank.attackVFX:get_component("AnimatorComponent")
+        end
     end
 
     --Mision
@@ -297,13 +302,6 @@ function on_update(dt)
         tank.hitTimer = tank.hitTimer + dt 
     end
     tank.hitAudioTimer = tank.hitAudioTimer + dt
-    if tank.canVFX then tank.vfxTimer = tank.vfxTimer + dt end
-
-    if tank.vfxTimer >= tank.vfxDuration then
-        tank.berserkVFXAnimator:set_current_animation(12)
-        tank.canVFX = false
-        tank.vfxTimer = 0.0
-    end
 
     tank:reset_material()
 
@@ -516,6 +514,7 @@ function tank:attack_state(dt)
 
     if tank.currentAnim ~= tank.attackAnim then
         tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
+        tank.attackVFXAnimator:set_current_animation(0)
     end
 
     if tank.attackTimer >= tank.attackCooldown then

@@ -27,7 +27,7 @@ end
 
 function on_update(dt)
 
-    print(initialTransform.x, initialTransform.y, initialTransform.z)
+    --print(initialTransform.x, initialTransform.y, initialTransform.z)
     transform.position = Vector3.new(playerTransform.position.x, 3, playerTransform.position.z)
     -- Add update code here
     beforeFrameOutOfRange = outOfRange
