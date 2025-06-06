@@ -4,6 +4,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	899646374	Play_BannerZone			\Default Work Unit\Player\Banner\Play_BannerZone	
 	910581297	Play_PlayerDeath			\Default Work Unit\Player\Play_PlayerDeath	
 	961908944	Play_PlayerCD			\Default Work Unit\Player\Play_PlayerCD	
+	1249343286	Play_PlayerHealingSound			\Default Work Unit\Player\State Effects\Play_PlayerHealingSound	
 	1613056095	Play_PlayerSwapWeapons			\Default Work Unit\Player\Play_PlayerSwapWeapons	
 	1927031969	Play_PlayerDash			\Default Work Unit\Player\Movement\Play_PlayerDash	
 	3095736289	Play_PlayerBleeding			\Default Work Unit\Player\State Effects\Play_PlayerBleeding	
@@ -33,6 +34,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	738484757	PlayerStep3Lvl1	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\99\{9955F928-4BA9-8B2E-03E3-2D705FCA554C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep3Lvl1		3131
 	741537981	PlayerDash3	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\14\{14BA7823-ED36-3601-9DA6-210DD2B7BD84}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash3		9804
 	746984909	PlayerStep3Lvl2	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\79\{7950F71B-EF2A-A41D-6B0E-F4A08D9A8D4B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep3Lvl2		3139
+	777810738	PlayerHealingSound	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\DD\{DD1BB3C1-B920-4AEC-1400-29D16891DEE7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerHealingSound		21452
 	806581019	PlayerStep4Lvl2	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\1E\{1E5C0E41-832E-024C-FB24-D99255287B70}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl2\PlayerStep4Lvl2		2099
 	812580125	PlayerNoAmmo	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\AF\{AFAC17CA-4645-524C-1470-D08F7E7DEE0A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerNoAmmo		5744
 	875707202	Burning1	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\48\{4816B45E-99B1-65DA-D11C-1FAD4377D0DF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning1		21331
