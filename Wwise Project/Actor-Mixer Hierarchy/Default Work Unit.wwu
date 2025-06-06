@@ -6942,6 +6942,18 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="IntroCinematicBackground" ID="{E5B84E1B-9C1F-4356-AF44-4FDE7726C9A7}" ShortID="430047600">
+							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -6964,6 +6976,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="CinematicBossIntro" ID="{F1FE6CDF-C4B0-4B35-A645-ADBA44D2C018}" ShortID="1038182204">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
@@ -7008,6 +7027,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="SkipDialogue" ID="{03886098-7FCB-416A-90B9-75C995C13CF9}" ShortID="865949448">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
