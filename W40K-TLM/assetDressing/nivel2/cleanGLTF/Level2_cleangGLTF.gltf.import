@@ -1,0 +1,920 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 1288118439040269436
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-1",
+                        "value": {
+                            "value0": 14086118888701990959
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-2",
+                        "value": {
+                            "value0": 7152736891532664073
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-3",
+                        "value": {
+                            "value0": 6931324858358521591
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-4",
+                        "value": {
+                            "value0": 1850644572394394842
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-5",
+                        "value": {
+                            "value0": 10129385240300085547
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-6",
+                        "value": {
+                            "value0": 17955569965807472880
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-7",
+                        "value": {
+                            "value0": 16021577496601009476
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cube.003-2",
+                        "value": {
+                            "value0": 712557614762397409
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-8",
+                        "value": {
+                            "value0": 11732112547392305678
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-9",
+                        "value": {
+                            "value0": 15105157529228867065
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-10",
+                        "value": {
+                            "value0": 1087484756665429324
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-11",
+                        "value": {
+                            "value0": 11036986398262887863
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-9",
+                        "value": {
+                            "value0": 16793097876887857055
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-12",
+                        "value": {
+                            "value0": 2812954200208021499
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-8",
+                        "value": {
+                            "value0": 15110020502011117916
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-13",
+                        "value": {
+                            "value0": 12948276998472304550
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-14",
+                        "value": {
+                            "value0": 12237458126992777866
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-15",
+                        "value": {
+                            "value0": 1735615234212037666
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-16",
+                        "value": {
+                            "value0": 11457850736989198939
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-18",
+                        "value": {
+                            "value0": 17407919174718892099
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-17",
+                        "value": {
+                            "value0": 4630949459478982966
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-19",
+                        "value": {
+                            "value0": 8495241409103737465
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-3",
+                        "value": {
+                            "value0": 8865237303797511536
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.071-18",
+                        "value": {
+                            "value0": 9196755268292546279
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-16",
+                        "value": {
+                            "value0": 18209088406505805551
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-13",
+                        "value": {
+                            "value0": 15507310637491825112
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-0",
+                        "value": {
+                            "value0": 16597333845365007638
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-12",
+                        "value": {
+                            "value0": 5387159709879872617
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-1",
+                        "value": {
+                            "value0": 18316166421781525064
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-11",
+                        "value": {
+                            "value0": 14169594726879311907
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-2",
+                        "value": {
+                            "value0": 12332918420308104336
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-10",
+                        "value": {
+                            "value0": 11472092234062464853
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-3",
+                        "value": {
+                            "value0": 3493377305259815749
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-17",
+                        "value": {
+                            "value0": 6161518685061039264
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-4",
+                        "value": {
+                            "value0": 8841590575910112094
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-16",
+                        "value": {
+                            "value0": 1279464923569917098
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-5",
+                        "value": {
+                            "value0": 16823511509051772809
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-15",
+                        "value": {
+                            "value0": 7924215492645016857
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-6",
+                        "value": {
+                            "value0": 4456815404378389672
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-14",
+                        "value": {
+                            "value0": 3300012900432193429
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-7",
+                        "value": {
+                            "value0": 9991480907256739503
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-8",
+                        "value": {
+                            "value0": 7355501844756119693
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-9",
+                        "value": {
+                            "value0": 1672571307620617132
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-18",
+                        "value": {
+                            "value0": 11566927908357540005
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-19",
+                        "value": {
+                            "value0": 12948465497391225544
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-20",
+                        "value": {
+                            "value0": 7650209089683415486
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-21",
+                        "value": {
+                            "value0": 11965632079718741234
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-22",
+                        "value": {
+                            "value0": 15919484473648084602
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-23",
+                        "value": {
+                            "value0": 3643413638728781243
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-24",
+                        "value": {
+                            "value0": 3663949074017776084
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-25",
+                        "value": {
+                            "value0": 1391984831114911157
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-26",
+                        "value": {
+                            "value0": 9668236449930739766
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-27",
+                        "value": {
+                            "value0": 11964657680809736862
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-28",
+                        "value": {
+                            "value0": 10645839666908913949
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-29",
+                        "value": {
+                            "value0": 16561464397298526535
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-30",
+                        "value": {
+                            "value0": 7208427712930401267
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-31",
+                        "value": {
+                            "value0": 7613158803758745608
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-32",
+                        "value": {
+                            "value0": 16227175436665692856
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-33",
+                        "value": {
+                            "value0": 17214823749495960374
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-34",
+                        "value": {
+                            "value0": 13745001491968081681
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-35",
+                        "value": {
+                            "value0": 4879257927816690864
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-36",
+                        "value": {
+                            "value0": 10473775078016483636
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-37",
+                        "value": {
+                            "value0": 15570183323823133322
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-38",
+                        "value": {
+                            "value0": 13458057541662466940
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.073",
+                        "value": {
+                            "value0": 4111658371655815940
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-39",
+                        "value": {
+                            "value0": 8068014001692051263
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-40",
+                        "value": {
+                            "value0": 2706639579721857924
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-41",
+                        "value": {
+                            "value0": 4387786475291961028
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-42",
+                        "value": {
+                            "value0": 10403656602681761489
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.038-43",
+                        "value": {
+                            "value0": 5795239391319867034
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-15",
+                        "value": {
+                            "value0": 6740912368509021978
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-0",
+                        "value": {
+                            "value0": 9172749172754983918
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-14",
+                        "value": {
+                            "value0": 7918589026118151317
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-1",
+                        "value": {
+                            "value0": 3818607847269795715
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-17",
+                        "value": {
+                            "value0": 12277017721970474936
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-2",
+                        "value": {
+                            "value0": 13215626494622844245
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-11",
+                        "value": {
+                            "value0": 1034762633162885378
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-4",
+                        "value": {
+                            "value0": 4204157794772375499
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-10",
+                        "value": {
+                            "value0": 5969956508115312850
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-5",
+                        "value": {
+                            "value0": 10738806675194207375
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-13",
+                        "value": {
+                            "value0": 15566107252417659929
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-6",
+                        "value": {
+                            "value0": 8223058467716102022
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-12",
+                        "value": {
+                            "value0": 16305150640757712923
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-7",
+                        "value": {
+                            "value0": 1952813054793635128
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-20",
+                        "value": {
+                            "value0": 16282072918343707172
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-21",
+                        "value": {
+                            "value0": 11987662349453823925
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.050",
+                        "value": {
+                            "value0": 16520248850263564082
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-22",
+                        "value": {
+                            "value0": 4103232726305865827
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-23",
+                        "value": {
+                            "value0": 12588824429437638570
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-24",
+                        "value": {
+                            "value0": 6095778100871390889
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-25",
+                        "value": {
+                            "value0": 91437067603564464
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cylinder.042-26",
+                        "value": {
+                            "value0": 15917467028734362025
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.008-0",
+                        "value": {
+                            "value0": 8498913645658135174
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Plane.008-1",
+                        "value": {
+                            "value0": 3723310736066515285
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cube.003-0",
+                        "value": {
+                            "value0": 17523360437223227473
+                        }
+                    },
+                    {
+                        "key": "Level2_cleangGLTF_Cube.003-1",
+                        "value": {
+                            "value0": 4666851436865039414
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Bridge_Mat32",
+                        "value": {
+                            "value0": 9831414795513662504
+                        }
+                    },
+                    {
+                        "key": "Material.007_Mat11",
+                        "value": {
+                            "value0": 10980693043451852838
+                        }
+                    },
+                    {
+                        "key": "Material.009_Mat0",
+                        "value": {
+                            "value0": 4291592401199755976
+                        }
+                    },
+                    {
+                        "key": "StreetLamp_Mat33",
+                        "value": {
+                            "value0": 10460374822044240717
+                        }
+                    },
+                    {
+                        "key": "vallas.001_Mat1",
+                        "value": {
+                            "value0": 12785280922609415629
+                        }
+                    },
+                    {
+                        "key": "Material.016_Mat14",
+                        "value": {
+                            "value0": 10107302015376681197
+                        }
+                    },
+                    {
+                        "key": "vallas.002_Mat2",
+                        "value": {
+                            "value0": 2921924048606932273
+                        }
+                    },
+                    {
+                        "key": "Tuberia_Mat3",
+                        "value": {
+                            "value0": 16297317146200070475
+                        }
+                    },
+                    {
+                        "key": "Material.006_Mat22",
+                        "value": {
+                            "value0": 12533260944454580356
+                        }
+                    },
+                    {
+                        "key": "Material.005_Mat50",
+                        "value": {
+                            "value0": 14738377901076380309
+                        }
+                    },
+                    {
+                        "key": "Tuberia.001_Mat4",
+                        "value": {
+                            "value0": 7677135447617353803
+                        }
+                    },
+                    {
+                        "key": "Material.011_Mat43",
+                        "value": {
+                            "value0": 3344984201745288970
+                        }
+                    },
+                    {
+                        "key": "Ventana3.001_Mat5",
+                        "value": {
+                            "value0": 13834210331703791838
+                        }
+                    },
+                    {
+                        "key": "Wall1Tileable_Mat29",
+                        "value": {
+                            "value0": 16742006527542147420
+                        }
+                    },
+                    {
+                        "key": "Contenedor.001_Mat6",
+                        "value": {
+                            "value0": 12205030740879990161
+                        }
+                    },
+                    {
+                        "key": "tanque.001_Mat7",
+                        "value": {
+                            "value0": 14483840639635947391
+                        }
+                    },
+                    {
+                        "key": "StreetLamp.002_Mat8",
+                        "value": {
+                            "value0": 9261444156205725547
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.003_Mat9",
+                        "value": {
+                            "value0": 10274009545266231563
+                        }
+                    },
+                    {
+                        "key": "Material.008_Mat10",
+                        "value": {
+                            "value0": 9142229379930667942
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.005_Mat12",
+                        "value": {
+                            "value0": 276150662629555745
+                        }
+                    },
+                    {
+                        "key": "barras_low_Mat26",
+                        "value": {
+                            "value0": 5002965882065270648
+                        }
+                    },
+                    {
+                        "key": "Material.014_Mat24",
+                        "value": {
+                            "value0": 9313205120415511618
+                        }
+                    },
+                    {
+                        "key": "lambert1_Mat13",
+                        "value": {
+                            "value0": 6847712483601915966
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat37",
+                        "value": {
+                            "value0": 9144875821014778627
+                        }
+                    },
+                    {
+                        "key": "Scrap1.002_Mat47",
+                        "value": {
+                            "value0": 386263145437957676
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.002_Mat15",
+                        "value": {
+                            "value0": 16822503527845726199
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat16",
+                        "value": {
+                            "value0": 94287869086883318
+                        }
+                    },
+                    {
+                        "key": "standardSurface2_Mat17",
+                        "value": {
+                            "value0": 15713423658888105127
+                        }
+                    },
+                    {
+                        "key": "TorretaF_Mat18",
+                        "value": {
+                            "value0": 131982751344658903
+                        }
+                    },
+                    {
+                        "key": "Ventana3_Mat20",
+                        "value": {
+                            "value0": 7801708886374650637
+                        }
+                    },
+                    {
+                        "key": "Espada_Mat19",
+                        "value": {
+                            "value0": 5971288742788310156
+                        }
+                    },
+                    {
+                        "key": "Ventana2_Mat21",
+                        "value": {
+                            "value0": 16170197381400211431
+                        }
+                    },
+                    {
+                        "key": "Ultramarine_MAT_Mat39",
+                        "value": {
+                            "value0": 2926178687255842037
+                        }
+                    },
+                    {
+                        "key": "Material.012_Mat23",
+                        "value": {
+                            "value0": 5643615054341694760
+                        }
+                    },
+                    {
+                        "key": "Material.015_Mat25",
+                        "value": {
+                            "value0": 4076874426867040308
+                        }
+                    },
+                    {
+                        "key": "Contenedor.003_Mat27",
+                        "value": {
+                            "value0": 12029924826572723925
+                        }
+                    },
+                    {
+                        "key": "Contenedor.002_Mat28",
+                        "value": {
+                            "value0": 2213121469533494194
+                        }
+                    },
+                    {
+                        "key": "Suelo_MAT.001_Mat30",
+                        "value": {
+                            "value0": 14011752824416401666
+                        }
+                    },
+                    {
+                        "key": "Material_Mat31",
+                        "value": {
+                            "value0": 8263593900997415337
+                        }
+                    },
+                    {
+                        "key": "StreetLamp.001_Mat34",
+                        "value": {
+                            "value0": 12298522921042454684
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.001_Mat35",
+                        "value": {
+                            "value0": 885991143082214573
+                        }
+                    },
+                    {
+                        "key": "Jetpack_MAT_Mat36",
+                        "value": {
+                            "value0": 16825075990453390151
+                        }
+                    },
+                    {
+                        "key": "Material.010_Mat42",
+                        "value": {
+                            "value0": 10177693148138224235
+                        }
+                    },
+                    {
+                        "key": "Material.004_Mat38",
+                        "value": {
+                            "value0": 1000740312540323341
+                        }
+                    },
+                    {
+                        "key": "lambert2.001_Mat40",
+                        "value": {
+                            "value0": 3771783361668396265
+                        }
+                    },
+                    {
+                        "key": "CableTextura.001_Mat41",
+                        "value": {
+                            "value0": 3408479318211571494
+                        }
+                    },
+                    {
+                        "key": "Material.013_Mat44",
+                        "value": {
+                            "value0": 13965726021546719030
+                        }
+                    },
+                    {
+                        "key": "Wall_MAT_Mat45",
+                        "value": {
+                            "value0": 10957517217999961051
+                        }
+                    },
+                    {
+                        "key": "Suelo_MAT.002_Mat46",
+                        "value": {
+                            "value0": 5691551525428540742
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.001_Mat48",
+                        "value": {
+                            "value0": 2561765999219193754
+                        }
+                    },
+                    {
+                        "key": "standardSurface1.004_Mat49",
+                        "value": {
+                            "value0": 15676326964819928934
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 648304211547041787
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel2/cleanGLTF/Level2_cleangGLTF.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/648304211547041787.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
