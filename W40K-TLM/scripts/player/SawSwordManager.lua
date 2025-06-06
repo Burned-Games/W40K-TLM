@@ -192,7 +192,6 @@ function Slash()
                             -- end
                             playerScript.makeDamage = true
                             if enemyTag ~= "EnemyTank" and enemyTag ~= "EnemyTank1" and enemyTag ~= "EnemyTank2" and enemyTag ~= "EnemyTank3" and enemyTag ~= "EnemyTank4" and enemyTag ~= "EnemyTank5" and enemyTag ~= "EnemyTank6" then
-                                print(enemyTag)
                                 enemyInstance.isPushed = true
                                 impulseDirection = Vector3.new(
                                 entityPos.x - playerTransf.position.x,

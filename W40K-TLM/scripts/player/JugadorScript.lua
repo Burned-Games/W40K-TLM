@@ -191,7 +191,7 @@ local particle_fire = nil
 local particle_smoke = nil
 local neuralInParticle = nil
 local particle_spark = nil
-
+local healingParticle = nil
 
 local dtColective = 0
 
@@ -322,7 +322,7 @@ function on_ready()
     particle_fire = current_scene:get_entity_by_name("particle_fire"):get_component("ParticlesSystemComponent")
     particle_smoke = current_scene:get_entity_by_name("particle_smoke"):get_component("ParticlesSystemComponent")
     particle_spark = current_scene:get_entity_by_name("SparkParticle"):get_component("ParticlesSystemComponent")
-    
+    healingParticle = current_scene:get_entity_by_name("HealingParticle"):get_component("ParticlesSystemComponent")
     
     --UpgradeManager START
     UpgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
@@ -1718,6 +1718,7 @@ function HealPlayer()
     if timesHealed <= 0 then playerInyectorSFX:play() end
 
     timesHealed = timesHealed + 1
+    healingParticle:emit(6)
     local healAmount = (maxHealth * 0.35) / 5
     health = health + healAmount
     
