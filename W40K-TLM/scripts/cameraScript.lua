@@ -326,6 +326,7 @@ function updateEnemyActivation()
                     for _, child in ipairs(children) do
                         if child:get_component("TagComponent").tag == "Shield" then
                             child:set_active(false)
+                            log("Shield deactivated for enemy: " )
                             break
                         end
                     end
