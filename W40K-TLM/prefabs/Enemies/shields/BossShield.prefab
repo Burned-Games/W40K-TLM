@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 8627775421143021847
+                "value0": 7112792695745653575
             },
             "value4": false
         },
@@ -39,9 +39,9 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
+                "x": 3.0,
+                "y": 3.0,
+                "z": 3.0
             }
         },
         "value9": 1,
@@ -53,286 +53,103 @@
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value12": 0,
+        "value12": 1,
         "value13": 0,
-        "value14": 0,
-        "value15": 0,
-        "value16": 1,
-        "value17": 0,
-        "value18": {
+        "value14": {
             "cereal_class_version": 0,
-            "ParticleEmitter": {
+            "Mesh": {
+                "value0": 17127182061701581328
+            },
+            "AnimatorUUID": {
+                "value0": 0
+            }
+        },
+        "value15": 1,
+        "value16": 0,
+        "value17": {
+            "cereal_class_version": 1,
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 2147483649,
+                "polymorphic_name": "Coffee::PBRMaterial",
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
-                        "cereal_class_version": 4,
-                        "TransformMatrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 2.5,
-                            "m32": -95.0,
-                            "m33": 1.0
-                        },
-                        "UseDirectionRandom": false,
-                        "Direction": {
-                            "x": 0.0,
-                            "y": 1.0,
-                            "z": 0.0
-                        },
-                        "DirectionRandom": {
-                            "x": 0.0,
-                            "y": 1.0,
-                            "z": 0.0
-                        },
-                        "UseColorRandom": false,
-                        "ColorNormal": {
-                            "x": 0.37492889165878298,
-                            "y": 0.3652770519256592,
-                            "z": 0.9637096524238586,
-                            "w": 1.0
-                        },
-                        "ColorRandom": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0,
-                            "w": 1.0
-                        },
-                        "Amount": 1000,
-                        "Looping": true,
-                        "UseRandomLifeTime": false,
-                        "StartLifeTimeMin": 5.0,
-                        "StartLifeTimeMax": 5.0,
-                        "StartLifeTime": 1.0,
-                        "UseRandomSpeed": false,
-                        "StartSpeedMin": 5.0,
-                        "StartSpeedMax": 5.0,
-                        "StartSpeed": 0.0,
-                        "UseRandomSize": false,
-                        "UseSplitAxesSize": false,
-                        "StartSizeMin": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        },
-                        "StartSizeMax": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
-                        },
-                        "StartSize": {
-                            "x": 3.5,
-                            "y": 3.5,
-                            "z": 3.5
-                        },
-                        "UseRandomRotation": false,
-                        "StartRotationMin": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "StartRotationMax": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "StartRotation": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "SimulationSpace": 0,
-                        "UseEmission": true,
-                        "RateOverTime": 1.0,
-                        "UseBurst": false,
-                        "Bursts": [],
-                        "ShapeType": 2,
-                        "MinSpread": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "MaxSpread": {
-                            "x": 0.0,
-                            "y": 0.0,
-                            "z": 0.0
-                        },
-                        "UseShape": true,
-                        "ShapeAngle": 45.0,
-                        "ShapeRadius": 1.0,
-                        "ShapeRadiusThickness": 0.10000000149011612,
-                        "GoCenter": false,
-                        "UseVelocityOverLifetime": false,
-                        "VelocitySeparateAxes": false,
-                        "VelocityOverLifeX": [
-                            {
-                                "cereal_class_version": 0,
-                                "value0": 0.0,
-                                "value1": 1.0
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 0
                             },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
+                            "NormalUUID": {
+                                "value0": 0
                             },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
+                            "MetallicUUID": {
+                                "value0": 0
                             },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityOverLifeGeneral": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
+                            "RoughnessUUID": {
+                                "value0": 0
                             },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "VelocityMultiplier": 1.0,
-                        "UseSizeOverLifetime": true,
-                        "SizeSeparateAxes": false,
-                        "SizeOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
+                            "AOUUID": {
+                                "value0": 0
                             },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
+                            "EmissiveUUID": {
+                                "value0": 0
                             }
-                        ],
-                        "SizeOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "SizeOverLifeGeneral": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 0.9850000143051148,
-                                "value1": 1.0
-                            }
-                        ],
-                        "SizeMultiplier": 2.5,
-                        "UseRotationOverLifetime": false,
-                        "RotationOverLifeX": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "RotationOverLifeY": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "RotationOverLifeZ": [
-                            {
-                                "value0": 0.0,
-                                "value1": 1.0
-                            },
-                            {
-                                "value0": 1.0,
-                                "value1": 0.5
-                            }
-                        ],
-                        "RotationMultiplier": 1.0,
-                        "UseColorOverLifetime": false,
-                        "OverLifetimeColor": {
-                            "x": 7.370829922348538e-43,
-                            "y": 4.7055861145224459e-27,
-                            "z": 7.370829922348538e-43,
-                            "w": 4.7057463518938189e-27
                         },
-                        "ColorGradientPoints": [
-                            {
-                                "cereal_class_version": 0,
-                                "value0": 0.0,
+                        "TextureFlags": {
+                            "HasAlbedo": false,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": false
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 0.17972350120544434,
+                                "y": 0.512370228767395,
+                                "z": 1.0,
+                                "w": 0.3410138487815857
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Escudo.gltf_Mat0",
                                 "value1": {
-                                    "value0": 1.0,
-                                    "value1": 1.0,
-                                    "value2": 1.0,
-                                    "value3": 1.0
-                                }
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 12043233665328661413
+                                },
+                                "value4": true
                             },
-                            {
-                                "value0": 1.0,
-                                "value1": {
-                                    "value0": 1.0,
-                                    "value1": 1.0,
-                                    "value2": 1.0,
-                                    "value3": 1.0
-                                }
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
                             }
-                        ],
-                        "UseRenderer": true,
-                        "RenderMode": 0,
-                        "RenderAlignment": 0,
-                        "TextureUUID": {
-                            "value0": 17847465092735393937
                         }
                     }
                 }
             }
         },
+        "value18": 0,
         "value19": 0,
-        "value20": 1,
+        "value20": 0,
         "value21": 0,
-        "value22": 0,
+        "value22": 1,
         "value23": 0,
         "value24": 0,
         "value25": 0,
@@ -345,6 +162,8 @@
         "value32": 0,
         "value33": 0,
         "value34": 0,
-        "value35": 0
+        "value35": 0,
+        "value36": 0,
+        "value37": 0
     }
 }
