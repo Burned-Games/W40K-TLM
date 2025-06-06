@@ -242,6 +242,7 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_ExploreLevel3_container" ID="{0DEC85B2-C381-4062-BA6F-5FD750CD6E7C}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploreLevel1_container" ID="{9163D869-7966-4110-A57C-CFA8A7F4065F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_musicFinal_container" ID="{6BA8057F-66D2-437E-9D58-725AA068DC44}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_ExploreLevel2_container" ID="{2F8CE6FA-61CA-43C7-8B8F-10F3D0B8738D}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_mainMenu_music_container" ID="{2D04A1C0-9B65-43DE-AD33-B6D684D985D5}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BossFightingMusic_container" ID="{0B1CB48B-B516-4A21-90C2-D41941430428}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -261,8 +262,10 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_CinematicBossIntro" ID="{8E0E13B3-49D8-43A0-BDB5-84A652EA03CC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_IntroCinematicEnd" ID="{FD07419C-358C-4724-83C6-A3C5C1C90D8E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_CinematicFinal" ID="{A68FE115-3169-47D5-AFBA-915BCDB657A7}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_UIText" ID="{A0C2B5BE-F805-4BC9-8ABE-D3F343DAFB47}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_IntroCinematicBackground" ID="{9DBFC684-8EA0-4D26-9D8B-F211D78B8372}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_DropPodLvl1Start" ID="{8E7EC3C4-B89B-4DB5-BC97-9877D0CAB831}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_SkipDialogue" ID="{43EDFCD2-4D7A-4DD8-BE4D-A481CC79239A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

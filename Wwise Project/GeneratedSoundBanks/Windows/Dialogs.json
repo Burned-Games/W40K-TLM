@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{179A6250-3F23-44B9-A9AF-461B907637F3}",
     "Language": "SFX",
-    "Hash": "{DCCCDECF-D879-9BB9-CB9D-69A9F706225A}",
+    "Hash": "{39A7C3B7-4421-52D0-2F20-73E2C88252DF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogs",
     "ShortName": "Dialogs",
     "Path": "Dialogs.bnk",
@@ -40,6 +40,14 @@
       "CachePath": "2C/{2C6B0E15-405F-9B0A-7100-DC90A2A4B133}.wem"
      },
      {
+      "Id": "405060968",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DropPodLvl1Start.wav",
+      "CachePath": "9A/{9A86B6E5-A5DB-E538-16C4-380BB63EB5D0}.wem"
+     },
+     {
       "Id": "472798664",
       "Language": "SFX",
       "Streaming": "false",
@@ -54,6 +62,14 @@
       "Location": "Memory",
       "ShortName": "IntroCinematicBackground.wav",
       "CachePath": "5B/{5BAEE3D2-916E-8AA3-1B89-D39AFC3D133F}.wem"
+     },
+     {
+      "Id": "611567110",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CinematicFinal.wav",
+      "CachePath": "C0/{C04BAEC8-9C60-DD61-A649-1A04E6793942}.wem"
      },
      {
       "Id": "621346575",
@@ -84,6 +100,34 @@
       "MediaRefs": [
        {
         "Id": "113619922"
+       }
+      ]
+     },
+     {
+      "Id": "2931087171",
+      "Name": "Play_CinematicFinal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_CinematicFinal",
+      "GUID": "{A68FE115-3169-47D5-AFBA-915BCDB657A7}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.109093",
+      "DurationMax": "9.109093",
+      "MediaRefs": [
+       {
+        "Id": "611567110"
+       }
+      ]
+     },
+     {
+      "Id": "2148730699",
+      "Name": "Play_DropPodLvl1Start",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_DropPodLvl1Start",
+      "GUID": "{8E7EC3C4-B89B-4DB5-BC97-9877D0CAB831}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.3710203",
+      "DurationMax": "4.3710203",
+      "MediaRefs": [
+       {
+        "Id": "405060968"
        }
       ]
      },
@@ -150,6 +194,6 @@
     ]
    }
   ],
-  "FileHash": "{EFBEC049-F138-AED9-7CFE-80A8E2DA5942}"
+  "FileHash": "{ED17B646-A0D3-FAC7-E68F-DFDA8B6A68CB}"
  }
 }
