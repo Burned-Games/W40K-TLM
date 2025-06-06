@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{D1A3AB26-CF57-A263-EB26-4295E64EDE55}",
+    "Hash": "{9ECAC9C0-5B8E-8878-5FD1-A0629CDCB517}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -59,6 +59,15 @@
       "ShortName": "BossFightingMusic.wav",
       "Path": "Media/983085039.wem",
       "CachePath": "7D/{7D01AD42-4E76-4815-A580-39312707272B}.wem"
+     },
+     {
+      "Id": "1003956247",
+      "Language": "SFX",
+      "Streaming": "true",
+      "Location": "Loose",
+      "ShortName": "musicFinal.wav",
+      "Path": "Media/1003956247.wem",
+      "CachePath": "79/{7914C569-305A-D2D1-21B3-0C7F1E2F01AD}.wem"
      },
      {
       "Id": "1034477356",
@@ -142,10 +151,24 @@
         "Id": "764091017"
        }
       ]
+     },
+     {
+      "Id": "1535067933",
+      "Name": "Play_musicFinal_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_musicFinal_container",
+      "GUID": "{6BA8057F-66D2-437E-9D58-725AA068DC44}",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "MediaRefs": [
+       {
+        "Id": "1003956247"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{27B0B1D0-B4DA-EB93-D93A-49B4F7E9C8C0}"
+  "FileHash": "{4FD0EEEA-62E0-6424-9DD7-CDCF7916BA19}"
  }
 }

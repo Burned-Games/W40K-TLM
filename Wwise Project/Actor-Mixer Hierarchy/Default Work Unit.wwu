@@ -323,37 +323,6 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<Sound Name="PlayerGetBloodParticles" ID="{621E5BB4-13C4-4909-B508-4D7CD992C606}" ShortID="378039811">
-									<PropertyList>
-										<Property Name="Pitch" Type="int32">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{4AE3D501-F7F1-412B-AEAB-C0E7EE1DFF65}"/>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="PlayerGetBloodParticles" ID="{FFF7D44D-0BBD-48F7-B124-602E794F3E5D}">
-											<Language>SFX</Language>
-											<AudioFile>PlayerGetBloodParticles.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="502671763"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="PlayerGetBloodParticles" ID="{FFF7D44D-0BBD-48F7-B124-602E794F3E5D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="PlayerHealingSound" ID="{8841E810-8BB7-4435-86A0-D93366B84DEB}" ShortID="365795544">
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -374,6 +343,52 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="PlayerHealingSound" ID="{CD3E6631-81C3-4A19-8663-0A0A977463D5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="PlayerGetBloodParticles" ID="{621E5BB4-13C4-4909-B508-4D7CD992C606}" ShortID="378039811">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="LoopCount" Type="int32" Value="5"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>1780</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{4AE3D501-F7F1-412B-AEAB-C0E7EE1DFF65}">
+														<PropertyList>
+															<Property Name="Max" Type="Real64" Value="775"/>
+															<Property Name="Min" Type="Real64" Value="-775"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="PlayerGetBloodParticles" ID="{FFF7D44D-0BBD-48F7-B124-602E794F3E5D}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="0.193854755214033"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>PlayerGetBloodParticles.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="133307509"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="PlayerGetBloodParticles" ID="{FFF7D44D-0BBD-48F7-B124-602E794F3E5D}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -7053,6 +7068,50 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="SkipDialogue" ID="{E973C666-BFB2-4DF4-9824-F42A0F270735}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CinematicFinal" ID="{19F08C8E-3845-4BB5-878B-B9FFFBAFD93F}" ShortID="173018214">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="CinematicFinal" ID="{ED397464-9334-47D7-9402-9766F24B66FB}">
+									<Language>SFX</Language>
+									<AudioFile>CinematicFinal.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="611567110"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="CinematicFinal" ID="{ED397464-9334-47D7-9402-9766F24B66FB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DropPodLvl1Start" ID="{EF66C716-D744-41BF-8C1D-E04852181236}" ShortID="883330479">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="DropPodLvl1Start" ID="{17A817A6-2BFD-445C-A3F5-54A6408D233B}">
+									<Language>SFX</Language>
+									<AudioFile>DropPodLvl1Start.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="405060968"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="DropPodLvl1Start" ID="{17A817A6-2BFD-445C-A3F5-54A6408D233B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

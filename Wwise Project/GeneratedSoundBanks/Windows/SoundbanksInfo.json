@@ -2567,7 +2567,7 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{D1A3AB26-CF57-A263-EB26-4295E64EDE55}",
+    "Hash": "{9ECAC9C0-5B8E-8878-5FD1-A0629CDCB517}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -2616,6 +2616,15 @@
       "ShortName": "BossFightingMusic.wav",
       "Path": "Media/983085039.wem",
       "CachePath": "7D/{7D01AD42-4E76-4815-A580-39312707272B}.wem"
+     },
+     {
+      "Id": "1003956247",
+      "Language": "SFX",
+      "Streaming": "true",
+      "Location": "Loose",
+      "ShortName": "musicFinal.wav",
+      "Path": "Media/1003956247.wem",
+      "CachePath": "79/{7914C569-305A-D2D1-21B3-0C7F1E2F01AD}.wem"
      },
      {
       "Id": "1034477356",
@@ -2699,6 +2708,20 @@
         "Id": "764091017"
        }
       ]
+     },
+     {
+      "Id": "1535067933",
+      "Name": "Play_musicFinal_container",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_musicFinal_container",
+      "GUID": "{6BA8057F-66D2-437E-9D58-725AA068DC44}",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "MediaRefs": [
+       {
+        "Id": "1003956247"
+       }
+      ]
      }
     ]
    },
@@ -2707,7 +2730,7 @@
     "Type": "User",
     "GUID": "{179A6250-3F23-44B9-A9AF-461B907637F3}",
     "Language": "SFX",
-    "Hash": "{DCCCDECF-D879-9BB9-CB9D-69A9F706225A}",
+    "Hash": "{39A7C3B7-4421-52D0-2F20-73E2C88252DF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogs",
     "ShortName": "Dialogs",
     "Path": "Dialogs.bnk",
@@ -2737,6 +2760,14 @@
       "CachePath": "2C/{2C6B0E15-405F-9B0A-7100-DC90A2A4B133}.wem"
      },
      {
+      "Id": "405060968",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DropPodLvl1Start.wav",
+      "CachePath": "9A/{9A86B6E5-A5DB-E538-16C4-380BB63EB5D0}.wem"
+     },
+     {
       "Id": "472798664",
       "Language": "SFX",
       "Streaming": "false",
@@ -2751,6 +2782,14 @@
       "Location": "Memory",
       "ShortName": "IntroCinematicBackground.wav",
       "CachePath": "5B/{5BAEE3D2-916E-8AA3-1B89-D39AFC3D133F}.wem"
+     },
+     {
+      "Id": "611567110",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CinematicFinal.wav",
+      "CachePath": "C0/{C04BAEC8-9C60-DD61-A649-1A04E6793942}.wem"
      },
      {
       "Id": "621346575",
@@ -2781,6 +2820,34 @@
       "MediaRefs": [
        {
         "Id": "113619922"
+       }
+      ]
+     },
+     {
+      "Id": "2931087171",
+      "Name": "Play_CinematicFinal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_CinematicFinal",
+      "GUID": "{A68FE115-3169-47D5-AFBA-915BCDB657A7}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.109093",
+      "DurationMax": "9.109093",
+      "MediaRefs": [
+       {
+        "Id": "611567110"
+       }
+      ]
+     },
+     {
+      "Id": "2148730699",
+      "Name": "Play_DropPodLvl1Start",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_DropPodLvl1Start",
+      "GUID": "{8E7EC3C4-B89B-4DB5-BC97-9877D0CAB831}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.3710203",
+      "DurationMax": "4.3710203",
+      "MediaRefs": [
+       {
+        "Id": "405060968"
        }
       ]
      },
@@ -2851,11 +2918,19 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{17FB947F-64B6-8077-F3BC-2BC41D444AB7}",
+    "Hash": "{37F275A2-22BD-F08B-28AA-B9629D919005}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
     "Media": [
+     {
+      "Id": "133307509",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerGetBloodParticles.wav",
+      "CachePath": "DF/{DF070CF0-EA8E-F220-47A8-6C9C72D2BEAE}.wem"
+     },
      {
       "Id": "136860020",
       "Language": "SFX",
@@ -2919,14 +2994,6 @@
       "Location": "Memory",
       "ShortName": "PlayerCD.wav",
       "CachePath": "7B/{7B49E2D0-655B-F3E9-4CD2-AD2313185A32}.wem"
-     },
-     {
-      "Id": "502671763",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "PlayerGetBloodParticles.wav",
-      "CachePath": "81/{811A5324-3BDE-CE47-E9A9-4DF5214B8499}.wem"
      },
      {
       "Id": "557785712",
@@ -3214,11 +3281,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerGetBloodParticles",
       "GUID": "{C6397028-1465-4AE0-B954-4D87DC55D49F}",
       "DurationType": "OneShot",
-      "DurationMin": "0.49997732",
-      "DurationMax": "0.49997732",
+      "DurationMin": "0.45616016",
+      "DurationMax": "0.45616016",
       "MediaRefs": [
        {
-        "Id": "502671763"
+        "Id": "133307509"
        }
       ]
      },
@@ -3344,6 +3411,6 @@
     ]
    }
   ],
-  "FileHash": "{17562C64-8E78-F6E8-5297-7528A7EE918C}"
+  "FileHash": "{FE56339E-2D23-9540-3B06-345447466B49}"
  }
 }

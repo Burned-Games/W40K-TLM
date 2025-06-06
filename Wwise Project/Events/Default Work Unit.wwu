@@ -831,6 +831,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_musicFinal_container" ID="{6BA8057F-66D2-437E-9D58-725AA068DC44}">
+							<ChildrenList>
+								<Action Name="" ID="{0BD49E2B-5738-4A5E-974A-64290DB696AE}" ShortID="809553452">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="musicFinal_container" ID="{42040A26-5864-41BB-8924-4635C94ED62A}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{AF3C98AC-A6E2-440A-BE4F-8443810E4890}" ShortID="183007794">
@@ -1124,6 +1135,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="IntroCinematicEnd" ID="{E748F710-0890-4477-B73F-55BEA19B37F5}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_CinematicFinal" ID="{A68FE115-3169-47D5-AFBA-915BCDB657A7}">
+							<ChildrenList>
+								<Action Name="" ID="{A1B38A28-BF3A-4853-B7F2-836C151E4B00}" ShortID="958837419">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CinematicFinal" ID="{19F08C8E-3845-4BB5-878B-B9FFFBAFD93F}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DropPodLvl1Start" ID="{8E7EC3C4-B89B-4DB5-BC97-9877D0CAB831}">
+							<ChildrenList>
+								<Action Name="" ID="{12419B16-B5CE-4F95-977C-EE833424ABFB}" ShortID="502858498">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DropPodLvl1Start" ID="{EF66C716-D744-41BF-8C1D-E04852181236}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
