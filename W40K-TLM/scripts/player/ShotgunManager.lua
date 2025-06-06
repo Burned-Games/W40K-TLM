@@ -123,7 +123,8 @@ local swordScript = nil
 
 local playerCDSFX = nil
 
-local explosionPrefab = "prefabs/Enemies/attacks/Explosion.prefab"
+local explosionVFX = nil
+local explosionVFXTimer = 0
 
 local playVFXAnimCounter = 0
 local playVFXAnimCounterTime = 0.233
@@ -209,7 +210,7 @@ function on_ready()
         swordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
     end
 
-
+    explosionVFX = current_scene:get_entity_by_name("GranadeExplosion")
 end
 
 function normalizeVector(v)
@@ -404,6 +405,16 @@ function on_update(dt)
 
         
     end
+    if explosionVFX:is_active() then
+        explosionVFXTimer = explosionVFXTimer + dt
+
+        if explosionVFXTimer >= 0.5 then
+            explosionVFX:set_active(false)
+            explosionVFXTimer = 0
+        end
+        
+    end
+    
 end
 
 -- multiplyer of the armor ability
@@ -806,12 +817,11 @@ function explodeGranade()
                 end
             end
         end
-        local explosionVFX = instantiate_prefab(explosionPrefab)
+        
         explosionVFX:set_active(true)
         local explosionTransf = explosionVFX:get_component("TransformComponent")
-        local explosionScript = explosionVFX:get_component("ScriptComponent")
         explosionTransf.position = Vector3.new(explosionPos.x, explosionPos.y, explosionPos.z)
-        explosionScript:on_ready()
+
     
         
         rb:set_position(Vector3.new(0, -1000, 0))

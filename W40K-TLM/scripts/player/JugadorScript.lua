@@ -932,7 +932,7 @@ end
 end
 
 function handleWeaponSwitch(dt)
-    if Input.get_button(Input.action.Skill1) == Input.state.Down or Input.is_key_pressed(Input.keycode.O) and swordScript.slasheeed == false then
+    if (Input.get_button(Input.action.Skill1) == Input.state.Down or Input.is_key_pressed(Input.keycode.O)) and swordScript.slasheeed == false then
         if pressedButtonChangeWeapon == false then
             if actualweapon == 0 then
                 actualweapon = 1
