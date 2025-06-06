@@ -76,29 +76,24 @@ function on_update(dt)
             first = false
         end
 
-        if detect and first and current_scene_tag == "PopUp_7" then
-            popupScriptComponent.show_popup(false,"New enemy incoming")
-            first = false
-        end
-
     elseif current_scene_name == "level2.TeaScene" then
         if detect and first and current_scene_tag == "PopUp_1" then
-            popupScriptComponent.show_popup(true,"AAAAAAAAAAAA")
+            popupScriptComponent.show_popup(true,"The Big Entrance")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_2" then
-            popupScriptComponent.show_popup(true,"BBBBBBBBBBBBBBB")
+            popupScriptComponent.show_popup(true,"Training Area")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_3" then
-            popupScriptComponent.show_popup(true,"CCCCCCCCCCCCCCCCCCC")
+            popupScriptComponent.show_popup(true,"Central Plaza")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_4" then
-            popupScriptComponent.show_popup(false,"DDDDDDDDDDDDDDDDD")
+            popupScriptComponent.show_popup(false,"Church Street")
             first = false
         end
        

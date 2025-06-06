@@ -99,7 +99,7 @@ function on_ready()
 
         --Dialogo
         dialogLines1 = {
-            { name = "Decius    Marcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?",  time =3},
+            { name = "Decius Marcellus", text = "This is Decius Marcellus, Commander of Guilliman's Fist. Has anyone successfully made planetfall? Does anyone still live?",  time =3},
             { name = "Quintus Maxillian", text = "This is Brother Quintus Maxillian, Ultramarine of the 3rd Company. As far as I can tell, I am the only one left.", time = 3},
             { name = "Decius Marcellus", text = "It appears you are the sole survivor. Nonetheless, the mission stands. The Emperor protects, Brother.", time = 3}
         }
@@ -122,64 +122,57 @@ function on_ready()
         }
 
         dialogLines9S = {
-            { name = "DeciusMarcellus", text = "Status report, are you still with us, Brother?", time = 3},
-            { name = "QuintusMaxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?", time = 3},
-            { name = "DeciusMarcellus", text = "There is a brutal combat on the next door Brother. A big one will try to harrass you, be careful.", time = 3}
+            { name = "Decius Marcellus", text = "Status report, are you still with us, Brother?", time = 3},
+            { name = "Quintus Maxillian", text = "I remain unbroken. Still in one piece. Anything ahead I should be wary of?", time = 3},
+            { name = "Decius Marcellus", text = "There is a brutal combat on the next door Brother. A big one will try to harrass you, be careful.", time = 3}
         }
 
         dialogLines10 = {
-            { name = "DeciusMarcellus", text = "That was a huge fight, brother. A supply pot should be in your way.", time = 3},
-            { name = "DeciusMarcellus", text = "Few enemies left. Go ahead brother, clean this place and proceed with the mission.", time = 3}
+            { name = "Decius Marcellus", text = "That was a huge fight, brother. A supply pot should be in your way.", time = 3},
+            { name = "Decius Marcellus", text = "Few enemies left. Go ahead brother, clean this place and proceed with the mission.", time = 3}
         }
     
     elseif current_scene_name == "level2.TeaScene" then
-
-
-
         --DialogoText
         dialogLines12 = {
-            { name = "DeciusMarcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Garrosh to end this invasion.", time = 3}
+            { name = "Decius Marcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Gorklaw to end this invasion.", time = 3}
         }
         
         dialogLines13 = {
-            { name = "DeciusMarcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother.", time = 3}
-        }
-
-        dialogLines13Ac = {
-            { name = "QuintusMaxillian", text = "Lever engaged, moving forward.", time = 1}
+            { name = "Decius Marcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother.", time = 3}
         }
 
         dialogLines14 = {
-            { name = "DeciusMarcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", time = 3}
+            { name = "Decius Marcellus", text = "Purge all remaining hostiles in the area. Leave no greenskin standing. Martyria Eterna depends on your advance.", time = 3}
         }
 
         dialogLines15 = {
-            { name = "QuintusMaxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", time = 3}
+            { name = "Quintus Maxillian", text = "I've reached the Central Square of Martyria Eterna. I must explore the area. There has to be a way deeper into the city.", time = 3}
         }
         
         dialogLines16 = {
-            { name = "DeciusMarcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", time = 3}
+            { name = "Decius Marcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", time = 3}
         }
         dialogLines17 = {
-            { name = "DeciusMarcellus", text = "You're approaching the Great Bridge, but the access gate is sealed. Search the area for a lever. Force the passage open.", time = 3}
+            { name = "Decius Marcellus", text = "You're approaching the Great Bridge, but the access gate is sealed. Search the area for a lever. Force the passage open.", time = 3}
         }
         dialogLines18 = {
-            { name = "DeciusMarcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", time = 3}
+            { name = "Decius Marcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", time = 3}
         }
         
         dialogLines19 = {
-            { name = "DeciusMarcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", time = 3}
+            { name = "Decius Marcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", time = 3}
         }
        
     elseif current_scene_name == "level3.TeaScene" then
         dialogLinesFind = {
-            { name = "DeciusMarcellus", text = "This is Garrosh chamber, the old church of Martyria Eterna, end him brother. The Emperor protects brother.", time = 3}
+            { name = "Decius Marcellus", text = "This is Gorklaw chamber, the old church of Martyria Eterna, end him brother. The Emperor protects brother.", time = 3}
         }
 
     elseif current_scene_name == "IntroCinematic.TeaScene" then
         dialogLinesCine = {
-            { name = "DeciusMarcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around.", audio = diaCine ,time = 3},
-            { name = "DeciusMarcellus", text = "The way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects.", audio = diaCine ,time = 2.5}
+            { name = "Decius Marcellus", text = "Approaching Temperis, 1 minute until planetfall. Be ready for the landing, we detect multiple green skins lurking around.", audio = diaCine ,time = 3},
+            { name = "Decius Marcellus", text = "The way to Martyria Eterna won't be easy. Good luck brother, the Emperor protects.", audio = diaCine ,time = 2.5}
         }
     end
 

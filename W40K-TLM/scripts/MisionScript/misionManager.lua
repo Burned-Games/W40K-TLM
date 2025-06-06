@@ -152,26 +152,26 @@ function on_ready()
             {id = 4, description = "Explore and exit the Hive City Central Square"},
             {id = 5, description = "Upgrade your equipment before fighting in the Great Bridge"},
             {id = 6, description = "Pull the lever to open the Great Bridge door"},
-            {id = 7, description = "Pull all the levers on the Great Bridge to open the Elevator Door. (x/2)"},
+            {id = 7, description = "Pull the lever on the Great Bridge to open the Elevator Door"},
             {id = 8, description = "Enter the Great Bridge Elevator"}
         }
 
         redTasks = {
             {id = 1, description = "Get to the Great Bridge of the Hive City"},
             {id = 2, description = "Fight your way to the elevator of the Hive City"},
-            {id = 3, description = "Fight and defeat (name)"}
+            {id = 3, description = "Fight and defeat Brutus"}
         }
        
     elseif current_scene_name == "level3.TeaScene" then
         current_Level = 3
         blueTasks = {
-            {id = 1, description = "Destroy Boss"},
+            {id = 1, description = "Defeat Gorklaw"},
             {id = 2, description = "Destroy Boss"},
 
         }
 
         redTasks = {
-            {id = 1, description = "Destroy Boss"},
+            {id = 1, description = "Defeat Gorklaw"},
             {id = 2, description = "Destroy Boss"},
 
         }
@@ -245,7 +245,7 @@ function getCurrentTask(tasks, index)
     elseif current_scene_name == "level3.TeaScene" then
     end
 
-    return insert_line_breaks(description, 27)
+    return insert_line_breaks(description, 23)
 end
 
 function missionBlue_Tutor()
