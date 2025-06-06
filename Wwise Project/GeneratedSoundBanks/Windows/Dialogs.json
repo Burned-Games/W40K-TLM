@@ -10,11 +10,19 @@
     "Type": "User",
     "GUID": "{179A6250-3F23-44B9-A9AF-461B907637F3}",
     "Language": "SFX",
-    "Hash": "{A846DFCB-EC4C-F2EE-B7FB-1D773D0FAE7B}",
+    "Hash": "{A40C1712-2B63-40AB-48AA-F7D3370AE12F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogs",
     "ShortName": "Dialogs",
     "Path": "Dialogs.bnk",
     "Media": [
+     {
+      "Id": "113619922",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CinematicBossIntro.wav",
+      "CachePath": "E7/{E7609EA6-A490-A7AB-A598-6CBB1D8C4D0A}.wem"
+     },
      {
       "Id": "185235166",
       "Language": "SFX",
@@ -22,6 +30,30 @@
       "Location": "Memory",
       "ShortName": "UIText3.wav",
       "CachePath": "4B/{4BB66F75-7C2A-F245-15B8-1213FE72E61E}.wem"
+     },
+     {
+      "Id": "274700860",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SkipDialogue.wav",
+      "CachePath": "2C/{2C6B0E15-405F-9B0A-7100-DC90A2A4B133}.wem"
+     },
+     {
+      "Id": "472798664",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "IntroCinematicEnd.wav",
+      "CachePath": "C6/{C6B63186-AE26-4F69-2A33-25E85FAF9555}.wem"
+     },
+     {
+      "Id": "544526177",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "IntroCinematicBackground.wav",
+      "CachePath": "5B/{5BAEE3D2-916E-8AA3-1B89-D39AFC3D133F}.wem"
      },
      {
       "Id": "621346575",
@@ -41,6 +73,62 @@
      }
     ],
     "Events": [
+     {
+      "Id": "176202420",
+      "Name": "Play_CinematicBossIntro",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_CinematicBossIntro",
+      "GUID": "{8E0E13B3-49D8-43A0-BDB5-84A652EA03CC}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.776417",
+      "DurationMax": "9.776417",
+      "MediaRefs": [
+       {
+        "Id": "113619922"
+       }
+      ]
+     },
+     {
+      "Id": "2001457983",
+      "Name": "Play_IntroCinematicBackground",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_IntroCinematicBackground",
+      "GUID": "{9DBFC684-8EA0-4D26-9D8B-F211D78B8372}",
+      "DurationType": "OneShot",
+      "DurationMin": "20.520498",
+      "DurationMax": "20.520498",
+      "MediaRefs": [
+       {
+        "Id": "544526177"
+       }
+      ]
+     },
+     {
+      "Id": "2974237758",
+      "Name": "Play_IntroCinematicEnd",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_IntroCinematicEnd",
+      "GUID": "{FD07419C-358C-4724-83C6-A3C5C1C90D8E}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.7687528",
+      "DurationMax": "2.7687528",
+      "MediaRefs": [
+       {
+        "Id": "472798664"
+       }
+      ]
+     },
+     {
+      "Id": "3531660585",
+      "Name": "Play_SkipDialogue",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_SkipDialogue",
+      "GUID": "{43EDFCD2-4D7A-4DD8-BE4D-A481CC79239A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.078375",
+      "DurationMax": "0.078375",
+      "MediaRefs": [
+       {
+        "Id": "274700860"
+       }
+      ]
+     },
      {
       "Id": "1196539901",
       "Name": "Play_UIText",
@@ -62,6 +150,6 @@
     ]
    }
   ],
-  "FileHash": "{90278EC8-CD68-7B9C-165C-A34930292C00}"
+  "FileHash": "{DBF73EB5-72D4-E26E-229B-64099191F857}"
  }
 }

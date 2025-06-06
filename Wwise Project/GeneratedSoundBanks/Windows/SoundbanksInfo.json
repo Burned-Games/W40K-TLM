@@ -2227,7 +2227,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{1807DEB3-1F36-8BAC-D8E8-F097095F8F57}",
+    "Hash": "{98D3F8EE-480D-4DC1-9F37-BE57F26A24D6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -2270,7 +2270,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EnvironmentPillarCrash.wav",
-      "CachePath": "34/{348E335D-82D3-0641-A913-36D2EAE16ED4}.wem"
+      "CachePath": "D8/{D8DF69AB-A15A-2770-97EF-C5E675E3878D}.wem"
      },
      {
       "Id": "284794796",
@@ -2410,8 +2410,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_EnvironmentPillarCrash",
       "GUID": "{76284BA6-816D-4040-AD4A-19C61773BD23}",
       "DurationType": "OneShot",
-      "DurationMin": "2.041678",
-      "DurationMax": "2.041678",
+      "DurationMin": "2.1057084",
+      "DurationMax": "2.1057084",
       "MediaRefs": [
        {
         "Id": "159734690"
@@ -2707,11 +2707,19 @@
     "Type": "User",
     "GUID": "{179A6250-3F23-44B9-A9AF-461B907637F3}",
     "Language": "SFX",
-    "Hash": "{A846DFCB-EC4C-F2EE-B7FB-1D773D0FAE7B}",
+    "Hash": "{A40C1712-2B63-40AB-48AA-F7D3370AE12F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogs",
     "ShortName": "Dialogs",
     "Path": "Dialogs.bnk",
     "Media": [
+     {
+      "Id": "113619922",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CinematicBossIntro.wav",
+      "CachePath": "E7/{E7609EA6-A490-A7AB-A598-6CBB1D8C4D0A}.wem"
+     },
      {
       "Id": "185235166",
       "Language": "SFX",
@@ -2719,6 +2727,30 @@
       "Location": "Memory",
       "ShortName": "UIText3.wav",
       "CachePath": "4B/{4BB66F75-7C2A-F245-15B8-1213FE72E61E}.wem"
+     },
+     {
+      "Id": "274700860",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SkipDialogue.wav",
+      "CachePath": "2C/{2C6B0E15-405F-9B0A-7100-DC90A2A4B133}.wem"
+     },
+     {
+      "Id": "472798664",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "IntroCinematicEnd.wav",
+      "CachePath": "C6/{C6B63186-AE26-4F69-2A33-25E85FAF9555}.wem"
+     },
+     {
+      "Id": "544526177",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "IntroCinematicBackground.wav",
+      "CachePath": "5B/{5BAEE3D2-916E-8AA3-1B89-D39AFC3D133F}.wem"
      },
      {
       "Id": "621346575",
@@ -2738,6 +2770,62 @@
      }
     ],
     "Events": [
+     {
+      "Id": "176202420",
+      "Name": "Play_CinematicBossIntro",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_CinematicBossIntro",
+      "GUID": "{8E0E13B3-49D8-43A0-BDB5-84A652EA03CC}",
+      "DurationType": "OneShot",
+      "DurationMin": "9.776417",
+      "DurationMax": "9.776417",
+      "MediaRefs": [
+       {
+        "Id": "113619922"
+       }
+      ]
+     },
+     {
+      "Id": "2001457983",
+      "Name": "Play_IntroCinematicBackground",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_IntroCinematicBackground",
+      "GUID": "{9DBFC684-8EA0-4D26-9D8B-F211D78B8372}",
+      "DurationType": "OneShot",
+      "DurationMin": "20.520498",
+      "DurationMax": "20.520498",
+      "MediaRefs": [
+       {
+        "Id": "544526177"
+       }
+      ]
+     },
+     {
+      "Id": "2974237758",
+      "Name": "Play_IntroCinematicEnd",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_IntroCinematicEnd",
+      "GUID": "{FD07419C-358C-4724-83C6-A3C5C1C90D8E}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.7687528",
+      "DurationMax": "2.7687528",
+      "MediaRefs": [
+       {
+        "Id": "472798664"
+       }
+      ]
+     },
+     {
+      "Id": "3531660585",
+      "Name": "Play_SkipDialogue",
+      "ObjectPath": "\\Events\\Default Work Unit\\Dialogs\\Play_SkipDialogue",
+      "GUID": "{43EDFCD2-4D7A-4DD8-BE4D-A481CC79239A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.078375",
+      "DurationMax": "0.078375",
+      "MediaRefs": [
+       {
+        "Id": "274700860"
+       }
+      ]
+     },
      {
       "Id": "1196539901",
       "Name": "Play_UIText",
@@ -2763,7 +2851,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{9B314743-4C15-0065-D1F9-2972CE175D86}",
+    "Hash": "{17FB947F-64B6-8077-F3BC-2BC41D444AB7}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -2911,6 +2999,14 @@
       "Location": "Memory",
       "ShortName": "PlayerStep3Lvl2.wav",
       "CachePath": "79/{7950F71B-EF2A-A41D-6B0E-F4A08D9A8D4B}.wem"
+     },
+     {
+      "Id": "777810738",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerHealingSound.wav",
+      "CachePath": "DD/{DD1BB3C1-B920-4AEC-1400-29D16891DEE7}.wem"
      },
      {
       "Id": "806581019",
@@ -3127,6 +3223,20 @@
       ]
      },
      {
+      "Id": "1249343286",
+      "Name": "Play_PlayerHealingSound",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerHealingSound",
+      "GUID": "{E57A1127-91B4-473D-8080-347CC2CA8C7A}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.273991",
+      "DurationMax": "1.273991",
+      "MediaRefs": [
+       {
+        "Id": "777810738"
+       }
+      ]
+     },
+     {
       "Id": "677390718",
       "Name": "Play_PlayerInyector_01",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerInyector_01",
@@ -3234,6 +3344,6 @@
     ]
    }
   ],
-  "FileHash": "{26C205AE-FC0B-0104-BF45-1B09048C5304}"
+  "FileHash": "{3CC58271-1C98-CC53-7748-BA2FDB95E13D}"
  }
 }

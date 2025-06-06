@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{9B314743-4C15-0065-D1F9-2972CE175D86}",
+    "Hash": "{17FB947F-64B6-8077-F3BC-2BC41D444AB7}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -158,6 +158,14 @@
       "Location": "Memory",
       "ShortName": "PlayerStep3Lvl2.wav",
       "CachePath": "79/{7950F71B-EF2A-A41D-6B0E-F4A08D9A8D4B}.wem"
+     },
+     {
+      "Id": "777810738",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerHealingSound.wav",
+      "CachePath": "DD/{DD1BB3C1-B920-4AEC-1400-29D16891DEE7}.wem"
      },
      {
       "Id": "806581019",
@@ -374,6 +382,20 @@
       ]
      },
      {
+      "Id": "1249343286",
+      "Name": "Play_PlayerHealingSound",
+      "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerHealingSound",
+      "GUID": "{E57A1127-91B4-473D-8080-347CC2CA8C7A}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.273991",
+      "DurationMax": "1.273991",
+      "MediaRefs": [
+       {
+        "Id": "777810738"
+       }
+      ]
+     },
+     {
       "Id": "677390718",
       "Name": "Play_PlayerInyector_01",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerInyector_01",
@@ -481,6 +503,6 @@
     ]
    }
   ],
-  "FileHash": "{07BC21F0-3B9C-5B1C-237B-4AD5EFE188DA}"
+  "FileHash": "{BB14FB9D-F026-DD13-0062-C29FBE3CBF89}"
  }
 }

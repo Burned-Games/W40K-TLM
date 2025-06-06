@@ -354,6 +354,28 @@
 										<ActiveSource Name="PlayerGetBloodParticles" ID="{FFF7D44D-0BBD-48F7-B124-602E794F3E5D}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="PlayerHealingSound" ID="{8841E810-8BB7-4435-86A0-D93366B84DEB}" ShortID="365795544">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="PlayerHealingSound" ID="{CD3E6631-81C3-4A19-8663-0A0A977463D5}">
+											<Language>SFX</Language>
+											<AudioFile>PlayerHealingSound.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="777810738"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="PlayerHealingSound" ID="{CD3E6631-81C3-4A19-8663-0A0A977463D5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Banner" ID="{C882ED9A-4D36-4443-98F3-5BD9F26E995E}" ShortID="1039740791">
@@ -6919,6 +6941,94 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Sound Name="IntroCinematicBackground" ID="{E5B84E1B-9C1F-4356-AF44-4FDE7726C9A7}" ShortID="430047600">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="IntroCinematicBackground" ID="{80919CAD-CBE2-4AFB-BF9A-89860B4983B2}">
+									<Language>SFX</Language>
+									<AudioFile>IntroCinematicBackground.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="544526177"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="IntroCinematicBackground" ID="{80919CAD-CBE2-4AFB-BF9A-89860B4983B2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CinematicBossIntro" ID="{F1FE6CDF-C4B0-4B35-A645-ADBA44D2C018}" ShortID="1038182204">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="CinematicBossIntro" ID="{77872C6A-B50C-4A0D-B211-574C9478BFA9}">
+									<Language>SFX</Language>
+									<AudioFile>CinematicBossIntro.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="113619922"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="CinematicBossIntro" ID="{77872C6A-B50C-4A0D-B211-574C9478BFA9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="IntroCinematicEnd" ID="{E748F710-0890-4477-B73F-55BEA19B37F5}" ShortID="807963622">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="IntroCinematicEnd" ID="{2FA314CD-2123-4C5B-B24C-D3FBCBE5A80B}">
+									<Language>SFX</Language>
+									<AudioFile>IntroCinematicEnd.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="472798664"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="IntroCinematicEnd" ID="{2FA314CD-2123-4C5B-B24C-D3FBCBE5A80B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SkipDialogue" ID="{03886098-7FCB-416A-90B9-75C995C13CF9}" ShortID="865949448">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{EA5AD7B3-E68B-45F6-AAE9-4B38D51C7EA4}" WorkUnitID="{D9F0B507-EF28-4671-815C-157321DEF82C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{D5DA30CF-03FE-4D07-97D7-E66D3BB9D58B}" WorkUnitID="{23999393-1AC3-4B7F-B2F4-C899E2D89A5C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SkipDialogue" ID="{E973C666-BFB2-4DF4-9824-F42A0F270735}">
+									<Language>SFX</Language>
+									<AudioFile>SkipDialogue.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="274700860"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SkipDialogue" ID="{E973C666-BFB2-4DF4-9824-F42A0F270735}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

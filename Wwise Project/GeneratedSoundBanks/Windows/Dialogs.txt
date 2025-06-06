@@ -1,8 +1,16 @@
 Event	ID	Name			Wwise Object Path	Notes
+	176202420	Play_CinematicBossIntro			\Default Work Unit\Dialogs\Play_CinematicBossIntro	
 	1196539901	Play_UIText			\Default Work Unit\Dialogs\Play_UIText	
+	2001457983	Play_IntroCinematicBackground			\Default Work Unit\Dialogs\Play_IntroCinematicBackground	
+	2974237758	Play_IntroCinematicEnd			\Default Work Unit\Dialogs\Play_IntroCinematicEnd	
+	3531660585	Play_SkipDialogue			\Default Work Unit\Dialogs\Play_SkipDialogue	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	113619922	CinematicBossIntro	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\E7\{E7609EA6-A490-A7AB-A598-6CBB1D8C4D0A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\CinematicBossIntro		68737
 	185235166	UIText3	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\4B\{4BB66F75-7C2A-F245-15B8-1213FE72E61E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\UIText\UIText3		2478
+	274700860	SkipDialogue	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\2C\{2C6B0E15-405F-9B0A-7100-DC90A2A4B133}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\SkipDialogue		1410
+	472798664	IntroCinematicEnd	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\C6\{C6B63186-AE26-4F69-2A33-25E85FAF9555}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\IntroCinematicEnd		42165
+	544526177	IntroCinematicBackground	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\5B\{5BAEE3D2-916E-8AA3-1B89-D39AFC3D133F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\IntroCinematicBackground		161237
 	621346575	UIText2	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\2C\{2C0D8477-6BD1-C720-BFD5-9D9C62C1E171}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\UIText\UIText2		2132
 	1063390816	UIText1	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\B9\{B91885CC-95EB-D840-9E9F-9699736A3471}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogs\UIText\UIText1		1270
 

@@ -62,6 +62,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_PlayerHealingSound" ID="{E57A1127-91B4-473D-8080-347CC2CA8C7A}">
+									<ChildrenList>
+										<Action Name="" ID="{16A96A58-E6A1-4A93-B0A9-268DE023EB01}" ShortID="772111724">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PlayerHealingSound" ID="{8841E810-8BB7-4435-86A0-D93366B84DEB}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Banner" ID="{FD989B1B-737B-4B7C-A3AE-6F22F2D79BD7}" ShortID="500826075">
@@ -1069,6 +1080,50 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="UIText" ID="{E97E0190-15EB-406A-BACA-5ABEC54FD8FA}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_SkipDialogue" ID="{43EDFCD2-4D7A-4DD8-BE4D-A481CC79239A}">
+							<ChildrenList>
+								<Action Name="" ID="{15603FC0-9EF4-4E8E-BA3D-B6833CB4EB57}" ShortID="542840536">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SkipDialogue" ID="{03886098-7FCB-416A-90B9-75C995C13CF9}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_CinematicBossIntro" ID="{8E0E13B3-49D8-43A0-BDB5-84A652EA03CC}">
+							<ChildrenList>
+								<Action Name="" ID="{E77909A8-5703-49D7-BABD-44219B97A809}" ShortID="51420062">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CinematicBossIntro" ID="{F1FE6CDF-C4B0-4B35-A645-ADBA44D2C018}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_IntroCinematicBackground" ID="{9DBFC684-8EA0-4D26-9D8B-F211D78B8372}">
+							<ChildrenList>
+								<Action Name="" ID="{CD4AD87F-DAE9-4E2F-B753-4B9E46D3AD30}" ShortID="335626699">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="IntroCinematicBackground" ID="{E5B84E1B-9C1F-4356-AF44-4FDE7726C9A7}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_IntroCinematicEnd" ID="{FD07419C-358C-4724-83C6-A3C5C1C90D8E}">
+							<ChildrenList>
+								<Action Name="" ID="{9FA0D688-C601-4B77-B98D-1644A9991913}" ShortID="879667174">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="IntroCinematicEnd" ID="{E748F710-0890-4477-B73F-55BEA19B37F5}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

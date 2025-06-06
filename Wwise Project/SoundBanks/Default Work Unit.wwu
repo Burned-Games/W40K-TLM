@@ -19,6 +19,7 @@
 						<ObjectRef Name="Play_BannerZone" ID="{DEDECB13-B051-442B-BE5D-86CF4AD9C106}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerStepsLvl1" ID="{3E7F6F69-6CB5-453D-ABCA-A73B17FAD965}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerCD" ID="{966987ED-140A-4622-A0AC-5950AFFE0F2F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PlayerHealingSound" ID="{E57A1127-91B4-473D-8080-347CC2CA8C7A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerDeath" ID="{2874B037-12F0-4A50-A1AA-E2E2A998D15F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerGetBloodParticles" ID="{C6397028-1465-4AE0-B954-4D87DC55D49F}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_PlayerBleeding" ID="{1FB8C068-09C3-4B52-A8B2-847B5BFFAE54}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
@@ -258,7 +259,11 @@
 						</Property>
 					</PropertyList>
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_CinematicBossIntro" ID="{8E0E13B3-49D8-43A0-BDB5-84A652EA03CC}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_IntroCinematicEnd" ID="{FD07419C-358C-4724-83C6-A3C5C1C90D8E}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_UIText" ID="{A0C2B5BE-F805-4BC9-8ABE-D3F343DAFB47}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_IntroCinematicBackground" ID="{9DBFC684-8EA0-4D26-9D8B-F211D78B8372}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_SkipDialogue" ID="{43EDFCD2-4D7A-4DD8-BE4D-A481CC79239A}" WorkUnitID="{975F2CA9-DA6F-46E5-8F4E-1960033B6F2F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

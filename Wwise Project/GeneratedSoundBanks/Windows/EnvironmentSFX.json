@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{1807DEB3-1F36-8BAC-D8E8-F097095F8F57}",
+    "Hash": "{98D3F8EE-480D-4DC1-9F37-BE57F26A24D6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -53,7 +53,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EnvironmentPillarCrash.wav",
-      "CachePath": "34/{348E335D-82D3-0641-A913-36D2EAE16ED4}.wem"
+      "CachePath": "D8/{D8DF69AB-A15A-2770-97EF-C5E675E3878D}.wem"
      },
      {
       "Id": "284794796",
@@ -193,8 +193,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_EnvironmentPillarCrash",
       "GUID": "{76284BA6-816D-4040-AD4A-19C61773BD23}",
       "DurationType": "OneShot",
-      "DurationMin": "2.041678",
-      "DurationMax": "2.041678",
+      "DurationMin": "2.1057084",
+      "DurationMax": "2.1057084",
       "MediaRefs": [
        {
         "Id": "159734690"
@@ -346,6 +346,6 @@
     ]
    }
   ],
-  "FileHash": "{703104A0-5D40-9BA0-2570-BE8C3896C180}"
+  "FileHash": "{913DCA58-0D01-6A13-0DD2-ADFD3B860258}"
  }
 }
