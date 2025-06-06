@@ -75,12 +75,13 @@ function on_ready()
     tank.run = instantiate_prefab(runPrefab)
     tank.runParticle = tank.run:get_component("ParticlesSystemComponent")
     tank.run:set_parent(self)
+
     if not tank.tackleIndicator then
         tank.tackleIndicator = instantiate_prefab(tackleIndicatorPrefab)
-        tank.tackleIndicatorSprite = tank.tackleIndicator:get_component("SpriteComponent")
         tank.tackleIndicatorTransf = tank.tackleIndicator:get_component("TransformComponent")
+        tank.tackleIndicatorScript = tank.tackleIndicator:get_component("ScriptComponent")
+        tank.tackleIndicatorScript:on_ready()
         tank.tackleIndicator:set_parent(self)
-        tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
     end
 
     local children = self:get_children()
@@ -126,7 +127,7 @@ function on_ready()
     
 
     -- States
-    tank.state = {Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5, Tackle = 6, Stun = 7}
+    tank.state = {Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5, Tackle = 6, Stun = 7, Indicator = 8}
 
     -- Internal Timers
     tank.pathUpdateTimer = 0.0
@@ -138,6 +139,7 @@ function on_ready()
     tank.animDuration = 0.0
     tank.animTimer = 0.0
     tank.moveAudioDuration = 1.0
+    tank.indicatorTimer = 0.0
 
     -- Animations
     tank.attackAnim = 1
@@ -157,6 +159,7 @@ function on_ready()
     tank.detectDuration = 1.5
     tank.stunDuration = 2.5
     tank.tackleDuration = 0.83
+    tank.indicatorDuration = 1.0
 
     -- Lists
     tank.nearbyEnemies = {}
@@ -176,6 +179,7 @@ function on_ready()
     tank.isAlerted = false
     tank.hasFoundNearbyEnemies = false
     tank.isFirstAttack = true
+    tank.indicatorActive = false
 
     -- Positions
     tank.targetDirection = Vector3.new(0, 0, 0)
@@ -197,7 +201,6 @@ function on_ready()
         if (nameA == "Player" or nameB == "Player") then
             tank.collisionWithPlayer = true
             if tank.currentState == tank.state.Tackle or tank.currentState == tank.state.Move then
-                tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
                 tank.isCharging = false
                 tank.canTackle = false
@@ -226,7 +229,6 @@ function on_ready()
                 nameB == "SupportBullet1" or nameB == "SupportBullet2" or nameB == "SupportBullet3"
 
             if not isNonBlockingCollision and tank.currentState == tank.state.Tackle then
-                tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
                 tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
                 tank.isCharging = false
                 tank.canTackle = false
@@ -347,7 +349,7 @@ function on_update(dt)
         end
     end
 
-    if tank.playerDetected and tank.currentState ~= tank.state.Tackle and tank.currentState ~= tank.state.Detect then
+    if tank.playerDetected and tank.currentState ~= tank.state.Tackle and tank.currentState ~= tank.state.Detect and tank.currentState ~= tank.state.Indicator then
         if tank.key == 0 then
              
             tank.playerScript.enemys_targeting = tank.playerScript.enemys_targeting + 1
@@ -388,6 +390,9 @@ function on_update(dt)
 
     elseif tank.currentState == tank.state.Stun then
         tank:stun_state()
+
+    elseif tank.currentState == tank.state.Indicator then
+        tank:indicator_state(dt)
     end
 
 end
@@ -444,8 +449,8 @@ function change_state(dt)
     if tank.playerDetected and tank.canTackle then
         local distanceToPlayer = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
         if not tank:is_other_tank_in_tackle() and distanceToPlayer > tank.minTackleDistance then
-            if tank.currentState ~= tank.state.Tackle then
-                tank.currentState = tank.state.Tackle
+            if tank.currentState ~= tank.state.Indicator then
+                tank.currentState = tank.state.Indicator
                 tank.isCharging = true
                 local direction = Vector3.new(
                     tank.playerTransf.position.x - tank.enemyTransf.position.x,
@@ -537,7 +542,6 @@ function tank:tackle_state()
     end
 
     if tank.isCharging and tank.targetDirection then
-        tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 1)
 
         local velocity = Vector3.new(
             tank.targetDirection.x * tank.tackleSpeed,
@@ -555,6 +559,29 @@ function tank:tackle_state()
         tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
     end
 
+end
+
+function tank:indicator_state(dt)
+   tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
+
+    if tank.currentAnim ~= tank.idleAnim then
+        tank.currentAnim = tank.idleAnim
+        tank.animator:set_current_animation(tank.currentAnim)
+    end
+
+    if tank.tackleIndicatorScript and not tank.indicatorActive then
+        tank.tackleIndicatorScript:startIndicator()
+        tank.indicatorActive = true
+    end
+
+    tank.indicatorTimer = tank.indicatorTimer + dt
+
+    if tank.indicatorTimer >= tank.indicatorDuration then
+        tank.currentState = tank.state.Tackle
+        tank.isCharging = true
+        tank.indicatorTimer = 0.0
+        tank.indicatorActive = false
+    end
 end
 
 function tank:berserka_rage()
@@ -628,7 +655,6 @@ function tank:tackle_raycast()
     if tank:detect(leftHit, tank.player) or tank:detect(rightHit, tank.player) then
         print("[TANK] Tackle hit player by RAYCAST")
         tank:rotate_enemy(tank.playerTransf.position)
-        tank.tackleIndicatorSprite.tint_color = Vector4.new(1, 0, 0, 0)
         tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         tank.isCharging = false
         tank.canTackle = false

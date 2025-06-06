@@ -1,0 +1,56 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "AttackParticle_Cylinder.003",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 9119207172362575447
+                        }
+                    },
+                    {
+                        "key": "AttackParticle_Cylinder.006",
+                        "value": {
+                            "value0": 1272768444409551518
+                        }
+                    },
+                    {
+                        "key": "AttackParticle_Plane.003",
+                        "value": {
+                            "value0": 6336910885082356971
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "AttackPart_Mat0",
+                        "value": {
+                            "value0": 10741425999239708844
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 5792163016612949686
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/AttackParticle/AttackParticle.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/5792163016612949686.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
