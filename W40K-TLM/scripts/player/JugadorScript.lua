@@ -1282,7 +1282,13 @@ function playerMovement(dt)
         local dirZ = moveDirection.z
 
 -- NO normalizamos porque ya está dentro del rango [-1, 1]
-        local velocity = Vector3.new(dirX * moveSpeed * speedDebuf, 0, dirZ * moveSpeed * speedDebuf)
+local velocity = Vector3.new(dirX * moveSpeed * speedDebuf, 0, dirZ * moveSpeed * speedDebuf)
+        if not godMode then
+            velocity = Vector3.new(dirX * moveSpeed * speedDebuf, 0, dirZ * moveSpeed * speedDebuf)
+        else
+            velocity = Vector3.new(dirX * 30 * speedDebuf, 0, dirZ * 30 * speedDebuf)
+        end
+        
 
 
 
