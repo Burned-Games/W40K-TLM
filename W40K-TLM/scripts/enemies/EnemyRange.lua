@@ -564,12 +564,26 @@ function shoot_projectile()
     bullet.rbComponent:on_collision_enter(function(entityA, entityB)
         local nameA = entityA:get_component("TagComponent").tag
         local nameB = entityB:get_component("TagComponent").tag
+        local entityARB = entityA:get_component("RigidbodyComponent").rb
+        local entityBRB = entityB:get_component("RigidbodyComponent").rb
 
         if nameA == "Player" or nameB == "Player" then
-            range:make_damage(range.rangeDamage) 
+            range:make_damage(range.rangeDamage)
         end
-        
-        range.bulletManagerScript:deactivate(index)
+
+        if entityBRB and nameA ~= "FloorCollider" then
+            if entityARB:get_is_trigger() == false then
+                entityBRB:set_position(Vector3.new(-1000, 0, -1000))
+                entityBRB:set_velocity(Vector3.new(0, 0, 0))
+            end 
+        end
+
+        if entityARB and nameB ~= "FloorCollider" then
+            if entityBRB:get_is_trigger() == false then
+                entityARB:set_position(Vector3.new(-1000, 0, -1000))
+                entityARB:set_velocity(Vector3.new(0, 0, 0))
+            end 
+        end
     end)
 
 end
