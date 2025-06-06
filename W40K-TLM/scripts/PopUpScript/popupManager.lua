@@ -86,71 +86,31 @@ function on_update(dt)
             first = false
         end
 
-
-
-        if current_scene_tag == "PopUp_SP_1" then
-            local description = string.gsub(SpecialText_1, "x", tostring(mission_Component.m3_EnemyCount))
-            if detect and first then
-                popupScriptComponent.show_popup(false, description, true)
-                first = false
-                isPersistentActive = true
-            end
-            
-            if isPersistentActive and closUpdate then
-                popupScriptComponent.update_persistent_popup_text(description)
-                if mission_Component.m3_EnemyCount >= 2 then
-                    closUpdate = false
-                end
-            end
-        end
-
-
-        --Special 
-        if current_scene_tag == "PopUp_SP_2" then
-            local description = string.gsub(SpecialText_2, "x", tostring(mission_Component.m8_lever))
-           if detect and first then
-                popupScriptComponent.show_popup(false, description, true)
-                first = false
-                isPersistentActive = true
-            end
-
-            if isPersistentActive and closUpdate then
-                popupScriptComponent.update_persistent_popup_text(description)
-                if mission_Component.m8_lever >= 2 then
-                    closUpdate = false
-                end
-            end
-        end
-
-        if current_scene_tag == "PopUp_SP_3" then
-            -- local description = string.gsub(SpecialText_3, "x", tostring(mission_Component.m9_EnemyCount))
-            -- if detect and first then
-            --     popupScriptComponent.show_popup(false, description, true)
-            --     first = false
-            --     isPersistentActive = true
-            -- end
-
-            -- if isPersistentActive and closUpdate then
-            --     popupScriptComponent.update_persistent_popup_text(description)
-            --     --if mission_Component.m9_EnemyCount >= 2 then
-            --         --closUpdate = false
-            --     --end
-            -- end
-        end
-
-
-
     elseif current_scene_name == "level2.TeaScene" then
-        --print("Level 2")
+        if detect and first and current_scene_tag == "PopUp_1" then
+            popupScriptComponent.show_popup(false,"AAAAAAAAAAAA")
+            first = false
+        end
+
+        if detect and first and current_scene_tag == "PopUp_2" then
+            popupScriptComponent.show_popup(false,"BBBBBBBBBBBBBBB")
+            first = false
+        end
+
+        if detect and first and current_scene_tag == "PopUp_3" then
+            popupScriptComponent.show_popup(false,"CCCCCCCCCCCCCCCCCCC")
+            first = false
+        end
+
+        if detect and first and current_scene_tag == "PopUp_4" then
+            popupScriptComponent.show_popup(false,"DDDDDDDDDDDDDDDDD")
+            first = false
+        end
        
     elseif current_scene_name == "level3.TeaScene" then
         --print("Level 3")
     end
-
-        
-
-
-    
+ 
 end
 
 function on_exit()
