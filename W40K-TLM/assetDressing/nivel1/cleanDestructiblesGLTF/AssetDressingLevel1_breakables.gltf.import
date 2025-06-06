@@ -1,0 +1,128 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.009-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 480448895658551968
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.009-1",
+                        "value": {
+                            "value0": 16879816380859942629
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.134-4",
+                        "value": {
+                            "value0": 9379657008401150949
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.009-2",
+                        "value": {
+                            "value0": 8893843841373746290
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.134-0",
+                        "value": {
+                            "value0": 12878629140419493996
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.134-1",
+                        "value": {
+                            "value0": 9772864607385346263
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.134-2",
+                        "value": {
+                            "value0": 650149745372332507
+                        }
+                    },
+                    {
+                        "key": "AssetDressingLevel1_breakables_Cube.134-3",
+                        "value": {
+                            "value0": 7780117791856468
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Scrap1.002_Mat0",
+                        "value": {
+                            "value0": 14288042991965521524
+                        }
+                    },
+                    {
+                        "key": "Palanca.001_Mat1",
+                        "value": {
+                            "value0": 9157834332590418815
+                        }
+                    },
+                    {
+                        "key": "Material.008_Mat2",
+                        "value": {
+                            "value0": 16567082993769139882
+                        }
+                    },
+                    {
+                        "key": "Material.018_Mat3",
+                        "value": {
+                            "value0": 15222708662873392621
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat4",
+                        "value": {
+                            "value0": 8763962881161730007
+                        }
+                    },
+                    {
+                        "key": "Material.007_Mat5",
+                        "value": {
+                            "value0": 15093587661671401906
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.001_Mat6",
+                        "value": {
+                            "value0": 7199362793042409073
+                        }
+                    },
+                    {
+                        "key": "barrelMAT.002_Mat7",
+                        "value": {
+                            "value0": 14153970941604807026
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 1785461331817622668
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel1/cleanDestructiblesGLTF/AssetDressingLevel1_breakables.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/1785461331817622668.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}

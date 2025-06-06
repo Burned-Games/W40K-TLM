@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 16045675388042028590
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel1/cleanGLTF/estructura_low_estructura_metal_MAT_BaseColor.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/16045675388042028590.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
