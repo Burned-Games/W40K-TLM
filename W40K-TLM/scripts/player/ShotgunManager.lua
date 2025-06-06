@@ -409,6 +409,8 @@ function on_update(dt)
         explosionVFXTimer = explosionVFXTimer + dt
 
         if explosionVFXTimer >= 0.5 then
+            local explosionTransf = explosionVFX:get_component("TransformComponent")
+            explosionTransf.position = Vector3.new(-1200, 700, 800)
             explosionVFX:set_active(false)
             explosionVFXTimer = 0
         end
