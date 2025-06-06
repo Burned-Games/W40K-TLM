@@ -33,19 +33,20 @@ function on_ready()
         end
 
         if child:get_component("TagComponent").tag == "MeleeArea" then
-            tank.meleeArea = child
-            tank.meleeAreaRbComponent = child:get_component("RigidbodyComponent")
-            tank.meleeAreaRb = tank.meleeAreaRbComponent.rb
-            tank.meleeAreaRb:set_trigger(true)
-            tank.meleeAreaRbComponent:on_collision_enter(function(entityA, entityB)
-                local nameA = entityA:get_component("TagComponent").tag
-                local nameB = entityB:get_component("TagComponent").tag
+            -- tank.meleeArea = child
+            -- tank.meleeAreaRbComponent = child:get_component("RigidbodyComponent")
+            -- tank.meleeAreaRb = tank.meleeAreaRbComponent.rb
+            -- tank.meleeAreaRb:set_trigger(true)
+            -- tank.meleeAreaRbComponent:on_collision_enter(function(entityA, entityB)
+            --     local nameA = entityA:get_component("TagComponent").tag
+            --     local nameB = entityB:get_component("TagComponent").tag
             
-                if (nameA == "Player" or nameB == "Player") then
-                    tank:make_damage(tank.meleeDamage)
-                    tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
-                end
-            end)
+            --     if (nameA == "Player" or nameB == "Player") then
+            --         tank:make_damage(tank.meleeDamage)
+            --         tank.meleeArea:set_active(false)
+            --         tank.meleeArea:set_active(false)
+            --     end
+            -- end)
         end
 
         if child:get_component("TagComponent").tag == "BerserkParticle" then
@@ -155,7 +156,7 @@ function on_ready()
     tank.moveAnim = 13
 
     -- Animation timers
-    tank.attackDuration = 2.0 
+    tank.attackDuration = 1.0 
     tank.berserkaDuration = 2.0
     tank.dieDuration = 0.5
     tank.detectDuration = 1.5
@@ -246,7 +247,7 @@ function on_ready()
     
         if (nameA == "Player" or nameB == "Player") then
             tank.collisionWithPlayer = false
-            tank.isFirstAttack = true
+            
         end
     end)
 
@@ -376,24 +377,37 @@ function on_update(dt)
 
     elseif tank.currentState == tank.state.Idle then
         tank:idle_state(dt)
-        
+        tank.attackTimer = 0.0
+        tank.animTimer = 0.0
+        tank.isFirstAttack = true
     elseif tank.currentState == tank.state.Detect then
         tank:detect_state(dt)
-
+    tank.attackTimer = 0.0
+    tank.animTimer = 0.0
+    tank.isFirstAttack = true
     elseif tank.currentState == tank.state.Move then 
         tank:move_state()
-
+        tank.attackTimer = 0.0
+        tank.animTimer = 0.0
+        tank.isFirstAttack = true
     elseif tank.currentState == tank.state.Attack then
         tank:attack_state(dt)
 
     elseif tank.currentState == tank.state.Tackle then
         tank:tackle_state()
-
+        tank.attackTimer = 0.0
+        tank.animTimer = 0.0
+        tank.isFirstAttack = true
     elseif tank.currentState == tank.state.Stun then
         tank:stun_state()
-
+        tank.attackTimer = 0.0
+        tank.animTimer = 0.0
+        tank.isFirstAttack = true
     elseif tank.currentState == tank.state.Indicator then
         tank:indicator_state(dt)
+        tank.attackTimer = 0.0
+        tank.animTimer = 0.0
+        tank.isFirstAttack = true
     end
 
 end
@@ -510,21 +524,20 @@ function tank:attack_state(dt)
     
     tank.enemyRb:set_velocity(Vector3.new(0, 0, 0)) 
     tank:rotate_enemy(tank.playerTransf.position) 
-
     if tank.currentAnim ~= tank.attackAnim then
         tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
         tank.attackVFXAnimator:set_current_animation(0)
     end
-
     if tank.attackTimer >= tank.attackCooldown then
         if tank.animTimer >= tank.attackDuration then
             local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
-            if attackDistance <= tank.meleeAttackRange then
+            
                 tank.impactPlayerSFX:play()
-                tank.meleeAreaRb:set_position(tank.enemyTransf.position)
-            elseif attackDistance > tank.meleeAttackRange then
+                tank.damageZone()
+                --tank:make_damage(tank.meleeDamage)
+            if attackDistance > tank.meleeAttackRange then
                 tank.currentState = tank.state.Move
-                tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
+                --tank.meleeArea:set_active(false)
             end
             tank.attackTimer = 0.0
         end
@@ -664,7 +677,7 @@ function tank:tackle_raycast()
 
         tank.tackleTimer = 0.0
         tank.impactPlayerSFX:play()
-        tank:make_damage(tank.tackleDamage)
+        --tank:make_damage(tank.tackleDamage)
         tank.playerScript.applyStunn()
 
         if not tank.isBerserkaActive then
@@ -687,8 +700,8 @@ function tank:tackle_raycast()
             tank.enemyRb:set_trigger(false)
         end
 
-        if tank.meleeAreaRb then
-            tank.meleeAreaRb:set_position(tank.enemyTransf.position)
+        if tank.meleeArea then
+            --tank.meleeArea:set_active(true)
         end
 
         tank.currentState = tank.state.Attack
@@ -766,6 +779,63 @@ function tank:set_stats(level)
     tank.tackleCooldown = stats.tackleCooldown
     tank.idleDuration = stats.idleDuration
     tank.berserkaDuration = stats.berserkaDuration
+
+end
+
+function tank:damageZone()
+
+        if tank.player:has_component("RigidbodyComponent") and tank.player:is_active() then
+            local entityRb = tank.player:get_component("RigidbodyComponent").rb
+            local entityPos = entityRb:get_position()
+            -- Supongamos que tienes la rotación en grados
+            -- Paso 1: Obtener la rotación en Y del tanque
+        local rotationY = tank.enemyTransf.rotation.y
+        local radians = math.rad(rotationY)
+
+        -- Paso 2: Calcular un pequeño desplazamiento (offset) en la dirección hacia donde mira el tanque
+        local offsetDistance = 1  -- Puedes ajustar esto a 0.5, 2, etc.
+        local offsetX = math.sin(radians) * offsetDistance
+        local offsetZ = math.cos(radians) * offsetDistance
+
+        -- Paso 3: Calcular la posición desplazada desde la cual medir la distancia
+        local origin = Vector3.new(
+            tank.enemyTransf.position.x + offsetX,
+            tank.enemyTransf.position.y,
+            tank.enemyTransf.position.z + offsetZ
+        )
+
+        -- Paso 4: Calcular la distancia entre esta nueva posición y la entidad
+        local dx = entityPos.x - origin.x
+        local dy = entityPos.y - origin.y
+        local dz = entityPos.z - origin.z
+
+        local distance = math.sqrt(dx * dx + dy * dy + dz * dz)
+
+        -- (Opcional) Mostrar resultado
+        log("Distancia desplazada: " .. distance)
+
+            log(distance)
+            if distance < 2 then
+               
+                local enemyTag = nil
+                local enemyScript = nil
+                local enemyInstance = nil
+
+                if tank.player ~= nil then    
+                    enemyTag = tank.player:get_component("TagComponent").tag
+                    enemyScript = tank.player:get_component("ScriptComponent")
+                end
+               
+                if tank.player ~= nil then
+                    if enemyScript ~= nil then
+
+                            tank:make_damage(tank.meleeDamage)
+                        
+                    end
+                end
+            end
+        end
+    
 
 end
 
