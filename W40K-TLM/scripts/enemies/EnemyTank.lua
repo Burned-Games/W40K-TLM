@@ -101,6 +101,11 @@ function on_ready()
             end)
             break
         end
+
+        if child:get_component("TagComponent").tag == "BerserkParticle" then
+            tank.berserkVFX = child
+            tank.berserkVFXAnimator = tank.berserkVFX:get_component("AnimatorComponent")
+        end
     end
 
     
