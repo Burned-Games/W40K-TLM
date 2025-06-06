@@ -130,7 +130,7 @@ function on_update(dt)
         
     end
 
-   if mainMenuScript.ajustesOpened == true then
+   if mainMenuScript.ajustesOpened == true and currentSelectedSlider <= 2 then
         local horizontalInput = Input.get_axis(Input.action.UiMoveHorizontal)
         if math.abs(horizontalInput) > 0.5 then
             local selectedSlider = (currentSelectedSlider == 1) and slider1 or slider2

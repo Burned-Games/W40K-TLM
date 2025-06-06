@@ -306,7 +306,7 @@ function handle_settings_horizontal_input()
             end
         end
         
-        inputCooldown = COOLDOWN_TIME / 2
+        inputCooldown = COOLDOWN_TIME
     end
 end
 
