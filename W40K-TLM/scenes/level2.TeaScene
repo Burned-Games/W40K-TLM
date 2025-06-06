@@ -1479,7 +1479,7 @@
         "value1475": 3146930,
         "value1476": 3146929,
         "value1477": 3148123,
-        "value1478": 2099574,
+        "value1478": 5244461,
         "value1479": 3147161,
         "value1480": 4194343,
         "value1481": 4194332,
@@ -1524,7 +1524,7 @@
         "value1520": 5244464,
         "value1521": 5244463,
         "value1522": 5244462,
-        "value1523": 5244461,
+        "value1523": 3148150,
         "value1524": 3147820,
         "value1525": 2099550,
         "value1526": 2099553,
@@ -8423,9 +8423,9 @@
         "value5468": {
             "Tag": "Player"
         },
-        "value5469": 2099574,
+        "value5469": 5244461,
         "value5470": {
-            "Tag": "HealingParticle"
+            "Tag": "Level2_cleangGLTF_Cylinder.038-2"
         },
         "value5471": 3147161,
         "value5472": {
@@ -8603,9 +8603,9 @@
         "value5558": {
             "Tag": "Level2_cleangGLTF_Cylinder.038-1"
         },
-        "value5559": 5244461,
+        "value5559": 3148150,
         "value5560": {
-            "Tag": "Level2_cleangGLTF_Cylinder.038-2"
+            "Tag": "HealingParticle"
         },
         "value5561": 1522,
         "value5562": 1049624,
@@ -35177,16 +35177,16 @@
                 "z": 1.0
             }
         },
-        "value8514": 2099574,
+        "value8514": 5244461,
         "value8515": {
             "Position": {
                 "x": 0.0,
-                "y": 1.1914583444595338,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -35987,16 +35987,16 @@
                 "z": 1.0
             }
         },
-        "value8604": 5244461,
+        "value8604": 3148150,
         "value8605": {
             "Position": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": 1.1914583444595338,
                 "z": 0.0
             },
             "Rotation": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": -0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -37621,7 +37621,7 @@
         "value9068": {
             "Parent": 3148123,
             "First": 4294967295,
-            "Next": 2099574,
+            "Next": 3148150,
             "Prev": 6293053
         },
         "value9069": 6293053,
@@ -46339,12 +46339,12 @@
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value11559": 2099574,
+        "value11559": 5244461,
         "value11560": {
-            "Parent": 3148123,
+            "Parent": 5244464,
             "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 6293054
+            "Next": 5244460,
+            "Prev": 5244462
         },
         "value11561": 3147161,
         "value11562": {
@@ -46654,12 +46654,12 @@
             "Next": 5244461,
             "Prev": 5244463
         },
-        "value11649": 5244461,
+        "value11649": 3148150,
         "value11650": {
-            "Parent": 5244464,
+            "Parent": 3148123,
             "First": 4294967295,
-            "Next": 5244460,
-            "Prev": 5244462
+            "Next": 4294967295,
+            "Prev": 6293054
         },
         "value11651": 1,
         "value11652": 22,
@@ -87304,7 +87304,7 @@
                 }
             }
         },
-        "value15595": 2099574,
+        "value15595": 3148150,
         "value15596": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
@@ -87362,17 +87362,17 @@
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
                         "StartSpeed": 3.299999952316284,
-                        "UseRandomSize": false,
+                        "UseRandomSize": true,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.4000000059604645,
+                            "y": 0.4000000059604645,
+                            "z": 0.4000000059604645
                         },
                         "StartSizeMax": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.6000000238418579,
+                            "y": 0.6000000238418579,
+                            "z": 0.6000000238418579
                         },
                         "StartSize": {
                             "x": 1.0,
@@ -87395,7 +87395,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 4.0,
                         "UseBurst": false,
@@ -87413,8 +87413,8 @@
                         },
                         "UseShape": true,
                         "ShapeAngle": 0.75,
-                        "ShapeRadius": 0.6669999957084656,
-                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "ShapeRadius": 1.5,
+                        "ShapeRadiusThickness": 0.5,
                         "GoCenter": false,
                         "UseVelocityOverLifetime": false,
                         "VelocitySeparateAxes": false,
@@ -87493,7 +87493,7 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
+                                "value0": 0.11500000208616257,
                                 "value1": 1.0
                             },
                             {
@@ -87545,17 +87545,17 @@
                             {
                                 "value0": 0.0,
                                 "value1": {
-                                    "value0": 0.37981176376342776,
-                                    "value1": 1.0,
-                                    "value2": 0.010230183601379395,
+                                    "value0": 0.23672732710838319,
+                                    "value1": 0.6380090713500977,
+                                    "value2": 0.0,
                                     "value3": 1.0
                                 }
                             },
                             {
                                 "value0": 1.0,
                                 "value1": {
-                                    "value0": 0.31372547149658205,
-                                    "value1": 1.0,
+                                    "value0": 0.2569425702095032,
+                                    "value1": 0.8190045356750488,
                                     "value2": 0.0,
                                     "value3": 0.0
                                 }
@@ -88953,7 +88953,7 @@
         "value16976": 3146929,
         "value16977": 4195740,
         "value16978": 4195703,
-        "value16979": 2099574,
+        "value16979": 5244464,
         "value16980": 3147161,
         "value16981": 4194343,
         "value16982": 4194332,
@@ -88995,7 +88995,7 @@
         "value17018": 5244454,
         "value17019": 5244466,
         "value17020": 5244465,
-        "value17021": 5244464,
+        "value17021": 3148150,
         "value17022": 551,
         "value17023": 881,
         "value17024": 1048893,
