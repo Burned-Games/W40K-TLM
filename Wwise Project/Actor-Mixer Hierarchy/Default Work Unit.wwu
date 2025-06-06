@@ -6410,6 +6410,11 @@
 						</RandomSequenceContainer>
 						<Sound Name="WorkbenchLand" ID="{C3291544-B327-4F24-8F6C-01BF18422CD4}" ShortID="838120167">
 							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.3</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>12</Value>
