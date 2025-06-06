@@ -56,6 +56,7 @@ function on_ready()
     
     --Audio
     settingsSFX = current_scene:get_entity_by_name("SettingsSFX"):get_component("AudioSourceComponent")
+    local isMaxVolume = false
 
     if currentSelectedSlider == 1 then
         slider1.selected = true
@@ -149,7 +150,13 @@ function on_update(dt)
                 
             elseif currentSelectedSlider == 2 then
                 set_sfx_volume(newValue)
-                settingsSFX:play()
+                
+                isMaxVolume = newValue == 1.0
+
+                if not isMaxVolume then
+                    settingsSFX:play()
+                end
+                
             end
             inputCooldown = cooldownTime / 2 
         end
