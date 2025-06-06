@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 15336792177657160385
+                "value0": 9135019663545461262
             },
             "value4": false
         },
@@ -118,17 +118,17 @@
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
                         "StartSpeed": 3.299999952316284,
-                        "UseRandomSize": false,
+                        "UseRandomSize": true,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.4000000059604645,
+                            "y": 0.4000000059604645,
+                            "z": 0.4000000059604645
                         },
                         "StartSizeMax": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 0.6000000238418579,
+                            "y": 0.6000000238418579,
+                            "z": 0.6000000238418579
                         },
                         "StartSize": {
                             "x": 1.0,
@@ -151,7 +151,7 @@
                             "y": 0.0,
                             "z": 0.0
                         },
-                        "SimulationSpace": 1,
+                        "SimulationSpace": 0,
                         "UseEmission": true,
                         "RateOverTime": 4.0,
                         "UseBurst": false,
@@ -169,8 +169,8 @@
                         },
                         "UseShape": true,
                         "ShapeAngle": 0.75,
-                        "ShapeRadius": 0.6669999957084656,
-                        "ShapeRadiusThickness": 0.10000000149011612,
+                        "ShapeRadius": 1.5,
+                        "ShapeRadiusThickness": 0.5,
                         "GoCenter": false,
                         "UseVelocityOverLifetime": false,
                         "VelocitySeparateAxes": false,
@@ -250,7 +250,7 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.0,
+                                "value0": 0.11500000208616257,
                                 "value1": 1.0
                             },
                             {
@@ -303,17 +303,17 @@
                                 "cereal_class_version": 0,
                                 "value0": 0.0,
                                 "value1": {
-                                    "value0": 0.37981176376342776,
-                                    "value1": 1.0,
-                                    "value2": 0.010230183601379395,
+                                    "value0": 0.23672732710838319,
+                                    "value1": 0.6380090713500977,
+                                    "value2": 0.0,
                                     "value3": 1.0
                                 }
                             },
                             {
                                 "value0": 1.0,
                                 "value1": {
-                                    "value0": 0.31372547149658205,
-                                    "value1": 1.0,
+                                    "value0": 0.2569425702095032,
+                                    "value1": 0.8190045356750488,
                                     "value2": 0.0,
                                     "value3": 0.0
                                 }

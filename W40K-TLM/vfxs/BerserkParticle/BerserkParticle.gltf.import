@@ -1,0 +1,56 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "BerserkParticle_Cylinder.001",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 1202550645150234374
+                        }
+                    },
+                    {
+                        "key": "BerserkParticle_Cylinder.002",
+                        "value": {
+                            "value0": 1884357090007938521
+                        }
+                    },
+                    {
+                        "key": "BerserkParticle_Plane",
+                        "value": {
+                            "value0": 2812849170667514876
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "BerserkPart_Mat0",
+                        "value": {
+                            "value0": 6958579746007191601
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 9404685112090705627
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/BerserkParticle/BerserkParticle.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/9404685112090705627.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
