@@ -33,6 +33,12 @@ local shakeDuration = 0
 local shakeDecay = 3
 local shakeDelay = 0.3
 
+-- Audio
+local introBossSFX = nil
+local outroBossSFX = nil
+local hasIntroPlayed = false
+local hasOutroPlayed = false
+
 function on_ready()
     introBossDone = load_progress("introBossDone", introBossDone)
 
@@ -43,6 +49,10 @@ function on_ready()
     -- Upgrades
     backpack = load_progress("armorHealthBoost", false)
     helmet = load_progress("armorProtection", false)
+
+    -- Audio
+    introBossSFX = current_scene:get_entity_by_name("IntroBossSFX"):get_component("AudioSourceComponent")
+    outroBossSFX = current_scene:get_entity_by_name("OutroBossSFX"):get_component("AudioSourceComponent")
 
     -- Player
     player = current_scene:get_entity_by_name("Player")
@@ -84,11 +94,21 @@ function on_update(dt)
         if bossCurrentAnim ~= bossIntroAnim then
             bossCurrentAnim = bossIntroAnim
             bossAnimator:set_current_animation(bossCurrentAnim)
+
+            if not hasIntroPlayed then
+                introBossSFX:play()
+                hasIntroPlayed = true
+            end
         end
     else
         if bossCurrentAnim ~= bossOutroAnim then
             bossCurrentAnim = bossOutroAnim
             bossAnimator:set_current_animation(bossCurrentAnim)
+
+            if not hasOutroPlayed then
+                outroBossSFX:play()
+                hasOutroPlayed = true
+            end
         end
     end
 
