@@ -378,7 +378,6 @@ function on_update(dt)
         tank:idle_state(dt)
         
     elseif tank.currentState == tank.state.Detect then
-        tank.meleeAreaRb:set_position(Vector3.new(0, -50, 0))
         tank:detect_state(dt)
 
     elseif tank.currentState == tank.state.Move then 
@@ -678,7 +677,7 @@ function tank:tackle_raycast()
         local dx = playerPos.x - tankPos.x
         local dz = playerPos.z - tankPos.z
         local distance = math.sqrt(dx*dx + dz*dz)
-        if distance > tank.meleeAttackRange and distance > 0.01 then
+        if distance >= tank.meleeAttackRange and distance > 0.01 then
             tank.enemyRb:set_trigger(true)
             tank.enemyTransf:set_position(Vector3.new(
                 tankPos.x + dx/distance * 0.7,
