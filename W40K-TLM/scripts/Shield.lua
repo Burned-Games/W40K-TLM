@@ -52,15 +52,6 @@ function on_update(dt)
         return
     end
 
-    -- Actualizar posición del escudo
-    if targetEnemy.transform then
-        shieldTransform.position = Vector3.new(
-            targetEnemy.transform.position.x, 
-            targetEnemy.transform.position.y + 0.75, 
-            targetEnemy.transform.position.z
-        )
-    end
-
 
     if targetEnemy.script.shieldHealth and targetEnemy.script.shieldHealth <= 0 then
         shieldDestroy()
@@ -69,11 +60,6 @@ function on_update(dt)
 end
 
 function shieldDestroy()
-    
-    if shieldTransform then
-        local currentPos = shieldTransform.position
-        shieldTransform.position = Vector3.new(5000, currentPos.y, currentPos.z)
-    end
     
     if targetEnemy and targetEnemy.script then
         targetEnemy.script.haveShield = false
