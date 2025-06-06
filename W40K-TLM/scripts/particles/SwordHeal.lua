@@ -10,9 +10,13 @@ local swordHealLifetime = 2.0
 local playerScript = nil
 local hpStealed = 20
 
+local playerHealingSFX = nil
+
 function on_ready()
     swordHealTransf = self:get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
+
+    playerHealingSFX = current_scene:get_entity_by_name("PlayerHealingSFX"):get_component("AudioSourceComponent")
 end
 
 function on_update(dt)
@@ -30,9 +34,11 @@ function on_update(dt)
     if swordHealTimer >= swordHealLifetime then
         if playerScript.health + hpStealed >= playerScript.maxHealth then
             playerScript.healingParticle:emit(5)
+            playerHealingSFX:play()
             playerScript.health = playerScript.maxHealth
         else
             playerScript.healingParticle:emit(5)
+            playerHealingSFX:play()
             playerScript.health = playerScript.health + hpStealed
         end
         current_scene:destroy_entity(self)
