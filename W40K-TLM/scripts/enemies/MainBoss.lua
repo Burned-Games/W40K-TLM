@@ -450,7 +450,7 @@ end
 function move_shield()
 
     if main_boss.shieldActive then
-        main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y + 3, main_boss.enemyTransf.position.z)
+        main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y + 2.5, main_boss.enemyTransf.position.z)
         main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
     else
         main_boss.shieldTransf.position = Vector3.new(-500, 0, -200)
