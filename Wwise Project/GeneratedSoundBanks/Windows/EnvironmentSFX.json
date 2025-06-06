@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{98D3F8EE-480D-4DC1-9F37-BE57F26A24D6}",
+    "Hash": "{F5A61508-5D5A-FBB5-31A4-6493BB22D736}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -335,8 +335,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchLand",
       "GUID": "{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}",
       "DurationType": "OneShot",
-      "DurationMin": "2.3690476",
-      "DurationMax": "2.3690476",
+      "DurationMin": "2.6690476",
+      "DurationMax": "2.6690476",
       "MediaRefs": [
        {
         "Id": "88020309"
@@ -346,6 +346,6 @@
     ]
    }
   ],
-  "FileHash": "{913DCA58-0D01-6A13-0DD2-ADFD3B860258}"
+  "FileHash": "{44D73048-DB67-B8CD-0EBB-12A327D69019}"
  }
 }

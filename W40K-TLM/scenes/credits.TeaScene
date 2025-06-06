@@ -2,13 +2,13 @@
     "value0": {
         "cereal_class_version": 3,
         "value0": 5,
-        "value1": 4,
+        "value1": 5,
         "value2": 0,
         "value3": 1,
         "value4": 4,
         "value5": 3,
         "value6": 1048578,
-        "value7": 4,
+        "value7": 5,
         "value8": 0,
         "value9": {
             "cereal_class_version": 0,
@@ -26,9 +26,13 @@
         "value15": {
             "Tag": "Camera"
         },
-        "value16": 4,
-        "value17": 0,
-        "value18": {
+        "value16": 1048578,
+        "value17": {
+            "Tag": "CreditsMusic"
+        },
+        "value18": 5,
+        "value19": 0,
+        "value20": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 1352.0,
@@ -46,8 +50,8 @@
                 "z": 1.0
             }
         },
-        "value19": 1,
-        "value20": {
+        "value21": 1,
+        "value22": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -64,8 +68,8 @@
                 "z": 1.0
             }
         },
-        "value21": 4,
-        "value22": {
+        "value23": 4,
+        "value24": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -82,8 +86,8 @@
                 "z": 1.0
             }
         },
-        "value23": 3,
-        "value24": {
+        "value25": 3,
+        "value26": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -100,39 +104,64 @@
                 "z": 1.0
             }
         },
-        "value25": 4,
-        "value26": 0,
-        "value27": {
+        "value27": 1048578,
+        "value28": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 5,
+        "value30": 0,
+        "value31": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value28": 1,
-        "value29": {
+        "value32": 1,
+        "value33": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value30": 4,
-        "value31": {
+        "value34": 4,
+        "value35": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value32": 3,
-        "value33": {
+        "value36": 3,
+        "value37": {
             "Parent": 4294967295,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value34": 1,
-        "value35": 3,
-        "value36": {
+        "value38": 1048578,
+        "value39": {
+            "Parent": 4294967295,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4294967295
+        },
+        "value40": 1,
+        "value41": 3,
+        "value42": {
             "cereal_class_version": 0,
             "Camera": {
                 "cereal_class_version": 0,
@@ -145,35 +174,105 @@
                 "ViewportHeight": 720.0
             }
         },
-        "value37": 0,
-        "value38": 0,
-        "value39": 0,
-        "value40": 0,
-        "value41": 0,
-        "value42": 1,
-        "value43": 1,
-        "value44": {
+        "value43": 0,
+        "value44": 0,
+        "value45": 0,
+        "value46": 0,
+        "value47": 0,
+        "value48": 1,
+        "value49": 1,
+        "value50": {
             "cereal_class_version": 0,
             "ScriptPath": "scripts/UI/creditsVictory.lua",
             "Language": 0
         },
-        "value45": 0,
-        "value46": 0,
-        "value47": 0,
-        "value48": 0,
-        "value49": 0,
-        "value50": 0,
         "value51": 0,
-        "value52": 4,
+        "value52": 0,
         "value53": 0,
         "value54": 1,
-        "value55": 4,
-        "value56": 3,
-        "value57": 0,
-        "value58": 0,
-        "value59": 2,
-        "value60": 1,
-        "value61": {
+        "value55": 1048578,
+        "value56": {
+            "cereal_class_version": 0,
+            "GameObjectID": 9333128912623101735,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "Name": "Music",
+                        "Events": [
+                            "Play_BossFightingMusic_container",
+                            "Play_ExploreLevel1_container",
+                            "Play_ExploreLevel2_container",
+                            "Play_ExploreLevel3_container",
+                            "Play_FightingMusic_container",
+                            "Play_mainMenu_music_container",
+                            "Play_musicFinal_container"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "Music",
+            "EventName": "Play_musicFinal_container",
+            "Volume": 1.0,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value57": 1,
+        "value58": 1048578,
+        "value59": {
+            "cereal_class_version": 0,
+            "GameObjectID": 17803268226364750991,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value60": 0,
+        "value61": 0,
+        "value62": 5,
+        "value63": 0,
+        "value64": 1,
+        "value65": 4,
+        "value66": 3,
+        "value67": 1048578,
+        "value68": 0,
+        "value69": 0,
+        "value70": 2,
+        "value71": 1,
+        "value72": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "cereal_class_version": 0,
@@ -212,8 +311,8 @@
             },
             "Layer": 1
         },
-        "value62": 4,
-        "value63": {
+        "value73": 4,
+        "value74": {
             "TextureUUID": {
                 "value0": 3351135232612799137
             },
@@ -249,13 +348,13 @@
             },
             "Layer": 0
         },
-        "value64": 0,
-        "value65": 0,
-        "value66": 0,
-        "value67": 0,
-        "value68": 1,
-        "value69": 0,
-        "value70": {
+        "value75": 0,
+        "value76": 0,
+        "value77": 0,
+        "value78": 0,
+        "value79": 1,
+        "value80": 0,
+        "value81": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {

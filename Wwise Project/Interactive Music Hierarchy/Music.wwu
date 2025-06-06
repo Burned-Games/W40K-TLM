@@ -865,7 +865,23 @@
 						</Reference>
 						<Reference Name="PlaylistRoot">
 							<Custom>
-								<MusicPlaylistItem Name="" ID="{02493E32-8933-4DE0-B4E7-85DB8BEDE5DB}" ShortID="945781523"/>
+								<MusicPlaylistItem Name="" ID="{02493E32-8933-4DE0-B4E7-85DB8BEDE5DB}" ShortID="945781523">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{29A50D41-D4C7-4170-9F69-98566DE8B3AE}" ShortID="259752409">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="musicFinal" ID="{C1D20FD8-E5FD-44CD-93EB-171F6E796EA5}" WorkUnitID="{170B5407-85FF-4198-AA44-6B128A7ACD49}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
 							</Custom>
 						</Reference>
 						<Reference Name="TransitionRoot">

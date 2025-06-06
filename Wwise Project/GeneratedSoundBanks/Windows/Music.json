@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{9ECAC9C0-5B8E-8878-5FD1-A0629CDCB517}",
+    "Hash": "{49FFB3F9-94B7-E105-AF0A-52A90DDBC2D6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -157,9 +157,7 @@
       "Name": "Play_musicFinal_container",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_musicFinal_container",
       "GUID": "{6BA8057F-66D2-437E-9D58-725AA068DC44}",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "1003956247"
@@ -169,6 +167,6 @@
     ]
    }
   ],
-  "FileHash": "{4FD0EEEA-62E0-6424-9DD7-CDCF7916BA19}"
+  "FileHash": "{B2A4219B-8054-9B74-830C-28F7A2930AE0}"
  }
 }

@@ -2227,7 +2227,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{98D3F8EE-480D-4DC1-9F37-BE57F26A24D6}",
+    "Hash": "{F5A61508-5D5A-FBB5-31A4-6493BB22D736}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -2552,8 +2552,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_WorkbenchLand",
       "GUID": "{F618C9E5-D293-4C77-8C8D-EB55FD257C8C}",
       "DurationType": "OneShot",
-      "DurationMin": "2.3690476",
-      "DurationMax": "2.3690476",
+      "DurationMin": "2.6690476",
+      "DurationMax": "2.6690476",
       "MediaRefs": [
        {
         "Id": "88020309"
@@ -2567,7 +2567,7 @@
     "Type": "User",
     "GUID": "{73659943-6E94-44F4-9F79-1342A4490FD4}",
     "Language": "SFX",
-    "Hash": "{9ECAC9C0-5B8E-8878-5FD1-A0629CDCB517}",
+    "Hash": "{49FFB3F9-94B7-E105-AF0A-52A90DDBC2D6}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -2714,9 +2714,7 @@
       "Name": "Play_musicFinal_container",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_musicFinal_container",
       "GUID": "{6BA8057F-66D2-437E-9D58-725AA068DC44}",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "1003956247"
@@ -2730,7 +2728,7 @@
     "Type": "User",
     "GUID": "{179A6250-3F23-44B9-A9AF-461B907637F3}",
     "Language": "SFX",
-    "Hash": "{39A7C3B7-4421-52D0-2F20-73E2C88252DF}",
+    "Hash": "{AF30A6C3-F79E-508C-D454-964F9D0BCD00}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Dialogs",
     "ShortName": "Dialogs",
     "Path": "Dialogs.bnk",
@@ -2789,7 +2787,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "CinematicFinal.wav",
-      "CachePath": "C0/{C04BAEC8-9C60-DD61-A649-1A04E6793942}.wem"
+      "CachePath": "D3/{D3F967CC-7BA5-0191-F1D3-EC3147DBE286}.wem"
      },
      {
       "Id": "621346575",
@@ -3411,6 +3409,6 @@
     ]
    }
   ],
-  "FileHash": "{FE56339E-2D23-9540-3B06-345447466B49}"
+  "FileHash": "{5E555B5E-BF2A-32DB-A95E-92ECB2C22E0E}"
  }
 }

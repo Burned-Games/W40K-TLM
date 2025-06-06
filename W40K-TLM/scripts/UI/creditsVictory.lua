@@ -3,10 +3,16 @@ local entidadCreditos
 local posicionY = 0
 local limiteSuperiorY = -2517
 
+local creditsMusic = nil
+
 function on_ready()
     entidadCreditos = self:get_component("UIImageComponent")
     posicionY = 2600  
     move_ui_element(self, 0, posicionY)
+
+    creditsMusic = current_scene:get_entity_by_name("CreditsMusic"):get_component("AudioSourceComponent")
+
+    creditsMusic:play()
 end
 
 function on_update(dt)
