@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 8448851253108574503
+                "value0": 12167617136693570583
             },
             "value4": false
         },
@@ -30,7 +30,7 @@
             "cereal_class_version": 0,
             "Position": {
                 "x": -13.818563461303711,
-                "y": -0.5268758535385132,
+                "y": 0.10000000149011612,
                 "z": -29.5747013092041
             },
             "Rotation": {
@@ -80,20 +80,20 @@
                             "m22": 1.0,
                             "m23": 0.0,
                             "m30": -13.818563461303711,
-                            "m31": -0.5268758535385132,
+                            "m31": 0.10000000149011612,
                             "m32": -29.5747013092041,
                             "m33": 1.0
                         },
-                        "UseDirectionRandom": false,
+                        "UseDirectionRandom": true,
                         "Direction": {
                             "x": 0.0,
-                            "y": 1.0,
-                            "z": 0.0
+                            "y": 0.0,
+                            "z": 1.0
                         },
                         "DirectionRandom": {
                             "x": 0.0,
-                            "y": 1.0,
-                            "z": 0.0
+                            "y": 0.0,
+                            "z": 1.0
                         },
                         "UseColorRandom": false,
                         "ColorNormal": {
@@ -114,11 +114,11 @@
                         "StartLifeTimeMin": 5.0,
                         "StartLifeTimeMax": 5.0,
                         "StartLifeTime": 0.5,
-                        "UseRandomSpeed": false,
+                        "UseRandomSpeed": true,
                         "StartSpeedMin": 5.0,
                         "StartSpeedMax": 5.0,
-                        "StartSpeed": 5.0,
-                        "UseRandomSize": true,
+                        "StartSpeed": 1.0,
+                        "UseRandomSize": false,
                         "UseSplitAxesSize": false,
                         "StartSizeMin": {
                             "x": 1.0,
@@ -131,9 +131,9 @@
                             "z": 1.0
                         },
                         "StartSize": {
-                            "x": 1.0,
-                            "y": 1.0,
-                            "z": 1.0
+                            "x": 1.5,
+                            "y": 1.5,
+                            "z": 1.5
                         },
                         "UseRandomRotation": false,
                         "StartRotationMin": {
@@ -156,7 +156,7 @@
                         "RateOverTime": 45.0,
                         "UseBurst": false,
                         "Bursts": [],
-                        "ShapeType": 1,
+                        "ShapeType": 0,
                         "MinSpread": {
                             "x": -0.10000000149011612,
                             "y": -0.10000000149011612,
@@ -168,10 +168,10 @@
                             "z": 0.10000000149011612
                         },
                         "UseShape": true,
-                        "ShapeAngle": 0.875,
-                        "ShapeRadius": 1.0,
-                        "ShapeRadiusThickness": 0.10000000149011612,
-                        "GoCenter": false,
+                        "ShapeAngle": 0.10000000149011612,
+                        "ShapeRadius": 0.009999999776482582,
+                        "ShapeRadiusThickness": 0.0,
+                        "GoCenter": true,
                         "UseVelocityOverLifetime": false,
                         "VelocitySeparateAxes": false,
                         "VelocityOverLifeX": [
@@ -250,12 +250,12 @@
                         ],
                         "SizeOverLifeGeneral": [
                             {
-                                "value0": 0.06499999761581421,
+                                "value0": 0.0,
                                 "value1": 1.0
                             },
                             {
-                                "value0": 0.9449999928474426,
-                                "value1": 0.6399999856948853
+                                "value0": 0.9750000238418579,
+                                "value1": 0.5
                             }
                         ],
                         "SizeMultiplier": 1.5,
