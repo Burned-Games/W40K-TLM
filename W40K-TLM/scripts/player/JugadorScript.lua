@@ -180,7 +180,7 @@ hit = 17
 reload_Bolter = 21
 reload_Shotgun = 23
 local stun = 30
-local aim = 0
+aim = 0
 
 local rotationAngle = 0
 local transf = nil
@@ -1318,7 +1318,7 @@ function playerMovement(dt)
             if currentAnim ~= idle and bolterScript.chaaarging == false and swordScript.slasheeed == false or currentUpAnim ~= idle and shotGunScript.shootAnimation == false and aimAnimation == false and swordScript.slasheeed == false and isHitted == false and shotGunScript.is_reloading == false and bolterScript.chaaarging == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and bolterScript.shootAnimation == false then
                 currentAnim = idle
                 animator:set_lower_animation(currentAnim)
-                if shotGunScript.shootAnimation == false and aimAnimation == false and bolterScript.shootAnimation == false and aimAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and swordScript.slasheeed == false then
+                if shotGunScript.shootAnimation == false and aimAnimation == false and bolterScript.shootAnimation == false and aimAnimation == false and bolterScript.reloadAnimation == false and healAnimationBool == false and shotGunScript.granadeAnimation == false and swordScript.slasheeed == false and bolterScript.isShootingRepeatly == false then
                     currentUpAnim = idle
                     animator:set_upper_animation(currentUpAnim)
                 end

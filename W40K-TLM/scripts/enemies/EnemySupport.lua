@@ -549,7 +549,7 @@ function support:shield_state(dt)
     if support.shieldAnimTimer >= support.shieldAnimDuration then
         if distance <= support.shieldRange and not support.currentTarget.script.haveShield then
            
-            local shieldEntity = create_new_shield(support.currentTarget)
+            local shieldEntity = activate_existing_shield(support.currentTarget)
             if shieldEntity then
                 local shieldScript = shieldEntity:get_component("ScriptComponent")
                 shieldScript.targetEnemy = support.currentTarget
@@ -562,10 +562,8 @@ function support:shield_state(dt)
                 support.shieldTimer = 0
                 support.shieldAnimTimer = 0
                 support.shieldAssignSFX:play()
+                
             end
-        end
-        if support.currentTarget.script.haveShield then
-            log("Have Shield")
         end
     end
 
@@ -633,11 +631,11 @@ function support:shoot_state(dt)
             support.burstCount = 0
             support.timeSinceLastShot = 0
             support.attackAnimTimer = 0
-            support.canPlayAttackAnim = true  -- Permite reproducir la animación
+            support.canPlayAttackAnim = true  
         end
     end
 
-    -- Periodic enemy check
+    
     support.checkEnemyTimer = support.checkEnemyTimer + dt
     if support.checkEnemyTimer >= support.checkEnemyInterval then
         support.checkEnemyTimer = 0
@@ -758,7 +756,6 @@ end
 function find_all_entities_of_type(typeName, resultTable, scriptField)
     local suppPos = support.enemyTransf.position
     
-    -- Obtener todas las entidades en la escena
     local all_entities = current_scene:get_all_entities()
     
     if not all_entities then
@@ -829,28 +826,60 @@ function enemies_distance()
     return distances
 end
 
-function create_new_shield(targetEnemy)
-    if not targetEnemy or not targetEnemy.transform then
-        log("Error: No se proporcionó un enemigo válido para el escudo")
+function find_enemy_shield(enemy)
+    if not enemy or not enemy.transform then
+        return nil
+    end
+    
+
+    local enemyEntity = nil
+    local all_entities = current_scene:get_all_entities()
+    
+    for _, entity in ipairs(all_entities) do
+        local entityTransform = entity:get_component("TransformComponent")
+        if entityTransform and entityTransform == enemy.transform then
+            enemyEntity = entity
+            break
+        end
+    end
+    
+    if not enemyEntity then
         return nil
     end
 
-    local pos = targetEnemy.transform.position
+    local children = enemyEntity:get_children()
+    for _, child in ipairs(children) do
+        local childTag = child:get_component("TagComponent")
+        if childTag and (childTag.tag == "Shield" or string.find(childTag.tag, "Shield")) then
+            return child
+        end
+    end
+    
+    return nil
+end
 
-    local transform = Mat4.identity():translate(pos)
-  
-    local newShield = instantiate_prefab(prefab_path, transform)
-    newShield:get_component("ScriptComponent"):on_ready()
-    if not newShield or not newShield:is_valid() then
-        log("Error: instantiate_prefab falló al crear el escudo")
-        return nil
+
+function activate_existing_shield(targetEnemy)
+
+    
+    local shieldEntity = find_enemy_shield(targetEnemy)
+    
+    shieldEntity:set_active(true)
+    log("Shield entity activated")
+    
+    local shieldScript = shieldEntity:get_component("ScriptComponent")
+    if shieldScript then
+
+        shieldScript.targetEnemy = targetEnemy
+        shieldScript.isActive = true
+        
+        if shieldScript.on_ready then
+            shieldScript:on_ready()
+        end
+        
     end
 
-    local shieldTransf = newShield:get_component("TransformComponent")
-
-    shieldTransf.scale = Vector3.new(targetEnemy.script.shieldScale, targetEnemy.script.shieldScale, targetEnemy.script.shieldScale)
-
-    return newShield
+    return shieldEntity
 end
 
 function on_exit() end

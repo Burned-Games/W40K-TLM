@@ -94,6 +94,7 @@ local particle_expldisruptor_transform = nil
     local workbenchUIManager = nil
 
 shootAnimation = false
+shooootAnimation = false
 reloadAnimation = false
 
 charging = false
@@ -144,6 +145,8 @@ local disruptorTime = 0
 local firstTime = false
 
 local changeAnimCounter = 0.0
+
+isShootingRepeatly = false
 
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
@@ -465,9 +468,11 @@ function on_update(dt)
                 --         cooldownVFX = 0
                 --     end
                 -- end
+
+                isShootingRepeatly = true
                 
                 if shootCoolDown >= currentShootCoolDownRifle then
-                    if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
+                    if playerScript.currentUpAnim ~= playerScript.attack and (shootAnimation == false or shooootAnimation == false) then
                         playerScript.currentUpAnim = playerScript.attack
                         playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                         shootAnimation = true
@@ -484,16 +489,21 @@ function on_update(dt)
                     ammo = ammo + 3
                     shooted = true
                     shootCoolDown = 0
+                    
                     --shootAnimation = false
+                    changeAnimCounter = 0.0
+                    
                 else
                     changeAnimCounter = changeAnimCounter + dt
 
-                    if(changeAnimCounter >= 1) then
+                    if changeAnimCounter >= 0.3 then
+                        shooootAnimation = false
                         if playerScript.currentUpAnim ~= playerScript.aim then
                             playerScript.currentUpAnim = playerScript.aim
                             playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
-                            changeAnimCounter = 0
                         end
+                        changeAnimCounter = 0.0
+                        
                     end
                     
                     
@@ -503,17 +513,15 @@ function on_update(dt)
             else
                 
                 playerScript.activateAutoAim = false
-                
-                
                 --vfxShootTransf.position.y = 830
                 if disruptorShooted2 == false then
                     playerScript.activateAutoAim = false
                 end
-                if playerScript.currentAnim ~= -1 and shootAnimation == true then
+                if playerScript.currentAnim ~= -1 and shootAnimation == true  then
                     playerScript.currentAnim = -1
                 end
                 shootAnimation = false
-
+                isShootingRepeatly = false
                 playerScript.shootingIndicator = false
             end
 
@@ -603,6 +611,7 @@ function on_update(dt)
         else 
             if not firstTime then
                 animatorVFXShoot:set_current_animation(0)
+                isShootingRepeatly = false
                 firstTime = true
             end
             
