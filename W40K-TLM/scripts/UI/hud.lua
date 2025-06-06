@@ -770,13 +770,14 @@ function buff_debuff_manager(dt)
     local bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
     local bleedingFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
 
-    if playerScript.isHitted then
-        bleedingFeedback:set_active(true)
-        bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, 1.0)) 
-        wasHitted = true
-        bleedingFadeOutActive = false 
+    -- if playerScript.isHitted then
+    --     bleedingFeedback:set_active(true)
+    --     bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, 0.5)) 
+    --     wasHitted = true
+    --     bleedingFadeOutActive = false 
         
-    elseif wasHitted and not playerScript.isHitted then
+    -- else
+    if wasHitted and not playerScript.isHitted then
         bleedingFadeOutActive = true
         bleedingFadeOutAlpha = 1.0
         wasHitted = false
