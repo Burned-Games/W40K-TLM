@@ -115,9 +115,11 @@ local mapPolygonLevel2 = {
 
     -- arriba derecha
     {x = 103, z = -32},
-
+    {x = 161, z = -15},
+    {x = 175, z = -10},
 
     -- arriba izquierda
+    {x = 182, z = -73},
     {x = 116, z = -65},
     {x = 86, z = -84},
     {x = 59, z = -53},
