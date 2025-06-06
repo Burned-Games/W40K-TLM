@@ -40,8 +40,10 @@ function on_ready()
     -- Camera
     kamikaze.cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
-    -- Particle
+    -- VFX
+    kamikaze.explosionManager = current_scene:get_entity_by_name("ExplosionManager"):get_component("ScriptComponent")
 
+    -- Particle
     kamikaze.run = instantiate_prefab(runPrefab)
     kamikaze.runParticle = kamikaze.run:get_component("ParticlesSystemComponent")
     kamikaze.run:set_parent(self)
@@ -276,12 +278,7 @@ function kamikaze:die_state(dt)
     local distance = kamikaze:get_distance(explosionPos, playerPos)
 
     -- VFX
-    kamikaze.explosion = instantiate_prefab(explosionPrefab)
-    kamikaze.explosion:set_active(true)
-    kamikaze.explosionTransf = kamikaze.explosion:get_component("TransformComponent")
-    kamikaze.explosionScript = kamikaze.explosion:get_component("ScriptComponent")
-    kamikaze.explosionTransf.position = Vector3.new(kamikaze.enemyTransf.position.x, kamikaze.enemyTransf.position.y + 0.01, kamikaze.enemyTransf.position.z)
-    kamikaze.explosionScript:on_ready()
+    kamikaze.explosionManager.get_free_explosion(explosionPos)
     
     if distance < kamikaze.explosionRange then
         kamikaze:make_damage(kamikaze.damage)
