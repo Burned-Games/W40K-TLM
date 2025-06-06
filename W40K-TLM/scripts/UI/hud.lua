@@ -250,7 +250,7 @@ function on_update(dt)
 
     update_scrap_display() 
 
-    buff_debuff_manager()
+    buff_debuff_manager(dt)
 
 end
 
@@ -759,15 +759,63 @@ function update_scrap_display()
     end
 end
 
-function buff_debuff_manager()
+
+-- Variables para controlar el estado del bleeding feedback (FUERA de la función)
+local bleedingFadeOutActive = false
+local bleedingFadeOutAlpha = 1.0
+local bleedingFadeOutSpeed = 2.0
+local wasHitted = false
+
+function buff_debuff_manager(dt)
     cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
 
     local bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
+    local bleedingFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
 
     if playerScript.isHitted then
         bleedingFeedback:set_active(true)
-    else
+        bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, 1.0)) 
+        wasHitted = true
+        bleedingFadeOutActive = false 
+        
+    elseif wasHitted and not playerScript.isHitted then
+        bleedingFadeOutActive = true
+        bleedingFadeOutAlpha = 1.0
+        wasHitted = false
+        bleedingFeedback:set_active(true)
+        
+    elseif playerScript.health < 100 then
+        bleedingFeedback:set_active(true)
+        
+        local healthPercent = playerScript.health / 100.0
+        local targetAlpha = 0.25 + (1.0 - healthPercent) * 0.5 
+        
+        if not bleedingFadeOutActive then
+            bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, targetAlpha))
+        end
+        
+    elseif playerScript.health >= 100 and not bleedingFadeOutActive then
         bleedingFeedback:set_active(false)
+    end
+    
+    -- Procesar fade out si está activo
+    if bleedingFadeOutActive then
+        bleedingFadeOutAlpha = bleedingFadeOutAlpha - (bleedingFadeOutSpeed * dt) 
+        
+        if bleedingFadeOutAlpha <= 0 then
+            bleedingFadeOutActive = false
+            bleedingFadeOutAlpha = 0
+            
+            if playerScript.health < 100 then
+                local healthPercent = playerScript.health / 100.0
+                local targetAlpha = 0.25 + (1.0 - healthPercent) * 0.5
+                bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, targetAlpha))
+            else
+                bleedingFeedback:set_active(false)
+            end
+        else
+            bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, bleedingFadeOutAlpha))
+        end
     end
     
     if playerScript.isBleeding then
