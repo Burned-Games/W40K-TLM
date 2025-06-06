@@ -6875,6 +6875,9 @@
 						<RandomSequenceContainer Name="UIText" ID="{E97E0190-15EB-406A-BACA-5ABEC54FD8FA}" ShortID="422670948">
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-280</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{A9FCAF6F-9B7C-4E4D-9242-56DFF7D49AEC}"/>
@@ -6883,6 +6886,11 @@
 								</Property>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
