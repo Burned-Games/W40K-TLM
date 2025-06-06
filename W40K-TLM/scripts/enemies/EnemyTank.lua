@@ -403,7 +403,7 @@ function tank:is_other_tank_in_tackle()
     local entities = current_scene:get_all_entities()
     for _, entity in ipairs(entities) do
         local tagComponent = entity:get_component("TagComponent")
-        if tagComponent and tagComponent.tag == "EnemyTank" and entity ~= self then
+        if tagComponent and (tagComponent.tag == "EnemyTank" or tagComponent.tag == "EnemyTank1") and entity ~= self then
             local otherTankScript = entity:get_component("ScriptComponent")
             if otherTankScript then                
                 local tankInstance = otherTankScript.tank
