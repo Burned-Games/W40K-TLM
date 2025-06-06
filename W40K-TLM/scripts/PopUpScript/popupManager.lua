@@ -52,14 +52,12 @@ function on_update(dt)
 
     if current_scene_name == "level1.TeaScene" then
         if detect and first and current_scene_tag == "PopUp_1" then
-            print("Level 1")
-            popupScriptComponent.show_popup(false,"[Y] to change weapon")
+            popupScriptComponent.show_popup(false,"Landing Area")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_2" then
-            print("Level 1")
-            popupScriptComponent.show_popup(false,"[RT] to break some objects")
+            popupScriptComponent.show_popup(false,"The Outskirts")
             first = false
         end
 
@@ -69,17 +67,17 @@ function on_update(dt)
         end
 
         if detect and first and current_scene_tag == "PopUp_4" then
-            popupScriptComponent.show_popup(false,"[B] to dash")
+            popupScriptComponent.show_popup(false,"Training Area")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_5" then
-            popupScriptComponent.show_popup(false,"[RB] to use chainsword")
+            popupScriptComponent.show_popup(false,"The Ork Coliseum")
             first = false
         end
 
         if detect and first and current_scene_tag == "PopUp_6" then
-            popupScriptComponent.show_popup(false,"[DPAD_RIGHT] to heal yourself")
+            popupScriptComponent.show_popup(false,"The Slums")
             first = false
         end
 
