@@ -1,0 +1,1460 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 12074481302216148128
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-13",
+                        "value": {
+                            "value0": 3454953987413942656
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.145",
+                        "value": {
+                            "value0": 3422003441470712104
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-15",
+                        "value": {
+                            "value0": 14417282065775273657
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.027",
+                        "value": {
+                            "value0": 7704255960723898350
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-1",
+                        "value": {
+                            "value0": 376743604086346084
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.028",
+                        "value": {
+                            "value0": 5940821164983878362
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.029",
+                        "value": {
+                            "value0": 3225504726539543720
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-5",
+                        "value": {
+                            "value0": 12725186920522766205
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.030",
+                        "value": {
+                            "value0": 5085219380704886779
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-23",
+                        "value": {
+                            "value0": 16075465044800784915
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-2",
+                        "value": {
+                            "value0": 10386894609289871552
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-3",
+                        "value": {
+                            "value0": 3829566854580487220
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-8",
+                        "value": {
+                            "value0": 1454141463948669741
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-4",
+                        "value": {
+                            "value0": 8802378282962192358
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-9",
+                        "value": {
+                            "value0": 5072560597611322339
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-5",
+                        "value": {
+                            "value0": 11496750065031285700
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-6",
+                        "value": {
+                            "value0": 8480900548414045782
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-7",
+                        "value": {
+                            "value0": 16725899349687743057
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-4",
+                        "value": {
+                            "value0": 555378147825039683
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-8",
+                        "value": {
+                            "value0": 17347598644126067480
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-5",
+                        "value": {
+                            "value0": 5135013285398982773
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-9",
+                        "value": {
+                            "value0": 4956263506175142919
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-2",
+                        "value": {
+                            "value0": 5730419102430647898
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.366-3",
+                        "value": {
+                            "value0": 13670055381043411589
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-17",
+                        "value": {
+                            "value0": 4071259081301327085
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.031-4",
+                        "value": {
+                            "value0": 762187425505108295
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-10",
+                        "value": {
+                            "value0": 12207279011177160018
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-3",
+                        "value": {
+                            "value0": 12245002135498704096
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.366-2",
+                        "value": {
+                            "value0": 1980530336706139704
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-16",
+                        "value": {
+                            "value0": 12972009810350925816
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.031-5",
+                        "value": {
+                            "value0": 957299382951529403
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-11",
+                        "value": {
+                            "value0": 3949567430944257767
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-0",
+                        "value": {
+                            "value0": 15676551665374223294
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.366-1",
+                        "value": {
+                            "value0": 10728736966653787825
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-15",
+                        "value": {
+                            "value0": 12511252590847197811
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-12",
+                        "value": {
+                            "value0": 17287057998005668596
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-1",
+                        "value": {
+                            "value0": 4104152555194967711
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.366-0",
+                        "value": {
+                            "value0": 13969767958094792254
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-14",
+                        "value": {
+                            "value0": 16365416637201697311
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-13",
+                        "value": {
+                            "value0": 8288345099241218070
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-6",
+                        "value": {
+                            "value0": 8652448043770075730
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-13",
+                        "value": {
+                            "value0": 17804965067444993389
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.031-0",
+                        "value": {
+                            "value0": 6114702255191703916
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.2473-14",
+                        "value": {
+                            "value0": 4004540704782422038
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-0",
+                        "value": {
+                            "value0": 6269897319363814849
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-1",
+                        "value": {
+                            "value0": 1708827791065636055
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-2",
+                        "value": {
+                            "value0": 3253123358900146832
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-3",
+                        "value": {
+                            "value0": 4684043416743486521
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-4",
+                        "value": {
+                            "value0": 11358804394877823623
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-6",
+                        "value": {
+                            "value0": 9727605511772680439
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-7",
+                        "value": {
+                            "value0": 9031487792875444441
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-21",
+                        "value": {
+                            "value0": 15874480573397111574
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-8",
+                        "value": {
+                            "value0": 14870453782626899832
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-20",
+                        "value": {
+                            "value0": 8004366427635989127
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-9",
+                        "value": {
+                            "value0": 684291254477476716
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-10",
+                        "value": {
+                            "value0": 8679422433285497228
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-11",
+                        "value": {
+                            "value0": 4503278116219632545
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-12",
+                        "value": {
+                            "value0": 11867707514284201163
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-14",
+                        "value": {
+                            "value0": 3484207354527187129
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-15",
+                        "value": {
+                            "value0": 16501688689213913521
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-16",
+                        "value": {
+                            "value0": 4693257293018125049
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3481-17",
+                        "value": {
+                            "value0": 5587617459879093157
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-4",
+                        "value": {
+                            "value0": 9698386717472888614
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-11",
+                        "value": {
+                            "value0": 8996086346094244795
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.031-2",
+                        "value": {
+                            "value0": 12081488267779885960
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-5",
+                        "value": {
+                            "value0": 16398518483764580301
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.366-4",
+                        "value": {
+                            "value0": 13147250649543759605
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-10",
+                        "value": {
+                            "value0": 13910942824373125775
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.031-3",
+                        "value": {
+                            "value0": 6637527715055788338
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-7",
+                        "value": {
+                            "value0": 12152454919771459553
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-12",
+                        "value": {
+                            "value0": 10645682678349927679
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.031-1",
+                        "value": {
+                            "value0": 6567361816777604745
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-8",
+                        "value": {
+                            "value0": 17754266116396576546
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-9",
+                        "value": {
+                            "value0": 6133518858095790851
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-18",
+                        "value": {
+                            "value0": 18352446752578227063
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-19",
+                        "value": {
+                            "value0": 17427832004234749032
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-22",
+                        "value": {
+                            "value0": 8252848317363299566
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-23",
+                        "value": {
+                            "value0": 16430688695707291824
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-24",
+                        "value": {
+                            "value0": 11354138260762107413
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-25",
+                        "value": {
+                            "value0": 16183299381795404765
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-26",
+                        "value": {
+                            "value0": 11009404932636483465
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-27",
+                        "value": {
+                            "value0": 12365651866987587032
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-28",
+                        "value": {
+                            "value0": 10179507205915358827
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-29",
+                        "value": {
+                            "value0": 15594430640865833796
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.360-0",
+                        "value": {
+                            "value0": 5810166696629022972
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-30",
+                        "value": {
+                            "value0": 7024129129863197470
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-15",
+                        "value": {
+                            "value0": 16551790614152819252
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.360-1",
+                        "value": {
+                            "value0": 15931055287084938943
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-31",
+                        "value": {
+                            "value0": 17363811288869381248
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-14",
+                        "value": {
+                            "value0": 4574135240115006609
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.057-4",
+                        "value": {
+                            "value0": 17752372522958242291
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.360-2",
+                        "value": {
+                            "value0": 13432559471661397493
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-32",
+                        "value": {
+                            "value0": 12383255371760887797
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-17",
+                        "value": {
+                            "value0": 9732266360288068222
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.360-3",
+                        "value": {
+                            "value0": 1426589095396735230
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-33",
+                        "value": {
+                            "value0": 16428027862765630293
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-16",
+                        "value": {
+                            "value0": 8119501129218286925
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.360-4",
+                        "value": {
+                            "value0": 18062250321809058632
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-34",
+                        "value": {
+                            "value0": 14643104852491832659
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-11",
+                        "value": {
+                            "value0": 8420161931046292120
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.057-1",
+                        "value": {
+                            "value0": 5939953050130947764
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-35",
+                        "value": {
+                            "value0": 11755433626367574328
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-10",
+                        "value": {
+                            "value0": 7207546790567319412
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.057-0",
+                        "value": {
+                            "value0": 6165189181527154433
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-36",
+                        "value": {
+                            "value0": 5416388316728246009
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-13",
+                        "value": {
+                            "value0": 3710197553256426797
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.057-3",
+                        "value": {
+                            "value0": 1065383018882858672
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-37",
+                        "value": {
+                            "value0": 14181316382415745467
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-12",
+                        "value": {
+                            "value0": 9247588261886550278
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.057-2",
+                        "value": {
+                            "value0": 3350097456758097493
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-38",
+                        "value": {
+                            "value0": 808283236104587639
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-39",
+                        "value": {
+                            "value0": 11931527204586807242
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-40",
+                        "value": {
+                            "value0": 10011207514432803562
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-41",
+                        "value": {
+                            "value0": 6994438789286440502
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-42",
+                        "value": {
+                            "value0": 5195025607258871081
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-43",
+                        "value": {
+                            "value0": 5653819761100618243
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-44",
+                        "value": {
+                            "value0": 9264247622155940826
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-45",
+                        "value": {
+                            "value0": 5159582581377667891
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-46",
+                        "value": {
+                            "value0": 14763755971222359462
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-47",
+                        "value": {
+                            "value0": 10782630497015292834
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-48",
+                        "value": {
+                            "value0": 4984593686517880951
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3813-49",
+                        "value": {
+                            "value0": 12041648291132080653
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-0",
+                        "value": {
+                            "value0": 6517545651326064997
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-1",
+                        "value": {
+                            "value0": 6128138588412444557
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-2",
+                        "value": {
+                            "value0": 17622584504271206515
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-3",
+                        "value": {
+                            "value0": 9353353306794132825
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-4",
+                        "value": {
+                            "value0": 2538342210741154676
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-5",
+                        "value": {
+                            "value0": 15609293785050895285
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-6",
+                        "value": {
+                            "value0": 10385482736676725801
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-7",
+                        "value": {
+                            "value0": 3305674677939293454
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-8",
+                        "value": {
+                            "value0": 11277254233887787831
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-9",
+                        "value": {
+                            "value0": 13515100217948617644
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-10",
+                        "value": {
+                            "value0": 6001778237932699326
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-11",
+                        "value": {
+                            "value0": 4667671787378279356
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-12",
+                        "value": {
+                            "value0": 4668463944698972427
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-13",
+                        "value": {
+                            "value0": 2806323853206523887
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-14",
+                        "value": {
+                            "value0": 8548722811107194656
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-16",
+                        "value": {
+                            "value0": 4170307552897535870
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.3952-17",
+                        "value": {
+                            "value0": 6983465225849657956
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-0",
+                        "value": {
+                            "value0": 9636824682725398122
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-1",
+                        "value": {
+                            "value0": 7762891756796030445
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-2",
+                        "value": {
+                            "value0": 18172255329534666071
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-3",
+                        "value": {
+                            "value0": 12245008400409913310
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-6",
+                        "value": {
+                            "value0": 10993218495347118292
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-7",
+                        "value": {
+                            "value0": 15664600162866315230
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-18",
+                        "value": {
+                            "value0": 8592004586921402973
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-19",
+                        "value": {
+                            "value0": 6230378449572908400
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-20",
+                        "value": {
+                            "value0": 9538411373861227709
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-21",
+                        "value": {
+                            "value0": 1278798375220047666
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6198-22",
+                        "value": {
+                            "value0": 5997105758065732066
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-0",
+                        "value": {
+                            "value0": 9205067261601316191
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-1",
+                        "value": {
+                            "value0": 11673371102922378574
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-2",
+                        "value": {
+                            "value0": 9646900009705995209
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-3",
+                        "value": {
+                            "value0": 2784174524590294539
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-4",
+                        "value": {
+                            "value0": 4804647458243504876
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-5",
+                        "value": {
+                            "value0": 16926231554832551308
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-6",
+                        "value": {
+                            "value0": 15270885868896661738
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-7",
+                        "value": {
+                            "value0": 14359445341662123776
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.035-1",
+                        "value": {
+                            "value0": 11008103771161127178
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-8",
+                        "value": {
+                            "value0": 3068117434231025647
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.035-0",
+                        "value": {
+                            "value0": 3892068855005626767
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-9",
+                        "value": {
+                            "value0": 12633961134486218369
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-10",
+                        "value": {
+                            "value0": 15539832597076311305
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-11",
+                        "value": {
+                            "value0": 7346175474727023388
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-12",
+                        "value": {
+                            "value0": 6597786699098698188
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-13",
+                        "value": {
+                            "value0": 13821115511080848736
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-14",
+                        "value": {
+                            "value0": 2166215124456223681
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-15",
+                        "value": {
+                            "value0": 13916922819449486032
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-16",
+                        "value": {
+                            "value0": 1503040676286189009
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-17",
+                        "value": {
+                            "value0": 16712818984671958116
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-18",
+                        "value": {
+                            "value0": 4064609277714963446
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Cube.6206-19",
+                        "value": {
+                            "value0": 12269460734538625942
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.035-2",
+                        "value": {
+                            "value0": 109604209081070771
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.035-3",
+                        "value": {
+                            "value0": 17641774426189555187
+                        }
+                    },
+                    {
+                        "key": "LEVEL1GLTF_Plane.035-4",
+                        "value": {
+                            "value0": 2481031363712052229
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Suelo_MAT.001_Mat0",
+                        "value": {
+                            "value0": 5818267917647112261
+                        }
+                    },
+                    {
+                        "key": "Cables_Mat19",
+                        "value": {
+                            "value0": 3701318337538490166
+                        }
+                    },
+                    {
+                        "key": "dead_Jet_pack_MAT_Mat4",
+                        "value": {
+                            "value0": 1825132484406961793
+                        }
+                    },
+                    {
+                        "key": "rock_MAT_Mat1",
+                        "value": {
+                            "value0": 472228601324185883
+                        }
+                    },
+                    {
+                        "key": "TinyRocks_Mat2",
+                        "value": {
+                            "value0": 1791895995710788096
+                        }
+                    },
+                    {
+                        "key": "Carriage.004_Mat40",
+                        "value": {
+                            "value0": 696143634072955426
+                        }
+                    },
+                    {
+                        "key": "Dead_Ultramarine_MAT_Mat3",
+                        "value": {
+                            "value0": 1415285599906914701
+                        }
+                    },
+                    {
+                        "key": "barricade2.001_Mat9",
+                        "value": {
+                            "value0": 15736099339572667684
+                        }
+                    },
+                    {
+                        "key": "Material.011_Mat39",
+                        "value": {
+                            "value0": 1663120274565788765
+                        }
+                    },
+                    {
+                        "key": "Material.001_Mat5",
+                        "value": {
+                            "value0": 5193056518690370771
+                        }
+                    },
+                    {
+                        "key": "estructura_MAT_Mat7",
+                        "value": {
+                            "value0": 13578627588595999990
+                        }
+                    },
+                    {
+                        "key": "standardSurface2.001_Mat21",
+                        "value": {
+                            "value0": 2302355027671808647
+                        }
+                    },
+                    {
+                        "key": "Decal_mat_Mat57",
+                        "value": {
+                            "value0": 9238294089785456845
+                        }
+                    },
+                    {
+                        "key": "TreeTrunk_Mat6",
+                        "value": {
+                            "value0": 2538964521995967021
+                        }
+                    },
+                    {
+                        "key": "lambert4_Mat8",
+                        "value": {
+                            "value0": 1060638908007673090
+                        }
+                    },
+                    {
+                        "key": "barricada_Mat10",
+                        "value": {
+                            "value0": 15619797571581189196
+                        }
+                    },
+                    {
+                        "key": "Material.014_Mat37",
+                        "value": {
+                            "value0": 649337406985192037
+                        }
+                    },
+                    {
+                        "key": "Carriage.006_Mat46",
+                        "value": {
+                            "value0": 14970920835669675435
+                        }
+                    },
+                    {
+                        "key": "Material.004_Mat11",
+                        "value": {
+                            "value0": 7372272277187266930
+                        }
+                    },
+                    {
+                        "key": "Bones_Mat31",
+                        "value": {
+                            "value0": 74760793935066775
+                        }
+                    },
+                    {
+                        "key": "Material.005_Mat12",
+                        "value": {
+                            "value0": 9309916060393341811
+                        }
+                    },
+                    {
+                        "key": "Diana_Mat13",
+                        "value": {
+                            "value0": 809089559658299834
+                        }
+                    },
+                    {
+                        "key": "Cables.001_Mat14",
+                        "value": {
+                            "value0": 11429399110273995198
+                        }
+                    },
+                    {
+                        "key": "Estandarte_Mat15",
+                        "value": {
+                            "value0": 13833818977633438928
+                        }
+                    },
+                    {
+                        "key": "lambert2_Mat33",
+                        "value": {
+                            "value0": 3726895435313888587
+                        }
+                    },
+                    {
+                        "key": "Caseta.001_Mat16",
+                        "value": {
+                            "value0": 5075682808794381077
+                        }
+                    },
+                    {
+                        "key": "Carriage_Mat41",
+                        "value": {
+                            "value0": 17433833393447354781
+                        }
+                    },
+                    {
+                        "key": "Caseta_Mat17",
+                        "value": {
+                            "value0": 2304696905282384327
+                        }
+                    },
+                    {
+                        "key": "Caseta.002_Mat18",
+                        "value": {
+                            "value0": 5333402927842609953
+                        }
+                    },
+                    {
+                        "key": "standardSurface2_Mat20",
+                        "value": {
+                            "value0": 13944195090465998892
+                        }
+                    },
+                    {
+                        "key": "Carriage.007_Mat47",
+                        "value": {
+                            "value0": 16183215296845936454
+                        }
+                    },
+                    {
+                        "key": "Carriage.011_Mat51",
+                        "value": {
+                            "value0": 16124826565577047272
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat22",
+                        "value": {
+                            "value0": 17926007943150926230
+                        }
+                    },
+                    {
+                        "key": "Bones.003_Mat27",
+                        "value": {
+                            "value0": 10043275112005076677
+                        }
+                    },
+                    {
+                        "key": "Carriage.001_Mat42",
+                        "value": {
+                            "value0": 6019589483517672373
+                        }
+                    },
+                    {
+                        "key": "Scrap1.002_Mat23",
+                        "value": {
+                            "value0": 17667982089362527869
+                        }
+                    },
+                    {
+                        "key": "Material.006_Mat24",
+                        "value": {
+                            "value0": 11770015188880292234
+                        }
+                    },
+                    {
+                        "key": "Bones.002_Mat25",
+                        "value": {
+                            "value0": 11719683516133803485
+                        }
+                    },
+                    {
+                        "key": "Bones.001_Mat26",
+                        "value": {
+                            "value0": 3665003507588937210
+                        }
+                    },
+                    {
+                        "key": "Material.017_Mat52",
+                        "value": {
+                            "value0": 7176787880243330603
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat55",
+                        "value": {
+                            "value0": 14593457754590777874
+                        }
+                    },
+                    {
+                        "key": "Bones.004_Mat28",
+                        "value": {
+                            "value0": 8908585768359375274
+                        }
+                    },
+                    {
+                        "key": "Bones.005_Mat29",
+                        "value": {
+                            "value0": 3914675509268988831
+                        }
+                    },
+                    {
+                        "key": "Bones.006_Mat30",
+                        "value": {
+                            "value0": 18417346621385519963
+                        }
+                    },
+                    {
+                        "key": "Material.009_Mat32",
+                        "value": {
+                            "value0": 7621738734777504993
+                        }
+                    },
+                    {
+                        "key": "Forge_Mat34",
+                        "value": {
+                            "value0": 12202904738271330261
+                        }
+                    },
+                    {
+                        "key": "Material_Mat56",
+                        "value": {
+                            "value0": 10479794436736682521
+                        }
+                    },
+                    {
+                        "key": "Material.012_Mat35",
+                        "value": {
+                            "value0": 3626914571621689243
+                        }
+                    },
+                    {
+                        "key": "Material.013_Mat36",
+                        "value": {
+                            "value0": 6311392293701757824
+                        }
+                    },
+                    {
+                        "key": "Material.015_Mat38",
+                        "value": {
+                            "value0": 10096234229205227573
+                        }
+                    },
+                    {
+                        "key": "Carriage.002_Mat43",
+                        "value": {
+                            "value0": 872877855142972535
+                        }
+                    },
+                    {
+                        "key": "Carriage.003_Mat44",
+                        "value": {
+                            "value0": 291530280086159348
+                        }
+                    },
+                    {
+                        "key": "Carriage.005_Mat45",
+                        "value": {
+                            "value0": 3649428428164986745
+                        }
+                    },
+                    {
+                        "key": "Carriage.008_Mat48",
+                        "value": {
+                            "value0": 13746914727704978820
+                        }
+                    },
+                    {
+                        "key": "Carriage.009_Mat49",
+                        "value": {
+                            "value0": 15574890280553124685
+                        }
+                    },
+                    {
+                        "key": "Carriage.010_Mat50",
+                        "value": {
+                            "value0": 13980949526051100564
+                        }
+                    },
+                    {
+                        "key": "standardSurface1_Mat53",
+                        "value": {
+                            "value0": 13964338229427332065
+                        }
+                    },
+                    {
+                        "key": "Material.010_Mat54",
+                        "value": {
+                            "value0": 17009587611876006519
+                        }
+                    },
+                    {
+                        "key": "Material.021_Mat58",
+                        "value": {
+                            "value0": 12720146744766943190
+                        }
+                    },
+                    {
+                        "key": "Material.019_Mat59",
+                        "value": {
+                            "value0": 18000328836561905381
+                        }
+                    },
+                    {
+                        "key": "Material.020_Mat60",
+                        "value": {
+                            "value0": 5520638127807229715
+                        }
+                    },
+                    {
+                        "key": "Material.022_Mat61",
+                        "value": {
+                            "value0": 11005982413556417442
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 6094990470932948113
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel1/cleanGLTF_final/LEVEL1GLTF.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/6094990470932948113.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
