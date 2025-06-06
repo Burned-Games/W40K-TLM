@@ -14,7 +14,7 @@ local indicatorTransform = nil
 local isRunning = false
 local actualSize = 0
 local actualAlpha = 0;
-local speedIndicator = 0.6
+local speedIndicator = 0.9
 
 
 
