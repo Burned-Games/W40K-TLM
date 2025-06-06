@@ -64,6 +64,16 @@ function on_ready()
     main_boss.runParticle = main_boss.run:get_component("ParticlesSystemComponent")
     main_boss.run:set_parent(self)
 
+    -- VFX
+    local children = self:get_children()
+    for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "VFX_SmashBoss" then
+            main_boss.smashVFX = child
+            main_boss.smashVFXAnimator = main_boss.smashVFX:get_component("AnimatorComponent")
+            break
+        end
+    end
+
     -- Fade To Black
     main_boss.fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
     

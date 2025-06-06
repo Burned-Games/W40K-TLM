@@ -143,6 +143,8 @@ local disruptorTime = 0
 
 local firstTime = false
 
+local changeAnimCounter = 0.0
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -463,6 +465,7 @@ function on_update(dt)
                 --         cooldownVFX = 0
                 --     end
                 -- end
+                
                 if shootCoolDown >= currentShootCoolDownRifle then
                     if playerScript.currentUpAnim ~= playerScript.attack and shootAnimation == false then
                         playerScript.currentUpAnim = playerScript.attack
@@ -483,6 +486,17 @@ function on_update(dt)
                     shootCoolDown = 0
                     --shootAnimation = false
                 else
+                    changeAnimCounter = changeAnimCounter + dt
+
+                    if(changeAnimCounter >= 1) then
+                        if playerScript.currentUpAnim ~= playerScript.aim then
+                            playerScript.currentUpAnim = playerScript.aim
+                            playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
+                            changeAnimCounter = 0
+                        end
+                    end
+                    
+                    
                     
                 end
                 playerScript.shootingIndicator = true
@@ -523,10 +537,7 @@ function on_update(dt)
             else 
                 cooldownVFX = cooldownVFX + dt
                 if cooldownVFX >= 0.1 then
-                    if playerScript.currentUpAnim ~= playerScript.aim then
-                        playerScript.currentUpAnim = playerScript.aim
-                        playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
-                    end
+                    
                     if currentVFXAnim ~= 0 then
                     animatorVFXShoot:set_current_animation(0)
                     currentVFXAnim = 0

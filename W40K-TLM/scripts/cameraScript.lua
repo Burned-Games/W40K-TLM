@@ -317,11 +317,19 @@ function updateEnemyActivation()
                 direction.z = direction.z / distance
             end
 
-            if distance < radiusSpawn then
-                     
+            if distance < radiusSpawn and not entity:is_active() then
                 entity:set_active(true)
+                local tag = entity:get_component("TagComponent").tag 
+                if tag == "EnemyRange" or tag == "EnemySupport" or tag == "EnemyKamikaze" or tag == "EnemyTank" or tag== "EnemyTutorial" then 
+                    local children = entity:get_children()
 
-                
+                    for _, child in ipairs(children) do
+                        if child:get_component("TagComponent").tag == "Shield" then
+                            child:set_active(false)
+                            break
+                        end
+                    end
+                end
             end
         end
     end
