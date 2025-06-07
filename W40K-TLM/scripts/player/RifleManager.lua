@@ -150,6 +150,8 @@ isShootingRepeatly = false
 
 local indicatorDisruptorCharge = nil
 
+local hasBeenPointed = false
+
 function on_ready()
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
     player = current_scene:get_entity_by_name("Player")
@@ -518,6 +520,7 @@ function on_update(dt)
             else
                 
                 playerScript.activateAutoAim = false
+                hasBeenPointed = false
                 --vfxShootTransf.position.y = 830
                 if disruptorShooted2 == false then
                     playerScript.activateAutoAim = false
@@ -667,17 +670,25 @@ function shoot(dt, bulletNum)
 
 
     playShoot()
-    
-    if bulletNum == 3 then
-        if playerScript.enemyDirection ~= nil then
-            forwardVector = playerScript.enemyDirection
-            playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
-        else
-            forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+    if playerScript.enemyDirection ~= nil then
+        hasBeenPointed = true
+        if bulletNum == 3 then
+            if playerScript.enemyDirection ~= nil then
+                forwardVector = playerScript.enemyDirection
+                playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
+            else
+                forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+            end
+            bullets[3].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+            bullets[2].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+            bullets[1].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
         end
-        bullets[3].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-        bullets[2].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-        bullets[1].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+    else
+        if not hasBeenPointed then
+            forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
+            bullets[bulletNum].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+        end
+        
     end
     
     
