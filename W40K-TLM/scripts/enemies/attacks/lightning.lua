@@ -28,8 +28,8 @@ meleeDamage = 0
 function on_ready()
 
     -- Main Boss
-    enemyTransf = current_scene:get_entity_by_name("MainBoss"):get_component("TransformComponent")
-    enemyScript = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent")
+    enemyTransf = current_scene:get_entity_by_name("EnemyBoss"):get_component("TransformComponent")
+    enemyScript = current_scene:get_entity_by_name("EnemyBoss"):get_component("ScriptComponent")
 
     -- Player
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")

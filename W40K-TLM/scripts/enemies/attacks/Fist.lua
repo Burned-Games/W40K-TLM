@@ -61,7 +61,7 @@ local bossSmashImpactSFX = nil
 function on_ready()
 
     -- Main Boss
-    enemyScript = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent")
+    enemyScript = current_scene:get_entity_by_name("EnemyBoss"):get_component("ScriptComponent")
 
     -- Player
     playerTransf = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")

@@ -2,9 +2,6 @@ local player
 local playerTransf = nil
 local playerScript = nil
 local playerPos
-local playerDirectionX = 0
-local playerDirectionY = 0
-local playerDirectionZ = 0
 local cameraSpeed = 1.5
 --zoom
 local zoom = -1.5
@@ -17,10 +14,7 @@ local zoomStep = 0.5
 cameraBossActivated = false
 local normalOffset = Vector3.new(-10, 15, 10)
 local baseOffset = normalOffset
-local backOffset = Vector3.new(-10, 10, 10)
-local zoomedOffset = Vector3.new(-5, 7, 5)
 local cameraTransform = nil
-local directionCached = false
 local smoothPos = Vector3.new(0, 0, 0)
 
 local offsetPlayerBase = 5
@@ -190,9 +184,9 @@ function on_ready()
         local tag = entity:get_component("TagComponent").tag 
 
         
-        if tag:match("^Enemy") or tag == "BarrilDestruible" or tag == "CajaDestruible" or tag == "CajaDestruibleV2" or tag == "ScrapPile" or tag == "MainBoss" then 
+        if tag:match("^Enemy") or tag == "BarrilDestruible" or tag == "CajaDestruible" or tag == "CajaDestruibleV2" or tag == "ScrapPile" or tag == "EnemyBoss" then 
             table.insert(enemies, entity)
-            if tag == "MainBoss" then 
+            if tag == "EnemyBoss" then 
                 entity:set_active(true)
             else
                 entity:set_active(false)

@@ -2,15 +2,11 @@
 using = false
 local bullets = {}
 local bulletCount = 3  -- Bullet Num
-local sphere1RigidBody = nil
-local sphere1RigidBodyComponent = nil
 local sphereSpeed = 50
-local contadorDisparo = 0
 maxReloadTime = 2.5
 local reloadTime = 0
 maxAmmo = 24
 ammo = 0
-local reloadTimeRifle = 0
 local shootCoolDown = 0
 shootCoolDownRifle = 1.3
 local damageRifle = 15
@@ -20,9 +16,6 @@ local tripleShootInterval = 0.1
 
 local attackSpeedMultiplier = 1.0
 local reloadSpeedMultiplier = 1.0
-
-local shootParticlesComponent
-local bulletDamageParticleComponent
 
 local player = nil
 local playerTransf = nil
@@ -36,7 +29,6 @@ local yPositionBullet = 1.5
 local yPositionDisruptorBullet = 1
 
 --Audio
-local rifle_firerate = 0.8
 
 local bolterShotSFX = nil
 local bolterReloadSFX = nil
@@ -50,10 +42,8 @@ local playerNoAmmoSFX = nil
 local rifle_firerate_count = 0
 
 -- Particles
-local particle_cargdisruptor = nil
-local particle_expldisruptor = nil
 local particle_cargdisruptor_transform = nil
-local particle_expldisruptor_transform = nil
+
 
 -- Special ability
 
@@ -83,10 +73,9 @@ local particle_expldisruptor_transform = nil
 
     local zoneRadius = 4
     local chargeZoneDamagePerSecond = 15
-    local chargeZoneDuration = 5
+
     local secondCounter = 0
     local secondCounterTimes = 0
-    local damageDealed = false
 
     --Workbench
     local upgradeManager = nil
@@ -267,8 +256,8 @@ function on_ready()
             makeDisruptorDamage(entityA)
         end
 
-        if nameA == "MainBoss" or nameB == "MainBoss" then
-            local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+        if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
+            local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
         
             makeDisruptorDamage(enemy)
         end
@@ -459,8 +448,6 @@ function on_update(dt)
                     end
                     tripleShoot()
                     
-                    --vfxShootTransf.position.y = vfxShootPosY
-                    --shootParticlesComponent:emit(6)
                     ammo = ammo + 3
                     shooted = true
                     shootCoolDown = 0
@@ -797,7 +784,7 @@ function chargedZoneUpdate(dt)
                         end
                     end
 
-                    if name == "MainBoss" then 
+                    if name == "EnemyBoss" then 
                         enemyBossScript = entity:get_component("ScriptComponent")
                         if enemyBossScript ~= nil then
                             enemyBossScript.main_boss:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
@@ -857,7 +844,7 @@ function makeDamage(enemy)
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
-            elseif enemyTag == "MainBoss" then
+            elseif enemyTag == "EnemyBoss" then
                 enemyInstance = enemyScript.main_boss
             end
             
@@ -894,7 +881,7 @@ function makeDisruptorDamage(enemy)
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
-            elseif enemyTag == "MainBoss" then
+            elseif enemyTag == "EnemyBoss" then
                 enemyInstance = enemyScript.main_boss
             end
             enemyInstance:take_damage(disruptorBulletDamage, shieldMultiplier)
@@ -930,8 +917,8 @@ function handle_bullet_collision(entityA, entityB)
         makeDamage(entityB)
     end
 
-    if nameA == "MainBoss" or nameB == "MainBoss" then
-        local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+    if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
+        local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
         
         makeDamage(enemy)
     end

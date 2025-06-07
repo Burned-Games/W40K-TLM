@@ -9,12 +9,12 @@ local alpha = 0
 local fadeActive = false
 
 function on_ready()
-    bossScript = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent")
+    bossScript = current_scene:get_entity_by_name("EnemyBoss"):get_component("ScriptComponent")
     bossBar = current_scene:get_entity_by_name("BossBar")
     bossBarBase = current_scene:get_entity_by_name("BossBarBase"):get_component("UIImageComponent")
     bossBarLife = current_scene:get_entity_by_name("BossLifeUI"):get_component("UIImageComponent")
     bossName = current_scene:get_entity_by_name("BossName"):get_component("UIImageComponent")
-    bossManager = current_scene:get_entity_by_name("MainBoss"):get_component("ScriptComponent")
+    bossManager = current_scene:get_entity_by_name("EnemyBoss"):get_component("ScriptComponent")
     playerManager = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
     triggerBossBattle = current_scene:get_entity_by_name("TriggerBossBattle"):get_component("RigidbodyComponent")

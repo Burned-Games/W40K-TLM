@@ -3,7 +3,7 @@
         "cereal_class_version": 1,
         "Base": {
             "cereal_class_version": 0,
-            "value0": "MainBoss_Prefab",
+            "value0": "EnemyBoss_Prefab",
             "value1": {
                 "value0": ""
             },
@@ -24,7 +24,7 @@
         "value7": 0,
         "value8": {
             "cereal_class_version": 0,
-            "Tag": "MainBoss"
+            "Tag": "EnemyBoss"
         },
         "value9": 1,
         "value10": {
@@ -247,7 +247,7 @@
         "value55": 0,
         "value56": {
             "cereal_class_version": 0,
-            "ScriptPath": "scripts/enemies/MainBoss.lua",
+            "ScriptPath": "scripts/enemies/EnemyBoss.lua",
             "Language": 0
         },
         "value57": 1,

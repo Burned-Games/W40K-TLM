@@ -71,7 +71,7 @@ function on_ready()
     end
 
     -- Main Boss
-    bossAnimator = current_scene:get_entity_by_name("MainBoss"):get_component("AnimatorComponent")
+    bossAnimator = current_scene:get_entity_by_name("EnemyBoss"):get_component("AnimatorComponent")
     bossAnimator:set_looping(false)
 
     -- Camera

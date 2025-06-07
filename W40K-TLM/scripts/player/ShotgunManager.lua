@@ -495,7 +495,7 @@ function handle_bullet_collision(entityA, entityB)
                     shotgunBulletImpactsSFX:pause()
                     shotgunBulletImpactsSFX:play()
                        
-                    if enemyTag == "MainBoss" then
+                    if enemyTag == "EnemyBoss" then
                         enemyScript:take_damage(damage)
                         playerScript.makeDamage = true
 
@@ -538,8 +538,8 @@ function handle_bullet_collision(entityA, entityB)
         damage_enemy(entityB, entityA)
     end
 
-    if nameA == "MainBoss" or nameB == "MainBoss" then
-        local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+    if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
+        local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
         local bullet = (enemy == entityA) and entityB or entityA 
         damage_enemy(enemy, bullet)
     end
@@ -772,7 +772,7 @@ function explodeGranade()
                                 elseif enemyTag == "EnemyKamikaze" then
                                     isPushed = true    
                                     enemyInstance = enemyScript.kamikaze
-                                elseif enemyTag == "MainBoss" then
+                                elseif enemyTag == "EnemyBoss" then
                                     enemyInstance = enemyScript.main_boss
                                 end
                                 

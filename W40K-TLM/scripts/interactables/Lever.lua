@@ -2,7 +2,6 @@ local leverAnimator = nil
 local hasInteracted = false
 local transform
 local canInteract = true
-local maxInteractions = 0
 local currentInteractions = 0
 
 local interactionDistance = 5;

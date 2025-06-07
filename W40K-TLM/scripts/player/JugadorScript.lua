@@ -1428,7 +1428,7 @@ function detect_enemy(rayHit)
     or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyRang3" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyRange4" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyRange5" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyRange6" 
     or rayHit.hitEntity:get_component("TagComponent").tag == "EnemySupport" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank1" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank2" 
     or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyRange5" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank3" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank4" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank5" 
-    or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank6" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyKamikaze" or rayHit.hitEntity:get_component("TagComponent").tag == "MainBoss")
+    or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyTank6" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyKamikaze" or rayHit.hitEntity:get_component("TagComponent").tag == "EnemyBoss")
 
 end
 
