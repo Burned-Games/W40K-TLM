@@ -92,6 +92,18 @@ function on_ready()
 
     
 
+    -- Tank List
+    tank.otherTanksScript = {}
+    local allEntities = current_scene:get_all_entities()
+    for _, entity in ipairs(allEntities) do
+        local tagComponent = entity:get_component("TagComponent")
+        if tagComponent and (tagComponent.tag == "EnemyTank" or tagComponent.tag == "EnemyTank1") then
+            table.insert(tank.otherTanksScript, entity:get_component("ScriptComponent"))
+        end
+    end
+
+
+
     -- Level
     tank.enemyType = "tank"
     tank:set_level()
@@ -394,22 +406,17 @@ end
 
 function tank:is_other_tank_in_tackle()
 
-    local entities = current_scene:get_all_entities()
-    for _, entity in ipairs(entities) do
-        local tagComponent = entity:get_component("TagComponent")
-        if tagComponent and (tagComponent.tag == "EnemyTank" or tagComponent.tag == "EnemyTank1") and entity ~= self then
-            local otherTankScript = entity:get_component("ScriptComponent")
-            if otherTankScript then                
-                local tankInstance = otherTankScript.tank
-                if tankInstance then
-                    if tankInstance.currentState == self.state.Tackle then
-                        return true
-                    end
-                end
+    for _, entityScript in ipairs(self.otherTanksScript) do
+
+        if entityScript then
+            local otherTank = entityScript.tank
+            if otherTank and otherTank.currentState == self.state.Tackle then
+                log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                return true
             end
         end
     end
-    
+    log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
     return false  
 
 end

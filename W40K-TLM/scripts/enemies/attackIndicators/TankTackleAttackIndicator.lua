@@ -49,13 +49,16 @@ function on_ready()
 end
 
 function startIndicator()
-    isRunning = true;
-    indicatorTransform.scale = Vector3.new(1,0,1)
-    backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, actualAlpha)
-    indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, actualAlpha)
+    if not isRunning then
+        isRunning = true;
+        indicatorTransform.scale = Vector3.new(1,0,1)
+        backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, actualAlpha)
+        indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, actualAlpha)
 
-    actualAlpha = 0
-    actualSize = 0
+        actualAlpha = 0
+        actualSize = 0
+    end
+    
 end
 
 function on_update(dt)
