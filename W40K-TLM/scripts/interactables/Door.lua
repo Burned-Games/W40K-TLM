@@ -2,7 +2,7 @@ local minimumInteractions = 0
 local currentInteractions = 0
 local rigidBody = nil
 local isClosed = true
-local exitPosition = nil
+local exitPositions = {}
 local playerPosition = nil
 local doorPosition = nil
 
@@ -28,7 +28,7 @@ function on_ready()
             animator = child:get_component("AnimatorComponent")
         end
         if childTag:match("^ExitTrigger") then
-            exitPosition = child:get_component("TransformComponent").position
+            table.insert(exitPositions, child:get_component("TransformComponent").position)
         end
         if childTag:match("^CloseSFX")  then
             doorCloseSFX = child:get_component("AudioSourceComponent")
@@ -47,23 +47,26 @@ function on_ready()
 end
 
 function on_update(dt)
-    if not isClosed and exitPosition then
-        local distance = Vector3.new(
-            math.abs(playerPosition.x - (doorPosition.x + exitPosition.x)),
-            0,
-            math.abs(playerPosition.z - (doorPosition.z + exitPosition.z))
-        )
+    if not isClosed and #exitPositions > 0 then
+        for _, exitPosition in ipairs(exitPositions) do
+            local distance = Vector3.new(
+                math.abs(playerPosition.x - (doorPosition.x + exitPosition.x)),
+                0,
+                math.abs(playerPosition.z - (doorPosition.z + exitPosition.z))
+            )
 
-        if distance:length() < 1 then
-            currentInteractions = 0
-            if animator then
-                animator:set_current_animation(closeAnimation)
+            if distance:length() < 1.5 then
+                currentInteractions = 0
+                if animator then
+                    animator:set_current_animation(closeAnimation)
+                end
+                if doorCloseSFX then
+                    doorCloseSFX:play()
+                end
+                rigidBody:set_trigger(false)
+                isClosed = true
+                break
             end
-            if doorCloseSFX then
-                doorCloseSFX:play()
-            end
-            rigidBody:set_trigger(false)
-            isClosed = true
         end
     end
 end
