@@ -3042,7 +3042,7 @@
         },
         "value2766": 2469,
         "value2767": {
-            "Tag": "MainBoss"
+            "Tag": "EnemyBoss"
         },
         "value2768": 2470,
         "value2769": {
@@ -36171,14 +36171,14 @@
             "ScriptPath": "scripts/UI/PauseSettingsOnGame.lua",
             "Language": 0
         },
-        "value7957": 2469,
+        "value7957": 3146740,
         "value7958": {
-            "ScriptPath": "scripts/enemies/MainBoss.lua",
+            "ScriptPath": "scripts/misc/MovementTutorialIndicator.lua",
             "Language": 0
         },
-        "value7959": 3146850,
+        "value7959": 2469,
         "value7960": {
-            "ScriptPath": "scripts/enemies/attacks/lightning.lua",
+            "ScriptPath": "scripts/enemies/EnemyBoss.lua",
             "Language": 0
         },
         "value7961": 1949,
@@ -36301,9 +36301,9 @@
             "ScriptPath": "scripts/misc/BreakPillar.lua",
             "Language": 0
         },
-        "value8009": 3146740,
+        "value8009": 3146850,
         "value8010": {
-            "ScriptPath": "scripts/misc/MovementTutorialIndicator.lua",
+            "ScriptPath": "scripts/enemies/attacks/lightning.lua",
             "Language": 0
         },
         "value8011": 1,
@@ -46125,7 +46125,7 @@
         "value9024": 3146828,
         "value9025": {
             "TextureUUID": {
-                "value0": 18245178863562472020
+                "value0": 497748904080029038
             },
             "Color": {
                 "x": 1.0,

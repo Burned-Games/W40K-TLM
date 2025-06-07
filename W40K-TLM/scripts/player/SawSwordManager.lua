@@ -177,7 +177,7 @@ function Slash()
                                 enemyInstance = enemyScript.tank
                             elseif enemyTag == "EnemyKamikaze" then
                                 enemyInstance = enemyScript.kamikaze
-                            elseif enemyTag == "MainBoss" then
+                            elseif enemyTag == "EnemyBoss" then
                                 enemyInstance = enemyScript.main_boss
                             end
                             print(enemyTag)

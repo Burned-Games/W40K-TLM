@@ -267,8 +267,8 @@ function on_ready()
             makeDisruptorDamage(entityA)
         end
 
-        if nameA == "MainBoss" or nameB == "MainBoss" then
-            local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+        if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
+            local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
         
             makeDisruptorDamage(enemy)
         end
@@ -797,7 +797,7 @@ function chargedZoneUpdate(dt)
                         end
                     end
 
-                    if name == "MainBoss" then 
+                    if name == "EnemyBoss" then 
                         enemyBossScript = entity:get_component("ScriptComponent")
                         if enemyBossScript ~= nil then
                             enemyBossScript.main_boss:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
@@ -857,7 +857,7 @@ function makeDamage(enemy)
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
-            elseif enemyTag == "MainBoss" then
+            elseif enemyTag == "EnemyBoss" then
                 enemyInstance = enemyScript.main_boss
             end
             
@@ -894,7 +894,7 @@ function makeDisruptorDamage(enemy)
                 enemyInstance = enemyScript.tank
             elseif enemyTag == "EnemyKamikaze" then
                 enemyInstance = enemyScript.kamikaze
-            elseif enemyTag == "MainBoss" then
+            elseif enemyTag == "EnemyBoss" then
                 enemyInstance = enemyScript.main_boss
             end
             enemyInstance:take_damage(disruptorBulletDamage, shieldMultiplier)
@@ -930,8 +930,8 @@ function handle_bullet_collision(entityA, entityB)
         makeDamage(entityB)
     end
 
-    if nameA == "MainBoss" or nameB == "MainBoss" then
-        local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+    if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
+        local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
         
         makeDamage(enemy)
     end
