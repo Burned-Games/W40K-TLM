@@ -11,7 +11,7 @@ local indicatorSprite = nil
 
 local indicatorTransform = nil
 
-local isRunning = false
+isRunning = false
 local actualSize = 0
 local actualAlpha = 0;
 local speedIndicator = 0.9

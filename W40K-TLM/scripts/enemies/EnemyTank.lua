@@ -41,6 +41,12 @@ function on_ready()
             tank.attackVFX = child
             tank.attackVFXAnimator = tank.attackVFX:get_component("AnimatorComponent")
         end
+
+        if child:get_component("TagComponent").tag == "TackleIndicator" then
+            tank.tackleIndicator = child
+            tank.tackleIndicatorTransf = tank.tackleIndicator:get_component("TransformComponent")
+            tank.tackleIndicatorScript = tank.tackleIndicator:get_component("ScriptComponent")
+        end
     end
 
     --Mision
@@ -83,14 +89,6 @@ function on_ready()
     tank.run = instantiate_prefab(runPrefab)
     tank.runParticle = tank.run:get_component("ParticlesSystemComponent")
     tank.run:set_parent(self)
-
-    if not tank.tackleIndicator then
-        tank.tackleIndicator = instantiate_prefab(tackleIndicatorPrefab)
-        tank.tackleIndicatorTransf = tank.tackleIndicator:get_component("TransformComponent")
-        tank.tackleIndicatorScript = tank.tackleIndicator:get_component("ScriptComponent")
-        tank.tackleIndicatorScript:on_ready()
-        tank.tackleIndicator:set_parent(self)
-    end
 
     
 
