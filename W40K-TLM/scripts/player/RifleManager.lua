@@ -149,7 +149,10 @@ function on_ready()
     astartesFervorManager = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
 
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
-    workbenchUIManager = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
+    local workbenchUIManagerEntity = current_scene:get_entity_by_name("WorkBenchUIManager")
+    if workbenchUIManagerEntity:is_valid() then
+        workbenchUIManager = workbenchUIManagerEntity:get_component("ScriptComponent")
+    end
 
     particleCharging = current_scene:get_entity_by_name("ChargingDisruptorChargeParticle"):get_component("ParticlesSystemComponent")
 
@@ -357,7 +360,7 @@ function on_update(dt)
     end
 
 
-    if playerScript.health <= 0 or workbenchUIManager.isWorkBenchOpen then
+    if playerScript.health <= 0 or (workbenchUIManager and workbenchUIManager.isWorkBenchOpen) then
         return
     end
 

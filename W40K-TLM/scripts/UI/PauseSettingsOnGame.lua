@@ -93,7 +93,10 @@ function initialize_audio_components()
 end
 
 function initialize_scripts()
-    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
+    local workbenchUIManagerEntity = current_scene:get_entity_by_name("WorkBenchUIManager")
+    if workbenchUIManagerEntity:is_valid() then
+        workbenchUIManagerScript = workbenchUIManagerEntity:get_component("ScriptComponent")
+    end
     fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
 end
 
@@ -173,7 +176,7 @@ function open_pause_menu()
     visibilidad1Entity:set_active(true)
     chatarraUI:set_active(false)
     
-    if workbenchUIManagerScript.isWorkBenchOpen == true then
+    if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen == true then
         workbenchUIManagerScript:hide_ui()
     end
 end

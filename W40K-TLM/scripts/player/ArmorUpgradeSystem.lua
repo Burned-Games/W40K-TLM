@@ -39,8 +39,10 @@ function on_ready()
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
     fervorAniamtor = fervorAstartesStandardEntity:get_component("AnimatorComponent")
     hudManager = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
-    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
-
+    local workbenchUIManagerEntity = current_scene:get_entity_by_name("WorkBenchUIManager")
+    if workbenchUIManagerEntity:is_valid() then
+        workbenchUIManagerScript = workbenchUIManagerEntity:get_component("ScriptComponent")
+    end
     --Audio
     bannerFallSFX = current_scene:get_entity_by_name("BannerFallSFX"):get_component("AudioSourceComponent")
     bannerZoneSFX = current_scene:get_entity_by_name("BannerZoneSFX"):get_component("AudioSourceComponent")
@@ -54,7 +56,7 @@ function on_ready()
 end
 
 function on_update(dt)
-    if not pauseMenu.isPaused and not workbenchUIManagerScript.isWorkBenchOpen then
+    if not pauseMenu.isPaused and (not workbenchUIManagerScript or not workbenchUIManagerScript.isWorkBenchOpen) then
         update_protection(dt)
         handle_fervor_astartes(dt)
     end

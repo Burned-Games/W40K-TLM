@@ -291,7 +291,9 @@ function on_ready()
     playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
     playerHealingSFX = current_scene:get_entity_by_name("PlayerHealingSFX"):get_component("AudioSourceComponent")
-    dropPodSFX = current_scene:get_entity_by_name("DropPodSFX"):get_component("AudioSourceComponent")
+    if sceneName == "level1.TeaScene" then
+        dropPodSFX = current_scene:get_entity_by_name("DropPodSFX"):get_component("AudioSourceComponent")
+    end
 
     local musicVolume = load_progress("musicVolumeGeneral", 50.0) / 100
     exploreMusic:set_volume(musicVolume)
@@ -328,7 +330,10 @@ function on_ready()
     playerRb = self:get_component("RigidbodyComponent").rb
 
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
-    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
+    local workbenchUIManagerEntity = current_scene:get_entity_by_name("WorkBenchUIManager")
+    if workbenchUIManagerEntity:is_valid() then
+        workbenchUIManagerScript = workbenchUIManagerEntity:get_component("ScriptComponent")
+    end
 
     bolterUpper = current_scene:get_entity_by_name("Bolter_upper_player")
     bolterLower = current_scene:get_entity_by_name("Bolter_Lower_player")
@@ -379,7 +384,10 @@ function on_ready()
     end)
 
     --Mision
-    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
+    local missionManager = current_scene:get_entity_by_name("MisionManager")
+    if missionManager:is_valid() then
+        mission_Component = missionManager:get_component("ScriptComponent")
+    end
 
     level = load_progress("level", 1)
 
@@ -491,7 +499,7 @@ function on_update(dt)
     
     footstepSFXTimer = footstepSFXTimer + dt
     
-    if pauseScript.isPaused or workbenchUIManagerScript.isWorkBenchOpen then
+    if pauseScript.isPaused or (workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen) then
         playerRb:set_velocity(Vector3.new(0, 0, 0))
         if currentAnim ~= idle  then
             currentAnim = idle
@@ -513,7 +521,7 @@ function on_update(dt)
         intervalchekerUp = intervalcheker + 0.5
         isHealing = true
         damageReduction = 0.8
-        if mission_Component.getCurrerTaskIndex(true) == 6 then
+        if mission_Component and mission_Component.getCurrerTaskIndex(true) == 6 then
             mission_Component.m6_heal = true
         end
         if currentUpAnim ~= heal and bolterScript.shootAnimation == false and shotGunScript.shootAnimation == false and swordScript.slasheeed == false and isHitted == false and healAnimationBool == false and shotGunScript.is_reloading == false and bolterScript.reloadAnimation == false and bolterScript.chaaarging == false then
@@ -686,7 +694,10 @@ function on_update(dt)
 
     
     
-    if workbenchUIManagerScript.isWorkBenchOpen == false then
+    if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen == false then
+        updateDash(dt)
+        updateDashMelee(dt)
+    elseif not workbenchUIManagerScript then
         updateDash(dt)
         updateDashMelee(dt)
     end
@@ -698,8 +709,12 @@ function on_update(dt)
     else
         enemyDirection = nil
     end
-    if pauseScript.isPaused == false and workbenchUIManagerScript.isWorkBenchOpen == false then
-        playerMovement(dt)
+    if pauseScript.isPaused == false then
+        if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen == false then
+            playerMovement(dt)
+        elseif not workbenchUIManagerScript then
+            playerMovement(dt)
+        end
     end
 
     -- Listener Position
@@ -1648,8 +1663,10 @@ function saveProgress()
     save_progress("scrap", scrapCounter)
     save_progress("health", health)
     save_progress("stims", StimsCounter)
-    save_progress("bluemision", mission_Component.blueTaskIndex)
-    save_progress("redmision", mission_Component.redTaskIndex)
+    if mission_Component then
+        save_progress("bluemision", mission_Component.blueTaskIndex)
+        save_progress("redmision", mission_Component.redTaskIndex)
+    end
     
 end
 

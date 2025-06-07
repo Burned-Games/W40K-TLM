@@ -160,9 +160,10 @@ function on_ready()
 
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
-    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
-
-    
+    local workbenchUIManagerEntity = current_scene:get_entity_by_name("WorkBenchUIManager")
+    if workbenchUIManagerEntity:is_valid() then
+        workbenchUIManagerScript = workbenchUIManagerEntity:get_component("ScriptComponent")
+    end
 
     
     
@@ -251,7 +252,7 @@ function on_update(dt)
         smoothPos = Vector3.lerp(currentPos, adjustedTarget, dt * cameraSpeed)
         cameraTransform.position = smoothPos
 
-        if not cameraBossActivated and playerScript.godMode == false and pauseScript.isPaused == false and not workbenchUIManagerScript.isWorkBenchOpen then
+        if not cameraBossActivated and playerScript.godMode == false and pauseScript.isPaused == false and (workbenchUIManagerScript and not workbenchUIManagerScript.isWorkBenchOpen) then
             if Input.is_button_pressed(Input.controllercode.DpadUp) then
                 if zoom > minZoom then
                     zoom = zoom - zoomStep

@@ -29,7 +29,6 @@ local meleeAttackSFX = nil
 -- UpgradeManager
 local workbenchUIManagerScript = nil
 local pauseScript = nil
-local bolterScript = nil
 
 playerCDSFX = nil
 
@@ -40,8 +39,6 @@ function on_ready()
     playerTransf = player:get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
-    bolterScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
-
     -- Audio
     meleeHitSFX = current_scene:get_entity_by_name("MeleeHit"):get_component("AudioSourceComponent")
     meleeAttackSFX = current_scene:get_entity_by_name("MeleeAttack"):get_component("AudioSourceComponent")
@@ -49,7 +46,10 @@ function on_ready()
 
     cameraScript = current_scene:get_entity_by_name("Camera"):get_component("ScriptComponent")
 
-    workbenchUIManagerScript = current_scene:get_entity_by_name("WorkBenchUIManager"):get_component("ScriptComponent")
+    local workbenchUIManagerEntity = current_scene:get_entity_by_name("WorkBenchUIManager")
+    if workbenchUIManagerEntity:is_valid() then
+        workbenchUIManagerScript = workbenchUIManagerEntity:get_component("ScriptComponent")
+    end
     pauseScript = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
@@ -58,7 +58,7 @@ end
 
 function on_update(dt)
 
-    if playerScript.health <= 0 or workbenchUIManagerScript.isWorkBenchOpen or pauseScript.isPaused or playerScript.locked == true then
+    if playerScript.health <= 0 or (workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen) or pauseScript.isPaused or playerScript.locked == true then
         return
     end
 

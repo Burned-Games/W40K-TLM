@@ -172,7 +172,10 @@ function on_ready()
     
 
     --Chatarra
-    chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
+    local chatarraTextEntity = current_scene:get_entity_by_name("ChatarraTexto")
+    if chatarraTextEntity:is_valid() then
+        chatarraTextComponent = chatarraTextEntity:get_component("UITextComponent")
+    end
 
     player = current_scene:get_entity_by_name("Player")
     playerScript = player:get_component("ScriptComponent")
@@ -729,7 +732,7 @@ function update_health_display()
 end
 
 function update_scrap_display()
-    if playerScript ~= nil then
+    if playerScript ~= nil and chatarraTextComponent ~= nil then
         local chatarra = playerScript.scrapCounter
         chatarraTextComponent:set_text(tostring(chatarra))
     end
