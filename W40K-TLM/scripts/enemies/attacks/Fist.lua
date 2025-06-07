@@ -189,28 +189,30 @@ function fist()
             fistsUsed[i] = true
             table.insert(fistsToUseThisWave, i)
 
-            fistIndicators[i]:set_active(true)
+            if fistIndicators[i]:is_valid() then
+                fistIndicators[i]:set_active(true)
 
-            local pos = Vector3.new(0, 0, 0)
-            if i == startIndex then
-                pos = Vector3.new(enemyScript.main_boss.enemyTransf.position.x, 0, enemyScript.main_boss.enemyTransf.position.z)
-            else
-                local angle = math.random() * 2 * math.pi
-                local randRadius = math.sqrt(math.random()) * arenaRadius
+                local pos = Vector3.new(0, 0, 0)
+                if i == startIndex then
+                    pos = Vector3.new(enemyScript.main_boss.enemyTransf.position.x, 0, enemyScript.main_boss.enemyTransf.position.z)
+                else
+                    local angle = math.random() * 2 * math.pi
+                    local randRadius = math.sqrt(math.random()) * arenaRadius
 
-                local offsetX = math.cos(angle) * randRadius
-                local offsetZ = math.sin(angle) * randRadius
-                pos = Vector3.new(enemyScript.main_boss.enemyTransf.position.x + offsetX, 0, enemyScript.main_boss.enemyTransf.position.z + offsetZ)
-            end
+                    local offsetX = math.cos(angle) * randRadius
+                    local offsetZ = math.sin(angle) * randRadius
+                    pos = Vector3.new(enemyScript.main_boss.enemyTransf.position.x + offsetX, 0, enemyScript.main_boss.enemyTransf.position.z + offsetZ)
+                end
 
-            fistPositions[i] = pos
+                fistPositions[i] = pos
 
-            if fistIndicatorsTransform[i] then
-                fistIndicatorsTransform[i].position = pos
-                fistIndicatorsTransform[i].position.y = 0.1
-            end
-            if fistIndicatorsScript[i] then
-                fistIndicatorsScript[i]:startIndicator()
+                if fistIndicatorsTransform[i] then
+                    fistIndicatorsTransform[i].position = pos
+                    fistIndicatorsTransform[i].position.y = 0.1
+                end
+                if fistIndicatorsScript[i] then
+                    fistIndicatorsScript[i]:startIndicator()
+                end
             end
         end
 
@@ -228,38 +230,40 @@ function fist()
             local valid = false
             local pos = nil
 
-            fistIndicators[i]:set_active(true)
+            if fistIndicators[i]:is_valid() then
+                fistIndicators[i]:set_active(true)
 
-            if waveIndex == 1 then
-                pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
-            else
-                while not valid and attempts < maxAttempts do
-                    local angle = math.rad(math.random() * 360)
-                    local randRadius = radius + math.random() * 5
-                    local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
-                    local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
-                    pos = Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ)
+                if waveIndex == 1 then
+                    pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+                else
+                    while not valid and attempts < maxAttempts do
+                        local angle = math.rad(math.random() * 360)
+                        local randRadius = radius + math.random() * 5
+                        local offsetX = math.cos(angle) * randRadius + (math.random() * 2 - 1) * 5
+                        local offsetZ = math.sin(angle) * randRadius + (math.random() * 2 - 1) * 5
+                        pos = Vector3.new(playerTransf.position.x + offsetX, 0, playerTransf.position.z + offsetZ)
 
-                    if is_within_arena(pos, arenaCenter, arenaRadius) then
-                        valid = true
+                        if is_within_arena(pos, arenaCenter, arenaRadius) then
+                            valid = true
+                        end
+
+                        attempts = attempts + 1
                     end
 
-                    attempts = attempts + 1
+                    if not valid then
+                        pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+                    end
                 end
 
-                if not valid then
-                    pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
+                fistPositions[i] = pos
+
+                if fistIndicatorsTransform[i] then
+                    fistIndicatorsTransform[i].position = pos
+                    fistIndicatorsTransform[i].position.y = 0.1
                 end
-            end
-
-            fistPositions[i] = pos
-
-            if fistIndicatorsTransform[i] then
-                fistIndicatorsTransform[i].position = pos
-                fistIndicatorsTransform[i].position.y = 0.1
-            end
-            if fistIndicatorsScript[i] then
-                fistIndicatorsScript[i]:startIndicator()
+                if fistIndicatorsScript[i] then
+                    fistIndicatorsScript[i]:startIndicator()
+                end
             end
         end
     end
@@ -269,31 +273,33 @@ function execute_fists_attack()
     log("Fists Attack")
 
     for _, i in ipairs(fistsToUseThisWave) do
-        fistAttacks[i]:set_active(true)
-        local pos = fistPositions[i]
-        if fistRbComponent[i] and pos then
-            fistRbComponent[i].rb:set_position(pos)
-            if fistAnimator[i] then
-                fistAnimator[i]:set_current_animation(0)
-                currentAnim = 1
-                fistAnimator[i]:set_current_animation(currentAnim)
+        if fistAttacks[i]:is_valid() then
+            fistAttacks[i]:set_active(true)
+            local pos = fistPositions[i]
+            if fistRbComponent[i] and pos then
+                fistRbComponent[i].rb:set_position(pos)
+                if fistAnimator[i] then
+                    fistAnimator[i]:set_current_animation(0)
+                    currentAnim = 1
+                    fistAnimator[i]:set_current_animation(currentAnim)
+                end
+                bossSmashDescendSFX:play()
+
+                fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)
+                fistRbComponent[i].rb:set_trigger(true)
+
+                table.insert(scalingAttacks, {
+                    transformRb = fistRbComponent[i],
+                    elapsed = 0,
+                    duration = rangeAttackDuration,
+                    startScale = Vector3.new(1.5, 1.5, 1.5),
+                    targetScale = Vector3.new(fistTargetScale, fistTargetScale, fistTargetScale),
+                    colliderTimer = 0.0,
+                    finishedScaling = false,
+                    lingerElapsed = 0.0,
+                    lingerDuration = 4.0
+                })
             end
-            bossSmashDescendSFX:play()
-
-            fistRbComponent[i].rb:get_collider():set_sphere_radius(1.0)
-            fistRbComponent[i].rb:set_trigger(true)
-
-            table.insert(scalingAttacks, {
-                transformRb = fistRbComponent[i],
-                elapsed = 0,
-                duration = rangeAttackDuration,
-                startScale = Vector3.new(1.5, 1.5, 1.5),
-                targetScale = Vector3.new(fistTargetScale, fistTargetScale, fistTargetScale),
-                colliderTimer = 0.0,
-                finishedScaling = false,
-                lingerElapsed = 0.0,
-                lingerDuration = 4.0
-            })
         end
     end
 
@@ -336,7 +342,9 @@ function update_scaling_attacks(dt)
                 -- Return the fists
                 if data.transformRb and data.transformRb.rb then
                     data.transformRb.rb:set_position(Vector3.new(-500, 0, -150))
-                    fistAttacks[i]:set_active(false)
+                    if fistAttacks[i]:is_valid() then
+                        fistAttacks[i]:set_active(false)
+                    end
                 end
                 table.remove(scalingAttacks, i)
             end
