@@ -87,11 +87,11 @@ local cantidadConsumible = nil
 
 local dammageFeedback = nil
 local dammageFeedbackTexture = nil
+local dammageFadeOutActive = false
+local dammageFadeOutAlpha = 1.0
+local dammageFadeOutSpeed = 2.0
 local bleedingFeedback = nil
 local bleedingFeedbackTexture = nil
-local bleedingFadeOutActive = false
-local bleedingFadeOutAlpha = 1.0
-local bleedingFadeOutSpeed = 2.0
 local wasHitted = false
 
 function on_ready()
@@ -166,7 +166,7 @@ function on_ready()
     bleedingFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
 
     dammageFeedback = current_scene:get_entity_by_name("DammageUI")
-    dammageFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
+    dammageFeedbackTexture = dammageFeedback:get_component("UIImageComponent")
 
     cantidadConsumible = current_scene:get_entity_by_name("ConsumibleCantidad"):get_component("UITextComponent")
     
@@ -738,15 +738,29 @@ end
 function buff_debuff_manager(dt)
    cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
 
-   if playerScript.isHitted then
-       dammageFeedback:set_active(true)
-       wasHitted = true
-       bleedingFadeOutActive = false 
-   elseif wasHitted and not playerScript.isHitted then
-       dammageFeedback:set_active(false)
-       wasHitted = false   
-   end
-   
+    if playerScript.isHitted then
+        dammageFeedback:set_active(true)
+        dammageFeedbackTexture:set_color(Vector4.new(1, 1, 1, 1))
+        wasHitted = true
+        dammageFadeOutActive = false 
+    elseif wasHitted and not playerScript.isHitted then
+        dammageFadeOutActive = true
+        dammageFadeOutAlpha = 1.0
+        wasHitted = false
+    end
+    
+    if dammageFadeOutActive then
+        dammageFadeOutAlpha = dammageFadeOutAlpha - (dammageFadeOutSpeed * dt) 
+        
+        if dammageFadeOutAlpha <= 0 then
+            dammageFadeOutActive = false
+            dammageFadeOutAlpha = 0
+            dammageFeedback:set_active(false)
+        else
+            dammageFeedbackTexture:set_color(Vector4.new(1, 1, 1, dammageFadeOutAlpha))
+        end
+    end
+
    if playerScript.health < 100 then
        bleedingFeedback:set_active(true)
        
