@@ -441,17 +441,19 @@ function on_ready()
     end
 
     --TUTORIAL  
-    moveButton = current_scene:get_entity_by_name("MovementButton")
-    moveButton:set_active(false)
-    moveButtonSprite = moveButton:get_component("SpriteComponent")
-    shootButton = current_scene:get_entity_by_name("ShootButton")
-    shootButtonSprite = shootButton:get_component("SpriteComponent")
-    meleeButton = current_scene:get_entity_by_name("SawSwordButton")
-    meleeButtonSprite = meleeButton:get_component("SpriteComponent")
-    aimButton = current_scene:get_entity_by_name("AimButton")
-    aimButtonSprite = aimButton:get_component("SpriteComponent")
-    changeWeaponButton = current_scene:get_entity_by_name("changeWeaponButton")
-    changeWeaponButtonSprite = changeWeaponButton:get_component("SpriteComponent")
+    if SceneManager:get_scene_name() == "level1.TeaScene" then
+        moveButton = current_scene:get_entity_by_name("MovementButton")
+        moveButton:set_active(false)
+        moveButtonSprite = moveButton:get_component("SpriteComponent")
+        shootButton = current_scene:get_entity_by_name("ShootButton")
+        shootButtonSprite = shootButton:get_component("SpriteComponent")
+        meleeButton = current_scene:get_entity_by_name("SawSwordButton")
+        meleeButtonSprite = meleeButton:get_component("SpriteComponent")
+        aimButton = current_scene:get_entity_by_name("AimButton")
+        aimButtonSprite = aimButton:get_component("SpriteComponent")
+        changeWeaponButton = current_scene:get_entity_by_name("changeWeaponButton")
+        changeWeaponButtonSprite = changeWeaponButton:get_component("SpriteComponent")
+    end
     healButton = current_scene:get_entity_by_name("HealButton")
     healButtonSprite = healButton:get_component("SpriteComponent")
 
