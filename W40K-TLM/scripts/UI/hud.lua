@@ -528,7 +528,7 @@ function weaponManager(dt)
     if playerScript.actualweapon == 0 then
         arma1:set_active(true)
         arma2:set_active(false)
-        maxAmmoTextComponent:set_text(rifleScript.maxAmmo)
+        maxAmmoTextComponent:set_text(tostring(rifleScript.maxAmmo))
         weaponChangerToggle.value = false
         
         skillArma1Entity:set_active(true)
@@ -612,7 +612,7 @@ function weaponManager(dt)
         end
         arma1:set_active(true)
         arma2:set_active(false)
-        maxAmmoTextComponent:set_text(rifleScript.maxAmmo)
+        maxAmmoTextComponent:set_text(tostring(rifleScript.maxAmmo))
         weaponChangerToggle.value = false
         
         skillArma1Entity:set_active(true)
