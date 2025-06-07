@@ -8,7 +8,7 @@ local logo = nil
 local title = nil
 
 local expandDuration = 1.0 
-local maxScale = 1.01       
+local maxScale = 1.005      
 local originalScale = 1.0  
 
 function on_ready()
