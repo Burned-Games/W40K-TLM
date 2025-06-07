@@ -2,9 +2,6 @@ local player
 local playerTransf = nil
 local playerScript = nil
 local playerPos
-local playerDirectionX = 0
-local playerDirectionY = 0
-local playerDirectionZ = 0
 local cameraSpeed = 1.5
 --zoom
 local zoom = -1.5
@@ -17,10 +14,7 @@ local zoomStep = 0.5
 cameraBossActivated = false
 local normalOffset = Vector3.new(-10, 15, 10)
 local baseOffset = normalOffset
-local backOffset = Vector3.new(-10, 10, 10)
-local zoomedOffset = Vector3.new(-5, 7, 5)
 local cameraTransform = nil
-local directionCached = false
 local smoothPos = Vector3.new(0, 0, 0)
 
 local offsetPlayerBase = 5

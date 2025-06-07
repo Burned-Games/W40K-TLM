@@ -2,15 +2,11 @@
 using = false
 local bullets = {}
 local bulletCount = 3  -- Bullet Num
-local sphere1RigidBody = nil
-local sphere1RigidBodyComponent = nil
 local sphereSpeed = 50
-local contadorDisparo = 0
 maxReloadTime = 2.5
 local reloadTime = 0
 maxAmmo = 24
 ammo = 0
-local reloadTimeRifle = 0
 local shootCoolDown = 0
 shootCoolDownRifle = 1.3
 local damageRifle = 15
@@ -20,9 +16,6 @@ local tripleShootInterval = 0.1
 
 local attackSpeedMultiplier = 1.0
 local reloadSpeedMultiplier = 1.0
-
-local shootParticlesComponent
-local bulletDamageParticleComponent
 
 local player = nil
 local playerTransf = nil
@@ -36,7 +29,6 @@ local yPositionBullet = 1.5
 local yPositionDisruptorBullet = 1
 
 --Audio
-local rifle_firerate = 0.8
 
 local bolterShotSFX = nil
 local bolterReloadSFX = nil
@@ -50,10 +42,8 @@ local playerNoAmmoSFX = nil
 local rifle_firerate_count = 0
 
 -- Particles
-local particle_cargdisruptor = nil
-local particle_expldisruptor = nil
 local particle_cargdisruptor_transform = nil
-local particle_expldisruptor_transform = nil
+
 
 -- Special ability
 
@@ -83,10 +73,9 @@ local particle_expldisruptor_transform = nil
 
     local zoneRadius = 4
     local chargeZoneDamagePerSecond = 15
-    local chargeZoneDuration = 5
+
     local secondCounter = 0
     local secondCounterTimes = 0
-    local damageDealed = false
 
     --Workbench
     local upgradeManager = nil
@@ -459,8 +448,6 @@ function on_update(dt)
                     end
                     tripleShoot()
                     
-                    --vfxShootTransf.position.y = vfxShootPosY
-                    --shootParticlesComponent:emit(6)
                     ammo = ammo + 3
                     shooted = true
                     shootCoolDown = 0

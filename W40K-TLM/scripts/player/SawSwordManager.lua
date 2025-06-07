@@ -2,7 +2,6 @@
 
 local radiusAttack = 5
 local damage = 65
-local HpStealed = 20
 coolDown = 6
 coolDownCounter = 6
 local impulseDirection = nil
@@ -12,15 +11,12 @@ local player = nil
 local playerTransf = nil
 local playerScript = nil
 
-local entities = nil
-local enemies = nil
 slashed = false
 
 local slashCounter = 0
 local slashTime = 0.8
 slasheeed = false
---local ----------shootParticlesComponent = nil
---local --bulletDamageParticleComponent = nil
+
 
 sawSwordAvailable = true
 
