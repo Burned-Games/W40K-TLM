@@ -111,6 +111,8 @@ local velocidadAtaque = nil
 
 local cantidadConsumible = nil
 
+local bleedingFeedback = nil
+local bleedingFeedbackTexture = nil
 local bleedingFadeOutActive = false
 local bleedingFadeOutAlpha = 1.0
 local bleedingFadeOutSpeed = 2.0
@@ -197,8 +199,12 @@ function on_ready()
     recarga = recargaEntity:get_component("UIImageComponent")
     velocidadAtaqueEntity = current_scene:get_entity_by_name("VelocidadAtaque")
     velocidadAtaque = velocidadAtaqueEntity:get_component("UIImageComponent")
+    
+    bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
+    bleedingFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
 
     cantidadConsumible = current_scene:get_entity_by_name("ConsumibleCantidad"):get_component("UITextComponent")
+    
 
     --Chatarra
     chatarraTextComponent = current_scene:get_entity_by_name("ChatarraTexto"):get_component("UITextComponent")
@@ -766,9 +772,6 @@ end
 
 function buff_debuff_manager(dt)
     cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
-
-    local bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
-    local bleedingFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
 
     -- if playerScript.isHitted then
     --     bleedingFeedback:set_active(true)
