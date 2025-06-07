@@ -145,7 +145,6 @@ function on_update(dt)
         smoothPos = Vector3.new(cameraTransf.position.x + shakeOffset.x, cameraTransf.position.y + shakeOffset.y, cameraTransf.position.z + shakeOffset.z) 
 
         shakeDuration = shakeDuration - dt
-        log(shakeDuration)
         cameraTransf.position = smoothPos
     end
 
