@@ -85,6 +85,8 @@ velocidadAtaqueEntity = nil
 
 local cantidadConsumible = nil
 
+local dammageFeedback = nil
+local dammageFeedbackTexture = nil
 local bleedingFeedback = nil
 local bleedingFeedbackTexture = nil
 local bleedingFadeOutActive = false
@@ -162,6 +164,9 @@ function on_ready()
     
     bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
     bleedingFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
+
+    dammageFeedback = current_scene:get_entity_by_name("DammageUI")
+    dammageFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
 
     cantidadConsumible = current_scene:get_entity_by_name("ConsumibleCantidad"):get_component("UITextComponent")
     
@@ -731,84 +736,59 @@ function update_scrap_display()
 end
 
 function buff_debuff_manager(dt)
-    cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
+   cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
 
-    -- if playerScript.isHitted then
-    --     bleedingFeedback:set_active(true)
-    --     bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, 0.5)) 
-    --     wasHitted = true
-    --     bleedingFadeOutActive = false 
-        
-    -- else
-    if wasHitted and not playerScript.isHitted then
-        bleedingFadeOutActive = true
-        bleedingFadeOutAlpha = 1.0
-        wasHitted = false
-        bleedingFeedback:set_active(true)
-        
-    elseif playerScript.health < 100 then
-        bleedingFeedback:set_active(true)
-        
-        local healthPercent = playerScript.health / 100.0
-        local targetAlpha = 0.25 + (1.0 - healthPercent) * 0.5 
-        
-        if not bleedingFadeOutActive then
-            bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, targetAlpha))
-        end
-        
-    elseif playerScript.health >= 100 and not bleedingFadeOutActive then
-        bleedingFeedback:set_active(false)
-    end
-    
-    if bleedingFadeOutActive then
-        bleedingFadeOutAlpha = bleedingFadeOutAlpha - (bleedingFadeOutSpeed * dt) 
-        
-        if bleedingFadeOutAlpha <= 0 then
-            bleedingFadeOutActive = false
-            bleedingFadeOutAlpha = 0
-            
-            if playerScript.health < 100 then
-                local healthPercent = playerScript.health / 100.0
-                local targetAlpha = 0.25 + (1.0 - healthPercent) * 0.5
-                bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, targetAlpha))
-            else
-                bleedingFeedback:set_active(false)
-            end
-        else
-            bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, bleedingFadeOutAlpha))
-        end
-    end
-    
-    if playerScript.isBleeding then
-        sangradoEntity:set_active(true)
-    else
-        sangradoEntity:set_active(false)
-    end
-    
-    if playerScript.isStunned then
-        aturdidoEntity:set_active(true)
-    else
-        aturdidoEntity:set_active(false)
-    end
-    
-    if playerScript.isNeuralInhibitioning then
-        ralentizadoEntity:set_active(true)
-    else
-        ralentizadoEntity:set_active(false)
-    end
+   if playerScript.isHitted then
+       dammageFeedback:set_active(true)
+       wasHitted = true
+       bleedingFadeOutActive = false 
+   elseif wasHitted and not playerScript.isHitted then
+       dammageFeedback:set_active(false)
+       wasHitted = false   
+   end
+   
+   if playerScript.health < 100 then
+       bleedingFeedback:set_active(true)
+       
+       local healthPercent = playerScript.health / 100.0
+       local targetAlpha = 0.25 + (1.0 - healthPercent) * 0.5 
+       
+       bleedingFeedbackTexture:set_color(Vector4.new(1, 1, 1, targetAlpha))
+       
+   else
+       bleedingFeedback:set_active(false)
+   end
+   
+   if playerScript.isBleeding then
+       sangradoEntity:set_active(true)
+   else
+       sangradoEntity:set_active(false)
+   end
+   
+   if playerScript.isStunned then
+       aturdidoEntity:set_active(true)
+   else
+       aturdidoEntity:set_active(false)
+   end
+   
+   if playerScript.isNeuralInhibitioning then
+       ralentizadoEntity:set_active(true)
+   else
+       ralentizadoEntity:set_active(false)
+   end
 
-    if playerScript.isBurning then
-        quemadoEntity:set_active(true)
-    else
-        quemadoEntity:set_active(false)
-    end
-    
-    local colorHealing = Vector4.new(0, 1, 0.031, 1)
-    if playerScript.isHealing then
-        lifeFullComponent:set_color(colorHealing)
-    else
-        lifeFullComponent:set_color(originalLifeColor)
-    end
-    
-    silenciadoEntity:set_active(false)
+   if playerScript.isBurning then
+       quemadoEntity:set_active(true)
+   else
+       quemadoEntity:set_active(false)
+   end
+   
+   local colorHealing = Vector4.new(0, 1, 0.031, 1)
+   if playerScript.isHealing then
+       lifeFullComponent:set_color(colorHealing)
+   else
+       lifeFullComponent:set_color(originalLifeColor)
+   end
+   
+   silenciadoEntity:set_active(false)
 end
