@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.4.55",
+		"generator":"Khronos glTF Blender I/O v4.4.56",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -86,7 +86,7 @@
 					}
 				}
 			],
-			"name":"LeftRight",
+			"name":"AbiertoIdle",
 			"samplers":[
 				{
 					"input":7,
@@ -109,14 +109,172 @@
 					"output":11
 				},
 				{
-					"input":12,
-					"interpolation":"LINEAR",
-					"output":13
+					"input":7,
+					"interpolation":"STEP",
+					"output":12
 				},
 				{
 					"input":7,
 					"interpolation":"STEP",
+					"output":13
+				}
+			]
+		},
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":1,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":1,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":1,
+						"path":"scale"
+					}
+				},
+				{
+					"sampler":3,
+					"target":{
+						"node":0,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":4,
+					"target":{
+						"node":0,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":5,
+					"target":{
+						"node":0,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"CerradoIdle",
+			"samplers":[
+				{
+					"input":7,
+					"interpolation":"STEP",
 					"output":14
+				},
+				{
+					"input":7,
+					"interpolation":"STEP",
+					"output":15
+				},
+				{
+					"input":7,
+					"interpolation":"STEP",
+					"output":16
+				},
+				{
+					"input":7,
+					"interpolation":"STEP",
+					"output":17
+				},
+				{
+					"input":7,
+					"interpolation":"STEP",
+					"output":18
+				},
+				{
+					"input":7,
+					"interpolation":"STEP",
+					"output":19
+				}
+			]
+		},
+		{
+			"channels":[
+				{
+					"sampler":0,
+					"target":{
+						"node":1,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":1,
+					"target":{
+						"node":1,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":2,
+					"target":{
+						"node":1,
+						"path":"scale"
+					}
+				},
+				{
+					"sampler":3,
+					"target":{
+						"node":0,
+						"path":"translation"
+					}
+				},
+				{
+					"sampler":4,
+					"target":{
+						"node":0,
+						"path":"rotation"
+					}
+				},
+				{
+					"sampler":5,
+					"target":{
+						"node":0,
+						"path":"scale"
+					}
+				}
+			],
+			"name":"Transition",
+			"samplers":[
+				{
+					"input":20,
+					"interpolation":"STEP",
+					"output":21
+				},
+				{
+					"input":20,
+					"interpolation":"STEP",
+					"output":22
+				},
+				{
+					"input":20,
+					"interpolation":"STEP",
+					"output":23
+				},
+				{
+					"input":20,
+					"interpolation":"STEP",
+					"output":24
+				},
+				{
+					"input":25,
+					"interpolation":"LINEAR",
+					"output":26
+				},
+				{
+					"input":20,
+					"interpolation":"STEP",
+					"output":27
 				}
 			]
 		}
@@ -255,10 +413,10 @@
 			"componentType":5126,
 			"count":2,
 			"max":[
-				1.6666666666666667
+				0.03333333333333333
 			],
 			"min":[
-				0.041666666666666664
+				0
 			],
 			"type":"SCALAR"
 		},
@@ -289,23 +447,107 @@
 		{
 			"bufferView":12,
 			"componentType":5126,
-			"count":40,
+			"count":2,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":13,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":14,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":15,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":16,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":17,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":18,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":19,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":20,
+			"componentType":5126,
+			"count":2,
 			"max":[
-				1.6666666666666667
+				0.65
 			],
 			"min":[
-				0.041666666666666664
+				0
 			],
 			"type":"SCALAR"
 		},
 		{
-			"bufferView":13,
+			"bufferView":21,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":22,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":23,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":24,
+			"componentType":5126,
+			"count":2,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":25,
+			"componentType":5126,
+			"count":40,
+			"max":[
+				0.65
+			],
+			"min":[
+				0
+			],
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":26,
 			"componentType":5126,
 			"count":40,
 			"type":"VEC4"
 		},
 		{
-			"bufferView":14,
+			"bufferView":27,
 			"componentType":5126,
 			"count":2,
 			"type":"VEC3"
@@ -380,18 +622,83 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":160,
+			"byteLength":32,
 			"byteOffset":30452
 		},
 		{
 			"buffer":0,
-			"byteLength":640,
+			"byteLength":24,
+			"byteOffset":30484
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":30508
+		},
+		{
+			"buffer":0,
+			"byteLength":32,
+			"byteOffset":30532
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":30564
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":30588
+		},
+		{
+			"buffer":0,
+			"byteLength":32,
 			"byteOffset":30612
 		},
 		{
 			"buffer":0,
 			"byteLength":24,
-			"byteOffset":31252
+			"byteOffset":30644
+		},
+		{
+			"buffer":0,
+			"byteLength":8,
+			"byteOffset":30668
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":30676
+		},
+		{
+			"buffer":0,
+			"byteLength":32,
+			"byteOffset":30700
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":30732
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":30756
+		},
+		{
+			"buffer":0,
+			"byteLength":160,
+			"byteOffset":30780
+		},
+		{
+			"buffer":0,
+			"byteLength":640,
+			"byteOffset":30940
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":31580
 		}
 	],
 	"samplers":[
@@ -402,7 +709,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":31276,
+			"byteLength":31604,
 			"uri":"lever.bin"
 		}
 	]

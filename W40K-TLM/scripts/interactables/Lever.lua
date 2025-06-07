@@ -50,6 +50,7 @@ function on_ready()
 
     mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")        
 
+    leverAnimator:set_current_animation(1)
 
 end
 
@@ -127,7 +128,7 @@ end
 function interact()
     hasInteracted = true
     currentInteractions = currentInteractions + 1
-    leverAnimator:set_current_animation(0)
+    leverAnimator:set_current_animation(2)
     if leverSFX then
         leverSFX:play()
     end
