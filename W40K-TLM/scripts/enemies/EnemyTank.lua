@@ -32,6 +32,23 @@ function on_ready()
             tank.originalMaterial = tank.enemyMat.material
         end
 
+        if child:get_component("TagComponent").tag == "MeleeArea" then
+            -- tank.meleeArea = child
+            -- tank.meleeAreaRbComponent = child:get_component("RigidbodyComponent")
+            -- tank.meleeAreaRb = tank.meleeAreaRbComponent.rb
+            -- tank.meleeAreaRb:set_trigger(true)
+            -- tank.meleeAreaRbComponent:on_collision_enter(function(entityA, entityB)
+            --     local nameA = entityA:get_component("TagComponent").tag
+            --     local nameB = entityB:get_component("TagComponent").tag
+            
+            --     if (nameA == "Player" or nameB == "Player") then
+            --         tank:make_damage(tank.meleeDamage)
+            --         tank.meleeArea:set_active(false)
+            --         tank.meleeArea:set_active(false)
+            --     end
+            -- end)
+        end
+
         if child:get_component("TagComponent").tag == "BerserkParticle" then
             tank.berserkVFX = child
             tank.berserkVFXAnimator = tank.berserkVFX:get_component("AnimatorComponent")
@@ -80,27 +97,17 @@ function on_ready()
     end
 
     -- Particles
+
     tank.run = instantiate_prefab(runPrefab)
     tank.runParticle = tank.run:get_component("ParticlesSystemComponent")
     tank.run:set_parent(self)
 
-    -- Tackle Indicator
     if not tank.tackleIndicator then
         tank.tackleIndicator = instantiate_prefab(tackleIndicatorPrefab)
         tank.tackleIndicatorTransf = tank.tackleIndicator:get_component("TransformComponent")
         tank.tackleIndicatorScript = tank.tackleIndicator:get_component("ScriptComponent")
         tank.tackleIndicatorScript:on_ready()
         tank.tackleIndicator:set_parent(self)
-    end
-
-    -- Tank List
-    tank.otherTanks = {}
-    local allEntities = current_scene:get_all_entities()
-    for _, entity in ipairs(allEntities) do
-        local tagComponent = entity:get_component("TagComponent")
-        if tagComponent and (tagComponent.tag == "EnemyTank" or tagComponent.tag == "EnemyTank1") and entity ~= self then
-            table.insert(tank.otherTanks, entity)
-        end
     end
 
     
@@ -406,16 +413,25 @@ function on_update(dt)
 end
 
 function tank:is_other_tank_in_tackle()
-    for _, entity in ipairs(self.otherTanks) do
-        local scriptComponent = entity:get_component("ScriptComponent")
-        if scriptComponent then
-            local otherTank = scriptComponent.tank
-            if otherTank and otherTank.currentState == self.state.Tackle then
-                return true
+
+    local entities = current_scene:get_all_entities()
+    for _, entity in ipairs(entities) do
+        local tagComponent = entity:get_component("TagComponent")
+        if tagComponent and (tagComponent.tag == "EnemyTank" or tagComponent.tag == "EnemyTank1") and entity ~= self then
+            local otherTankScript = entity:get_component("ScriptComponent")
+            if otherTankScript then                
+                local tankInstance = otherTankScript.tank
+                if tankInstance then
+                    if tankInstance.currentState == self.state.Tackle then
+                        return true
+                    end
+                end
             end
         end
     end
-    return false
+    
+    return false  
+
 end
 
 function change_state(dt)
