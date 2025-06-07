@@ -1451,6 +1451,7 @@ function autoaimUpdate()
     -- Ángulo de separación en radianes (~30 grados)
     local angleOffset = math.rad(7.5)  
     local intermediateAngleOffset = math.rad(3.75)
+    local extendedAngleOffset = math.rad(11.25)  
 
     -- Rotar la dirección hacia la izquierda y derecha
     local leftDirection = Vector3.new(
@@ -1477,6 +1478,19 @@ function autoaimUpdate()
         direction.x * math.sin(-intermediateAngleOffset) + direction.z * math.cos(-intermediateAngleOffset)
     )
 
+    local farLeftDirection = Vector3.new(
+    direction.x * math.cos(extendedAngleOffset) - direction.z * math.sin(extendedAngleOffset),
+    0,
+    direction.x * math.sin(extendedAngleOffset) + direction.z * math.cos(extendedAngleOffset)
+)
+
+    local farRightDirection = Vector3.new(
+        direction.x * math.cos(-extendedAngleOffset) - direction.z * math.sin(-extendedAngleOffset),
+        0,
+        direction.x * math.sin(-extendedAngleOffset) + direction.z * math.cos(-extendedAngleOffset)
+    )
+
+
     local pos = playerTransf.position
     local origin = Vector3.new(pos.x, pos.y, pos.z)
 
@@ -1487,15 +1501,21 @@ function autoaimUpdate()
         Physics.DebugDrawRaycast(origin, direction, maxDistance, Vector4.new(1, 0, 0, 1), Vector4.new(0, 1, 0, 1))
         Physics.DebugDrawRaycast(origin, intermediateLeftDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1)) 
         Physics.DebugDrawRaycast(origin, leftDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+        Physics.DebugDrawRaycast(origin, farLeftDirection, maxDistance, Vector4.new(1, 0, 1, 1), Vector4.new(0.5, 0.5, 1, 1))
+
         Physics.DebugDrawRaycast(origin, intermediateRightDirection, maxDistance, Vector4.new(0, 1, 0, 1), Vector4.new(1, 1, 0, 1))
         Physics.DebugDrawRaycast(origin, rightDirection, maxDistance, Vector4.new(1, 1, 0, 1), Vector4.new(0, 1, 1, 1))
+        Physics.DebugDrawRaycast(origin, farRightDirection, maxDistance, Vector4.new(1, 0, 1, 1), Vector4.new(0.5, 0.5, 1, 1))
     end
 
     local centerHit = Physics.Raycast(origin, direction, maxDistance)
     local intermediateLeftHit = Physics.Raycast(origin, intermediateLeftDirection, maxDistance)
     local leftHit = Physics.Raycast(origin, leftDirection, maxDistance)
+    local farLeftHit = Physics.Raycast(origin, farLeftDirection, maxDistance)
     local intermediateRightHit = Physics.Raycast(origin, intermediateRightDirection, maxDistance)
     local rightHit = Physics.Raycast(origin, rightDirection, maxDistance)
+    local farRightHit = Physics.Raycast(origin, farRightDirection, maxDistance)
+
 
     if detect_enemy(centerHit) then
         local enemyPos = centerHit.hitEntity:get_component("TransformComponent").position
@@ -1516,7 +1536,14 @@ function autoaimUpdate()
         local enemyPos = rightHit.hitEntity:get_component("TransformComponent").position
         enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
 
-    else
+    elseif detect_enemy(farLeftHit) then
+        local enemyPos = farLeftHit.hitEntity:get_component("TransformComponent").position
+        enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
+
+    elseif detect_enemy(farRightHit) then
+        local enemyPos = farRightHit.hitEntity:get_component("TransformComponent").position
+        enemyDirection = normalizeVector(Vector3.new(enemyPos.x - origin.x,enemyPos.y - origin.y ,enemyPos.z - origin.z))
+    else   
         enemyDirection = nil
     end
 
