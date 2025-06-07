@@ -585,7 +585,7 @@ function on_update(dt)
             
     end
     
-    if aimButton:is_active() and isAiming and shootButton:is_active() and (currentUpAnim == attack or currentUpAnim == shotgun_Pump) then
+    if aimButton and aimButton:is_active() and isAiming and shootButton:is_active() and (currentUpAnim == attack or currentUpAnim == shotgun_Pump) then
         aimAndShootTutorialButtonsShown = true
     end
 
@@ -607,7 +607,7 @@ function on_update(dt)
         
     end
 
-    if meleeButton:is_active() and swordScript.slasheeed then
+    if meleeButton and meleeButton:is_active() and swordScript.slasheeed then
         SpriteTransitionTimer = SpriteTransitionTimer + dt
             local alpha = math.min(SpriteTransitionTimer / SpriteTransitionTimerTarget, 1.0)
             alpha = 1.0 - alpha -- invertir
