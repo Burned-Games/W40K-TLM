@@ -20,7 +20,7 @@ function on_ready()
     range.enemyNavmesh = self:get_component("NavigationAgentComponent")
     local children = self:get_children()
     for _, child in ipairs(children) do
-        if child:get_component("TagComponent").tag == "Enemy_ranged" then
+        if child:get_component("TagComponent").tag == "E_ranged" then
             range.enemyMat = child:get_component("MaterialComponent")
             range.originalMaterial = range.enemyMat.material
             break
