@@ -411,12 +411,10 @@ function tank:is_other_tank_in_tackle()
         if entityScript then
             local otherTank = entityScript.tank
             if otherTank and otherTank.currentState == self.state.Tackle then
-                log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
                 return true
             end
         end
     end
-    log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
     return false  
 
 end
