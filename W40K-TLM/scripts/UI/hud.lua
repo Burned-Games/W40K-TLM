@@ -6,13 +6,11 @@ local lifeFullComponent
 local lifeTextComponent
 local originalLifeColor = nil
 
-local skill1
 local skill1Entity
 local skill1VisualCooldownEntity
 local skill1VisualCooldown
 local skill1TextCooldownEntity
 local skill1TextCooldown
-local skill1Cooldown = false
 local skill1Timer = 0
 local dashScaling = false
 local dashScaleTimer = 0
@@ -20,23 +18,16 @@ local dashAvailableLastFrame = true
 
 local skill2
 local skill2Entity
-local skill2ButtonEntity    
-local skill2Button
 local skill2VisualCooldownEntity
 local skill2VisualCooldown
-local skill2Cooldown = false
 local skill2Timer = 0
 local meleeCurrentScale = 1.0
-local meleeScaling = false
 local meleeScaleTimer = 0
 local meleeAvailableLastFrame = true
 
 local skill3
 local skill3Entity
-local skill3Button    
 local skill3VisualCooldown
-local skill3Cooldown = false
-local skill3Timer = 0
 local fervorCurrentScale = 1.0
 local fervorScaling = false
 local fervorScaleTimer = 0
@@ -49,8 +40,6 @@ local skillArma1Cooldown
 local skillArma2Entity
 local skillArma2
 local skillArma2Cooldown
-local skillsArmasCooldown = false
-local skillsArmasTimer = 0
 local skillsArmasBoton
 local bolterCurrentScale = 1.0
 local bolterScaling = false
@@ -66,22 +55,15 @@ arma1Texture = nil
 arma2 = nil
 arma2Texture = nil
 local weaponChangerToggle = nil
-local currentWeapon = 1
-local weaponSwitchCooldown = 0.2 
 local weaponSwitchTimer = 0
 
-local maxChatarraDisplay = 1000
-local currentChatarra = 0
 
 local chatarraTextComponent
 
 local player = nil
 local playerScript = nil
-local lifeFullStartingPosition
 
 local rifleScript = nil
-local rifleAbilityCooldown
-local maxRifleAbilityCooldown
 
 local shotGunScript
 local sawSwordScript
@@ -92,22 +74,14 @@ local armorUpgradeScript = nil
 local upgradeManager = nil
 
 local quemadoEntity = nil
-local quemado = nil
 local sangradoEntity = nil
-local sangrado = nil
 local ralentizadoEntity = nil
-local ralentizado = nil
 local aturdidoEntity = nil
-local aturdido = nil
 local silenciadoEntity = nil
-local silenciado = nil
 
 proteccionEntity = nil
-local proteccion = nil
 recargaEntity = nil
-local recarga = nil
 velocidadAtaqueEntity = nil
-local velocidadAtaque = nil
 
 local cantidadConsumible = nil
 
@@ -126,7 +100,6 @@ function on_ready()
 
     --Habilidades
     skill1Entity = current_scene:get_entity_by_name("Habilidad1")
-    skill1 = skill1Entity:get_component("UIImageComponent")
     skill1VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad1Cooldown")
     skill1VisualCooldown = skill1VisualCooldownEntity:get_component("UIImageComponent")
     skill1TextCooldownEntity = current_scene:get_entity_by_name("Habilidad1CooldownText")
@@ -136,17 +109,14 @@ function on_ready()
     skill2Entity = current_scene:get_entity_by_name("Habilidad2Activable")
     skill2 = skill2Entity:get_component("UIToggleComponent")
     skill2ButtonEntity = current_scene:get_entity_by_name("Habilidad2Boton")
-    skill2Button = skill2ButtonEntity:get_component("UIImageComponent")
     skill2VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad2Cooldown")
     skill2VisualCooldown = skill2VisualCooldownEntity:get_component("UIImageComponent")
     skill2TextCooldownEntity = current_scene:get_entity_by_name("Habilidad2CooldownText")
     skill2TextCooldown = skill2TextCooldownEntity:get_component("UITextComponent")
-    skill2Button = current_scene:get_entity_by_name("Habilidad2Boton")
 
     skill3Entity = current_scene:get_entity_by_name("Habilidad3Activable")
     skill3 = skill3Entity:get_component("UIToggleComponent")
     skill3ButtonEntity = current_scene:get_entity_by_name("Habilidad3Boton")
-    skill3Button = skill3ButtonEntity:get_component("UIImageComponent")
     skill3VisualCooldownEntity = current_scene:get_entity_by_name("Habilidad3Cooldown")
     skill3VisualCooldown = skill3VisualCooldownEntity:get_component("UIImageComponent")
     skill3TextCooldownEntity = current_scene:get_entity_by_name("Habilidad3CooldownText")
@@ -174,31 +144,21 @@ function on_ready()
     weaponChangerToggle = current_scene:get_entity_by_name("BotonCambioArmas"):get_component("UIToggleComponent")
 
     rifleScript = current_scene:get_entity_by_name("BolterManager"):get_component("ScriptComponent")
-    rifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTimeCounter
-    maxRifleAbilityCooldown = rifleScript.cooldownDisruptorBulletTime
 
     shotGunScript = current_scene:get_entity_by_name("ShotgunManager"):get_component("ScriptComponent")
     sawSwordScript = current_scene:get_entity_by_name("SawSwordManager"):get_component("ScriptComponent")
 
      --Debuffs
     quemadoEntity = current_scene:get_entity_by_name("Quemado")
-    quemado = quemadoEntity:get_component("UIImageComponent")
     sangradoEntity = current_scene:get_entity_by_name("Sangrado")
-    sangrado = sangradoEntity:get_component("UIImageComponent")
     ralentizadoEntity = current_scene:get_entity_by_name("Ralentizado")
-    ralentizado = ralentizadoEntity:get_component("UIImageComponent")
     aturdidoEntity = current_scene:get_entity_by_name("Aturdido")
-    aturdido = aturdidoEntity:get_component("UIImageComponent")
     silenciadoEntity = current_scene:get_entity_by_name("Silenciado")
-    silenciado = silenciadoEntity:get_component("UIImageComponent")
     
     --Buffs
     proteccionEntity = current_scene:get_entity_by_name("Proteccion")
-    proteccion = proteccionEntity:get_component("UIImageComponent")
     recargaEntity = current_scene:get_entity_by_name("Recarga")
-    recarga = recargaEntity:get_component("UIImageComponent")
     velocidadAtaqueEntity = current_scene:get_entity_by_name("VelocidadAtaque")
-    velocidadAtaque = velocidadAtaqueEntity:get_component("UIImageComponent")
     
     bleedingFeedback = current_scene:get_entity_by_name("SangradoUI")
     bleedingFeedbackTexture = bleedingFeedback:get_component("UIImageComponent")
