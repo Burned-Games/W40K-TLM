@@ -185,7 +185,7 @@ function on_ready()
         local tag = entity:get_component("TagComponent").tag 
 
         
-        if tag:match("^Enemy") then 
+        if tag:match("^Enemy") or tag == "BarrilDestruible" or tag == "CajaDestruible" or tag == "CajaDestruibleV2" or tag == "ScrapPile" then 
             table.insert(enemies, entity)
             if tag == "EnemyBoss" then 
                 entity:set_active(true)

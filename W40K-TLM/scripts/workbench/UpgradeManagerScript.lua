@@ -26,7 +26,7 @@ local BASE_VALUES = {
 
     -- Shotgun values
     reloadTimeShotgun = 2.8,
-    shootCoolDownShotgun = 1.5,
+    shootCoolDownShotgun = 0.98,
     damageShotgun = 8
 }
 

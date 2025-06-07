@@ -1,7 +1,7 @@
 using = false
 -- Time
 local current_time = 0  
-shotgun_fire_rate = 1
+shotgun_fire_rate = 0.5
 next_fire_time = 0 
 
 -- ammo
@@ -92,7 +92,7 @@ local shotgunReloadSFX = nil
 local shotgunShotSFX = nil
 local playerNoAmmoSFX = nil
 
-local firstTimeAudio = false    
+local firstTimeAudio = false
 
 --Particles
 local particle_previewG_interior = nil
@@ -286,19 +286,18 @@ function on_update(dt)
 
             -- if in reload, check is fishing 
             if is_reloading or manualReload then
-                
                 if current_time >= reload_end_time then
                     ammo = maxAmmo  -- reload bullet
                     is_reloading = false
                     manualReload = false
                     playerScript.currentAnim = -1
+                    firstTimeAudio = false
                 else
                     if playerScript.currentUpAnim ~= playerScript.reload_Shotgun then
                         if firstTimeAudio == false then
                             shotgunReloadSFX:play()
                             firstTimeAudio = true
                         end
-                        
                         playerScript.currentUpAnim = playerScript.reload_Shotgun
                         playerScript.animator:set_upper_animation(playerScript.currentUpAnim)
                     end
