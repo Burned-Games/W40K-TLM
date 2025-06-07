@@ -10,13 +10,13 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 688653091433333321
+                "value0": 18244840858879115843
             },
             "value4": false
         },
         "RootEntity": 0,
-        "value0": 6,
-        "value1": 6,
+        "value0": 7,
+        "value1": 7,
         "value2": 0,
         "value3": 1,
         "value4": 2,
@@ -24,34 +24,39 @@
         "value6": 4,
         "value7": 5,
         "value8": 6,
-        "value9": 0,
-        "value10": {
+        "value9": 7,
+        "value10": 0,
+        "value11": {
             "cereal_class_version": 0,
             "Tag": "EnemyKamikazeAudio"
         },
-        "value11": 1,
-        "value12": {
-            "Tag": "KamikazeScreamBoomSFX"
-        },
-        "value13": 2,
-        "value14": {
-            "Tag": "KamikazeExplosionSFX"
-        },
-        "value15": 3,
-        "value16": {
-            "Tag": "KamikazeDieSFX"
-        },
-        "value17": 4,
-        "value18": {
-            "Tag": "KamikazeDetectionSFX"
-        },
-        "value19": 5,
-        "value20": {
+        "value12": 1,
+        "value13": {
             "Tag": "KamikazeStepsSFX"
         },
-        "value21": 6,
-        "value22": 0,
+        "value14": 2,
+        "value15": {
+            "Tag": "KamikazeDetectionSFX"
+        },
+        "value16": 3,
+        "value17": {
+            "Tag": "KamikazeDieSFX"
+        },
+        "value18": 4,
+        "value19": {
+            "Tag": "KamikazeExplosionSFX"
+        },
+        "value20": 5,
+        "value21": {
+            "Tag": "KamikazeScreamBoomSFX"
+        },
+        "value22": 6,
         "value23": {
+            "Tag": "SupportShieldExplosionSFX"
+        },
+        "value24": 7,
+        "value25": 0,
+        "value26": {
             "cereal_class_version": 0,
             "Position": {
                 "x": 0.0,
@@ -69,8 +74,8 @@
                 "z": 1.0
             }
         },
-        "value24": 1,
-        "value25": {
+        "value27": 1,
+        "value28": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -87,8 +92,8 @@
                 "z": 1.0
             }
         },
-        "value26": 2,
-        "value27": {
+        "value29": 2,
+        "value30": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -105,8 +110,8 @@
                 "z": 1.0
             }
         },
-        "value28": 3,
-        "value29": {
+        "value31": 3,
+        "value32": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -123,8 +128,8 @@
                 "z": 1.0
             }
         },
-        "value30": 4,
-        "value31": {
+        "value33": 4,
+        "value34": {
             "Position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -141,230 +146,119 @@
                 "z": 1.0
             }
         },
-        "value32": 5,
-        "value33": {
-            "Position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
-            },
-            "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        "value34": 6,
-        "value35": 0,
+        "value35": 5,
         "value36": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value37": 6,
+        "value38": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 7,
+        "value40": 0,
+        "value41": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
             "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value37": 1,
-        "value38": {
+        "value42": 1,
+        "value43": {
             "Parent": 0,
             "First": 4294967295,
-            "Next": 5,
-            "Prev": 3
+            "Next": 6,
+            "Prev": 4
         },
-        "value39": 2,
-        "value40": {
+        "value44": 2,
+        "value45": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 1
         },
-        "value41": 3,
-        "value42": {
+        "value46": 3,
+        "value47": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 2
         },
-        "value43": 4,
-        "value44": {
+        "value48": 4,
+        "value49": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 3
         },
-        "value45": 5,
-        "value46": {
+        "value50": 5,
+        "value51": {
             "Parent": 0,
             "First": 4294967295,
             "Next": 4294967295,
             "Prev": 4
         },
-        "value47": 0,
-        "value48": 0,
-        "value49": 0,
-        "value50": 0,
-        "value51": 0,
-        "value52": 0,
-        "value53": 6,
+        "value52": 6,
+        "value53": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 5
+        },
         "value54": 0,
-        "value55": 1,
-        "value56": 2,
-        "value57": 3,
-        "value58": 4,
-        "value59": 5,
-        "value60": 0,
+        "value55": 0,
+        "value56": 0,
+        "value57": 0,
+        "value58": 0,
+        "value59": 0,
+        "value60": 7,
         "value61": 0,
-        "value62": 5,
-        "value63": 1,
-        "value64": {
+        "value62": 1,
+        "value63": 2,
+        "value64": 3,
+        "value65": 4,
+        "value66": 5,
+        "value67": 6,
+        "value68": 0,
+        "value69": 0,
+        "value70": 6,
+        "value71": 1,
+        "value72": {
             "cereal_class_version": 0,
-            "GameObjectID": 13827521896512554655,
+            "GameObjectID": 9459065851115933731,
             "AudioBank": {
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
                         "cereal_class_version": 0,
-                        "Name": "KamikazeSFX",
-                        "Events": [
-                            "Play_KamikazeDetection",
-                            "Play_KamikazeDie",
-                            "Play_KamikazeExplosion",
-                            "Play_KamikazeScreamBoom"
-                        ]
-                    }
-                }
-            },
-            "AudioBankName": "KamikazeSFX",
-            "EventName": "Play_KamikazeScreamBoom",
-            "Volume": 0.43700000643730166,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value65": 2,
-        "value66": {
-            "GameObjectID": 9324423120895959502,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "KamikazeSFX",
-            "EventName": "Play_KamikazeExplosion",
-            "Volume": 0.32199999690055849,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value67": 3,
-        "value68": {
-            "GameObjectID": 13861169357585235150,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "KamikazeSFX",
-            "EventName": "Play_KamikazeDie",
-            "Volume": 0.41200000047683718,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value69": 4,
-        "value70": {
-            "GameObjectID": 436874331179932029,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 1
-                }
-            },
-            "AudioBankName": "KamikazeSFX",
-            "EventName": "Play_KamikazeDetection",
-            "Volume": 0.3440000116825104,
-            "Mute": false,
-            "PlayOnAwake": false,
-            "Transform": {
-                "m00": 1.0,
-                "m01": 0.0,
-                "m02": 0.0,
-                "m03": 0.0,
-                "m10": 0.0,
-                "m11": 1.0,
-                "m12": 0.0,
-                "m13": 0.0,
-                "m20": 0.0,
-                "m21": 0.0,
-                "m22": 1.0,
-                "m23": 0.0,
-                "m30": 0.0,
-                "m31": 0.0,
-                "m32": 0.0,
-                "m33": 1.0
-            }
-        },
-        "value71": 5,
-        "value72": {
-            "GameObjectID": 4169182753290196554,
-            "AudioBank": {
-                "ptr_wrapper": {
-                    "id": 2147483650,
-                    "data": {
                         "Name": "KamikazeSFX",
                         "Events": [
                             "Play_KamikazeDetection",
@@ -400,16 +294,196 @@
                 "m33": 1.0
             }
         },
-        "value73": 0,
-        "value74": 0,
-        "value75": 0,
-        "value76": 0,
-        "value77": 0,
-        "value78": 0,
-        "value79": 0,
-        "value80": 0,
-        "value81": 0,
-        "value82": 0,
-        "value83": 0
+        "value73": 2,
+        "value74": {
+            "GameObjectID": 8655790009020750961,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "Name": "KamikazeSFX",
+                        "Events": [
+                            "Play_KamikazeDetection",
+                            "Play_KamikazeDie",
+                            "Play_KamikazeExplosion",
+                            "Play_KamikazeScreamBoom"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "KamikazeSFX",
+            "EventName": "Play_KamikazeDetection",
+            "Volume": 0.3440000116825104,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value75": 3,
+        "value76": {
+            "GameObjectID": 15792329494492064467,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2
+                }
+            },
+            "AudioBankName": "KamikazeSFX",
+            "EventName": "Play_KamikazeDie",
+            "Volume": 0.41200000047683718,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value77": 4,
+        "value78": {
+            "GameObjectID": 3147052936458249265,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2
+                }
+            },
+            "AudioBankName": "KamikazeSFX",
+            "EventName": "Play_KamikazeExplosion",
+            "Volume": 0.32199999690055849,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value79": 5,
+        "value80": {
+            "GameObjectID": 17440057546455104529,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2
+                }
+            },
+            "AudioBankName": "KamikazeSFX",
+            "EventName": "Play_KamikazeScreamBoom",
+            "Volume": 0.43700000643730166,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value81": 6,
+        "value82": {
+            "GameObjectID": 8566806843246937071,
+            "AudioBank": {
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "Name": "SupportSFX",
+                        "Events": [
+                            "Play_SupportAtack",
+                            "Play_SupportHurt",
+                            "Play_SupportShieldExplosion",
+                            "Play_SupportShieldZaps",
+                            "Play_SupportShildAssign",
+                            "Play_SuppportDead"
+                        ]
+                    }
+                }
+            },
+            "AudioBankName": "SupportSFX",
+            "EventName": "Play_SupportShieldExplosion",
+            "Volume": 0.24500000476837159,
+            "Mute": false,
+            "PlayOnAwake": false,
+            "Transform": {
+                "m00": 1.0,
+                "m01": 0.0,
+                "m02": 0.0,
+                "m03": 0.0,
+                "m10": 0.0,
+                "m11": 1.0,
+                "m12": 0.0,
+                "m13": 0.0,
+                "m20": 0.0,
+                "m21": 0.0,
+                "m22": 1.0,
+                "m23": 0.0,
+                "m30": 0.0,
+                "m31": 0.0,
+                "m32": 0.0,
+                "m33": 1.0
+            }
+        },
+        "value83": 0,
+        "value84": 0,
+        "value85": 0,
+        "value86": 0,
+        "value87": 0,
+        "value88": 0,
+        "value89": 0,
+        "value90": 0,
+        "value91": 0,
+        "value92": 0,
+        "value93": 0
     }
 }
