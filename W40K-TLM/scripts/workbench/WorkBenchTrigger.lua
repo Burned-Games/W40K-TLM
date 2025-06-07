@@ -256,6 +256,13 @@ function handle_workbench_collision_stay(entityA, entityB)
 
     beforeFrameOutOfRange = playerInRange
     if nameA == "Player" or nameB == "Player" then
+        if playerInRange then
+            if tonumber(workbenchNumber) > playerScript.zonePlayer then
+                playerScript:saveProgress()
+            else
+                -- playerScript:saveUpgrades()
+            end
+        end
         playerInRange = true
         -- --print("Player is in range of the workbench")
     end
@@ -268,12 +275,6 @@ function handle_workbench_collision_exit(entityA, entityB)
     beforeFrameOutOfRange = playerInRange
     if nameA == "Player" or nameB == "Player" then
         playerInRange = false
-
-        if tonumber(workbenchNumber) > playerScript.zonePlayer then
-            playerScript:saveProgress()
-        else
-            playerScript:saveUpgrades()
-        end
         -- --print("Player exited the workbench range")
     end
 end
