@@ -29,6 +29,8 @@ local bannerZoneSFX = nil
 local bannerZoneTrans = nil
 
 local playerCDSFX = nil
+local playerPosition = nil
+local standardTransform = nil
 
 function on_ready()
     Player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
@@ -45,6 +47,9 @@ function on_ready()
     bannerZoneTrans = current_scene:get_entity_by_name("BannerZoneSFX"):get_component("TransformComponent")
 
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
+
+    playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
+    standardTransform = current_scene:get_entity_by_name("FervorAstartesStandard"):get_component("TransformComponent")
 
 end
 
@@ -98,8 +103,6 @@ function handle_fervor_astartes(dt)
         return
     end
 
-    local playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
-    local standardTransform = current_scene:get_entity_by_name("FervorAstartesStandard"):get_component("TransformComponent")
 
     if fervorAstartesCooldown > 0 then
         fervorAstartesCooldown = fervorAstartesCooldown - dt
