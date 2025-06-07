@@ -578,12 +578,12 @@ function handle_bullet_collision(entityA, entityB)
         end
     end
 
-    if bulletEntityA and (nameB ~= "Player" and nameB ~= "FloorCollider" and nameB ~= "Sphere1" and nameB ~= "Sphere2" and nameB ~= "Sphere3"  and nameB ~= "Sphere4" and nameB ~= "Sphere5" and nameB ~= "Sphere6" and nameB ~= "Sphere7" and nameB ~= "Sphere8" ) then
+    if bulletEntityA and (nameB ~= "Player" and nameB ~= "FloorCollider" and not nameB:match("^Sphere") ) then
         bulletEntityA.rigidBody:set_position(Vector3.new(0, -250, 0))
         bulletEntityA.rigidBody:set_velocity(Vector3.new(0, 0, 0))
     end
 
-    if bulletEntityB and (nameA ~= "Player" and nameA ~= "FloorCollider" and nameA ~= "Sphere1" and nameA ~= "Sphere2" and nameA ~= "Sphere3"  and nameA ~= "Sphere4" and nameA ~= "Sphere5" and nameA ~= "Sphere6" and nameA ~= "Sphere7" and nameA ~= "Sphere8" ) then
+    if bulletEntityB and (nameA ~= "Player" and nameA ~= "FloorCollider" and not nameA:match("^Sphere") ) then
         bulletEntityB.rigidBody:set_position(Vector3.new(0, -250, 0))
         bulletEntityB.rigidBody:set_velocity(Vector3.new(0, 0, 0))
     end

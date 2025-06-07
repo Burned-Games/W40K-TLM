@@ -263,46 +263,14 @@ function on_ready()
             end
         end
         
-        if nameA == "EnemyRange" or nameA == "EnemyTutorial" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" then 
+        if nameA:match("^Enemy") then 
             makeDisruptorDamage(entityA)
         end
 
-        if nameB == "EnemyRange" or nameB == "EnemyTutorial" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
-            makeDisruptorDamage(entityB)
-            
-        end
-
-        if nameA == "EnemySupport" then 
-            makeDisruptorDamage(entityA)
-        end
-
-        if nameB == "EnemySupport" then
-            makeDisruptorDamage(entityB)
-        end
-
-        if nameA == "EnemyKamikaze" then 
-            makeDisruptorDamage(entityA)
-        end
-
-        if nameB == "EnemyKamikaze" then
-            makeDisruptorDamage(entityB)
-        end
-
-        if nameA == "EnemyTank" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" then 
-            makeDisruptorDamage(entityA)
-        end
-
-        if nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
-            makeDisruptorDamage(entityB)
-            
-        end
-
-        if nameA == "MainBoss" then 
-            makeDisruptorDamage(entityA)
-        end
-
-        if nameB == "MainBoss" then
-            makeDisruptorDamage(entityB)
+        if nameA == "MainBoss" or nameB == "MainBoss" then
+            local enemy = (nameA == "MainBoss" and entityA) or (nameB == "MainBoss" and entityB)
+        
+            makeDisruptorDamage(enemy)
         end
 
         if nameA == "BarrilDestruible" or nameA == "CajaDestruible" or nameA == "CajaDestruibleV2" or nameA == "ScrapPile" then 
@@ -955,26 +923,11 @@ function handle_bullet_collision(entityA, entityB)
     local entityBRB = entityB:get_component("RigidbodyComponent").rb
 
     
+    if nameA:match("^Enemy") then
+        makeDamage(entityA)
 
-    if nameA == "EnemyRange" or nameA == "EnemyTutorial" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6" or nameB == "EnemyRange" or nameB == "EnemyTutorial" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6" then
-        local enemy = ((nameA == "EnemyRange" or nameA == "EnemyTutorial" or nameA == "EnemyRange2" or nameA == "EnemyRange3"  or nameA == "EnemyRange4" or nameA == "EnemyRange5" or nameA == "EnemyRange6") and entityA) or ((nameB == "EnemyRange" or nameB == "EnemyTutorial" or nameB == "EnemyRange2" or nameB == "EnemyRange3"  or nameB == "EnemyRange4" or nameB == "EnemyRange5" or nameB == "EnemyRange6") and entityB)
-        makeDamage(enemy)
-
-    end
-
-    if nameA == "EnemySupport" or nameB == "EnemySupport" then
-        local enemy = (nameA == "EnemySupport" and entityA) or (nameB == "EnemySupport" and entityB)
-        makeDamage(enemy)
-    end
-
-    if nameA == "EnemyKamikaze" or nameB == "EnemyKamikaze" then
-        local enemy = (nameA == "EnemyKamikaze" and entityA) or (nameB == "EnemyKamikaze" and entityB)
-        makeDamage(enemy)
-    end
-
-    if nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameA == "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6" or nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6" then
-        local enemy = ((nameA == "EnemyTank" or nameA== "EnemyTank1" or nameA == "EnemyTank2" or nameA == "EnemyTank3"  or nameA == "EnemyTank4" or nameA == "EnemyTank5" or nameA == "EnemyTank6") and entityA) or ((nameB == "EnemyTank" or nameB == "EnemyTank1" or nameB == "EnemyTank2" or nameB == "EnemyTank3"  or nameB == "EnemyTank4" or nameB == "EnemyTank5" or nameB == "EnemyTank6") and entityB)
-        makeDamage(enemy)
+    elseif nameB:match("^Enemy") then
+        makeDamage(entityB)
     end
 
     if nameA == "MainBoss" or nameB == "MainBoss" then
@@ -982,13 +935,14 @@ function handle_bullet_collision(entityA, entityB)
         
         makeDamage(enemy)
     end
-    if entityARB and nameB ~= "Player"  and nameB ~= "FloorCollider" and nameB ~= "Sphere1"  and nameB ~= "Sphere2"  and nameB ~= "Sphere3"  and nameB ~= "Sphere4"  and nameB ~= "Sphere5" and nameB ~= "Sphere6" and nameB ~= "Sphere7" and nameB ~= "Sphere8" then
+
+    if entityARB and nameB ~= "Player"  and nameB ~= "FloorCollider" and not nameB:match("^Sphere") then
         if entityBRB:get_is_trigger() == false then
             entityARB:set_position(Vector3.new(0,-150,0))
         end 
     end
 
-    if entityBRB and nameA ~= "Player"  and nameA ~= "FloorCollider" and nameA ~= "Sphere1"  and nameA ~= "Sphere2"  and nameA ~= "Sphere3"  and nameA ~= "Sphere4"  and nameA ~= "Sphere5" and nameA ~= "Sphere6" and nameA ~= "Sphere7" and nameA ~= "Sphere8" then
+    if entityBRB and nameA ~= "Player"  and nameA ~= "FloorCollider" and not nameA:match("^Sphere") then
         if entityARB:get_is_trigger() == false then
             entityBRB:set_position(Vector3.new(0,-150,0))
         end 
