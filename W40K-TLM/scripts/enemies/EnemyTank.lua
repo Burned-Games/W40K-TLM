@@ -12,8 +12,8 @@ local runPrefab = "prefabs/particles/Lvl1_run.prefab"
 
 function on_ready()
 
-    
     tank.entityName = self:get_component("TagComponent").tag
+    
     -- Scene
     tank.sceneName = SceneManager:get_scene_name()
 
@@ -30,23 +30,6 @@ function on_ready()
         if child:get_component("TagComponent").tag == "cuerpo_low" then
             tank.enemyMat = child:get_component("MaterialComponent")
             tank.originalMaterial = tank.enemyMat.material
-        end
-
-        if child:get_component("TagComponent").tag == "MeleeArea" then
-            -- tank.meleeArea = child
-            -- tank.meleeAreaRbComponent = child:get_component("RigidbodyComponent")
-            -- tank.meleeAreaRb = tank.meleeAreaRbComponent.rb
-            -- tank.meleeAreaRb:set_trigger(true)
-            -- tank.meleeAreaRbComponent:on_collision_enter(function(entityA, entityB)
-            --     local nameA = entityA:get_component("TagComponent").tag
-            --     local nameB = entityB:get_component("TagComponent").tag
-            
-            --     if (nameA == "Player" or nameB == "Player") then
-            --         tank:make_damage(tank.meleeDamage)
-            --         tank.meleeArea:set_active(false)
-            --         tank.meleeArea:set_active(false)
-            --     end
-            -- end)
         end
 
         if child:get_component("TagComponent").tag == "BerserkParticle" then
@@ -97,7 +80,6 @@ function on_ready()
     end
 
     -- Particles
-
     tank.run = instantiate_prefab(runPrefab)
     tank.runParticle = tank.run:get_component("ParticlesSystemComponent")
     tank.run:set_parent(self)
