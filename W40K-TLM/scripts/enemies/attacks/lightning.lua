@@ -133,7 +133,7 @@ function lightning()
     if lightningThrown then return end
 
     local direction = unitary_direction(playerTransf.position.x, enemyTransf.position.x, playerTransf.position.z, enemyTransf.position.z)
-    local basePos = Vector3.new(enemyTransf.position.x + (direction.x * -5), enemyTransf.position.y, enemyTransf.position.z + (direction.z * -5))
+    local basePos = Vector3.new(enemyTransf.position.x + (direction.x * -5), enemyTransf.position.y + 0.01, enemyTransf.position.z + (direction.z * -5))
     local colliderSpacing = 1.1 -- Base distance between colliders
 
     for i = 1, #lightningRbs do
