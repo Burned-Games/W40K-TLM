@@ -10859,7 +10859,7 @@
         "value4049": 920,
         "value4050": {
             "Position": {
-                "x": 85.0,
+                "x": 84.0,
                 "y": 0.0,
                 "z": 0.0
             },
@@ -25499,7 +25499,7 @@
                 }
             }
         },
-        "value5570": 282,
+        "value5570": 319,
         "value5571": 4194309,
         "value5572": 4195383,
         "value5573": 4195379,
@@ -25782,63 +25782,100 @@
         "value5850": 2099268,
         "value5851": 2098127,
         "value5852": 3146636,
-        "value5853": 53,
-        "value5854": 881,
-        "value5855": 1434,
-        "value5856": 953,
-        "value5857": 954,
-        "value5858": 955,
-        "value5859": 960,
-        "value5860": 961,
-        "value5861": 2098580,
-        "value5862": 1049987,
-        "value5863": 1050008,
-        "value5864": 3147811,
-        "value5865": 3147813,
-        "value5866": 2098582,
-        "value5867": 1051061,
-        "value5868": 3146818,
-        "value5869": 1049978,
-        "value5870": 1049983,
-        "value5871": 1049988,
-        "value5872": 1050009,
-        "value5873": 1049985,
-        "value5874": 3147807,
-        "value5875": 3147806,
-        "value5876": 1049977,
-        "value5877": 1049986,
-        "value5878": 1051062,
-        "value5879": 1050005,
-        "value5880": 4195383,
-        "value5881": 1050007,
-        "value5882": 1049981,
-        "value5883": 1049979,
-        "value5884": 1049980,
-        "value5885": 3147809,
-        "value5886": 3146820,
-        "value5887": 2098180,
-        "value5888": 2098181,
-        "value5889": 2098182,
-        "value5890": 2098171,
-        "value5891": 2098160,
-        "value5892": 1049984,
-        "value5893": 4195379,
-        "value5894": 4195385,
-        "value5895": 1049539,
-        "value5896": 4195386,
-        "value5897": 1049982,
-        "value5898": 2098175,
-        "value5899": 1439,
-        "value5900": 2098176,
-        "value5901": 2098177,
-        "value5902": 2098815,
-        "value5903": 2098178,
-        "value5904": 2098179,
-        "value5905": 1049574,
-        "value5906": 3147810,
-        "value5907": 4,
-        "value5908": 4195381,
-        "value5909": {
+        "value5853": 919,
+        "value5854": 920,
+        "value5855": 921,
+        "value5856": 922,
+        "value5857": 923,
+        "value5858": 924,
+        "value5859": 925,
+        "value5860": 929,
+        "value5861": 926,
+        "value5862": 927,
+        "value5863": 928,
+        "value5864": 930,
+        "value5865": 931,
+        "value5866": 932,
+        "value5867": 933,
+        "value5868": 934,
+        "value5869": 935,
+        "value5870": 936,
+        "value5871": 937,
+        "value5872": 938,
+        "value5873": 939,
+        "value5874": 1950,
+        "value5875": 942,
+        "value5876": 1049517,
+        "value5877": 944,
+        "value5878": 945,
+        "value5879": 1049516,
+        "value5880": 2008,
+        "value5881": 2009,
+        "value5882": 2010,
+        "value5883": 1049700,
+        "value5884": 2099595,
+        "value5885": 2099598,
+        "value5886": 2060,
+        "value5887": 2059,
+        "value5888": 2058,
+        "value5889": 2057,
+        "value5890": 53,
+        "value5891": 881,
+        "value5892": 1434,
+        "value5893": 953,
+        "value5894": 954,
+        "value5895": 955,
+        "value5896": 960,
+        "value5897": 961,
+        "value5898": 2098580,
+        "value5899": 1049987,
+        "value5900": 1050008,
+        "value5901": 3147811,
+        "value5902": 3147813,
+        "value5903": 2098582,
+        "value5904": 1051061,
+        "value5905": 3146818,
+        "value5906": 1049978,
+        "value5907": 1049983,
+        "value5908": 1049988,
+        "value5909": 1050009,
+        "value5910": 1049985,
+        "value5911": 3147807,
+        "value5912": 3147806,
+        "value5913": 1049977,
+        "value5914": 1049986,
+        "value5915": 1051062,
+        "value5916": 1050005,
+        "value5917": 4195383,
+        "value5918": 1050007,
+        "value5919": 1049981,
+        "value5920": 1049979,
+        "value5921": 1049980,
+        "value5922": 3147809,
+        "value5923": 3146820,
+        "value5924": 2098180,
+        "value5925": 2098181,
+        "value5926": 2098182,
+        "value5927": 2098171,
+        "value5928": 2098160,
+        "value5929": 1049984,
+        "value5930": 4195379,
+        "value5931": 4195385,
+        "value5932": 1049539,
+        "value5933": 4195386,
+        "value5934": 1049982,
+        "value5935": 2098175,
+        "value5936": 1439,
+        "value5937": 2098176,
+        "value5938": 2098177,
+        "value5939": 2098815,
+        "value5940": 2098178,
+        "value5941": 2098179,
+        "value5942": 1049574,
+        "value5943": 3147810,
+        "value5944": 4,
+        "value5945": 4195381,
+        "value5946": {
             "cereal_class_version": 0,
             "TextureUUID": {
                 "value0": 5517261345337856122
@@ -25853,8 +25890,8 @@
             "FlipY": false,
             "TilingFactor": 1.0
         },
-        "value5910": 2099597,
-        "value5911": {
+        "value5947": 2099597,
+        "value5948": {
             "TextureUUID": {
                 "value0": 14866899397275371397
             },
@@ -25868,8 +25905,8 @@
             "FlipY": false,
             "TilingFactor": 1.0
         },
-        "value5912": 4195380,
-        "value5913": {
+        "value5949": 4195380,
+        "value5950": {
             "TextureUUID": {
                 "value0": 14140380573434282294
             },
@@ -25883,8 +25920,8 @@
             "FlipY": false,
             "TilingFactor": 1.0
         },
-        "value5914": 2097318,
-        "value5915": {
+        "value5951": 2097318,
+        "value5952": {
             "TextureUUID": {
                 "value0": 15819474524551353335
             },
@@ -25898,9 +25935,9 @@
             "FlipY": false,
             "TilingFactor": 1.0
         },
-        "value5916": 65,
-        "value5917": 919,
-        "value5918": {
+        "value5953": 65,
+        "value5954": 919,
+        "value5955": {
             "cereal_class_version": 1,
             "TextureUUID": {
                 "value0": 5355905400749375306
@@ -25938,8 +25975,8 @@
             },
             "Layer": 1
         },
-        "value5919": 920,
-        "value5920": {
+        "value5956": 920,
+        "value5957": {
             "TextureUUID": {
                 "value0": 11205683480580645454
             },
@@ -25965,18 +26002,18 @@
                     "y": 0.5
                 },
                 "OffsetMin": {
-                    "x": 10.0,
+                    "x": 9.0,
                     "y": -75.0
                 },
                 "OffsetMax": {
-                    "x": 160.0,
+                    "x": 159.0,
                     "y": 75.0
                 }
             },
             "Layer": 1
         },
-        "value5921": 3147808,
-        "value5922": {
+        "value5958": 3147808,
+        "value5959": {
             "TextureUUID": {
                 "value0": 6171721320058060721
             },
@@ -26012,8 +26049,8 @@
             },
             "Layer": 31
         },
-        "value5923": 923,
-        "value5924": {
+        "value5960": 923,
+        "value5961": {
             "TextureUUID": {
                 "value0": 12192250953002308435
             },
@@ -26049,8 +26086,8 @@
             },
             "Layer": 1
         },
-        "value5925": 1049517,
-        "value5926": {
+        "value5962": 1049517,
+        "value5963": {
             "TextureUUID": {
                 "value0": 15432789603619073752
             },
@@ -26086,8 +26123,8 @@
             },
             "Layer": 1
         },
-        "value5927": 927,
-        "value5928": {
+        "value5964": 927,
+        "value5965": {
             "TextureUUID": {
                 "value0": 3351135232612799137
             },
@@ -26123,8 +26160,8 @@
             },
             "Layer": 1
         },
-        "value5929": 929,
-        "value5930": {
+        "value5966": 929,
+        "value5967": {
             "TextureUUID": {
                 "value0": 12180696393362440639
             },
@@ -26160,8 +26197,8 @@
             },
             "Layer": 1
         },
-        "value5931": 930,
-        "value5932": {
+        "value5968": 930,
+        "value5969": {
             "TextureUUID": {
                 "value0": 11790264889813664945
             },
@@ -26197,8 +26234,8 @@
             },
             "Layer": 1
         },
-        "value5933": 932,
-        "value5934": {
+        "value5970": 932,
+        "value5971": {
             "TextureUUID": {
                 "value0": 3351135232612799137
             },
@@ -26234,8 +26271,8 @@
             },
             "Layer": 1
         },
-        "value5935": 934,
-        "value5936": {
+        "value5972": 934,
+        "value5973": {
             "TextureUUID": {
                 "value0": 1202885763216815074
             },
@@ -26271,8 +26308,8 @@
             },
             "Layer": 1
         },
-        "value5937": 936,
-        "value5938": {
+        "value5974": 936,
+        "value5975": {
             "TextureUUID": {
                 "value0": 3351135232612799137
             },
@@ -26308,8 +26345,8 @@
             },
             "Layer": 1
         },
-        "value5939": 938,
-        "value5940": {
+        "value5976": 938,
+        "value5977": {
             "TextureUUID": {
                 "value0": 3351135232612799137
             },
@@ -26345,8 +26382,8 @@
             },
             "Layer": 1
         },
-        "value5941": 1049990,
-        "value5942": {
+        "value5978": 1049990,
+        "value5979": {
             "TextureUUID": {
                 "value0": 9636549339513466493
             },
@@ -26382,8 +26419,8 @@
             },
             "Layer": 32
         },
-        "value5943": 1050008,
-        "value5944": {
+        "value5980": 1050008,
+        "value5981": {
             "TextureUUID": {
                 "value0": 16229802193505294169
             },
@@ -26419,8 +26456,8 @@
             },
             "Layer": 32
         },
-        "value5945": 942,
-        "value5946": {
+        "value5982": 942,
+        "value5983": {
             "TextureUUID": {
                 "value0": 1825919833706341718
             },
@@ -26456,8 +26493,8 @@
             },
             "Layer": 2
         },
-        "value5947": 943,
-        "value5948": {
+        "value5984": 943,
+        "value5985": {
             "TextureUUID": {
                 "value0": 8140034900808643720
             },
@@ -26493,8 +26530,8 @@
             },
             "Layer": 2
         },
-        "value5949": 2098816,
-        "value5950": {
+        "value5986": 2098816,
+        "value5987": {
             "TextureUUID": {
                 "value0": 9150091189306457109
             },
@@ -26530,8 +26567,8 @@
             },
             "Layer": 0
         },
-        "value5951": 3147806,
-        "value5952": {
+        "value5988": 3147806,
+        "value5989": {
             "TextureUUID": {
                 "value0": 1564287090030401402
             },
@@ -26567,8 +26604,8 @@
             },
             "Layer": 31
         },
-        "value5953": 956,
-        "value5954": {
+        "value5990": 956,
+        "value5991": {
             "TextureUUID": {
                 "value0": 837189508941947017
             },
@@ -26604,8 +26641,8 @@
             },
             "Layer": 0
         },
-        "value5955": 950,
-        "value5956": {
+        "value5992": 950,
+        "value5993": {
             "TextureUUID": {
                 "value0": 5780065969581905936
             },
@@ -26641,8 +26678,8 @@
             },
             "Layer": 1
         },
-        "value5957": 1050249,
-        "value5958": {
+        "value5994": 1050249,
+        "value5995": {
             "TextureUUID": {
                 "value0": 807586784681185070
             },
@@ -26678,8 +26715,8 @@
             },
             "Layer": 100
         },
-        "value5959": 1050245,
-        "value5960": {
+        "value5996": 1050245,
+        "value5997": {
             "TextureUUID": {
                 "value0": 16609560832358601222
             },
@@ -26715,8 +26752,8 @@
             },
             "Layer": 100
         },
-        "value5961": 2099595,
-        "value5962": {
+        "value5998": 2099595,
+        "value5999": {
             "TextureUUID": {
                 "value0": 14104422112977279667
             },
@@ -26752,8 +26789,8 @@
             },
             "Layer": 2
         },
-        "value5963": 1050579,
-        "value5964": {
+        "value6000": 1050579,
+        "value6001": {
             "TextureUUID": {
                 "value0": 1831706722213651846
             },
@@ -26789,8 +26826,8 @@
             },
             "Layer": 0
         },
-        "value5965": 3146828,
-        "value5966": {
+        "value6002": 3146828,
+        "value6003": {
             "TextureUUID": {
                 "value0": 11802117587744842899
             },
@@ -26826,8 +26863,8 @@
             },
             "Layer": 30
         },
-        "value5967": 1050668,
-        "value5968": {
+        "value6004": 1050668,
+        "value6005": {
             "TextureUUID": {
                 "value0": 6238434695121481524
             },
@@ -26863,8 +26900,8 @@
             },
             "Layer": 0
         },
-        "value5969": 2060,
-        "value5970": {
+        "value6006": 2060,
+        "value6007": {
             "TextureUUID": {
                 "value0": 5415720967303225082
             },
@@ -26900,8 +26937,8 @@
             },
             "Layer": 0
         },
-        "value5971": 949,
-        "value5972": {
+        "value6008": 949,
+        "value6009": {
             "TextureUUID": {
                 "value0": 497748904080029038
             },
@@ -26937,8 +26974,8 @@
             },
             "Layer": 0
         },
-        "value5973": 1950,
-        "value5974": {
+        "value6010": 1950,
+        "value6011": {
             "TextureUUID": {
                 "value0": 5403094285604685715
             },
@@ -26974,8 +27011,8 @@
             },
             "Layer": 1
         },
-        "value5975": 1660,
-        "value5976": {
+        "value6012": 1660,
+        "value6013": {
             "TextureUUID": {
                 "value0": 6711820436760903955
             },
@@ -27011,8 +27048,8 @@
             },
             "Layer": 25
         },
-        "value5977": 1050009,
-        "value5978": {
+        "value6014": 1050009,
+        "value6015": {
             "TextureUUID": {
                 "value0": 3961125524084286103
             },
@@ -27048,8 +27085,8 @@
             },
             "Layer": 32
         },
-        "value5979": 3147807,
-        "value5980": {
+        "value6016": 3147807,
+        "value6017": {
             "TextureUUID": {
                 "value0": 4654708304739847868
             },
@@ -27085,8 +27122,8 @@
             },
             "Layer": 31
         },
-        "value5981": 2006,
-        "value5982": {
+        "value6018": 2006,
+        "value6019": {
             "TextureUUID": {
                 "value0": 13321231880002618860
             },
@@ -27122,8 +27159,8 @@
             },
             "Layer": 0
         },
-        "value5983": 3147224,
-        "value5984": {
+        "value6020": 3147224,
+        "value6021": {
             "TextureUUID": {
                 "value0": 7762536271526773863
             },
@@ -27159,8 +27196,8 @@
             },
             "Layer": 0
         },
-        "value5985": 2009,
-        "value5986": {
+        "value6022": 2009,
+        "value6023": {
             "TextureUUID": {
                 "value0": 5969604445843081405
             },
@@ -27196,8 +27233,8 @@
             },
             "Layer": 1
         },
-        "value5987": 924,
-        "value5988": {
+        "value6024": 924,
+        "value6025": {
             "TextureUUID": {
                 "value0": 3351135232612799137
             },
@@ -27233,8 +27270,8 @@
             },
             "Layer": 1
         },
-        "value5989": 1050627,
-        "value5990": {
+        "value6026": 1050627,
+        "value6027": {
             "TextureUUID": {
                 "value0": 497748904080029038
             },
@@ -27270,8 +27307,8 @@
             },
             "Layer": 0
         },
-        "value5991": 1050631,
-        "value5992": {
+        "value6028": 1050631,
+        "value6029": {
             "TextureUUID": {
                 "value0": 460987337354424897
             },
@@ -27307,8 +27344,8 @@
             },
             "Layer": 0
         },
-        "value5993": 1050630,
-        "value5994": {
+        "value6030": 1050630,
+        "value6031": {
             "TextureUUID": {
                 "value0": 16825078376987542586
             },
@@ -27344,8 +27381,8 @@
             },
             "Layer": 0
         },
-        "value5995": 1050629,
-        "value5996": {
+        "value6032": 1050629,
+        "value6033": {
             "TextureUUID": {
                 "value0": 2042868909884192470
             },
@@ -27381,8 +27418,8 @@
             },
             "Layer": 0
         },
-        "value5997": 1050628,
-        "value5998": {
+        "value6034": 1050628,
+        "value6035": {
             "TextureUUID": {
                 "value0": 15865792987212700511
             },
@@ -27418,8 +27455,8 @@
             },
             "Layer": 0
         },
-        "value5999": 2056,
-        "value6000": {
+        "value6036": 2056,
+        "value6037": {
             "TextureUUID": {
                 "value0": 7116779426949002712
             },
@@ -27455,8 +27492,8 @@
             },
             "Layer": 0
         },
-        "value6001": 2057,
-        "value6002": {
+        "value6038": 2057,
+        "value6039": {
             "TextureUUID": {
                 "value0": 497748904080029038
             },
@@ -27492,8 +27529,8 @@
             },
             "Layer": 0
         },
-        "value6003": 2058,
-        "value6004": {
+        "value6040": 2058,
+        "value6041": {
             "TextureUUID": {
                 "value0": 6957811344139750388
             },
@@ -27529,8 +27566,8 @@
             },
             "Layer": 0
         },
-        "value6005": 2059,
-        "value6006": {
+        "value6042": 2059,
+        "value6043": {
             "TextureUUID": {
                 "value0": 14715423923592461815
             },
@@ -27566,8 +27603,8 @@
             },
             "Layer": 0
         },
-        "value6007": 4196392,
-        "value6008": {
+        "value6044": 4196392,
+        "value6045": {
             "TextureUUID": {
                 "value0": 15214301479000495684
             },
@@ -27603,8 +27640,8 @@
             },
             "Layer": 100
         },
-        "value6009": 4196391,
-        "value6010": {
+        "value6046": 4196391,
+        "value6047": {
             "TextureUUID": {
                 "value0": 8983992674018412212
             },
@@ -27640,8 +27677,8 @@
             },
             "Layer": 100
         },
-        "value6011": 1049700,
-        "value6012": {
+        "value6048": 1049700,
+        "value6049": {
             "TextureUUID": {
                 "value0": 9898195140404311312
             },
@@ -27677,8 +27714,8 @@
             },
             "Layer": 1
         },
-        "value6013": 2098180,
-        "value6014": {
+        "value6050": 2098180,
+        "value6051": {
             "TextureUUID": {
                 "value0": 16229802193505294169
             },
@@ -27714,8 +27751,8 @@
             },
             "Layer": 32
         },
-        "value6015": 2098179,
-        "value6016": {
+        "value6052": 2098179,
+        "value6053": {
             "TextureUUID": {
                 "value0": 7239130903949239286
             },
@@ -27751,8 +27788,8 @@
             },
             "Layer": 32
         },
-        "value6017": 2098178,
-        "value6018": {
+        "value6054": 2098178,
+        "value6055": {
             "TextureUUID": {
                 "value0": 16229802193505294169
             },
@@ -27788,8 +27825,8 @@
             },
             "Layer": 32
         },
-        "value6019": 2098177,
-        "value6020": {
+        "value6056": 2098177,
+        "value6057": {
             "TextureUUID": {
                 "value0": 3961125524084286103
             },
@@ -27825,8 +27862,8 @@
             },
             "Layer": 32
         },
-        "value6021": 2098176,
-        "value6022": {
+        "value6058": 2098176,
+        "value6059": {
             "TextureUUID": {
                 "value0": 16229802193505294169
             },
@@ -27862,8 +27899,8 @@
             },
             "Layer": 32
         },
-        "value6023": 2098175,
-        "value6024": {
+        "value6060": 2098175,
+        "value6061": {
             "TextureUUID": {
                 "value0": 9636549339513466493
             },
@@ -27899,8 +27936,8 @@
             },
             "Layer": 32
         },
-        "value6025": 1051062,
-        "value6026": {
+        "value6062": 1051062,
+        "value6063": {
             "TextureUUID": {
                 "value0": 1626720053361486292
             },
@@ -27936,8 +27973,8 @@
             },
             "Layer": 31
         },
-        "value6027": 1051061,
-        "value6028": {
+        "value6064": 1051061,
+        "value6065": {
             "TextureUUID": {
                 "value0": 1262500054495843304
             },
@@ -27973,8 +28010,8 @@
             },
             "Layer": 31
         },
-        "value6029": 1049978,
-        "value6030": {
+        "value6066": 1049978,
+        "value6067": {
             "TextureUUID": {
                 "value0": 6171721320058060721
             },
@@ -28010,8 +28047,8 @@
             },
             "Layer": 31
         },
-        "value6031": 1049986,
-        "value6032": {
+        "value6068": 1049986,
+        "value6069": {
             "TextureUUID": {
                 "value0": 16229802193505294169
             },
@@ -28047,8 +28084,8 @@
             },
             "Layer": 32
         },
-        "value6033": 2098580,
-        "value6034": {
+        "value6070": 2098580,
+        "value6071": {
             "TextureUUID": {
                 "value0": 1855127072272197867
             },
@@ -28084,8 +28121,8 @@
             },
             "Layer": 32
         },
-        "value6035": 2098582,
-        "value6036": {
+        "value6072": 2098582,
+        "value6073": {
             "TextureUUID": {
                 "value0": 16229802193505294169
             },
@@ -28121,8 +28158,8 @@
             },
             "Layer": 32
         },
-        "value6037": 1050005,
-        "value6038": {
+        "value6074": 1050005,
+        "value6075": {
             "TextureUUID": {
                 "value0": 7239130903949239286
             },
@@ -28158,8 +28195,8 @@
             },
             "Layer": 32
         },
-        "value6039": 1050007,
-        "value6040": {
+        "value6076": 1050007,
+        "value6077": {
             "TextureUUID": {
                 "value0": 16229802193505294169
             },
@@ -28195,8 +28232,8 @@
             },
             "Layer": 32
         },
-        "value6041": 1050638,
-        "value6042": {
+        "value6078": 1050638,
+        "value6079": {
             "TextureUUID": {
                 "value0": 18293614392373388477
             },
@@ -28232,8 +28269,8 @@
             },
             "Layer": 100
         },
-        "value6043": 2098815,
-        "value6044": {
+        "value6080": 2098815,
+        "value6081": {
             "TextureUUID": {
                 "value0": 9150091189306457109
             },
@@ -28269,8 +28306,8 @@
             },
             "Layer": 0
         },
-        "value6045": 2099598,
-        "value6046": {
+        "value6082": 2099598,
+        "value6083": {
             "TextureUUID": {
                 "value0": 10428491279342280586
             },
@@ -28306,9 +28343,9 @@
             },
             "Layer": 1
         },
-        "value6047": 30,
-        "value6048": 921,
-        "value6049": {
+        "value6084": 30,
+        "value6085": 921,
+        "value6086": {
             "cereal_class_version": 0,
             "Text": "250",
             "FontPath": "",
@@ -28342,8 +28379,8 @@
             },
             "Layer": 0
         },
-        "value6050": 925,
-        "value6051": {
+        "value6087": 925,
+        "value6088": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -28376,8 +28413,8 @@
             },
             "Layer": 0
         },
-        "value6052": 928,
-        "value6053": {
+        "value6089": 928,
+        "value6090": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -28410,8 +28447,8 @@
             },
             "Layer": 0
         },
-        "value6054": 933,
-        "value6055": {
+        "value6091": 933,
+        "value6092": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -28444,8 +28481,8 @@
             },
             "Layer": 0
         },
-        "value6056": 939,
-        "value6057": {
+        "value6093": 939,
+        "value6094": {
             "Text": "5",
             "FontPath": "",
             "Color": {
@@ -28478,8 +28515,8 @@
             },
             "Layer": 0
         },
-        "value6058": 2010,
-        "value6059": {
+        "value6095": 2010,
+        "value6096": {
             "Text": "3",
             "FontPath": "",
             "Color": {
@@ -28512,8 +28549,8 @@
             },
             "Layer": 0
         },
-        "value6060": 945,
-        "value6061": {
+        "value6097": 945,
+        "value6098": {
             "Text": "24",
             "FontPath": "",
             "Color": {
@@ -28546,8 +28583,8 @@
             },
             "Layer": 0
         },
-        "value6062": 3147810,
-        "value6063": {
+        "value6099": 3147810,
+        "value6100": {
             "Text": "Weapons",
             "FontPath": "",
             "Color": {
@@ -28580,8 +28617,8 @@
             },
             "Layer": 31
         },
-        "value6064": 951,
-        "value6065": {
+        "value6101": 951,
+        "value6102": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -28614,8 +28651,8 @@
             },
             "Layer": 0
         },
-        "value6066": 957,
-        "value6067": {
+        "value6103": 957,
+        "value6104": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -28648,8 +28685,8 @@
             },
             "Layer": 0
         },
-        "value6068": 959,
-        "value6069": {
+        "value6105": 959,
+        "value6106": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -28682,8 +28719,8 @@
             },
             "Layer": 0
         },
-        "value6070": 961,
-        "value6071": {
+        "value6107": 961,
+        "value6108": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -28716,8 +28753,8 @@
             },
             "Layer": 0
         },
-        "value6072": 1049983,
-        "value6073": {
+        "value6109": 1049983,
+        "value6110": {
             "Text": "Lorem ipsum dolor sit\namet\n",
             "FontPath": "",
             "Color": {
@@ -28750,8 +28787,8 @@
             },
             "Layer": 31
         },
-        "value6074": 3147809,
-        "value6075": {
+        "value6111": 3147809,
+        "value6112": {
             "Text": "Upgrade",
             "FontPath": "",
             "Color": {
@@ -28784,8 +28821,8 @@
             },
             "Layer": 31
         },
-        "value6076": 3147812,
-        "value6077": {
+        "value6113": 3147812,
+        "value6114": {
             "Text": "Lorem ipsum dolor sit\namet\n",
             "FontPath": "",
             "Color": {
@@ -28818,8 +28855,8 @@
             },
             "Layer": 31
         },
-        "value6078": 2007,
-        "value6079": {
+        "value6115": 2007,
+        "value6116": {
             "Text": "9999",
             "FontPath": "",
             "Color": {
@@ -28852,8 +28889,8 @@
             },
             "Layer": 0
         },
-        "value6080": 1050248,
-        "value6081": {
+        "value6117": 1050248,
+        "value6118": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -28886,8 +28923,8 @@
             },
             "Layer": 0
         },
-        "value6082": 1049516,
-        "value6083": {
+        "value6119": 1049516,
+        "value6120": {
             "Text": "/",
             "FontPath": "",
             "Color": {
@@ -28920,8 +28957,8 @@
             },
             "Layer": 0
         },
-        "value6084": 944,
-        "value6085": {
+        "value6121": 944,
+        "value6122": {
             "Text": "24",
             "FontPath": "",
             "Color": {
@@ -28954,8 +28991,8 @@
             },
             "Layer": 0
         },
-        "value6086": 1050639,
-        "value6087": {
+        "value6123": 1050639,
+        "value6124": {
             "Text": "DialogText",
             "FontPath": "",
             "Color": {
@@ -28988,8 +29025,8 @@
             },
             "Layer": 0
         },
-        "value6088": 1050640,
-        "value6089": {
+        "value6125": 1050640,
+        "value6126": {
             "Text": "DialogName",
             "FontPath": "",
             "Color": {
@@ -29022,8 +29059,8 @@
             },
             "Layer": 0
         },
-        "value6090": 1049977,
-        "value6091": {
+        "value6127": 1049977,
+        "value6128": {
             "Text": "Lorem ipsum dolor sit\n amet Lorem ipsum dolor\n sit amet Lorem ipsum \ndolor sit amet Lorem \nipsum dolor sit amet",
             "FontPath": "",
             "Color": {
@@ -29056,8 +29093,8 @@
             },
             "Layer": 31
         },
-        "value6092": 1049981,
-        "value6093": {
+        "value6129": 1049981,
+        "value6130": {
             "Text": "Character\n",
             "FontPath": "",
             "Color": {
@@ -29090,8 +29127,8 @@
             },
             "Layer": 31
         },
-        "value6094": 1049980,
-        "value6095": {
+        "value6131": 1049980,
+        "value6132": {
             "Text": "300",
             "FontPath": "",
             "Color": {
@@ -29124,8 +29161,8 @@
             },
             "Layer": 31
         },
-        "value6096": 1049979,
-        "value6097": {
+        "value6133": 1049979,
+        "value6134": {
             "Text": "Upgrade",
             "FontPath": "",
             "Color": {
@@ -29158,8 +29195,8 @@
             },
             "Layer": 31
         },
-        "value6098": 3147811,
-        "value6099": {
+        "value6135": 3147811,
+        "value6136": {
             "Text": "Lorem ipsum dolor sit\n amet Lorem ipsum dolor\n sit amet Lorem ipsum \ndolor sit amet Lorem \nipsum dolor sit amet",
             "FontPath": "",
             "Color": {
@@ -29192,8 +29229,8 @@
             },
             "Layer": 31
         },
-        "value6100": 3147813,
-        "value6101": {
+        "value6137": 3147813,
+        "value6138": {
             "Text": "999",
             "FontPath": "",
             "Color": {
@@ -29226,8 +29263,8 @@
             },
             "Layer": 31
         },
-        "value6102": 1050242,
-        "value6103": {
+        "value6139": 1050242,
+        "value6140": {
             "Text": "999999",
             "FontPath": "",
             "Color": {
@@ -29260,8 +29297,8 @@
             },
             "Layer": 31
         },
-        "value6104": 2098813,
-        "value6105": {
+        "value6141": 2098813,
+        "value6142": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -29294,8 +29331,8 @@
             },
             "Layer": 0
         },
-        "value6106": 4196390,
-        "value6107": {
+        "value6143": 4196390,
+        "value6144": {
             "Text": "",
             "FontPath": "",
             "Color": {
@@ -29328,9 +29365,9 @@
             },
             "Layer": 0
         },
-        "value6108": 5,
-        "value6109": 926,
-        "value6110": {
+        "value6145": 5,
+        "value6146": 926,
+        "value6147": {
             "cereal_class_version": 0,
             "Value": false,
             "OnTextureUUID": {
@@ -29359,8 +29396,8 @@
             },
             "Layer": 1
         },
-        "value6111": 931,
-        "value6112": {
+        "value6148": 931,
+        "value6149": {
             "Value": false,
             "OnTextureUUID": {
                 "value0": 14932606733680129799
@@ -29388,8 +29425,8 @@
             },
             "Layer": 1
         },
-        "value6113": 935,
-        "value6114": {
+        "value6150": 935,
+        "value6151": {
             "Value": false,
             "OnTextureUUID": {
                 "value0": 5193849615268570005
@@ -29417,8 +29454,8 @@
             },
             "Layer": 1
         },
-        "value6115": 937,
-        "value6116": {
+        "value6152": 937,
+        "value6153": {
             "Value": false,
             "OnTextureUUID": {
                 "value0": 17303044543172946965
@@ -29446,8 +29483,8 @@
             },
             "Layer": 1
         },
-        "value6117": 2008,
-        "value6118": {
+        "value6154": 2008,
+        "value6155": {
             "Value": false,
             "OnTextureUUID": {
                 "value0": 14520610898929098839
@@ -29475,9 +29512,9 @@
             },
             "Layer": 1
         },
-        "value6119": 16,
-        "value6120": 3146818,
-        "value6121": {
+        "value6156": 16,
+        "value6157": 3146818,
+        "value6158": {
             "cereal_class_version": 0,
             "Interactable": true,
             "NormalTextureUUID": {
@@ -29536,8 +29573,8 @@
             },
             "Layer": 31
         },
-        "value6122": 3146820,
-        "value6123": {
+        "value6159": 3146820,
+        "value6160": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 11925968723070181540
@@ -29595,8 +29632,8 @@
             },
             "Layer": 31
         },
-        "value6124": 1049989,
-        "value6125": {
+        "value6161": 1049989,
+        "value6162": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 5482558693894737543
@@ -29654,8 +29691,8 @@
             },
             "Layer": 33
         },
-        "value6126": 1049988,
-        "value6127": {
+        "value6163": 1049988,
+        "value6164": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 5482558693894737543
@@ -29713,8 +29750,8 @@
             },
             "Layer": 33
         },
-        "value6128": 1049987,
-        "value6129": {
+        "value6165": 1049987,
+        "value6166": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 5482558693894737543
@@ -29772,8 +29809,8 @@
             },
             "Layer": 33
         },
-        "value6130": 1049982,
-        "value6131": {
+        "value6167": 1049982,
+        "value6168": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 5482558693894737543
@@ -29831,8 +29868,8 @@
             },
             "Layer": 33
         },
-        "value6132": 1049985,
-        "value6133": {
+        "value6169": 1049985,
+        "value6170": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10528565712936172381
@@ -29890,8 +29927,8 @@
             },
             "Layer": 33
         },
-        "value6134": 2098181,
-        "value6135": {
+        "value6171": 2098181,
+        "value6172": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 5482558693894737543
@@ -29949,8 +29986,8 @@
             },
             "Layer": 33
         },
-        "value6136": 2098182,
-        "value6137": {
+        "value6173": 2098182,
+        "value6174": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 5482558693894737543
@@ -30008,8 +30045,8 @@
             },
             "Layer": 33
         },
-        "value6138": 2098171,
-        "value6139": {
+        "value6175": 2098171,
+        "value6176": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 5482558693894737543
@@ -30067,8 +30104,8 @@
             },
             "Layer": 33
         },
-        "value6140": 2098160,
-        "value6141": {
+        "value6177": 2098160,
+        "value6178": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 10528565712936172381
@@ -30126,8 +30163,8 @@
             },
             "Layer": 33
         },
-        "value6142": 952,
-        "value6143": {
+        "value6179": 952,
+        "value6180": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -30185,8 +30222,8 @@
             },
             "Layer": 1
         },
-        "value6144": 953,
-        "value6145": {
+        "value6181": 953,
+        "value6182": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -30244,8 +30281,8 @@
             },
             "Layer": 1
         },
-        "value6146": 955,
-        "value6147": {
+        "value6183": 955,
+        "value6184": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -30303,8 +30340,8 @@
             },
             "Layer": 1
         },
-        "value6148": 3147222,
-        "value6149": {
+        "value6185": 3147222,
+        "value6186": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 497748904080029038
@@ -30362,8 +30399,8 @@
             },
             "Layer": 1
         },
-        "value6150": 4194882,
-        "value6151": {
+        "value6187": 4194882,
+        "value6188": {
             "Interactable": true,
             "NormalTextureUUID": {
                 "value0": 8316372002209302762
@@ -30421,9 +30458,9 @@
             },
             "Layer": 0
         },
-        "value6152": 2,
-        "value6153": 958,
-        "value6154": {
+        "value6189": 2,
+        "value6190": 958,
+        "value6191": {
             "cereal_class_version": 1,
             "Value": 0.0,
             "MinValue": 0.0,
@@ -30461,8 +30498,8 @@
             },
             "Layer": 0
         },
-        "value6155": 960,
-        "value6156": {
+        "value6192": 960,
+        "value6193": {
             "Value": 0.0,
             "MinValue": 0.0,
             "MaxValue": 1.0,
@@ -30499,9 +30536,9 @@
             },
             "Layer": 0
         },
-        "value6157": 9,
-        "value6158": 3147817,
-        "value6159": {
+        "value6194": 9,
+        "value6195": 3147817,
+        "value6196": {
             "cereal_class_version": 0,
             "Anchor": {
                 "AnchorMin": {
@@ -30523,8 +30560,8 @@
             },
             "Layer": 0
         },
-        "value6160": 3146822,
-        "value6161": {
+        "value6197": 3146822,
+        "value6198": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
@@ -30545,8 +30582,8 @@
             },
             "Layer": 0
         },
-        "value6162": 1050238,
-        "value6163": {
+        "value6199": 1050238,
+        "value6200": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
@@ -30567,8 +30604,8 @@
             },
             "Layer": 0
         },
-        "value6164": 4196394,
-        "value6165": {
+        "value6201": 4196394,
+        "value6202": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
@@ -30589,8 +30626,8 @@
             },
             "Layer": 0
         },
-        "value6166": 3146823,
-        "value6167": {
+        "value6203": 3146823,
+        "value6204": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
@@ -30611,8 +30648,8 @@
             },
             "Layer": 0
         },
-        "value6168": 1049984,
-        "value6169": {
+        "value6205": 1049984,
+        "value6206": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
@@ -30633,8 +30670,8 @@
             },
             "Layer": 0
         },
-        "value6170": 1050637,
-        "value6171": {
+        "value6207": 1050637,
+        "value6208": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
@@ -30655,8 +30692,8 @@
             },
             "Layer": 0
         },
-        "value6172": 1049522,
-        "value6173": {
+        "value6209": 1049522,
+        "value6210": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
@@ -30677,8 +30714,8 @@
             },
             "Layer": 0
         },
-        "value6174": 922,
-        "value6175": {
+        "value6211": 922,
+        "value6212": {
             "Anchor": {
                 "AnchorMin": {
                     "x": 0.5,
