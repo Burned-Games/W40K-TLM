@@ -105,10 +105,8 @@ local footstepSFXTimer = 0
 local footstepSFXDelay = 0.5
 
 local playerDeathSFX = nil
-local playerBurningSFX = nil
 local playerDashSFX = nil
 local playerInyectorSFX = nil
-local playerOverloadsSFX = nil
 local playerStepsSFX = nil
 local playerSwapWeaponsSFX = nil
 local playerCDSFX = nil
@@ -289,7 +287,6 @@ function on_ready()
     burningSFX = current_scene:get_entity_by_name("PlayerBurningSFX"):get_component("AudioSourceComponent")
     playerDashSFX = current_scene:get_entity_by_name("PlayerDashSFX"):get_component("AudioSourceComponent")
     playerInyectorSFX = current_scene:get_entity_by_name("PlayerInyectorSFX"):get_component("AudioSourceComponent")
-    playerOverloadsSFX = current_scene:get_entity_by_name("PlayerOverloadsSFX"):get_component("AudioSourceComponent")
     playerStepsSFX = current_scene:get_entity_by_name("PlayerStepsSFX"):get_component("AudioSourceComponent")
     playerSwapWeaponsSFX = current_scene:get_entity_by_name("PlayerSwapWeaponsSFX"):get_component("AudioSourceComponent")
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
