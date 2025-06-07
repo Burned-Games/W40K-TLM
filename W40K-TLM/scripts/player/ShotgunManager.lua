@@ -487,6 +487,8 @@ function handle_bullet_collision(entityA, entityB)
                         enemyInstance = enemyScript.tank
                     elseif enemyTag == "EnemyKamikaze" then
                         enemyInstance = enemyScript.kamikaze
+                    elseif enemyTag == "EnemyBoss" then
+                        enemyInstance = enemyScript.main_boss
                     end
         
                     enemyInstance:take_damage(damage)
@@ -494,14 +496,6 @@ function handle_bullet_collision(entityA, entityB)
 
                     shotgunBulletImpactsSFX:pause()
                     shotgunBulletImpactsSFX:play()
-                       
-                    if enemyTag == "EnemyBoss" then
-                        enemyScript:take_damage(damage)
-                        playerScript.makeDamage = true
-
-                        shotgunBulletImpactsSFX:pause()
-                        shotgunBulletImpactsSFX:play()
-                    end
                 end
             end
 
@@ -536,12 +530,6 @@ function handle_bullet_collision(entityA, entityB)
         damage_enemy(entityA, entityB)
     elseif  nameB:match("^Enemy") then
         damage_enemy(entityB, entityA)
-    end
-
-    if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
-        local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
-        local bullet = (enemy == entityA) and entityB or entityA 
-        damage_enemy(enemy, bullet)
     end
     
     local bulletEntityA = nil

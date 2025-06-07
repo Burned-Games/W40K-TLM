@@ -254,12 +254,8 @@ function on_ready()
         
         if nameA:match("^Enemy") then 
             makeDisruptorDamage(entityA)
-        end
-
-        if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
-            local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
-        
-            makeDisruptorDamage(enemy)
+        elseif nameB:match("^Enemy") then
+            makeDisruptorDamage(entityB)
         end
 
         if nameA == "BarrilDestruible" or nameA == "CajaDestruible" or nameA == "CajaDestruibleV2" or nameA == "ScrapPile" then 
@@ -750,7 +746,7 @@ function chargedZoneUpdate(dt)
 
                     local name = entity:get_component("TagComponent").tag
 
-                    if name== "EnemyRange" or name== "EnemyTutorial" or name== "EnemyRange2" or name== "EnemyRange3" or name== "EnemyRange4" or name== "EnemyRange5" or name== "EnemyRange6" then  
+                    if name== "EnemyRange" or name== "EnemyTutorial" then  
                         enemyOrkScript = entity:get_component("ScriptComponent")
                         if enemyOrkScript ~= nil then                          
                             enemyOrkScript.range:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
@@ -776,7 +772,7 @@ function chargedZoneUpdate(dt)
                         end
                     end
 
-                    if name == "EnemyTank" or name == "EnemyTank1" or name == "EnemyTank2" or name == "EnemyTank3" or name == "EnemyTank4" or name == "EnemyTank5" or name == "EnemyTank6" then  
+                    if name == "EnemyTank" or name == "EnemyTank1" then  
                         enemyTankScript = entity:get_component("ScriptComponent")
                         if enemyTankScript ~= nil then
                             enemyTankScript.tank:take_damage(chargeZoneDamagePerSecond, shieldMultiplier)
@@ -912,15 +908,8 @@ function handle_bullet_collision(entityA, entityB)
     
     if nameA:match("^Enemy") then
         makeDamage(entityA)
-
     elseif nameB:match("^Enemy") then
         makeDamage(entityB)
-    end
-
-    if nameA == "EnemyBoss" or nameB == "EnemyBoss" then
-        local enemy = (nameA == "EnemyBoss" and entityA) or (nameB == "EnemyBoss" and entityB)
-        
-        makeDamage(enemy)
     end
 
     if entityARB and nameB ~= "Player"  and nameB ~= "FloorCollider" and not nameB:match("^Sphere") then
