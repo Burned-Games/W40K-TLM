@@ -179,8 +179,6 @@ local entities
 
 -- particles
 local particle_lvl1_run = nil
-local particle_fire = nil
-local particle_smoke = nil
 local neuralInParticle = nil
 local particle_spark = nil
 healingParticle = nil
@@ -312,8 +310,6 @@ function on_ready()
     -- en la posicion de caida de la granada-> 
     -- 
     particle_lvl1_run = current_scene:get_entity_by_name("particle_lvl1_run"):get_component("ParticlesSystemComponent")
-    particle_fire = current_scene:get_entity_by_name("particle_fire"):get_component("ParticlesSystemComponent")
-    particle_smoke = current_scene:get_entity_by_name("particle_smoke"):get_component("ParticlesSystemComponent")
     particle_spark = current_scene:get_entity_by_name("SparkParticle"):get_component("ParticlesSystemComponent")
     healingParticle = current_scene:get_entity_by_name("HealingParticle"):get_component("ParticlesSystemComponent")
     
