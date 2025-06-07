@@ -371,7 +371,7 @@ function main_boss:shield_state()
     main_boss.enemyRb:set_velocity(Vector3.new(0, 0, 0))
 
     main_boss.shieldTransf.position = Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y + 3, main_boss.enemyTransf.position.z)
-    main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y, main_boss.enemyTransf.position.z))
+    main_boss.wrathRb:set_position(Vector3.new(main_boss.enemyTransf.position.x, main_boss.enemyTransf.position.y + 0.02, main_boss.enemyTransf.position.z))
 
 end
 

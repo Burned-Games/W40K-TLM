@@ -183,6 +183,8 @@ function on_update(dt)
             if((value == Input.state.Down and sceneChanged == false)) then
                 outroSFX:play()
                 if(index == 1) then
+                    save_progress("introBossDone", false)
+
                     botonSalida2:set_active(true)
                     salidaImagen:set_active(true)
                     SettingsEntity:set_active(false)

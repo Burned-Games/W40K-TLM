@@ -57,13 +57,13 @@ void main()
 
     vec3 viewDir = normalize(VertexInput.camPos - VertexInput.WorldPos);
 
-    float fresnel = pow(1.0 - max(dot(normal, viewDir), 0.0), 3.0);
+    float fresnel = pow(1.0 - max(dot(normal, viewDir), 0.0), 2.5);
 
-    vec3 baseColor = vec3(0.1, 0.2, 1.0);
-    vec3 fresnelColor = vec3(0.3, 1, 0.9);
+    vec3 baseColor = vec3(0.66, 0.09, 0.09);
+    vec3 fresnelColor = vec3(1.0, 0.4, 0.4);
     vec3 shieldColor = mix(baseColor, fresnelColor, fresnel);
 
-    float alpha = 0.05 + fresnel * 0.8;
+    float alpha = 0.0 + fresnel * 0.8;
 
     FragColor = vec4(shieldColor, alpha);
     EntityID = vec4(entityID, 1.0f);

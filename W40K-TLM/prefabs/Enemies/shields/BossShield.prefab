@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 7112792695745653575
+                "value0": 17473846736586906725
             },
             "value4": false
         },
@@ -71,69 +71,25 @@
             "IsEmbedded": true,
             "Material": {
                 "polymorphic_id": 2147483649,
-                "polymorphic_name": "Coffee::PBRMaterial",
+                "polymorphic_name": "Coffee::ShaderMaterial",
                 "ptr_wrapper": {
                     "id": 2147483649,
                     "data": {
-                        "Textures": {
-                            "AlbedoUUID": {
-                                "value0": 0
-                            },
-                            "NormalUUID": {
-                                "value0": 0
-                            },
-                            "MetallicUUID": {
-                                "value0": 0
-                            },
-                            "RoughnessUUID": {
-                                "value0": 0
-                            },
-                            "AOUUID": {
-                                "value0": 0
-                            },
-                            "EmissiveUUID": {
-                                "value0": 0
-                            }
-                        },
-                        "TextureFlags": {
-                            "HasAlbedo": false,
-                            "HasNormal": false,
-                            "HasMetallic": false,
-                            "HasRoughness": false,
-                            "HasAO": false,
-                            "HasEmissive": false
-                        },
-                        "Properties": {
-                            "Color": {
-                                "x": 0.17972350120544434,
-                                "y": 0.512370228767395,
-                                "z": 1.0,
-                                "w": 0.3410138487815857
-                            },
-                            "Metallic": 0.0,
-                            "Roughness": 1.0,
-                            "AO": 1.0,
-                            "Emissive": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            }
-                        },
                         "value0": {
                             "value0": {
-                                "value0": "Escudo.gltf_Mat0",
+                                "value0": "",
                                 "value1": {
                                     "value0": ""
                                 },
-                                "value2": 8,
+                                "value2": 9,
                                 "value3": {
-                                    "value0": 12043233665328661413
+                                    "value0": 126261520218575428
                                 },
                                 "value4": true
                             },
-                            "Shader Path": "",
+                            "Shader Path": "shaders/shieldShader.glsl",
                             "Render Settings": {
-                                "TransparencyMode": 1,
+                                "TransparencyMode": 0,
                                 "AlphaCutoff": 0.5,
                                 "BlendMode": 0,
                                 "CullMode": 1,

@@ -77,7 +77,7 @@ function on_ready()
     local fistChildren = self:get_children()
     local i = 1
     for _, child in ipairs(fistChildren) do
-        child:set_active(true)
+        child:set_active(false)
         fistAttacks[i] = child
         fistAnimator[i] = child:get_component("AnimatorComponent")
         fistAnimator[i]:set_looping(false)
@@ -93,6 +93,7 @@ function on_ready()
     -- Fists Indicators
     for i = 1, fistMaxNumbers do
         local fistIndicator = instantiate_prefab(fistIndicatorPrefab)
+        fistIndicator:set_active(false)
         fistIndicators[i] = fistIndicator
         fistIndicatorsScript[i] = fistIndicators[i]:get_component("ScriptComponent")
         fistIndicatorsTransform[i] = fistIndicators[i]:get_component("TransformComponent")
@@ -188,6 +189,8 @@ function fist()
             fistsUsed[i] = true
             table.insert(fistsToUseThisWave, i)
 
+            fistIndicators[i]:set_active(true)
+
             local pos = Vector3.new(0, 0, 0)
             if i == startIndex then
                 pos = Vector3.new(enemyScript.main_boss.enemyTransf.position.x, 0, enemyScript.main_boss.enemyTransf.position.z)
@@ -224,6 +227,8 @@ function fist()
             local maxAttempts = 10
             local valid = false
             local pos = nil
+
+            fistIndicators[i]:set_active(true)
 
             if waveIndex == 1 then
                 pos = Vector3.new(playerTransf.position.x, 0, playerTransf.position.z)
@@ -264,6 +269,7 @@ function execute_fists_attack()
     log("Fists Attack")
 
     for _, i in ipairs(fistsToUseThisWave) do
+        fistAttacks[i]:set_active(true)
         local pos = fistPositions[i]
         if fistRbComponent[i] and pos then
             fistRbComponent[i].rb:set_position(pos)
@@ -330,6 +336,7 @@ function update_scaling_attacks(dt)
                 -- Return the fists
                 if data.transformRb and data.transformRb.rb then
                     data.transformRb.rb:set_position(Vector3.new(-500, 0, -150))
+                    fistAttacks[i]:set_active(false)
                 end
                 table.remove(scalingAttacks, i)
             end
