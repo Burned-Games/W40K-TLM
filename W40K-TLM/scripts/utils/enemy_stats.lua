@@ -342,7 +342,7 @@ local enemy_stats = {
 
             detectionRange = 15,
             attackRange = 3,
-            explosionRange = 6,
+            explosionRange = 3,
             returningRange = 50,
 
             priority = 3,
