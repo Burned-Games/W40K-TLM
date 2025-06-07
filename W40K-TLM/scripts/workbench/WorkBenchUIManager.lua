@@ -6,6 +6,10 @@ local popUpManager = nil
 local pauseMenu = nil
 local chatarraUI = nil
 
+-- Workbench cache for performance optimization
+local workbenchEntities = {}
+local workbenchScripts = {}
+
 -- Shared UI elements (General)
 local gBackgroundEntity
 local gDot1ButtonEntity, gDot1Button
@@ -118,6 +122,9 @@ local notAvailableSFX = nil
 local buySFX = nil
 
 function on_ready()
+    -- Initialize workbench cache for performance optimization
+    initialize_workbench_cache()
+    
     -- Initialize upgrade manager
     upgradeManager = current_scene:get_entity_by_name("UpgradeManager"):get_component("ScriptComponent")
     
@@ -1135,15 +1142,23 @@ function is_workbench_open()
     return isWorkBenchOpen
 end
 
-function find_active_workbench()
-    local workbenchEntities = {}
+function initialize_workbench_cache()
     for i = 1, 10 do
         local workbench = current_scene:get_entity_by_name("Workbench" .. i)
         if workbench then
-            local workbenchScript = workbench:get_component("ScriptComponent")
-            if workbenchScript and workbenchScript.playerInRange then
-                return workbench, workbenchScript
-            end
+            workbenchEntities[i] = workbench
+            workbenchScripts[i] = workbench:get_component("ScriptComponent")
+        end
+    end
+end
+
+function find_active_workbench()
+    for i = 1, 10 do
+        Log("Checking workbench ")
+        local workbench = workbenchEntities[i]
+        local workbenchScript = workbenchScripts[i]
+        if workbench and workbenchScript and workbenchScript.playerInRange then
+            return workbench, workbenchScript
         end
     end
     return nil, nil
@@ -1168,13 +1183,11 @@ function update_workbench_animation(screen)
     else
         -- If no active workbench found, try all workbenches that are in ground state
         for i = 1, 10 do
-            local workbench = current_scene:get_entity_by_name("Workbench" .. i)
-            if workbench then
-                local workbenchScript = workbench:get_component("ScriptComponent")
-                if workbenchScript and workbenchScript.workbenchInGround then
-                    workbenchScript:set_ui_screen(screenValue)
-                    break
-                end
+            local workbench = workbenchEntities[i]
+            local workbenchScript = workbenchScripts[i]
+            if workbench and workbenchScript and workbenchScript.workbenchInGround then
+                workbenchScript:set_ui_screen(screenValue)
+                break
             end
         end
     end
