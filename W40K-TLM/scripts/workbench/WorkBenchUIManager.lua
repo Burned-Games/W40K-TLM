@@ -1143,7 +1143,7 @@ end
 function initialize_workbench_cache()
     for i = 1, 10 do
         local workbench = current_scene:get_entity_by_name("Workbench" .. i)
-        if workbench then
+        if workbench:is_valid() then
             workbenchEntities[i] = workbench
             workbenchScripts[i] = workbench:get_component("ScriptComponent")
         end
