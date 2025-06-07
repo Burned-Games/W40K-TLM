@@ -94,7 +94,7 @@ local exploreMusic = nil
 local fightingMusic = nil
 
 local fightingMusicVolume = 0
-local exploreMusicVolume = 0.05
+local exploreMusicVolume = 0.5
 
 local prevBackgroundMusicToPlay = -1
 backgroundMusicToPlay = 0 -- 0 exploration 1 fight
@@ -713,28 +713,28 @@ end
 
 function updateMusic(dt)
     if backgroundMusicToPlay == 0 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
-        if exploreMusicVolume >= 0.05 then
-            exploreMusicVolume = 0.05
+        if exploreMusicVolume >= 0.5 then
+            exploreMusicVolume = 0.5
             fightingMusicVolume = 0
             exploreMusic:set_volume(exploreMusicVolume) 
             fightingMusic:set_volume(fightingMusicVolume)
             prevBackgroundMusicToPlay = 0
         else 
-            exploreMusicVolume = exploreMusicVolume + dt * 0.05
-            fightingMusicVolume = fightingMusicVolume - dt  * 0.05
+            exploreMusicVolume = exploreMusicVolume + dt * 0.5
+            fightingMusicVolume = fightingMusicVolume - dt  * 0.5
             exploreMusic:set_volume(exploreMusicVolume) 
             fightingMusic:set_volume(fightingMusicVolume) 
         end
     elseif backgroundMusicToPlay == 1 and prevBackgroundMusicToPlay ~= backgroundMusicToPlay then
-        if fightingMusicVolume >= 0.05 then
-            fightingMusicVolume = 0.05
+        if fightingMusicVolume >= 0.5 then
+            fightingMusicVolume = 0.5
             exploreMusicVolume = 0
             fightingMusic:set_volume(fightingMusicVolume)
             exploreMusic:set_volume(exploreMusicVolume)
             prevBackgroundMusicToPlay = 1
         else 
-            exploreMusicVolume = exploreMusicVolume - dt * 0.05
-            fightingMusicVolume = fightingMusicVolume + dt * 0.05
+            exploreMusicVolume = exploreMusicVolume - dt * 0.5
+            fightingMusicVolume = fightingMusicVolume + dt * 0.5
             exploreMusic:set_volume(exploreMusicVolume)
             fightingMusic:set_volume(fightingMusicVolume)
         end
