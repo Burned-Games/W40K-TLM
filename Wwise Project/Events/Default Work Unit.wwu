@@ -7,17 +7,6 @@
 					<ChildrenList>
 						<Folder Name="State Effects" ID="{DA3A0B3C-8560-490E-AB4F-6983A18BF581}" ShortID="377735961">
 							<ChildrenList>
-								<Event Name="Play_PlayerOverloads" ID="{C45CCF1C-B193-4DA2-BD31-1BC5EDBD19CE}">
-									<ChildrenList>
-										<Action Name="" ID="{C9238A14-8D42-4BC3-A1D4-E99BB9664F7D}" ShortID="792801220">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="PlayerOverloads" ID="{C2B86153-922F-4998-AEBB-134BFD7E92DC}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
 								<Event Name="Play_PlayerInyector_01" ID="{269E66E7-E7D2-43E5-9BCB-57354B75BD27}">
 									<ChildrenList>
 										<Action Name="" ID="{458DEC26-0B29-4AEA-BE76-A662641FAC91}" ShortID="1043791962">
@@ -846,34 +835,12 @@
 				</Folder>
 				<Folder Name="Environment" ID="{AF3C98AC-A6E2-440A-BE4F-8443810E4890}" ShortID="183007794">
 					<ChildrenList>
-						<Event Name="Play_fireburn" ID="{A89DE179-729A-421B-BD9B-CD336F69964E}">
-							<ChildrenList>
-								<Action Name="" ID="{1AB8FA00-101C-451B-B520-A3ED887FE553}" ShortID="59242362">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="fireburn" ID="{2CD28626-8295-4BEC-B06B-53C34CBED4F6}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_lever" ID="{2B52C1AF-181D-4ED1-A394-93635FBC08C4}">
 							<ChildrenList>
 								<Action Name="" ID="{55D5049A-3C1E-49AC-817A-62379F7D03F1}" ShortID="260378660">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="lever" ID="{89D93889-B0D5-4128-8F96-3EE0365687BB}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_firetorch" ID="{812307E1-0975-4903-A4F7-D8A139FF55AD}">
-							<ChildrenList>
-								<Action Name="" ID="{A2CF6CF4-CE9C-4751-8C3A-B638040D257E}" ShortID="884002517">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="firetorch" ID="{3A60FE82-D333-4650-973F-EB287734A54D}" WorkUnitID="{ED91A1CE-E97E-4C12-9675-FF2AA2750BAD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

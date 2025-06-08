@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{F5A61508-5D5A-FBB5-31A4-6493BB22D736}",
+    "Hash": "{69010BC4-D310-895A-FE5D-2ED3E2FB3021}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -96,14 +96,6 @@
       "CachePath": "3E/{3E048B81-7A30-EFC1-43A6-D0588E1F7419}.wem"
      },
      {
-      "Id": "641304611",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "fireburn.wav",
-      "CachePath": "04/{04E4F5E1-67FA-EFA8-79A4-7D4F171AC221}.wem"
-     },
-     {
       "Id": "657677064",
       "Language": "SFX",
       "Streaming": "false",
@@ -134,14 +126,6 @@
       "Location": "Memory",
       "ShortName": "BoxBarrelDestroy.wav",
       "CachePath": "E6/{E6955D4D-141F-01B6-2DEA-158B6AAB99BC}.wem"
-     },
-     {
-      "Id": "947093863",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "firetorch.wav",
-      "CachePath": "DF/{DFE774D2-3185-D8F6-0F73-9FA6EF900387}.wem"
      }
     ],
     "Events": [
@@ -198,32 +182,6 @@
       "MediaRefs": [
        {
         "Id": "159734690"
-       }
-      ]
-     },
-     {
-      "Id": "4070524305",
-      "Name": "Play_fireburn",
-      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_fireburn",
-      "GUID": "{A89DE179-729A-421B-BD9B-CD336F69964E}",
-      "MaxAttenuation": "7",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "641304611"
-       }
-      ]
-     },
-     {
-      "Id": "2941691780",
-      "Name": "Play_firetorch",
-      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_firetorch",
-      "GUID": "{812307E1-0975-4903-A4F7-D8A139FF55AD}",
-      "MaxAttenuation": "5",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "947093863"
        }
       ]
      },
@@ -346,6 +304,6 @@
     ]
    }
   ],
-  "FileHash": "{44D73048-DB67-B8CD-0EBB-12A327D69019}"
+  "FileHash": "{47DD9301-F23A-3ADC-0410-D682351B925C}"
  }
 }

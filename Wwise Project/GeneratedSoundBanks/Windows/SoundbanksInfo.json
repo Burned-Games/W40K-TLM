@@ -2227,7 +2227,7 @@
     "Type": "User",
     "GUID": "{590DE83F-02C9-4D44-A80C-89EB32CFFA44}",
     "Language": "SFX",
-    "Hash": "{F5A61508-5D5A-FBB5-31A4-6493BB22D736}",
+    "Hash": "{69010BC4-D310-895A-FE5D-2ED3E2FB3021}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\EnvironmentSFX",
     "ShortName": "EnvironmentSFX",
     "Path": "EnvironmentSFX.bnk",
@@ -2313,14 +2313,6 @@
       "CachePath": "3E/{3E048B81-7A30-EFC1-43A6-D0588E1F7419}.wem"
      },
      {
-      "Id": "641304611",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "fireburn.wav",
-      "CachePath": "04/{04E4F5E1-67FA-EFA8-79A4-7D4F171AC221}.wem"
-     },
-     {
       "Id": "657677064",
       "Language": "SFX",
       "Streaming": "false",
@@ -2351,14 +2343,6 @@
       "Location": "Memory",
       "ShortName": "BoxBarrelDestroy.wav",
       "CachePath": "E6/{E6955D4D-141F-01B6-2DEA-158B6AAB99BC}.wem"
-     },
-     {
-      "Id": "947093863",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "firetorch.wav",
-      "CachePath": "DF/{DFE774D2-3185-D8F6-0F73-9FA6EF900387}.wem"
      }
     ],
     "Events": [
@@ -2415,32 +2399,6 @@
       "MediaRefs": [
        {
         "Id": "159734690"
-       }
-      ]
-     },
-     {
-      "Id": "4070524305",
-      "Name": "Play_fireburn",
-      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_fireburn",
-      "GUID": "{A89DE179-729A-421B-BD9B-CD336F69964E}",
-      "MaxAttenuation": "7",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "641304611"
-       }
-      ]
-     },
-     {
-      "Id": "2941691780",
-      "Name": "Play_firetorch",
-      "ObjectPath": "\\Events\\Default Work Unit\\Environment\\Play_firetorch",
-      "GUID": "{812307E1-0975-4903-A4F7-D8A139FF55AD}",
-      "MaxAttenuation": "5",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "947093863"
        }
       ]
      },
@@ -2916,7 +2874,7 @@
     "Type": "User",
     "GUID": "{4B6E97A9-218E-4F19-B5DB-4D739B5ED44D}",
     "Language": "SFX",
-    "Hash": "{23B93B9D-824D-E4FD-FB73-69B871BCF085}",
+    "Hash": "{5E32C095-8F84-0898-DC00-72710AAF31E9}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\PlayerSFX",
     "ShortName": "PlayerSFX",
     "Path": "PlayerSFX.bnk",
@@ -2928,14 +2886,6 @@
       "Location": "Memory",
       "ShortName": "PlayerGetBloodParticles.wav",
       "CachePath": "63/{63E1918D-6AB9-2E7F-50D5-1D209027BF2F}.wem"
-     },
-     {
-      "Id": "136860020",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Overload2.wav",
-      "CachePath": "DE/{DE9F3531-E177-FBF0-163C-C227F29F7353}.wem"
      },
      {
       "Id": "177622681",
@@ -3008,14 +2958,6 @@
       "Location": "Memory",
       "ShortName": "PlayerInyector.wav",
       "CachePath": "FE/{FE36E599-02DA-2A14-6D71-21F5F34273E4}.wem"
-     },
-     {
-      "Id": "619122296",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Overload1.wav",
-      "CachePath": "83/{837AD791-FE62-4074-DBBB-A4EB5792FBC2}.wem"
      },
      {
       "Id": "686019683",
@@ -3330,23 +3272,6 @@
       ]
      },
      {
-      "Id": "3652542138",
-      "Name": "Play_PlayerOverloads",
-      "ObjectPath": "\\Events\\Default Work Unit\\Player\\State Effects\\Play_PlayerOverloads",
-      "GUID": "{C45CCF1C-B193-4DA2-BD31-1BC5EDBD19CE}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.7478333",
-      "DurationMax": "1.13425",
-      "MediaRefs": [
-       {
-        "Id": "136860020"
-       },
-       {
-        "Id": "619122296"
-       }
-      ]
-     },
-     {
       "Id": "3345812001",
       "Name": "Play_PlayerStepsLvl1",
       "ObjectPath": "\\Events\\Default Work Unit\\Player\\Movement\\Play_PlayerStepsLvl1",
@@ -3409,6 +3334,6 @@
     ]
    }
   ],
-  "FileHash": "{E93BE8CA-D323-F4A4-CF6E-45B61DDEEB09}"
+  "FileHash": "{E13E20F2-1B5A-692C-C6F7-BE7DCEC764A7}"
  }
 }

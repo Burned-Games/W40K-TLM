@@ -11,13 +11,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	3345812001	Play_PlayerStepsLvl1			\Default Work Unit\Player\Movement\Play_PlayerStepsLvl1	
 	3345812002	Play_PlayerStepsLvl2			\Default Work Unit\Player\Movement\Play_PlayerStepsLvl2	
 	3539308718	Play_PlayerNoAmmo			\Default Work Unit\Player\Play_PlayerNoAmmo	
-	3652542138	Play_PlayerOverloads			\Default Work Unit\Player\State Effects\Play_PlayerOverloads	
 	3842654606	Play_PlayerBurning			\Default Work Unit\Player\State Effects\Play_PlayerBurning	
 	3859629335	Play_BannerFall			\Default Work Unit\Player\Banner\Play_BannerFall	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	133307509	PlayerGetBloodParticles	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\63\{63E1918D-6AB9-2E7F-50D5-1D209027BF2F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerGetBloodParticles		3027
-	136860020	Overload2	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\DE\{DE9F3531-E177-FBF0-163C-C227F29F7353}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerOverloads\Overload2		17127
 	177622681	PlayerStep4Lvl1	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\E2\{E2ABE5AB-CC81-71EA-4146-61B951DF0C5D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep4Lvl1		2502
 	191256656	Bleeding4	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\11\{111EC245-8488-E6BC-FC31-F41ECA339A0A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBleeding\Bleeding4		18883
 	232213544	PlayerDash1	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\FD\{FD8CC807-579E-B943-F904-1B6150863B1E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerDash\PlayerDash1		9794
@@ -27,7 +25,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	453479899	PlayerCD	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\7B\{7B49E2D0-655B-F3E9-4CD2-AD2313185A32}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerCD		947
 	557785712	Burning3	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\EB\{EB15153F-E816-6EBE-AA57-5DA848D7D96F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBurning\Burning3		21070
 	593561193	PlayerInyector	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\FE\{FE36E599-02DA-2A14-6D71-21F5F34273E4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerInyector		25008
-	619122296	Overload1	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\83\{837AD791-FE62-4074-DBBB-A4EB5792FBC2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerOverloads\Overload1		14018
 	686019683	BannerFall	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\49\{49C573AD-E983-01A4-C27B-73090107DBC4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Banner\BannerFall		6612
 	703357736	PlayerStep1Lvl1	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\6B\{6B08D1A0-03B5-D53F-05F9-F8DB1D43D757}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Movement\PlayerStepsLvl1\PlayerStep1Lvl1		2086
 	727136075	Bleeding3	C:\Users\albert\Documents\GitHub\W40K-TLM\Wwise Project\.cache\5D\{5D777B94-F42A-3ED1-73DA-1838FF8C3E9D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\StateEffects\PlayerBleeding\Bleeding3		15909
