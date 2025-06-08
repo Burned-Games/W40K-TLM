@@ -224,8 +224,10 @@ function on_update(dt)
     abilityManager(dt)
 
     weaponManager(dt)
-
-    update_health_display()
+   
+    if playerScript.isHitted or playerScript.isHealing then
+        update_health_display()
+    end
 
     update_scrap_display() 
 
@@ -697,7 +699,6 @@ function weaponManager(dt)
             skillArma2CooldownEntity:set_active(false)
         end
     end
-    
     updateAmmoText()
 end
 
