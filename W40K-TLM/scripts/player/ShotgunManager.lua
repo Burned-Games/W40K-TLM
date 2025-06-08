@@ -245,7 +245,7 @@ function on_update(dt)
         end
 
         -- Applying multipliers
-        local currentShootCoolDownRifle = shotgun_fire_rate * (1 / attackSpeedMultiplier)
+        local currentShootCoolDownRifle = shotgun_fire_rate * (1 * 1.5 / (attackSpeedMultiplier ))
         local currentMaxReloadTime = reload_time * (1 / reloadSpeedMultiplier)
         if using == true then
             -- updateTime
