@@ -155,6 +155,7 @@ function on_ready()
     tank.stunDuration = 2.5
     tank.tackleDuration = 0.83
     tank.indicatorDuration = 1.0
+    tank.midAttackTimer = 0.5
 
     -- Lists
     tank.nearbyEnemies = {}
@@ -216,11 +217,11 @@ function on_ready()
             local isNonBlockingCollision = 
                 nameA:match("^Sphere") or nameA == "Granade" or 
                 nameA == "DisruptorBullet" or nameA == "ChargeZone" or
-                nameA == "EnemyRange" or nameA == "EnemyKamikaze" or nameA == "EnemySupport" or nameA == "EnemyTank" or
+                nameA == "EnemyRange" or nameA == "EnemyKamikaze" or nameA == "EnemySupport" or 
                 nameA == "SupportBullet1" or nameA == "SupportBullet2" or nameA == "SupportBullet3" or 
                 nameB:match("^Sphere") or nameB == "Granade" or 
                 nameB == "DisruptorBullet" or nameB == "ChargeZone" or
-                nameB == "EnemyRange" or nameB == "EnemyKamikaze" or nameB == "EnemySupport" or nameB == "EnemyTank" or
+                nameB == "EnemyRange" or nameB == "EnemyKamikaze" or nameB == "EnemySupport" or 
                 nameB == "SupportBullet1" or nameB == "SupportBullet2" or nameB == "SupportBullet3"
 
             if not isNonBlockingCollision and tank.currentState == tank.state.Tackle then
@@ -504,16 +505,22 @@ function tank:attack_state(dt)
         tank:play_blocking_animation(tank.attackAnim, tank.attackDuration)
         tank.attackVFXAnimator:set_current_animation(0)
     end
+    
+    if tank.midAttackTimer > 0.0 then
+        tank.midAttackTimer = tank.midAttackTimer - dt
+    end
+
     if tank.attackTimer >= tank.attackCooldown then
-        if tank.animTimer >= tank.attackDuration then
+        if tank.midAttackTimer <= 0.0 then
             local attackDistance = tank:get_distance(tank.enemyTransf.position, tank.playerTransf.position)
             if attackDistance <= tank.meleeAttackRange then
                 tank.impactPlayerSFX:play()
                 tank:make_damage(tank.meleeDamage)
-            else
+            elseif tank.animTimer >= tank.attackDuration then
                 tank.currentState = tank.state.Move
             end
             tank.attackTimer = 0.0
+            tank.midAttackTimer = 0.5
         end
 
     end
