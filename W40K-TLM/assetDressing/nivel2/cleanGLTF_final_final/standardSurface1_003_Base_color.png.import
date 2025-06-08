@@ -1,0 +1,29 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::Texture2DImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "cereal_class_version": 0,
+                        "value0": 13516379699607685665
+                    },
+                    "type": 2,
+                    "originalPath": {
+                        "value0": "assetDressing/nivel2/cleanGLTF_final_final/standardSurface1_003_Base_color.png"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/13516379699607685665.tex"
+                    },
+                    "cache": true,
+                    "internal": false
+                },
+                "sRGB": true
+            }
+        }
+    }
+}
