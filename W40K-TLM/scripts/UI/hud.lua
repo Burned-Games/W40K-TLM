@@ -225,7 +225,7 @@ function on_update(dt)
 
     weaponManager(dt)
    
-    if playerScript.isHitted or playerScript.isHealing then
+    if playerScript.isHitted or playerScript.isHealing or playerScript.isSwordHealing then
         update_health_display()
     end
 

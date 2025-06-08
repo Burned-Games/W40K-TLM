@@ -34,13 +34,15 @@ function on_update(dt)
     end
 
     if swordHealTimer >= swordHealLifetime then
-        if playerScript.health + hpStealed >= playerScript.maxHealth then
+        if playerScript.health + hpStealed >= playerScript.maxHealth then         
             playerScript.healingParticle:emit(5)
             playerHealingSFX:play()
+            playerScript.isSwordHealing = true
             playerScript.health = playerScript.maxHealth
         else
             playerScript.healingParticle:emit(5)
             playerHealingSFX:play()
+            playerScript.isSwordHealing = true
             playerScript.health = playerScript.health + hpStealed
         end
         bloodParticlesSFX:play()

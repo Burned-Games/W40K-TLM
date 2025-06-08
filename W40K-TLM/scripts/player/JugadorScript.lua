@@ -49,6 +49,7 @@ local timerAnimacionEntrada = 0
 --Healing sistem
 StimsCounter = 3
 isHealing = false
+isSwordHealing = false
 local timesHealed = 0
 
 local intervalcheker = 0
@@ -960,6 +961,7 @@ function handleWeaponSwitch(dt)
     end
 
     if swordScript.slasheeed == true then
+        isSwordHealing = false
         shotGunScript.is_reloading = false
         bolterScript.manualReload = false
         bolterScript.reloadAnimation = false
