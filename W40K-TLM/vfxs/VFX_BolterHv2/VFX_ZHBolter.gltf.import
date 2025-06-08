@@ -1,0 +1,74 @@
+{
+    "importData": {
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "Coffee::ModelImportData",
+        "ptr_wrapper": {
+            "valid": 1,
+            "data": {
+                "cereal_class_version": 0,
+                "meshUUIDs": [
+                    {
+                        "key": "VFX_ZHBolter_Plane-0",
+                        "value": {
+                            "cereal_class_version": 0,
+                            "value0": 14562021023933304985
+                        }
+                    },
+                    {
+                        "key": "VFX_ZHBolter_Plane-1",
+                        "value": {
+                            "value0": 16079793926357936800
+                        }
+                    },
+                    {
+                        "key": "VFX_ZHBolter_Plane-2",
+                        "value": {
+                            "value0": 2284612323782775603
+                        }
+                    },
+                    {
+                        "key": "VFX_ZHBolter_Plane-3",
+                        "value": {
+                            "value0": 8884735247175089328
+                        }
+                    }
+                ],
+                "materialUUIDs": [
+                    {
+                        "key": "Material.004_Mat0",
+                        "value": {
+                            "value0": 7219515407199908400
+                        }
+                    },
+                    {
+                        "key": "Material.002_Mat1",
+                        "value": {
+                            "value0": 3398466093489582446
+                        }
+                    },
+                    {
+                        "key": "Material.003_Mat2",
+                        "value": {
+                            "value0": 1034961718296735118
+                        }
+                    }
+                ],
+                "value0": {
+                    "cereal_class_version": 0,
+                    "uuid": {
+                        "value0": 17039670734677764653
+                    },
+                    "type": 4,
+                    "originalPath": {
+                        "value0": "vfxs/VFX_BolterHv2/VFX_ZHBolter.gltf"
+                    },
+                    "cachedPath": {
+                        "value0": ".CoffeeEngine/Cache/17039670734677764653.model"
+                    },
+                    "cache": true,
+                    "internal": false
+                }
+            }
+        }
+    }
+}
