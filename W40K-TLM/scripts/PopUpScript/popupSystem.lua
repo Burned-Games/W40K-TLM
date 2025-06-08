@@ -22,7 +22,6 @@ local persistentPopup = nil
 local isPersistentActive = false
 
 
-local popupTimer = 0
 local popupShouldRemove = false
 
 --Audio

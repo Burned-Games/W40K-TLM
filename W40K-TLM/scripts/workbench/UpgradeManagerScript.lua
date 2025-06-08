@@ -251,36 +251,13 @@ function on_ready()
     
     -- Load upgrades from save
 
-    -- if helmetlvl1 ~= nil and helmetlvl2 ~= nil then
-    --     helmetlvl1:set_active(true)
-    --     helmetlvl2:set_active(false)
-    -- end
-    -- if jetpacklvl1 ~= nil and jetpacklvl2 ~= nil then
-    --     jetpacklvl1:set_active(true)
-    --     jetpacklvl2:set_active(false)
-    -- end
-
     load_upgrades()
 
-    -- Load visuals
-    -- if jetpacklvl1 ~= nil and jetpacklvl2 ~= nil and helmetlvl1 ~= nil and helmetlvl2 ~= nil then
-    --     load_visuals()
-    -- end
 end
 
 function on_update(dt)
 end
 
--- function handle_visuals()
---     if has_upgrade("armor", "healthBoost") then
---         jetpacklvl2:set_active(true)
---     end
-
---     if has_upgrade("armor", "protection") then
---         helmetlvl1:set_active(false)
---         helmetlvl2:set_active(true)
---     end
--- end
 
 function handle_visuals()
     if has_upgrade("armor", "healthBoost") then

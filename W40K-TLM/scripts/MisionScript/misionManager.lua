@@ -8,14 +8,9 @@ redTaskIndex = 1
 
 
 local current_scene_name = nil
-local current_scene_tag = nil
 
 local textBlueComponent = nil
 local textRedComponent = nil
-local textBlueTransform = nil
-local textRedTransform = nil
-local imgBlue = nil
-local imgRed = nil
 local imgBlueUI = nil
 local imgRedUI = nil
 
@@ -87,14 +82,9 @@ function on_ready()
 
     textBlueComponent = current_scene:get_entity_by_name("MisionTextBlue"):get_component("UITextComponent")
     textRedComponent = current_scene:get_entity_by_name("MisionTextRed"):get_component("UITextComponent")
-    textBlueTransform = current_scene:get_entity_by_name("MisionTextBlue"):get_component("TransformComponent")
-    textRedTransform = current_scene:get_entity_by_name("MisionTextRed"):get_component("TransformComponent")
 
     --Audio
     missionCompleteSFX = current_scene:get_entity_by_name("MissionCompleteSFX"):get_component("AudioSourceComponent")
-
-    imgBlue = current_scene:get_entity_by_name("MisionImage"):get_component("TransformComponent")
-    imgRed = current_scene:get_entity_by_name("MisionImageRed"):get_component("TransformComponent")
 
     imgBlueUI = current_scene:get_entity_by_name("MisionImage"):get_component("UIImageComponent")
     imgRedUI = current_scene:get_entity_by_name("MisionImageRed"):get_component("UIImageComponent")
@@ -103,7 +93,6 @@ function on_ready()
     bcgRedUI = current_scene:get_entity_by_name("MisionBackgroundBlue"):get_component("UIImageComponent")
 
     current_scene_name = SceneManager:get_scene_name()
-    current_scene_tag = self:get_component("TagComponent").tag
 
     popupScriptComponent = current_scene:get_entity_by_name("PopUpManager"):get_component("ScriptComponent")
     

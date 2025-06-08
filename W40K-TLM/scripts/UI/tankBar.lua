@@ -3,7 +3,6 @@ local tankBarBase = nil
 local tankBarLife = nil
 local tankNam = nil
 local tankManager = nil
-local playerManager = nil
 local alpha = 0
 local fadeActive = false
 local arenaIn = nil
@@ -23,7 +22,6 @@ function on_ready()
     tankBarLife = current_scene:get_entity_by_name("TankLifeUI"):get_component("UIImageComponent")
     tankNam = current_scene:get_entity_by_name("TankName"):get_component("UIImageComponent")
     tankManager = current_scene:get_entity_by_name("EnemyTank1"):get_component("ScriptComponent")
-    playerManager = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
     arenaIn = current_scene:get_entity_by_name("ArenaEnter")
     arenaOut = current_scene:get_entity_by_name("ArenaExit")

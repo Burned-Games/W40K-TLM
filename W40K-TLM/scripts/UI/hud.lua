@@ -1,7 +1,6 @@
 ammoTextComponent = nil
 local maxAmmoTextComponent = nil
 
-local lifeEntity
 local lifeFullComponent
 local lifeTextComponent
 local originalLifeColor = nil

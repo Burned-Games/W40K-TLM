@@ -2,8 +2,6 @@ local slider1
 local slider2 
 local FullSceeenButton
 
-local text1
-local text2
 
 local mainMenuBase = nil
 local mainMenuScript = nil
@@ -12,14 +10,10 @@ local mainMenuScript = nil
 local currentSelectedSlider = 1 
 local inputCooldown = 0 
 local cooldownTime = 0.15 
-local sceneChanged = false
 local value = nil
-local defaultMusicVolume = 0.210
 
 local newValue = 1.0
 
-local selectedColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
-local defaultColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
 local settingsMainMenu = nil
 

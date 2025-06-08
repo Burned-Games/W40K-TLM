@@ -14,13 +14,10 @@ local fervorAstartesStandardEntity = nil
 local fervorAstartesRadius = 6.0
 local fervorAniamtor = nil
 
-local attackSpeedBonus = 1.2 
-local reloadSpeedBonus = 1.15
 
 local pauseMenu = nil
 
 local hudManager = nil
-local workbenchUIManager = nil
 isPlayerInRadius = false 
 
 --Audio

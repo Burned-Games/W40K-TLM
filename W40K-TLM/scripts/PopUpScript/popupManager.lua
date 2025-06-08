@@ -1,7 +1,6 @@
 local popupScriptComponent = nil
 local popupRigidBodyComponent = nil
 local popupRigidBody = nil
-local mission_Component = nil
 
 local detect = false
 local first = true
@@ -10,20 +9,10 @@ local current_scene_name = nil
 local current_scene_tag = nil
 
 
---Special 
-local isPersistentActive = false
-local closUpdate = true
-local SpecialText_1 = "(x/1)"
-local SpecialText_2 = "(x/2)"
-local SpecialText_3 = "(x/1)"
-
-
-
 -- Initialization
 function on_ready()
     --Get PopupManager(not modify)
     popupScriptComponent = current_scene:get_entity_by_name("PopUpManager"):get_component("ScriptComponent")
-    mission_Component = current_scene:get_entity_by_name("MisionManager"):get_component("ScriptComponent")
     --Here is collider, if u want u can change name (popup Example RigidBody Component to u want)
     popupRigidBodyComponent = self:get_component("RigidbodyComponent")
     popupRigidBody = popupRigidBodyComponent.rb

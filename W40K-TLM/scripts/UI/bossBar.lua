@@ -4,7 +4,6 @@ local bossBarBase = nil
 local bossBarLife = nil
 local bossName = nil
 local bossManager = nil
-local playerManager = nil
 local alpha = 0
 local fadeActive = false
 
@@ -15,7 +14,6 @@ function on_ready()
     bossBarLife = current_scene:get_entity_by_name("BossLifeUI"):get_component("UIImageComponent")
     bossName = current_scene:get_entity_by_name("BossName"):get_component("UIImageComponent")
     bossManager = current_scene:get_entity_by_name("EnemyBoss"):get_component("ScriptComponent")
-    playerManager = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     
     triggerBossBattle = current_scene:get_entity_by_name("TriggerBossBattle"):get_component("RigidbodyComponent")
     triggerBossBattle.rb:set_trigger(true)
@@ -58,14 +56,8 @@ function on_update(dt)
     end
 
     local healthPercentage = vida / maxHealth
-    local cropPercentage = 1 - healthPercentage
     
-    local x = 0
-    local y = 0
-    local width = 1
-    local height = 1
-    
-    local lifeBoss = Vector4.new(x, y, width * healthPercentage, height)
+    local lifeBoss = Vector4.new(0, 0, healthPercentage, 1)
     bossBarLife:set_rect(lifeBoss)
 end
 

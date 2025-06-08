@@ -28,18 +28,11 @@ local ANIM_WEAPONS = 5
 workbenchInGround = false
 playerInRange = false 
 
-local idleCycleActive = false
 local landAnimationTimer = 0
 local LAND_ANIMATION_DURATION = 0.5
 
--- Animation state management for idle animations
-local idleAnimationTimer = 0
-local idleAnimationState = 0  -- 0: Armor, 1: IdleArmor, 2: Weapons, 3: IdleWeapons
 
 currentUIScreen = "gun"  -- "gun" or "character"
-
-local IDLE_TRANSITION_TIME = 0.8  -- Time for the transition animations (Armor/Weapons)
-local IDLE_DISPLAY_TIME = 1.0     -- Time for the idle animations (IdleArmor/IdleWeapons)
 
 -- Scale management
 local isScaling = false
@@ -58,9 +51,6 @@ local pauseMenu = nil
 
 function on_ready()
     workbenchAnimator = self:get_component("AnimatorComponent")
-    if not workbenchAnimator then
-        --print("Warning: No AnimatorComponent found on workbench")
-    end
 
     pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
@@ -191,11 +181,7 @@ function on_update(dt)
            currentAnimation ~= ANIM_LAND and
            currentAnimation ~= ANIM_WEAPONS then
             playAnimation(ANIM_IDLE_WEAPONS)
-            idleAnimationState = 3
         end
-    else
-        -- When workbench is not in ground, no idle animations
-        idleCycleActive = false
     end    -- Manage Land animation transition
     if currentAnimation == ANIM_LAND then
         landAnimationTimer = landAnimationTimer + dt
@@ -336,8 +322,6 @@ function workbenchRise()
         scaleDelayTimer = 0.0
         
         -- Reset animation states
-        idleAnimationTimer = 0
-        idleAnimationState = 0
         currentUIScreen = "gun"
     end
 
@@ -382,20 +366,16 @@ function on_animation_end(animationName)
         if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen then
             if workbenchUIManagerScript.currentScreen == "gun" then
                 playAnimation(ANIM_WEAPONS)
-                idleAnimationState = 2
             else
                 playAnimation(ANIM_ARMOR)
-                idleAnimationState = 0
             end
         else
             playAnimation(ANIM_IDLE_WEAPONS)
         end
     elseif animationName == "Armor" and workbenchInGround then
         playAnimation(ANIM_IDLE_ARMOR)
-        idleAnimationState = 1
     elseif animationName == "Weapons" and workbenchInGround then
         playAnimation(ANIM_IDLE_WEAPONS)
-        idleAnimationState = 3
     end
 end
 

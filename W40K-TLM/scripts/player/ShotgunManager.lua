@@ -20,15 +20,12 @@ local attackSpeedMultiplier = 1.0
 local reloadSpeedMultiplier = 1.0
 
 -- Define the bullet speed
-local bullet_speed = 10.0
 local sphereSpeed = 50
 -- BulletList
 local bullets = {}
 local bulletCount = 6  -- Bullet Num
 local spreadAngle = 7.5  -- Bullet angle
 
-local shootParticlesComponent
-local bulletDamageParticleComponent
 damage = 10
 local knockbackForce = 3000  -- force
 local yPositionBullet = 1.5
@@ -39,12 +36,8 @@ local granadeDamage = 100
 granadeCooldown= 6
 timerGranade = granadeCooldown
 local granadeEntity = nil
-local granadeInitialSpeed = 12
 
 local explosionRadius = 6.0
-local explosionForce = 13.0
-local explosionUpward = 2.0
-local granadeParticlesExplosion = nil
 
 local lbapretado = false
 dropGranade = false
@@ -63,8 +56,7 @@ local granadeAnimationDuration = 0.4
 local upgradeManager = nil
 local workbenchUIManager = nil
 
-
-local baseGranadePosition = nil       
+     
 local targetGranadePosition = nil    
 local granadeMoveSpeed = 0.2   
 --local GRENADE_GRAVITY = 25.0  
@@ -94,11 +86,6 @@ local playerNoAmmoSFX = nil
 
 local firstTimeAudio = false
 
---Particles
-local particle_previewG_interior = nil
-local particle_previewG_exterior = nil
-local particle_previewG_interior_transform = nil
-local particle_previewG_exterior_transform = nil
 
 local pauseMenu = nil
 
@@ -147,12 +134,6 @@ function on_ready()
     shotgunShotSFX = current_scene:get_entity_by_name("ShotgunShotSFX"):get_component("AudioSourceComponent")
     playerNoAmmoSFX = current_scene:get_entity_by_name("PlayerNoAmmoSFX"):get_component("AudioSourceComponent")
     
-    --Particles
-    particle_previewG_interior = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("ParticlesSystemComponent")
-    particle_previewG_exterior = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("ParticlesSystemComponent")
-    particle_previewG_exterior_transform = current_scene:get_entity_by_name("particle_previewG_exterior"):get_component("TransformComponent")
-    particle_previewG_interior_transform = current_scene:get_entity_by_name("particle_previewG_interior"):get_component("TransformComponent")
-
     playerCDSFX = current_scene:get_entity_by_name("PlayerCDSFX"):get_component("AudioSourceComponent")
 
     astartesFervorManager = current_scene:get_entity_by_name("ArmorUpgradeSystem"):get_component("ScriptComponent")
@@ -174,14 +155,10 @@ function on_ready()
         end)
     end
 
-    --shootParticlesComponent = current_scene:get_entity_by_name("ParticulasDisparo"):get_component("ParticlesSystemComponent")
-    --bulletDamageParticleComponent = current_scene:get_entity_by_name("ParticlePlayerBullet"):get_component("ParticlesSystemComponent")
-
     --Granada
    
     granadeEntity = current_scene:get_entity_by_name("Granade")
     transformGranade = granadeEntity:get_component("TransformComponent")
-    --granadeParticlesExplosion = granadeEntity:get_component("ParticlesSystemComponent")
 
     rb = granadeEntity:get_component("RigidbodyComponent").rb
     rb:set_mass(1.0)
@@ -368,11 +345,6 @@ function on_update(dt)
             if leftShoulder == Input.state.Up and launched then
                 --mover la particula a la posicion final de la granada
 
-                --particle_previewG_exterior_transform.position = finalTargetPos --fix, posicion correcta --PETA 
-                --particle_previewG_interior_transform.position = finalTargetPos --PETA 
-
-                --particle_previewG_interior:emit(1) --PETA 
-                --particle_previewG_exterior:emit(1) --PETA 
                 granadePreviewTransf.position = Vector3.new(0, -230, 0)
                 granadeDistance = 0
                 launched = false
