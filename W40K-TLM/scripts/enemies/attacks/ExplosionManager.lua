@@ -37,8 +37,7 @@ function get_free_explosion(position)
         if not explosion.active then
             explosion.active = true
             explosionTimers[i] = 0
-            explosion.transform.position = position
-            print(position.x)
+            explosion.transform.position = Vector3.new(position.x, position.y + 0.1, position.z)
 
             return explosion, i
         end
