@@ -941,7 +941,7 @@ function handleWeaponSwitch(dt)
             end
             pressedButtonChangeWeapon = true
             changeWeaponTutorialButtonShown = true
-            
+            playerSwapWeaponsSFX:play()
         end
     else
         pressedButtonChangeWeapon = false
