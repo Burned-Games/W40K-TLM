@@ -36,6 +36,12 @@ ultiHittingDuration = 0.0
 -- Lists
 local scalingAttacks = {}
 
+
+-- Indicator
+local bossUltimateIndicator = nil
+local bossUltimateIndicatorMaterial
+local actualColor = 0
+
 function on_ready()
 
     -- Main Boss
@@ -66,6 +72,12 @@ function on_ready()
     ultiAttackDuration = stats.ultiAttackDuration
     ultiHittingDuration = stats.ultiHittingDuration
 
+    --Indicator
+    bossUltimateIndicator = current_scene:get_entity_by_name("BossUltimateIndicatorBackground")
+    bossUltimateIndicatorMaterial = bossUltimateIndicator:get_component("MaterialComponent").material
+    actualColor = 0
+    bossUltimateIndicatorMaterial.color = Vector4.new(actualColor,actualColor,actualColor,actualColor)
+
 end
 
 function on_update(dt)
@@ -77,6 +89,12 @@ function on_update(dt)
     end
 
     if ultimateThrown then
+
+        if actualColor < 0.4 then
+            actualColor = actualColor + dt
+            bossUltimateIndicatorMaterial.color = Vector4.new(actualColor,actualColor,actualColor,actualColor)
+        end
+
         if not ultimateThrownSound then
             bossChargeUltimateSFX:play()
             ultimateThrownSound = true
@@ -115,6 +133,9 @@ function on_update(dt)
                 ultiAttackTimer = 0.0
                 ultiHittingTimer = 0.0
                 ultiTimer = 0.0
+                actualColor = 0
+                bossUltimateIndicatorMaterial.color = Vector4.new(actualColor,actualColor,actualColor,actualColor)
+        
 
                 check_ulti_collision()
 
@@ -228,6 +249,11 @@ function manage_destroyed_pillar()
     pillarToDestroy:get_component("ScriptComponent"):give_phisycs()
     pillarToDestroy = nil
     pillarCrashSFX:play()
+end
+
+
+function appearIndicator()
+
 end
 
 function on_exit() end
