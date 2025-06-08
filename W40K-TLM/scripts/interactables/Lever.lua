@@ -22,11 +22,25 @@ local leverSFX = nil
 
 local leverDont = nil
 
+local leftDoor = nil
+local rightDoor = nil
+local colisionDontPass = nil
+local finalLever = false
+
 function on_ready()
-    parentScript = self:get_parent():get_component("ScriptComponent")
+    
+    if string.find(self:get_component("TagComponent").tag, "Final") then
+        finalLever = true
+        leftDoor = current_scene:get_entity_by_name("DoorLEVEL2FINAL1")
+        rightDoor = current_scene:get_entity_by_name("DoorLEVEL2FINAL2")
+        colisionDontPass = current_scene:get_entity_by_name("ColisionFinalDoorDontPass")
+    else
+        parentScript = self:get_parent():get_component("ScriptComponent")
+        parentTransform = self:get_parent():get_component("TransformComponent")
+    end
+  
     playerTransform = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
-    parentTransform = self:get_parent():get_component("TransformComponent")
     transform = self:get_component("TransformComponent")
     leverAnimator = self:get_component("AnimatorComponent")
 
@@ -59,10 +73,14 @@ function on_update(dt)
 
     local distance = Vector3.new(100,100,100)
     if not hasInteracted then
+        local leverPos = transform.position
+        if not finalLever then
+            leverPos = leverPos + parentTransform.position
+        end
         distance = Vector3.new(
-            math.abs(playerTransform.position.x - (transform.position.x + parentTransform.position.x)),
-            math.abs(playerTransform.position.y - (transform.position.y + parentTransform.position.y)),
-            math.abs(playerTransform.position.z - (transform.position.z + parentTransform.position.z))
+            math.abs(playerTransform.position.x - leverPos.x),
+            math.abs(playerTransform.position.y - leverPos.y),
+            math.abs(playerTransform.position.z - leverPos.z)
         )
     end
     
@@ -131,7 +149,14 @@ function interact()
     if leverSFX then
         leverSFX:play()
     end
-    parentScript:on_interact()
+
+    if not finalLever then
+        parentScript:on_interact()
+    else
+        leftDoor:get_component("TransformComponent").rotation = Vector3.new(0, 180, 0)
+        rightDoor:get_component("TransformComponent").rotation = Vector3.new(0, 20, 0)
+        colisionDontPass:set_active(false)
+    end
 end
 
 function on_exit()

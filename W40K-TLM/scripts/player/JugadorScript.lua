@@ -142,7 +142,7 @@ level = 1
 enemyDirection = nil
 
 local checkpointsPositionLvl1 = { Vector3.new(-14, 0, -32), Vector3.new(105, 0, -115), Vector3.new(131, 0, -186), Vector3.new(194, 0, -216)}
-local checkpointsPositionLvl2 = { Vector3.new(0, 0, 0), Vector3.new(63, 0, -60)}
+local checkpointsPositionLvl2 = { Vector3.new(0, 0, 0), Vector3.new(63, 0, -60), Vector3.new(122, 0, -40) }
 
 --animation indexs
 idle = 18 --17
@@ -410,8 +410,8 @@ function on_ready()
         if SceneManager:get_scene_name() == "level1.TeaScene" then
             playerRb:set_position(checkpointsPositionLvl1[zonePlayer])
         elseif SceneManager:get_scene_name() == "level2.TeaScene" then
-            if zonePlayer > 2 then
-                zonePlayer = 0
+            if zonePlayer > 3 then
+                zonePlayer = 1
             end
             playerRb:set_position(checkpointsPositionLvl2[zonePlayer])
         end

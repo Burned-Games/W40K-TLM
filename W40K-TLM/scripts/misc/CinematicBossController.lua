@@ -86,7 +86,7 @@ function on_ready()
     else
         playerTransf.position = outroPos
         cameraTransf.position, cameraTransf.rotation = cameraOutroPos, cameraOutroRot
-        timeToTransition = 3.0
+        timeToTransition = 6.0
     end
 end
 

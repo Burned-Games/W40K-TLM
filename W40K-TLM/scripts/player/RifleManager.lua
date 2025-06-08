@@ -624,25 +624,17 @@ function shoot(dt, bulletNum)
 
 
     playShoot()
-    if playerScript.enemyDirection ~= nil then
-        hasBeenPointed = true
-        if bulletNum == 3 then
-            if playerScript.enemyDirection ~= nil then
-                forwardVector = playerScript.enemyDirection
-                playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
-            else
-                forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
-            end
-            bullets[3].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-            bullets[2].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-            bullets[1].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
-        end
-    else
-        if not hasBeenPointed then
+    
+    if bulletNum == 3 then
+        if playerScript.enemyDirection ~= nil then
+            forwardVector = playerScript.enemyDirection
+            playerScript.angleRotation = math.atan(forwardVector.x, forwardVector.z)
+        else
             forwardVector = Vector3.normalize(Vector3.new(math.sin(playerScript.angleRotation), 0, math.cos(playerScript.angleRotation)))
-            bullets[bulletNum].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
         end
-        
+        bullets[3].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+        bullets[2].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
+        bullets[1].rigidBody:set_rotation(Vector3.new(0,math.deg(playerScript.angleRotation),0))
     end
     
     
