@@ -20,10 +20,14 @@ function on_ready()
     range.enemyNavmesh = self:get_component("NavigationAgentComponent")
     local children = self:get_children()
     for _, child in ipairs(children) do
+        -- if child:get_component("TagComponent").tag == "Shield" then
+        --     range.shieldShader = child:get_component("MaterialComponent").material.shader
+        --     range.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
+        -- end
+
         if child:get_component("TagComponent").tag == "E_ranged" then
             range.enemyMat = child:get_component("MaterialComponent")
             range.originalMaterial = range.enemyMat.material
-            break
         end
     end
 
@@ -214,12 +218,13 @@ function on_update(dt)
     range.moveAudioTimer = range.moveAudioTimer + dt
     range.pathUpdateTimer = range.pathUpdateTimer + dt
     range.updateTargetTimer = range.updateTargetTimer + dt
-    if range.enemyHit then
+    if range.enemyHit or range.shieldHit then
         range.hitTimer = range.hitTimer + dt 
     end
     range.hitAudioTimer = range.hitAudioTimer + dt
 
-    range:reset_material()
+    if range.enemyHit then range:reset_material() end
+    if range.shieldHit then range:reset_shader_material() end
 
     if range.playerMissing then
         range.missingTimer = range.missingTimer + dt

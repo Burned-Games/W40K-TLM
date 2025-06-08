@@ -40,6 +40,7 @@ layout(location = 0) out vec4 FragColor;
 layout(location = 1) out vec4 EntityID;
 
 uniform vec3 entityID;
+uniform vec3 baseColor;
 
 struct VertexData
 {
@@ -59,7 +60,6 @@ void main()
 
     float fresnel = pow(1.0 - max(dot(normal, viewDir), 0.0), 2.5);
 
-    vec3 baseColor = vec3(0.66, 0.09, 0.09);
     vec3 fresnelColor = vec3(1.0, 0.4, 0.4);
     vec3 shieldColor = mix(baseColor, fresnelColor, fresnel);
 
