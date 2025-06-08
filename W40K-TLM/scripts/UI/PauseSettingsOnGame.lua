@@ -3,7 +3,7 @@ local button1, button2, button3, button4, FullScreenButton
 local slider1, slider2
 local VolumeText, FXText, PauseText, SettingsBaseText
 local visibilidad1Entity, visibilidad2Entity, visibilidad3Entity
-local visibilidadtotal, chatarraUI
+local visibilidadtotal, chatarraUI, player
 
 
 isPaused = false
@@ -84,6 +84,7 @@ end
 
 function initialize_scripts()
     local workbenchUIManagerEntity = current_scene:get_entity_by_name("WorkBenchUIManager")
+    player = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     if workbenchUIManagerEntity:is_valid() then
         workbenchUIManagerScript = workbenchUIManagerEntity:get_component("ScriptComponent")
     end
@@ -113,6 +114,7 @@ function setup_initial_state()
 end
 
 function on_update(dt)
+    
     update_cooldowns(dt)
     handle_pause_input()
     
@@ -132,6 +134,11 @@ function on_update(dt)
     
     
     update_cancel_timer(dt)
+    if player.isHitted then
+        close_pause_menu()
+        close_controls_menu()
+        close_settings_menu()
+    end
     
     
 end
