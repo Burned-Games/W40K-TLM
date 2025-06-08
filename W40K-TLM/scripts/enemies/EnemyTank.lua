@@ -27,10 +27,10 @@ function on_ready()
     tank.enemyNavmesh = self:get_component("NavigationAgentComponent")
     local children = self:get_children()
     for _, child in ipairs(children) do
-        -- if child:get_component("TagComponent").tag == "Shield" then
-        --     tank.shieldShader = child:get_component("MaterialComponent").material.shader
-        --     tank.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
-        -- end
+        if child:get_component("TagComponent").tag == "Shield" then
+            tank.shieldShader = child:get_component("MaterialComponent").material.shader
+            tank.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
+        end
 
         if child:get_component("TagComponent").tag == "cuerpo_low" then
             tank.enemyMat = child:get_component("MaterialComponent")
