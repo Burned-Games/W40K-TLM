@@ -12,8 +12,7 @@ normalSpeed = 5
 moveSpeed = 5
 local speedDebuf = 1
 local godModeSpeed = 24
-local currentSpeed = 0
-local acceleration = 10      
+local currentSpeed = 0   
 local deceleration = 8
 moveDirection = nil
 moveDirectionY = 0
@@ -28,9 +27,7 @@ meleeImpulseApplied = false
 local dashTimeCounter = 0
 local dashTime = 0.3
 dashColdownCounter = 0
-local dashMeleeColdownCounter = 0
 dashColdown = 3.5
-local dashMeleeColdown = 0.8
 dashAvailable = true
 dashMeleeAvailable = true
 intangibleDash = false
@@ -132,7 +129,6 @@ local sceneChanged = false
 local UpgradeManager = nil
 
 --granadeSpeed
-local granadeVelocity = 0.65
 -- Rifle & Shotgun Variables (Needs to be centralized & organized :v)
 
 scrapCounter = 0
@@ -171,10 +167,7 @@ reload_Shotgun = 23
 local stun = 30
 aim = 0
 
-local rotationAngle = 0
-local transf = nil
 
-local entities
 
 -- particles
 local particle_lvl1_run = nil
@@ -190,7 +183,6 @@ local changeing = false
 local changed = false
 local changeScene = false
 
-local pauseMenu = nil
 isHitted = false
 
 local hitAnimationTime = 0.5
@@ -208,7 +200,6 @@ notMovingnotLooking = false
 
 isStunned = false
 
-local interval = 2
 local sceneName = nil
 
 activateAutoAim = false
@@ -304,7 +295,6 @@ function on_ready()
 
     howlingWindSFX:play()
 
-   entities = current_scene:get_all_entities()
 
     -- Particles 
     -- en la posicion de caida de la granada-> 
@@ -322,11 +312,9 @@ function on_ready()
 
     playerTransf = self:get_component("TransformComponent")
 
-    transf = self:get_component("TransformComponent")
 
     playerScript = self:get_component("ScriptComponent")
 
-    rotationAngle = { value = self:get_component("TransformComponent").position.y }
     
     playerRb = self:get_component("RigidbodyComponent").rb
 

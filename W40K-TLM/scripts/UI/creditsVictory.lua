@@ -1,12 +1,10 @@
-local velocidad = 100 
-local entidadCreditos
+local velocidad = 100
 local posicionY = 0
 local limiteSuperiorY = -2517
 
 local creditsMusic = nil
 
 function on_ready()
-    entidadCreditos = self:get_component("UIImageComponent")
     posicionY = 2600  
     move_ui_element(self, 0, posicionY)
 

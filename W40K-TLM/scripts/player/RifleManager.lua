@@ -39,7 +39,6 @@ local bolterSkillShotSFX = nil
 local bolterBulletImpactSFX = nil
 local playerNoAmmoSFX = nil
 
-local rifle_firerate_count = 0
 
 -- Particles
 local particle_cargdisruptor_transform = nil

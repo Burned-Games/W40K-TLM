@@ -1,8 +1,6 @@
 
 local cameraTransform
 
-local smoothPos = nil
-
 local shakeOffset = nil
 
 local smoothPos = Vector3.new(0, 0, 0)

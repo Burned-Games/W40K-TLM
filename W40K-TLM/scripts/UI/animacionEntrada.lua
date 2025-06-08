@@ -1,7 +1,6 @@
 local imageComponent
 local buttonComponent
 local order
-local rect
 local BaseEntity
 local baseScript
 local BaseEntityManager

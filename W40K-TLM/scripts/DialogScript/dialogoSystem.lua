@@ -63,7 +63,6 @@ current_scene_name = nil
 current_scene_tag = nil
 
 --Colider
-local dialogoScriptComponent = nil
 local RigidBodyComponent = nil
 local RigidBody = nil
 

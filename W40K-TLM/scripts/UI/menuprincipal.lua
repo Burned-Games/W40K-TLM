@@ -3,20 +3,12 @@ local button2
 local button3
 local button4
 local button5
-local text1
-local text2
-local text3
-local text4
-local text5
-local musicaFondoDefault
 --local changeScene = false
-local SettingsManager
 local SettingsEntity
 local BaseEntity
 local OrderEntity
 local LogoEntity
 local LogoSalidaEntity
-local Ajustes
 local Credits
 local hasGameSave = false
 
@@ -34,15 +26,8 @@ saliendoDeMenu = false
 
 local index = 0
 local currentSelectedIndex = 0
-local buttonCooldown = 0
-local buttonCooldownTime = 0.2
 local sceneChanged = false
 local contadorMovimientoBotones = 0
-
-local level = 1
-
-local defaultColor = Vector4.new(130/255, 19/255, 7/255, 1.0)
-local selectedColor = Vector4.new(1.0, 1.0, 1.0, 1.0)
 
 local changingScene = 0
 local fadeToBlackScript = nil
@@ -53,24 +38,17 @@ local indexSelectionSFX = nil
 local introSFX = nil
 local outroSFX = nil
 
-local creditsPrefab = "prefabs/Credits.prefab"
-
 function on_ready()
     -- Add initialization code here
     button1 = current_scene:get_entity_by_name("NuevoJuego"):get_component("UIButtonComponent")
-    --text1 = current_scene:get_entity_by_name("NewGameText"):get_component("UITextComponent")
 
     button2 = current_scene:get_entity_by_name("Continuar"):get_component("UIButtonComponent")
-    --text2 = current_scene:get_entity_by_name("ContinueText"):get_component("UITextComponent")
 
     button3 = current_scene:get_entity_by_name("Ajuste"):get_component("UIButtonComponent")
-    --text3 = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
 
     button4 = current_scene:get_entity_by_name("Crdts"):get_component("UIButtonComponent")
-    --text4 = current_scene:get_entity_by_name("CreditsText"):get_component("UITextComponent")
 
     button5 = current_scene:get_entity_by_name("Salir"):get_component("UIButtonComponent")
-    --text5 = current_scene:get_entity_by_name("ExitText"):get_component("UITextComponent")
 
     botonAnimadoScript = current_scene:get_entity_by_name("Base"):get_component("ScriptComponent")
 
@@ -86,11 +64,7 @@ function on_ready()
 
     mm = current_scene:get_entity_by_name("BaseManager")
 
-
-    SettingsManager = current_scene:get_entity_by_name("SettingsManager"):get_component("ScriptComponent")
     SettingsEntity = current_scene:get_entity_by_name("SettingsManager")
-
-    Ajustes = current_scene:get_entity_by_name("Settings")
 
     Credits = current_scene:get_entity_by_name("Credits")
 

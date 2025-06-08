@@ -3,7 +3,6 @@ local hud = nil
 local missionManager = nil
 local dialogManager = nil
 local popUpManager = nil
-local pauseMenu = nil
 local chatarraUI = nil
 
 local workbenchEntities = {}
@@ -18,21 +17,21 @@ local gScrapTxtEntity, gScrapTxt
 -- Weapon UI elements
 local wNameTxtEntity, wNameTxt
 local wDescTxtEntity, wDescTxt
-local wTitleTxtEntity, wTitleTxt
+local wTitleTxtEntity
 local wCostTxtEntity, wCostTxt
 local wBuyTxtEntity, wBuyTxt
-local wScrapIconEntity, wScrapIcon
-local wRenderEntity, wRender
+local wScrapIconEntity
+local wRenderEntity
 local wUpgradesBackgroundEntity, wUpgradesBackground
 -- Weapon upgrade indicators
-local wIEntity, wI
-local wIIEntity, wII
-local wIIIEntity, wIII
-local wIVEntity, wIV
-local wIBoughtEntity, wIBought
-local wIIBoughtEntity, wIIBought
-local wIIIBoughtEntity, wIIIBought
-local wIVBoughtEntity, wIVBought
+local wIEntity
+local wIIEntity
+local wIIIEntity
+local wIVEntity
+local wIBoughtEntity
+local wIIBoughtEntity
+local wIIIBoughtEntity
+local wIVBoughtEntity
 -- Weapon selection buttons
 local wISelButtonEntity, wISelButton
 local wIISelButtonEntity, wIISelButton
@@ -43,19 +42,19 @@ local wUpgradeSelButtonEntity, wUpgradeSelButton
 -- Armor UI elements
 local aNameTxtEntity, aNameTxt
 local aDescTxtEntity, aDescTxt
-local aTitleTxtEntity, aTitleTxt
+local aTitleTxtEntity
 local aCostTxtEntity, aCostTxt
 local aBuyTxtEntity, aBuyTxt
-local aScrapIconEntity, aScrapIcon
-local aRenderEntity, aRender
-local aUpgradesBackgroundEntity, aUpgradesBackground
+local aScrapIconEntity
+local aRenderEntity
+local aUpgradesBackgroundEntity
 -- Armor upgrade indicators
-local aIEntity, aI
-local aIIEntity, aII
-local aIIIEntity, aIII
-local aIBoughtEntity, aIBought
-local aIIBoughtEntity, aIIBought
-local aIIIBoughtEntity, aIIIBought
+local aIEntity
+local aIIEntity
+local aIIIEntity
+local aIBoughtEntity
+local aIIBoughtEntity
+local aIIIBoughtEntity
 -- Armor selection buttons
 local aISelButtonEntity, aISelButton
 local aIISelButtonEntity, aIISelButton
@@ -70,8 +69,6 @@ local prevArmorIndex = 0
 
 local lastSelectedWeaponUpgrade = 1
 local lastSelectedArmorUpgrade = 1
-local buttonCooldown = 0
-local buttonCooldownTime = 0.1
 local contadorMovimientoBotones = 0
 
 -- Button press tracking to prevent spamming
@@ -96,7 +93,6 @@ local toggleCooldownTimer = 0
 local toggleCooldownDuration = 0.3
 
 -- Current category and upgrade
-local selectedCategory = "weapons"
 local upgradeTypes = {
     weapons = {"reloadReduction", "damageBoost", "fireRateBoost", "specialAbility"},
     armor = {"healthBoost", "protection", "specialAbility"}
@@ -104,12 +100,6 @@ local upgradeTypes = {
 local currentUpgradeIndex = {
     weapons = 0,
     armor = 0
-}
-
-local BUTTON_STATES = {
-    NORMAL = 0,
-    HOVER = 1,
-    PRESSED = 2
 }
 
 local playerScript = nil
@@ -133,9 +123,6 @@ function on_ready()
     dialogManager = current_scene:get_entity_by_name("DialogManager")
     popUpManager = current_scene:get_entity_by_name("PopUpManager")
     chatarraUI = current_scene:get_entity_by_name("ChatarraUI")
-
-    -- Initialize pause menu
-    pauseMenu = current_scene:get_entity_by_name("PauseBase"):get_component("ScriptComponent")
 
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
 
@@ -168,7 +155,6 @@ function on_ready()
         wDescTxt = wDescTxtEntity:get_component("UITextComponent")
         
         wTitleTxtEntity = current_scene:get_entity_by_name("WTitleTXT")
-        wTitleTxt = wTitleTxtEntity:get_component("UITextComponent")
         
         wCostTxtEntity = current_scene:get_entity_by_name("WCostTXT")
         wCostTxt = wCostTxtEntity:get_component("UITextComponent")
@@ -177,38 +163,28 @@ function on_ready()
         wBuyTxt = wBuyTxtEntity:get_component("UITextComponent")
         
         wScrapIconEntity = current_scene:get_entity_by_name("WScrapIcon")
-        wScrapIcon = wScrapIconEntity:get_component("UIImageComponent")
         
         wRenderEntity = current_scene:get_entity_by_name("WRender")
-        wRender = wRenderEntity:get_component("UIImageComponent")
         
         wUpgradesBackgroundEntity = current_scene:get_entity_by_name("WUpgradesBackground")
         wUpgradesBackground = wUpgradesBackgroundEntity:get_component("UIImageComponent")
         
         -- Weapon upgrade indicators
         wIEntity = current_scene:get_entity_by_name("WI")
-        wI = wIEntity:get_component("UIImageComponent")
         
         wIIEntity = current_scene:get_entity_by_name("WII")
-        wII = wIIEntity:get_component("UIImageComponent")
         
         wIIIEntity = current_scene:get_entity_by_name("WIII")
-        wIII = wIIIEntity:get_component("UIImageComponent")
         
         wIVEntity = current_scene:get_entity_by_name("WIV")
-        wIV = wIVEntity:get_component("UIImageComponent")
         
         wIBoughtEntity = current_scene:get_entity_by_name("WIBought")
-        wIBought = wIBoughtEntity:get_component("UIImageComponent")
         
         wIIBoughtEntity = current_scene:get_entity_by_name("WIIBought")
-        wIIBought = wIIBoughtEntity:get_component("UIImageComponent")
         
         wIIIBoughtEntity = current_scene:get_entity_by_name("WIIIBought")
-        wIIIBought = wIIIBoughtEntity:get_component("UIImageComponent")
         
         wIVBoughtEntity = current_scene:get_entity_by_name("WIVBought")
-        wIVBought = wIVBoughtEntity:get_component("UIImageComponent")
         
         -- Weapon selection buttons
         wISelButtonEntity = current_scene:get_entity_by_name("WISelBUTTON")
@@ -234,7 +210,6 @@ function on_ready()
         aDescTxt = aDescTxtEntity:get_component("UITextComponent")
         
         aTitleTxtEntity = current_scene:get_entity_by_name("ATitleTXT")
-        aTitleTxt = aTitleTxtEntity:get_component("UITextComponent")
         
         aCostTxtEntity = current_scene:get_entity_by_name("ACostTXT")
         aCostTxt = aCostTxtEntity:get_component("UITextComponent")
@@ -243,32 +218,23 @@ function on_ready()
         aBuyTxt = aBuyTxtEntity:get_component("UITextComponent")
         
         aScrapIconEntity = current_scene:get_entity_by_name("AScrapIcon")
-        aScrapIcon = aScrapIconEntity:get_component("UIImageComponent")
         
         aRenderEntity = current_scene:get_entity_by_name("ARender")
-        aRender = aRenderEntity:get_component("UIImageComponent")
         
         aUpgradesBackgroundEntity = current_scene:get_entity_by_name("AUpgradesBackground")
-        aUpgradesBackground = aUpgradesBackgroundEntity:get_component("UIImageComponent")
         
         -- Armor upgrade indicators
         aIEntity = current_scene:get_entity_by_name("AI")
-        aI = aIEntity:get_component("UIImageComponent")
         
         aIIEntity = current_scene:get_entity_by_name("AII")
-        aII = aIIEntity:get_component("UIImageComponent")
         
         aIIIEntity = current_scene:get_entity_by_name("AIII")
-        aIII = aIIIEntity:get_component("UIImageComponent")
         
         aIBoughtEntity = current_scene:get_entity_by_name("AIBought")
-        aIBought = aIBoughtEntity:get_component("UIImageComponent")
         
         aIIBoughtEntity = current_scene:get_entity_by_name("AIIBought")
-        aIIBought = aIIBoughtEntity:get_component("UIImageComponent")
         
         aIIIBoughtEntity = current_scene:get_entity_by_name("AIIIBought")
-        aIIIBought = aIIIBoughtEntity:get_component("UIImageComponent")
         
         -- Armor selection buttons
         aISelButtonEntity = current_scene:get_entity_by_name("AISelBUTTON")

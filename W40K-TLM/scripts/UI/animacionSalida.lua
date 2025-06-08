@@ -1,9 +1,6 @@
 local imageComponent
 
 local baseImagen
-local logoImagen
-local settingsScript
-local fadeToBlackScript = nil
 
 local rect
 local spriteWidth = 579
@@ -19,7 +16,6 @@ local animationFinished = false
 function on_ready()
     imageComponent = self:get_component("UIImageComponent")
     baseImagen = current_scene:get_entity_by_name("Base")
-    fadeToBlackScript = current_scene:get_entity_by_name("FadeToBlack"):get_component("ScriptComponent")
     
     
     rect = Vector4.new(0, 0, spriteWidth / sheetWidth, spriteHeight / sheetHeight)

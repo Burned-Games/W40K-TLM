@@ -1,5 +1,4 @@
 -- Shield Script Corregido
-local shieldTransform = nil
 targetEnemy = nil
 isActive = false
 
@@ -9,10 +8,8 @@ local actualAlpha = 0
 local alertShowSpeed = 1.5
 local alertShowDirection = 0 
 
-local sistemaParticulas = nil
 
 function on_ready()
-    shieldTransform = self:get_component("TransformComponent")
 
     -- Solo inicializar si no está ya activo
     if not isActive then

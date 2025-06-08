@@ -1,5 +1,4 @@
 imageComponent = nil
-local imageComponentEntity
 rect = nil
 spriteWidth = 1154
 spriteHeight = 508
@@ -16,7 +15,6 @@ local delayDuration = 1.0
 
 function on_ready()
     imageComponent = self:get_component("UIImageComponent")
-    imageComponentEntity = current_scene:get_entity_by_name("Logo")
     
     animationTime = 0
     animationFinished = false
