@@ -1,14 +1,12 @@
 
 local button1, button2, button3, button4, FullScreenButton
 local slider1, slider2
-local text1, text2
 local VolumeText, FXText, PauseText, SettingsBaseText
 local visibilidad1Entity, visibilidad2Entity, visibilidad3Entity
 local visibilidadtotal, chatarraUI
 
 
 isPaused = false
-local isOnPauseSettings = false
 local isOnControls = false
 local sceneChanged = false
 
@@ -68,15 +66,7 @@ function initialize_ui_components()
 
     
     slider1 = current_scene:get_entity_by_name("Volume"):get_component("UISliderComponent")
-    slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent")
-
-   
-    text1 = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
-    text2 = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
-    VolumeText = current_scene:get_entity_by_name("VolumeText"):get_component("UITextComponent")
-    FXText = current_scene:get_entity_by_name("FXText"):get_component("UITextComponent")
-    PauseText = current_scene:get_entity_by_name("PauseText"):get_component("UITextComponent")
-    SettingsBaseText = current_scene:get_entity_by_name("SettingsText"):get_component("UITextComponent")
+    slider2 = current_scene:get_entity_by_name("FX"):get_component("UISliderComponent") 
 
     
     visibilidad1Entity = current_scene:get_entity_by_name("Pause")
@@ -134,12 +124,16 @@ function on_update(dt)
         elseif currentMenuState == MenuState.CONTROLS then
             handle_controls_input(dt)
         end
+        handle_cancel_input()  
+        update_main_menu_buttons()
+        play_hover_sound()
+        
     end
     
-    handle_cancel_input()
+    
     update_cancel_timer(dt)
-    update_main_menu_buttons()
-    play_hover_sound()
+    
+    
 end
 
 function update_cooldowns(dt)
@@ -174,7 +168,10 @@ function open_pause_menu()
     isPaused = true
     currentMenuState = MenuState.MAIN_MENU
     visibilidad1Entity:set_active(true)
-    chatarraUI:set_active(false)
+    if chatarraUI:is_valid() then
+        chatarraUI:set_active(false)
+    end
+    
     
     if workbenchUIManagerScript and workbenchUIManagerScript.isWorkBenchOpen == true then
         workbenchUIManagerScript:hide_ui()
@@ -187,8 +184,10 @@ function close_pause_menu()
     visibilidad1Entity:set_active(false)
     visibilidad2Entity:set_active(false)
     visibilidad3Entity:set_active(false)
-    chatarraUI:set_active(true)
-    isOnPauseSettings = false
+    if chatarraUI:is_valid() then
+        log("CHATARRA")
+        chatarraUI:set_active(true)
+    end
     isOnControls = false
 end
 
@@ -247,7 +246,6 @@ end
 function open_settings_menu()
     currentMenuState = MenuState.SETTINGS
     visibilidad2Entity:set_active(true)
-    isOnPauseSettings = true
     sceneChanged = true
     inputCooldown = COOLDOWN_TIME
 end
@@ -343,7 +341,6 @@ end
 function close_settings_menu()
     visibilidad2Entity:set_active(false)
     currentMenuState = MenuState.MAIN_MENU
-    isOnPauseSettings = false
 end
 
 function close_controls_menu()
@@ -357,7 +354,9 @@ function start_cancel_sequence()
     visibilidad1Entity:set_active(false)
     visibilidad2Entity:set_active(false)
     visibilidad3Entity:set_active(false)
-    chatarraUI:set_active(true)
+    if chatarraUI:is_valid() then
+        chatarraUI:set_active(true)
+    end
     
     cancelTimer = 0
     cancelTriggered = true
