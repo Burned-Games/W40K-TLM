@@ -621,7 +621,7 @@ function on_update(dt)
         
     end
 
-    if hasDoneTutorialChangeWeapon == false and firstEnemyDied and not changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
+    if changeWeaponButton and hasDoneTutorialChangeWeapon == false and firstEnemyDied and not changeWeaponButton:is_active() and level == 1 and zonePlayer == 0 then
         changeWeaponButton:set_active(true)
         hasDoneTutorialChangeWeapon = true
     end
