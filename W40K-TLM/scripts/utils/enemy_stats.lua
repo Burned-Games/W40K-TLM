@@ -223,7 +223,7 @@ local enemy_stats = {
             tackleDamage = 65,
 
             detectionRange = 15,
-            meleeAttackRange = 3,
+            meleeAttackRange = 4,
             returningRange = 70,
 
             statsIncrement = 1.5,
@@ -258,7 +258,7 @@ local enemy_stats = {
             tackleDamage = 120,
 
             detectionRange = 20,
-            meleeAttackRange = 2,
+            meleeAttackRange = 4,
             returningRange = 70,
 
             statsIncrement = 1.5,
@@ -288,7 +288,7 @@ local enemy_stats = {
             tackleDamage = 120,
 
             detectionRange = 20,
-            meleeAttackRange = 2,
+            meleeAttackRange = 4,
             returningRange = 70,
 
             statsIncrement = 1.5,

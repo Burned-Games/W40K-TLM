@@ -120,7 +120,7 @@ function on_ready()
     
 
     -- States
-    tank.state = {Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5, Tackle = 6, Stun = 7, Indicator = 8}
+    tank.state = {Dead = 1, Idle = 2, Detect = 3, Move = 4, Attack = 5, Tackle = 6, Indicator = 7}
 
     -- Internal Timers
     tank.pathUpdateTimer = 0.0
@@ -143,7 +143,6 @@ function on_ready()
     tank.detectAnim = 6
     --tank.hitAnim = 5 
     tank.idleAnim = 9
-    tank.stunAnim = 1
     tank.tackleAnim = 12
     tank.moveAnim = 13
 
@@ -152,7 +151,6 @@ function on_ready()
     tank.berserkaDuration = 2.0
     tank.dieDuration = 0.5
     tank.detectDuration = 1.5
-    tank.stunDuration = 2.5
     tank.tackleDuration = 0.83
     tank.indicatorDuration = 1.0
     tank.midAttackTimer = 0.5
@@ -221,7 +219,7 @@ function on_ready()
                 nameA == "SupportBullet1" or nameA == "SupportBullet2" or nameA == "SupportBullet3" or 
                 nameB:match("^Sphere") or nameB == "Granade" or 
                 nameB == "DisruptorBullet" or nameB == "ChargeZone" or
-                nameB == "EnemyRange" or nameB == "EnemyKamikaze" or nameB == "EnemySupport" or 
+                nameB == "EnemyRange" or nameB == "EnemyKamikaze" or nameB == "EnemySupport" or
                 nameB == "SupportBullet1" or nameB == "SupportBullet2" or nameB == "SupportBullet3"
 
             if not isNonBlockingCollision and tank.currentState == tank.state.Tackle then
@@ -287,7 +285,6 @@ function on_update(dt)
     if tank.haveShield and tank.enemyShield <= 0 then
         tank.haveShield = false
         tank.shield_destroyed = true
-        tank.currentState = tank.state.Stun
     end
 
     tank.moveAudioTimer = tank.moveAudioTimer + dt
@@ -379,11 +376,6 @@ function on_update(dt)
         tank:attack_state(dt)
     elseif tank.currentState == tank.state.Tackle then
         tank:tackle_state()
-        tank.attackTimer = 0.0
-        tank.animTimer = 0.0
-        tank.isFirstAttack = true
-    elseif tank.currentState == tank.state.Stun then
-        tank:stun_state()
         tank.attackTimer = 0.0
         tank.animTimer = 0.0
         tank.isFirstAttack = true
@@ -650,7 +642,6 @@ function tank:tackle_raycast()
     end
 
     if tank:detect(leftHit, tank.player) or tank:detect(rightHit, tank.player) then
-        print("[TANK] Tackle hit player by RAYCAST")
         tank:rotate_enemy(tank.playerTransf.position)
         tank.enemyRb:set_velocity(Vector3.new(0, 0, 0))
         tank.isCharging = false
