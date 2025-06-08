@@ -27,6 +27,11 @@ function on_ready()
     tank.enemyNavmesh = self:get_component("NavigationAgentComponent")
     local children = self:get_children()
     for _, child in ipairs(children) do
+        -- if child:get_component("TagComponent").tag == "Shield" then
+        --     tank.shieldShader = child:get_component("MaterialComponent").material.shader
+        --     tank.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
+        -- end
+
         if child:get_component("TagComponent").tag == "cuerpo_low" then
             tank.enemyMat = child:get_component("MaterialComponent")
             tank.originalMaterial = tank.enemyMat.material
@@ -289,12 +294,13 @@ function on_update(dt)
 
     tank.moveAudioTimer = tank.moveAudioTimer + dt
     tank.pathUpdateTimer = tank.pathUpdateTimer + dt
-    if tank.enemyHit then
+    if tank.enemyHit or tank.shieldHit then
         tank.hitTimer = tank.hitTimer + dt 
     end
     tank.hitAudioTimer = tank.hitAudioTimer + dt
 
-    tank:reset_material()
+    if tank.enemyHit then tank:reset_material() end
+    if tank.shieldHit then tank:reset_shader_material() end
 
     local currentTargetPos = tank.playerTransf.position
     if tank.pathUpdateTimer >= tank.pathUpdateInterval or tank:get_distance(tank.lastTargetPos, currentTargetPos) > 1.0 then

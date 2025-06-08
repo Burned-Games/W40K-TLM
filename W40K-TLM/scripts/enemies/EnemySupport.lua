@@ -207,7 +207,7 @@ function on_update(dt)
         support.currentState = support.state.Dead
     end
 
-    support:reset_material()
+    if support.enemyHit then support:reset_material() end
 
     if support.playerMissing then
         support.missingTimer = support.missingTimer + dt

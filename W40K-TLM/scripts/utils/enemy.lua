@@ -60,6 +60,9 @@ function enemy:new(obj)
     obj.originalMaterial = nil
     obj.damageMaterial = nil
 
+    -- Shaders
+    obj.shieldShader = nil
+
     -- Particles
     obj.sparkParticle = nil
     obj.sparkParticleTransf = nil
@@ -132,6 +135,7 @@ function enemy:new(obj)
     obj.isPlayingUpperAnimation = false
     obj.playerMissing = false
     obj.playerLost = false
+    obj.shieldHit = false
     obj.enemyHit = false
 
     -- Vector3
@@ -786,8 +790,6 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
         self.damageMaterial.albedo_texture = self.originalMaterial.albedo_texture
         self.damageMaterial.color = Vector4.new(255/255, 82/255, 102/255, 255/255)
     end
-    
-    if self.enemyMat then self.enemyMat.material = self.damageMaterial end
 
     local blood = instantiate_prefab(bloodPrefab)
     local bloodParticle = blood:get_component("ParticlesSystemComponent")
@@ -798,6 +800,10 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
 
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
+
+        if self.shieldShader then self.shieldShader:set_uniform("baseColor", Vector3.new(0.0, 1.0, 0.0)) end
+        self.shieldHit = true
+
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
         if self.hitAudioTimer >= self.hitAudioDuration then
             if self.hurtSFX then self.hurtSFX:play() end
@@ -806,6 +812,10 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
         log("Shield Health: " .. self.shieldHealth)
     else
         self.health = self.health - damage
+
+        if self.enemyMat then self.enemyMat.material = self.damageMaterial end
+        self.enemyHit = true
+
         if self.hitAudioTimer >= self.hitAudioDuration then
             if self.hurtSFX then self.hurtSFX:play() end
             self.hitAudioTimer = 0.0
@@ -817,19 +827,22 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
         self:die_state()
     end
 
-    self.enemyHit = true
-    
-
 end
 
 function enemy:reset_material()
-
     if self.hitTimer >= self.hitDuration then
         if self.enemyMat then self.enemyMat.material = self.originalMaterial end
         self.enemyHit = false
         self.hitTimer = 0.0
     end
+end
 
+function enemy:reset_shader_material()
+    if self.hitTimer >= self.hitDuration then
+        if self.shieldShader then self.shieldShader:set_uniform("baseColor", Vector3.new(1.0, 0.0, 0.0)) end
+        self.shieldHit = false
+        self.hitTimer = 0.0
+    end
 end
 
 function enemy:rotate_enemy(targetPosition)

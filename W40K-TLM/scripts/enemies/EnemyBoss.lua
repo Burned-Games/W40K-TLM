@@ -29,6 +29,8 @@ function on_ready()
     main_boss.shield = instantiate_prefab(shieldPrefab)
     main_boss.shieldTransf = main_boss.shield:get_component("TransformComponent")
     main_boss.shieldTransf.position = Vector3.new(-500, 0, -200)
+    main_boss.shieldShader = main_boss.shield:get_component("MaterialComponent").material.shader
+    main_boss.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
 
     -- Wrath
     main_boss.wrath = instantiate_prefab(wrathPrefab)
@@ -67,10 +69,14 @@ function on_ready()
     -- VFX
     local children = self:get_children()
     for _, child in ipairs(children) do
+        if child:get_component("TagComponent").tag == "Body_low" then
+            main_boss.enemyMat = child:get_component("MaterialComponent")
+            main_boss.originalMaterial = main_boss.enemyMat.material
+        end
+
         if child:get_component("TagComponent").tag == "VFX_SmashBoss" then
             main_boss.smashVFX = child
             main_boss.smashVFXAnimator = main_boss.smashVFX:get_component("AnimatorComponent")
-            break
         end
     end
 
@@ -201,11 +207,14 @@ function on_update(dt)
     main_boss.attackTimer = main_boss.attackTimer + dt
     if not main_boss.shieldActive and not main_boss.isAttacking and not main_boss.ultimateScript.ultimateThrown and not main_boss.ultimateScript.ultimateCasting then main_boss.shieldTimer = main_boss.shieldTimer + dt end
     main_boss.pathUpdateTimer = main_boss.pathUpdateTimer + dt
-    if main_boss.enemyHit then
+    if main_boss.enemyHit or main_boss.shieldHit then
         main_boss.hitTimer = main_boss.hitTimer + dt 
     end
     main_boss.hitAudioTimer = main_boss.hitAudioTimer + dt
     if main_boss.isDead then main_boss.contador = main_boss.contador + dt end
+
+    if main_boss.enemyHit then main_boss:reset_material() end
+    if main_boss.shieldHit then main_boss:reset_shader_material() end
 
     if main_boss.isReturning and not main_boss.hasMovedToCenter then
         main_boss.currentState = main_boss.state.Move

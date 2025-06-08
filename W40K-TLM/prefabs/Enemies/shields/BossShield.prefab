@@ -10,7 +10,7 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 17473846736586906725
+                "value0": 2129537181202985141
             },
             "value4": false
         },
@@ -89,7 +89,7 @@
                             },
                             "Shader Path": "shaders/shieldShader.glsl",
                             "Render Settings": {
-                                "TransparencyMode": 0,
+                                "TransparencyMode": 1,
                                 "AlphaCutoff": 0.5,
                                 "BlendMode": 0,
                                 "CullMode": 1,

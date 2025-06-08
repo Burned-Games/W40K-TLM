@@ -22,6 +22,11 @@ function on_ready()
     kamikaze.enemyNavmesh = self:get_component("NavigationAgentComponent")
     local children = self:get_children()
     for _, child in ipairs(children) do
+        -- if child:get_component("TagComponent").tag == "Shield" then
+        --     kamikaze.shieldShader = child:get_component("MaterialComponent").material.shader
+        --     kamikaze.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
+        -- end
+
         if child:get_component("TagComponent").tag == "uña1_low" then
             kamikaze.enemyMat = child:get_component("MaterialComponent")
             kamikaze.originalMaterial = kamikaze.enemyMat.material
@@ -182,12 +187,13 @@ function on_update(dt)
 
     kamikaze.moveAudioTimer = kamikaze.moveAudioTimer + dt
     kamikaze.pathUpdateTimer = kamikaze.pathUpdateTimer + dt
-    if kamikaze.enemyHit then
+    if kamikaze.enemyHit or kamikaze.shieldHit then
         kamikaze.hitTimer = kamikaze.hitTimer + dt 
     end
     kamikaze.hitAudioTimer = kamikaze.hitAudioTimer + dt
 
-    kamikaze:reset_material()
+    if kamikaze.enemyHit then kamikaze:reset_material() end
+    if kamikaze.shieldHit then kamikaze:reset_shader_material() end
 
     local currentTargetPos = kamikaze.playerTransf.position
     if kamikaze.pathUpdateTimer >= kamikaze.pathUpdateInterval or kamikaze:get_distance(kamikaze.lastTargetPos, currentTargetPos) > 1.0 then
