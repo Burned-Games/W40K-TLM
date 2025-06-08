@@ -23,7 +23,6 @@ dialog11 = false
 --Dialogo 2
 
 --Dialogo
-local dialogLines12 = nil
 local dialogLines13 = nil
 local dialogLines13Ac = nil
 local dialogLines14 = nil
@@ -134,9 +133,6 @@ function on_ready()
     
     elseif current_scene_name == "level2.TeaScene" then
         --DialogoText
-        dialogLines12 = {
-            { name = "Decius Marcellus", text = "Welcome to Martyria Eterna brother. Find your way into the cathedral and finish Gorklaw to end this invasion.", time = 3}
-        }
         
         dialogLines13 = {
             { name = "Decius Marcellus", text = "You've reached a sealed sector. Find a manual override, a lever or control panel. Time is not on our side, Brother.", time = 3}
@@ -153,15 +149,9 @@ function on_ready()
         dialogLines16 = {
             { name = "Decius Marcellus", text = "Brother Maxillian, supply pod nearby. Upgrade your gear before advancing. The deeper you go, the deadlier it becomes.", time = 3}
         }
+        
         dialogLines17 = {
             { name = "Decius Marcellus", text = "You're approaching the Great Bridge, but the access gate is sealed. Search the area for a lever. Force the passage open.", time = 3}
-        }
-        dialogLines18 = {
-            { name = "Decius Marcellus", text = "Security protocols have raised the bridge gates. There must be manual overrides nearby. Activate and continue your advance.", time = 3}
-        }
-        
-        dialogLines19 = {
-            { name = "Decius Marcellus", text = "This is it, Brother. Upgrade your gear and tend to your wounds. The final confrontation awaits in the heart of Martyria Eterna.", time = 3}
         }
        
     elseif current_scene_name == "level3.TeaScene" then
@@ -300,7 +290,8 @@ function on_update(dt)
 
     elseif current_scene_name == "level2.TeaScene" then
         --Colider
-        if detect and first and current_scene_tag =="Dialogo_Col_13" then
+
+    if detect and first and current_scene_tag =="Dialogo_Col_13" then
             dialog13 = true
             first = false
 
@@ -340,11 +331,6 @@ function on_update(dt)
         end
 
          --Dialogo
-
-        if openDialog then
-        dialogScriptComponent.start_dialog(dialogLines12)
-        openDialog = false
-        end
 
         if dialog13 then 
             dialogScriptComponent.start_dialog(dialogLines13)
