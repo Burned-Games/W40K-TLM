@@ -22,7 +22,8 @@ function on_ready()
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "Shield" then
             range.shieldShader = child:get_component("MaterialComponent").material.shader
-            range.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
+            range.shieldShader:set_uniform("baseColor", range.shaderBaseColor)
+            range.shieldShader:set_uniform("fresnelColor", range.shaderFresnelColor)
         end
 
         if child:get_component("TagComponent").tag == "E_ranged" then

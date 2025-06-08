@@ -62,6 +62,8 @@ function enemy:new(obj)
 
     -- Shaders
     obj.shieldShader = nil
+    obj.shaderBaseColor = Vector3.new(1.0, 0.0, 0.0)
+    obj.shaderFresnelColor = Vector3.new(1.0, 0.4, 0.4)
 
     -- Particles
     obj.sparkParticle = nil
@@ -801,7 +803,10 @@ function enemy:take_damage(damage, shieldMultiplier, sword)
     if self.shieldHealth > 0 then
         self.shieldHealth = self.shieldHealth - (damage * shieldMultiplier)
 
-        if self.shieldShader then self.shieldShader:set_uniform("baseColor", Vector3.new(0.0, 1.0, 0.0)) end
+        if self.shieldShader then 
+            self.shieldShader:set_uniform("baseColor", Vector3.new(1.0, 0.1, 0.1))
+            self.shieldShader:set_uniform("fresnelColor", Vector3.new(1.0, 0.5, 0.5))
+        end
         self.shieldHit = true
 
         if self.shieldHealth <= 0 then self.shieldExplosionSFX:play() end
@@ -839,7 +844,10 @@ end
 
 function enemy:reset_shader_material()
     if self.hitTimer >= self.hitDuration then
-        if self.shieldShader then self.shieldShader:set_uniform("baseColor", Vector3.new(1.0, 0.0, 0.0)) end
+        if self.shieldShader then 
+            self.shieldShader:set_uniform("baseColor", self.shaderBaseColor)
+            self.shieldShader:set_uniform("fresnelColor", self.shaderFresnelColor) 
+        end
         self.shieldHit = false
         self.hitTimer = 0.0
     end

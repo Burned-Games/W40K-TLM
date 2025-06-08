@@ -192,7 +192,6 @@ function close_pause_menu()
     visibilidad2Entity:set_active(false)
     visibilidad3Entity:set_active(false)
     if chatarraUI:is_valid() then
-        log("CHATARRA")
         chatarraUI:set_active(true)
     end
     isOnControls = false

@@ -24,7 +24,8 @@ function on_ready()
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "Shield" then
             kamikaze.shieldShader = child:get_component("MaterialComponent").material.shader
-            kamikaze.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
+            kamikaze.shieldShader:set_uniform("baseColor", kamikaze.shaderBaseColor)
+            kamikaze.shieldShader:set_uniform("fresnelColor", kamikaze.shaderFresnelColor)
         end
 
         if child:get_component("TagComponent").tag == "uña1_low" then

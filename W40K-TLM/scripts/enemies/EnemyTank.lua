@@ -29,7 +29,8 @@ function on_ready()
     for _, child in ipairs(children) do
         if child:get_component("TagComponent").tag == "Shield" then
             tank.shieldShader = child:get_component("MaterialComponent").material.shader
-            tank.shieldShader:set_uniform("baseColor", Vector3.new(0.5, 0.0, 0.0))
+            tank.shieldShader:set_uniform("baseColor", tank.shaderBaseColor)
+            tank.shieldShader:set_uniform("fresnelColor", tank.shaderFresnelColor)
         end
 
         if child:get_component("TagComponent").tag == "cuerpo_low" then
