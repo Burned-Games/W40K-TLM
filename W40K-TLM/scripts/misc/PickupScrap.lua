@@ -120,7 +120,7 @@ function updatePosition(dt)
         if proximity.x < 2 and proximity.y < 2 and proximity.z < 2 then
             self:set_active(false)
             scrapCollected = true
-            playerScript.scrapCounter = playerScript.scrapCounter + 23
+            playerScript.addScrap(23)
             scrapPickUpSFX:play()
         end
     end

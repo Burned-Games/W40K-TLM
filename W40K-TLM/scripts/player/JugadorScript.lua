@@ -252,7 +252,7 @@ local aimAndShootTutorialButtonsShown = false
 local SpriteTransitionTimer = 0.0
 local SpriteTransitionTimerTarget = 0.4
 
-
+local hud = nil
 
 function on_ready()
     sceneName = SceneManager:get_scene_name()
@@ -447,8 +447,8 @@ function on_ready()
     healButton = current_scene:get_entity_by_name("HealButton")
     healButtonSprite = healButton:get_component("SpriteComponent")
 
-    
-
+    hud = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
+    hud.update_scrap_display(scrapCounter)
 end
 
 function on_update(dt)
@@ -870,7 +870,7 @@ function updateGodMode(dt)
         levelToChange = 0
     end
     if Input.is_key_pressed(Input.keycode.F7) then
-        scrapCounter = scrapCounter + 1000
+        addScrap(1000)
     end
     if Input.is_key_pressed(Input.keycode.F11) then
     if pressedFullscreen == false then
@@ -1758,6 +1758,11 @@ function applyStunn()
         animator:set_current_animation(currentAnim)
     end
 
+end
+
+function addScrap(amount)
+    scrapCounter = scrapCounter + amount
+    hud.update_scrap_display()
 end
 
 function on_exit() end

@@ -215,6 +215,7 @@ function on_ready()
 
     originalLifeColor = lifeFullComponent:get_color()
 
+    update_scrap_display() 
 end
 
 
@@ -227,8 +228,6 @@ function on_update(dt)
     if playerScript.isHitted or playerScript.isHealing or playerScript.isSwordHealing then
         update_health_display()
     end
-
-    update_scrap_display() 
 
     buff_debuff_manager(dt)
 

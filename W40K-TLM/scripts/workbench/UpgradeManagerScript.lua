@@ -102,15 +102,6 @@ upgradeDescriptions = {
     }
 }
 
-function add_scrap(amount)
-    player.scrapCounter = player.scrapCounter + amount
-    --print("Scrap added: " .. amount .. " - Total: " .. player.scrapCounter)
-end
-
-function get_scrap()
-    return player.scrapCounter
-end
-
 -- Checker for buying an upgrade
 function can_buy(category, upgrade)
     return not upgrades[category][upgrade] and 
@@ -120,7 +111,7 @@ end
 -- Buy upgrade
 function buy_upgrade(category, upgrade)
     if can_buy(category, upgrade) then
-        player.scrapCounter = player.scrapCounter - costs[category][upgrade]
+        player.addScrap(-costs[category][upgrade])
         upgrades[category][upgrade] = true
         --print("Upgrade purchased: " .. upgradeNames[category][upgrade] .. " - Remaining scrap: " .. player.scrapCounter)
         apply_to_player(player)
