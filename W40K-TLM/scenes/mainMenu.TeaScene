@@ -11099,7 +11099,7 @@
         "value2499": 1,
         "value2500": 3,
         "value2501": {
-            "cereal_class_version": 1,
+            "cereal_class_version": 2,
             "Skybox": {
                 "value0": 13455572182650489709
             },
@@ -11113,7 +11113,11 @@
             },
             "FogDensity": 0.10000000149011612,
             "FogHeight": 0.0,
-            "FogHeightDensity": 0.10000000149011612
+            "FogHeightDensity": 0.10000000149011612,
+            "Bloom": true,
+            "BloomIntensity": 0.05000000074505806,
+            "BloomRadius": 1.0,
+            "MaxMipLevels": 6
         },
         "value2502": 0,
         "value2503": 10,
