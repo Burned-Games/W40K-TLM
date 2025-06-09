@@ -161,7 +161,7 @@
         "value157": 4196748,
         "value158": 969,
         "value159": 1050686,
-        "value160": 2097162,
+        "value160": 1051060,
         "value161": 970,
         "value162": 965,
         "value163": 1049544,
@@ -227,7 +227,7 @@
         "value223": 3146732,
         "value224": 2098040,
         "value225": 1048609,
-        "value226": 1049458,
+        "value226": 1051056,
         "value227": 1048940,
         "value228": 1051054,
         "value229": 2099522,
@@ -260,9 +260,9 @@
         "value256": 2099583,
         "value257": 3146720,
         "value258": 1051034,
-        "value259": 2097161,
-        "value260": 2097160,
-        "value261": 2097159,
+        "value259": 1051059,
+        "value260": 1051058,
+        "value261": 1051057,
         "value262": 1049985,
         "value263": 1050009,
         "value264": 1050007,
@@ -280,7 +280,7 @@
         "value276": 3146762,
         "value277": 3146763,
         "value278": 2098152,
-        "value279": 2097158,
+        "value279": 1051009,
         "value280": 4196392,
         "value281": 1049554,
         "value282": 2098145,
@@ -292,7 +292,7 @@
         "value288": 1990,
         "value289": 1049705,
         "value290": 2098066,
-        "value291": 4195722,
+        "value291": 1051011,
         "value292": 939,
         "value293": 3146294,
         "value294": 942,
@@ -415,13 +415,13 @@
         "value411": 1051049,
         "value412": 1051050,
         "value413": 1051051,
-        "value414": 1051011,
-        "value415": 1051009,
-        "value416": 1051060,
-        "value417": 1051059,
-        "value418": 1051058,
-        "value419": 1051057,
-        "value420": 1051056,
+        "value414": 5244298,
+        "value415": 3145734,
+        "value416": 3145738,
+        "value417": 3145737,
+        "value418": 3145736,
+        "value419": 3145735,
+        "value420": 2098034,
         "value421": 3147831,
         "value422": 5243797,
         "value423": 5243796,
@@ -3128,9 +3128,9 @@
         "value2809": {
             "Tag": "HowlingWindSFX"
         },
-        "value2810": 2097162,
+        "value2810": 1051060,
         "value2811": {
-            "Tag": "VFX_ZHBolter_Plane-0"
+            "Tag": "Bancos1"
         },
         "value2812": 970,
         "value2813": {
@@ -3392,9 +3392,9 @@
         "value2941": {
             "Tag": "PlayerAbilities"
         },
-        "value2942": 1049458,
+        "value2942": 1051056,
         "value2943": {
-            "Tag": "Root"
+            "Tag": "LEVEL3_FINAL_GLTF_Cube.019-0"
         },
         "value2944": 1048940,
         "value2945": {
@@ -3524,17 +3524,17 @@
         "value3007": {
             "Tag": "DialogoLoop"
         },
-        "value3008": 2097161,
+        "value3008": 1051059,
         "value3009": {
-            "Tag": "VFX_ZHBolter_Plane-1"
+            "Tag": "LEVEL3_FINAL_GLTF_Cube.016-0"
         },
-        "value3010": 2097160,
+        "value3010": 1051058,
         "value3011": {
-            "Tag": "VFX_ZHBolter_Plane-2"
+            "Tag": "LEVEL3_FINAL_GLTF_Cube.016-1"
         },
-        "value3012": 2097159,
+        "value3012": 1051057,
         "value3013": {
-            "Tag": "VFX_ZHBolter_Plane-3"
+            "Tag": "Bancos2"
         },
         "value3014": 1049985,
         "value3015": {
@@ -3604,9 +3604,9 @@
         "value3047": {
             "Tag": "TextAudio"
         },
-        "value3048": 2097158,
+        "value3048": 1051009,
         "value3049": {
-            "Tag": "aaewE"
+            "Tag": "Columna1"
         },
         "value3050": 4196392,
         "value3051": {
@@ -3652,9 +3652,9 @@
         "value3071": {
             "Tag": "BolterSkillShotSFX"
         },
-        "value3072": 4195722,
+        "value3072": 1051011,
         "value3073": {
-            "Tag": "ChargeZone"
+            "Tag": "Columna2"
         },
         "value3074": 939,
         "value3075": {
@@ -4144,33 +4144,33 @@
         "value3317": {
             "Tag": "VallasInicio"
         },
-        "value3318": 1051011,
+        "value3318": 5244298,
         "value3319": {
-            "Tag": "Columna2"
+            "Tag": "ChargeZone"
         },
-        "value3320": 1051009,
+        "value3320": 3145734,
         "value3321": {
-            "Tag": "Columna1"
+            "Tag": "Root"
         },
-        "value3322": 1051060,
+        "value3322": 3145738,
         "value3323": {
-            "Tag": "Bancos1"
+            "Tag": "VFX_ZHBolter"
         },
-        "value3324": 1051059,
+        "value3324": 3145737,
         "value3325": {
-            "Tag": "LEVEL3_FINAL_GLTF_Cube.016-0"
+            "Tag": "VFX_ZHBolter_Plane-3"
         },
-        "value3326": 1051058,
+        "value3326": 3145736,
         "value3327": {
-            "Tag": "LEVEL3_FINAL_GLTF_Cube.016-1"
+            "Tag": "VFX_ZHBolter_Plane-2"
         },
-        "value3328": 1051057,
+        "value3328": 3145735,
         "value3329": {
-            "Tag": "Bancos2"
+            "Tag": "VFX_ZHBolter_Plane-1"
         },
-        "value3330": 1051056,
+        "value3330": 2098034,
         "value3331": {
-            "Tag": "LEVEL3_FINAL_GLTF_Cube.019-0"
+            "Tag": "VFX_ZHBolter_Plane-0"
         },
         "value3332": 419,
         "value3333": 4195372,
@@ -7018,22 +7018,22 @@
                 "z": 1.0
             }
         },
-        "value3649": 2097162,
+        "value3649": 1051060,
         "value3650": {
             "Position": {
-                "x": 0.0,
+                "x": 7.149491786956787,
                 "y": 0.0,
-                "z": 0.0
+                "z": -35.023155212402347
             },
             "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "x": 180.0,
+                "y": -17.060874938964845,
+                "z": 180.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
+                "x": 0.7990050315856934,
+                "y": 0.7990050911903381,
+                "z": 0.7990050315856934
             }
         },
         "value3651": 970,
@@ -8206,7 +8206,7 @@
                 "z": 1.0
             }
         },
-        "value3781": 1049458,
+        "value3781": 1051056,
         "value3782": {
             "Position": {
                 "x": 0.0,
@@ -8215,7 +8215,7 @@
             },
             "Rotation": {
                 "x": 0.0,
-                "y": -0.0,
+                "y": 0.0,
                 "z": 0.0
             },
             "Scale": {
@@ -8800,7 +8800,7 @@
                 "z": 1.0
             }
         },
-        "value3847": 2097161,
+        "value3847": 1051059,
         "value3848": {
             "Position": {
                 "x": 0.0,
@@ -8818,7 +8818,7 @@
                 "z": 1.0
             }
         },
-        "value3849": 2097160,
+        "value3849": 1051058,
         "value3850": {
             "Position": {
                 "x": 0.0,
@@ -8836,22 +8836,22 @@
                 "z": 1.0
             }
         },
-        "value3851": 2097159,
+        "value3851": 1051057,
         "value3852": {
             "Position": {
-                "x": 0.0,
+                "x": 8.94643783569336,
                 "y": 0.0,
-                "z": 0.0
+                "z": -44.04313659667969
             },
             "Rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0
+                "x": 180.0,
+                "y": 0.000008537736903235782,
+                "z": 180.0
             },
             "Scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
+                "x": 0.7990050911903381,
+                "y": 0.7990050911903381,
+                "z": 0.7990050911903381
             }
         },
         "value3853": 1049985,
@@ -9160,11 +9160,11 @@
                 "z": 1.0
             }
         },
-        "value3887": 2097158,
+        "value3887": 1051009,
         "value3888": {
             "Position": {
                 "x": 0.0,
-                "y": -9.5367431640625e-7,
+                "y": -0.31059831380844118,
                 "z": 0.0
             },
             "Rotation": {
@@ -9173,9 +9173,9 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 0.9999998211860657,
-                "y": 0.9999997615814209,
-                "z": 0.9999998211860657
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         "value3889": 4196392,
@@ -9376,12 +9376,12 @@
                 "z": 1.0
             }
         },
-        "value3911": 4195722,
+        "value3911": 1051011,
         "value3912": {
             "Position": {
-                "x": -6.674509048461914,
-                "y": 6.579639911651611,
-                "z": 11.553525924682618
+                "x": -10.1221284866333,
+                "y": 0.0,
+                "z": -24.71240234375
             },
             "Rotation": {
                 "x": 0.0,
@@ -9389,9 +9389,9 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 3.247999906539917,
-                "y": 3.496000051498413,
-                "z": 3.247999906539917
+                "x": 0.7990050911903381,
+                "y": 0.7990050911903381,
+                "z": 0.7990050911903381
             }
         },
         "value3913": 939,
@@ -11590,12 +11590,12 @@
                 "z": 2.2361745834350588
             }
         },
-        "value4157": 1051011,
+        "value4157": 5244298,
         "value4158": {
             "Position": {
-                "x": -10.1221284866333,
-                "y": 0.0,
-                "z": -24.71240234375
+                "x": 30.257843017578126,
+                "y": -0.00005834478361066431,
+                "z": 34.62071228027344
             },
             "Rotation": {
                 "x": 0.0,
@@ -11603,16 +11603,16 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 0.7990050911903381,
-                "y": 0.7990050911903381,
-                "z": 0.7990050911903381
+                "x": 3.247999906539917,
+                "y": 3.247999906539917,
+                "z": 3.247999906539917
             }
         },
-        "value4159": 1051009,
+        "value4159": 3145734,
         "value4160": {
             "Position": {
                 "x": 0.0,
-                "y": -0.31059831380844118,
+                "y": 0.0,
                 "z": 0.0
             },
             "Rotation": {
@@ -11626,25 +11626,25 @@
                 "z": 1.0
             }
         },
-        "value4161": 1051060,
+        "value4161": 3145738,
         "value4162": {
             "Position": {
-                "x": 7.149491786956787,
+                "x": 0.0,
                 "y": 0.0,
-                "z": -35.023155212402347
+                "z": 0.0
             },
             "Rotation": {
-                "x": 180.0,
-                "y": -17.060874938964845,
-                "z": 180.0
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
             },
             "Scale": {
-                "x": 0.7990050315856934,
-                "y": 0.7990050911903381,
-                "z": 0.7990050315856934
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
-        "value4163": 1051059,
+        "value4163": 3145737,
         "value4164": {
             "Position": {
                 "x": 0.0,
@@ -11662,7 +11662,7 @@
                 "z": 1.0
             }
         },
-        "value4165": 1051058,
+        "value4165": 3145736,
         "value4166": {
             "Position": {
                 "x": 0.0,
@@ -11680,25 +11680,25 @@
                 "z": 1.0
             }
         },
-        "value4167": 1051057,
+        "value4167": 3145735,
         "value4168": {
             "Position": {
-                "x": 8.94643783569336,
+                "x": 0.0,
                 "y": 0.0,
-                "z": -44.04313659667969
+                "z": 0.0
             },
             "Rotation": {
-                "x": 180.0,
-                "y": 0.000008537736903235782,
-                "z": 180.0
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             },
             "Scale": {
-                "x": 0.7990050911903381,
-                "y": 0.7990050911903381,
-                "z": 0.7990050911903381
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
-        "value4169": 1051056,
+        "value4169": 2098034,
         "value4170": {
             "Position": {
                 "x": 0.0,
@@ -12408,7 +12408,7 @@
         "value4369": {
             "Parent": 1048609,
             "First": 1049574,
-            "Next": 4195722,
+            "Next": 2099259,
             "Prev": 1951
         },
         "value4370": 3146765,
@@ -12513,7 +12513,7 @@
         "value4399": {
             "Parent": 1048609,
             "First": 2097320,
-            "Next": 4294967295,
+            "Next": 5244298,
             "Prev": 2099259
         },
         "value4400": 3146788,
@@ -12824,12 +12824,12 @@
             "Next": 4294967295,
             "Prev": 4195310
         },
-        "value4488": 2097162,
+        "value4488": 1051060,
         "value4489": {
-            "Parent": 2097158,
-            "First": 4294967295,
-            "Next": 4294967295,
-            "Prev": 2097161
+            "Parent": 1051010,
+            "First": 1051059,
+            "Next": 1051057,
+            "Prev": 1051009
         },
         "value4490": 970,
         "value4491": {
@@ -13286,11 +13286,11 @@
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value4620": 1049458,
+        "value4620": 1051056,
         "value4621": {
-            "Parent": 4195722,
+            "Parent": 1051057,
             "First": 4294967295,
-            "Next": 2097158,
+            "Next": 1051055,
             "Prev": 4294967295
         },
         "value4622": 1048940,
@@ -13517,26 +13517,26 @@
             "Next": 4294967295,
             "Prev": 4195419
         },
-        "value4686": 2097161,
+        "value4686": 1051059,
         "value4687": {
-            "Parent": 2097158,
+            "Parent": 1051060,
             "First": 4294967295,
-            "Next": 2097162,
-            "Prev": 2097160
-        },
-        "value4688": 2097160,
-        "value4689": {
-            "Parent": 2097158,
-            "First": 4294967295,
-            "Next": 2097161,
-            "Prev": 2097159
-        },
-        "value4690": 2097159,
-        "value4691": {
-            "Parent": 2097158,
-            "First": 4294967295,
-            "Next": 2097160,
+            "Next": 1051058,
             "Prev": 4294967295
+        },
+        "value4688": 1051058,
+        "value4689": {
+            "Parent": 1051060,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1051059
+        },
+        "value4690": 1051057,
+        "value4691": {
+            "Parent": 1051010,
+            "First": 1051056,
+            "Next": 1051054,
+            "Prev": 1051060
         },
         "value4692": 1049985,
         "value4693": {
@@ -13657,12 +13657,12 @@
             "Next": 3146732,
             "Prev": 2098062
         },
-        "value4726": 2097158,
+        "value4726": 1051009,
         "value4727": {
-            "Parent": 4195722,
-            "First": 2097159,
-            "Next": 4294967295,
-            "Prev": 1049458
+            "Parent": 1051010,
+            "First": 4294967295,
+            "Next": 1051060,
+            "Prev": 1051011
         },
         "value4728": 4196392,
         "value4729": {
@@ -13741,12 +13741,12 @@
             "Next": 2098061,
             "Prev": 2098065
         },
-        "value4750": 4195722,
+        "value4750": 1051011,
         "value4751": {
-            "Parent": 1048609,
-            "First": 1049458,
-            "Next": 2099259,
-            "Prev": 1049575
+            "Parent": 1051010,
+            "First": 4294967295,
+            "Next": 1051009,
+            "Prev": 1051016
         },
         "value4752": 939,
         "value4753": {
@@ -14404,7 +14404,7 @@
             "Parent": 1048609,
             "First": 4294967295,
             "Next": 2097319,
-            "Prev": 4195722
+            "Prev": 1049575
         },
         "value4940": 2006,
         "value4941": {
@@ -14602,54 +14602,54 @@
             "Next": 1051048,
             "Prev": 1051054
         },
-        "value4996": 1051011,
+        "value4996": 5244298,
         "value4997": {
-            "Parent": 1051010,
-            "First": 4294967295,
-            "Next": 1051009,
-            "Prev": 1051016
+            "Parent": 1048609,
+            "First": 3145734,
+            "Next": 4294967295,
+            "Prev": 2097319
         },
-        "value4998": 1051009,
+        "value4998": 3145734,
         "value4999": {
-            "Parent": 1051010,
+            "Parent": 5244298,
             "First": 4294967295,
-            "Next": 1051060,
-            "Prev": 1051011
-        },
-        "value5000": 1051060,
-        "value5001": {
-            "Parent": 1051010,
-            "First": 1051059,
-            "Next": 1051057,
-            "Prev": 1051009
-        },
-        "value5002": 1051059,
-        "value5003": {
-            "Parent": 1051060,
-            "First": 4294967295,
-            "Next": 1051058,
+            "Next": 3145738,
             "Prev": 4294967295
         },
-        "value5004": 1051058,
+        "value5000": 3145738,
+        "value5001": {
+            "Parent": 5244298,
+            "First": 3145737,
+            "Next": 4294967295,
+            "Prev": 3145734
+        },
+        "value5002": 3145737,
+        "value5003": {
+            "Parent": 3145738,
+            "First": 4294967295,
+            "Next": 3145736,
+            "Prev": 4294967295
+        },
+        "value5004": 3145736,
         "value5005": {
-            "Parent": 1051060,
+            "Parent": 3145738,
+            "First": 4294967295,
+            "Next": 3145735,
+            "Prev": 3145737
+        },
+        "value5006": 3145735,
+        "value5007": {
+            "Parent": 3145738,
+            "First": 4294967295,
+            "Next": 2098034,
+            "Prev": 3145736
+        },
+        "value5008": 2098034,
+        "value5009": {
+            "Parent": 3145738,
             "First": 4294967295,
             "Next": 4294967295,
-            "Prev": 1051059
-        },
-        "value5006": 1051057,
-        "value5007": {
-            "Parent": 1051010,
-            "First": 1051056,
-            "Next": 1051054,
-            "Prev": 1051060
-        },
-        "value5008": 1051056,
-        "value5009": {
-            "Parent": 1051057,
-            "First": 4294967295,
-            "Next": 1051055,
-            "Prev": 4294967295
+            "Prev": 3145735
         },
         "value5010": 1,
         "value5011": 22,
@@ -14840,13 +14840,13 @@
                 "value0": 12412680923505691757
             }
         },
-        "value5052": 2097161,
+        "value5052": 1051058,
         "value5053": {
             "Mesh": {
-                "value0": 18288840659301866570
+                "value0": 18283773595821418159
             },
             "AnimatorUUID": {
-                "value0": 12289452314944799475
+                "value0": 0
             }
         },
         "value5054": 3147694,
@@ -14984,13 +14984,13 @@
                 "value0": 0
             }
         },
-        "value5084": 2097162,
+        "value5084": 1051059,
         "value5085": {
             "Mesh": {
-                "value0": 17548423605055853526
+                "value0": 8526843251201399129
             },
             "AnimatorUUID": {
-                "value0": 12289452314944799475
+                "value0": 0
             }
         },
         "value5086": 2098031,
@@ -15065,13 +15065,13 @@
                 "value0": 9992661935709230023
             }
         },
-        "value5102": 2097160,
+        "value5102": 1051056,
         "value5103": {
             "Mesh": {
-                "value0": 6314669778925378552
+                "value0": 431776320380818613
             },
             "AnimatorUUID": {
-                "value0": 12289452314944799475
+                "value0": 0
             }
         },
         "value5104": 2097327,
@@ -15362,13 +15362,13 @@
                 "value0": 0
             }
         },
-        "value5168": 2097159,
+        "value5168": 1051055,
         "value5169": {
             "Mesh": {
-                "value0": 13092527646362042776
+                "value0": 7341013126437961165
             },
             "AnimatorUUID": {
-                "value0": 12289452314944799475
+                "value0": 0
             }
         },
         "value5170": 2099514,
@@ -15497,40 +15497,40 @@
                 "value0": 0
             }
         },
-        "value5198": 1051059,
+        "value5198": 3145737,
         "value5199": {
             "Mesh": {
-                "value0": 8526843251201399129
+                "value0": 8884735247175089328
             },
             "AnimatorUUID": {
-                "value0": 0
+                "value0": 14437450062254113406
             }
         },
-        "value5200": 1051058,
+        "value5200": 3145736,
         "value5201": {
             "Mesh": {
-                "value0": 18283773595821418159
+                "value0": 2284612323782775603
             },
             "AnimatorUUID": {
-                "value0": 0
+                "value0": 14437450062254113406
             }
         },
-        "value5202": 1051056,
+        "value5202": 3145735,
         "value5203": {
             "Mesh": {
-                "value0": 431776320380818613
+                "value0": 16079793926357936800
             },
             "AnimatorUUID": {
-                "value0": 0
+                "value0": 14437450062254113406
             }
         },
-        "value5204": 1051055,
+        "value5204": 2098034,
         "value5205": {
             "Mesh": {
-                "value0": 7341013126437961165
+                "value0": 14562021023933304985
             },
             "AnimatorUUID": {
-                "value0": 0
+                "value0": 14437450062254113406
             }
         },
         "value5206": 96,
@@ -15829,82 +15829,12 @@
                 }
             }
         },
-        "value5245": 2097161,
+        "value5245": 1051058,
         "value5246": {
-            "IsEmbedded": true,
-            "Material": {
-                "polymorphic_id": 1,
-                "ptr_wrapper": {
-                    "id": 2147483651,
-                    "data": {
-                        "Textures": {
-                            "AlbedoUUID": {
-                                "value0": 12126525544217487848
-                            },
-                            "NormalUUID": {
-                                "value0": 0
-                            },
-                            "MetallicUUID": {
-                                "value0": 0
-                            },
-                            "RoughnessUUID": {
-                                "value0": 0
-                            },
-                            "AOUUID": {
-                                "value0": 0
-                            },
-                            "EmissiveUUID": {
-                                "value0": 11302525180644321989
-                            }
-                        },
-                        "TextureFlags": {
-                            "HasAlbedo": true,
-                            "HasNormal": false,
-                            "HasMetallic": false,
-                            "HasRoughness": false,
-                            "HasAO": false,
-                            "HasEmissive": true
-                        },
-                        "Properties": {
-                            "Color": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0,
-                                "w": 1.0
-                            },
-                            "Metallic": 0.0,
-                            "Roughness": 1.0,
-                            "AO": 1.0,
-                            "Emissive": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0
-                            }
-                        },
-                        "value0": {
-                            "value0": {
-                                "value0": "Material.002_Mat1",
-                                "value1": {
-                                    "value0": ""
-                                },
-                                "value2": 8,
-                                "value3": {
-                                    "value0": 13988621534678803522
-                                },
-                                "value4": true
-                            },
-                            "Shader Path": "",
-                            "Render Settings": {
-                                "TransparencyMode": 1,
-                                "AlphaCutoff": 0.5,
-                                "BlendMode": 0,
-                                "CullMode": 1,
-                                "DepthTest": true,
-                                "Wireframe": false
-                            }
-                        }
-                    }
-                }
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 11040268376263061325
             }
         },
         "value5247": 3147694,
@@ -16041,82 +15971,12 @@
                 "value0": 4257391232735372913
             }
         },
-        "value5277": 2097162,
+        "value5277": 1051059,
         "value5278": {
-            "IsEmbedded": true,
-            "Material": {
-                "polymorphic_id": 1,
-                "ptr_wrapper": {
-                    "id": 2147483652,
-                    "data": {
-                        "Textures": {
-                            "AlbedoUUID": {
-                                "value0": 12126525544217487848
-                            },
-                            "NormalUUID": {
-                                "value0": 0
-                            },
-                            "MetallicUUID": {
-                                "value0": 0
-                            },
-                            "RoughnessUUID": {
-                                "value0": 0
-                            },
-                            "AOUUID": {
-                                "value0": 0
-                            },
-                            "EmissiveUUID": {
-                                "value0": 11302525180644321989
-                            }
-                        },
-                        "TextureFlags": {
-                            "HasAlbedo": true,
-                            "HasNormal": false,
-                            "HasMetallic": false,
-                            "HasRoughness": false,
-                            "HasAO": false,
-                            "HasEmissive": true
-                        },
-                        "Properties": {
-                            "Color": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0,
-                                "w": 1.0
-                            },
-                            "Metallic": 0.0,
-                            "Roughness": 1.0,
-                            "AO": 1.0,
-                            "Emissive": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0
-                            }
-                        },
-                        "value0": {
-                            "value0": {
-                                "value0": "Material.001_Mat0",
-                                "value1": {
-                                    "value0": ""
-                                },
-                                "value2": 8,
-                                "value3": {
-                                    "value0": 17182412442191571525
-                                },
-                                "value4": true
-                            },
-                            "Shader Path": "",
-                            "Render Settings": {
-                                "TransparencyMode": 1,
-                                "AlphaCutoff": 0.5,
-                                "BlendMode": 0,
-                                "CullMode": 1,
-                                "DepthTest": true,
-                                "Wireframe": false
-                            }
-                        }
-                    }
-                }
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 13048387138380355378
             }
         },
         "value5279": 2098031,
@@ -16181,7 +16041,7 @@
             "Material": {
                 "polymorphic_id": 1,
                 "ptr_wrapper": {
-                    "id": 2147483653,
+                    "id": 2147483651,
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
@@ -16253,82 +16113,12 @@
                 }
             }
         },
-        "value5295": 2097160,
+        "value5295": 1051056,
         "value5296": {
-            "IsEmbedded": true,
-            "Material": {
-                "polymorphic_id": 1,
-                "ptr_wrapper": {
-                    "id": 2147483654,
-                    "data": {
-                        "Textures": {
-                            "AlbedoUUID": {
-                                "value0": 12126525544217487848
-                            },
-                            "NormalUUID": {
-                                "value0": 0
-                            },
-                            "MetallicUUID": {
-                                "value0": 0
-                            },
-                            "RoughnessUUID": {
-                                "value0": 0
-                            },
-                            "AOUUID": {
-                                "value0": 0
-                            },
-                            "EmissiveUUID": {
-                                "value0": 11302525180644321989
-                            }
-                        },
-                        "TextureFlags": {
-                            "HasAlbedo": true,
-                            "HasNormal": false,
-                            "HasMetallic": false,
-                            "HasRoughness": false,
-                            "HasAO": false,
-                            "HasEmissive": true
-                        },
-                        "Properties": {
-                            "Color": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0,
-                                "w": 1.0
-                            },
-                            "Metallic": 0.0,
-                            "Roughness": 1.0,
-                            "AO": 1.0,
-                            "Emissive": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0
-                            }
-                        },
-                        "value0": {
-                            "value0": {
-                                "value0": "Material.003_Mat2",
-                                "value1": {
-                                    "value0": ""
-                                },
-                                "value2": 8,
-                                "value3": {
-                                    "value0": 17681091746074655439
-                                },
-                                "value4": true
-                            },
-                            "Shader Path": "",
-                            "Render Settings": {
-                                "TransparencyMode": 1,
-                                "AlphaCutoff": 0.5,
-                                "BlendMode": 0,
-                                "CullMode": 1,
-                                "DepthTest": true,
-                                "Wireframe": false
-                            }
-                        }
-                    }
-                }
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 11040268376263061325
             }
         },
         "value5297": 2097327,
@@ -16425,7 +16215,7 @@
             "Material": {
                 "polymorphic_id": 1,
                 "ptr_wrapper": {
-                    "id": 2147483655,
+                    "id": 2147483652,
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
@@ -16599,7 +16389,7 @@
             "Material": {
                 "polymorphic_id": 1,
                 "ptr_wrapper": {
-                    "id": 2147483656,
+                    "id": 2147483653,
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
@@ -16703,7 +16493,7 @@
             "Material": {
                 "polymorphic_id": 1,
                 "ptr_wrapper": {
-                    "id": 2147483657,
+                    "id": 2147483654,
                     "data": {
                         "Textures": {
                             "AlbedoUUID": {
@@ -16799,82 +16589,12 @@
                 "value0": 5961289793490985603
             }
         },
-        "value5361": 2097159,
+        "value5361": 1051055,
         "value5362": {
-            "IsEmbedded": true,
-            "Material": {
-                "polymorphic_id": 1,
-                "ptr_wrapper": {
-                    "id": 2147483658,
-                    "data": {
-                        "Textures": {
-                            "AlbedoUUID": {
-                                "value0": 12126525544217487848
-                            },
-                            "NormalUUID": {
-                                "value0": 0
-                            },
-                            "MetallicUUID": {
-                                "value0": 0
-                            },
-                            "RoughnessUUID": {
-                                "value0": 0
-                            },
-                            "AOUUID": {
-                                "value0": 0
-                            },
-                            "EmissiveUUID": {
-                                "value0": 11302525180644321989
-                            }
-                        },
-                        "TextureFlags": {
-                            "HasAlbedo": true,
-                            "HasNormal": false,
-                            "HasMetallic": false,
-                            "HasRoughness": false,
-                            "HasAO": false,
-                            "HasEmissive": true
-                        },
-                        "Properties": {
-                            "Color": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0,
-                                "w": 1.0
-                            },
-                            "Metallic": 0.0,
-                            "Roughness": 1.0,
-                            "AO": 1.0,
-                            "Emissive": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0
-                            }
-                        },
-                        "value0": {
-                            "value0": {
-                                "value0": "Material.004_Mat3",
-                                "value1": {
-                                    "value0": ""
-                                },
-                                "value2": 8,
-                                "value3": {
-                                    "value0": 10297904181921903840
-                                },
-                                "value4": true
-                            },
-                            "Shader Path": "",
-                            "Render Settings": {
-                                "TransparencyMode": 1,
-                                "AlphaCutoff": 0.5,
-                                "BlendMode": 0,
-                                "CullMode": 1,
-                                "DepthTest": true,
-                                "Wireframe": false
-                            }
-                        }
-                    }
-                }
+            "IsEmbedded": false,
+            "Type": 8,
+            "MaterialUUID": {
+                "value0": 13048387138380355378
             }
         },
         "value5363": 2099514,
@@ -16989,36 +16709,248 @@
                 "value0": 14292185189877819904
             }
         },
-        "value5391": 1051059,
+        "value5391": 3145737,
         "value5392": {
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 13048387138380355378
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483655,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 8846040981949775977
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 8846040981949775977
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.004_Mat0",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 7219515407199908400
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
             }
         },
-        "value5393": 1051058,
+        "value5393": 3145736,
         "value5394": {
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 11040268376263061325
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483656,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 8846040981949775977
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 8846040981949775977
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.003_Mat2",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 1034961718296735118
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
             }
         },
-        "value5395": 1051056,
+        "value5395": 3145735,
         "value5396": {
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 11040268376263061325
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483657,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 8846040981949775977
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 8846040981949775977
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.002_Mat1",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 3398466093489582446
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
             }
         },
-        "value5397": 1051055,
+        "value5397": 2098034,
         "value5398": {
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 13048387138380355378
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 7
+                }
             }
         },
         "value5399": 2,
@@ -17101,7 +17033,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483659,
+                    "id": 2147483658,
                     "data": {
                         "cereal_class_version": 0,
                         "m_Properties": {
@@ -17129,7 +17061,7 @@
                             "polymorphic_id": 2147483650,
                             "polymorphic_name": "Coffee::BoxCollider",
                             "ptr_wrapper": {
-                                "id": 2147483660,
+                                "id": 2147483659,
                                 "data": {
                                     "cereal_class_version": 0,
                                     "value0": {
@@ -17158,7 +17090,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483661,
+                    "id": 2147483660,
                     "data": {
                         "m_Properties": {
                             "type": 2,
@@ -17183,7 +17115,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483662,
+                                "id": 2147483661,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17210,7 +17142,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483663,
+                    "id": 2147483662,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17235,7 +17167,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483664,
+                                "id": 2147483663,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17257,24 +17189,24 @@
                 }
             }
         },
-        "value5414": 4195722,
+        "value5414": 3146724,
         "value5415": {
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483665,
+                    "id": 2147483664,
                     "data": {
                         "m_Properties": {
-                            "type": 1,
+                            "type": 0,
                             "mass": 1.0,
-                            "useGravity": false,
+                            "useGravity": true,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
                             "freezeRotX": false,
                             "freezeRotY": false,
                             "freezeRotZ": false,
-                            "isTrigger": true,
+                            "isTrigger": false,
                             "velocity": {
                                 "x": 0.0,
                                 "y": 0.0,
@@ -17286,19 +17218,20 @@
                         },
                         "m_Collider": {
                             "polymorphic_id": 2147483651,
-                            "polymorphic_name": "Coffee::SphereCollider",
+                            "polymorphic_name": "Coffee::CapsuleCollider",
                             "ptr_wrapper": {
-                                "id": 2147483666,
+                                "id": 2147483665,
                                 "data": {
                                     "cereal_class_version": 0,
                                     "value0": {
-                                        "ShapeType": 8,
+                                        "ShapeType": 10,
                                         "Offset": {
                                             "x": 0.0,
                                             "y": 0.0,
                                             "z": 0.0
                                         },
-                                        "Radius": 0.5
+                                        "Radius": 1.100000023841858,
+                                        "Height": 8.100000381469727
                                     }
                                 }
                             }
@@ -17312,7 +17245,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483667,
+                    "id": 2147483666,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -17335,12 +17268,10 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 2147483652,
-                            "polymorphic_name": "Coffee::CapsuleCollider",
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483668,
+                                "id": 2147483667,
                                 "data": {
-                                    "cereal_class_version": 0,
                                     "value0": {
                                         "ShapeType": 10,
                                         "Offset": {
@@ -17363,7 +17294,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483669,
+                    "id": 2147483668,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17388,7 +17319,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483670,
+                                "id": 2147483669,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17415,7 +17346,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483671,
+                    "id": 2147483670,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -17438,9 +17369,9 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 4,
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483672,
+                                "id": 2147483671,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -17464,7 +17395,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483673,
+                    "id": 2147483672,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -17487,9 +17418,9 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 4,
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483674,
+                                "id": 2147483673,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -17513,7 +17444,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483675,
+                    "id": 2147483674,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -17536,9 +17467,9 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 4,
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483676,
+                                "id": 2147483675,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -17562,7 +17493,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483677,
+                    "id": 2147483676,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -17585,9 +17516,9 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 4,
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483678,
+                                "id": 2147483677,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -17611,7 +17542,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483679,
+                    "id": 2147483678,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -17634,9 +17565,9 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 4,
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483680,
+                                "id": 2147483679,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -17660,7 +17591,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483681,
+                    "id": 2147483680,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -17683,9 +17614,9 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 4,
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483682,
+                                "id": 2147483681,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -17709,7 +17640,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483683,
+                    "id": 2147483682,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17734,7 +17665,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483684,
+                                "id": 2147483683,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17761,7 +17692,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483685,
+                    "id": 2147483684,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17786,7 +17717,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483686,
+                                "id": 2147483685,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17813,7 +17744,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483687,
+                    "id": 2147483686,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17838,7 +17769,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483688,
+                                "id": 2147483687,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17865,7 +17796,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483689,
+                    "id": 2147483688,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17890,7 +17821,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483690,
+                                "id": 2147483689,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17917,7 +17848,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483691,
+                    "id": 2147483690,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17942,7 +17873,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483692,
+                                "id": 2147483691,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -17969,7 +17900,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483693,
+                    "id": 2147483692,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -17994,7 +17925,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483694,
+                                "id": 2147483693,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18021,7 +17952,106 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483695,
+                    "id": 2147483694,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": false,
+                            "freezeZ": false,
+                            "freezeRotX": false,
+                            "freezeRotY": false,
+                            "freezeRotZ": false,
+                            "isTrigger": true,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 2147483652,
+                            "polymorphic_name": "Coffee::SphereCollider",
+                            "ptr_wrapper": {
+                                "id": 2147483695,
+                                "data": {
+                                    "cereal_class_version": 0,
+                                    "value0": {
+                                        "ShapeType": 8,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
+                                        },
+                                        "Radius": 0.5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value5446": 3146785,
+        "value5447": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483696,
+                    "data": {
+                        "m_Properties": {
+                            "type": 1,
+                            "mass": 1.0,
+                            "useGravity": false,
+                            "freezeX": false,
+                            "freezeY": true,
+                            "freezeZ": false,
+                            "freezeRotX": true,
+                            "freezeRotY": true,
+                            "freezeRotZ": true,
+                            "isTrigger": false,
+                            "velocity": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "friction": 0.5,
+                            "linearDrag": 0.009999999776482582,
+                            "angularDrag": 0.009999999776482582
+                        },
+                        "m_Collider": {
+                            "polymorphic_id": 3,
+                            "ptr_wrapper": {
+                                "id": 2147483697,
+                                "data": {
+                                    "value0": {
+                                        "ShapeType": 10,
+                                        "Offset": {
+                                            "x": 0.0,
+                                            "y": 1.399999976158142,
+                                            "z": 0.0
+                                        },
+                                        "Radius": 0.5,
+                                        "Height": 1.5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value5448": 4195797,
+        "value5449": {
+            "RigidBody": true,
+            "RigidBodyData": {
+                "ptr_wrapper": {
+                    "id": 2147483698,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -18046,104 +18076,7 @@
                         "m_Collider": {
                             "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483696,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 8,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 0.0,
-                                            "z": 0.0
-                                        },
-                                        "Radius": 0.5
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value5446": 3146785,
-        "value5447": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483697,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": false,
-                            "freezeX": false,
-                            "freezeY": true,
-                            "freezeZ": false,
-                            "freezeRotX": true,
-                            "freezeRotY": true,
-                            "freezeRotZ": true,
-                            "isTrigger": false,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 4,
-                            "ptr_wrapper": {
-                                "id": 2147483698,
-                                "data": {
-                                    "value0": {
-                                        "ShapeType": 10,
-                                        "Offset": {
-                                            "x": 0.0,
-                                            "y": 1.399999976158142,
-                                            "z": 0.0
-                                        },
-                                        "Radius": 0.5,
-                                        "Height": 1.5
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "value5448": 4195797,
-        "value5449": {
-            "RigidBody": true,
-            "RigidBodyData": {
-                "ptr_wrapper": {
-                    "id": 2147483699,
-                    "data": {
-                        "m_Properties": {
-                            "type": 1,
-                            "mass": 1.0,
-                            "useGravity": false,
-                            "freezeX": false,
-                            "freezeY": false,
-                            "freezeZ": false,
-                            "freezeRotX": false,
-                            "freezeRotY": false,
-                            "freezeRotZ": false,
-                            "isTrigger": true,
-                            "velocity": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "friction": 0.5,
-                            "linearDrag": 0.009999999776482582,
-                            "angularDrag": 0.009999999776482582
-                        },
-                        "m_Collider": {
-                            "polymorphic_id": 4,
-                            "ptr_wrapper": {
-                                "id": 2147483700,
+                                "id": 2147483699,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -18167,7 +18100,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483701,
+                    "id": 2147483700,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -18192,7 +18125,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483702,
+                                "id": 2147483701,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18219,7 +18152,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483703,
+                    "id": 2147483702,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18244,7 +18177,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483704,
+                                "id": 2147483703,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18271,7 +18204,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483705,
+                    "id": 2147483704,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18296,7 +18229,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483706,
+                                "id": 2147483705,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18323,7 +18256,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483707,
+                    "id": 2147483706,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18348,7 +18281,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483708,
+                                "id": 2147483707,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18375,7 +18308,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483709,
+                    "id": 2147483708,
                     "data": {
                         "m_Properties": {
                             "type": 2,
@@ -18400,7 +18333,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483710,
+                                "id": 2147483709,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18427,7 +18360,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483711,
+                    "id": 2147483710,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18452,7 +18385,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483712,
+                                "id": 2147483711,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18479,7 +18412,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483713,
+                    "id": 2147483712,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18504,7 +18437,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483714,
+                                "id": 2147483713,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18531,7 +18464,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483715,
+                    "id": 2147483714,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -18554,9 +18487,9 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 4,
+                            "polymorphic_id": 3,
                             "ptr_wrapper": {
-                                "id": 2147483716,
+                                "id": 2147483715,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 10,
@@ -18580,7 +18513,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483717,
+                    "id": 2147483716,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18605,7 +18538,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483718,
+                                "id": 2147483717,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18632,7 +18565,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483719,
+                    "id": 2147483718,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18657,7 +18590,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483720,
+                                "id": 2147483719,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18684,7 +18617,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483721,
+                    "id": 2147483720,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18709,7 +18642,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483722,
+                                "id": 2147483721,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18736,7 +18669,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483723,
+                    "id": 2147483722,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18761,7 +18694,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483724,
+                                "id": 2147483723,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18788,7 +18721,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483725,
+                    "id": 2147483724,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18813,7 +18746,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483726,
+                                "id": 2147483725,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18840,7 +18773,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483727,
+                    "id": 2147483726,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18865,7 +18798,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483728,
+                                "id": 2147483727,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18892,7 +18825,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483729,
+                    "id": 2147483728,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18917,7 +18850,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483730,
+                                "id": 2147483729,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18944,7 +18877,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483731,
+                    "id": 2147483730,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -18969,7 +18902,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483732,
+                                "id": 2147483731,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -18996,7 +18929,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483733,
+                    "id": 2147483732,
                     "data": {
                         "m_Properties": {
                             "type": 1,
@@ -19021,7 +18954,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483734,
+                                "id": 2147483733,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19048,7 +18981,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483735,
+                    "id": 2147483734,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19073,7 +19006,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483736,
+                                "id": 2147483735,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19100,7 +19033,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483737,
+                    "id": 2147483736,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19125,7 +19058,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483738,
+                                "id": 2147483737,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19152,7 +19085,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483739,
+                    "id": 2147483738,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19177,7 +19110,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483740,
+                                "id": 2147483739,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19204,7 +19137,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483741,
+                    "id": 2147483740,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19229,7 +19162,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483742,
+                                "id": 2147483741,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19256,7 +19189,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483743,
+                    "id": 2147483742,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19281,7 +19214,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483744,
+                                "id": 2147483743,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19308,7 +19241,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483745,
+                    "id": 2147483744,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19333,7 +19266,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483746,
+                                "id": 2147483745,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19360,7 +19293,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483747,
+                    "id": 2147483746,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19385,7 +19318,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483748,
+                                "id": 2147483747,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19412,7 +19345,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483749,
+                    "id": 2147483748,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19437,7 +19370,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483750,
+                                "id": 2147483749,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19464,7 +19397,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483751,
+                    "id": 2147483750,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19489,7 +19422,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483752,
+                                "id": 2147483751,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19516,7 +19449,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483753,
+                    "id": 2147483752,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19541,7 +19474,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483754,
+                                "id": 2147483753,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19568,7 +19501,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483755,
+                    "id": 2147483754,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19593,7 +19526,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483756,
+                                "id": 2147483755,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19620,7 +19553,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483757,
+                    "id": 2147483756,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19645,7 +19578,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483758,
+                                "id": 2147483757,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19672,7 +19605,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483759,
+                    "id": 2147483758,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19697,7 +19630,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483760,
+                                "id": 2147483759,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19724,7 +19657,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483761,
+                    "id": 2147483760,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19749,7 +19682,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483762,
+                                "id": 2147483761,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19776,7 +19709,7 @@
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483763,
+                    "id": 2147483762,
                     "data": {
                         "m_Properties": {
                             "type": 0,
@@ -19801,7 +19734,7 @@
                         "m_Collider": {
                             "polymorphic_id": 2,
                             "ptr_wrapper": {
-                                "id": 2147483764,
+                                "id": 2147483763,
                                 "data": {
                                     "value0": {
                                         "ShapeType": 0,
@@ -19823,17 +19756,17 @@
                 }
             }
         },
-        "value5514": 3146724,
+        "value5514": 5244298,
         "value5515": {
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483765,
+                    "id": 2147483764,
                     "data": {
                         "m_Properties": {
-                            "type": 0,
+                            "type": 1,
                             "mass": 1.0,
-                            "useGravity": true,
+                            "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
                             "freezeZ": false,
@@ -19853,17 +19786,16 @@
                         "m_Collider": {
                             "polymorphic_id": 4,
                             "ptr_wrapper": {
-                                "id": 2147483766,
+                                "id": 2147483765,
                                 "data": {
                                     "value0": {
-                                        "ShapeType": 10,
+                                        "ShapeType": 8,
                                         "Offset": {
                                             "x": 0.0,
                                             "y": 0.0,
                                             "z": 0.0
                                         },
-                                        "Radius": 1.100000023841858,
-                                        "Height": 8.100000381469727
+                                        "Radius": 0.5
                                     }
                                 }
                             }
@@ -19981,7 +19913,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483767,
+                    "id": 2147483766,
                     "data": {
                         "cereal_class_version": 0,
                         "CurrentAnimation": 1
@@ -19990,7 +19922,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483768,
+                    "id": 2147483767,
                     "data": {
                         "CurrentAnimation": 1
                     }
@@ -20014,7 +19946,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483769,
+                    "id": 2147483768,
                     "data": {
                         "CurrentAnimation": 3
                     }
@@ -20022,7 +19954,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483770,
+                    "id": 2147483769,
                     "data": {
                         "CurrentAnimation": 3
                     }
@@ -20046,7 +19978,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483771,
+                    "id": 2147483770,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20054,7 +19986,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483772,
+                    "id": 2147483771,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20078,7 +20010,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483773,
+                    "id": 2147483772,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20086,7 +20018,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483774,
+                    "id": 2147483773,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20110,7 +20042,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483775,
+                    "id": 2147483774,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20118,7 +20050,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483776,
+                    "id": 2147483775,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20142,7 +20074,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483777,
+                    "id": 2147483776,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20150,7 +20082,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483778,
+                    "id": 2147483777,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20174,7 +20106,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483779,
+                    "id": 2147483778,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20182,7 +20114,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483780,
+                    "id": 2147483779,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20206,7 +20138,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483781,
+                    "id": 2147483780,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20214,7 +20146,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483782,
+                    "id": 2147483781,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20238,7 +20170,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483783,
+                    "id": 2147483782,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20246,7 +20178,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483784,
+                    "id": 2147483783,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20270,7 +20202,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483785,
+                    "id": 2147483784,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20278,7 +20210,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483786,
+                    "id": 2147483785,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20302,59 +20234,27 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
+                    "id": 2147483786,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
                     "id": 2147483787,
                     "data": {
                         "CurrentAnimation": 0
                     }
                 }
             },
-            "LowerAnimation": {
-                "ptr_wrapper": {
-                    "id": 2147483788,
-                    "data": {
-                        "CurrentAnimation": 0
-                    }
-                }
-            },
             "PartialBlendThreshold": 0.009999999776482582,
             "UpperBodyWeight": 1.0,
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value5578": 4195722,
+        "value5578": 3146785,
         "value5579": {
-            "BlendDuration": 0.25,
-            "AnimationSpeed": 1.0,
-            "Loop": true,
-            "ModelUUID": {
-                "value0": 18100322368477388576
-            },
-            "AnimatorUUID": {
-                "value0": 12289452314944799475
-            },
-            "UpperAnimation": {
-                "ptr_wrapper": {
-                    "id": 2147483789,
-                    "data": {
-                        "CurrentAnimation": 0
-                    }
-                }
-            },
-            "LowerAnimation": {
-                "ptr_wrapper": {
-                    "id": 2147483790,
-                    "data": {
-                        "CurrentAnimation": 0
-                    }
-                }
-            },
-            "PartialBlendThreshold": 0.009999999776482582,
-            "UpperBodyWeight": 1.0,
-            "LowerBodyWeight": 1.0,
-            "UpperBodyRootJoint": 0
-        },
-        "value5580": 3146785,
-        "value5581": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -20366,7 +20266,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483791,
+                    "id": 2147483788,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20374,7 +20274,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483792,
+                    "id": 2147483789,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20385,8 +20285,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 39
         },
-        "value5582": 4195372,
-        "value5583": {
+        "value5580": 4195372,
+        "value5581": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -20398,7 +20298,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483793,
+                    "id": 2147483790,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20406,7 +20306,7 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483794,
+                    "id": 2147483791,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20417,8 +20317,8 @@
             "LowerBodyWeight": 1.0,
             "UpperBodyRootJoint": 0
         },
-        "value5584": 2097319,
-        "value5585": {
+        "value5582": 2097319,
+        "value5583": {
             "BlendDuration": 0.25,
             "AnimationSpeed": 1.0,
             "Loop": true,
@@ -20430,7 +20330,7 @@
             },
             "UpperAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483795,
+                    "id": 2147483792,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20438,7 +20338,39 @@
             },
             "LowerAnimation": {
                 "ptr_wrapper": {
-                    "id": 2147483796,
+                    "id": 2147483793,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value5584": 5244298,
+        "value5585": {
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 17039670734677764653
+            },
+            "AnimatorUUID": {
+                "value0": 14437450062254113406
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483794,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483795,
                     "data": {
                         "CurrentAnimation": 0
                     }
@@ -20456,7 +20388,7 @@
             "GameObjectID": 5209617036187583832,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483797,
+                    "id": 2147483796,
                     "data": {
                         "cereal_class_version": 0,
                         "Name": "EnvironmentSFX",
@@ -20508,7 +20440,7 @@
             "GameObjectID": 7347808653716592387,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483798,
+                    "id": 2147483797,
                     "data": {
                         "Name": "EnvironmentSFX",
                         "Events": [
@@ -20556,7 +20488,7 @@
             "GameObjectID": 8391709574217765561,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483799,
+                    "id": 2147483798,
                     "data": {
                         "Name": "EnvironmentSFX",
                         "Events": [
@@ -20604,7 +20536,7 @@
             "GameObjectID": 7903331545697927961,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483800,
+                    "id": 2147483799,
                     "data": {
                         "Name": "Music",
                         "Events": [
@@ -20647,7 +20579,7 @@
             "GameObjectID": 4914562327643990715,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 152
+                    "id": 151
                 }
             },
             "AudioBankName": "Music",
@@ -20679,7 +20611,7 @@
             "GameObjectID": 14181057689949229267,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483801,
+                    "id": 2147483800,
                     "data": {
                         "Name": "EnvironmentSFX",
                         "Events": [
@@ -20727,7 +20659,7 @@
             "GameObjectID": 11483092151109102087,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483802,
+                    "id": 2147483801,
                     "data": {
                         "Name": "EnvironmentSFX",
                         "Events": [
@@ -20775,7 +20707,7 @@
             "GameObjectID": 775897819181342142,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483803,
+                    "id": 2147483802,
                     "data": {
                         "Name": "EnvironmentSFX",
                         "Events": [
@@ -20818,7 +20750,7 @@
             "GameObjectID": 4807370860631956451,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483804,
+                    "id": 2147483803,
                     "data": {
                         "Name": "PlayerSFX",
                         "Events": [
@@ -20870,7 +20802,7 @@
             "GameObjectID": 6901290012100709909,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 156
+                    "id": 155
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -20902,7 +20834,7 @@
             "GameObjectID": 7158276361438046127,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483805,
+                    "id": 2147483804,
                     "data": {
                         "Name": "Dialogs",
                         "Events": [
@@ -20946,7 +20878,7 @@
             "GameObjectID": 17275865074032936130,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483806,
+                    "id": 2147483805,
                     "data": {
                         "Name": "UISFX",
                         "Events": [
@@ -20988,7 +20920,7 @@
             "GameObjectID": 14209340654536174804,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483807,
+                    "id": 2147483806,
                     "data": {
                         "Name": "Dialogs",
                         "Events": [
@@ -21054,7 +20986,7 @@
             "GameObjectID": 1835027023122124201,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483808,
+                    "id": 2147483807,
                     "data": {
                         "Name": "UISFX",
                         "Events": [
@@ -21096,7 +21028,7 @@
             "GameObjectID": 9853390293482935820,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 160
+                    "id": 159
                 }
             },
             "AudioBankName": "UISFX",
@@ -21128,7 +21060,7 @@
             "GameObjectID": 3266615419147511299,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483809,
+                    "id": 2147483808,
                     "data": {
                         "Name": "PlayerSFX",
                         "Events": [
@@ -21176,7 +21108,7 @@
             "GameObjectID": 12239604854595108084,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 161
+                    "id": 160
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21208,7 +21140,7 @@
             "GameObjectID": 10832790872822842713,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483810,
+                    "id": 2147483809,
                     "data": {
                         "Name": "EnvironmentSFX",
                         "Events": [
@@ -21250,7 +21182,7 @@
             "GameObjectID": 11997844952344021812,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 161
+                    "id": 160
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21282,7 +21214,7 @@
             "GameObjectID": 17256932729769199125,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 161
+                    "id": 160
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21314,7 +21246,7 @@
             "GameObjectID": 13454851155845124380,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 161
+                    "id": 160
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21346,7 +21278,7 @@
             "GameObjectID": 16262102354205553616,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 161
+                    "id": 160
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21378,7 +21310,7 @@
             "GameObjectID": 16260309388177154603,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 161
+                    "id": 160
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21410,7 +21342,7 @@
             "GameObjectID": 3962326338218469858,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483811,
+                    "id": 2147483810,
                     "data": {
                         "Name": "PlayerSFX",
                         "Events": [
@@ -21460,7 +21392,7 @@
             "GameObjectID": 12941517269550564871,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 161
+                    "id": 160
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21492,7 +21424,7 @@
             "GameObjectID": 11935594385972954346,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 163
+                    "id": 162
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21524,7 +21456,7 @@
             "GameObjectID": 17705833304322724943,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 163
+                    "id": 162
                 }
             },
             "AudioBankName": "PlayerSFX",
@@ -21556,7 +21488,7 @@
             "GameObjectID": 8390152398064475195,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483812,
+                    "id": 2147483811,
                     "data": {
                         "Name": "ShotgunSFX",
                         "Events": [
@@ -21598,7 +21530,7 @@
             "GameObjectID": 12390673525581197779,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 164
+                    "id": 163
                 }
             },
             "AudioBankName": "ShotgunSFX",
@@ -21630,7 +21562,7 @@
             "GameObjectID": 11032130947413478563,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 164
+                    "id": 163
                 }
             },
             "AudioBankName": "ShotgunSFX",
@@ -21662,7 +21594,7 @@
             "GameObjectID": 15623342468235196545,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 164
+                    "id": 163
                 }
             },
             "AudioBankName": "ShotgunSFX",
@@ -21694,7 +21626,7 @@
             "GameObjectID": 3709381073859797251,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 164
+                    "id": 163
                 }
             },
             "AudioBankName": "ShotgunSFX",
@@ -21726,7 +21658,7 @@
             "GameObjectID": 10273528540381889628,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483813,
+                    "id": 2147483812,
                     "data": {
                         "Name": "MeleeSFX",
                         "Events": [
@@ -21765,7 +21697,7 @@
             "GameObjectID": 10385388559825110485,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 165
+                    "id": 164
                 }
             },
             "AudioBankName": "MeleeSFX",
@@ -21797,7 +21729,7 @@
             "GameObjectID": 6775616429335001733,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483814,
+                    "id": 2147483813,
                     "data": {
                         "Name": "BolterSFX",
                         "Events": [
@@ -21841,7 +21773,7 @@
             "GameObjectID": 2711782696223696872,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 166
+                    "id": 165
                 }
             },
             "AudioBankName": "BolterSFX",
@@ -21873,7 +21805,7 @@
             "GameObjectID": 8771593609474293266,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 166
+                    "id": 165
                 }
             },
             "AudioBankName": "BolterSFX",
@@ -21905,7 +21837,7 @@
             "GameObjectID": 16254793767052205973,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 166
+                    "id": 165
                 }
             },
             "AudioBankName": "BolterSFX",
@@ -21937,7 +21869,7 @@
             "GameObjectID": 14893701237418069444,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483815,
+                    "id": 2147483814,
                     "data": {
                         "Name": "BolterSFX",
                         "Events": [
@@ -21977,7 +21909,7 @@
             "GameObjectID": 14951850516534642806,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483816,
+                    "id": 2147483815,
                     "data": {
                         "Name": "BolterSFX",
                         "Events": [
@@ -22016,7 +21948,7 @@
             "GameObjectID": 12730425632419176089,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 168
+                    "id": 167
                 }
             },
             "AudioBankName": "BolterSFX",
@@ -22048,7 +21980,7 @@
             "GameObjectID": 10292442329593165406,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 2147483817,
+                    "id": 2147483816,
                     "data": {
                         "Name": "UISFX",
                         "Events": [
@@ -22092,7 +22024,7 @@
             "GameObjectID": 5819311052863324297,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 169
+                    "id": 168
                 }
             },
             "AudioBankName": "UISFX",
@@ -22124,7 +22056,7 @@
             "GameObjectID": 8484362463256515062,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 150
+                    "id": 149
                 }
             },
             "AudioBankName": "EnvironmentSFX",
@@ -22156,7 +22088,7 @@
             "GameObjectID": 3137721937101478823,
             "AudioBank": {
                 "ptr_wrapper": {
-                    "id": 150
+                    "id": 149
                 }
             },
             "AudioBankName": "EnvironmentSFX",
@@ -22214,7 +22146,7 @@
             "cereal_class_version": 0,
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483818,
+                    "id": 2147483817,
                     "data": {
                         "cereal_class_version": 4,
                         "TransformMatrix": {
@@ -22309,7 +22241,7 @@
                         "Bursts": [
                             {
                                 "ptr_wrapper": {
-                                    "id": 2147483819,
+                                    "id": 2147483818,
                                     "data": {
                                         "cereal_class_version": 0,
                                         "initialTime": 0.0,
@@ -22500,7 +22432,7 @@
         "value5685": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483820,
+                    "id": 2147483819,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -22767,7 +22699,7 @@
         "value5687": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483821,
+                    "id": 2147483820,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -23047,7 +22979,7 @@
         "value5689": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483822,
+                    "id": 2147483821,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -23318,7 +23250,7 @@
         "value5691": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483823,
+                    "id": 2147483822,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -23589,7 +23521,7 @@
         "value5693": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483824,
+                    "id": 2147483823,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -23856,7 +23788,7 @@
         "value5695": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483825,
+                    "id": 2147483824,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -24127,7 +24059,7 @@
         "value5697": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483826,
+                    "id": 2147483825,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -24394,7 +24326,7 @@
         "value5699": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483827,
+                    "id": 2147483826,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -24665,7 +24597,7 @@
         "value5701": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483828,
+                    "id": 2147483827,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -24759,7 +24691,7 @@
                         "Bursts": [
                             {
                                 "ptr_wrapper": {
-                                    "id": 2147483829,
+                                    "id": 2147483828,
                                     "data": {
                                         "initialTime": 0.0,
                                         "count": 3,
@@ -24952,7 +24884,7 @@
         "value5703": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483830,
+                    "id": 2147483829,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -25046,7 +24978,7 @@
                         "Bursts": [
                             {
                                 "ptr_wrapper": {
-                                    "id": 2147483831,
+                                    "id": 2147483830,
                                     "data": {
                                         "initialTime": 0.0,
                                         "count": 3,
@@ -25239,7 +25171,7 @@
         "value5705": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 177
+                    "id": 176
                 }
             }
         },
@@ -25247,7 +25179,7 @@
         "value5707": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 174
+                    "id": 173
                 }
             }
         },
@@ -25255,7 +25187,7 @@
         "value5709": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483832,
+                    "id": 2147483831,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -25526,7 +25458,7 @@
         "value5711": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483833,
+                    "id": 2147483832,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -25620,7 +25552,7 @@
                         "Bursts": [
                             {
                                 "ptr_wrapper": {
-                                    "id": 2147483834,
+                                    "id": 2147483833,
                                     "data": {
                                         "initialTime": 0.0,
                                         "count": 0,
@@ -25837,7 +25769,7 @@
         "value5713": {
             "ParticleEmitter": {
                 "ptr_wrapper": {
-                    "id": 2147483835,
+                    "id": 2147483834,
                     "data": {
                         "TransformMatrix": {
                             "m00": 1.0,
@@ -26182,7 +26114,7 @@
         "value5793": 2099513,
         "value5794": 1050639,
         "value5795": 2098027,
-        "value5796": 2097160,
+        "value5796": 1051047,
         "value5797": 2098029,
         "value5798": 1048603,
         "value5799": 4195382,
@@ -26199,12 +26131,12 @@
         "value5810": 4195306,
         "value5811": 2098062,
         "value5812": 3146732,
-        "value5813": 2097161,
+        "value5813": 1051048,
         "value5814": 1660,
         "value5815": 3147226,
         "value5816": 2099506,
         "value5817": 967,
-        "value5818": 4195722,
+        "value5818": 1051051,
         "value5819": 1051034,
         "value5820": 4195796,
         "value5821": 881,
@@ -26215,7 +26147,7 @@
         "value5826": 1049460,
         "value5827": 2097738,
         "value5828": 1050686,
-        "value5829": 2097162,
+        "value5829": 1051049,
         "value5830": 970,
         "value5831": 969,
         "value5832": 3147822,
@@ -26247,7 +26179,7 @@
         "value5858": 1049555,
         "value5859": 1048608,
         "value5860": 1049463,
-        "value5861": 2097159,
+        "value5861": 1051046,
         "value5862": 2099107,
         "value5863": 2099269,
         "value5864": 1951,
@@ -26282,7 +26214,7 @@
         "value5893": 2098065,
         "value5894": 1048941,
         "value5895": 966,
-        "value5896": 1049458,
+        "value5896": 949,
         "value5897": 965,
         "value5898": 2097326,
         "value5899": 4195219,
@@ -26325,7 +26257,7 @@
         "value5936": 3147229,
         "value5937": 2099583,
         "value5938": 1397,
-        "value5939": 2097158,
+        "value5939": 1051050,
         "value5940": 3146294,
         "value5941": 3146761,
         "value5942": 3146762,
@@ -26434,13 +26366,13 @@
         "value6045": 1051054,
         "value6046": 1051053,
         "value6047": 1051052,
-        "value6048": 1051051,
-        "value6049": 1051050,
-        "value6050": 1051049,
-        "value6051": 1051048,
-        "value6052": 1051047,
-        "value6053": 1051046,
-        "value6054": 949,
+        "value6048": 5244298,
+        "value6049": 3145734,
+        "value6050": 3145738,
+        "value6051": 3145737,
+        "value6052": 3145736,
+        "value6053": 3145735,
+        "value6054": 2098034,
         "value6055": 128,
         "value6056": 881,
         "value6057": 1434,
