@@ -30,7 +30,7 @@ function on_ready()
     main_boss.shieldTransf = main_boss.shield:get_component("TransformComponent")
     main_boss.shieldTransf.position = Vector3.new(-500, 0, -200)
     main_boss.shieldShader = main_boss.shield:get_component("MaterialComponent").material.shader
-    main_boss.shieldShader:set_uniform("baseColor", Vector3.new(1.0, 0.0, 0.0))
+    main_boss.shieldShader:set_uniform("baseColor", Vector3.new(10.0, 0.0, 0.0))
 
     -- Wrath
     main_boss.wrath = instantiate_prefab(wrathPrefab)
