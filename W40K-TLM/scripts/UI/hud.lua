@@ -743,12 +743,21 @@ function buff_debuff_manager(dt)
 
     if playerScript.isHitted then
         dammageFeedback:set_active(true)
-        dammageFeedbackTexture:set_color(Vector4.new(1, 1, 1, 1))
+        if playerScript.health < 100 then
+            dammageFeedbackTexture:set_color(Vector4.new(1, 1, 1, 1))
+        else
+            dammageFeedbackTexture:set_color(Vector4.new(1, 1, 1, 0.33))
+        end
         wasHitted = true
         dammageFadeOutActive = false 
     elseif wasHitted and not playerScript.isHitted then
         dammageFadeOutActive = true
-        dammageFadeOutAlpha = 1.0
+        if playerScript.health < 100 then
+            dammageFadeOutAlpha = 1
+        else
+            dammageFadeOutAlpha = 0.33
+        end
+        
         wasHitted = false
     end
     
