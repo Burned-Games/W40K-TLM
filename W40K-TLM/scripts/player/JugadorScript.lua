@@ -449,6 +449,7 @@ function on_ready()
 
     hud = current_scene:get_entity_by_name("HUD"):get_component("ScriptComponent")
     hud.update_scrap_display(scrapCounter)
+    hud.update_stims_display(StimsCounter)
 end
 
 function on_update(dt)
@@ -504,7 +505,7 @@ function on_update(dt)
     update_combat_state(dt)
 
     if StimsCounter > 0 and isHealing == false and (Input.is_button_pressed(Input.controllercode.DpadRight) or Input.is_key_pressed(Input.keycode.H)) then
-        StimsCounter = StimsCounter - 1
+        addStims(-1)
         intervalcheker = dtColective
         intervalChekerDown = intervalcheker - 0.5
         intervalchekerUp = intervalcheker + 0.5
@@ -1763,6 +1764,11 @@ end
 function addScrap(amount)
     scrapCounter = scrapCounter + amount
     hud.update_scrap_display()
+end
+
+function addStims(amount)
+    StimsCounter = StimsCounter + amount
+    hud.update_stims_display()
 end
 
 function on_exit() end

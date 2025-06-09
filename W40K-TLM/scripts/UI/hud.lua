@@ -216,6 +216,7 @@ function on_ready()
     originalLifeColor = lifeFullComponent:get_color()
 
     update_scrap_display() 
+    update_stims_display()
 end
 
 
@@ -737,8 +738,13 @@ function update_scrap_display()
     end
 end
 
+function update_stims_display()
+    if playerScript ~= nil and cantidadConsumible ~= nil then
+        cantidadConsumible:set_text(tostring(playerScript.StimsCounter))
+    end
+end
+
 function buff_debuff_manager(dt)
-   cantidadConsumible:set_text(string.format("%d", math.ceil(playerScript.StimsCounter)))
 
     if playerScript.isHitted then
         dammageFeedback:set_active(true)
