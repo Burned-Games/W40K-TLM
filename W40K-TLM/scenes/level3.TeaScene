@@ -17016,15 +17016,15 @@
             },
             "SkyboxIntensity": 1.0,
             "TonemappingExposure": 1.0,
-            "Fog": false,
+            "Fog": true,
             "FogColor": {
                 "x": 0.5,
                 "y": 0.5,
                 "z": 0.5
             },
-            "FogDensity": 0.10000000149011612,
-            "FogHeight": 0.0,
-            "FogHeightDensity": 0.10000000149011612
+            "FogDensity": 0.0,
+            "FogHeight": 0.6000000238418579,
+            "FogHeightDensity": 0.009999999776482582
         },
         "value5407": 54,
         "value5408": 3146783,
