@@ -638,13 +638,13 @@ function shoot(dt, bulletNum)
     
     
     
-    local newPosition = Vector3.new((forwardVector.x + playerPosition.x) , yPositionBullet  , (forwardVector.z+ playerPosition.z) )
+    local newPosition = Vector3.new((forwardVector.x * 1.5 + playerPosition.x) , yPositionBullet  , (forwardVector.z * 1.5+ playerPosition.z) )
 
     bullets[bulletNum].rigidBody:set_position(newPosition)
 
     
 
-    local velocity = Vector3.new(forwardVector.x * sphereSpeed, 0, forwardVector.z * sphereSpeed)
+    local velocity = Vector3.new(forwardVector.x * sphereSpeed, -0.8, forwardVector.z * sphereSpeed)
     bullets[bulletNum].rigidBody:set_velocity(velocity)
     bulletTimers[bulletNum] = 0.1
 
