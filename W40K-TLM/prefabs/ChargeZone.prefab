@@ -10,28 +10,58 @@
             "value2": 14,
             "value3": {
                 "cereal_class_version": 0,
-                "value0": 8604935758370162680
+                "value0": 7865620165366246187
             },
             "value4": false
         },
         "RootEntity": 0,
-        "value0": 1,
-        "value1": 1,
+        "value0": 7,
+        "value1": 7,
         "value2": 0,
         "value3": 1,
-        "value4": 0,
-        "value5": {
+        "value4": 2,
+        "value5": 3,
+        "value6": 4,
+        "value7": 5,
+        "value8": 6,
+        "value9": 7,
+        "value10": 0,
+        "value11": {
             "cereal_class_version": 0,
             "Tag": "ChargeZone"
         },
-        "value6": 1,
-        "value7": 0,
-        "value8": {
+        "value12": 1,
+        "value13": {
+            "Tag": "VFX_ZHBolter"
+        },
+        "value14": 2,
+        "value15": {
+            "Tag": "VFX_ZHBolter_Plane-0"
+        },
+        "value16": 3,
+        "value17": {
+            "Tag": "VFX_ZHBolter_Plane-1"
+        },
+        "value18": 4,
+        "value19": {
+            "Tag": "VFX_ZHBolter_Plane-2"
+        },
+        "value20": 5,
+        "value21": {
+            "Tag": "VFX_ZHBolter_Plane-3"
+        },
+        "value22": 6,
+        "value23": {
+            "Tag": "Root"
+        },
+        "value24": 7,
+        "value25": 0,
+        "value26": {
             "cereal_class_version": 0,
             "Position": {
-                "x": -19.292200088500978,
-                "y": 0.2952998876571655,
-                "z": -3.346386432647705
+                "x": 6.589055061340332,
+                "y": 2.1069741249084474,
+                "z": 18.917726516723634
             },
             "Rotation": {
                 "x": 0.0,
@@ -39,56 +69,538 @@
                 "z": 0.0
             },
             "Scale": {
-                "x": 3.247999668121338,
-                "y": 3.4963207244873049,
-                "z": 3.247999668121338
+                "x": 3.247999906539917,
+                "y": 3.247999906539917,
+                "z": 3.247999906539917
             }
         },
-        "value9": 1,
-        "value10": 0,
-        "value11": {
+        "value27": 1,
+        "value28": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value29": 2,
+        "value30": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value31": 3,
+        "value32": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value33": 4,
+        "value34": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value35": 5,
+        "value36": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value37": 6,
+        "value38": {
+            "Position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        "value39": 7,
+        "value40": 0,
+        "value41": {
             "cereal_class_version": 0,
             "Parent": 4294967295,
-            "First": 4294967295,
+            "First": 1,
             "Next": 4294967295,
             "Prev": 4294967295
         },
-        "value12": 1,
-        "value13": 0,
-        "value14": {
+        "value42": 1,
+        "value43": {
+            "Parent": 0,
+            "First": 2,
+            "Next": 6,
+            "Prev": 4294967295
+        },
+        "value44": 2,
+        "value45": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 5,
+            "Prev": 3
+        },
+        "value46": 3,
+        "value47": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 2
+        },
+        "value48": 4,
+        "value49": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 3
+        },
+        "value50": 5,
+        "value51": {
+            "Parent": 1,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 4
+        },
+        "value52": 6,
+        "value53": {
+            "Parent": 0,
+            "First": 4294967295,
+            "Next": 4294967295,
+            "Prev": 1
+        },
+        "value54": 4,
+        "value55": 2,
+        "value56": {
             "cereal_class_version": 0,
             "Mesh": {
-                "value0": 6928970319868000635
+                "value0": 17548423605055853526
             },
             "AnimatorUUID": {
-                "value0": 0
+                "value0": 8810102140312212958
             }
         },
-        "value15": 1,
-        "value16": 0,
-        "value17": {
+        "value57": 3,
+        "value58": {
+            "Mesh": {
+                "value0": 18288840659301866570
+            },
+            "AnimatorUUID": {
+                "value0": 8810102140312212958
+            }
+        },
+        "value59": 4,
+        "value60": {
+            "Mesh": {
+                "value0": 6314669778925378552
+            },
+            "AnimatorUUID": {
+                "value0": 8810102140312212958
+            }
+        },
+        "value61": 5,
+        "value62": {
+            "Mesh": {
+                "value0": 13092527646362042776
+            },
+            "AnimatorUUID": {
+                "value0": 8810102140312212958
+            }
+        },
+        "value63": 4,
+        "value64": 2,
+        "value65": {
             "cereal_class_version": 1,
-            "IsEmbedded": false,
-            "Type": 8,
-            "MaterialUUID": {
-                "value0": 10834636859107458743
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 2147483649,
+                "polymorphic_name": "Coffee::PBRMaterial",
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 12126525544217487848
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 11302525180644321989
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.001_Mat0",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 17182412442191571525
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
             }
         },
-        "value18": 0,
-        "value19": 1,
-        "value20": 0,
-        "value21": {
+        "value66": 3,
+        "value67": {
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483650,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 12126525544217487848
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 11302525180644321989
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.002_Mat1",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 13988621534678803522
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value68": 4,
+        "value69": {
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483651,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 12126525544217487848
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 11302525180644321989
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.003_Mat2",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 17681091746074655439
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value70": 5,
+        "value71": {
+            "IsEmbedded": true,
+            "Material": {
+                "polymorphic_id": 1,
+                "ptr_wrapper": {
+                    "id": 2147483652,
+                    "data": {
+                        "Textures": {
+                            "AlbedoUUID": {
+                                "value0": 12126525544217487848
+                            },
+                            "NormalUUID": {
+                                "value0": 0
+                            },
+                            "MetallicUUID": {
+                                "value0": 0
+                            },
+                            "RoughnessUUID": {
+                                "value0": 0
+                            },
+                            "AOUUID": {
+                                "value0": 0
+                            },
+                            "EmissiveUUID": {
+                                "value0": 11302525180644321989
+                            }
+                        },
+                        "TextureFlags": {
+                            "HasAlbedo": true,
+                            "HasNormal": false,
+                            "HasMetallic": false,
+                            "HasRoughness": false,
+                            "HasAO": false,
+                            "HasEmissive": true
+                        },
+                        "Properties": {
+                            "Color": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0,
+                                "w": 1.0
+                            },
+                            "Metallic": 0.0,
+                            "Roughness": 1.0,
+                            "AO": 1.0,
+                            "Emissive": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        },
+                        "value0": {
+                            "value0": {
+                                "value0": "Material.004_Mat3",
+                                "value1": {
+                                    "value0": ""
+                                },
+                                "value2": 8,
+                                "value3": {
+                                    "value0": 10297904181921903840
+                                },
+                                "value4": true
+                            },
+                            "Shader Path": "",
+                            "Render Settings": {
+                                "TransparencyMode": 1,
+                                "AlphaCutoff": 0.5,
+                                "BlendMode": 0,
+                                "CullMode": 1,
+                                "DepthTest": true,
+                                "Wireframe": false
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "value72": 0,
+        "value73": 1,
+        "value74": 0,
+        "value75": {
             "cereal_class_version": 0,
             "RigidBody": true,
             "RigidBodyData": {
                 "ptr_wrapper": {
-                    "id": 2147483649,
+                    "id": 2147483653,
                     "data": {
                         "cereal_class_version": 0,
                         "m_Properties": {
                             "cereal_class_version": 0,
                             "type": 1,
-                            "mass": 4.0,
+                            "mass": 1.0,
                             "useGravity": false,
                             "freezeX": false,
                             "freezeY": false,
@@ -107,10 +619,10 @@
                             "angularDrag": 0.009999999776482582
                         },
                         "m_Collider": {
-                            "polymorphic_id": 2147483649,
+                            "polymorphic_id": 2147483650,
                             "polymorphic_name": "Coffee::SphereCollider",
                             "ptr_wrapper": {
-                                "id": 2147483650,
+                                "id": 2147483654,
                                 "data": {
                                     "cereal_class_version": 0,
                                     "value0": {
@@ -130,23 +642,63 @@
                 }
             }
         },
-        "value22": 0,
-        "value23": 0,
-        "value24": 1,
-        "value25": 0,
-        "value26": 0,
-        "value27": 0,
-        "value28": 0,
-        "value29": 0,
-        "value30": 0,
-        "value31": 0,
-        "value32": 0,
-        "value33": 0,
-        "value34": 0,
-        "value35": 0,
-        "value36": 0,
-        "value37": 0,
-        "value38": 0,
-        "value39": 0
+        "value76": 0,
+        "value77": 0,
+        "value78": 7,
+        "value79": 0,
+        "value80": 1,
+        "value81": 2,
+        "value82": 3,
+        "value83": 4,
+        "value84": 5,
+        "value85": 6,
+        "value86": 0,
+        "value87": 1,
+        "value88": 0,
+        "value89": {
+            "cereal_class_version": 0,
+            "BlendDuration": 0.25,
+            "AnimationSpeed": 1.0,
+            "Loop": true,
+            "ModelUUID": {
+                "value0": 18100322368477388576
+            },
+            "AnimatorUUID": {
+                "value0": 8810102140312212958
+            },
+            "UpperAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483655,
+                    "data": {
+                        "cereal_class_version": 0,
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "LowerAnimation": {
+                "ptr_wrapper": {
+                    "id": 2147483656,
+                    "data": {
+                        "CurrentAnimation": 0
+                    }
+                }
+            },
+            "PartialBlendThreshold": 0.009999999776482582,
+            "UpperBodyWeight": 1.0,
+            "LowerBodyWeight": 1.0,
+            "UpperBodyRootJoint": 0
+        },
+        "value90": 0,
+        "value91": 0,
+        "value92": 0,
+        "value93": 0,
+        "value94": 0,
+        "value95": 0,
+        "value96": 0,
+        "value97": 0,
+        "value98": 0,
+        "value99": 0,
+        "value100": 0,
+        "value101": 0
     }
 }
