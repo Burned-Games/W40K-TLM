@@ -29,6 +29,10 @@ local entities = nil
 
 enemies  = nil
 
+local lastUpdateTime = 0
+local updateInterval = 0.1
+local inactiveEnemies = {}
+
 local pauseScript = nil
 local workbenchUIManagerScript = nil
 
@@ -196,6 +200,7 @@ function on_ready()
         end
     end
 
+    initializeInactiveEnemies()
 
     if SceneManager:get_scene_name() == "level1.TeaScene" then
         actualMapPolygon = mapPolygonLevel1
@@ -223,7 +228,7 @@ function on_update(dt)
     end
     if playerScript and playerScript.moveDirection then
         if playerScript.moveDirection.x ~= 0 and playerScript.moveDirection.z ~= 0 then
-            updateEnemyActivation()
+            updateEnemyActivation(dt)
         end
         -- Add update code here
         local zoomOffSet = Vector3.new(baseOffset.x * (1 + zoom * 0.2), baseOffset.y * (1 + zoom * 0.2), baseOffset.z * (1 + zoom * 0.2))  
@@ -289,48 +294,64 @@ function on_update(dt)
     end
 end
 
-function updateEnemyActivation()
+function updateEnemyActivation(dt)
+    lastUpdateTime = lastUpdateTime + dt
+    if lastUpdateTime < updateInterval then
+        return
+    end
+    lastUpdateTime = 0
 
+    local i = 1
+    while i <= #inactiveEnemies do
+        local enemyData = inactiveEnemies[i]
+        local entity = enemyData.entity
+        
+        if not entity:is_valid() then
+            table.remove(inactiveEnemies, i)
+            goto continue
+        end
+        
+        local entityRb = entity:get_component("RigidbodyComponent").rb
+        local entityPos = entityRb:get_position()
 
-    for _, entity in ipairs(enemies) do 
-        if entity ~= player and entity:has_component("RigidbodyComponent") and entity:has_component("ScriptComponent")then
-            local entityRb = entity:get_component("RigidbodyComponent").rb
-            local entityPos = entityRb:get_position()
+        local direction = Vector3.new(
+            entityPos.x - playerTransf.position.x,
+            entityPos.y - playerTransf.position.y,
+            entityPos.z - playerTransf.position.z
+        )
 
-            local direction = Vector3.new(
-                entityPos.x - playerTransf.position.x,
-                entityPos.y - playerTransf.position.y,
-                entityPos.z - playerTransf.position.z
-            )
+        local distance = math.sqrt(
+            direction.x * direction.x +
+            direction.y * direction.y +
+            direction.z * direction.z
+        )
 
-            local distance = math.sqrt(
-                direction.x * direction.x +
-                direction.y * direction.y +
-                direction.z * direction.z
-            )
+        if distance > 0 then
+            direction.x = direction.x / distance
+            direction.y = direction.y / distance
+            direction.z = direction.z / distance
+        end
 
-            if distance > 0 then
-                direction.x = direction.x / distance
-                direction.y = direction.y / distance
-                direction.z = direction.z / distance
-            end
+        if distance < radiusSpawn then
+            entity:set_active(true)
+            local tag = entity:get_component("TagComponent").tag
+            if tag == "EnemyRange" or tag == "EnemySupport" or tag == "EnemyKamikaze" or tag == "EnemyTank" or tag== "EnemyTutorial" then 
+                local children = entity:get_children()
 
-            if distance < radiusSpawn and not entity:is_active() then
-                entity:set_active(true)
-                local tag = entity:get_component("TagComponent").tag 
-                if tag == "EnemyRange" or tag == "EnemySupport" or tag == "EnemyKamikaze" or tag == "EnemyTank" or tag== "EnemyTutorial" then 
-                    local children = entity:get_children()
-
-                    for _, child in ipairs(children) do
-                        if child:get_component("TagComponent").tag == "Shield" then
-                            child:set_active(false)
-                            log("Shield deactivated for enemy: " )
-                            break
-                        end
+                for _, child in ipairs(children) do
+                    if child:get_component("TagComponent").tag == "Shield" then
+                        child:set_active(false)
+                        break
                     end
                 end
             end
+            
+            table.remove(inactiveEnemies, i)
+        else
+            i = i + 1
         end
+        
+        ::continue::
     end
 end
 
@@ -416,7 +437,16 @@ function ProjectPointOnSegment(px, pz, ax, az, bx, bz)
     return {x = ax + t * abx, z = az + t * abz}
 end
 
-
+function initializeInactiveEnemies()
+    inactiveEnemies = {}
+    for i, entity in ipairs(enemies) do
+        if not entity:is_active() and entity ~= player and 
+           entity:has_component("RigidbodyComponent") and 
+           entity:has_component("ScriptComponent") then
+            table.insert(inactiveEnemies, {index = i, entity = entity})
+        end
+    end
+end
 
 function on_exit()
     -- Add cleanup code here
