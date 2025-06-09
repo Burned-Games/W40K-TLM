@@ -251,7 +251,7 @@ function fist()
 
             if fistIndicatorsTransform[i] then
                 fistIndicatorsTransform[i].position = pos
-                fistIndicatorsTransform[i].position.y = 0.1
+                fistIndicatorsTransform[i].position.y = 0.01
             end
             if fistIndicatorsScript[i] then
                 fistIndicatorsScript[i]:startIndicator()
