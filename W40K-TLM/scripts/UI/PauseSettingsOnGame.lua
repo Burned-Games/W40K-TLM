@@ -48,6 +48,10 @@ local MenuState = {
 local currentMenuState = MenuState.MAIN_MENU
 local lastSelectedIndex = 0
 
+local changeing = false
+local changeScene = false
+local changed = false
+
 function on_ready()
     initialize_ui_components()
     initialize_audio_components()
@@ -115,6 +119,8 @@ end
 
 function on_update(dt)
     
+    
+
     update_cooldowns(dt)
     handle_pause_input()
     
@@ -140,7 +146,16 @@ function on_update(dt)
         close_settings_menu()
     end
     
-    
+    if changeing then
+        if fadeToBlackScript.fadeToBlackDoned then
+            changeScene = true
+        end
+    end
+
+    if changeScene == true and not changed then
+        SceneManager.change_scene("scenes/mainMenu.TeaScene")
+        changed = true
+    end
 end
 
 function update_cooldowns(dt)
@@ -259,7 +274,8 @@ end
 function exit_to_main_menu()
     save_progress("skipIntroDelay", true)
     fadeToBlackScript:DoFade()
-    SceneManager.change_scene("scenes/mainMenu.TeaScene")
+    changeing = true
+    --SceneManager.change_scene("scenes/mainMenu.TeaScene")
 end
 
 function handle_settings_input(dt)
