@@ -55,6 +55,8 @@ function on_ready()
 
     -- Ultimate
     ultimateTransf = self:get_component("TransformComponent")
+    shader = self:get_component("MaterialComponent").material.shader
+    shader:set_uniform("time", Vector3.new(1,0,0))
 
     -- Audio
     bossChargeUltimateSFX = current_scene:get_entity_by_name("BossChargeUltimateSFX"):get_component("AudioSourceComponent")
@@ -101,6 +103,7 @@ function on_update(dt)
         end
         enemyScript.main_boss.invulnerable = true
         ultiAttackTimer = ultiAttackTimer + dt
+        shader:set_uniform("time", Vector3.new(ultiAttackTimer, 0, 0))
 
         if ultiAttackTimer >= ultiAttackDuration then
             ultimateCasting = true
