@@ -5,6 +5,7 @@ local isClosed = true
 local exitPositions = {}
 local playerPosition = nil
 local doorPosition = nil
+local exitWorldPositions = {}
 
 local animator = nil
 local openAnimation = 0
@@ -40,6 +41,14 @@ function on_ready()
     playerPosition = current_scene:get_entity_by_name("Player"):get_component("TransformComponent").position
     doorPosition = self:get_component("TransformComponent").position
 
+    exitWorldPositions = {}
+    for _, exitPos in ipairs(exitPositions) do
+        table.insert(exitWorldPositions, {
+            x = doorPosition.x + exitPos.x,
+            z = doorPosition.z + exitPos.z
+        })
+    end
+
     if minimumInteractions == 0 then
         rigidBody:set_trigger(true)
         isClosed = false
@@ -47,12 +56,12 @@ function on_ready()
 end
 
 function on_update(dt)
-    if not isClosed and #exitPositions > 0 then
-        for _, exitPosition in ipairs(exitPositions) do
+    if not isClosed and #exitWorldPositions > 0 then
+        for _, worldPos in ipairs(exitWorldPositions) do
             local distance = Vector3.new(
-                math.abs(playerPosition.x - (doorPosition.x + exitPosition.x)),
+                math.abs(playerPosition.x - worldPos.x),
                 0,
-                math.abs(playerPosition.z - (doorPosition.z + exitPosition.z))
+                math.abs(playerPosition.z - worldPos.z)
             )
 
             if distance:length() < 1.5 then

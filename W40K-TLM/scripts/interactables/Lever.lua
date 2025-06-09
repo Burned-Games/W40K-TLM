@@ -6,6 +6,8 @@ local currentInteractions = 0
 
 local interactionDistance = 5;
 
+local leverWorldPos = nil
+
 playerTransform = nil
 parentTransform = nil
 parentScript = nil
@@ -42,6 +44,13 @@ function on_ready()
     playerTransform = current_scene:get_entity_by_name("Player"):get_component("TransformComponent")
     playerScript = current_scene:get_entity_by_name("Player"):get_component("ScriptComponent")
     transform = self:get_component("TransformComponent")
+
+    if not finalLever then
+        leverWorldPos = transform.position + parentTransform.position
+    else
+        leverWorldPos = transform.position
+    end
+
     leverAnimator = self:get_component("AnimatorComponent")
 
     leverSFX = self:get_component("AudioSourceComponent")
@@ -73,10 +82,7 @@ function on_update(dt)
 
     local distance = Vector3.new(100,100,100)
     if not hasInteracted then
-        local leverPos = transform.position
-        if not finalLever then
-            leverPos = leverPos + parentTransform.position
-        end
+        local leverPos = leverWorldPos
         distance = Vector3.new(
             math.abs(playerTransform.position.x - leverPos.x),
             math.abs(playerTransform.position.y - leverPos.y),
