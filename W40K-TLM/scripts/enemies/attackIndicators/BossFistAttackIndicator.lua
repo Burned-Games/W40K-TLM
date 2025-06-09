@@ -92,7 +92,6 @@ function on_update(dt)
             isRunning = false
             backgroundSprite.tint_color = Vector4.new(backgroundColor.x, backgroundColor.y, backgroundColor.z, 0)
             indicatorSprite.tint_color = Vector4.new(indicatorColor.x, indicatorColor.y, indicatorColor.z, 0)
-            self:set_active(false)
         end
         indicatorTransform.scale = Vector3.new(actualSize,actualSize,actualSize)
     end
