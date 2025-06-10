@@ -1,6 +1,6 @@
 ![TitleLogo40k_Final1](https://github.com/user-attachments/assets/0fcedd1d-cd0c-46cd-9b10-04b330a95d47)
 
-## System Requirements (Avaliable for Windows, Linux & Steam Deck)
+## System Requirements (Available for Windows, Linux & Steam Deck)
 
 | Hardware | Minimum | Recommended |
 | --- | --- | --- |
@@ -11,7 +11,7 @@
 | Free Disk Space | 3 GB HDD | 3 GB SSD |
 | Operating System (OS) | Windows or Linux 64-bit | Windows or Linux 64-bit |
 
-> Note: any device similar in specifications to a Steamdeck should be able to move the game at around 60fps.
+> Note: any device similar in specifications to a Steam Deck should be able to run the game at around 60fps.
 
 ## Controls
 
@@ -120,12 +120,12 @@ The Main Character is an Ultramarine equipped with a rifle, a shotgun, a chainsw
 
 #### Burst Rifle
 <ul>
-    <li>Basic Burst Rifle with 24 bullets and an hability that shoots a powerful electric field (Available every 18 seconds).</li>
+    <li>Basic Burst Rifle with 24 bullets and an ability that shoots a powerful electric field (Available every 18 seconds).</li>
 </ul>
 
 #### Shotgun
 <ul>
-    <li>Basic Shotgun with 12 bullets and a grenade launcher included (Available every 12 seconds).</li>
+    <li>Basic Shotgun with 12 bullets and a built-in grenade launcher (Available every 12 seconds).</li>
 </ul>
 
 #### Melee Gun
@@ -137,19 +137,19 @@ The Main Character is an Ultramarine equipped with a rifle, a shotgun, a chainsw
 
 ### Camera:
 <ul>
-    <li>The camera follows the Main Character using an improved adjustable isometric perspective.</li>
+    <li>The camera follows the main character with an improved, adjustable isometric perspective.</li>
 </ul>
 
 ## Enemies
 
-There are four enemy types and a Boss. When defeated, they drop scrap metal that can be collected and used for upgrades. Enemies are distributed across the levels and change some of their behaviours depending on the level you are.
+There are four enemy types and a Boss. When defeated, they drop scrap metal that can be collected and used for upgrades. Enemies are distributed across the levels and change some of their behaviors depending on the level you're in
 
 <img src="https://github.com/user-attachments/assets/5f661c39-dc84-4102-b36b-0d3ce4a0a5a0" width="450">
 
 #### Ork Boyz:
 <ul>
   <li>Basic Enemy with low resistance and moderate speed.</li>
-  <li>They uses Bayonet-equipped rifles for short and long distance attacks.</li>
+  <li>They use Bayonet-equipped rifles for short and long distance attacks.</li>
 </ul>
 
 #### Weird Boyz:
@@ -167,13 +167,13 @@ There are four enemy types and a Boss. When defeated, they drop scrap metal that
 #### Squighog:
 <ul>
   <li>Kamikaze Enemies with low resistance and very high speed.</li>
-  <li>Their goal is to run towards the player and explode before being killed</li>
+  <li>Their goal is to reach the player and explode before being killed.</li>
 </ul>
 
 #### Garrosh (Steel Claw):
 <ul>
   <li>The Boss. The most powerful enemy in the game, designed to test the player's knowledge and combat skills.</li>
-  <li>He has two phases with different attacks and skills</li>
+  <li>He has two phases, each with different attacks and abilities.</li>
 </ul>
 
 ## Effects
@@ -183,17 +183,17 @@ There are four enemy types and a Boss. When defeated, they drop scrap metal that
   <li>Lightning & Shadows.</li>
   <li>PBR & Shader Materials.</li>
   <li>Fog & Bloom.</li>
-  <li>FXAA & Tonemapping.</li>
+  <li>FXAA & Tone Mapping.</li>
   <li>Camera shaking effects.</li>
   <li>Controller vibration.</li>
 </ul>
 
 ## UI/HUD
 
-### Functional Hud + Tutorial:
+### Functional HUD + Tutorial:
 <ul>
     <li>Visual feedback about weapons and abilities</li>
-    <li>Well defined missions and objectives.</li>
+    <li>Well-defined missions and objectives.</li>
     <li>Dialog boxes.</li>
 </ul>
 
@@ -201,13 +201,13 @@ There are four enemy types and a Boss. When defeated, they drop scrap metal that
 <ul>
   <li>A table to upgrade your weapons.</li>
   <li>You can improve reload time, fire rate, damage and unlock a special ability.</li>
-  <li>You can also improve your character's health, defense and unlock a special ability.</li>
+  <li>You can also improve your character's health, defense, and unlock a special ability.</li>
 </ul>
 
 ### Settings + Screens & Cinematics
 <ul>
     <li>Every level has a settings menu with some options and information.</li>
-    <li>There is a Loading screen, a Lose screen & the Credits screen.</li>
+    <li>There is a loading screen, a lose screen and a credits screen.</li>
     <li>You can enjoy some cinematics during the gameplay.</li>
 </ul>
 
@@ -229,7 +229,7 @@ The levels feature core mechanics such as a lever-and-door system, destructible 
 
 ### Level 3 (Church):
 <ul>
-    <li>Here you fight against the Boss, good luck.</li>
+    <li>This is where you face the final boss. Good luck!</li>
 </ul>
 
 ## Gameplay Images:
