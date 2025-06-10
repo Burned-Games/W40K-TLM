@@ -28232,7 +28232,7 @@
                             "Emissive": {
                                 "x": 15.0,
                                 "y": 15.0,
-                                "z": 1.0
+                                "z": 15.0
                             }
                         },
                         "value0": {
@@ -28612,7 +28612,7 @@
         "value7445": 2,
         "value7446": 1396,
         "value7447": {
-            "cereal_class_version": 1,
+            "cereal_class_version": 2,
             "Color": {
                 "x": 1.0,
                 "y": 0.7692832946777344,
@@ -28635,7 +28635,8 @@
             "Type": 0,
             "Shadow": false,
             "ShadowBias": 0.004999999888241291,
-            "ShadowMaxDistance": 100.0
+            "ShadowMaxDistance": 100.0,
+            "ConeAttenuation": 48.0
         },
         "value7448": 1397,
         "value7449": {
@@ -28661,7 +28662,8 @@
             "Type": 0,
             "Shadow": true,
             "ShadowBias": 0.0,
-            "ShadowMaxDistance": 200.0
+            "ShadowMaxDistance": 200.0,
+            "ConeAttenuation": 48.0
         },
         "value7450": 1,
         "value7451": 22,
