@@ -75,7 +75,7 @@
 
 We are a class of university students at [CITM (Centre de la Imatge i la Tecnologia Multimèdia)](https://www.citm.upc.edu/) , and for our third-year project, we developed a video game based on Warhammer 40,000. This project has been built using the custom game engine we developed in the previous semester: [Coffee Engine](https://github.com/Burned-Games/Coffee-Engine).
 
-Chech our [website](https://burned-games.github.io/) to learn more about each member's roles and tasks.
+Check our [website](https://burned-games.github.io/) to learn more about each member's roles and tasks.
 
 # About the engine: Coffee Engine
 
