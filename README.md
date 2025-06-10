@@ -12,12 +12,12 @@ In the main menu, you can start a new game or continue from where you left off, 
 
 The Main Character is an Ultramarine equipped with a rifle, a shotgun, a chainsword, a jetpack and health injectors. He can also change his helmet color through upgrades.
 
-### Stats & habilities:
+### Stats & abilities:
 <ul>
     <li>Up to 250 HP and hold up to 3 health injectors.</li>
     <li>Dash every 4 seconds.</li>
     <li>Chainsaw attack every 6 seconds.</li>
-    <li>Armor hability every 25 seconds.</li>
+    <li>Armor ability every 25 seconds.</li>
 </ul>
 
 ### Weapons
@@ -76,25 +76,25 @@ There are four enemy types and a Boss. When defeated, they drop scrap metal that
 #### Ork Boyz:
 <ul>
   <li>Basic Enemy with low resistance and moderate speed.</li>
-  <li>He uses Bayonet-equipped rifle for short and long distance attacks.</li>
+  <li>They uses Bayonet-equipped rifles for short and long distance attacks.</li>
 </ul>
 
 #### Weird Boyz:
 <ul>
-  <li>Support Enemy with low resistance and high speed.</li>
-  <li>His main goal is to give support to the other enemies giving them shields.</li>
+  <li>Support Enemies with low resistance and high speed.</li>
+  <li>Their main goal is to assist other enemies by providing them shields.</li>
 </ul>
 
 #### Wild Boyz:
 <ul>
-  <li>Tank Enemy with high resistance and slow movement.</li>
-  <li>He uses large two-handed maces to deliver powerful attacks at structures and the player.</li>
+  <li>Tank Enemies with high resistance and slow movement.</li>
+  <li>They use large two-handed maces to deliver powerful attacks on structures and the player.</li>
 </ul>
 
 #### Squighog:
 <ul>
-  <li>Kamikaze Enemy with low resistance and very high speed.</li>
-  <li>His goal is to run towards the player and explode before he gets killed</li>
+  <li>Kamikaze Enemies with low resistance and very high speed.</li>
+  <li>Their goal is to run towards the player and explode before being killed</li>
 </ul>
 
 #### Garrosh (Steel Claw):
@@ -125,8 +125,8 @@ There are four enemy types and a Boss. When defeated, they drop scrap metal that
 ### Upgrades table
 <ul>
   <li>A table to upgrade your weapons.</li>
-  <li>You can improve your weapons' reload time, the fire rate, the damage and unlock an special hability.</li>
-  <li>You can improve your character's health, defense and unlock a special hability.</li>
+  <li>You can improve reload time, fire rate, damage and unlock a special ability.</li>
+  <li>You can also improve your character's health, defense and unlock a special ability.</li>
 </ul>
 
 ## Levels + Environment
@@ -149,8 +149,8 @@ The levels feature core mechanics such as a lever-and-door system, destructible 
 
 ### Level 3 (Church):
 <ul>
-     <li>The level 2 is almost completed! There are still some details that need to be fixed/implemented..</li>
-    <li>Here you fight with the Boss, good luck.</li>
+     <li>The level 3 is almost completed! There are still some details that need to be fixed/implemented..</li>
+    <li>Here you fight against the Boss, good luck.</li>
 </ul>
 
 ## Gameplay Images:
