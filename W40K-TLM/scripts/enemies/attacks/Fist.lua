@@ -83,7 +83,9 @@ function on_ready()
         fistTransf[i] = child:get_component("TransformComponent")
         fistRbComponent[i] = child:get_component("RigidbodyComponent")
         fistRbs[i] = fistRbComponent[i].rb
-        fistRbs[i]:set_position(Vector3.new(-500, 0, -500))
+        local offsetX = (i % 10) * 10
+        local offsetZ = math.floor(i / 10) * 10
+        fistRbs[i]:set_position(Vector3.new(-500 - offsetX, 0, -500 - offsetZ))
         fistRbs[i]:set_trigger(true)
         
         i = i + 1
@@ -329,7 +331,9 @@ function update_scaling_attacks(dt)
             if data.lingerElapsed >= data.lingerDuration then
                 -- Return the fists
                 if data.transformRb and data.transformRb.rb then
-                    data.transformRb.rb:set_position(Vector3.new(-500, 0, -150))
+                    local offsetX = (i % 10) * 10
+                    local offsetZ = math.floor(i / 10) * 10
+                    data.transformRb.rb:set_position(Vector3.new(-500 - offsetX, 0, -500 - offsetZ))
                 end
                 table.remove(scalingAttacks, i)
             end
