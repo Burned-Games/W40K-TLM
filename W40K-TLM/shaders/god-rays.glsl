@@ -44,11 +44,9 @@ uniform vec3 entityID;
 struct VertexData
 {
     vec2 TexCoords;
-    vec3 Normal;
     vec3 WorldPos;
     vec3 camPos;
-    mat3 TBN;
-    vec4 FragPosLightSpace[4];
+    vec3 sphereCenter;
 };
 
 layout (location = 2) in VertexData VertexInput;
