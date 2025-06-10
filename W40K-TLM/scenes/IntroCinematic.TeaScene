@@ -901,9 +901,9 @@
                             "Roughness": 1.0,
                             "AO": 1.0,
                             "Emissive": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0
+                                "x": 2.5,
+                                "y": 2.5,
+                                "z": 2.5
                             }
                         },
                         "value0": {
@@ -980,9 +980,9 @@
                             "Roughness": 1.0,
                             "AO": 1.0,
                             "Emissive": {
-                                "x": 1.0,
-                                "y": 1.0,
-                                "z": 1.0
+                                "x": 2.5,
+                                "y": 2.5,
+                                "z": 2.5
                             }
                         },
                         "value0": {
@@ -1081,9 +1081,9 @@
                 "z": 1.0
             },
             "Direction": {
-                "x": -0.8966981172561646,
-                "y": -0.3272613286972046,
-                "z": -0.2980479896068573
+                "x": -0.8966981768608093,
+                "y": -0.32726120948791506,
+                "z": -0.2980479598045349
             },
             "Position": {
                 "x": 0.0,
@@ -1102,7 +1102,7 @@
         "value215": 1,
         "value216": 3,
         "value217": {
-            "cereal_class_version": 1,
+            "cereal_class_version": 2,
             "Skybox": {
                 "value0": 13455572182650489709
             },
@@ -1116,7 +1116,11 @@
             },
             "FogDensity": 0.000009999999747378752,
             "FogHeight": 0.0,
-            "FogHeightDensity": 0.0
+            "FogHeightDensity": 0.0,
+            "Bloom": true,
+            "BloomIntensity": 0.05000000074505806,
+            "BloomRadius": 1.0,
+            "MaxMipLevels": 6
         },
         "value218": 0,
         "value219": 5,
